@@ -206,6 +206,12 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
     {
         if (method.IsThisConstructor())
             RegisterConstructor(method, processedClass);
+        else if (method.IsDestructor())
+            continue;
+        else if (method.IsConstructor())
+            continue;
+        else
+            processedClass.methods_.push_back(method.GetDeclaration());
     }
 
     // CollectMembers()
@@ -241,6 +247,8 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
     vector<ClassAnalyzer> baseClasses = classAnalyzer.GetBaseClasses();
     for (const ClassAnalyzer& baseClass : baseClasses)
         processedClass.baseClassNames_.push_back(baseClass.GetClassName());
+
+    processedClass.hiddenMembers_ = classAnalyzer.GetHiddenMembers();
 
     if (classAnalyzer.IsAbstract()) // Abstract refcounted type
     {

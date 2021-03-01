@@ -779,6 +779,24 @@ namespace Result
                 needGap = true;
             }*/
 
+            if (needGap && processedClass.hiddenMembers_.size())
+                ofsCpp << '\n';
+
+            for (const string& hiddenMember : processedClass.hiddenMembers_)
+            {
+                ofsCpp << "    // -" << hiddenMember << '\n';
+                needGap = true;
+            }
+
+            if (needGap && processedClass.methods_.size())
+                ofsCpp << '\n';
+
+            for (const string& method : processedClass.methods_)
+            {
+                ofsCpp << "    // " << method << '\n';
+                needGap = true;
+            }
+
             ofsCpp << "}\n";
         }
 

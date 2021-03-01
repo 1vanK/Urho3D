@@ -302,6 +302,11 @@ public:
     // Return null if destructor is implicitly-declared.
     // Return pointer if destructor is deleted
     shared_ptr<MethodAnalyzer> GetDefinedThisDestructor() const { return GetMethod("~" + GetClassName()); }
+
+    vector<string> GetAllPublicMembersRefids() const;
+
+    // Base class members that were hidden in this class (c++ declarations)
+    vector<string> GetHiddenMembers() const;
 };
 
 // <memberdef kind="function">...</memberdef>
@@ -361,6 +366,8 @@ public:
     bool IsThisConstructor() const { return GetName() == GetClassName(); }
     bool IsThisDefaultConstructor() const { return IsThisConstructor() && ExtractCleanedFunctionArgsstring(memberdef_).empty(); }
     bool IsThisNonDefaultConstructor() const { return IsThisConstructor() && !ExtractCleanedFunctionArgsstring(memberdef_).empty(); }
+    bool IsConstructor() const;
+    bool IsDestructor() const;
     bool IsParentConstructor() const;
     bool IsThisDestructor() const { return GetName() == "~" + GetClassName(); }
     bool IsParentDestructor() const;

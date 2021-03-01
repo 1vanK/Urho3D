@@ -149,9 +149,11 @@ struct ProcessedClass
 
     vector<string> baseClassNames_;
 
+    // Base class members that were hidden in this class (c++ declarations)
+    vector<string> hiddenMembers_;
+
     // Tests
-    vector<string> commonMembers_;
-    vector<string> personalMembers_;
+    vector<string> methods_;
 };
 
 namespace Result

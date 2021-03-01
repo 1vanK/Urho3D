@@ -567,7 +567,7 @@ vector<xml_node> ClassAnalyzer::GetMemberdefs() const
     for (xml_node member : listofallmembers.children("member"))
     {
         xml_attribute ambiguityscope = member.attribute("ambiguityscope");
-        if (!ambiguityscope.empty()) // Overridden method from parent class
+        if (!ambiguityscope.empty())
             continue;
 
         string refid = member.attribute("refid").value();
@@ -579,6 +579,69 @@ vector<xml_node> ClassAnalyzer::GetMemberdefs() const
 
         xml_node memberdef = it->second;
         result.push_back(memberdef);
+    }
+
+    return result;
+}
+
+vector<string> ClassAnalyzer::GetAllPublicMembersRefids() const
+{
+    vector<string> result;
+
+    xml_node listofallmembers = compounddef_.child("listofallmembers");
+    assert(listofallmembers);
+
+    for (xml_node member : listofallmembers.children("member"))
+    {
+        string prot = member.attribute("prot").value();
+        assert(!prot.empty());
+        if (prot != "public")
+            continue;
+
+        xml_attribute ambiguityscope = member.attribute("ambiguityscope");
+        if (!ambiguityscope.empty())
+            continue;
+
+        string refid = member.attribute("refid").value();
+        assert(!refid.empty());
+
+        result.push_back(refid);
+    }
+
+    return result;
+}
+
+vector<string> ClassAnalyzer::GetHiddenMembers() const
+{
+    vector<string> thisRefids = GetAllPublicMembersRefids();
+    vector<ClassAnalyzer> baseClasses = GetBaseClasses();
+
+    vector<string> result;
+
+    for (const ClassAnalyzer& baseClass : baseClasses)
+    {
+        vector<string> baseRefids = baseClass.GetAllPublicMembersRefids();
+
+        for (const string& baseRefid : baseRefids)
+        {
+            if (CONTAINS(thisRefids, baseRefid))
+                continue;
+
+            auto it = SourceData::members_.find(baseRefid);
+            if (it == SourceData::members_.end())
+                continue;
+
+            xml_node memberdef = it->second;
+            string kind = ExtractKind(memberdef);
+            if (kind == "function")
+            {
+                result.push_back(GetFunctionDeclaration(memberdef));
+            }
+            else
+            {
+                // TODO variable declarations
+            }
+        }
     }
 
     return result;
@@ -994,6 +1057,18 @@ bool MethodAnalyzer::IsParentDestructor() const
         return false;
     
     return !IsThisDestructor();
+}
+
+bool MethodAnalyzer::IsConstructor() const
+{
+    string name = GetName();
+    return ExtractDefinition(memberdef_) == "Urho3D::" + name + "::" + name;
+}
+
+bool MethodAnalyzer::IsDestructor() const
+{
+    string name = GetName();
+    return StartsWith(name, "~");
 }
 
 bool MethodAnalyzer::IsParentConstructor() const
