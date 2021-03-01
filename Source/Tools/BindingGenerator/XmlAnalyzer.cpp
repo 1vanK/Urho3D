@@ -644,6 +644,7 @@ vector<string> ClassAnalyzer::GetHiddenMembers() const
         }
     }
 
+    sort(result.begin(), result.end());
     return result;
 }
 

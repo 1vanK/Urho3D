@@ -80,20 +80,20 @@ void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_StaticModel(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // -ResourceRef StaticModel::GetModelAttr() const
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual bool Serializable::Load(Deserializer& source)
     // -bool Animatable::LoadJSON(const JSONValue& source) override
     // -bool Animatable::LoadXML(const XMLElement& source) override
-    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // -static void StaticModel::RegisterObject(Context* context)
-    // -virtual void StaticModel::SetModel(Model* model)
-    // -void StaticModel::SetModelAttr(const ResourceRef& value)
+    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
+    // -virtual bool Serializable::Load(Deserializer& source)
     // -virtual void Drawable::Update(const FrameInfo& frame)
-    // -void StaticModel::UpdateBatches(const FrameInfo& frame) override
     // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
+    // -virtual void Serializable::ApplyAttributes()
+    // -virtual void StaticModel::SetModel(Model* model)
+    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
+    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
+    // -void StaticModel::SetModelAttr(const ResourceRef& value)
+    // -void StaticModel::UpdateBatches(const FrameInfo& frame) override
 
     // bool AnimatedModel::Load(Deserializer& source) override
     // bool AnimatedModel::LoadXML(const XMLElement& source) override
@@ -194,8 +194,8 @@ void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& method
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::OnSetEnabled()
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::OnSetEnabled()
 
     // void AnimationController::OnSetEnabled() override
     // virtual void AnimationController::Update(float timeStep)
@@ -463,9 +463,9 @@ void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
+    // -static void Drawable::RegisterObject(Context* context)
     // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
     // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -static void Drawable::RegisterObject(Context* context)
     // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
     // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
 
@@ -512,8 +512,8 @@ void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
     // -static void UIElement::RegisterObject(Context* context)
+    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
 
     // void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // void BorderImage::SetTexture(Texture* texture)
@@ -613,13 +613,13 @@ void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    // -static void BorderImage::RegisterObject(Context* context)
     // -virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)
     // -virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)
-    // -static void BorderImage::RegisterObject(Context* context)
     // -virtual void UIElement::Update(float timeStep)
+    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
 
     // void Button::Update(float timeStep) override
     // void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
@@ -646,8 +646,8 @@ void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // void Camera::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // void Camera::SetNearClip(float nearClip)
@@ -732,10 +732,10 @@ void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    // -static void BorderImage::RegisterObject(Context* context)
     // -virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)
-    // -static void BorderImage::RegisterObject(Context* context)
+    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
 
     // void CheckBox::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // void CheckBox::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor) override
@@ -805,10 +805,10 @@ void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Animatable(methods);
 
-    // -virtual void Serializable::MarkNetworkUpdate()
-    // -virtual bool Serializable::Save(Serializer& dest) const
     // -bool Animatable::SaveJSON(JSONValue& dest) const override
     // -bool Animatable::SaveXML(XMLElement& dest) const override
+    // -virtual bool Serializable::Save(Serializer& dest) const
+    // -virtual void Serializable::MarkNetworkUpdate()
 
     // virtual void Component::OnSetEnabled()
     // bool Component::Save(Serializer& dest) const override
@@ -967,8 +967,8 @@ void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // -static void BorderImage::RegisterObject(Context* context)
+    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
 
     // void Cursor::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // void Cursor::DefineShape(const String& shape, Image* image, const IntRect& imageRect, const IntVector2& hotSpot)
@@ -993,11 +993,11 @@ void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
+    // -static void Drawable::RegisterObject(Context* context)
     // -virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)
+    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
     // -virtual unsigned Drawable::GetNumOccluderTriangles()
     // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -static void Drawable::RegisterObject(Context* context)
 
     // void CustomGeometry::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Geometry* CustomGeometry::GetLodGeometry(unsigned batchIndex, unsigned level) override
@@ -1137,13 +1137,13 @@ void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -void Drawable::OnSetEnabled() override
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
     // -static void Drawable::RegisterObject(Context* context)
+    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
+    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
     // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
     // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
+    // -virtual void Serializable::ApplyAttributes()
+    // -void Drawable::OnSetEnabled() override
 
     // void DecalSet::ApplyAttributes() override
     // void DecalSet::OnSetEnabled() override
@@ -1250,9 +1250,9 @@ void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
+    // -static void Animatable::RegisterObject(Context* context)
     // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -virtual void Component::OnSetEnabled()
-    // -static void Animatable::RegisterObject(Context* context)
 
     // void Drawable::OnSetEnabled() override
     // virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
@@ -1323,12 +1323,12 @@ void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Menu(methods);
 
-    // -void UIElement::ApplyAttributes() override
-    // -void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
-    // -virtual void Menu::OnHidePopup()
-    // -virtual void UIElement::OnSetEditable()
-    // -virtual void Menu::OnShowPopup()
     // -static void Menu::RegisterObject(Context* context)
+    // -virtual void Menu::OnHidePopup()
+    // -virtual void Menu::OnShowPopup()
+    // -virtual void UIElement::OnSetEditable()
+    // -void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    // -void UIElement::ApplyAttributes() override
 
     // void DropDownList::ApplyAttributes() override
     // void DropDownList::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
@@ -1606,9 +1606,9 @@ void CollectMembers_FontFaceFreeType(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_FontFace(methods);
 
-    // -virtual const FontGlyph* FontFace::GetGlyph(unsigned c)
     // -virtual bool FontFace::HasMutableGlyphs() const
     // -virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0
+    // -virtual const FontGlyph* FontFace::GetGlyph(unsigned c)
 
     // bool FontFaceFreeType::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize) override
     // const FontGlyph* FontFaceFreeType::GetGlyph(unsigned c) override
@@ -2282,10 +2282,10 @@ void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
     // -static void Drawable::RegisterObject(Context* context)
+    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
     // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
+    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
 
     // void Light::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // void Light::UpdateBatches(const FrameInfo& frame) override
@@ -2370,17 +2370,17 @@ void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -void UIElement::ApplyAttributes() override
+    // -static void BorderImage::RegisterObject(Context* context)
+    // -virtual bool UIElement::OnDragDropFinish(UIElement* source)
+    // -virtual bool UIElement::OnDragDropTest(UIElement* source)
     // -virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnDoubleClick(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual bool UIElement::OnDragDropFinish(UIElement* source)
-    // -virtual bool UIElement::OnDragDropTest(UIElement* source)
     // -virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)
     // -virtual void UIElement::OnTextInput(const String& text)
-    // -static void BorderImage::RegisterObject(Context* context)
     // -virtual void UIElement::Update(float timeStep)
+    // -void UIElement::ApplyAttributes() override
 
     // void LineEdit::ApplyAttributes() override
     // void LineEdit::Update(float timeStep) override
@@ -2443,9 +2443,9 @@ void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_ScrollView(methods);
 
     // -bool UIElement::IsSelected() const
+    // -static void ScrollView::RegisterObject(Context* context)
     // -void ScrollView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override
     // -void ScrollView::OnResize(const IntVector2& newSize, const IntVector2& delta) override
-    // -static void ScrollView::RegisterObject(Context* context)
 
     // void ListView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override
     // void ListView::OnResize(const IntVector2& newSize, const IntVector2& delta) override
@@ -2541,9 +2541,9 @@ void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
+    // -bool Resource::Load(Deserializer& source)
     // -virtual bool Resource::BeginLoad(Deserializer& source)
     // -virtual bool Resource::EndLoad()
-    // -bool Resource::Load(Deserializer& source)
     // -virtual bool Resource::Save(Serializer& dest) const
 
     // bool Material::BeginLoad(Deserializer& source) override
@@ -2753,13 +2753,13 @@ void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Button(methods);
 
-    // -bool UIElement::LoadXML(const XMLElement& source) override
-    // -virtual bool UIElement::LoadXML(const XMLElement& source, XMLFile* styleFile)
     // -bool UIElement::LoadXML(Deserializer& source)
-    // -virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -static void Button::RegisterObject(Context* context)
-    // -bool UIElement::SaveXML(XMLElement& dest) const override
+    // -bool UIElement::LoadXML(const XMLElement& source) override
     // -bool UIElement::SaveXML(Serializer& dest, const String& indentation="\t") const
+    // -bool UIElement::SaveXML(XMLElement& dest) const override
+    // -static void Button::RegisterObject(Context* context)
+    // -virtual bool UIElement::LoadXML(const XMLElement& source, XMLFile* styleFile)
+    // -virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -void Button::Update(float timeStep) override
 
     // bool Menu::LoadXML(const XMLElement& source, XMLFile* styleFile) override
@@ -2863,8 +2863,8 @@ void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods)
     // -virtual bool Deserializer::IsEof() const
     // -virtual unsigned Deserializer::Read(void* dest, unsigned size)=0
     // -virtual unsigned Deserializer::Seek(unsigned position)=0
-    // -virtual void AbstractFile::SetName(const String& name)
     // -virtual unsigned Serializer::Write(const void* data, unsigned size)=0
+    // -virtual void AbstractFile::SetName(const String& name)
 
     // unsigned NamedPipe::Read(void* dest, unsigned size) override
     // unsigned NamedPipe::Seek(unsigned position) override
@@ -2887,16 +2887,16 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Animatable(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual bool Serializable::Load(Deserializer& source)
     // -bool Animatable::LoadJSON(const JSONValue& source) override
     // -bool Animatable::LoadXML(const XMLElement& source) override
-    // -virtual void Serializable::MarkNetworkUpdate()
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual bool Serializable::Save(Serializer& dest) const
-    // -virtual bool Serializable::SaveDefaultAttributes() const
     // -bool Animatable::SaveJSON(JSONValue& dest) const override
     // -bool Animatable::SaveXML(XMLElement& dest) const override
+    // -static void Animatable::RegisterObject(Context* context)
+    // -virtual bool Serializable::Load(Deserializer& source)
+    // -virtual bool Serializable::Save(Serializer& dest) const
+    // -virtual bool Serializable::SaveDefaultAttributes() const
+    // -virtual void Serializable::ApplyAttributes()
+    // -virtual void Serializable::MarkNetworkUpdate()
 
     // bool Node::Load(Deserializer& source) override
     // bool Node::LoadXML(const XMLElement& source) override
@@ -3248,8 +3248,8 @@ void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Component(methods);
     CollectMembers_Octant(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // void Octree::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
@@ -3285,8 +3285,8 @@ void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& metho
 {
     CollectMembers_SoundStream(methods);
 
-    // -virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0
     // -virtual bool SoundStream::Seek(unsigned sample_number)
+    // -virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0
 
     // bool OggVorbisSoundStream::Seek(unsigned sample_number) override
     // unsigned OggVorbisSoundStream::GetData(signed char* dest, unsigned numBytes) override
@@ -3326,9 +3326,9 @@ void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
+    // -bool Resource::Load(Deserializer& source)
     // -virtual bool Resource::BeginLoad(Deserializer& source)
     // -virtual bool Resource::EndLoad()
-    // -bool Resource::Load(Deserializer& source)
     // -virtual bool Resource::Save(Serializer& dest) const
 
     // bool ParticleEffect::BeginLoad(Deserializer& source) override
@@ -3432,9 +3432,9 @@ void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BillboardSet(methods);
 
-    // -void Drawable::OnSetEnabled() override
     // -static void BillboardSet::RegisterObject(Context* context)
     // -virtual void Drawable::Update(const FrameInfo& frame)
+    // -void Drawable::OnSetEnabled() override
 
     // void ParticleEmitter::OnSetEnabled() override
     // void ParticleEmitter::Update(const FrameInfo& frame) override
@@ -3585,8 +3585,8 @@ void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
     // -static void BorderImage::RegisterObject(Context* context)
+    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
 
     // void ProgressBar::OnResize(const IntVector2& newSize, const IntVector2& delta) override
     // void ProgressBar::SetOrientation(Orientation orientation)
@@ -4060,13 +4060,13 @@ void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -void Drawable::OnSetEnabled() override
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
     // -static void Drawable::RegisterObject(Context* context)
+    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
+    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
     // -virtual void Drawable::Update(const FrameInfo& frame)
     // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
     // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
+    // -void Drawable::OnSetEnabled() override
 
     // void RibbonTrail::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // void RibbonTrail::OnSetEnabled() override
@@ -4114,25 +4114,25 @@ void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Node(methods);
 
-    // -virtual void Node::AddReplicationState(NodeReplicationState* state)
-    // -void Node::CleanupConnection(Connection* connection)
     // -Component* Node::GetComponent(StringHash type, bool recursive=false) const
-    // -template<class T> T* Node::GetComponent(bool recursive=false) const
     // -bool Node::Load(Deserializer& source) override
     // -bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)
     // -bool Node::LoadJSON(const JSONValue& source) override
     // -bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)
     // -bool Node::LoadXML(const XMLElement& source) override
     // -bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)
-    // -void Node::MarkNetworkUpdate() override
-    // -void Node::MarkReplicationDirty()
-    // -void Node::PrepareNetworkUpdate()
-    // -static void Node::RegisterObject(Context* context)
     // -bool Node::Save(Serializer& dest) const override
     // -bool Node::SaveJSON(JSONValue& dest) const override
     // -bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const
-    // -bool Node::SaveXML(XMLElement& dest) const override
     // -bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const
+    // -bool Node::SaveXML(XMLElement& dest) const override
+    // -static void Node::RegisterObject(Context* context)
+    // -template<class T> T* Node::GetComponent(bool recursive=false) const
+    // -virtual void Node::AddReplicationState(NodeReplicationState* state)
+    // -void Node::CleanupConnection(Connection* connection)
+    // -void Node::MarkNetworkUpdate() override
+    // -void Node::MarkReplicationDirty()
+    // -void Node::PrepareNetworkUpdate()
 
     // bool Scene::Load(Deserializer& source) override
     // bool Scene::Save(Serializer& dest) const override
@@ -4249,10 +4249,10 @@ void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -void UIElement::ApplyAttributes() override
+    // -static void BorderImage::RegisterObject(Context* context)
     // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
     // -virtual void UIElement::OnSetEditable()
-    // -static void BorderImage::RegisterObject(Context* context)
+    // -void UIElement::ApplyAttributes() override
 
     // void ScrollBar::ApplyAttributes() override
     // void ScrollBar::OnResize(const IntVector2& newSize, const IntVector2& delta) override
@@ -4281,13 +4281,13 @@ void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -void UIElement::ApplyAttributes() override
+    // -static void UIElement::RegisterObject(Context* context)
     // -virtual bool UIElement::IsWheelHandler() const
     // -virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)
     // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
     // -virtual void UIElement::OnWheel(int delta, MouseButtonFlags buttons, QualifierFlags qualifiers)
-    // -static void UIElement::RegisterObject(Context* context)
     // -virtual void UIElement::Update(float timeStep)
+    // -void UIElement::ApplyAttributes() override
 
     // void ScrollView::Update(float timeStep) override
     // void ScrollView::ApplyAttributes() override
@@ -4513,8 +4513,8 @@ void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_StaticModel(methods);
 
-    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // -static void StaticModel::RegisterObject(Context* context)
+    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // -void StaticModel::UpdateBatches(const FrameInfo& frame) override
 
     // void Skybox::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
@@ -4526,6 +4526,7 @@ void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
+    // -static void BorderImage::RegisterObject(Context* context)
     // -virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)
     // -virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
@@ -4533,7 +4534,6 @@ void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods)
     // -virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
-    // -static void BorderImage::RegisterObject(Context* context)
     // -virtual void UIElement::Update(float timeStep)
 
     // void Slider::Update(float timeStep) override
@@ -4662,8 +4662,8 @@ void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_SoundSource(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void SoundSource::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -virtual void SoundSource::Update(float timeStep)
 
     // void SoundSource3D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
@@ -4768,9 +4768,9 @@ void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void SplinePath::ApplyAttributes() override
     // void SplinePath::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
@@ -4801,14 +4801,14 @@ void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)
-    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
     // -const IntVector2& UIElement::GetPosition() const
-    // -virtual const IntVector2& UIElement::GetScreenPosition() const
-    // -virtual bool UIElement::IsWithinScissor(const IntRect& currentScissor)
-    // -virtual void UIElement::OnPositionSet(const IntVector2& newPosition)
     // -static void UIElement::RegisterObject(Context* context)
+    // -virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)
     // -virtual IntVector2 UIElement::ScreenToElement(const IntVector2& screenPosition)
+    // -virtual bool UIElement::IsWithinScissor(const IntRect& currentScissor)
+    // -virtual const IntVector2& UIElement::GetScreenPosition() const
+    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
+    // -virtual void UIElement::OnPositionSet(const IntVector2& newPosition)
     // -void UIElement::SetPosition(const IntVector2& position)
     // -void UIElement::SetPosition(int x, int y)
 
@@ -4847,11 +4847,11 @@ void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
+    // -static void Drawable::RegisterObject(Context* context)
     // -virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)
+    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
     // -virtual unsigned Drawable::GetNumOccluderTriangles()
     // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -static void Drawable::RegisterObject(Context* context)
     // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
 
     // void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
@@ -4887,11 +4887,11 @@ void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_StaticModel(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
     // -bool StaticModel::DrawOcclusion(OcclusionBuffer* buffer) override
-    // -unsigned StaticModel::GetNumOccluderTriangles() override
-    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // -static void StaticModel::RegisterObject(Context* context)
+    // -unsigned StaticModel::GetNumOccluderTriangles() override
+    // -virtual void Serializable::ApplyAttributes()
+    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // -void StaticModel::UpdateBatches(const FrameInfo& frame) override
 
     // void StaticModelGroup::ApplyAttributes() override
@@ -5078,9 +5078,9 @@ void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual void Component::OnSetEnabled()
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::OnSetEnabled()
+    // -virtual void Serializable::ApplyAttributes()
 
     // void Terrain::ApplyAttributes() override
     // void Terrain::OnSetEnabled() override
@@ -5157,15 +5157,15 @@ void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
-    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
-    // -virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)
-    // -virtual unsigned Drawable::GetNumOccluderTriangles()
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
     // -static void Drawable::RegisterObject(Context* context)
+    // -virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)
+    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
+    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
+    // -virtual unsigned Drawable::GetNumOccluderTriangles()
+    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
     // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
     // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
+    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
 
     // void TerrainPatch::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // void TerrainPatch::UpdateBatches(const FrameInfo& frame) override
@@ -5200,12 +5200,12 @@ void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UISelectable(methods);
 
-    // -void UIElement::ApplyAttributes() override
-    // -void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    // -UISelectable::URHO3D_OBJECT(UISelectable, UIElement)
+    // -static void UISelectable::RegisterObject(Context* context)
     // -virtual void UIElement::OnIndentSet()
     // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
-    // -static void UISelectable::RegisterObject(Context* context)
-    // -UISelectable::URHO3D_OBJECT(UISelectable, UIElement)
+    // -void UIElement::ApplyAttributes() override
+    // -void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
 
     // void Text::ApplyAttributes() override
     // void Text::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
@@ -5259,11 +5259,11 @@ void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
     // -static void Drawable::RegisterObject(Context* context)
+    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
     // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
     // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void Text3D::ApplyAttributes() override
     // void Text3D::UpdateBatches(const FrameInfo& frame) override
@@ -5660,10 +5660,10 @@ void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Animatable(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
     // -bool Animatable::LoadXML(const XMLElement& source) override
-    // -static void Animatable::RegisterObject(Context* context)
     // -bool Animatable::SaveXML(XMLElement& dest) const override
+    // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void UIElement::ApplyAttributes() override
     // bool UIElement::LoadXML(const XMLElement& source) override
@@ -5885,9 +5885,9 @@ void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
-    // -static void UIElement::RegisterObject(Context* context)
     // -explicit UIElement::UIElement(Context* context)
+    // -static void UIElement::RegisterObject(Context* context)
+    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
 
     // UISelectable::URHO3D_OBJECT(UISelectable, UIElement)
     // void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
@@ -5902,16 +5902,16 @@ void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const
-    // -virtual StringHash Object::GetType() const =0
-    // -virtual const String& Object::GetTypeName() const =0
-    // -virtual bool Serializable::Load(Deserializer& source)
     // -bool Animatable::LoadJSON(const JSONValue& source) override
     // -bool Animatable::LoadXML(const XMLElement& source) override
-    // -static void Animatable::RegisterObject(Context* context)
     // -bool Component::Save(Serializer& dest) const override
     // -bool Component::SaveJSON(JSONValue& dest) const override
     // -bool Component::SaveXML(XMLElement& dest) const override
+    // -static void Animatable::RegisterObject(Context* context)
+    // -virtual StringHash Object::GetType() const =0
+    // -virtual bool Serializable::Load(Deserializer& source)
+    // -virtual const String& Object::GetTypeName() const =0
+    // -virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const
 
     // StringHash UnknownComponent::GetType() const override
     // const String& UnknownComponent::GetTypeName() const override
@@ -6425,8 +6425,8 @@ void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Window(methods);
 
-    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
     // -static void Window::RegisterObject(Context* context)
+    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
 
     // void View3D::OnResize(const IntVector2& newSize, const IntVector2& delta) override
     // void View3D::SetView(Scene* scene, Camera* camera, bool ownScene=true)
@@ -6485,13 +6485,13 @@ void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    // -static void BorderImage::RegisterObject(Context* context)
     // -virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnDragCancel(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags cancelButtons, Cursor* cursor)
     // -virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)
     // -virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
     // -virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -static void BorderImage::RegisterObject(Context* context)
+    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
 
     // void Window::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // void Window::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor) override
@@ -6730,8 +6730,8 @@ void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // -static void Drawable::RegisterObject(Context* context)
+    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
 
     // void Zone::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // void Zone::SetBoundingBox(const BoundingBox& box)
@@ -6803,8 +6803,8 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // bool IKEffector::GetFeature(Feature feature) const
     // void IKEffector::SetFeature(Feature feature, bool enable)
@@ -6839,8 +6839,8 @@ void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // Algorithm IKSolver::GetAlgorithm() const
     // void IKSolver::SetAlgorithm(Algorithm algorithm)
@@ -6886,10 +6886,10 @@ void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
+    // -static void Animatable::RegisterObject(Context* context)
     // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -virtual void Component::OnSetEnabled()
-    // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void CrowdAgent::ApplyAttributes() override
     // void CrowdAgent::OnSetEnabled() override
@@ -6935,9 +6935,9 @@ void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void CrowdManager::ApplyAttributes() override
     // void CrowdManager::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
@@ -6991,19 +6991,19 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
 {
     CollectMembers_NavigationMesh(methods);
 
+    // -static void NavigationMesh::RegisterObject(Context* context)
+    // -virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const
+    // -virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const
     // -virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)
     // -virtual bool NavigationMesh::Allocate(const BoundingBox& boundingBox, unsigned maxTiles)
     // -virtual bool NavigationMesh::Build()
     // -virtual bool NavigationMesh::Build(const BoundingBox& boundingBox)
     // -virtual bool NavigationMesh::Build(const IntVector2& from, const IntVector2& to)
-    // -void NavigationMesh::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
-    // -void NavigationMesh::DrawDebugGeometry(bool depthTest)
-    // -virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const
-    // -virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const
-    // -static void NavigationMesh::RegisterObject(Context* context)
     // -virtual void NavigationMesh::RemoveAllTiles()
     // -virtual void NavigationMesh::RemoveTile(const IntVector2& tile)
     // -virtual void NavigationMesh::SetNavigationDataAttr(const PODVector<unsigned char>& value)
+    // -void NavigationMesh::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
+    // -void NavigationMesh::DrawDebugGeometry(bool depthTest)
 
     // bool DynamicNavigationMesh::Allocate(const BoundingBox& boundingBox, unsigned maxTiles) override
     // bool DynamicNavigationMesh::Build() override
@@ -7031,8 +7031,8 @@ void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // void NavArea::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // unsigned NavArea::GetAreaID() const
@@ -7073,8 +7073,8 @@ void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // void NavigationMesh::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // void NavigationMesh::SetTileSize(int size)
@@ -7153,9 +7153,9 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
+    // -static void Animatable::RegisterObject(Context* context)
     // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -virtual void Component::OnSetEnabled()
-    // -static void Animatable::RegisterObject(Context* context)
 
     // void Obstacle::OnSetEnabled() override
     // float Obstacle::GetHeight() const
@@ -7172,9 +7172,9 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void OffMeshConnection::ApplyAttributes() override
     // void OffMeshConnection::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
@@ -7376,10 +7376,10 @@ void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
+    // -static void Animatable::RegisterObject(Context* context)
     // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -virtual void Component::OnSetEnabled()
-    // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void CollisionShape::ApplyAttributes() override
     // void CollisionShape::OnSetEnabled() override
@@ -7427,11 +7427,11 @@ void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
+    // -static void Animatable::RegisterObject(Context* context)
     // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -virtual void Component::GetDependencyNodes(PODVector<Node*>& dest)
     // -virtual void Component::OnSetEnabled()
-    // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void Constraint::ApplyAttributes() override
     // void Constraint::OnSetEnabled() override
@@ -7511,8 +7511,8 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // bool PhysicsWorld::isVisible(const btVector3& aabbMin, const btVector3& aabbMax) override
     // void PhysicsWorld::drawLine(const btVector3& from, const btVector3& to, const btVector3& color) override
@@ -7583,8 +7583,8 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_LogicComponent(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void RaycastVehicle::OnSetEnabled() override
     // void RaycastVehicle::ApplyAttributes() override
@@ -7653,10 +7653,10 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
+    // -static void Animatable::RegisterObject(Context* context)
     // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -virtual void Component::OnSetEnabled()
-    // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Serializable::ApplyAttributes()
 
     // void RigidBody::ApplyAttributes() override
     // void RigidBody::OnSetEnabled() override
@@ -7758,8 +7758,8 @@ void CollectMembers_AnimatedSprite2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_StaticSprite2D(methods);
 
-    // -void Drawable2D::OnSetEnabled() override
     // -static void StaticSprite2D::RegisterObject(Context* context)
+    // -void Drawable2D::OnSetEnabled() override
 
     // void AnimatedSprite2D::OnSetEnabled() override
     // void AnimatedSprite2D::SetAnimationSet(AnimationSet2D* animationSet)
@@ -7881,8 +7881,8 @@ void CollectMembers_CollisionShape2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::OnSetEnabled()
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::OnSetEnabled()
 
     // void CollisionShape2D::OnSetEnabled() override
     // void CollisionShape2D::SetTrigger(bool trigger)
@@ -7912,9 +7912,9 @@ void CollectMembers_Constraint2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual void Component::OnSetEnabled()
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::OnSetEnabled()
+    // -virtual void Serializable::ApplyAttributes()
 
     // void Constraint2D::ApplyAttributes() override
     // void Constraint2D::OnSetEnabled() override
@@ -8145,8 +8145,8 @@ void CollectMembers_Drawable2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -void Drawable::OnSetEnabled() override
     // -static void Drawable::RegisterObject(Context* context)
+    // -void Drawable::OnSetEnabled() override
 
     // void Drawable2D::OnSetEnabled() override
     // void Drawable2D::SetLayer(int layer)
@@ -8251,9 +8251,9 @@ void CollectMembers_ParticleEmitter2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable2D(methods);
 
-    // -void Drawable2D::OnSetEnabled() override
     // -static void Drawable2D::RegisterObject(Context* context)
     // -virtual void Drawable::Update(const FrameInfo& frame)
+    // -void Drawable2D::OnSetEnabled() override
 
     // void ParticleEmitter2D::OnSetEnabled() override
     // void ParticleEmitter2D::SetEffect(ParticleEffect2D* effect)
@@ -8283,8 +8283,8 @@ void CollectMembers_PhysicsWorld2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // void PhysicsWorld2D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // void PhysicsWorld2D::BeginContact(b2Contact* contact) override
@@ -8355,9 +8355,9 @@ void CollectMembers_Renderer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
+    // -static void Drawable::RegisterObject(Context* context)
     // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
     // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -static void Drawable::RegisterObject(Context* context)
     // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
     // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
 
@@ -8376,8 +8376,8 @@ void CollectMembers_RigidBody2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::OnSetEnabled()
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::OnSetEnabled()
 
     // void RigidBody2D::OnSetEnabled() override
     // void RigidBody2D::SetBodyType(BodyType2D type)
@@ -8546,8 +8546,8 @@ void CollectMembers_TileMap2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // void TileMap2D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // void TileMap2D::SetTmxFile(TmxFile2D* tmxFile)
@@ -8578,8 +8578,8 @@ void CollectMembers_TileMapLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
     // -static void Animatable::RegisterObject(Context* context)
+    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
 
     // void TileMapLayer2D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
     // void TileMapLayer2D::Initialize(TileMap2D* tileMap, const TmxLayer2D* tmxLayer)
