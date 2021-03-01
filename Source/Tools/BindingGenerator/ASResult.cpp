@@ -793,7 +793,7 @@ namespace Result
 
             for (const string& method : processedClass.methods_)
             {
-                ofsCpp << "    // " << method << '\n';
+                ofsCpp << "    // +" << method << '\n';
                 needGap = true;
             }
 
