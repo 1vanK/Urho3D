@@ -637,7 +637,7 @@ namespace Result
                 "    CollectMembers_" << processedClass.name_ << "(methods);\n"
                 "    const char* asClassName = \"" << processedClass.name_ << "\";\n"
                 "    for (const RegisterObjectMethodArgs& method : methods)\n"
-                "        engine->RegisterObjectMethod(asClassName, method.declaration_.CString(), method.funcPointer_, method.callConv_);\n";
+                "        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);\n";
 
             ofs << "}\n";
 
@@ -782,7 +782,8 @@ namespace Result
 
             for (const string& hiddenMember : processedClass.hiddenMembers_)
             {
-                ofsCpp << "    // -" << hiddenMember << '\n';
+                string escaped = ReplaceAll(hiddenMember, "\"", "\\\"");
+                ofsCpp << "    Remove(methods, \"" << escaped << "\");\n";
                 needGap = true;
             }
 

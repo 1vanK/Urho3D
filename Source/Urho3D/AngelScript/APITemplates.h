@@ -61,17 +61,34 @@ class Camera;
 
 struct RegisterObjectMethodArgs
 {
-    String declaration_;
+    String cppDeclaration_; // Used as identifier
+    String asDeclaration_;
     asSFuncPtr funcPointer_;
     asDWORD callConv_;
 
-    RegisterObjectMethodArgs(String declaration, asSFuncPtr funcPointer, asDWORD callConv)
-        : declaration_(declaration)
+    RegisterObjectMethodArgs() = default;
+
+    RegisterObjectMethodArgs(String cppDeclaration, String asDeclaration, asSFuncPtr funcPointer, asDWORD callConv)
+        : cppDeclaration_(cppDeclaration)
+        , asDeclaration_(asDeclaration)
         , funcPointer_(funcPointer)
         , callConv_(callConv)
     {
     }
 };
+
+inline void Remove(Vector<RegisterObjectMethodArgs>& methods, const String& cppDeclaration)
+{
+    // The vector can contain several functions with the same cppDeclaration (aliases)
+    auto it = methods.Begin();
+    while (it != methods.End())
+    {
+        if (it->asDeclaration_ == cppDeclaration)
+            it = methods.Erase(it);
+        else
+            ++it;
+    }
+}
 
 /// Template function for Vector to array conversion.
 template <class T> CScriptArray* VectorToArray(const Vector<T>& vector, const char* arrayName)

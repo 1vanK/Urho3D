@@ -19,7 +19,7 @@ void CollectMembers_AbstractFile(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Deserializer(methods);
     CollectMembers_Serializer(methods);
 
-    // -virtual const String& Deserializer::GetName() const
+    Remove(methods, "virtual const String& Deserializer::GetName() const");
 }
 
 // class AllContentOctreeQuery | File: ../Graphics/OctreeQuery.h
@@ -44,10 +44,10 @@ void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Serializable(methods);
 
-    // -virtual bool Serializable::LoadJSON(const JSONValue& source)
-    // -virtual bool Serializable::LoadXML(const XMLElement& source)
-    // -virtual bool Serializable::SaveJSON(JSONValue& dest) const
-    // -virtual bool Serializable::SaveXML(XMLElement& dest) const
+    Remove(methods, "virtual bool Serializable::LoadJSON(const JSONValue& source)");
+    Remove(methods, "virtual bool Serializable::LoadXML(const XMLElement& source)");
+    Remove(methods, "virtual bool Serializable::SaveJSON(JSONValue& dest) const");
+    Remove(methods, "virtual bool Serializable::SaveXML(XMLElement& dest) const");
 }
 
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
@@ -55,20 +55,20 @@ void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_StaticModel(methods);
 
-    // -ResourceRef StaticModel::GetModelAttr() const
-    // -bool Animatable::LoadJSON(const JSONValue& source) override
-    // -bool Animatable::LoadXML(const XMLElement& source) override
-    // -static void StaticModel::RegisterObject(Context* context)
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual bool Serializable::Load(Deserializer& source)
-    // -virtual void Drawable::Update(const FrameInfo& frame)
-    // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual void StaticModel::SetModel(Model* model)
-    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
-    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
-    // -void StaticModel::SetModelAttr(const ResourceRef& value)
-    // -void StaticModel::UpdateBatches(const FrameInfo& frame) override
+    Remove(methods, "ResourceRef StaticModel::GetModelAttr() const");
+    Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
+    Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
+    Remove(methods, "static void StaticModel::RegisterObject(Context* context)");
+    Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
+    Remove(methods, "virtual bool Serializable::Load(Deserializer& source)");
+    Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
+    Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(methods, "virtual void StaticModel::SetModel(Model* model)");
+    Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
+    Remove(methods, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
+    Remove(methods, "void StaticModel::SetModelAttr(const ResourceRef& value)");
+    Remove(methods, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
 
     // VariantVector AnimatedModel::GetAnimationStatesAttr() const
     // Error: type "VariantVector" can not automatically bind
@@ -106,8 +106,8 @@ void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_ResourceWithMetadata(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const HashMap<StringHash, AnimationTrack>& Animation::GetTracks() const
     // Error: type "const HashMap<StringHash, AnimationTrack>&" can not automatically bind
@@ -129,8 +129,8 @@ void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& method
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::OnSetEnabled()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
 
     // const Vector<AnimationControl>& AnimationController::GetAnimations() const
     // Error: type "const Vector<AnimationControl>&" can not automatically bind
@@ -252,7 +252,7 @@ void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Batch(methods);
 
-    // -void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const
+    Remove(methods, "void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const");
 
     // void BatchGroup::SetInstancingData(void* lockedData, unsigned stride, unsigned& freeIndex)
     // Error: type "void*" can not automatically bind
@@ -288,11 +288,11 @@ void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
-    // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
+    Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
+    Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
+    Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
 
     // PODVector<Billboard>& BillboardSet::GetBillboards()
     // Error: type "PODVector<Billboard>&" can not automatically bind
@@ -323,8 +323,8 @@ void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -static void UIElement::RegisterObject(Context* context)
-    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
+    Remove(methods, "static void UIElement::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
 
     // void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -352,7 +352,7 @@ void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& method
 {
     CollectMembers_SoundStream(methods);
 
-    // -virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0
+    Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
 
     // void BufferedSoundStream::AddData(const SharedArrayPtr<signed char>& data, unsigned numBytes)
     // Error: type "const SharedArrayPtr<signed char>&" can not automatically bind
@@ -372,13 +372,13 @@ void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -static void BorderImage::RegisterObject(Context* context)
-    // -virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)
-    // -virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)
-    // -virtual void UIElement::Update(float timeStep)
-    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
+    Remove(methods, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
+    Remove(methods, "virtual void UIElement::Update(float timeStep)");
+    Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
 
     // void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -389,8 +389,8 @@ void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 }
 
 // struct CascadeParameters | File: ../Graphics/Light.h
@@ -408,10 +408,10 @@ void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -static void BorderImage::RegisterObject(Context* context)
-    // -virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)
-    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
+    Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
 
     // void CheckBox::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -443,10 +443,10 @@ void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Animatable(methods);
 
-    // -bool Animatable::SaveJSON(JSONValue& dest) const override
-    // -bool Animatable::SaveXML(XMLElement& dest) const override
-    // -virtual bool Serializable::Save(Serializer& dest) const
-    // -virtual void Serializable::MarkNetworkUpdate()
+    Remove(methods, "bool Animatable::SaveJSON(JSONValue& dest) const override");
+    Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
+    Remove(methods, "virtual bool Serializable::Save(Serializer& dest) const");
+    Remove(methods, "virtual void Serializable::MarkNetworkUpdate()");
 
     // void Component::AddReplicationState(ComponentReplicationState* state)
     // Error: type "ComponentReplicationState*" can not automatically bind
@@ -494,8 +494,8 @@ void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Object(methods);
     CollectMembers_GPUObject(methods);
 
-    // -virtual void GPUObject::OnDeviceReset()
-    // -virtual void GPUObject::Release()
+    Remove(methods, "virtual void GPUObject::OnDeviceReset()");
+    Remove(methods, "virtual void GPUObject::Release()");
 
     // void ConstantBuffer::SetParameter(unsigned offset, unsigned size, const void* data)
     // Error: type "const void*" can not automatically bind
@@ -577,8 +577,8 @@ void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -static void BorderImage::RegisterObject(Context* context)
-    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
+    Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
 
     // void Cursor::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -600,11 +600,11 @@ void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)
-    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
-    // -virtual unsigned Drawable::GetNumOccluderTriangles()
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
+    Remove(methods, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
+    Remove(methods, "virtual unsigned Drawable::GetNumOccluderTriangles()");
+    Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
 
     // PODVector<unsigned char> CustomGeometry::GetGeometryDataAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
@@ -665,7 +665,7 @@ void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 
     // void DebugRenderer::AddTriangleMesh(const void* vertexData, unsigned vertexSize, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount, const Matrix3x4& transform, const Color& color, bool depthTest=true)
     // Error: type "const void*" can not automatically bind
@@ -689,13 +689,13 @@ void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
-    // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
-    // -virtual void Serializable::ApplyAttributes()
-    // -void Drawable::OnSetEnabled() override
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
+    Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
+    Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
+    Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(methods, "void Drawable::OnSetEnabled() override");
 
     // PODVector<unsigned char> DecalSet::GetDecalsAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
@@ -740,9 +740,9 @@ void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Component::OnSetEnabled()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
 
     // const Vector<SourceBatch>& Drawable::GetBatches() const
     // Error: type "const Vector<SourceBatch>&" can not automatically bind
@@ -759,12 +759,12 @@ void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Menu(methods);
 
-    // -static void Menu::RegisterObject(Context* context)
-    // -virtual void Menu::OnHidePopup()
-    // -virtual void Menu::OnShowPopup()
-    // -virtual void UIElement::OnSetEditable()
-    // -void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
-    // -void UIElement::ApplyAttributes() override
+    Remove(methods, "static void Menu::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Menu::OnHidePopup()");
+    Remove(methods, "virtual void Menu::OnShowPopup()");
+    Remove(methods, "virtual void UIElement::OnSetEditable()");
+    Remove(methods, "void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
+    Remove(methods, "void UIElement::ApplyAttributes() override");
 
     // void DropDownList::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -798,7 +798,7 @@ void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Profiler(methods);
 
-    // -void Profiler::BeginBlock(const char* name)
+    Remove(methods, "void Profiler::BeginBlock(const char* name)");
 }
 
 // class EventProfilerBlock | File: ../Core/EventProfiler.h
@@ -820,10 +820,10 @@ void CollectMembers_File(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Object(methods);
     CollectMembers_AbstractFile(methods);
 
-    // -virtual unsigned Deserializer::GetChecksum()
-    // -virtual unsigned Deserializer::Read(void* dest, unsigned size)=0
-    // -virtual unsigned Deserializer::Seek(unsigned position)=0
-    // -virtual unsigned Serializer::Write(const void* data, unsigned size)=0
+    Remove(methods, "virtual unsigned Deserializer::GetChecksum()");
+    Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
+    Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
+    Remove(methods, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
 
     // void* File::GetHandle() const
     // Error: type "void*" can not automatically bind
@@ -861,7 +861,7 @@ void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Object(methods);
     CollectMembers_Thread(methods);
 
-    // -virtual void Thread::ThreadFunction()=0
+    Remove(methods, "virtual void Thread::ThreadFunction()=0");
 }
 
 // struct FocusParameters | File: ../Graphics/Light.h
@@ -874,7 +874,7 @@ void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
 }
 
 // class FontFace | File: ../UI/FontFace.h
@@ -894,7 +894,7 @@ void CollectMembers_FontFaceBitmap(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_FontFace(methods);
 
-    // -virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0
+    Remove(methods, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
 
     // bool FontFaceBitmap::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize) override
     // Error: type "const unsigned char*" can not automatically bind
@@ -905,9 +905,9 @@ void CollectMembers_FontFaceFreeType(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_FontFace(methods);
 
-    // -virtual bool FontFace::HasMutableGlyphs() const
-    // -virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0
-    // -virtual const FontGlyph* FontFace::GetGlyph(unsigned c)
+    Remove(methods, "virtual bool FontFace::HasMutableGlyphs() const");
+    Remove(methods, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
+    Remove(methods, "virtual const FontGlyph* FontFace::GetGlyph(unsigned c)");
 
     // const FontGlyph* FontFaceFreeType::GetGlyph(unsigned c) override
     // Error: type "const FontGlyph*" can not automatically bind
@@ -1043,9 +1043,9 @@ void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::Save(Serializer& dest) const
-    // -virtual bool Resource::SaveFile(const String& fileName) const
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(methods, "virtual bool Resource::SaveFile(const String& fileName) const");
 
     // unsigned char* Image::GetData() const
     // Error: type "unsigned char*" can not automatically bind
@@ -1069,9 +1069,9 @@ void CollectMembers_IndexBuffer(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Object(methods);
     CollectMembers_GPUObject(methods);
 
-    // -virtual void GPUObject::OnDeviceLost()
-    // -virtual void GPUObject::OnDeviceReset()
-    // -virtual void GPUObject::Release()
+    Remove(methods, "virtual void GPUObject::OnDeviceLost()");
+    Remove(methods, "virtual void GPUObject::OnDeviceReset()");
+    Remove(methods, "virtual void GPUObject::Release()");
 
     // unsigned char* IndexBuffer::GetShadowData() const
     // Error: type "unsigned char*" can not automatically bind
@@ -1131,8 +1131,8 @@ void CollectMembers_JSONFile(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 }
 
 // class JSONValue | File: ../Resource/JSONValue.h
@@ -1185,10 +1185,10 @@ void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
-    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
+    Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
+    Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
 
     // LightBatchQueue* Light::GetLightQueue() const
     // Error: type "LightBatchQueue*" can not automatically bind
@@ -1215,17 +1215,17 @@ void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -static void BorderImage::RegisterObject(Context* context)
-    // -virtual bool UIElement::OnDragDropFinish(UIElement* source)
-    // -virtual bool UIElement::OnDragDropTest(UIElement* source)
-    // -virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnDoubleClick(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)
-    // -virtual void UIElement::OnTextInput(const String& text)
-    // -virtual void UIElement::Update(float timeStep)
-    // -void UIElement::ApplyAttributes() override
+    Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
+    Remove(methods, "virtual bool UIElement::OnDragDropFinish(UIElement* source)");
+    Remove(methods, "virtual bool UIElement::OnDragDropTest(UIElement* source)");
+    Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnDoubleClick(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
+    Remove(methods, "virtual void UIElement::OnTextInput(const String& text)");
+    Remove(methods, "virtual void UIElement::Update(float timeStep)");
+    Remove(methods, "void UIElement::ApplyAttributes() override");
 }
 
 // struct LinkedListNode | File: ../Container/LinkedList.h
@@ -1253,10 +1253,10 @@ void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_ScrollView(methods);
 
-    // -bool UIElement::IsSelected() const
-    // -static void ScrollView::RegisterObject(Context* context)
-    // -void ScrollView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override
-    // -void ScrollView::OnResize(const IntVector2& newSize, const IntVector2& delta) override
+    Remove(methods, "bool UIElement::IsSelected() const");
+    Remove(methods, "static void ScrollView::RegisterObject(Context* context)");
+    Remove(methods, "void ScrollView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override");
+    Remove(methods, "void ScrollView::OnResize(const IntVector2& newSize, const IntVector2& delta) override");
 }
 
 // class Localization | File: ../Resource/Localization.h
@@ -1276,7 +1276,7 @@ void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -virtual void Component::OnSetEnabled()
+    Remove(methods, "virtual void Component::OnSetEnabled()");
 }
 
 // class Material | File: ../Graphics/Material.h
@@ -1284,10 +1284,10 @@ void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -bool Resource::Load(Deserializer& source)
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "bool Resource::Load(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const HashMap<StringHash, MaterialShaderParameter>& Material::GetShaderParameters() const
     // Error: type "const HashMap<StringHash, MaterialShaderParameter>&" can not automatically bind
@@ -1350,14 +1350,14 @@ void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Button(methods);
 
-    // -bool UIElement::LoadXML(Deserializer& source)
-    // -bool UIElement::LoadXML(const XMLElement& source) override
-    // -bool UIElement::SaveXML(Serializer& dest, const String& indentation="\t") const
-    // -bool UIElement::SaveXML(XMLElement& dest) const override
-    // -static void Button::RegisterObject(Context* context)
-    // -virtual bool UIElement::LoadXML(const XMLElement& source, XMLFile* styleFile)
-    // -virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -void Button::Update(float timeStep) override
+    Remove(methods, "bool UIElement::LoadXML(Deserializer& source)");
+    Remove(methods, "bool UIElement::LoadXML(const XMLElement& source) override");
+    Remove(methods, "bool UIElement::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(methods, "bool UIElement::SaveXML(XMLElement& dest) const override");
+    Remove(methods, "static void Button::RegisterObject(Context* context)");
+    Remove(methods, "virtual bool UIElement::LoadXML(const XMLElement& source, XMLFile* styleFile)");
+    Remove(methods, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "void Button::Update(float timeStep) override");
 }
 
 // class MessageBox | File: ../UI/MessageBox.h
@@ -1371,9 +1371,9 @@ void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_ResourceWithMetadata(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const Vector<Vector<SharedPtr<Geometry>>>& Model::GetGeometries() const
     // Error: type "const Vector<Vector<SharedPtr<Geometry>>>&" can not automatically bind
@@ -1421,11 +1421,11 @@ void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Object(methods);
     CollectMembers_AbstractFile(methods);
 
-    // -virtual bool Deserializer::IsEof() const
-    // -virtual unsigned Deserializer::Read(void* dest, unsigned size)=0
-    // -virtual unsigned Deserializer::Seek(unsigned position)=0
-    // -virtual unsigned Serializer::Write(const void* data, unsigned size)=0
-    // -virtual void AbstractFile::SetName(const String& name)
+    Remove(methods, "virtual bool Deserializer::IsEof() const");
+    Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
+    Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
+    Remove(methods, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
+    Remove(methods, "virtual void AbstractFile::SetName(const String& name)");
 
     // unsigned NamedPipe::Read(void* dest, unsigned size) override
     // Error: type "void*" can not automatically bind
@@ -1444,16 +1444,16 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Animatable(methods);
 
-    // -bool Animatable::LoadJSON(const JSONValue& source) override
-    // -bool Animatable::LoadXML(const XMLElement& source) override
-    // -bool Animatable::SaveJSON(JSONValue& dest) const override
-    // -bool Animatable::SaveXML(XMLElement& dest) const override
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual bool Serializable::Load(Deserializer& source)
-    // -virtual bool Serializable::Save(Serializer& dest) const
-    // -virtual bool Serializable::SaveDefaultAttributes() const
-    // -virtual void Serializable::ApplyAttributes()
-    // -virtual void Serializable::MarkNetworkUpdate()
+    Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
+    Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
+    Remove(methods, "bool Animatable::SaveJSON(JSONValue& dest) const override");
+    Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual bool Serializable::Load(Deserializer& source)");
+    Remove(methods, "virtual bool Serializable::Save(Serializer& dest) const");
+    Remove(methods, "virtual bool Serializable::SaveDefaultAttributes() const");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(methods, "virtual void Serializable::MarkNetworkUpdate()");
 
     // virtual void Node::AddReplicationState(NodeReplicationState* state)
     // Error: type "NodeReplicationState*" can not automatically bind
@@ -1574,8 +1574,8 @@ void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const HashMap<String, SharedPtr<ValueAnimationInfo>>& ObjectAnimation::GetAttributeAnimationInfos() const
     // Error: type "const HashMap<String, SharedPtr<ValueAnimationInfo>>&" can not automatically bind
@@ -1634,9 +1634,9 @@ void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Component(methods);
     CollectMembers_Octant(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
     // void Octree::Raycast(RayOctreeQuery& query) const
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -1662,8 +1662,8 @@ void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& metho
 {
     CollectMembers_SoundStream(methods);
 
-    // -virtual bool SoundStream::Seek(unsigned sample_number)
-    // -virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0
+    Remove(methods, "virtual bool SoundStream::Seek(unsigned sample_number)");
+    Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
 
     // unsigned OggVorbisSoundStream::GetData(signed char* dest, unsigned numBytes) override
     // Error: type "signed char*" can not automatically bind
@@ -1696,10 +1696,10 @@ void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -bool Resource::Load(Deserializer& source)
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "bool Resource::Load(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const Vector<ColorFrame>& ParticleEffect::GetColorFrames() const
     // Error: type "const Vector<ColorFrame>&" can not automatically bind
@@ -1719,9 +1719,9 @@ void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BillboardSet(methods);
 
-    // -static void BillboardSet::RegisterObject(Context* context)
-    // -virtual void Drawable::Update(const FrameInfo& frame)
-    // -void Drawable::OnSetEnabled() override
+    Remove(methods, "static void BillboardSet::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
+    Remove(methods, "void Drawable::OnSetEnabled() override");
 
     // VariantVector ParticleEmitter::GetParticleBillboardsAttr() const
     // Error: type "VariantVector" can not automatically bind
@@ -1788,8 +1788,8 @@ void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -static void BorderImage::RegisterObject(Context* context)
-    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
+    Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
 }
 
 // class Quaternion | File: ../Math/Quaternion.h
@@ -1964,13 +1964,13 @@ void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -virtual void Drawable::Update(const FrameInfo& frame)
-    // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
-    // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
-    // -void Drawable::OnSetEnabled() override
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
+    Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
+    Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
+    Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
+    Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
+    Remove(methods, "void Drawable::OnSetEnabled() override");
 
     // void RibbonTrail::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -1981,25 +1981,25 @@ void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Node(methods);
 
-    // -Component* Node::GetComponent(StringHash type, bool recursive=false) const
-    // -bool Node::Load(Deserializer& source) override
-    // -bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)
-    // -bool Node::LoadJSON(const JSONValue& source) override
-    // -bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)
-    // -bool Node::LoadXML(const XMLElement& source) override
-    // -bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)
-    // -bool Node::Save(Serializer& dest) const override
-    // -bool Node::SaveJSON(JSONValue& dest) const override
-    // -bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const
-    // -bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const
-    // -bool Node::SaveXML(XMLElement& dest) const override
-    // -static void Node::RegisterObject(Context* context)
-    // -template<class T> T* Node::GetComponent(bool recursive=false) const
-    // -virtual void Node::AddReplicationState(NodeReplicationState* state)
-    // -void Node::CleanupConnection(Connection* connection)
-    // -void Node::MarkNetworkUpdate() override
-    // -void Node::MarkReplicationDirty()
-    // -void Node::PrepareNetworkUpdate()
+    Remove(methods, "Component* Node::GetComponent(StringHash type, bool recursive=false) const");
+    Remove(methods, "bool Node::Load(Deserializer& source) override");
+    Remove(methods, "bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(methods, "bool Node::LoadJSON(const JSONValue& source) override");
+    Remove(methods, "bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(methods, "bool Node::LoadXML(const XMLElement& source) override");
+    Remove(methods, "bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(methods, "bool Node::Save(Serializer& dest) const override");
+    Remove(methods, "bool Node::SaveJSON(JSONValue& dest) const override");
+    Remove(methods, "bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(methods, "bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(methods, "bool Node::SaveXML(XMLElement& dest) const override");
+    Remove(methods, "static void Node::RegisterObject(Context* context)");
+    Remove(methods, "template<class T> T* Node::GetComponent(bool recursive=false) const");
+    Remove(methods, "virtual void Node::AddReplicationState(NodeReplicationState* state)");
+    Remove(methods, "void Node::CleanupConnection(Connection* connection)");
+    Remove(methods, "void Node::MarkNetworkUpdate() override");
+    Remove(methods, "void Node::MarkReplicationDirty()");
+    Remove(methods, "void Node::PrepareNetworkUpdate()");
 
     // void Scene::AddReplicationState(NodeReplicationState* state) override
     // Error: type "NodeReplicationState*" can not automatically bind
@@ -2042,10 +2042,10 @@ void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -static void BorderImage::RegisterObject(Context* context)
-    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
-    // -virtual void UIElement::OnSetEditable()
-    // -void UIElement::ApplyAttributes() override
+    Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
+    Remove(methods, "virtual void UIElement::OnSetEditable()");
+    Remove(methods, "void UIElement::ApplyAttributes() override");
 }
 
 // class ScrollView | File: ../UI/ScrollView.h
@@ -2053,13 +2053,13 @@ void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -static void UIElement::RegisterObject(Context* context)
-    // -virtual bool UIElement::IsWheelHandler() const
-    // -virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)
-    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
-    // -virtual void UIElement::OnWheel(int delta, MouseButtonFlags buttons, QualifierFlags qualifiers)
-    // -virtual void UIElement::Update(float timeStep)
-    // -void UIElement::ApplyAttributes() override
+    Remove(methods, "static void UIElement::RegisterObject(Context* context)");
+    Remove(methods, "virtual bool UIElement::IsWheelHandler() const");
+    Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
+    Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
+    Remove(methods, "virtual void UIElement::OnWheel(int delta, MouseButtonFlags buttons, QualifierFlags qualifiers)");
+    Remove(methods, "virtual void UIElement::Update(float timeStep)");
+    Remove(methods, "void UIElement::ApplyAttributes() override");
 }
 
 // class Serializable | File: ../Scene/Serializable.h
@@ -2095,8 +2095,8 @@ void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
 
     // ShaderVariation* Shader::GetVariation(ShaderType type, const char* defines)
     // Error: type "const char*" can not automatically bind
@@ -2125,8 +2125,8 @@ void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_RefCounted(methods);
     CollectMembers_GPUObject(methods);
 
-    // -virtual void GPUObject::OnDeviceLost()
-    // -virtual void GPUObject::Release()
+    Remove(methods, "virtual void GPUObject::OnDeviceLost()");
+    Remove(methods, "virtual void GPUObject::Release()");
 
     // const PODVector<unsigned char>& ShaderVariation::GetByteCode() const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
@@ -2161,9 +2161,9 @@ void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_StaticModel(methods);
 
-    // -static void StaticModel::RegisterObject(Context* context)
-    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
-    // -void StaticModel::UpdateBatches(const FrameInfo& frame) override
+    Remove(methods, "static void StaticModel::RegisterObject(Context* context)");
+    Remove(methods, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
+    Remove(methods, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
 
     // void Skybox::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -2174,15 +2174,15 @@ void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -static void BorderImage::RegisterObject(Context* context)
-    // -virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)
-    // -virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)
-    // -virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
-    // -virtual void UIElement::Update(float timeStep)
+    Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
+    Remove(methods, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
+    Remove(methods, "virtual void UIElement::Update(float timeStep)");
 }
 
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
@@ -2190,7 +2190,7 @@ void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 }
 
 // class Sound | File: ../Audio/Sound.h
@@ -2198,7 +2198,7 @@ void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_ResourceWithMetadata(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
     // SharedArrayPtr<signed char> Sound::GetData() const
     // Error: type "SharedArrayPtr<signed char>" can not automatically bind
@@ -2221,7 +2221,7 @@ void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 }
 
 // class SoundSource | File: ../Audio/SoundSource.h
@@ -2229,7 +2229,7 @@ void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 
     // volatile signed char* SoundSource::GetPlayPosition() const
     // Error: type "signed char*" can not automatically bind
@@ -2246,9 +2246,9 @@ void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_SoundSource(methods);
 
-    // -static void SoundSource::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void SoundSource::Update(float timeStep)
+    Remove(methods, "static void SoundSource::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void SoundSource::Update(float timeStep)");
 }
 
 // class SoundStream | File: ../Audio/SoundStream.h
@@ -2297,9 +2297,9 @@ void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // const VariantVector& SplinePath::GetControlPointIdsAttr() const
     // Error: type "const VariantVector&" can not automatically bind
@@ -2313,16 +2313,16 @@ void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -const IntVector2& UIElement::GetPosition() const
-    // -static void UIElement::RegisterObject(Context* context)
-    // -virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)
-    // -virtual IntVector2 UIElement::ScreenToElement(const IntVector2& screenPosition)
-    // -virtual bool UIElement::IsWithinScissor(const IntRect& currentScissor)
-    // -virtual const IntVector2& UIElement::GetScreenPosition() const
-    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
-    // -virtual void UIElement::OnPositionSet(const IntVector2& newPosition)
-    // -void UIElement::SetPosition(const IntVector2& position)
-    // -void UIElement::SetPosition(int x, int y)
+    Remove(methods, "const IntVector2& UIElement::GetPosition() const");
+    Remove(methods, "static void UIElement::RegisterObject(Context* context)");
+    Remove(methods, "virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)");
+    Remove(methods, "virtual IntVector2 UIElement::ScreenToElement(const IntVector2& screenPosition)");
+    Remove(methods, "virtual bool UIElement::IsWithinScissor(const IntRect& currentScissor)");
+    Remove(methods, "virtual const IntVector2& UIElement::GetScreenPosition() const");
+    Remove(methods, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
+    Remove(methods, "virtual void UIElement::OnPositionSet(const IntVector2& newPosition)");
+    Remove(methods, "void UIElement::SetPosition(const IntVector2& position)");
+    Remove(methods, "void UIElement::SetPosition(int x, int y)");
 
     // void Sprite::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -2333,12 +2333,12 @@ void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)
-    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
-    // -virtual unsigned Drawable::GetNumOccluderTriangles()
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
+    Remove(methods, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
+    Remove(methods, "virtual unsigned Drawable::GetNumOccluderTriangles()");
+    Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
+    Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
 
     // void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -2354,12 +2354,12 @@ void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_StaticModel(methods);
 
-    // -bool StaticModel::DrawOcclusion(OcclusionBuffer* buffer) override
-    // -static void StaticModel::RegisterObject(Context* context)
-    // -unsigned StaticModel::GetNumOccluderTriangles() override
-    // -virtual void Serializable::ApplyAttributes()
-    // -void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
-    // -void StaticModel::UpdateBatches(const FrameInfo& frame) override
+    Remove(methods, "bool StaticModel::DrawOcclusion(OcclusionBuffer* buffer) override");
+    Remove(methods, "static void StaticModel::RegisterObject(Context* context)");
+    Remove(methods, "unsigned StaticModel::GetNumOccluderTriangles() override");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(methods, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
+    Remove(methods, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
 
     // const VariantVector& StaticModelGroup::GetNodeIDsAttr() const
     // Error: type "const VariantVector&" can not automatically bind
@@ -2487,7 +2487,7 @@ void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
 }
 
 // struct TechniqueEntry | File: ../Graphics/Material.h
@@ -2500,9 +2500,9 @@ void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::OnSetEnabled()
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // SharedArrayPtr<float> Terrain::GetHeightData() const
     // Error: type "SharedArrayPtr<float>" can not automatically bind
@@ -2513,15 +2513,15 @@ void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)
-    // -virtual unsigned Drawable::GetNumOccluderTriangles()
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
-    // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
-    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
+    Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
+    Remove(methods, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
+    Remove(methods, "virtual unsigned Drawable::GetNumOccluderTriangles()");
+    Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
+    Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
+    Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
+    Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
 
     // PODVector<float>& TerrainPatch::GetLodErrors()
     // Error: type "PODVector<float>&" can not automatically bind
@@ -2535,12 +2535,12 @@ void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UISelectable(methods);
 
-    // -UISelectable::URHO3D_OBJECT(UISelectable, UIElement)
-    // -static void UISelectable::RegisterObject(Context* context)
-    // -virtual void UIElement::OnIndentSet()
-    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
-    // -void UIElement::ApplyAttributes() override
-    // -void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    Remove(methods, "UISelectable::URHO3D_OBJECT(UISelectable, UIElement)");
+    Remove(methods, "static void UISelectable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::OnIndentSet()");
+    Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
+    Remove(methods, "void UIElement::ApplyAttributes() override");
+    Remove(methods, "void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
 
     // void Text::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -2551,11 +2551,11 @@ void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
-    // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
+    Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
+    Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 }
 
 // class Texture | File: ../Graphics/Texture.h
@@ -2579,11 +2579,11 @@ void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Texture(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
-    // -virtual void GPUObject::OnDeviceLost()
-    // -virtual void GPUObject::OnDeviceReset()
-    // -virtual void GPUObject::Release()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
+    Remove(methods, "virtual void GPUObject::OnDeviceLost()");
+    Remove(methods, "virtual void GPUObject::OnDeviceReset()");
+    Remove(methods, "virtual void GPUObject::Release()");
 
     // bool Texture2D::GetData(unsigned level, void* dest) const
     // Error: type "void*" can not automatically bind
@@ -2597,11 +2597,11 @@ void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Texture(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
-    // -virtual void GPUObject::OnDeviceLost()
-    // -virtual void GPUObject::OnDeviceReset()
-    // -virtual void GPUObject::Release()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
+    Remove(methods, "virtual void GPUObject::OnDeviceLost()");
+    Remove(methods, "virtual void GPUObject::OnDeviceReset()");
+    Remove(methods, "virtual void GPUObject::Release()");
 
     // bool Texture2DArray::GetData(unsigned layer, unsigned level, void* dest) const
     // Error: type "void*" can not automatically bind
@@ -2615,11 +2615,11 @@ void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Texture(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
-    // -virtual void GPUObject::OnDeviceLost()
-    // -virtual void GPUObject::OnDeviceReset()
-    // -virtual void GPUObject::Release()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
+    Remove(methods, "virtual void GPUObject::OnDeviceLost()");
+    Remove(methods, "virtual void GPUObject::OnDeviceReset()");
+    Remove(methods, "virtual void GPUObject::Release()");
 
     // bool Texture3D::GetData(unsigned level, void* dest) const
     // Error: type "void*" can not automatically bind
@@ -2633,11 +2633,11 @@ void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Texture(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
-    // -virtual void GPUObject::OnDeviceLost()
-    // -virtual void GPUObject::OnDeviceReset()
-    // -virtual void GPUObject::Release()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
+    Remove(methods, "virtual void GPUObject::OnDeviceLost()");
+    Remove(methods, "virtual void GPUObject::OnDeviceReset()");
+    Remove(methods, "virtual void GPUObject::Release()");
 
     // bool TextureCube::GetData(CubeMapFace face, unsigned level, void* dest) const
     // Error: type "void*" can not automatically bind
@@ -2672,8 +2672,8 @@ void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -static void UIElement::RegisterObject(Context* context)
-    // -virtual void UIElement::Update(float timeStep)
+    Remove(methods, "static void UIElement::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::Update(float timeStep)");
 }
 
 // struct TouchState | File: ../Input/Input.h
@@ -2715,7 +2715,7 @@ void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 }
 
 // class UIElement | File: ../UI/UIElement.h
@@ -2723,10 +2723,10 @@ void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Animatable(methods);
 
-    // -bool Animatable::LoadXML(const XMLElement& source) override
-    // -bool Animatable::SaveXML(XMLElement& dest) const override
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
+    Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // template<class T> T* UIElement::CreateChild(const String& name=String::EMPTY, unsigned index=M_MAX_UNSIGNED)
     // Error: type "T*" can not automatically bind
@@ -2770,9 +2770,9 @@ void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_UIElement(methods);
 
-    // -explicit UIElement::UIElement(Context* context)
-    // -static void UIElement::RegisterObject(Context* context)
-    // -virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
+    Remove(methods, "explicit UIElement::UIElement(Context* context)");
+    Remove(methods, "static void UIElement::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
 
     // void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -2786,16 +2786,16 @@ void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -bool Animatable::LoadJSON(const JSONValue& source) override
-    // -bool Animatable::LoadXML(const XMLElement& source) override
-    // -bool Component::Save(Serializer& dest) const override
-    // -bool Component::SaveJSON(JSONValue& dest) const override
-    // -bool Component::SaveXML(XMLElement& dest) const override
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual StringHash Object::GetType() const =0
-    // -virtual bool Serializable::Load(Deserializer& source)
-    // -virtual const String& Object::GetTypeName() const =0
-    // -virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const
+    Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
+    Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
+    Remove(methods, "bool Component::Save(Serializer& dest) const override");
+    Remove(methods, "bool Component::SaveJSON(JSONValue& dest) const override");
+    Remove(methods, "bool Component::SaveXML(XMLElement& dest) const override");
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual StringHash Object::GetType() const =0");
+    Remove(methods, "virtual bool Serializable::Load(Deserializer& source)");
+    Remove(methods, "virtual const String& Object::GetTypeName() const =0");
+    Remove(methods, "virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const");
 
     // const Vector<AttributeInfo>* UnknownComponent::GetAttributes() const override
     // Error: type "const Vector<AttributeInfo>*" can not automatically bind
@@ -2819,8 +2819,8 @@ void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 
     // void ValueAnimation::GetEventFrames(float beginTime, float endTime, PODVector<const VAnimEventFrame*>& eventFrames) const
     // Error: type "PODVector<const VAnimEventFrame*>&" can not automatically bind
@@ -2972,9 +2972,9 @@ void CollectMembers_VectorBuffer(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_AbstractFile(methods);
 
-    // -virtual unsigned Deserializer::Read(void* dest, unsigned size)=0
-    // -virtual unsigned Deserializer::Seek(unsigned position)=0
-    // -virtual unsigned Serializer::Write(const void* data, unsigned size)=0
+    Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
+    Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
+    Remove(methods, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
 
     // const PODVector<unsigned char>& VectorBuffer::GetBuffer() const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
@@ -3004,9 +3004,9 @@ void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Object(methods);
     CollectMembers_GPUObject(methods);
 
-    // -virtual void GPUObject::OnDeviceLost()
-    // -virtual void GPUObject::OnDeviceReset()
-    // -virtual void GPUObject::Release()
+    Remove(methods, "virtual void GPUObject::OnDeviceLost()");
+    Remove(methods, "virtual void GPUObject::OnDeviceReset()");
+    Remove(methods, "virtual void GPUObject::Release()");
 
     // const VertexElement* VertexBuffer::GetElement(VertexElementSemantic semantic, unsigned char index=0) const
     // Error: type "const VertexElement*" can not automatically bind
@@ -3059,8 +3059,8 @@ void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Window(methods);
 
-    // -static void Window::RegisterObject(Context* context)
-    // -virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)
+    Remove(methods, "static void Window::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
 }
 
 // class Viewport | File: ../Graphics/Viewport.h
@@ -3093,13 +3093,13 @@ void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_BorderImage(methods);
 
-    // -static void BorderImage::RegisterObject(Context* context)
-    // -virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnDragCancel(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags cancelButtons, Cursor* cursor)
-    // -virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)
-    // -virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)
-    // -void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
+    Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
+    Remove(methods, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnDragCancel(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags cancelButtons, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
+    Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
 
     // void Window::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -3223,8 +3223,8 @@ void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 
     // pugi::xml_document* XMLFile::GetDocument() const
     // Error: type "pugi::xml_document*" can not automatically bind
@@ -3255,8 +3255,8 @@ void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
 }
 
 #ifdef URHO3D_DATABASE
@@ -3276,7 +3276,7 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 }
 
 // class IKEffector | File: ../IK/IKEffector.h
@@ -3284,8 +3284,8 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
     // bool IKEffector::GetFeature(Feature feature) const
     // Error: type "Feature" can not automatically bind
@@ -3299,8 +3299,8 @@ void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
     // Algorithm IKSolver::GetAlgorithm() const
     // Error: type "Algorithm" can not automatically bind
@@ -3324,10 +3324,10 @@ void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Component::OnSetEnabled()
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 }
 
 // class CrowdManager | File: ../Navigation/CrowdManager.h
@@ -3335,9 +3335,9 @@ void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // Vector3 CrowdManager::FindNearestPoint(const Vector3& point, int queryFilterType, dtPolyRef* nearestRef=nullptr)
     // Error: type "dtPolyRef*" can not automatically bind
@@ -3385,19 +3385,19 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
 {
     CollectMembers_NavigationMesh(methods);
 
-    // -static void NavigationMesh::RegisterObject(Context* context)
-    // -virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const
-    // -virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const
-    // -virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)
-    // -virtual bool NavigationMesh::Allocate(const BoundingBox& boundingBox, unsigned maxTiles)
-    // -virtual bool NavigationMesh::Build()
-    // -virtual bool NavigationMesh::Build(const BoundingBox& boundingBox)
-    // -virtual bool NavigationMesh::Build(const IntVector2& from, const IntVector2& to)
-    // -virtual void NavigationMesh::RemoveAllTiles()
-    // -virtual void NavigationMesh::RemoveTile(const IntVector2& tile)
-    // -virtual void NavigationMesh::SetNavigationDataAttr(const PODVector<unsigned char>& value)
-    // -void NavigationMesh::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override
-    // -void NavigationMesh::DrawDebugGeometry(bool depthTest)
+    Remove(methods, "static void NavigationMesh::RegisterObject(Context* context)");
+    Remove(methods, "virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const");
+    Remove(methods, "virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const");
+    Remove(methods, "virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)");
+    Remove(methods, "virtual bool NavigationMesh::Allocate(const BoundingBox& boundingBox, unsigned maxTiles)");
+    Remove(methods, "virtual bool NavigationMesh::Build()");
+    Remove(methods, "virtual bool NavigationMesh::Build(const BoundingBox& boundingBox)");
+    Remove(methods, "virtual bool NavigationMesh::Build(const IntVector2& from, const IntVector2& to)");
+    Remove(methods, "virtual void NavigationMesh::RemoveAllTiles()");
+    Remove(methods, "virtual void NavigationMesh::RemoveTile(const IntVector2& tile)");
+    Remove(methods, "virtual void NavigationMesh::SetNavigationDataAttr(const PODVector<unsigned char>& value)");
+    Remove(methods, "void NavigationMesh::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
+    Remove(methods, "void NavigationMesh::DrawDebugGeometry(bool depthTest)");
 
     // bool DynamicNavigationMesh::AddTile(const PODVector<unsigned char>& tileData) override
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
@@ -3417,8 +3417,8 @@ void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 }
 
 // struct NavAreaStub | File: ../Navigation/NavBuildData.h
@@ -3436,7 +3436,7 @@ void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 }
 
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
@@ -3449,8 +3449,8 @@ void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
     // virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
@@ -3499,9 +3499,9 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Component::OnSetEnabled()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
 }
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
@@ -3509,9 +3509,9 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 }
 
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h
@@ -3549,10 +3549,10 @@ void CollectMembers_HttpRequest(Vector<RegisterObjectMethodArgs>& methods)
     CollectMembers_Deserializer(methods);
     CollectMembers_Thread(methods);
 
-    // -virtual bool Deserializer::IsEof() const
-    // -virtual unsigned Deserializer::Read(void* dest, unsigned size)=0
-    // -virtual unsigned Deserializer::Seek(unsigned position)=0
-    // -virtual void Thread::ThreadFunction()=0
+    Remove(methods, "virtual bool Deserializer::IsEof() const");
+    Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
+    Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
+    Remove(methods, "virtual void Thread::ThreadFunction()=0");
 
     // unsigned HttpRequest::Read(void* dest, unsigned size) override
     // Error: type "void*" can not automatically bind
@@ -3584,7 +3584,7 @@ void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 }
 
 // struct PackageDownload | File: ../Network/Connection.h
@@ -3617,10 +3617,10 @@ void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Component::OnSetEnabled()
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // btCollisionShape* CollisionShape::GetCollisionShape() const
     // Error: type "btCollisionShape*" can not automatically bind
@@ -3631,11 +3631,11 @@ void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Component::GetDependencyNodes(PODVector<Node*>& dest)
-    // -virtual void Component::OnSetEnabled()
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Component::GetDependencyNodes(PODVector<Node*>& dest)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // btTypedConstraint* Constraint::GetConstraint() const
     // Error: type "btTypedConstraint*" can not automatically bind
@@ -3682,8 +3682,8 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
     // void PhysicsWorld::ConvexCast(PhysicsRaycastResult& result, btCollisionShape* shape, const Vector3& startPos, const Quaternion& startRot, const Vector3& endPos, const Quaternion& endRot, unsigned collisionMask=M_MAX_UNSIGNED)
     // Error: type "btCollisionShape*" can not automatically bind
@@ -3741,8 +3741,8 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_LogicComponent(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // VariantVector RaycastVehicle::GetWheelDataAttr() const
     // Error: type "VariantVector" can not automatically bind
@@ -3756,10 +3756,10 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
-    // -virtual void Component::OnSetEnabled()
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // btRigidBody* RigidBody::GetBody() const
     // Error: type "btRigidBody*" can not automatically bind
@@ -3798,8 +3798,8 @@ void CollectMembers_AnimatedSprite2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_StaticSprite2D(methods);
 
-    // -static void StaticSprite2D::RegisterObject(Context* context)
-    // -void Drawable2D::OnSetEnabled() override
+    Remove(methods, "static void StaticSprite2D::RegisterObject(Context* context)");
+    Remove(methods, "void Drawable2D::OnSetEnabled() override");
 }
 
 // class AnimationSet2D | File: ../Urho2D/AnimationSet2D.h
@@ -3807,8 +3807,8 @@ void CollectMembers_AnimationSet2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
 
     // Spriter::SpriterData* AnimationSet2D::GetSpriterData() const
     // Error: type "Spriter::SpriterData*" can not automatically bind
@@ -3819,7 +3819,7 @@ void CollectMembers_CollisionBox2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_CollisionShape2D(methods);
 
-    // -static void CollisionShape2D::RegisterObject(Context* context)
+    Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
 }
 
 // class CollisionChain2D | File: ../Urho2D/CollisionChain2D.h
@@ -3827,7 +3827,7 @@ void CollectMembers_CollisionChain2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_CollisionShape2D(methods);
 
-    // -static void CollisionShape2D::RegisterObject(Context* context)
+    Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
 
     // PODVector<unsigned char> CollisionChain2D::GetVerticesAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
@@ -3841,7 +3841,7 @@ void CollectMembers_CollisionCircle2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_CollisionShape2D(methods);
 
-    // -static void CollisionShape2D::RegisterObject(Context* context)
+    Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
 }
 
 // class CollisionEdge2D | File: ../Urho2D/CollisionEdge2D.h
@@ -3849,7 +3849,7 @@ void CollectMembers_CollisionEdge2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_CollisionShape2D(methods);
 
-    // -static void CollisionShape2D::RegisterObject(Context* context)
+    Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
 }
 
 // class CollisionPolygon2D | File: ../Urho2D/CollisionPolygon2D.h
@@ -3857,7 +3857,7 @@ void CollectMembers_CollisionPolygon2D(Vector<RegisterObjectMethodArgs>& methods
 {
     CollectMembers_CollisionShape2D(methods);
 
-    // -static void CollisionShape2D::RegisterObject(Context* context)
+    Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
 
     // PODVector<unsigned char> CollisionPolygon2D::GetVerticesAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
@@ -3871,8 +3871,8 @@ void CollectMembers_CollisionShape2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::OnSetEnabled()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
 
     // b2Fixture* CollisionShape2D::GetFixture() const
     // Error: type "b2Fixture*" can not automatically bind
@@ -3883,9 +3883,9 @@ void CollectMembers_Constraint2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::OnSetEnabled()
-    // -virtual void Serializable::ApplyAttributes()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
     // b2Joint* Constraint2D::GetJoint() const
     // Error: type "b2Joint*" can not automatically bind
@@ -3896,7 +3896,7 @@ void CollectMembers_ConstraintDistance2D(Vector<RegisterObjectMethodArgs>& metho
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintFriction2D | File: ../Urho2D/ConstraintFriction2D.h
@@ -3904,7 +3904,7 @@ void CollectMembers_ConstraintFriction2D(Vector<RegisterObjectMethodArgs>& metho
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintGear2D | File: ../Urho2D/ConstraintGear2D.h
@@ -3912,7 +3912,7 @@ void CollectMembers_ConstraintGear2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintMotor2D | File: ../Urho2D/ConstraintMotor2D.h
@@ -3920,7 +3920,7 @@ void CollectMembers_ConstraintMotor2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintMouse2D | File: ../Urho2D/ConstraintMouse2D.h
@@ -3928,7 +3928,7 @@ void CollectMembers_ConstraintMouse2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintPrismatic2D | File: ../Urho2D/ConstraintPrismatic2D.h
@@ -3936,7 +3936,7 @@ void CollectMembers_ConstraintPrismatic2D(Vector<RegisterObjectMethodArgs>& meth
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintPulley2D | File: ../Urho2D/ConstraintPulley2D.h
@@ -3944,7 +3944,7 @@ void CollectMembers_ConstraintPulley2D(Vector<RegisterObjectMethodArgs>& methods
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintRevolute2D | File: ../Urho2D/ConstraintRevolute2D.h
@@ -3952,7 +3952,7 @@ void CollectMembers_ConstraintRevolute2D(Vector<RegisterObjectMethodArgs>& metho
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintRope2D | File: ../Urho2D/ConstraintRope2D.h
@@ -3960,7 +3960,7 @@ void CollectMembers_ConstraintRope2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintWeld2D | File: ../Urho2D/ConstraintWeld2D.h
@@ -3968,7 +3968,7 @@ void CollectMembers_ConstraintWeld2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // class ConstraintWheel2D | File: ../Urho2D/ConstraintWheel2D.h
@@ -3976,7 +3976,7 @@ void CollectMembers_ConstraintWheel2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Constraint2D(methods);
 
-    // -static void Constraint2D::RegisterObject(Context* context)
+    Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
 }
 
 // struct DelayedWorldTransform2D | File: ../Urho2D/PhysicsWorld2D.h
@@ -3989,8 +3989,8 @@ void CollectMembers_Drawable2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -void Drawable::OnSetEnabled() override
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "void Drawable::OnSetEnabled() override");
 
     // const Vector<SourceBatch2D>& Drawable2D::GetSourceBatches()
     // Error: type "const Vector<SourceBatch2D>&" can not automatically bind
@@ -4006,9 +4006,9 @@ void CollectMembers_ParticleEffect2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
-    // -virtual bool Resource::Save(Serializer& dest) const
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
+    Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
 }
 
 // class ParticleEmitter2D | File: ../Urho2D/ParticleEmitter2D.h
@@ -4016,9 +4016,9 @@ void CollectMembers_ParticleEmitter2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable2D(methods);
 
-    // -static void Drawable2D::RegisterObject(Context* context)
-    // -virtual void Drawable::Update(const FrameInfo& frame)
-    // -void Drawable2D::OnSetEnabled() override
+    Remove(methods, "static void Drawable2D::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
+    Remove(methods, "void Drawable2D::OnSetEnabled() override");
 }
 
 // struct PhysicsRaycastResult2D | File: ../Urho2D/PhysicsWorld2D.h
@@ -4031,8 +4031,8 @@ void CollectMembers_PhysicsWorld2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
     // void PhysicsWorld2D::BeginContact(b2Contact* contact) override
     // Error: type "b2Contact*" can not automatically bind
@@ -4085,11 +4085,11 @@ void CollectMembers_Renderer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable(methods);
 
-    // -static void Drawable::RegisterObject(Context* context)
-    // -virtual UpdateGeometryType Drawable::GetUpdateGeometryType()
-    // -virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)
-    // -virtual void Drawable::UpdateBatches(const FrameInfo& frame)
-    // -virtual void Drawable::UpdateGeometry(const FrameInfo& frame)
+    Remove(methods, "static void Drawable::RegisterObject(Context* context)");
+    Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
+    Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
+    Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
+    Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
 
     // void Renderer2D::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -4100,8 +4100,8 @@ void CollectMembers_RigidBody2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::OnSetEnabled()
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::OnSetEnabled()");
 
     // b2Body* RigidBody2D::GetBody() const
     // Error: type "b2Body*" can not automatically bind
@@ -4117,8 +4117,8 @@ void CollectMembers_Sprite2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
 }
 
 // class SpriteSheet2D | File: ../Urho2D/SpriteSheet2D.h
@@ -4126,8 +4126,8 @@ void CollectMembers_SpriteSheet2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
 
     // const HashMap<String, SharedPtr<Sprite2D>>& SpriteSheet2D::GetSpriteMapping() const
     // Error: type "const HashMap<String, SharedPtr<Sprite2D>>&" can not automatically bind
@@ -4138,7 +4138,7 @@ void CollectMembers_StaticSprite2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Drawable2D(methods);
 
-    // -static void Drawable2D::RegisterObject(Context* context)
+    Remove(methods, "static void Drawable2D::RegisterObject(Context* context)");
 }
 
 // class StretchableSprite2D | File: ../Urho2D/StretchableSprite2D.h
@@ -4146,7 +4146,7 @@ void CollectMembers_StretchableSprite2D(Vector<RegisterObjectMethodArgs>& method
 {
     CollectMembers_StaticSprite2D(methods);
 
-    // -static void StaticSprite2D::RegisterObject(Context* context)
+    Remove(methods, "static void StaticSprite2D::RegisterObject(Context* context)");
 }
 
 // class Tile2D | File: ../Urho2D/TileMapDefs2D.h
@@ -4160,8 +4160,8 @@ void CollectMembers_TileMap2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 }
 
 // struct TileMapInfo2D | File: ../Urho2D/TileMapDefs2D.h
@@ -4174,8 +4174,8 @@ void CollectMembers_TileMapLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Component(methods);
 
-    // -static void Animatable::RegisterObject(Context* context)
-    // -virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)
+    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 }
 
 // class TileMapObject2D | File: ../Urho2D/TileMapDefs2D.h
@@ -4189,8 +4189,8 @@ void CollectMembers_TmxFile2D(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_Resource(methods);
 
-    // -virtual bool Resource::BeginLoad(Deserializer& source)
-    // -virtual bool Resource::EndLoad()
+    Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(methods, "virtual bool Resource::EndLoad()");
 
     // void TmxFile2D::AddLayer(Urho3D::TmxLayer2D* layer)
     // Error: type "Urho3D::TmxLayer2D*" can not automatically bind
