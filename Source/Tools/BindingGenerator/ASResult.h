@@ -120,10 +120,14 @@ struct MemberRegistration
     string registration_; // Or warning message
 };
 
-struct RegistrationError
+struct MemberRegistrationError
 {
+    string name_; // Used for sorting
     string comment_; // C++ declaration / location
     string message_;
+
+    // Used for sorting
+    bool operator <(const MemberRegistrationError& rhs) const;
 };
 
 struct ProcessedClass
@@ -143,7 +147,11 @@ struct ProcessedClass
 
     shared_ptr<MemberRegistration> destructor_;
 
-    vector<RegistrationError> unregisteredSpecialMethods_;
+    vector<MemberRegistrationError> unregisteredSpecialMethods_;
+
+
+    vector<MemberRegistration> methods_;
+    vector<MemberRegistrationError> unregisteredMethods_;
 
     bool noBind_ = false;
 
@@ -152,8 +160,6 @@ struct ProcessedClass
     // Base class members that were hidden in this class (c++ declarations)
     vector<string> hiddenMembers_;
 
-    // Tests
-    vector<string> methods_;
 };
 
 namespace Result

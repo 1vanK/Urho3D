@@ -132,7 +132,7 @@ TypeAnalyzer ParamAnalyzer::GetType() const
 string ParamAnalyzer::GetDeclname() const
 {
     string result = node_.child("declname").child_value();
-    assert(!result.empty());
+    //assert(!result.empty()); TODO
 
     return result;
 }

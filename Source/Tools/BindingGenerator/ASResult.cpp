@@ -139,6 +139,14 @@ bool ProcessedClass::operator <(const ProcessedClass& rhs) const
     return name_ < rhs.name_;
 }
 
+bool MemberRegistrationError::operator <(const MemberRegistrationError& rhs) const
+{
+    if (name_ != rhs.name_)
+        return name_ < rhs.name_;
+
+    return comment_ < rhs.comment_;
+}
+
 namespace Result
 {
     vector<ProcessedEnum> enums_;
@@ -556,7 +564,7 @@ namespace Result
 
         string openedDefine;
         
-        for (const ProcessedClass& processedClass : classes_)
+        for (ProcessedClass& processedClass : classes_)
         {
             if (processedClass.noBind_)
                 continue;
@@ -590,7 +598,9 @@ namespace Result
 
             bool needGap = false;
 
-            for (const RegistrationError& regError : processedClass.unregisteredSpecialMethods_)
+            sort(processedClass.unregisteredSpecialMethods_.begin(), processedClass.unregisteredSpecialMethods_.end());
+
+            for (const MemberRegistrationError& regError : processedClass.unregisteredSpecialMethods_)
             {
                 if (needGap)
                     ofs << '\n';
@@ -703,7 +713,7 @@ namespace Result
 
         string openedDefine;
 
-        for (const ProcessedClass& processedClass : classes_)
+        for (ProcessedClass& processedClass : classes_)
         {
             if (processedClass.insideDefine_ != openedDefine && !openedDefine.empty())
             {
@@ -742,18 +752,6 @@ namespace Result
 
             bool needGap = false;
 
-            /*for (const RegistrationError& unregisteredMethod : processedClass.unregisteredMethods_)
-            {
-                if (needGap)
-                    ofsCpp << '\n';
-
-                ofsCpp <<
-                    "    // " << unregisteredMethod.cppDeclaration_ << "\n"
-                    "    // " << unregisteredMethod.message_ << "\n";
-
-                needGap = true;
-            }*/
-
             if (processedClass.baseClassNames_.size())
             {
                 if (needGap)
@@ -788,12 +786,20 @@ namespace Result
                 needGap = true;
             }
 
-            if (needGap && processedClass.methods_.size())
-                ofsCpp << '\n';
+            //if (needGap && processedClass.methods_.size())
+            //    ofsCpp << '\n';
 
-            for (const string& method : processedClass.methods_)
+            sort(processedClass.unregisteredMethods_.begin(), processedClass.unregisteredMethods_.end());
+
+            for (const MemberRegistrationError& unregisteredMethod : processedClass.unregisteredMethods_)
             {
-                ofsCpp << "    // +" << method << '\n';
+                if (needGap)
+                    ofsCpp << '\n';
+
+                ofsCpp <<
+                    "    // " << unregisteredMethod.comment_ << "\n"
+                    "    // " << unregisteredMethod.message_ << "\n";
+
                 needGap = true;
             }
 
