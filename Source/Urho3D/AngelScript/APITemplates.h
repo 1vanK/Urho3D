@@ -64,7 +64,7 @@ struct RegisterObjectMethodArgs
     String cppDeclaration_; // Used as identifier
     String asDeclaration_;
     asSFuncPtr funcPointer_;
-    asDWORD callConv_;
+    asDWORD callConv_ = 0;
 
     RegisterObjectMethodArgs() = default;
 
