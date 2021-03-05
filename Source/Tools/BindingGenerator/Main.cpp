@@ -24,7 +24,7 @@
 
 using namespace std;
 
-#define DEVELOP
+//#define DEVELOP
 
 namespace SourceData
 {

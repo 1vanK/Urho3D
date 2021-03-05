@@ -25,6 +25,7 @@
 #include "Utils.h"
 
 #include <fstream>
+#include <cassert>
 
 namespace ASBindingGenerator
 {
@@ -733,7 +734,7 @@ namespace Result
                 openedDefine = processedClass.insideDefine_;
             }
 
-            /*for (const ClassMethodRegistration& method : processedClass.methods_)
+            for (const MethodRegistration& method : processedClass.methods_)
             {
                 if (!method.glue_.empty())
                 {
@@ -742,7 +743,7 @@ namespace Result
                         "// " << method.cppDeclaration_ << "\n"
                         << method.glue_;
                 }
-            }*/
+            }
 
             ofsCpp <<
                 "\n"
@@ -762,20 +763,6 @@ namespace Result
 
                 needGap = true;
             }
-
-            /*for (const ClassMethodRegistration& method : processedClass.methods_)
-            {
-                if (needGap)
-                    ofsCpp << '\n';
-
-                const RegisterObjectMethodArgs& args = method.registration_;
-
-                ofsCpp <<
-                    "    // " << method.cppDeclaration_ << "\n"
-                    "    methods.Push(RegisterObjectMethodArgs(\"" << args.declaration_ << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
-
-                needGap = true;
-            }*/
 
             if (needGap && processedClass.hiddenMembers_.size())
                 ofsCpp << '\n';
@@ -800,6 +787,24 @@ namespace Result
                 ofsCpp <<
                     "    // " << unregisteredMethod.comment_ << "\n"
                     "    // " << unregisteredMethod.message_ << "\n";
+
+                needGap = true;
+            }
+
+
+            for (const MethodRegistration& method : processedClass.methods_)
+            {
+                if (needGap)
+                    ofsCpp << '\n';
+
+                const RegisterObjectMethodArgs& args = method.registration_;
+
+                ofsCpp << "    // " << method.cppDeclaration_ << "\n";
+
+                assert(args.asDeclarations_.size());
+
+                for (const string& asDeclaration : args.asDeclarations_)
+                    ofsCpp << "    methods.Push(RegisterObjectMethodArgs(\"" << method.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
 
                 needGap = true;
             }

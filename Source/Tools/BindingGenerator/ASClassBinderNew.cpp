@@ -183,8 +183,152 @@ static void RegisterDestructor(const ClassAnalyzer& classAnalyzer, ProcessedClas
     }
 }
 
+// https://www.angelcode.com/angelscript/sdk/docs/manual/doc_script_class_ops.html
+static string CppMethodNameToAS(const MethodAnalyzer& methodAnalyzer)
+{
+    string name = methodAnalyzer.GetName();
+
+    if (name == "operator=")
+        return "opAssign";
+
+    if (name == "operator+")
+        return "opAdd";
+
+    if (name == "operator-")
+    {
+        if (!methodAnalyzer.GetParams().size()) // If no params
+            return "opNeg";               // then unary minus
+        else
+            return "opSub";
+    }
+
+    if (name == "operator*")
+        return "opMul";
+
+    if (name == "operator/")
+        return "opDiv";
+
+    if (name == "operator+=")
+        return "opAddAssign";
+
+    if (name == "operator-=")
+        return "opSubAssign";
+
+    if (name == "operator*=")
+        return "opMulAssign";
+
+    if (name == "operator/=")
+        return "opDivAssign";
+
+    if (name == "operator==")
+        return "opEquals";
+
+    if (name == "operator[]")
+        return "opIndex";
+
+    // Conversion to another type operator
+    if (StartsWith(name, "operator "))
+    {
+        if (methodAnalyzer.IsExplicit())
+            return "opConv";
+        else
+            return "opImplConv";
+    }
+
+    if (name == "operator!=")
+        throw Exception("Only operator== is needed");
+
+    if (name == "operator<")
+        throw Exception("Registerd as opCmp separately");
+
+    if (name == "operator>")
+        throw Exception("Registerd as opCmp separately");
+
+    return name;
+}
+
+// https://www.angelcode.com/angelscript/sdk/docs/manual/doc_reg_objprop.html
+static string CppMethodNameToASProperty(const MethodAnalyzer& methodAnalyzer)
+{
+    string name = methodAnalyzer.GetName();
+
+    if (StartsWith(name, "Is") || StartsWith(name, "Get"))
+    {
+        string result = CutStart(name, "Is");
+        result = CutStart(result, "Get");
+        result = "get_" + FirstCharToLower(result);
+        return result;
+    }
+
+    if (StartsWith(name, "Set"))
+    {
+        string result = CutStart(name, "Set");
+        result = "set_" + FirstCharToLower(result);
+        return result;
+    }
+
+    if (methodAnalyzer.CanBeGetProperty())
+    {
+        string result = name;
+        result = "get_" + FirstCharToLower(result);
+        return result;
+    }
+
+    if (methodAnalyzer.CanBeSetProperty())
+    {
+        string result = name;
+        result = "set_" + FirstCharToLower(result);
+        return result;
+    }
+
+    throw Exception("Can not be property");
+}
+
+// Can return BIND_AS_ALIAS_xxxx or BIND_AS_PROPERTY
+// Return "" if no this marks
+static string GetPropertyMark(const MethodAnalyzer& methodAnalyzer)
+{
+    string comment = methodAnalyzer.GetComment();
+
+    smatch match;
+    regex_match(comment, match, regex(".*\\b(BIND_AS_ALIAS_.+?)\\b.*"));
+    if (match.size() == 2)
+        return match[1].str();
+
+    regex_match(comment, match, regex(".*\\bBIND_AS_PROPERTY\\b.*"));
+    if (match.size() == 1)
+        return "BIND_AS_PROPERTY";
+
+    shared_ptr<MethodAnalyzer> reimplements = methodAnalyzer.Reimplements();
+
+    if (!reimplements)
+        return "";
+
+    return GetPropertyMark(*reimplements);
+}
+
 static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass& processedClass)
 {
+    if (methodAnalyzer.IsTemplate())
+        return;
+
+    if (methodAnalyzer.IsDeleted())
+        return;
+
+    if (HaveMark(methodAnalyzer, "NO_BIND"))
+    {
+        //result->reg_ << "    // " << methodAnalyzer.GetLocation() << "\n";
+        //result->reg_ << "    // Not registered because have @nobind mark\n";
+        return;
+    }
+
+    if (HaveMark(methodAnalyzer, "MANUAL_BIND"))
+    {
+        //result->reg_ << "    // " << methodAnalyzer.GetLocation() << "\n";
+        //result->reg_ << "    // Not registered because have @manualbind mark\n";
+        return;
+    }
+
     vector<ParamAnalyzer> params = methodAnalyzer.GetParams();
     vector<ConvertedVariable> convertedParams;
     bool needWrapper = false;
@@ -237,34 +381,43 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
     string asFunctionName = methodAnalyzer.GetName();
     if (methodAnalyzer.IsConsversionOperator())
         asReturnType = CutStart(asFunctionName, "operator ");
-    /*
+    
     try
     {
         asFunctionName = CppMethodNameToAS(methodAnalyzer);
     }
     catch (const Exception& e)
     {
-        result->reg_ << "    // " << e.what() << "\n";
+        MemberRegistrationError regError;
+        regError.name_ = methodAnalyzer.GetName();
+        regError.comment_ = methodAnalyzer.GetDeclaration();
+        regError.message_ = e.what();
+        processedClass.unregisteredMethods_.push_back(regError);
         return;
     }
 
+    MethodRegistration result;
+    result.name_ = methodAnalyzer.GetName();
+    result.cppDeclaration_ = ReplaceAll(methodAnalyzer.GetDeclaration(), "\"", "\\\"");
+
     if (needWrapper)
-        result->glue_ << GenerateWrapper(methodAnalyzer, templateVersion, convertedParams, retConv);
+    {
+        result.glue_ = GenerateWrapper(methodAnalyzer, false, convertedParams, retConv);
+        result.registration_.funcPointer_ = "AS_FUNCTION_OBJFIRST(" + GenerateWrapperName(methodAnalyzer) + ")";
+        result.registration_.callConv_ = "AS_CALL_CDECL_OBJFIRST";
+    }
+    else
+    {
+        result.registration_.funcPointer_ = Generate_asMETHODPR(methodAnalyzer, false);
+        result.registration_.callConv_ = "AS_CALL_THISCALL";
+    }
 
     string decl = asReturnType + " " + asFunctionName + "(" + JoinASDeclarations(convertedParams) + ")";
 
     if (methodAnalyzer.IsConst())
         decl += " const";
 
-    if (templateVersion)
-        result->reg_ << "    engine->RegisterObjectMethod(className, \"" << decl << "\", ";
-    else
-        result->reg_ << "    engine->RegisterObjectMethod(\"" << methodAnalyzer.GetClassName() << "\", \"" << decl << "\", ";
-
-    if (needWrapper)
-        result->reg_ << "AS_FUNCTION_OBJFIRST(" << GenerateWrapperName(methodAnalyzer, templateVersion) << "), AS_CALL_CDECL_OBJFIRST);\n";
-    else
-        result->reg_ << Generate_asMETHODPR(methodAnalyzer, templateVersion) << ", AS_CALL_THISCALL);\n";
+    result.registration_.asDeclarations_.push_back(decl);
 
     // Also register as property if needed
     string propertyMark = GetPropertyMark(methodAnalyzer);
@@ -282,7 +435,11 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
             }
             catch (const Exception& e)
             {
-                result->reg_ << "    // " << e.what() << "\n";
+                MemberRegistrationError regError;
+                regError.name_ = methodAnalyzer.GetName();
+                regError.comment_ = methodAnalyzer.GetDeclaration();
+                regError.message_ = e.what();
+                processedClass.unregisteredMethods_.push_back(regError);
                 return;
             }
         }
@@ -292,17 +449,10 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
         if (methodAnalyzer.IsConst())
             decl += " const";
 
-        if (templateVersion)
-            result->reg_ << "    engine->RegisterObjectMethod(className, \"" << decl << "\", ";
-        else
-            result->reg_ << "    engine->RegisterObjectMethod(\"" << methodAnalyzer.GetClassName() << "\", \"" << decl << "\", ";
-
-        if (needWrapper)
-            result->reg_ << "AS_FUNCTION_OBJFIRST(" << GenerateWrapperName(methodAnalyzer, templateVersion) << "), AS_CALL_CDECL_OBJFIRST);\n";
-        else
-            result->reg_ << Generate_asMETHODPR(methodAnalyzer, templateVersion) << ", AS_CALL_THISCALL);\n";
+        result.registration_.asDeclarations_.push_back(decl);
     }
-    */
+
+    processedClass.methods_.push_back(result);
 }
 
 static void ProcessClass(const ClassAnalyzer& classAnalyzer)

@@ -112,12 +112,27 @@ struct ProcessedGlobalVariable
     bool operator <(const ProcessedGlobalVariable& rhs) const;
 };
 
-struct MemberRegistration
+struct MemberRegistration // todo rename to special method
 {
     string name_; // Used for sorting
     string comment_; // C++ declaration / location
     string glue_; // Can be empty
     string registration_; // Or warning message
+};
+
+struct RegisterObjectMethodArgs
+{
+    vector<string> asDeclarations_;  // String
+    string funcPointer_;    // asSFuncPtr
+    string callConv_;       // asDWORD
+};
+
+struct MethodRegistration
+{
+    string name_; // Used for sorting
+    string cppDeclaration_;
+    string glue_;
+    RegisterObjectMethodArgs registration_;
 };
 
 struct MemberRegistrationError
@@ -150,7 +165,7 @@ struct ProcessedClass
     vector<MemberRegistrationError> unregisteredSpecialMethods_;
 
 
-    vector<MemberRegistration> methods_;
+    vector<MethodRegistration> methods_;
     vector<MemberRegistrationError> unregisteredMethods_;
 
     bool noBind_ = false;

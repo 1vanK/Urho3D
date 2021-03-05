@@ -61,14 +61,14 @@ class Camera;
 
 struct RegisterObjectMethodArgs
 {
-    String cppDeclaration_; // Used as identifier
+    String cppDeclaration_; // Used as identifier when removed from list
     String asDeclaration_;
     asSFuncPtr funcPointer_;
     asDWORD callConv_ = 0;
 
     RegisterObjectMethodArgs() = default;
 
-    RegisterObjectMethodArgs(String cppDeclaration, String asDeclaration, asSFuncPtr funcPointer, asDWORD callConv)
+    RegisterObjectMethodArgs(const String& cppDeclaration, const String& asDeclaration, const asSFuncPtr& funcPointer, asDWORD callConv)
         : cppDeclaration_(cppDeclaration)
         , asDeclaration_(asDeclaration)
         , funcPointer_(funcPointer)
