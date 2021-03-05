@@ -779,11 +779,11 @@ namespace Result
 
             sort(processedClass.unregisteredMethods_.begin(), processedClass.unregisteredMethods_.end());
 
+            if (needGap && processedClass.unregisteredMethods_.size())
+                ofsCpp << '\n';
+
             for (const MemberRegistrationError& unregisteredMethod : processedClass.unregisteredMethods_)
             {
-                if (needGap)
-                    ofsCpp << '\n';
-
                 ofsCpp <<
                     "    // " << unregisteredMethod.comment_ << "\n"
                     "    // " << unregisteredMethod.message_ << "\n";
@@ -791,16 +791,14 @@ namespace Result
                 needGap = true;
             }
 
+            if (needGap && processedClass.methods_.size())
+                ofsCpp << '\n';
+
+            // TODO сортировать
 
             for (const MethodRegistration& method : processedClass.methods_)
             {
-                if (needGap)
-                    ofsCpp << '\n';
-
                 const RegisterObjectMethodArgs& args = method.registration_;
-
-                ofsCpp << "    // " << method.cppDeclaration_ << "\n";
-
                 assert(args.asDeclarations_.size());
 
                 for (const string& asDeclaration : args.asDeclarations_)
