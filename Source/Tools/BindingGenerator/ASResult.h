@@ -148,6 +148,7 @@ struct MemberRegistrationError
 struct ProcessedClass
 {
     string name_;
+    string dirName_;
     string insideDefine_; // Can be empty
     string comment_; // Class location
     string objectTypeRegistration_; // engine->RegisterObjectType(...); or warning message

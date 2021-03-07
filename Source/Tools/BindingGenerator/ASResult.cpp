@@ -26,8 +26,10 @@
 
 #include <fstream>
 #include <cassert>
+#include <unordered_map>
+#include <memory>
 
-extern string _outputBasePath;
+extern string _sourceDir;
 
 namespace ASBindingGenerator
 {
@@ -159,7 +161,7 @@ namespace Result
     {
         sort(enums_.begin(), enums_.end());
 
-        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedEnums.cpp");
+        ofstream ofs(_sourceDir + "/Source/Urho3D/AngelScript/GeneratedEnums.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -244,7 +246,7 @@ namespace Result
     {
         sort(globalFunctions_.begin(), globalFunctions_.end());
 
-        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedGlobalFunctions.cpp");
+        ofstream ofs(_sourceDir + "/Source/Urho3D/AngelScript/GeneratedGlobalFunctions.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -327,7 +329,7 @@ namespace Result
     {
         sort(globalVariables_.begin(), globalVariables_.end());
 
-        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedGlobalVariables.cpp");
+        ofstream ofs(_sourceDir + "/Source/Urho3D/AngelScript/GeneratedGlobalVariables.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -391,7 +393,7 @@ namespace Result
     // Write result to GeneratedObjectTypes.cpp
     static void SaveObjectTypes()
     {
-        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedObjectTypes.cpp");
+        ofstream ofs(_sourceDir + "/Source/Urho3D/AngelScript/GeneratedObjectTypes.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -448,7 +450,7 @@ namespace Result
     // Write result to GeneratedDefaultConstructors.cpp
     static void SaveDefaultConstructors()
     {
-        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedDefaultConstructors.cpp");
+        ofstream ofs(_sourceDir + "/Source/Urho3D/AngelScript/GeneratedDefaultConstructors.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -547,7 +549,7 @@ namespace Result
     // Write result to GeneratedClasses.cpp
     static void SaveGeneratedClasses()
     {
-        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClasses.cpp");
+        ofstream ofs(_sourceDir + "/Source/Urho3D/AngelScript/GeneratedClasses.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -693,87 +695,108 @@ namespace Result
             "}\n";
     }
 
-    // Write result to GeneratedClassMembers.cpp and GeneratedClassMembers.h
+    struct MemberCppFile
+    {
+        ofstream ofs_;
+        string openedDefine_;
+        bool needGap_ = false;
+
+        MemberCppFile(const string& dirName)
+        {
+            string fileName = _sourceDir + "/Source/Urho3D/AngelScript/Generated_Members_" + dirName + ".cpp";
+            ofs_ = ofstream(fileName);
+
+            ofs_ <<
+                "// DO NOT EDIT. This file is generated\n"
+                "\n"
+                "#include \"../Precompiled.h\"\n"
+                "#include \"../AngelScript/APITemplates.h\"\n"
+                "\n"
+                "#include \"../AngelScript/GeneratedIncludes.h\"\n"
+                "#include \"../AngelScript/GeneratedClassMembers.h\"\n"
+                "#include \"../AngelScript/Manual.h\"\n"
+                "\n"
+                "namespace Urho3D\n"
+                "{\n";
+        }
+    };
+
+    unordered_map<string, shared_ptr<MemberCppFile>> memberCppFiles_;
+
+    shared_ptr<MemberCppFile> GetMemberCppFile(const string& dirName)
+    {
+        auto it = memberCppFiles_.find(dirName);
+
+        if (it == memberCppFiles_.end())
+        {
+            auto newElement = memberCppFiles_.emplace(dirName, make_shared<MemberCppFile>(dirName));
+            it = newElement.first;
+        }
+
+        return (*it).second;
+    }
+
+    // Write result to GeneratedClassMembers.cpp and GeneratedClassMembers.h // TODO change comment
     static void SaveClassMembers()
     {
-        ofstream ofsCpp(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClassMembers.cpp");
-
-        ofsCpp <<
-            "// DO NOT EDIT. This file is generated\n"
-            "\n"
-            "#include \"../Precompiled.h\"\n"
-            "#include \"../AngelScript/APITemplates.h\"\n"
-            "\n"
-            "#include \"../AngelScript/GeneratedIncludes.h\"\n"
-            "#include \"../AngelScript/GeneratedClassMembers.h\"\n"
-            "#include \"../AngelScript/Manual.h\"\n"
-            "\n"
-            "namespace Urho3D\n"
-            "{\n"
-            "\n"
-            "void FakeAddRef(void* ptr);\n"
-            "void FakeReleaseRef(void* ptr);\n";
-
-        string openedDefine;
-
         for (ProcessedClass& processedClass : classes_)
         {
-            if (processedClass.insideDefine_ != openedDefine && !openedDefine.empty())
-            {
-                ofsCpp <<
-                    "\n"
-                    "#endif // def " << openedDefine << "\n";
+            shared_ptr<MemberCppFile> file = GetMemberCppFile(processedClass.dirName_);
 
-                openedDefine.clear();
+            if (processedClass.insideDefine_ != file->openedDefine_ && !file->openedDefine_.empty())
+            {
+                file->ofs_ <<
+                    "\n"
+                    "#endif // def " << file->openedDefine_ << "\n";
+
+                file->openedDefine_.clear();
             }
 
-            if (processedClass.insideDefine_ != openedDefine && !processedClass.insideDefine_.empty())
+            if (processedClass.insideDefine_ != file->openedDefine_ && !processedClass.insideDefine_.empty())
             {
-                ofsCpp <<
+                file->ofs_ <<
                     "\n"
                     "#ifdef " << processedClass.insideDefine_ << "\n";
 
-                openedDefine = processedClass.insideDefine_;
+                file->openedDefine_ = processedClass.insideDefine_;
             }
 
             for (const MethodRegistration& method : processedClass.methods_)
             {
                 if (!method.glue_.empty())
                 {
-                    ofsCpp <<
+                    file->ofs_ <<
                         "\n"
                         "// " << method.cppDeclaration_ << "\n"
                         << method.glue_;
                 }
             }
 
-            ofsCpp <<
+            file->ofs_ <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
                 "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods)\n"
                 "{\n";
 
-            bool needGap = false;
-
             if (processedClass.baseClassNames_.size())
             {
-                if (needGap)
-                    ofsCpp << '\n';
+                if (file->needGap_)
+                    file->ofs_ << '\n';
 
                 for (const string& baseClassName : processedClass.baseClassNames_)
-                    ofsCpp << "    CollectMembers_" << baseClassName << "(methods);\n";
+                    file->ofs_ << "    CollectMembers_" << baseClassName << "(methods);\n";
 
-                needGap = true;
+                file->needGap_ = true;
             }
 
-            if (needGap && processedClass.hiddenMembers_.size())
-                ofsCpp << '\n';
+            if (file->needGap_ && processedClass.hiddenMembers_.size())
+                file->ofs_ << '\n';
 
             for (const string& hiddenMember : processedClass.hiddenMembers_)
             {
                 string escaped = ReplaceAll(hiddenMember, "\"", "\\\"");
-                ofsCpp << "    Remove(methods, \"" << escaped << "\");\n";
-                needGap = true;
+                file->ofs_ << "    Remove(methods, \"" << escaped << "\");\n";
+                file->needGap_ = true;
             }
 
             //if (needGap && processedClass.methods_.size())
@@ -781,20 +804,20 @@ namespace Result
 
             sort(processedClass.unregisteredMethods_.begin(), processedClass.unregisteredMethods_.end());
 
-            if (needGap && processedClass.unregisteredMethods_.size())
-                ofsCpp << '\n';
+            if (file->needGap_ && processedClass.unregisteredMethods_.size())
+                file->ofs_ << '\n';
 
             for (const MemberRegistrationError& unregisteredMethod : processedClass.unregisteredMethods_)
             {
-                ofsCpp <<
+                file->ofs_ <<
                     "    // " << unregisteredMethod.comment_ << "\n"
                     "    // " << unregisteredMethod.message_ << "\n";
 
-                needGap = true;
+                file->needGap_ = true;
             }
 
-            if (needGap && processedClass.methods_.size())
-                ofsCpp << '\n';
+            if (file->needGap_ && processedClass.methods_.size())
+                file->ofs_ << '\n';
 
             // TODO сортировать
 
@@ -804,28 +827,33 @@ namespace Result
                 assert(args.asDeclarations_.size());
 
                 for (const string& asDeclaration : args.asDeclarations_)
-                    ofsCpp << "    methods.Push(RegisterObjectMethodArgs(\"" << method.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
+                    file->ofs_ << "    methods.Push(RegisterObjectMethodArgs(\"" << method.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
 
-                needGap = true;
+                file->needGap_ = true;
             }
 
-            ofsCpp << "}\n";
+            file->ofs_ << "}\n";
         }
 
-        if (!openedDefine.empty())
+        for (auto it : memberCppFiles_)
         {
-            ofsCpp <<
-                "\n"
-                "#endif // def " << openedDefine << "\n";
+            shared_ptr<MemberCppFile> file = it.second;
+            
+            if (!file->openedDefine_.empty())
+            {
+                file->ofs_ <<
+                    "\n"
+                    "#endif // def " << file->openedDefine_ << "\n";
 
-            openedDefine.clear();
+                file->openedDefine_.clear();
+            }
+
+            file->ofs_ <<
+                "\n"
+                "} // namespace Urho3D\n";
         }
 
-        ofsCpp <<
-            "\n"
-            "} // namespace Urho3D\n";
-
-        ofstream ofsH(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClassMembers.h");
+        ofstream ofsH(_sourceDir + "/Source/Urho3D/AngelScript/GeneratedClassMembers.h");
 
         ofsH <<
             "// DO NOT EDIT. This file is generated\n"
@@ -838,6 +866,8 @@ namespace Result
             "\n"
             "namespace Urho3D\n"
             "{\n";
+
+        string openedDefine;
 
         for (const ProcessedClass& processedClass : classes_)
         {
@@ -917,7 +947,7 @@ namespace Result
         sort(headers_.begin(), headers_.end());
         sort(ignoredHeaders_.begin(), ignoredHeaders_.end());
 
-        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedIncludes.h");
+        ofstream ofs(_sourceDir + "/Source/Urho3D/AngelScript/GeneratedIncludes.h");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"

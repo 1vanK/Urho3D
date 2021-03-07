@@ -472,6 +472,7 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
 
     ProcessedClass processedClass;
     processedClass.name_ = classAnalyzer.GetClassName();
+    processedClass.dirName_ = classAnalyzer.GetDirName();
     processedClass.comment_ = classAnalyzer.GetLocation();
     processedClass.insideDefine_ = InsideDefine(header);
 

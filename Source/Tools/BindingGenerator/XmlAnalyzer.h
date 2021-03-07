@@ -272,6 +272,7 @@ public:
     string GetClassName() const;
     string GetComment() const { return ExtractComment(compounddef_); }
     string GetHeaderFile() const { return ExtractHeaderFile(compounddef_); }
+    string GetDirName() const;
     string GetKind() const { return ExtractKind(compounddef_); }
     bool IsInternal() const;
     bool IsTemplate() const { return ::IsTemplate(compounddef_); }

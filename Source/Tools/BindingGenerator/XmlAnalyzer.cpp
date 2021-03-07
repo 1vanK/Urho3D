@@ -27,6 +27,8 @@
 #include <cassert>
 #include <regex>
 
+extern string _sourceDir;
+
 string RemoveRefs(xml_node node)
 {
     assert(node.name() == string("type") || node.name() == string("defval") || node.name() == string("para"));
@@ -413,10 +415,8 @@ string ExtractComment(xml_node node)
 
 static string HeaderFullPathToRelative(const string& fullPath)
 {
-    size_t pos = fullPath.rfind("Source/Urho3D");
-    assert(pos != string::npos);
-
-    return ".." + fullPath.substr(pos + strlen("Source/Urho3D"));
+    assert(StartsWith(fullPath, _sourceDir + "/Source/Urho3D"));
+    return ".." + CutStart(fullPath, _sourceDir + "/Source/Urho3D");
 }
 
 string ExtractHeaderFile(xml_node node)
@@ -544,6 +544,14 @@ string ClassAnalyzer::GetClassName() const
     string compoundname = ExtractCompoundname(compounddef_);
     assert(StartsWith(compoundname, "Urho3D::"));
     return CutStart(compoundname, "Urho3D::");
+}
+
+string ClassAnalyzer::GetDirName() const
+{
+    string str = CutStart(GetHeaderFile(), "../");
+    size_t pos = str.find('/');
+    assert(pos != string::npos);
+    return str.substr(0, pos);
 }
 
 bool ClassAnalyzer::IsInternal() const

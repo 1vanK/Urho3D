@@ -26,8 +26,8 @@ using namespace std;
 
 //#define DEVELOP
 
-// Path to Urho3D's root folder. There must be no slash at the end
-string _outputBasePath;
+// Path to Urho3D's root folder (CMAKE_SOURCE_DIR). There must be no slash at the end
+string _sourceDir;
 
 namespace SourceData
 {
@@ -83,13 +83,13 @@ int main(int argc, char* argv[])
 {
 #ifdef DEVELOP
     string inputDir = R"(G:/MyGames/Urho3DFork/Build/Source/Tools/BindingGenerator/generated/xml)";
-    _outputBasePath = R"(G:/MyGames/Urho3DFork/Urho3D)";
+    _sourceDir = R"(G:/MyGames/Urho3DFork/Urho3D)";
 #else
     if (argc != 3)
         return -1;
 
     string inputDir = argv[1];
-    _outputBasePath = argv[2];
+    _sourceDir = argv[2];
 #endif
 
     SourceData::LoadAllXmls(inputDir);
