@@ -33,10 +33,10 @@
 #include <fstream>
 #include <vector>
 
+extern string _outputBasePath;
+
 namespace ASBindingGenerator
 {
-
-static string _outputBasePath;
 
 static shared_ptr<ASGeneratedFile_Members> _result_Members_A;
 static shared_ptr<ASGeneratedFile_Members> _result_Members_B;
@@ -1166,10 +1166,10 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer, bool templateVersio
         _result_Templates->reg_ << "}\n\n";
 }
 
-void ProcessAllClasses(const string& outputBasePath)
-{
-    _outputBasePath = outputBasePath;
 
+
+void ProcessAllClasses()
+{
     _result_Members_A = make_shared<ASGeneratedFile_Members>(_outputBasePath + "/Source/Urho3D/AngelScript/Generated_Members_A.cpp", "ASRegisterGenerated_Members_A");
     _result_Members_B = make_shared<ASGeneratedFile_Members>(_outputBasePath + "/Source/Urho3D/AngelScript/Generated_Members_B.cpp", "ASRegisterGenerated_Members_B");
     _result_Members_Constraint = make_shared<ASGeneratedFile_Members>(_outputBasePath + "/Source/Urho3D/AngelScript/Generated_Members_Constraint.cpp", "ASRegisterGenerated_Members_Constraint");

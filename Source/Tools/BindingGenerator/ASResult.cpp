@@ -27,6 +27,8 @@
 #include <fstream>
 #include <cassert>
 
+extern string _outputBasePath;
+
 namespace ASBindingGenerator
 {
 
@@ -153,11 +155,11 @@ namespace Result
     vector<ProcessedEnum> enums_;
 
     // Write result to GeneratedEnums.cpp
-    static void SaveEnums(const string& outputBasePath)
+    static void SaveEnums()
     {
         sort(enums_.begin(), enums_.end());
 
-        ofstream ofs(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedEnums.cpp");
+        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedEnums.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -238,11 +240,11 @@ namespace Result
     vector<ProcessedGlobalFunction> globalFunctions_;
 
     // Write result to GlobalFunctions.cpp
-    static void SaveGlobalFunctions(const string& outputBasePath)
+    static void SaveGlobalFunctions()
     {
         sort(globalFunctions_.begin(), globalFunctions_.end());
 
-        ofstream ofs(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedGlobalFunctions.cpp");
+        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedGlobalFunctions.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -321,11 +323,11 @@ namespace Result
     vector<ProcessedGlobalVariable> globalVariables_;
 
     // Write result to GlobalVariables.cpp
-    static void SaveGlobalVariables(const string& outputBasePath)
+    static void SaveGlobalVariables()
     {
         sort(globalVariables_.begin(), globalVariables_.end());
 
-        ofstream ofs(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedGlobalVariables.cpp");
+        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedGlobalVariables.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -387,9 +389,9 @@ namespace Result
     vector<ProcessedClass> classes_;
 
     // Write result to GeneratedObjectTypes.cpp
-    static void SaveObjectTypes(const string& outputBasePath)
+    static void SaveObjectTypes()
     {
-        ofstream ofs(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedObjectTypes.cpp");
+        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedObjectTypes.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -444,9 +446,9 @@ namespace Result
     }
 
     // Write result to GeneratedDefaultConstructors.cpp
-    static void SaveDefaultConstructors(const string& outputBasePath)
+    static void SaveDefaultConstructors()
     {
-        ofstream ofs(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedDefaultConstructors.cpp");
+        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedDefaultConstructors.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -543,9 +545,9 @@ namespace Result
     }
 
     // Write result to GeneratedClasses.cpp
-    static void SaveGeneratedClasses(const string& outputBasePath)
+    static void SaveGeneratedClasses()
     {
-        ofstream ofs(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClasses.cpp");
+        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClasses.cpp");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -692,9 +694,9 @@ namespace Result
     }
 
     // Write result to GeneratedClassMembers.cpp and GeneratedClassMembers.h
-    static void SaveClassMembers(const string& outputBasePath)
+    static void SaveClassMembers()
     {
-        ofstream ofsCpp(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClassMembers.cpp");
+        ofstream ofsCpp(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClassMembers.cpp");
 
         ofsCpp <<
             "// DO NOT EDIT. This file is generated\n"
@@ -823,7 +825,7 @@ namespace Result
             "\n"
             "} // namespace Urho3D\n";
 
-        ofstream ofsH(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClassMembers.h");
+        ofstream ofsH(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedClassMembers.h");
 
         ofsH <<
             "// DO NOT EDIT. This file is generated\n"
@@ -877,13 +879,13 @@ namespace Result
             "} // namespace Urho3D\n";
     }
 
-    static void SaveClasses(const string& outputBasePath)
+    static void SaveClasses()
     {
         sort(classes_.begin(), classes_.end());
-        SaveObjectTypes(outputBasePath);
-        SaveDefaultConstructors(outputBasePath);
-        SaveGeneratedClasses(outputBasePath);
-        SaveClassMembers(outputBasePath);
+        SaveObjectTypes();
+        SaveDefaultConstructors();
+        SaveGeneratedClasses();
+        SaveClassMembers();
     }
 
     // ============================================================================
@@ -910,12 +912,12 @@ namespace Result
     }
 
     // Write result to GeneratedIncludes.h
-    static void SaveIncludes(const string& outputBasePath)
+    static void SaveIncludes()
     {
         sort(headers_.begin(), headers_.end());
         sort(ignoredHeaders_.begin(), ignoredHeaders_.end());
 
-        ofstream ofs(outputBasePath + "/Source/Urho3D/AngelScript/GeneratedIncludes.h");
+        ofstream ofs(_outputBasePath + "/Source/Urho3D/AngelScript/GeneratedIncludes.h");
 
         ofs <<
             "// DO NOT EDIT. This file is generated\n"
@@ -997,13 +999,13 @@ namespace Result
     }
 }
 
-void SaveResult(const string& outputBasePath)
+void SaveResult()
 {
-    Result::SaveEnums(outputBasePath);
-    Result::SaveGlobalFunctions(outputBasePath);
-    Result::SaveGlobalVariables(outputBasePath);
-    Result::SaveClasses(outputBasePath);
-    Result::SaveIncludes(outputBasePath);
+    Result::SaveEnums();
+    Result::SaveGlobalFunctions();
+    Result::SaveGlobalVariables();
+    Result::SaveClasses();
+    Result::SaveIncludes();
 }
 
 }
