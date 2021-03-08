@@ -177,6 +177,14 @@ void CollectMembers_CrowdObstacleAvoidanceParams(Vector<RegisterObjectMethodArgs
 // struct DynamicNavBuildData | File: ../Navigation/NavBuildData.h
 void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // dtTileCacheContourSet* DynamicNavBuildData::contourSet_
+    // Not registered because pointer
+    // dtTileCachePolyMesh* DynamicNavBuildData::polyMesh_
+    // Not registered because pointer
+    // rcHeightfieldLayerSet* DynamicNavBuildData::heightFieldLayers_
+    // Not registered because pointer
+    // dtTileCacheAlloc* DynamicNavBuildData::alloc_
+    // Not registered because pointer
 }
 
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
@@ -259,6 +267,12 @@ void CollectMembers_NavAreaStub(Vector<RegisterObjectMethodArgs>& methods)
 // struct NavBuildData | File: ../Navigation/NavBuildData.h
 void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // rcContext* NavBuildData::ctx_
+    // Not registered because pointer
+    // rcHeightfield* NavBuildData::heightField_
+    // Not registered because pointer
+    // rcCompactHeightfield* NavBuildData::compactHeightField_
+    // Not registered because pointer
 }
 
 // class Navigable | File: ../Navigation/Navigable.h
@@ -277,6 +291,8 @@ void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods)
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
 void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // Component* NavigationGeometryInfo::component_
+    // Not registered because pointer
 }
 
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
@@ -471,6 +487,13 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods)
 void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_NavBuildData(methods);
+
+    // rcContourSet* SimpleNavBuildData::contourSet_
+    // Not registered because pointer
+    // rcPolyMesh* SimpleNavBuildData::polyMesh_
+    // Not registered because pointer
+    // rcPolyMeshDetail* SimpleNavBuildData::polyMeshDetail_
+    // Not registered because pointer
 }
 
 #endif // def URHO3D_NAVIGATION

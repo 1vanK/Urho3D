@@ -143,6 +143,13 @@ void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("float JoystickState::GetAxisPosition(unsigned index) const", "float get_axisPosition(uint) const", AS_METHODPR(JoystickState, GetAxisPosition, (unsigned) const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int JoystickState::GetHatPosition(unsigned index) const", "int GetHatPosition(uint) const", AS_METHODPR(JoystickState, GetHatPosition, (unsigned) const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int JoystickState::GetHatPosition(unsigned index) const", "int get_hatPosition(uint) const", AS_METHODPR(JoystickState, GetHatPosition, (unsigned) const, int), AS_CALL_THISCALL));
+
+    // SDL_Joystick* JoystickState::joystick_
+    // Not registered because pointer
+    // SDL_GameController* JoystickState::controller_
+    // Not registered because pointer
+    // UIElement* JoystickState::screenJoystick_
+    // Not registered because pointer
 }
 
 // struct TouchState | File: ../Input/Input.h

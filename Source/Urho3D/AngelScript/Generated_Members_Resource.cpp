@@ -30,6 +30,9 @@ void CollectMembers_CompressedLevel(Vector<RegisterObjectMethodArgs>& methods)
 {
     // bool CompressedLevel::Decompress(unsigned char* dest) const
     // Error: type "unsigned char*" can not automatically bind
+
+    // unsigned char* CompressedLevel::data_
+    // Not registered because pointer
 }
 
 // SharedPtr<Image> Image::GetNextLevel() const

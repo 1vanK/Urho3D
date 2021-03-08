@@ -30,6 +30,9 @@ void CollectMembers_AttributeHandle(Vector<RegisterObjectMethodArgs>& methods)
 void CollectMembers_AttributeInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
     methods.Push(RegisterObjectMethodArgs("const Variant& AttributeInfo::GetMetadata(const StringHash& key) const", "const Variant& GetMetadata(const StringHash&in) const", AS_METHODPR(AttributeInfo, GetMetadata, (const StringHash&) const, const Variant&), AS_CALL_THISCALL));
+
+    // void* AttributeInfo::ptr_
+    // Not registered because pointer
 }
 
 // class AutoProfileBlock | File: ../Core/Profiler.h
@@ -308,6 +311,11 @@ void CollectMembers_ProfilerBlock(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("void ProfilerBlock::End()", "void End()", AS_METHODPR(ProfilerBlock, End, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ProfilerBlock::EndFrame()", "void EndFrame()", AS_METHODPR(ProfilerBlock, EndFrame, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ProfilerBlock::BeginInterval()", "void BeginInterval()", AS_METHODPR(ProfilerBlock, BeginInterval, (), void), AS_CALL_THISCALL));
+
+    // char* ProfilerBlock::name_
+    // Not registered because pointer
+    // ProfilerBlock* ProfilerBlock::parent_
+    // Not registered because pointer
 }
 
 // struct ResourceRef | File: ../Core/Variant.h
@@ -653,6 +661,14 @@ void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods)
 // struct WorkItem | File: ../Core/WorkQueue.h
 void CollectMembers_WorkItem(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // void(* WorkItem::workFunction_) (const WorkItem* , unsigned)
+    // Not registered because pointer
+    // void* WorkItem::start_
+    // Not registered because pointer
+    // void* WorkItem::end_
+    // Not registered because pointer
+    // void* WorkItem::aux_
+    // Not registered because pointer
 }
 
 // class WorkQueue | File: ../Core/WorkQueue.h

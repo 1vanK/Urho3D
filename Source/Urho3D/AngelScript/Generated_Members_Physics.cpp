@@ -186,6 +186,10 @@ void CollectMembers_ConvexData(Vector<RegisterObjectMethodArgs>& methods)
 // struct DelayedWorldTransform | File: ../Physics/PhysicsWorld.h
 void CollectMembers_DelayedWorldTransform(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // RigidBody* DelayedWorldTransform::rigidBody_
+    // Not registered because pointer
+    // RigidBody* DelayedWorldTransform::parentRigidBody_
+    // Not registered because pointer
 }
 
 // struct GImpactMeshData | File: ../Physics/CollisionShape.h
@@ -203,6 +207,10 @@ void CollectMembers_HeightfieldData(Vector<RegisterObjectMethodArgs>& methods)
 // struct ManifoldPair | File: ../Physics/PhysicsWorld.h
 void CollectMembers_ManifoldPair(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // btPersistentManifold* ManifoldPair::manifold_
+    // Not registered because pointer
+    // btPersistentManifold* ManifoldPair::flippedManifold_
+    // Not registered because pointer
 }
 
 // struct PhysicsRaycastResult | File: ../Physics/PhysicsWorld.h
@@ -210,6 +218,9 @@ void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& metho
 {
     // bool PhysicsRaycastResult::operator!=(const PhysicsRaycastResult& rhs) const
     // Only operator== is needed
+
+    // RigidBody* PhysicsRaycastResult::body_
+    // Not registered because pointer
 }
 
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
@@ -314,6 +325,8 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods)
 // struct PhysicsWorldConfig | File: ../Physics/PhysicsWorld.h
 void CollectMembers_PhysicsWorldConfig(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // btCollisionConfiguration* PhysicsWorldConfig::collisionConfig_
+    // Not registered because pointer
 }
 
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h

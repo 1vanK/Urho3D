@@ -480,9 +480,9 @@ static void RegisterField(const FieldAnalyzer& fieldAnalyzer, ProcessedClass& pr
         return;
     }
 
-#if 0
-    if (variable.IsStatic())
+    if (fieldAnalyzer.IsStatic())
     {
+        /*
         result->reg_ << "    // " << variable.GetLocation() << "\n";
 
         string asType;
@@ -513,23 +513,32 @@ static void RegisterField(const FieldAnalyzer& fieldAnalyzer, ProcessedClass& pr
             "(void*)&" << className << "::" << variable.GetName() << ");\n";
 
         result->reg_ << "    engine->SetDefaultNamespace(\"\");\n";
+        */
     }
     else
     {
+        if (fieldAnalyzer.IsArray())
+        {
+            MemberRegistrationError regError;
+            regError.name_ = fieldAnalyzer.GetName();
+            regError.comment_ = fieldAnalyzer.GetDeclaration();
+            regError.message_ = "Not registered because array";
+            processedClass.unregisteredFields_.push_back(regError);
+            return;
+        }
 
+        if (fieldAnalyzer.GetType().IsPointer())
+        {
+            MemberRegistrationError regError;
+            regError.name_ = fieldAnalyzer.GetName();
+            regError.comment_ = fieldAnalyzer.GetDeclaration();
+            regError.message_ = "Not registered because pointer";
+            processedClass.unregisteredFields_.push_back(regError);
+            return;
+        }
+
+/*
         result->reg_ << "    // " << variable.GetLocation() << "\n";
-
-        if (variable.IsArray())
-        {
-            result->reg_ << "    // Not registered because array\n";
-            return;
-        }
-
-        if (variable.GetType().IsPointer())
-        {
-            result->reg_ << "    // " << variable.GetType().ToString() << " can not be registered\n";
-            return;
-        }
 
         string propType;
 
@@ -554,8 +563,8 @@ static void RegisterField(const FieldAnalyzer& fieldAnalyzer, ProcessedClass& pr
             "\"" << className << "\", "
             "\"" << propType << " " << propName << "\", "
             "offsetof(" << className << ", " << varName << "));\n";
+            */
     }
-#endif
 }
 
 static void ProcessClass(const ClassAnalyzer& classAnalyzer)

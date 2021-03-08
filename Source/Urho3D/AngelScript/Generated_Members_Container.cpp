@@ -13,11 +13,17 @@ namespace Urho3D
 // struct AllocatorBlock | File: ../Container/Allocator.h
 void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // AllocatorNode* AllocatorBlock::free_
+    // Not registered because pointer
+    // AllocatorBlock* AllocatorBlock::next_
+    // Not registered because pointer
 }
 
 // struct AllocatorNode | File: ../Container/Allocator.h
 void CollectMembers_AllocatorNode(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // AllocatorNode* AllocatorNode::next_
+    // Not registered because pointer
 }
 
 // class HashBase | File: ../Container/HashBase.h
@@ -38,16 +44,27 @@ void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("bool HashIteratorBase::operator==(const HashIteratorBase& rhs) const", "bool opEquals(const HashIteratorBase&in) const", AS_METHODPR(HashIteratorBase, operator==, (const HashIteratorBase&) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void HashIteratorBase::GotoNext()", "void GotoNext()", AS_METHODPR(HashIteratorBase, GotoNext, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void HashIteratorBase::GotoPrev()", "void GotoPrev()", AS_METHODPR(HashIteratorBase, GotoPrev, (), void), AS_CALL_THISCALL));
+
+    // HashNodeBase* HashIteratorBase::ptr_
+    // Not registered because pointer
 }
 
 // struct HashNodeBase | File: ../Container/HashBase.h
 void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // HashNodeBase* HashNodeBase::down_
+    // Not registered because pointer
+    // HashNodeBase* HashNodeBase::prev_
+    // Not registered because pointer
+    // HashNodeBase* HashNodeBase::next_
+    // Not registered because pointer
 }
 
 // struct LinkedListNode | File: ../Container/LinkedList.h
 void CollectMembers_LinkedListNode(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // LinkedListNode* LinkedListNode::next_
+    // Not registered because pointer
 }
 
 // class ListBase | File: ../Container/ListBase.h
@@ -65,11 +82,18 @@ void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("bool ListIteratorBase::operator==(const ListIteratorBase& rhs) const", "bool opEquals(const ListIteratorBase&in) const", AS_METHODPR(ListIteratorBase, operator==, (const ListIteratorBase&) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ListIteratorBase::GotoNext()", "void GotoNext()", AS_METHODPR(ListIteratorBase, GotoNext, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ListIteratorBase::GotoPrev()", "void GotoPrev()", AS_METHODPR(ListIteratorBase, GotoPrev, (), void), AS_CALL_THISCALL));
+
+    // ListNodeBase* ListIteratorBase::ptr_
+    // Not registered because pointer
 }
 
 // struct ListNodeBase | File: ../Container/ListBase.h
 void CollectMembers_ListNodeBase(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // ListNodeBase* ListNodeBase::prev_
+    // Not registered because pointer
+    // ListNodeBase* ListNodeBase::next_
+    // Not registered because pointer
 }
 
 // struct RefCount | File: ../Container/RefCounted.h

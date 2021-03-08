@@ -105,6 +105,9 @@ void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods)
 void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_ReplicationState(methods);
+
+    // NodeReplicationState* ComponentReplicationState::nodeState_
+    // Not registered because pointer
 }
 
 // struct DirtyBits | File: ../Scene/ReplicationState.h
@@ -115,6 +118,9 @@ void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("void DirtyBits::ClearAll()", "void ClearAll()", AS_METHODPR(DirtyBits, ClearAll, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool DirtyBits::IsSet(unsigned index) const", "bool IsSet(uint) const", AS_METHODPR(DirtyBits, IsSet, (unsigned) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned DirtyBits::Count() const", "uint Count() const", AS_METHODPR(DirtyBits, Count, () const, unsigned), AS_CALL_THISCALL));
+
+    // unsigned char DirtyBits::data_[MAX_NETWORK_ATTRIBUTES/8]
+    // Not registered because array
 }
 
 // class LogicComponent | File: ../Scene/LogicComponent.h
@@ -128,6 +134,8 @@ void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods)
 // struct NetworkState | File: ../Scene/ReplicationState.h
 void CollectMembers_NetworkState(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // const Vector<AttributeInfo>* NetworkState::attributes_
+    // Not registered because pointer
 }
 
 // void Node::SetTags(const StringVector& tags)
@@ -469,12 +477,17 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods)
 // struct NodeImpl | File: ../Scene/Node.h
 void CollectMembers_NodeImpl(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // Connection* NodeImpl::owner_
+    // Not registered because pointer
 }
 
 // struct NodeReplicationState | File: ../Scene/ReplicationState.h
 void CollectMembers_NodeReplicationState(Vector<RegisterObjectMethodArgs>& methods)
 {
     CollectMembers_ReplicationState(methods);
+
+    // SceneReplicationState* NodeReplicationState::sceneState_
+    // Not registered because pointer
 }
 
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
@@ -509,6 +522,8 @@ void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods)
 // struct ReplicationState | File: ../Scene/ReplicationState.h
 void CollectMembers_ReplicationState(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // Connection* ReplicationState::connection_
+    // Not registered because pointer
 }
 
 // const Vector<SharedPtr<PackageFile>>& Scene::GetRequiredPackageFiles() const

@@ -135,6 +135,13 @@ struct MethodRegistration
     RegisterObjectMethodArgs registration_;
 };
 
+struct FieldRegistration
+{
+    string name_; // Used for sorting
+    string cppDeclaration_;
+    RegisterObjectMethodArgs registration_;
+};
+
 struct MemberRegistrationError
 {
     string name_; // Used for sorting
@@ -169,6 +176,7 @@ struct ProcessedClass
     vector<MethodRegistration> methods_;
     vector<MemberRegistrationError> unregisteredMethods_;
 
+    vector<FieldRegistration> fields_;
     vector<MemberRegistrationError> unregisteredFields_;
 
     bool noBind_ = false;

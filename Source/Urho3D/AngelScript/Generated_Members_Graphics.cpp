@@ -319,6 +319,10 @@ void CollectMembers_AnimationState(Vector<RegisterObjectMethodArgs>& methods)
 // struct AnimationStateTrack | File: ../Graphics/AnimationState.h
 void CollectMembers_AnimationStateTrack(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // const AnimationTrack* AnimationStateTrack::track_
+    // Not registered because pointer
+    // Bone* AnimationStateTrack::bone_
+    // Not registered because pointer
 }
 
 // struct AnimationTrack | File: ../Graphics/Animation.h
@@ -349,6 +353,25 @@ void CollectMembers_Batch(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("void Batch::CalculateSortKey()", "void CalculateSortKey()", AS_METHODPR(Batch, CalculateSortKey, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool allowDepthWrite) const", "void Prepare(View@+, Camera@+, bool, bool) const", AS_METHODPR(Batch, Prepare, (View*, Camera*, bool, bool) const, void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const", "void Draw(View@+, Camera@+, bool) const", AS_METHODPR(Batch, Draw, (View*, Camera*, bool) const, void), AS_CALL_THISCALL));
+
+    // Geometry* Batch::geometry_
+    // Not registered because pointer
+    // Material* Batch::material_
+    // Not registered because pointer
+    // const Matrix3x4* Batch::worldTransform_
+    // Not registered because pointer
+    // void* Batch::instancingData_
+    // Not registered because pointer
+    // Zone* Batch::zone_
+    // Not registered because pointer
+    // LightBatchQueue* Batch::lightQueue_
+    // Not registered because pointer
+    // Pass* Batch::pass_
+    // Not registered because pointer
+    // ShaderVariation* Batch::vertexShader_
+    // Not registered because pointer
+    // ShaderVariation* Batch::pixelShader_
+    // Not registered because pointer
 }
 
 // struct BatchGroup | File: ../Graphics/Batch.h
@@ -373,6 +396,17 @@ void CollectMembers_BatchGroupKey(Vector<RegisterObjectMethodArgs>& methods)
 
     methods.Push(RegisterObjectMethodArgs("bool BatchGroupKey::operator==(const BatchGroupKey& rhs) const", "bool opEquals(const BatchGroupKey&in) const", AS_METHODPR(BatchGroupKey, operator==, (const BatchGroupKey&) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned BatchGroupKey::ToHash() const", "uint ToHash() const", AS_METHODPR(BatchGroupKey, ToHash, () const, unsigned), AS_CALL_THISCALL));
+
+    // Zone* BatchGroupKey::zone_
+    // Not registered because pointer
+    // LightBatchQueue* BatchGroupKey::lightQueue_
+    // Not registered because pointer
+    // Pass* BatchGroupKey::pass_
+    // Not registered because pointer
+    // Material* BatchGroupKey::material_
+    // Not registered because pointer
+    // Geometry* BatchGroupKey::geometry_
+    // Not registered because pointer
 }
 
 // struct BatchQueue | File: ../Graphics/Batch.h
@@ -812,6 +846,10 @@ void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods)
 // struct DecalVertex | File: ../Graphics/DecalSet.h
 void CollectMembers_DecalVertex(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // float DecalVertex::blendWeights_[4]
+    // Not registered because array
+    // unsigned char DecalVertex::blendIndices_[4]
+    // Not registered because array
 }
 
 // struct DepthValue | File: ../Graphics/OcclusionBuffer.h
@@ -949,6 +987,8 @@ void CollectMembers_FocusParameters(Vector<RegisterObjectMethodArgs>& methods)
 // struct FrameInfo | File: ../Graphics/Drawable.h
 void CollectMembers_FrameInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // Camera* FrameInfo::camera_
+    // Not registered because pointer
 }
 
 // class FrustumOctreeQuery | File: ../Graphics/OctreeQuery.h
@@ -1357,6 +1397,10 @@ void CollectMembers_IndexBufferDesc(Vector<RegisterObjectMethodArgs>& methods)
 // struct InstanceData | File: ../Graphics/Batch.h
 void CollectMembers_InstanceData(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // const Matrix3x4* InstanceData::worldTransform_
+    // Not registered because pointer
+    // const void* InstanceData::instancingData_
+    // Not registered because pointer
 }
 
 // class Light | File: ../Graphics/Light.h
@@ -1496,11 +1540,29 @@ void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods)
 // struct LightBatchQueue | File: ../Graphics/Batch.h
 void CollectMembers_LightBatchQueue(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // Light* LightBatchQueue::light_
+    // Not registered because pointer
+    // Texture2D* LightBatchQueue::shadowMap_
+    // Not registered because pointer
 }
 
 // struct LightQueryResult | File: ../Graphics/View.h
 void CollectMembers_LightQueryResult(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // Light* LightQueryResult::light_
+    // Not registered because pointer
+    // Camera* LightQueryResult::shadowCameras_[MAX_LIGHT_SPLITS]
+    // Not registered because array
+    // unsigned LightQueryResult::shadowCasterBegin_[MAX_LIGHT_SPLITS]
+    // Not registered because array
+    // unsigned LightQueryResult::shadowCasterEnd_[MAX_LIGHT_SPLITS]
+    // Not registered because array
+    // BoundingBox LightQueryResult::shadowCasterBox_[MAX_LIGHT_SPLITS]
+    // Not registered because array
+    // float LightQueryResult::shadowNearSplits_[MAX_LIGHT_SPLITS]
+    // Not registered because array
+    // float LightQueryResult::shadowFarSplits_[MAX_LIGHT_SPLITS]
+    // Not registered because array
 }
 
 // SharedPtr<Material> Material::Clone(const String& cloneName=String::EMPTY) const
@@ -1748,6 +1810,10 @@ void CollectMembers_ModelMorph(Vector<RegisterObjectMethodArgs>& methods)
 // struct OcclusionBatch | File: ../Graphics/OcclusionBuffer.h
 void CollectMembers_OcclusionBatch(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // const void* OcclusionBatch::vertexData_
+    // Not registered because pointer
+    // const void* OcclusionBatch::indexData_
+    // Not registered because pointer
 }
 
 // class OcclusionBuffer | File: ../Graphics/OcclusionBuffer.h
@@ -1787,6 +1853,8 @@ void CollectMembers_OcclusionBuffer(Vector<RegisterObjectMethodArgs>& methods)
 // struct OcclusionBufferData | File: ../Graphics/OcclusionBuffer.h
 void CollectMembers_OcclusionBufferData(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // int* OcclusionBufferData::data_
+    // Not registered because pointer
 }
 
 // class Octant | File: ../Graphics/Octree.h
@@ -1854,6 +1922,11 @@ void CollectMembers_OctreeQueryResult(Vector<RegisterObjectMethodArgs>& methods)
 {
     // bool OctreeQueryResult::operator!=(const OctreeQueryResult& rhs) const
     // Only operator== is needed
+
+    // Drawable* OctreeQueryResult::drawable_
+    // Not registered because pointer
+    // Node* OctreeQueryResult::node_
+    // Not registered because pointer
 }
 
 // struct Particle | File: ../Graphics/ParticleEmitter.h
@@ -2223,6 +2296,11 @@ void CollectMembers_RayQueryResult(Vector<RegisterObjectMethodArgs>& methods)
 {
     // bool RayQueryResult::operator!=(const RayQueryResult& rhs) const
     // Only operator== is needed
+
+    // Drawable* RayQueryResult::drawable_
+    // Not registered because pointer
+    // Node* RayQueryResult::node_
+    // Not registered because pointer
 }
 
 // SharedPtr<RenderPath> RenderPath::Clone()
@@ -2303,6 +2381,9 @@ void CollectMembers_RenderPathCommand(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("CubeMapFace RenderPathCommand::GetOutputFace(unsigned index) const", "CubeMapFace get_outputFaces(uint) const", AS_METHODPR(RenderPathCommand, GetOutputFace, (unsigned) const, CubeMapFace), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& RenderPathCommand::GetDepthStencilName() const", "const String& GetDepthStencilName() const", AS_METHODPR(RenderPathCommand, GetDepthStencilName, () const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& RenderPathCommand::GetDepthStencilName() const", "const String& get_depthStencilName() const", AS_METHODPR(RenderPathCommand, GetDepthStencilName, () const, const String&), AS_CALL_THISCALL));
+
+    // String RenderPathCommand::textureNames_[MAX_TEXTURE_UNITS]
+    // Not registered because array
 }
 
 // class RenderSurface | File: ../Graphics/RenderSurface.h
@@ -2639,6 +2720,8 @@ void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods)
 // struct ScenePassInfo | File: ../Graphics/View.h
 void CollectMembers_ScenePassInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // BatchQueue* ScenePassInfo::batchQueue_
+    // Not registered because pointer
 }
 
 // struct ScratchBuffer | File: ../Graphics/Graphics.h
@@ -2677,6 +2760,8 @@ void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods)
 // struct ShaderParameter | File: ../Graphics/ShaderVariation.h
 void CollectMembers_ShaderParameter(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // ConstantBuffer* ShaderParameter::bufferPtr_
+    // Not registered because pointer
 }
 
 // class ShaderParameterAnimationInfo | File: ../Graphics/Material.h
@@ -2731,6 +2816,8 @@ void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods)
 // struct ShadowBatchQueue | File: ../Graphics/Batch.h
 void CollectMembers_ShadowBatchQueue(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // Camera* ShadowBatchQueue::shadowCamera_
+    // Not registered because pointer
 }
 
 // class Skeleton | File: ../Graphics/Skeleton.h
@@ -2783,6 +2870,13 @@ void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods)
 void CollectMembers_SourceBatch(Vector<RegisterObjectMethodArgs>& methods)
 {
     methods.Push(RegisterObjectMethodArgs("SourceBatch& SourceBatch::operator=(const SourceBatch& rhs)", "SourceBatch& opAssign(const SourceBatch&in)", AS_METHODPR(SourceBatch, operator=, (const SourceBatch&), SourceBatch&), AS_CALL_THISCALL));
+
+    // Geometry* SourceBatch::geometry_
+    // Not registered because pointer
+    // const Matrix3x4* SourceBatch::worldTransform_
+    // Not registered because pointer
+    // void* SourceBatch::instancingData_
+    // Not registered because pointer
 }
 
 // class SphereOctreeQuery | File: ../Graphics/OctreeQuery.h
@@ -3350,6 +3444,8 @@ void CollectMembers_TextureFrame(Vector<RegisterObjectMethodArgs>& methods)
 // struct TrailPoint | File: ../Graphics/RibbonTrail.h
 void CollectMembers_TrailPoint(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // TrailPoint* TrailPoint::next_
+    // Not registered because pointer
 }
 
 // bool VertexBuffer::SetSize(unsigned vertexCount, const PODVector<VertexElement>& elements, bool dynamic=false)

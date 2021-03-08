@@ -146,6 +146,11 @@ void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("Frustum Frustum::Transformed(const Matrix3x4& transform) const", "Frustum Transformed(const Matrix3x4&in) const", AS_METHODPR(Frustum, Transformed, (const Matrix3x4&) const, Frustum), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Rect Frustum::Projected(const Matrix4& projection) const", "Rect Projected(const Matrix4&in) const", AS_METHODPR(Frustum, Projected, (const Matrix4&) const, Rect), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Frustum::UpdatePlanes()", "void UpdatePlanes()", AS_METHODPR(Frustum, UpdatePlanes, (), void), AS_CALL_THISCALL));
+
+    // Plane Frustum::planes_[NUM_FRUSTUM_PLANES]
+    // Not registered because array
+    // Vector3 Frustum::vertices_[NUM_FRUSTUM_VERTICES]
+    // Not registered because array
 }
 
 // class IntRect | File: ../Math/Rect.h

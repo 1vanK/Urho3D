@@ -173,6 +173,8 @@ void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods)
 // struct CursorShapeInfo | File: ../UI/Cursor.h
 void CollectMembers_CursorShapeInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // SDL_Cursor* CursorShapeInfo::osCursor_
+    // Not registered because pointer
 }
 
 // PODVector<UIElement*> DropDownList::GetItems() const
@@ -390,6 +392,8 @@ void CollectMembers_FontGlyph(Vector<RegisterObjectMethodArgs>& methods)
 // struct GlyphLocation | File: ../UI/Text.h
 void CollectMembers_GlyphLocation(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // const FontGlyph* GlyphLocation::glyph_
+    // Not registered because pointer
 }
 
 // class LineEdit | File: ../UI/LineEdit.h
@@ -1259,6 +1263,15 @@ void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(const Matrix3x4& transform, const IntVector2& a, const IntVector2& b, const IntVector2& c, const IntVector2& d, const IntVector2& texA, const IntVector2& texB, const IntVector2& texC, const IntVector2& texD, const Color& colA, const Color& colB, const Color& colC, const Color& colD)", "void AddQuad(const Matrix3x4&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const Color&in, const Color&in, const Color&in, const Color&in)", AS_METHODPR(UIBatch, AddQuad, (const Matrix3x4&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const Color&, const Color&, const Color&, const Color&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool UIBatch::Merge(const UIBatch& batch)", "bool Merge(const UIBatch&in)", AS_METHODPR(UIBatch, Merge, (const UIBatch&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned UIBatch::GetInterpolatedColor(float x, float y)", "uint GetInterpolatedColor(float, float)", AS_METHODPR(UIBatch, GetInterpolatedColor, (float, float), unsigned), AS_CALL_THISCALL));
+
+    // UIElement* UIBatch::element_
+    // Not registered because pointer
+    // Texture* UIBatch::texture_
+    // Not registered because pointer
+    // PODVector<float>* UIBatch::vertexData_
+    // Not registered because pointer
+    // Material* UIBatch::customMaterial_
+    // Not registered because pointer
 }
 
 // class UIComponent | File: ../UI/UIComponent.h

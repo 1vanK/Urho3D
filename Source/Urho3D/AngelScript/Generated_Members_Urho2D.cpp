@@ -612,6 +612,10 @@ void CollectMembers_ConstraintWheel2D(Vector<RegisterObjectMethodArgs>& methods)
 // struct DelayedWorldTransform2D | File: ../Urho2D/PhysicsWorld2D.h
 void CollectMembers_DelayedWorldTransform2D(Vector<RegisterObjectMethodArgs>& methods)
 {
+    // RigidBody2D* DelayedWorldTransform2D::rigidBody_
+    // Not registered because pointer
+    // RigidBody2D* DelayedWorldTransform2D::parentRigidBody_
+    // Not registered because pointer
 }
 
 // class Drawable2D | File: ../Urho2D/Drawable2D.h
@@ -776,6 +780,9 @@ void CollectMembers_PhysicsRaycastResult2D(Vector<RegisterObjectMethodArgs>& met
 {
     // bool PhysicsRaycastResult2D::operator!=(const PhysicsRaycastResult2D& rhs) const
     // Only operator== is needed
+
+    // RigidBody2D* PhysicsRaycastResult2D::body_
+    // Not registered because pointer
 }
 
 // class PhysicsWorld2D | File: ../Urho2D/PhysicsWorld2D.h
