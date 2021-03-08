@@ -13,9 +13,9 @@ namespace Urho3D
 #ifdef URHO3D_IK
 
 // class IKConstraint | File: ../IK/IKConstraint.h
-void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -28,9 +28,9 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class IKEffector | File: ../IK/IKEffector.h
-void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -78,9 +78,9 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class IKSolver | File: ../IK/IKSolver.h
-void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");

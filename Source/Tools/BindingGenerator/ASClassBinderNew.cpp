@@ -537,33 +537,35 @@ static void RegisterField(const FieldAnalyzer& fieldAnalyzer, ProcessedClass& pr
             return;
         }
 
-/*
-        result->reg_ << "    // " << variable.GetLocation() << "\n";
-
-        string propType;
+        string asPropertyType;
 
         try
         {
-            propType = CppTypeToAS(variable.GetType(), TypeUsage::Field);
+            asPropertyType = CppTypeToAS(fieldAnalyzer.GetType(), TypeUsage::Field);
         }
         catch (const Exception& e)
         {
-            result->reg_ << "    // " << e.what() << "\n";
+            MemberRegistrationError regError;
+            regError.name_ = fieldAnalyzer.GetName();
+            regError.comment_ = fieldAnalyzer.GetDeclaration();
+            regError.message_ = e.what();
+            processedClass.unregisteredFields_.push_back(regError);
             return;
         }
 
-        string varName = variable.GetName();
-        assert(!varName.empty());
-        string propName = CutEnd(varName, "_");
+        string cppFieldName = fieldAnalyzer.GetName();
+        assert(!cppFieldName.empty());
+        string asPropertyName = CutEnd(cppFieldName, "_");
 
-        string className = variable.GetClassName();
+        string cppClassName = fieldAnalyzer.GetClassName();
 
-        result->reg_ <<
-            "    engine->RegisterObjectProperty("
-            "\"" << className << "\", "
-            "\"" << propType << " " << propName << "\", "
-            "offsetof(" << className << ", " << varName << "));\n";
-            */
+        FieldRegistration result;
+        result.name_ = cppFieldName;
+        result.cppDeclaration_ = fieldAnalyzer.GetDeclaration();
+        result.registration_.asDeclarations_.push_back(asPropertyType + " " + asPropertyName);
+        result.registration_.byteOffset_ = "offsetof(" + cppClassName + ", " + cppFieldName + ")";
+
+        processedClass.fields_.push_back(result);
     }
 }
 

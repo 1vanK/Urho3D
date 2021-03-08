@@ -639,10 +639,13 @@ namespace Result
 
             ofs <<
                 "    Vector<RegisterObjectMethodArgs> methods;\n"
-                "    CollectMembers_" << processedClass.name_ << "(methods);\n"
+                "    Vector<RegisterObjectPropertyArgs> fields;\n"
+                "    CollectMembers_" << processedClass.name_ << "(methods, fields);\n"
                 "    const char* asClassName = \"" << processedClass.name_ << "\";\n"
                 "    for (const RegisterObjectMethodArgs& method : methods)\n"
-                "        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);\n";
+                "        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);\n"
+                "    for (const RegisterObjectPropertyArgs& field : fields)\n"
+                "        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);\n";
 
             ofs << "}\n";
 
@@ -775,7 +778,7 @@ namespace Result
             file->ofs_ <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
-                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods)\n"
+                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)\n"
                 "{\n";
 
             file->needGap_ = false;
@@ -783,7 +786,7 @@ namespace Result
             if (processedClass.baseClassNames_.size())
             {
                 for (const string& baseClassName : processedClass.baseClassNames_)
-                    file->ofs_ << "    CollectMembers_" << baseClassName << "(methods);\n";
+                    file->ofs_ << "    CollectMembers_" << baseClassName << "(methods, fields);\n";
 
                 file->needGap_ = true;
             }
@@ -839,6 +842,20 @@ namespace Result
                 file->ofs_ <<
                     "    // " << unregisteredField.comment_ << "\n"
                     "    // " << unregisteredField.message_ << "\n";
+
+                file->needGap_ = true;
+            }
+
+            if (file->needGap_ && processedClass.fields_.size())
+                file->ofs_ << '\n';
+
+            for (const FieldRegistration& field : processedClass.fields_)
+            {
+                const RegisterObjectPropertyArgs& args = field.registration_;
+                assert(args.asDeclarations_.size());
+
+                for (const string& asDeclaration : args.asDeclarations_)
+                    file->ofs_ << "    fields.Push(RegisterObjectPropertyArgs(\"" << field.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.byteOffset_ << "));\n";
 
                 file->needGap_ = true;
             }
@@ -903,7 +920,7 @@ namespace Result
             ofsH <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
-                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods);\n";
+                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields);\n";
         }
 
         if (!openedDefine.empty())

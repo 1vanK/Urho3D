@@ -13,9 +13,9 @@ namespace Urho3D
 #ifdef URHO3D_DATABASE
 
 // class Database | File: ../Database/Database.h
-void CollectMembers_Database(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Database(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("DbConnection* Database::Connect(const String& connectionString)", "DbConnection@+ Connect(const String&in)", AS_METHODPR(Database, Connect, (const String&), DbConnection*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Database::Disconnect(DbConnection* connection)", "void Disconnect(DbConnection@+)", AS_METHODPR(Database, Disconnect, (DbConnection*), void), AS_CALL_THISCALL));

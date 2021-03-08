@@ -122,9 +122,9 @@ struct MemberRegistration // todo rename to special method
 
 struct RegisterObjectMethodArgs
 {
-    vector<string> asDeclarations_;  // String
-    string funcPointer_;    // asSFuncPtr
-    string callConv_;       // asDWORD
+    vector<string> asDeclarations_; // String
+    string funcPointer_;            // asSFuncPtr
+    string callConv_;               // asDWORD
 };
 
 struct MethodRegistration
@@ -135,11 +135,17 @@ struct MethodRegistration
     RegisterObjectMethodArgs registration_;
 };
 
+struct RegisterObjectPropertyArgs
+{
+    vector<string> asDeclarations_; // String
+    string byteOffset_;             // int
+};
+
 struct FieldRegistration
 {
     string name_; // Used for sorting
     string cppDeclaration_;
-    RegisterObjectMethodArgs registration_;
+    RegisterObjectPropertyArgs registration_;
 };
 
 struct MemberRegistrationError

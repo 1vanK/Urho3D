@@ -11,18 +11,23 @@ namespace Urho3D
 {
 
 // class Controls | File: ../Input/Controls.h
-void CollectMembers_Controls(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Controls(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("void Controls::Reset()", "void Reset()", AS_METHODPR(Controls, Reset, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Controls::Set(unsigned buttons, bool down=true)", "void Set(uint, bool = true)", AS_METHODPR(Controls, Set, (unsigned, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Controls::IsDown(unsigned button) const", "bool IsDown(uint) const", AS_METHODPR(Controls, IsDown, (unsigned) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Controls::IsPressed(unsigned button, const Controls& previousControls) const", "bool IsPressed(uint, const Controls&in) const", AS_METHODPR(Controls, IsPressed, (unsigned, const Controls&) const, bool), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("unsigned Controls::buttons_", "uint buttons", offsetof(Controls, buttons_)));
+    fields.Push(RegisterObjectPropertyArgs("float Controls::yaw_", "float yaw", offsetof(Controls, yaw_)));
+    fields.Push(RegisterObjectPropertyArgs("float Controls::pitch_", "float pitch", offsetof(Controls, pitch_)));
+    fields.Push(RegisterObjectPropertyArgs("VariantMap Controls::extraData_", "VariantMap extraData", offsetof(Controls, extraData_)));
 }
 
 // class Input | File: ../Input/Input.h
-void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("void Input::Update()", "void Update()", AS_METHODPR(Input, Update, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Input::SetToggleFullscreen(bool enable)", "void SetToggleFullscreen(bool)", AS_METHODPR(Input, SetToggleFullscreen, (bool), void), AS_CALL_THISCALL));
@@ -123,7 +128,7 @@ void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct JoystickState | File: ../Input/Input.h
-void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("void JoystickState::Initialize(unsigned numButtons, unsigned numAxes, unsigned numHats)", "void Initialize(uint, uint, uint)", AS_METHODPR(JoystickState, Initialize, (unsigned, unsigned, unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void JoystickState::Reset()", "void Reset()", AS_METHODPR(JoystickState, Reset, (), void), AS_CALL_THISCALL));
@@ -150,13 +155,33 @@ void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods)
     // Not registered because pointer
     // UIElement* JoystickState::screenJoystick_
     // Not registered because pointer
+    // PODVector<bool> JoystickState::buttons_
+    // Error: type "PODVector<bool>" can not automatically bind
+    // PODVector<bool> JoystickState::buttonPress_
+    // Error: type "PODVector<bool>" can not automatically bind
+    // PODVector<float> JoystickState::axes_
+    // Error: type "PODVector<float>" can not automatically bind
+    // PODVector<int> JoystickState::hats_
+    // Error: type "PODVector<int>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("SDL_JoystickID JoystickState::joystickID_", "SDL_JoystickID joystickID", offsetof(JoystickState, joystickID_)));
+    fields.Push(RegisterObjectPropertyArgs("String JoystickState::name_", "String name", offsetof(JoystickState, name_)));
 }
 
 // struct TouchState | File: ../Input/Input.h
-void CollectMembers_TouchState(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_TouchState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("UIElement* TouchState::GetTouchedElement()", "UIElement@+ GetTouchedElement()", AS_METHODPR(TouchState, GetTouchedElement, (), UIElement*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("UIElement* TouchState::GetTouchedElement()", "UIElement@+ get_touchedElement()", AS_METHODPR(TouchState, GetTouchedElement, (), UIElement*), AS_CALL_THISCALL));
+
+    // WeakPtr<UIElement> TouchState::touchedElement_
+    // Error: type "WeakPtr<UIElement>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("int TouchState::touchID_", "int touchID", offsetof(TouchState, touchID_)));
+    fields.Push(RegisterObjectPropertyArgs("IntVector2 TouchState::position_", "IntVector2 position", offsetof(TouchState, position_)));
+    fields.Push(RegisterObjectPropertyArgs("IntVector2 TouchState::lastPosition_", "IntVector2 lastPosition", offsetof(TouchState, lastPosition_)));
+    fields.Push(RegisterObjectPropertyArgs("IntVector2 TouchState::delta_", "IntVector2 delta", offsetof(TouchState, delta_)));
+    fields.Push(RegisterObjectPropertyArgs("float TouchState::pressure_", "float pressure", offsetof(TouchState, pressure_)));
 }
 
 } // namespace Urho3D

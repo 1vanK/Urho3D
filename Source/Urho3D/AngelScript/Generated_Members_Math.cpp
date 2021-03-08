@@ -11,7 +11,7 @@ namespace Urho3D
 {
 
 // class AreaAllocator | File: ../Math/AreaAllocator.h
-void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("void AreaAllocator::Reset(int width, int height, int maxWidth=0, int maxHeight=0, bool fastMode=true)", "void Reset(int, int, int = 0, int = 0, bool = true)", AS_METHODPR(AreaAllocator, Reset, (int, int, int, int, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool AreaAllocator::Allocate(int width, int height, int& x, int& y)", "bool Allocate(int, int, int&, int&)", AS_METHODPR(AreaAllocator, Allocate, (int, int, int&, int&), bool), AS_CALL_THISCALL));
@@ -21,7 +21,7 @@ void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class BoundingBox | File: ../Math/BoundingBox.h
-void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // void BoundingBox::Define(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
@@ -67,10 +67,15 @@ void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("Intersection BoundingBox::IsInside(const Sphere& sphere) const", "Intersection IsInside(const Sphere&in) const", AS_METHODPR(BoundingBox, IsInside, (const Sphere&) const, Intersection), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Intersection BoundingBox::IsInsideFast(const Sphere& sphere) const", "Intersection IsInsideFast(const Sphere&in) const", AS_METHODPR(BoundingBox, IsInsideFast, (const Sphere&) const, Intersection), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String BoundingBox::ToString() const", "String ToString() const", AS_METHODPR(BoundingBox, ToString, () const, String), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("Vector3 BoundingBox::min_", "Vector3 min", offsetof(BoundingBox, min_)));
+    fields.Push(RegisterObjectPropertyArgs("float BoundingBox::dummyMin_", "float dummyMin", offsetof(BoundingBox, dummyMin_)));
+    fields.Push(RegisterObjectPropertyArgs("Vector3 BoundingBox::max_", "Vector3 max", offsetof(BoundingBox, max_)));
+    fields.Push(RegisterObjectPropertyArgs("float BoundingBox::dummyMax_", "float dummyMax", offsetof(BoundingBox, dummyMax_)));
 }
 
 // class Color | File: ../Math/Color.h
-void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // void Color::Bounds(float* min, float* max, bool clipped=false) const
     // Error: type "float*" can not automatically bind
@@ -122,10 +127,15 @@ void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("String Color::ToString() const", "String ToString() const", AS_METHODPR(Color, ToString, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Color::ToUIntArgb() const", "uint ToUIntArgb() const", AS_METHODPR(Color, ToUIntArgb, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Color::ToHash() const", "uint ToHash() const", AS_METHODPR(Color, ToHash, () const, unsigned), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Color::r_", "float r", offsetof(Color, r_)));
+    fields.Push(RegisterObjectPropertyArgs("float Color::g_", "float g", offsetof(Color, g_)));
+    fields.Push(RegisterObjectPropertyArgs("float Color::b_", "float b", offsetof(Color, b_)));
+    fields.Push(RegisterObjectPropertyArgs("float Color::a_", "float a", offsetof(Color, a_)));
 }
 
 // class Frustum | File: ../Math/Frustum.h
-void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("Frustum& Frustum::operator=(const Frustum& rhs) noexcept", "Frustum& opAssign(const Frustum&in)", AS_METHODPR(Frustum, operator=, (const Frustum&), Frustum&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Frustum::Define(float fov, float aspectRatio, float zoom, float nearZ, float farZ, const Matrix3x4& transform=Matrix3x4::IDENTITY)", "void Define(float, float, float, float, float, const Matrix3x4&in = Matrix3x4::IDENTITY)", AS_METHODPR(Frustum, Define, (float, float, float, float, float, const Matrix3x4&), void), AS_CALL_THISCALL));
@@ -154,7 +164,7 @@ void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class IntRect | File: ../Math/Rect.h
-void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const int* IntRect::Data() const
     // Error: type "const int*" can not automatically bind
@@ -187,10 +197,15 @@ void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("int IntRect::Top() const", "int Top() const", AS_METHODPR(IntRect, Top, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int IntRect::Right() const", "int Right() const", AS_METHODPR(IntRect, Right, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int IntRect::Bottom() const", "int Bottom() const", AS_METHODPR(IntRect, Bottom, () const, int), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("int IntRect::left_", "int left", offsetof(IntRect, left_)));
+    fields.Push(RegisterObjectPropertyArgs("int IntRect::top_", "int top", offsetof(IntRect, top_)));
+    fields.Push(RegisterObjectPropertyArgs("int IntRect::right_", "int right", offsetof(IntRect, right_)));
+    fields.Push(RegisterObjectPropertyArgs("int IntRect::bottom_", "int bottom", offsetof(IntRect, bottom_)));
 }
 
 // class IntVector2 | File: ../Math/Vector2.h
-void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const int* IntVector2::Data() const
     // Error: type "const int*" can not automatically bind
@@ -215,10 +230,13 @@ void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("String IntVector2::ToString() const", "String ToString() const", AS_METHODPR(IntVector2, ToString, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned IntVector2::ToHash() const", "uint ToHash() const", AS_METHODPR(IntVector2, ToHash, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float IntVector2::Length() const", "float Length() const", AS_METHODPR(IntVector2, Length, () const, float), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("int IntVector2::x_", "int x", offsetof(IntVector2, x_)));
+    fields.Push(RegisterObjectPropertyArgs("int IntVector2::y_", "int y", offsetof(IntVector2, y_)));
 }
 
 // class IntVector3 | File: ../Math/Vector3.h
-void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const int* IntVector3::Data() const
     // Error: type "const int*" can not automatically bind
@@ -243,10 +261,14 @@ void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("String IntVector3::ToString() const", "String ToString() const", AS_METHODPR(IntVector3, ToString, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned IntVector3::ToHash() const", "uint ToHash() const", AS_METHODPR(IntVector3, ToHash, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float IntVector3::Length() const", "float Length() const", AS_METHODPR(IntVector3, Length, () const, float), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("int IntVector3::x_", "int x", offsetof(IntVector3, x_)));
+    fields.Push(RegisterObjectPropertyArgs("int IntVector3::y_", "int y", offsetof(IntVector3, y_)));
+    fields.Push(RegisterObjectPropertyArgs("int IntVector3::z_", "int z", offsetof(IntVector3, z_)));
 }
 
 // class Matrix2 | File: ../Math/Matrix2.h
-void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Matrix2::Data() const
     // Error: type "const float*" can not automatically bind
@@ -270,10 +292,15 @@ void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("bool Matrix2::IsNaN() const", "bool IsNaN() const", AS_METHODPR(Matrix2, IsNaN, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Matrix2::IsInf() const", "bool IsInf() const", AS_METHODPR(Matrix2, IsInf, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Matrix2::ToString() const", "String ToString() const", AS_METHODPR(Matrix2, ToString, () const, String), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Matrix2::m00_", "float m00", offsetof(Matrix2, m00_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix2::m01_", "float m01", offsetof(Matrix2, m01_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix2::m10_", "float m10", offsetof(Matrix2, m10_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix2::m11_", "float m11", offsetof(Matrix2, m11_)));
 }
 
 // class Matrix3 | File: ../Math/Matrix3.h
-void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Matrix3::Data() const
     // Error: type "const float*" can not automatically bind
@@ -301,10 +328,20 @@ void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("bool Matrix3::IsNaN() const", "bool IsNaN() const", AS_METHODPR(Matrix3, IsNaN, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Matrix3::IsInf() const", "bool IsInf() const", AS_METHODPR(Matrix3, IsInf, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Matrix3::ToString() const", "String ToString() const", AS_METHODPR(Matrix3, ToString, () const, String), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m00_", "float m00", offsetof(Matrix3, m00_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m01_", "float m01", offsetof(Matrix3, m01_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m02_", "float m02", offsetof(Matrix3, m02_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m10_", "float m10", offsetof(Matrix3, m10_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m11_", "float m11", offsetof(Matrix3, m11_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m12_", "float m12", offsetof(Matrix3, m12_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m20_", "float m20", offsetof(Matrix3, m20_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m21_", "float m21", offsetof(Matrix3, m21_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3::m22_", "float m22", offsetof(Matrix3, m22_)));
 }
 
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
-void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Matrix3x4::Data() const
     // Error: type "const float*" can not automatically bind
@@ -342,10 +379,23 @@ void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("bool Matrix3x4::IsNaN() const", "bool IsNaN() const", AS_METHODPR(Matrix3x4, IsNaN, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Matrix3x4::IsInf() const", "bool IsInf() const", AS_METHODPR(Matrix3x4, IsInf, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Matrix3x4::ToString() const", "String ToString() const", AS_METHODPR(Matrix3x4, ToString, () const, String), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m00_", "float m00", offsetof(Matrix3x4, m00_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m01_", "float m01", offsetof(Matrix3x4, m01_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m02_", "float m02", offsetof(Matrix3x4, m02_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m03_", "float m03", offsetof(Matrix3x4, m03_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m10_", "float m10", offsetof(Matrix3x4, m10_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m11_", "float m11", offsetof(Matrix3x4, m11_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m12_", "float m12", offsetof(Matrix3x4, m12_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m13_", "float m13", offsetof(Matrix3x4, m13_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m20_", "float m20", offsetof(Matrix3x4, m20_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m21_", "float m21", offsetof(Matrix3x4, m21_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m22_", "float m22", offsetof(Matrix3x4, m22_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m23_", "float m23", offsetof(Matrix3x4, m23_)));
 }
 
 // class Matrix4 | File: ../Math/Matrix4.h
-void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Matrix4::Data() const
     // Error: type "const float*" can not automatically bind
@@ -382,10 +432,27 @@ void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("bool Matrix4::IsNaN() const", "bool IsNaN() const", AS_METHODPR(Matrix4, IsNaN, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Matrix4::IsInf() const", "bool IsInf() const", AS_METHODPR(Matrix4, IsInf, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Matrix4::ToString() const", "String ToString() const", AS_METHODPR(Matrix4, ToString, () const, String), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m00_", "float m00", offsetof(Matrix4, m00_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m01_", "float m01", offsetof(Matrix4, m01_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m02_", "float m02", offsetof(Matrix4, m02_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m03_", "float m03", offsetof(Matrix4, m03_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m10_", "float m10", offsetof(Matrix4, m10_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m11_", "float m11", offsetof(Matrix4, m11_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m12_", "float m12", offsetof(Matrix4, m12_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m13_", "float m13", offsetof(Matrix4, m13_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m20_", "float m20", offsetof(Matrix4, m20_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m21_", "float m21", offsetof(Matrix4, m21_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m22_", "float m22", offsetof(Matrix4, m22_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m23_", "float m23", offsetof(Matrix4, m23_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m30_", "float m30", offsetof(Matrix4, m30_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m31_", "float m31", offsetof(Matrix4, m31_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m32_", "float m32", offsetof(Matrix4, m32_)));
+    fields.Push(RegisterObjectPropertyArgs("float Matrix4::m33_", "float m33", offsetof(Matrix4, m33_)));
 }
 
 // class Plane | File: ../Math/Plane.h
-void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("Plane& Plane::operator=(const Plane& rhs) noexcept=default", "Plane& opAssign(const Plane&in)", AS_METHODPR(Plane, operator=, (const Plane&), Plane&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Plane::Define(const Vector3& v0, const Vector3& v1, const Vector3& v2)", "void Define(const Vector3&in, const Vector3&in, const Vector3&in)", AS_METHODPR(Plane, Define, (const Vector3&, const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
@@ -403,6 +470,10 @@ void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("Plane Plane::Transformed(const Matrix3x4& transform) const", "Plane Transformed(const Matrix3x4&in) const", AS_METHODPR(Plane, Transformed, (const Matrix3x4&) const, Plane), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Plane Plane::Transformed(const Matrix4& transform) const", "Plane Transformed(const Matrix4&in) const", AS_METHODPR(Plane, Transformed, (const Matrix4&) const, Plane), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Vector4 Plane::ToVector4() const", "Vector4 ToVector4() const", AS_METHODPR(Plane, ToVector4, () const, Vector4), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("Vector3 Plane::normal_", "Vector3 normal", offsetof(Plane, normal_)));
+    fields.Push(RegisterObjectPropertyArgs("Vector3 Plane::absNormal_", "Vector3 absNormal", offsetof(Plane, absNormal_)));
+    fields.Push(RegisterObjectPropertyArgs("float Plane::d_", "float d", offsetof(Plane, d_)));
 }
 
 // void Polyhedron::AddFace(const PODVector<Vector3>& face)
@@ -415,7 +486,7 @@ static void Polyhedron_AddFace_PODVectorVector3(Polyhedron* ptr, CScriptArray* f
 
 
 // class Polyhedron | File: ../Math/Polyhedron.h
-void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("Polyhedron& Polyhedron::operator=(const Polyhedron& rhs)", "Polyhedron& opAssign(const Polyhedron&in)", AS_METHODPR(Polyhedron, operator=, (const Polyhedron&), Polyhedron&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Polyhedron::Define(const BoundingBox& box)", "void Define(const BoundingBox&in)", AS_METHODPR(Polyhedron, Define, (const BoundingBox&), void), AS_CALL_THISCALL));
@@ -432,10 +503,13 @@ void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("Polyhedron Polyhedron::Transformed(const Matrix3& transform) const", "Polyhedron Transformed(const Matrix3&in) const", AS_METHODPR(Polyhedron, Transformed, (const Matrix3&) const, Polyhedron), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Polyhedron Polyhedron::Transformed(const Matrix3x4& transform) const", "Polyhedron Transformed(const Matrix3x4&in) const", AS_METHODPR(Polyhedron, Transformed, (const Matrix3x4&) const, Polyhedron), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Polyhedron::Empty() const", "bool Empty() const", AS_METHODPR(Polyhedron, Empty, () const, bool), AS_CALL_THISCALL));
+
+    // Vector<PODVector<Vector3>> Polyhedron::faces_
+    // Error: type "Vector<PODVector<Vector3>>" can not automatically bind
 }
 
 // class Quaternion | File: ../Math/Quaternion.h
-void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Quaternion::Data() const
     // Error: type "const float*" can not automatically bind
@@ -484,10 +558,15 @@ void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("Quaternion Quaternion::Slerp(const Quaternion& rhs, float t) const", "Quaternion Slerp(const Quaternion&in, float) const", AS_METHODPR(Quaternion, Slerp, (const Quaternion&, float) const, Quaternion), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Quaternion Quaternion::Nlerp(const Quaternion& rhs, float t, bool shortestPath=false) const", "Quaternion Nlerp(const Quaternion&in, float, bool = false) const", AS_METHODPR(Quaternion, Nlerp, (const Quaternion&, float, bool) const, Quaternion), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Quaternion::ToString() const", "String ToString() const", AS_METHODPR(Quaternion, ToString, () const, String), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Quaternion::w_", "float w", offsetof(Quaternion, w_)));
+    fields.Push(RegisterObjectPropertyArgs("float Quaternion::x_", "float x", offsetof(Quaternion, x_)));
+    fields.Push(RegisterObjectPropertyArgs("float Quaternion::y_", "float y", offsetof(Quaternion, y_)));
+    fields.Push(RegisterObjectPropertyArgs("float Quaternion::z_", "float z", offsetof(Quaternion, z_)));
 }
 
 // class Ray | File: ../Math/Ray.h
-void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // float Ray::HitDistance(const Vector3& v0, const Vector3& v1, const Vector3& v2, Vector3* outNormal=nullptr, Vector3* outBary=nullptr) const
     // Error: type "Vector3*" can not automatically bind
@@ -513,10 +592,13 @@ void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("float Ray::HitDistance(const Frustum& frustum, bool solidInside=true) const", "float HitDistance(const Frustum&in, bool = true) const", AS_METHODPR(Ray, HitDistance, (const Frustum&, bool) const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Ray::HitDistance(const Sphere& sphere) const", "float HitDistance(const Sphere&in) const", AS_METHODPR(Ray, HitDistance, (const Sphere&) const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Ray Ray::Transformed(const Matrix3x4& transform) const", "Ray Transformed(const Matrix3x4&in) const", AS_METHODPR(Ray, Transformed, (const Matrix3x4&) const, Ray), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("Vector3 Ray::origin_", "Vector3 origin", offsetof(Ray, origin_)));
+    fields.Push(RegisterObjectPropertyArgs("Vector3 Ray::direction_", "Vector3 direction", offsetof(Ray, direction_)));
 }
 
 // class Rect | File: ../Math/Rect.h
-void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Rect::Data() const
     // Error: type "const float*" can not automatically bind
@@ -562,10 +644,13 @@ void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("float Rect::Right() const", "float get_right() const", AS_METHODPR(Rect, Right, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Rect::Bottom() const", "float Bottom() const", AS_METHODPR(Rect, Bottom, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Rect::Bottom() const", "float get_bottom() const", AS_METHODPR(Rect, Bottom, () const, float), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("Vector2 Rect::min_", "Vector2 min", offsetof(Rect, min_)));
+    fields.Push(RegisterObjectPropertyArgs("Vector2 Rect::max_", "Vector2 max", offsetof(Rect, max_)));
 }
 
 // class Sphere | File: ../Math/Sphere.h
-void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // void Sphere::Define(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
@@ -596,10 +681,13 @@ void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("float Sphere::Distance(const Vector3& point) const", "float Distance(const Vector3&in) const", AS_METHODPR(Sphere, Distance, (const Vector3&) const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Vector3 Sphere::GetLocalPoint(float theta, float phi) const", "Vector3 GetLocalPoint(float, float) const", AS_METHODPR(Sphere, GetLocalPoint, (float, float) const, Vector3), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Vector3 Sphere::GetPoint(float theta, float phi) const", "Vector3 GetPoint(float, float) const", AS_METHODPR(Sphere, GetPoint, (float, float) const, Vector3), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("Vector3 Sphere::center_", "Vector3 center", offsetof(Sphere, center_)));
+    fields.Push(RegisterObjectPropertyArgs("float Sphere::radius_", "float radius", offsetof(Sphere, radius_)));
 }
 
 // class StringHash | File: ../Math/StringHash.h
-void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // bool StringHash::operator!=(const StringHash& rhs) const
     // Only operator== is needed
@@ -621,7 +709,7 @@ void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class Vector2 | File: ../Math/Vector2.h
-void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Vector2::Data() const
     // Error: type "const float*" can not automatically bind
@@ -661,10 +749,13 @@ void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("Vector2 Vector2::NormalizedOrDefault(const Vector2& defaultValue=Vector2::ZERO, float eps=M_LARGE_EPSILON) const", "Vector2 NormalizedOrDefault(const Vector2&in = Vector2::ZERO, float = M_LARGE_EPSILON) const", AS_METHODPR(Vector2, NormalizedOrDefault, (const Vector2&, float) const, Vector2), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Vector2 Vector2::ReNormalized(float minLength, float maxLength, const Vector2& defaultValue=Vector2::ZERO, float eps=M_LARGE_EPSILON) const", "Vector2 ReNormalized(float, float, const Vector2&in = Vector2::ZERO, float = M_LARGE_EPSILON) const", AS_METHODPR(Vector2, ReNormalized, (float, float, const Vector2&, float) const, Vector2), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Vector2::ToString() const", "String ToString() const", AS_METHODPR(Vector2, ToString, () const, String), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Vector2::x_", "float x", offsetof(Vector2, x_)));
+    fields.Push(RegisterObjectPropertyArgs("float Vector2::y_", "float y", offsetof(Vector2, y_)));
 }
 
 // class Vector3 | File: ../Math/Vector3.h
-void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Vector3::Data() const
     // Error: type "const float*" can not automatically bind
@@ -711,10 +802,14 @@ void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("Vector3 Vector3::ReNormalized(float minLength, float maxLength, const Vector3& defaultValue=Vector3::ZERO, float eps=M_LARGE_EPSILON) const", "Vector3 ReNormalized(float, float, const Vector3&in = Vector3::ZERO, float = M_LARGE_EPSILON) const", AS_METHODPR(Vector3, ReNormalized, (float, float, const Vector3&, float) const, Vector3), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Vector3::ToString() const", "String ToString() const", AS_METHODPR(Vector3, ToString, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Vector3::ToHash() const", "uint ToHash() const", AS_METHODPR(Vector3, ToHash, () const, unsigned), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Vector3::x_", "float x", offsetof(Vector3, x_)));
+    fields.Push(RegisterObjectPropertyArgs("float Vector3::y_", "float y", offsetof(Vector3, y_)));
+    fields.Push(RegisterObjectPropertyArgs("float Vector3::z_", "float z", offsetof(Vector3, z_)));
 }
 
 // class Vector4 | File: ../Math/Vector4.h
-void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const float* Vector4::Data() const
     // Error: type "const float*" can not automatically bind
@@ -750,6 +845,11 @@ void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("explicit Vector4::operator Vector3() const", "Vector3 opConv() const", AS_METHODPR(Vector4, operator Vector3, () const, Vector3), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Vector4::ToString() const", "String ToString() const", AS_METHODPR(Vector4, ToString, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Vector4::ToHash() const", "uint ToHash() const", AS_METHODPR(Vector4, ToHash, () const, unsigned), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("float Vector4::x_", "float x", offsetof(Vector4, x_)));
+    fields.Push(RegisterObjectPropertyArgs("float Vector4::y_", "float y", offsetof(Vector4, y_)));
+    fields.Push(RegisterObjectPropertyArgs("float Vector4::z_", "float z", offsetof(Vector4, z_)));
+    fields.Push(RegisterObjectPropertyArgs("float Vector4::w_", "float w", offsetof(Vector4, w_)));
 }
 
 } // namespace Urho3D

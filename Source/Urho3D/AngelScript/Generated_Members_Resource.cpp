@@ -11,12 +11,20 @@ namespace Urho3D
 {
 
 // struct BackgroundLoadItem | File: ../Resource/BackgroundLoader.h
-void CollectMembers_BackgroundLoadItem(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_BackgroundLoadItem(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    // SharedPtr<Resource> BackgroundLoadItem::resource_
+    // Error: type "SharedPtr<Resource>" can not automatically bind
+    // HashSet<Pair<StringHash, StringHash>> BackgroundLoadItem::dependencies_
+    // Error: type "HashSet<Pair<StringHash, StringHash>>" can not automatically bind
+    // HashSet<Pair<StringHash, StringHash>> BackgroundLoadItem::dependents_
+    // Error: type "HashSet<Pair<StringHash, StringHash>>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("bool BackgroundLoadItem::sendEventOnFailure_", "bool sendEventOnFailure", offsetof(BackgroundLoadItem, sendEventOnFailure_)));
 }
 
 // class BackgroundLoader | File: ../Resource/BackgroundLoader.h
-void CollectMembers_BackgroundLoader(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_BackgroundLoader(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("void BackgroundLoader::ThreadFunction() override", "void ThreadFunction()", AS_METHODPR(BackgroundLoader, ThreadFunction, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool BackgroundLoader::QueueResource(StringHash type, const String& name, bool sendEventOnFailure, Resource* caller)", "bool QueueResource(StringHash, const String&in, bool, Resource@+)", AS_METHODPR(BackgroundLoader, QueueResource, (StringHash, const String&, bool, Resource*), bool), AS_CALL_THISCALL));
@@ -26,13 +34,22 @@ void CollectMembers_BackgroundLoader(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct CompressedLevel | File: ../Resource/Image.h
-void CollectMembers_CompressedLevel(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_CompressedLevel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // bool CompressedLevel::Decompress(unsigned char* dest) const
     // Error: type "unsigned char*" can not automatically bind
 
     // unsigned char* CompressedLevel::data_
     // Not registered because pointer
+
+    fields.Push(RegisterObjectPropertyArgs("CompressedFormat CompressedLevel::format_", "CompressedFormat format", offsetof(CompressedLevel, format_)));
+    fields.Push(RegisterObjectPropertyArgs("int CompressedLevel::width_", "int width", offsetof(CompressedLevel, width_)));
+    fields.Push(RegisterObjectPropertyArgs("int CompressedLevel::height_", "int height", offsetof(CompressedLevel, height_)));
+    fields.Push(RegisterObjectPropertyArgs("int CompressedLevel::depth_", "int depth", offsetof(CompressedLevel, depth_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned CompressedLevel::blockSize_", "uint blockSize", offsetof(CompressedLevel, blockSize_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned CompressedLevel::dataSize_", "uint dataSize", offsetof(CompressedLevel, dataSize_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned CompressedLevel::rowSize_", "uint rowSize", offsetof(CompressedLevel, rowSize_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned CompressedLevel::rows_", "uint rows", offsetof(CompressedLevel, rows_)));
 }
 
 // SharedPtr<Image> Image::GetNextLevel() const
@@ -72,9 +89,9 @@ static Image* Image_GetDecompressedImage_void(Image* ptr)
 
 
 // class Image | File: ../Resource/Image.h
-void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Resource(methods);
+    CollectMembers_Resource(methods, fields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
@@ -153,9 +170,9 @@ void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class JSONFile | File: ../Resource/JSONFile.h
-void CollectMembers_JSONFile(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_JSONFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Resource(methods);
+    CollectMembers_Resource(methods, fields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
@@ -198,7 +215,7 @@ static void JSONValue_SetVariantMap_VariantMap_Context(JSONValue* ptr, const Var
 
 
 // class JSONValue | File: ../Resource/JSONValue.h
-void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // ConstJSONObjectIterator JSONValue::Begin() const
     // Error: type "ConstJSONObjectIterator" can not automatically bind
@@ -295,9 +312,9 @@ void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class Localization | File: ../Resource/Localization.h
-void CollectMembers_Localization(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Localization(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("int Localization::GetNumLanguages() const", "int GetNumLanguages() const", AS_METHODPR(Localization, GetNumLanguages, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int Localization::GetNumLanguages() const", "int get_numLanguages() const", AS_METHODPR(Localization, GetNumLanguages, () const, int), AS_CALL_THISCALL));
@@ -317,9 +334,9 @@ void CollectMembers_Localization(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class Resource | File: ../Resource/Resource.h
-void CollectMembers_Resource(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Resource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("bool Resource::Load(Deserializer& source)", "bool Load(Deserializer&)", AS_METHODPR(Resource, Load, (Deserializer&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("virtual bool Resource::BeginLoad(Deserializer& source)", "bool BeginLoad(Deserializer&)", AS_METHODPR(Resource, BeginLoad, (Deserializer&), bool), AS_CALL_THISCALL));
@@ -381,9 +398,9 @@ static CScriptArray* ResourceCache_GetPackageFiles_void(ResourceCache* ptr)
 
 
 // class ResourceCache | File: ../Resource/ResourceCache.h
-void CollectMembers_ResourceCache(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ResourceCache(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     // void ResourceCache::AddResourceRouter(ResourceRouter* router, bool addAsFirst=false)
     // Error: type "ResourceRouter" can not automatically bind bacause have @nobind mark
@@ -456,20 +473,25 @@ void CollectMembers_ResourceCache(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct ResourceGroup | File: ../Resource/ResourceCache.h
-void CollectMembers_ResourceGroup(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ResourceGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    // HashMap<StringHash, SharedPtr<Resource>> ResourceGroup::resources_
+    // Error: type "HashMap<StringHash, SharedPtr<Resource>>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("unsigned long long ResourceGroup::memoryBudget_", "uint64 memoryBudget", offsetof(ResourceGroup, memoryBudget_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned long long ResourceGroup::memoryUse_", "uint64 memoryUse", offsetof(ResourceGroup, memoryUse_)));
 }
 
 // class ResourceRouter | File: ../Resource/ResourceCache.h
-void CollectMembers_ResourceRouter(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ResourceRouter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("virtual void ResourceRouter::Route(String& name, ResourceRequest requestType)=0", "void Route(String&, ResourceRequest)", AS_METHODPR(ResourceRouter, Route, (String&, ResourceRequest), void), AS_CALL_THISCALL));
 }
 
 // class ResourceWithMetadata | File: ../Resource/Resource.h
-void CollectMembers_ResourceWithMetadata(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ResourceWithMetadata(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Resource(methods);
+    CollectMembers_Resource(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("void ResourceWithMetadata::AddMetadata(const String& name, const Variant& value)", "void AddMetadata(const String&in, const Variant&in)", AS_METHODPR(ResourceWithMetadata, AddMetadata, (const String&, const Variant&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ResourceWithMetadata::AddMetadata(const String& name, const Variant& value)", "void set_metadata(const String&in, const Variant&in)", AS_METHODPR(ResourceWithMetadata, AddMetadata, (const String&, const Variant&), void), AS_CALL_THISCALL));
@@ -510,7 +532,7 @@ static CScriptArray* XMLElement_GetStringVector_void(XMLElement* ptr)
 
 
 // class XMLElement | File: ../Resource/XMLElement.h
-void CollectMembers_XMLElement(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_XMLElement(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // XMLElement XMLElement::CreateChild(const char* name)
     // Error: type "const char*" can not automatically bind
@@ -667,9 +689,9 @@ void CollectMembers_XMLElement(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class XMLFile | File: ../Resource/XMLFile.h
-void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Resource(methods);
+    CollectMembers_Resource(methods, fields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
@@ -690,7 +712,7 @@ void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class XPathQuery | File: ../Resource/XMLElement.h
-void CollectMembers_XPathQuery(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_XPathQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // pugi::xpath_query* XPathQuery::GetXPathQuery() const
     // Error: type "pugi::xpath_query*" can not automatically bind
@@ -715,7 +737,7 @@ void CollectMembers_XPathQuery(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class XPathResultSet | File: ../Resource/XMLElement.h
-void CollectMembers_XPathResultSet(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_XPathResultSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // pugi::xpath_node_set* XPathResultSet::GetXPathNodeSet() const
     // Error: type "pugi::xpath_node_set*" can not automatically bind

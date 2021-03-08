@@ -13,9 +13,9 @@ namespace Urho3D
 #ifdef URHO3D_NETWORK
 
 // class Connection | File: ../Network/Connection.h
-void CollectMembers_Connection(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Connection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     // const SLNet::AddressOrGUID& Connection::GetAddressOrGUID() const
     // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
@@ -95,14 +95,18 @@ void CollectMembers_Connection(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("void Connection::SendPackageToClient(PackageFile* package)", "void SendPackageToClient(PackageFile@+)", AS_METHODPR(Connection, SendPackageToClient, (PackageFile*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Connection::ConfigureNetworkSimulator(int latencyMs, float packetLoss)", "void ConfigureNetworkSimulator(int, float)", AS_METHODPR(Connection, ConfigureNetworkSimulator, (int, float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Connection::SetPacketSizeLimit(int limit)", "void SetPacketSizeLimit(int)", AS_METHODPR(Connection, SetPacketSizeLimit, (int), void), AS_CALL_THISCALL));
+
+    fields.Push(RegisterObjectPropertyArgs("Controls Connection::controls_", "Controls controls", offsetof(Connection, controls_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned char Connection::timeStamp_", "uint8 timeStamp", offsetof(Connection, timeStamp_)));
+    fields.Push(RegisterObjectPropertyArgs("VariantMap Connection::identity_", "VariantMap identity", offsetof(Connection, identity_)));
 }
 
 // class HttpRequest | File: ../Network/HttpRequest.h
-void CollectMembers_HttpRequest(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_HttpRequest(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_RefCounted(methods);
-    CollectMembers_Deserializer(methods);
-    CollectMembers_Thread(methods);
+    CollectMembers_RefCounted(methods, fields);
+    CollectMembers_Deserializer(methods, fields);
+    CollectMembers_Thread(methods, fields);
 
     Remove(methods, "virtual bool Deserializer::IsEof() const");
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
@@ -154,9 +158,9 @@ static CScriptArray* Network_GetClientConnections_void(Network* ptr)
 
 
 // class Network | File: ../Network/Network.h
-void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     // void Network::BroadcastMessage(int msgID, bool reliable, bool inOrder, const unsigned char* data, unsigned numBytes, unsigned contentID=0)
     // Error: type "const unsigned char*" can not automatically bind
@@ -219,9 +223,9 @@ void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class NetworkPriority | File: ../Network/NetworkPriority.h
-void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -245,18 +249,36 @@ void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct PackageDownload | File: ../Network/Connection.h
-void CollectMembers_PackageDownload(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_PackageDownload(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    // SharedPtr<File> PackageDownload::file_
+    // Error: type "SharedPtr<File>" can not automatically bind
+    // HashSet<unsigned> PackageDownload::receivedFragments_
+    // Error: type "HashSet<unsigned>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("String PackageDownload::name_", "String name", offsetof(PackageDownload, name_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned PackageDownload::totalFragments_", "uint totalFragments", offsetof(PackageDownload, totalFragments_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned PackageDownload::checksum_", "uint checksum", offsetof(PackageDownload, checksum_)));
+    fields.Push(RegisterObjectPropertyArgs("bool PackageDownload::initiated_", "bool initiated", offsetof(PackageDownload, initiated_)));
 }
 
 // struct PackageUpload | File: ../Network/Connection.h
-void CollectMembers_PackageUpload(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_PackageUpload(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    // SharedPtr<File> PackageUpload::file_
+    // Error: type "SharedPtr<File>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("unsigned PackageUpload::fragment_", "uint fragment", offsetof(PackageUpload, fragment_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned PackageUpload::totalFragments_", "uint totalFragments", offsetof(PackageUpload, totalFragments_)));
 }
 
 // struct RemoteEvent | File: ../Network/Connection.h
-void CollectMembers_RemoteEvent(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_RemoteEvent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    fields.Push(RegisterObjectPropertyArgs("unsigned RemoteEvent::senderID_", "uint senderID", offsetof(RemoteEvent, senderID_)));
+    fields.Push(RegisterObjectPropertyArgs("StringHash RemoteEvent::eventType_", "StringHash eventType", offsetof(RemoteEvent, eventType_)));
+    fields.Push(RegisterObjectPropertyArgs("VariantMap RemoteEvent::eventData_", "VariantMap eventData", offsetof(RemoteEvent, eventData_)));
+    fields.Push(RegisterObjectPropertyArgs("bool RemoteEvent::inOrder_", "bool inOrder", offsetof(RemoteEvent, inOrder_)));
 }
 
 #endif // def URHO3D_NETWORK

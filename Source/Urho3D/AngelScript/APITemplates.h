@@ -90,6 +90,22 @@ inline void Remove(Vector<RegisterObjectMethodArgs>& methods, const String& cppD
     }
 }
 
+struct RegisterObjectPropertyArgs
+{
+    String cppDeclaration_;
+    String asDeclaration_;
+    int byteOffset_ = 0;
+
+    RegisterObjectPropertyArgs() = default;
+
+    RegisterObjectPropertyArgs(const String& cppDeclaration, const String& asDeclaration, int byteOffset)
+        : cppDeclaration_(cppDeclaration)
+        , asDeclaration_(asDeclaration)
+        , byteOffset_(byteOffset)
+    {
+    }
+};
+
 /// Template function for Vector to array conversion.
 template <class T> CScriptArray* VectorToArray(const Vector<T>& vector, const char* arrayName)
 {

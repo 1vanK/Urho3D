@@ -11,9 +11,9 @@ namespace Urho3D
 {
 
 // class Animatable | File: ../Scene/Animatable.h
-void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Serializable(methods);
+    CollectMembers_Serializable(methods, fields);
 
     Remove(methods, "virtual bool Serializable::LoadJSON(const JSONValue& source)");
     Remove(methods, "virtual bool Serializable::LoadXML(const XMLElement& source)");
@@ -48,22 +48,38 @@ void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct AsyncProgress | File: ../Scene/Scene.h
-void CollectMembers_AsyncProgress(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_AsyncProgress(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    // SharedPtr<File> AsyncProgress::file_
+    // Error: type "SharedPtr<File>" can not automatically bind
+    // SharedPtr<XMLFile> AsyncProgress::xmlFile_
+    // Error: type "SharedPtr<XMLFile>" can not automatically bind
+    // SharedPtr<JSONFile> AsyncProgress::jsonFile_
+    // Error: type "SharedPtr<JSONFile>" can not automatically bind
+    // HashSet<StringHash> AsyncProgress::resources_
+    // Error: type "HashSet<StringHash>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("XMLElement AsyncProgress::xmlElement_", "XMLElement xmlElement", offsetof(AsyncProgress, xmlElement_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::jsonIndex_", "uint jsonIndex", offsetof(AsyncProgress, jsonIndex_)));
+    fields.Push(RegisterObjectPropertyArgs("LoadMode AsyncProgress::mode_", "LoadMode mode", offsetof(AsyncProgress, mode_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::loadedResources_", "uint loadedResources", offsetof(AsyncProgress, loadedResources_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::totalResources_", "uint totalResources", offsetof(AsyncProgress, totalResources_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::loadedNodes_", "uint loadedNodes", offsetof(AsyncProgress, loadedNodes_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::totalNodes_", "uint totalNodes", offsetof(AsyncProgress, totalNodes_)));
 }
 
 // class AttributeAnimationInfo | File: ../Scene/Animatable.h
-void CollectMembers_AttributeAnimationInfo(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_AttributeAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_ValueAnimationInfo(methods);
+    CollectMembers_ValueAnimationInfo(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("const AttributeInfo& AttributeAnimationInfo::GetAttributeInfo() const", "const AttributeInfo& GetAttributeInfo() const", AS_METHODPR(AttributeAnimationInfo, GetAttributeInfo, () const, const AttributeInfo&), AS_CALL_THISCALL));
 }
 
 // class Component | File: ../Scene/Component.h
-void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Animatable(methods);
+    CollectMembers_Animatable(methods, fields);
 
     Remove(methods, "bool Animatable::SaveJSON(JSONValue& dest) const override");
     Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
@@ -102,16 +118,20 @@ void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct ComponentReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_ReplicationState(methods);
+    CollectMembers_ReplicationState(methods, fields);
 
     // NodeReplicationState* ComponentReplicationState::nodeState_
     // Not registered because pointer
+    // WeakPtr<Component> ComponentReplicationState::component_
+    // Error: type "WeakPtr<Component>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("DirtyBits ComponentReplicationState::dirtyAttributes_", "DirtyBits dirtyAttributes", offsetof(ComponentReplicationState, dirtyAttributes_)));
 }
 
 // struct DirtyBits | File: ../Scene/ReplicationState.h
-void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("void DirtyBits::Set(unsigned index)", "void Set(uint)", AS_METHODPR(DirtyBits, Set, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DirtyBits::Clear(unsigned index)", "void Clear(uint)", AS_METHODPR(DirtyBits, Clear, (unsigned), void), AS_CALL_THISCALL));
@@ -121,21 +141,32 @@ void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods)
 
     // unsigned char DirtyBits::data_[MAX_NETWORK_ATTRIBUTES/8]
     // Not registered because array
+
+    fields.Push(RegisterObjectPropertyArgs("unsigned char DirtyBits::count_", "uint8 count", offsetof(DirtyBits, count_)));
 }
 
 // class LogicComponent | File: ../Scene/LogicComponent.h
-void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
 }
 
 // struct NetworkState | File: ../Scene/ReplicationState.h
-void CollectMembers_NetworkState(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NetworkState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // const Vector<AttributeInfo>* NetworkState::attributes_
     // Not registered because pointer
+    // Vector<Variant> NetworkState::currentValues_
+    // Error: type "Vector<Variant>" can not automatically bind
+    // Vector<Variant> NetworkState::previousValues_
+    // Error: type "Vector<Variant>" can not automatically bind
+    // PODVector<ReplicationState*> NetworkState::replicationStates_
+    // Error: type "PODVector<ReplicationState*>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("VariantMap NetworkState::previousVars_", "VariantMap previousVars", offsetof(NetworkState, previousVars_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned long long NetworkState::interceptMask_", "uint64 interceptMask", offsetof(NetworkState, interceptMask_)));
 }
 
 // void Node::SetTags(const StringVector& tags)
@@ -220,9 +251,9 @@ static CScriptArray* Node_GetDependencyNodes_void(Node* ptr)
 
 
 // class Node | File: ../Scene/Node.h
-void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Animatable(methods);
+    CollectMembers_Animatable(methods, fields);
 
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
@@ -475,25 +506,43 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct NodeImpl | File: ../Scene/Node.h
-void CollectMembers_NodeImpl(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NodeImpl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    // PODVector<Node*> NodeImpl::dependencyNodes_
+    // Error: type "PODVector<Node*>" can not automatically bind
     // Connection* NodeImpl::owner_
     // Not registered because pointer
+    // StringVector NodeImpl::tags_
+    // Error: type "StringVector" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("String NodeImpl::name_", "String name", offsetof(NodeImpl, name_)));
+    fields.Push(RegisterObjectPropertyArgs("StringHash NodeImpl::nameHash_", "StringHash nameHash", offsetof(NodeImpl, nameHash_)));
+    fields.Push(RegisterObjectPropertyArgs("VectorBuffer NodeImpl::attrBuffer_", "VectorBuffer attrBuffer", offsetof(NodeImpl, attrBuffer_)));
 }
 
 // struct NodeReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_NodeReplicationState(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NodeReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_ReplicationState(methods);
+    CollectMembers_ReplicationState(methods, fields);
 
     // SceneReplicationState* NodeReplicationState::sceneState_
     // Not registered because pointer
+    // WeakPtr<Node> NodeReplicationState::node_
+    // Error: type "WeakPtr<Node>" can not automatically bind
+    // HashSet<StringHash> NodeReplicationState::dirtyVars_
+    // Error: type "HashSet<StringHash>" can not automatically bind
+    // HashMap<unsigned, ComponentReplicationState> NodeReplicationState::componentStates_
+    // Error: type "HashMap<unsigned, ComponentReplicationState>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("DirtyBits NodeReplicationState::dirtyAttributes_", "DirtyBits dirtyAttributes", offsetof(NodeReplicationState, dirtyAttributes_)));
+    fields.Push(RegisterObjectPropertyArgs("float NodeReplicationState::priorityAcc_", "float priorityAcc", offsetof(NodeReplicationState, priorityAcc_)));
+    fields.Push(RegisterObjectPropertyArgs("bool NodeReplicationState::markedDirty_", "bool markedDirty", offsetof(NodeReplicationState, markedDirty_)));
 }
 
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
-void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Resource(methods);
+    CollectMembers_Resource(methods, fields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
@@ -520,7 +569,7 @@ void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct ReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_ReplicationState(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // Connection* ReplicationState::connection_
     // Not registered because pointer
@@ -536,9 +585,9 @@ static CScriptArray* Scene_GetRequiredPackageFiles_void(Scene* ptr)
 
 
 // class Scene | File: ../Scene/Scene.h
-void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Node(methods);
+    CollectMembers_Node(methods, fields);
 
     Remove(methods, "Component* Node::GetComponent(StringHash type, bool recursive=false) const");
     Remove(methods, "bool Node::Load(Deserializer& source) override");
@@ -650,15 +699,20 @@ void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct SceneReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_SceneReplicationState(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_SceneReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_ReplicationState(methods);
+    CollectMembers_ReplicationState(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("void SceneReplicationState::Clear()", "void Clear()", AS_METHODPR(SceneReplicationState, Clear, (), void), AS_CALL_THISCALL));
+
+    // HashMap<unsigned, NodeReplicationState> SceneReplicationState::nodeStates_
+    // Error: type "HashMap<unsigned, NodeReplicationState>" can not automatically bind
+    // HashSet<unsigned> SceneReplicationState::dirtyNodes_
+    // Error: type "HashSet<unsigned>" can not automatically bind
 }
 
 // class SceneResolver | File: ../Scene/SceneResolver.h
-void CollectMembers_SceneResolver(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_SceneResolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::Reset()", "void Reset()", AS_METHODPR(SceneResolver, Reset, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::AddNode(unsigned oldID, Node* node)", "void AddNode(uint, Node@+)", AS_METHODPR(SceneResolver, AddNode, (unsigned, Node*), void), AS_CALL_THISCALL));
@@ -667,9 +721,9 @@ void CollectMembers_SceneResolver(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class Serializable | File: ../Scene/Serializable.h
-void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     // virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const
     // Error: type "const Vector<AttributeInfo>*" can not automatically bind
@@ -719,9 +773,9 @@ void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
-void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -747,9 +801,9 @@ void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class SplinePath | File: ../Scene/SplinePath.h
-void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -800,9 +854,9 @@ static CScriptArray* UnknownComponent_GetXMLAttributes_void(UnknownComponent* pt
 
 
 // class UnknownComponent | File: ../Scene/UnknownComponent.h
-void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
@@ -837,19 +891,24 @@ void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct VAnimEventFrame | File: ../Scene/ValueAnimation.h
-void CollectMembers_VAnimEventFrame(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_VAnimEventFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    fields.Push(RegisterObjectPropertyArgs("float VAnimEventFrame::time_", "float time", offsetof(VAnimEventFrame, time_)));
+    fields.Push(RegisterObjectPropertyArgs("StringHash VAnimEventFrame::eventType_", "StringHash eventType", offsetof(VAnimEventFrame, eventType_)));
+    fields.Push(RegisterObjectPropertyArgs("VariantMap VAnimEventFrame::eventData_", "VariantMap eventData", offsetof(VAnimEventFrame, eventData_)));
 }
 
 // struct VAnimKeyFrame | File: ../Scene/ValueAnimation.h
-void CollectMembers_VAnimKeyFrame(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_VAnimKeyFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    fields.Push(RegisterObjectPropertyArgs("float VAnimKeyFrame::time_", "float time", offsetof(VAnimKeyFrame, time_)));
+    fields.Push(RegisterObjectPropertyArgs("Variant VAnimKeyFrame::value_", "Variant value", offsetof(VAnimKeyFrame, value_)));
 }
 
 // class ValueAnimation | File: ../Scene/ValueAnimation.h
-void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Resource(methods);
+    CollectMembers_Resource(methods, fields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
@@ -891,9 +950,9 @@ void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h
-void CollectMembers_ValueAnimationInfo(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_ValueAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_RefCounted(methods);
+    CollectMembers_RefCounted(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("bool ValueAnimationInfo::Update(float timeStep)", "bool Update(float)", AS_METHODPR(ValueAnimationInfo, Update, (float), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ValueAnimationInfo::SetTime(float time)", "bool SetTime(float)", AS_METHODPR(ValueAnimationInfo, SetTime, (float), bool), AS_CALL_THISCALL));

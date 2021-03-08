@@ -13,9 +13,9 @@ namespace Urho3D
 #ifdef URHO3D_NAVIGATION
 
 // class CrowdAgent | File: ../Navigation/CrowdAgent.h
-void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -104,9 +104,9 @@ static CScriptArray* CrowdManager_GetAgents_Node_bool(CrowdManager* ptr, Node* n
 
 
 // class CrowdManager | File: ../Navigation/CrowdManager.h
-void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -170,12 +170,22 @@ void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct CrowdObstacleAvoidanceParams | File: ../Navigation/CrowdManager.h
-void CollectMembers_CrowdObstacleAvoidanceParams(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_CrowdObstacleAvoidanceParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    fields.Push(RegisterObjectPropertyArgs("float CrowdObstacleAvoidanceParams::velBias", "float velBias", offsetof(CrowdObstacleAvoidanceParams, velBias)));
+    fields.Push(RegisterObjectPropertyArgs("float CrowdObstacleAvoidanceParams::weightDesVel", "float weightDesVel", offsetof(CrowdObstacleAvoidanceParams, weightDesVel)));
+    fields.Push(RegisterObjectPropertyArgs("float CrowdObstacleAvoidanceParams::weightCurVel", "float weightCurVel", offsetof(CrowdObstacleAvoidanceParams, weightCurVel)));
+    fields.Push(RegisterObjectPropertyArgs("float CrowdObstacleAvoidanceParams::weightSide", "float weightSide", offsetof(CrowdObstacleAvoidanceParams, weightSide)));
+    fields.Push(RegisterObjectPropertyArgs("float CrowdObstacleAvoidanceParams::weightToi", "float weightToi", offsetof(CrowdObstacleAvoidanceParams, weightToi)));
+    fields.Push(RegisterObjectPropertyArgs("float CrowdObstacleAvoidanceParams::horizTime", "float horizTime", offsetof(CrowdObstacleAvoidanceParams, horizTime)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::gridSize", "uint8 gridSize", offsetof(CrowdObstacleAvoidanceParams, gridSize)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::adaptiveDivs", "uint8 adaptiveDivs", offsetof(CrowdObstacleAvoidanceParams, adaptiveDivs)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::adaptiveRings", "uint8 adaptiveRings", offsetof(CrowdObstacleAvoidanceParams, adaptiveRings)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::adaptiveDepth", "uint8 adaptiveDepth", offsetof(CrowdObstacleAvoidanceParams, adaptiveDepth)));
 }
 
 // struct DynamicNavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // dtTileCacheContourSet* DynamicNavBuildData::contourSet_
     // Not registered because pointer
@@ -188,9 +198,9 @@ void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& method
 }
 
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
-void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_NavigationMesh(methods);
+    CollectMembers_NavigationMesh(methods, fields);
 
     Remove(methods, "static void NavigationMesh::RegisterObject(Context* context)");
     Remove(methods, "virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const");
@@ -239,9 +249,9 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
 }
 
 // class NavArea | File: ../Navigation/NavArea.h
-void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -260,25 +270,45 @@ void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct NavAreaStub | File: ../Navigation/NavBuildData.h
-void CollectMembers_NavAreaStub(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NavAreaStub(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    fields.Push(RegisterObjectPropertyArgs("BoundingBox NavAreaStub::bounds_", "BoundingBox bounds", offsetof(NavAreaStub, bounds_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned char NavAreaStub::areaID_", "uint8 areaID", offsetof(NavAreaStub, areaID_)));
 }
 
 // struct NavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    // PODVector<Vector3> NavBuildData::vertices_
+    // Error: type "PODVector<Vector3>" can not automatically bind
+    // PODVector<int> NavBuildData::indices_
+    // Error: type "PODVector<int>" can not automatically bind
+    // PODVector<Vector3> NavBuildData::offMeshVertices_
+    // Error: type "PODVector<Vector3>" can not automatically bind
+    // PODVector<float> NavBuildData::offMeshRadii_
+    // Error: type "PODVector<float>" can not automatically bind
+    // PODVector<unsigned short> NavBuildData::offMeshFlags_
+    // Error: type "PODVector<unsigned short>" can not automatically bind
+    // PODVector<unsigned char> NavBuildData::offMeshAreas_
+    // Error: type "PODVector<unsigned char>" can not automatically bind
+    // PODVector<unsigned char> NavBuildData::offMeshDir_
+    // Error: type "PODVector<unsigned char>" can not automatically bind
     // rcContext* NavBuildData::ctx_
     // Not registered because pointer
     // rcHeightfield* NavBuildData::heightField_
     // Not registered because pointer
     // rcCompactHeightfield* NavBuildData::compactHeightField_
     // Not registered because pointer
+    // PODVector<NavAreaStub> NavBuildData::navAreas_
+    // Error: type "PODVector<NavAreaStub>" can not automatically bind
+
+    fields.Push(RegisterObjectPropertyArgs("BoundingBox NavBuildData::worldBoundingBox_", "BoundingBox worldBoundingBox", offsetof(NavBuildData, worldBoundingBox_)));
 }
 
 // class Navigable | File: ../Navigation/Navigable.h
-void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -289,16 +319,20 @@ void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
     // Component* NavigationGeometryInfo::component_
     // Not registered because pointer
+
+    fields.Push(RegisterObjectPropertyArgs("unsigned NavigationGeometryInfo::lodLevel_", "uint lodLevel", offsetof(NavigationGeometryInfo, lodLevel_)));
+    fields.Push(RegisterObjectPropertyArgs("Matrix3x4 NavigationGeometryInfo::transform_", "Matrix3x4 transform", offsetof(NavigationGeometryInfo, transform_)));
+    fields.Push(RegisterObjectPropertyArgs("BoundingBox NavigationGeometryInfo::boundingBox_", "BoundingBox boundingBox", offsetof(NavigationGeometryInfo, boundingBox_)));
 }
 
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -422,14 +456,17 @@ void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct NavigationPathPoint | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationPathPoint(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_NavigationPathPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
+    fields.Push(RegisterObjectPropertyArgs("Vector3 NavigationPathPoint::position_", "Vector3 position", offsetof(NavigationPathPoint, position_)));
+    fields.Push(RegisterObjectPropertyArgs("NavigationPathPointFlag NavigationPathPoint::flag_", "NavigationPathPointFlag flag", offsetof(NavigationPathPoint, flag_)));
+    fields.Push(RegisterObjectPropertyArgs("unsigned char NavigationPathPoint::areaID_", "uint8 areaID", offsetof(NavigationPathPoint, areaID_)));
 }
 
 // class Obstacle | File: ../Navigation/Obstacle.h
-void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -451,9 +488,9 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
-void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Component(methods);
+    CollectMembers_Component(methods, fields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -484,9 +521,9 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_NavBuildData(methods);
+    CollectMembers_NavBuildData(methods, fields);
 
     // rcContourSet* SimpleNavBuildData::contourSet_
     // Not registered because pointer

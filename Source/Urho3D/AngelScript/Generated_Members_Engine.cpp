@@ -11,9 +11,9 @@ namespace Urho3D
 {
 
 // class Console | File: ../Engine/Console.h
-void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("void Console::SetDefaultStyle(XMLFile* style)", "void SetDefaultStyle(XMLFile@+)", AS_METHODPR(Console, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Console::SetDefaultStyle(XMLFile* style)", "void set_defaultStyle(XMLFile@+)", AS_METHODPR(Console, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
@@ -65,9 +65,9 @@ void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class DebugHud | File: ../Engine/DebugHud.h
-void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("void DebugHud::Update()", "void Update()", AS_METHODPR(DebugHud, Update, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DebugHud::SetDefaultStyle(XMLFile* style)", "void SetDefaultStyle(XMLFile@+)", AS_METHODPR(DebugHud, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
@@ -107,9 +107,9 @@ void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods)
 }
 
 // class Engine | File: ../Engine/Engine.h
-void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods)
+void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
 {
-    CollectMembers_Object(methods);
+    CollectMembers_Object(methods, fields);
 
     methods.Push(RegisterObjectMethodArgs("bool Engine::Initialize(const VariantMap& parameters)", "bool Initialize(const VariantMap&in)", AS_METHODPR(Engine, Initialize, (const VariantMap&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Engine::InitializeResourceCache(const VariantMap& parameters, bool removeOld=true)", "bool InitializeResourceCache(const VariantMap&in, bool = true)", AS_METHODPR(Engine, InitializeResourceCache, (const VariantMap&, bool), bool), AS_CALL_THISCALL));

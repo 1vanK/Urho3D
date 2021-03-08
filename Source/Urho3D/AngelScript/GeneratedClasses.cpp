@@ -17,10 +17,13 @@ void FakeReleaseRef(void* ptr);
 static void Register_AbstractFile(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AbstractFile(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AbstractFile(methods, fields);
     const char* asClassName = "AbstractFile";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AllocatorBlock | File: ../Container/Allocator.h
@@ -30,10 +33,13 @@ static void Register_AllocatorBlock(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AllocatorBlock", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AllocatorBlock), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AllocatorBlock(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AllocatorBlock(methods, fields);
     const char* asClassName = "AllocatorBlock";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AllocatorNode | File: ../Container/Allocator.h
@@ -43,60 +49,78 @@ static void Register_AllocatorNode(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AllocatorNode", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AllocatorNode), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AllocatorNode(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AllocatorNode(methods, fields);
     const char* asClassName = "AllocatorNode";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Animatable | File: ../Scene/Animatable.h
 static void Register_Animatable(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Animatable(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Animatable(methods, fields);
     const char* asClassName = "Animatable";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
 static void Register_AnimatedModel(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimatedModel(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimatedModel(methods, fields);
     const char* asClassName = "AnimatedModel";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Animation | File: ../Graphics/Animation.h
 static void Register_Animation(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Animation(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Animation(methods, fields);
     const char* asClassName = "Animation";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AnimationControl | File: ../Graphics/AnimationController.h
 static void Register_AnimationControl(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimationControl(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimationControl(methods, fields);
     const char* asClassName = "AnimationControl";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class AnimationController | File: ../Graphics/AnimationController.h
 static void Register_AnimationController(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimationController(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimationController(methods, fields);
     const char* asClassName = "AnimationController";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AnimationKeyFrame | File: ../Graphics/Animation.h
@@ -106,20 +130,26 @@ static void Register_AnimationKeyFrame(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AnimationKeyFrame", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AnimationKeyFrame), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimationKeyFrame(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimationKeyFrame(methods, fields);
     const char* asClassName = "AnimationKeyFrame";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class AnimationState | File: ../Graphics/AnimationState.h
 static void Register_AnimationState(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimationState(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimationState(methods, fields);
     const char* asClassName = "AnimationState";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AnimationStateTrack | File: ../Graphics/AnimationState.h
@@ -129,20 +159,26 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AnimationStateTrack", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AnimationStateTrack), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimationStateTrack(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimationStateTrack(methods, fields);
     const char* asClassName = "AnimationStateTrack";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AnimationTrack | File: ../Graphics/Animation.h
 static void Register_AnimationTrack(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimationTrack(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimationTrack(methods, fields);
     const char* asClassName = "AnimationTrack";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AnimationTriggerPoint | File: ../Graphics/Animation.h
@@ -152,10 +188,13 @@ static void Register_AnimationTriggerPoint(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AnimationTriggerPoint", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AnimationTriggerPoint), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimationTriggerPoint(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimationTriggerPoint(methods, fields);
     const char* asClassName = "AnimationTriggerPoint";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class AreaAllocator | File: ../Math/AreaAllocator.h
@@ -165,10 +204,13 @@ static void Register_AreaAllocator(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AreaAllocator", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AreaAllocator), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AreaAllocator(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AreaAllocator(methods, fields);
     const char* asClassName = "AreaAllocator";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AsyncProgress | File: ../Scene/Scene.h
@@ -178,30 +220,39 @@ static void Register_AsyncProgress(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AsyncProgress", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AsyncProgress), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AsyncProgress(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AsyncProgress(methods, fields);
     const char* asClassName = "AsyncProgress";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class AttributeAccessor | File: ../Core/Attribute.h
 static void Register_AttributeAccessor(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AttributeAccessor(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AttributeAccessor(methods, fields);
     const char* asClassName = "AttributeAccessor";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class AttributeAnimationInfo | File: ../Scene/Animatable.h
 static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AttributeAnimationInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AttributeAnimationInfo(methods, fields);
     const char* asClassName = "AttributeAnimationInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct AttributeInfo | File: ../Core/Attribute.h
@@ -211,20 +262,26 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AttributeInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AttributeInfo), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AttributeInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AttributeInfo(methods, fields);
     const char* asClassName = "AttributeInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Audio | File: ../Audio/Audio.h
 static void Register_Audio(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Audio(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Audio(methods, fields);
     const char* asClassName = "Audio";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct BackgroundLoadItem | File: ../Resource/BackgroundLoader.h
@@ -234,10 +291,13 @@ static void Register_BackgroundLoadItem(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("BackgroundLoadItem", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BackgroundLoadItem), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BackgroundLoadItem(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BackgroundLoadItem(methods, fields);
     const char* asClassName = "BackgroundLoadItem";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct Batch | File: ../Graphics/Batch.h
@@ -247,10 +307,13 @@ static void Register_Batch(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Batch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Batch), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Batch(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Batch(methods, fields);
     const char* asClassName = "Batch";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct BatchGroup | File: ../Graphics/Batch.h
@@ -260,10 +323,13 @@ static void Register_BatchGroup(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("BatchGroup", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchGroup), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BatchGroup(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BatchGroup(methods, fields);
     const char* asClassName = "BatchGroup";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct BatchGroupKey | File: ../Graphics/Batch.h
@@ -273,10 +339,13 @@ static void Register_BatchGroupKey(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("BatchGroupKey", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchGroupKey), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BatchGroupKey(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BatchGroupKey(methods, fields);
     const char* asClassName = "BatchGroupKey";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct BatchQueue | File: ../Graphics/Batch.h
@@ -286,110 +355,143 @@ static void Register_BatchQueue(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("BatchQueue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchQueue), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BatchQueue(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BatchQueue(methods, fields);
     const char* asClassName = "BatchQueue";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct BiasParameters | File: ../Graphics/Light.h
 static void Register_BiasParameters(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BiasParameters(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BiasParameters(methods, fields);
     const char* asClassName = "BiasParameters";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct Billboard | File: ../Graphics/BillboardSet.h
 static void Register_Billboard(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Billboard(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Billboard(methods, fields);
     const char* asClassName = "Billboard";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class BillboardSet | File: ../Graphics/BillboardSet.h
 static void Register_BillboardSet(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BillboardSet(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BillboardSet(methods, fields);
     const char* asClassName = "BillboardSet";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct Bone | File: ../Graphics/Skeleton.h
 static void Register_Bone(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Bone(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Bone(methods, fields);
     const char* asClassName = "Bone";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class BorderImage | File: ../UI/BorderImage.h
 static void Register_BorderImage(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BorderImage(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BorderImage(methods, fields);
     const char* asClassName = "BorderImage";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class BoundingBox | File: ../Math/BoundingBox.h
 static void Register_BoundingBox(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BoundingBox(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BoundingBox(methods, fields);
     const char* asClassName = "BoundingBox";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
 static void Register_BufferedSoundStream(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_BufferedSoundStream(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_BufferedSoundStream(methods, fields);
     const char* asClassName = "BufferedSoundStream";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Button | File: ../UI/Button.h
 static void Register_Button(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Button(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Button(methods, fields);
     const char* asClassName = "Button";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Camera | File: ../Graphics/Camera.h
 static void Register_Camera(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Camera(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Camera(methods, fields);
     const char* asClassName = "Camera";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct CascadeParameters | File: ../Graphics/Light.h
 static void Register_CascadeParameters(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CascadeParameters(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CascadeParameters(methods, fields);
     const char* asClassName = "CascadeParameters";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct CharLocation | File: ../UI/Text.h
@@ -399,50 +501,65 @@ static void Register_CharLocation(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("CharLocation", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(CharLocation), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CharLocation(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CharLocation(methods, fields);
     const char* asClassName = "CharLocation";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CheckBox | File: ../UI/CheckBox.h
 static void Register_CheckBox(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CheckBox(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CheckBox(methods, fields);
     const char* asClassName = "CheckBox";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Color | File: ../Math/Color.h
 static void Register_Color(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Color(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Color(methods, fields);
     const char* asClassName = "Color";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ColorFrame | File: ../Graphics/ParticleEffect.h
 static void Register_ColorFrame(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ColorFrame(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ColorFrame(methods, fields);
     const char* asClassName = "ColorFrame";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Component | File: ../Scene/Component.h
 static void Register_Component(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Component(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Component(methods, fields);
     const char* asClassName = "Component";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ComponentReplicationState | File: ../Scene/ReplicationState.h
@@ -452,10 +569,13 @@ static void Register_ComponentReplicationState(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ComponentReplicationState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ComponentReplicationState), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ComponentReplicationState(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ComponentReplicationState(methods, fields);
     const char* asClassName = "ComponentReplicationState";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct CompressedLevel | File: ../Resource/Image.h
@@ -465,10 +585,13 @@ static void Register_CompressedLevel(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("CompressedLevel", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(CompressedLevel), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CompressedLevel(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CompressedLevel(methods, fields);
     const char* asClassName = "CompressedLevel";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Condition | File: ../Core/Condition.h
@@ -478,40 +601,52 @@ static void Register_Condition(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Condition", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Condition), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Condition(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Condition(methods, fields);
     const char* asClassName = "Condition";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Console | File: ../Engine/Console.h
 static void Register_Console(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Console(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Console(methods, fields);
     const char* asClassName = "Console";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstantBuffer | File: ../Graphics/ConstantBuffer.h
 static void Register_ConstantBuffer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstantBuffer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstantBuffer(methods, fields);
     const char* asClassName = "ConstantBuffer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Context | File: ../Core/Context.h
 static void Register_Context(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Context(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Context(methods, fields);
     const char* asClassName = "Context";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Controls | File: ../Input/Controls.h
@@ -521,20 +656,26 @@ static void Register_Controls(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Controls", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Controls), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Controls(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Controls(methods, fields);
     const char* asClassName = "Controls";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Cursor | File: ../UI/Cursor.h
 static void Register_Cursor(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Cursor(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Cursor(methods, fields);
     const char* asClassName = "Cursor";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct CursorShapeInfo | File: ../UI/Cursor.h
@@ -544,40 +685,52 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("CursorShapeInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(CursorShapeInfo), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CursorShapeInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CursorShapeInfo(methods, fields);
     const char* asClassName = "CursorShapeInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CustomGeometry | File: ../Graphics/CustomGeometry.h
 static void Register_CustomGeometry(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CustomGeometry(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CustomGeometry(methods, fields);
     const char* asClassName = "CustomGeometry";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct CustomGeometryVertex | File: ../Graphics/CustomGeometry.h
 static void Register_CustomGeometryVertex(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CustomGeometryVertex(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CustomGeometryVertex(methods, fields);
     const char* asClassName = "CustomGeometryVertex";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class DebugHud | File: ../Engine/DebugHud.h
 static void Register_DebugHud(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DebugHud(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DebugHud(methods, fields);
     const char* asClassName = "DebugHud";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct DebugLine | File: ../Graphics/DebugRenderer.h
@@ -587,20 +740,26 @@ static void Register_DebugLine(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("DebugLine", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DebugLine), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DebugLine(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DebugLine(methods, fields);
     const char* asClassName = "DebugLine";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class DebugRenderer | File: ../Graphics/DebugRenderer.h
 static void Register_DebugRenderer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DebugRenderer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DebugRenderer(methods, fields);
     const char* asClassName = "DebugRenderer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct DebugTriangle | File: ../Graphics/DebugRenderer.h
@@ -610,10 +769,13 @@ static void Register_DebugTriangle(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("DebugTriangle", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DebugTriangle), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DebugTriangle(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DebugTriangle(methods, fields);
     const char* asClassName = "DebugTriangle";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct Decal | File: ../Graphics/DecalSet.h
@@ -623,20 +785,26 @@ static void Register_Decal(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Decal", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Decal), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Decal(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Decal(methods, fields);
     const char* asClassName = "Decal";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class DecalSet | File: ../Graphics/DecalSet.h
 static void Register_DecalSet(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DecalSet(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DecalSet(methods, fields);
     const char* asClassName = "DecalSet";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct DecalVertex | File: ../Graphics/DecalSet.h
@@ -646,30 +814,39 @@ static void Register_DecalVertex(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("DecalVertex", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DecalVertex), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DecalVertex(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DecalVertex(methods, fields);
     const char* asClassName = "DecalVertex";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct DepthValue | File: ../Graphics/OcclusionBuffer.h
 static void Register_DepthValue(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DepthValue(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DepthValue(methods, fields);
     const char* asClassName = "DepthValue";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Deserializer | File: ../IO/Deserializer.h
 static void Register_Deserializer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Deserializer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Deserializer(methods, fields);
     const char* asClassName = "Deserializer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct DirtyBits | File: ../Scene/ReplicationState.h
@@ -679,80 +856,104 @@ static void Register_DirtyBits(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("DirtyBits", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DirtyBits), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DirtyBits(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DirtyBits(methods, fields);
     const char* asClassName = "DirtyBits";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Drawable | File: ../Graphics/Drawable.h
 static void Register_Drawable(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Drawable(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Drawable(methods, fields);
     const char* asClassName = "Drawable";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class DropDownList | File: ../UI/DropDownList.h
 static void Register_DropDownList(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DropDownList(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DropDownList(methods, fields);
     const char* asClassName = "DropDownList";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Engine | File: ../Engine/Engine.h
 static void Register_Engine(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Engine(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Engine(methods, fields);
     const char* asClassName = "Engine";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class EventProfiler | File: ../Core/EventProfiler.h
 static void Register_EventProfiler(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_EventProfiler(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_EventProfiler(methods, fields);
     const char* asClassName = "EventProfiler";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class EventReceiverGroup | File: ../Core/Context.h
 static void Register_EventReceiverGroup(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_EventReceiverGroup(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_EventReceiverGroup(methods, fields);
     const char* asClassName = "EventReceiverGroup";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class File | File: ../IO/File.h
 static void Register_File(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_File(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_File(methods, fields);
     const char* asClassName = "File";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class FileSelector | File: ../UI/FileSelector.h
 static void Register_FileSelector(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FileSelector(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FileSelector(methods, fields);
     const char* asClassName = "FileSelector";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct FileSelectorEntry | File: ../UI/FileSelector.h
@@ -762,80 +963,104 @@ static void Register_FileSelectorEntry(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("FileSelectorEntry", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(FileSelectorEntry), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FileSelectorEntry(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FileSelectorEntry(methods, fields);
     const char* asClassName = "FileSelectorEntry";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class FileSystem | File: ../IO/FileSystem.h
 static void Register_FileSystem(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FileSystem(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FileSystem(methods, fields);
     const char* asClassName = "FileSystem";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class FileWatcher | File: ../IO/FileWatcher.h
 static void Register_FileWatcher(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FileWatcher(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FileWatcher(methods, fields);
     const char* asClassName = "FileWatcher";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct FocusParameters | File: ../Graphics/Light.h
 static void Register_FocusParameters(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FocusParameters(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FocusParameters(methods, fields);
     const char* asClassName = "FocusParameters";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Font | File: ../UI/Font.h
 static void Register_Font(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Font(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Font(methods, fields);
     const char* asClassName = "Font";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class FontFace | File: ../UI/FontFace.h
 static void Register_FontFace(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FontFace(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FontFace(methods, fields);
     const char* asClassName = "FontFace";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class FontFaceBitmap | File: ../UI/FontFaceBitmap.h
 static void Register_FontFaceBitmap(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FontFaceBitmap(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FontFaceBitmap(methods, fields);
     const char* asClassName = "FontFaceBitmap";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class FontFaceFreeType | File: ../UI/FontFaceFreeType.h
 static void Register_FontFaceFreeType(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FontFaceFreeType(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FontFaceFreeType(methods, fields);
     const char* asClassName = "FontFaceFreeType";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct FontGlyph | File: ../UI/FontFace.h
@@ -845,10 +1070,13 @@ static void Register_FontGlyph(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("FontGlyph", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(FontGlyph), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FontGlyph(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FontGlyph(methods, fields);
     const char* asClassName = "FontGlyph";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct FrameInfo | File: ../Graphics/Drawable.h
@@ -858,10 +1086,13 @@ static void Register_FrameInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("FrameInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(FrameInfo), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_FrameInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_FrameInfo(methods, fields);
     const char* asClassName = "FrameInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Frustum | File: ../Math/Frustum.h
@@ -871,10 +1102,13 @@ static void Register_Frustum(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Frustum", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Frustum), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Frustum(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Frustum(methods, fields);
     const char* asClassName = "Frustum";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class GPUObject | File: ../Graphics/GPUObject.h
@@ -884,20 +1118,26 @@ static void Register_GPUObject(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("GPUObject", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(GPUObject), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_GPUObject(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_GPUObject(methods, fields);
     const char* asClassName = "GPUObject";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Geometry | File: ../Graphics/Geometry.h
 static void Register_Geometry(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Geometry(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Geometry(methods, fields);
     const char* asClassName = "Geometry";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct GeometryDesc | File: ../Graphics/Model.h
@@ -907,20 +1147,26 @@ static void Register_GeometryDesc(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("GeometryDesc", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(GeometryDesc), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_GeometryDesc(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_GeometryDesc(methods, fields);
     const char* asClassName = "GeometryDesc";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Graphics | File: ../Graphics/Graphics.h
 static void Register_Graphics(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Graphics(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Graphics(methods, fields);
     const char* asClassName = "Graphics";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class HashBase | File: ../Container/HashBase.h
@@ -930,10 +1176,13 @@ static void Register_HashBase(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("HashBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HashBase), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_HashBase(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_HashBase(methods, fields);
     const char* asClassName = "HashBase";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct HashIteratorBase | File: ../Container/HashBase.h
@@ -943,10 +1192,13 @@ static void Register_HashIteratorBase(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("HashIteratorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HashIteratorBase), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_HashIteratorBase(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_HashIteratorBase(methods, fields);
     const char* asClassName = "HashIteratorBase";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct HashNodeBase | File: ../Container/HashBase.h
@@ -956,10 +1208,13 @@ static void Register_HashNodeBase(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("HashNodeBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HashNodeBase), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_HashNodeBase(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_HashNodeBase(methods, fields);
     const char* asClassName = "HashNodeBase";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class HiresTimer | File: ../Core/Timer.h
@@ -969,30 +1224,39 @@ static void Register_HiresTimer(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("HiresTimer", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HiresTimer), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_HiresTimer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_HiresTimer(methods, fields);
     const char* asClassName = "HiresTimer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Image | File: ../Resource/Image.h
 static void Register_Image(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Image(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Image(methods, fields);
     const char* asClassName = "Image";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class IndexBuffer | File: ../Graphics/IndexBuffer.h
 static void Register_IndexBuffer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_IndexBuffer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_IndexBuffer(methods, fields);
     const char* asClassName = "IndexBuffer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct IndexBufferDesc | File: ../Graphics/Model.h
@@ -1002,20 +1266,26 @@ static void Register_IndexBufferDesc(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("IndexBufferDesc", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(IndexBufferDesc), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_IndexBufferDesc(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_IndexBufferDesc(methods, fields);
     const char* asClassName = "IndexBufferDesc";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Input | File: ../Input/Input.h
 static void Register_Input(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Input(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Input(methods, fields);
     const char* asClassName = "Input";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct InstanceData | File: ../Graphics/Batch.h
@@ -1025,50 +1295,65 @@ static void Register_InstanceData(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("InstanceData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(InstanceData), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_InstanceData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_InstanceData(methods, fields);
     const char* asClassName = "InstanceData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class IntRect | File: ../Math/Rect.h
 static void Register_IntRect(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_IntRect(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_IntRect(methods, fields);
     const char* asClassName = "IntRect";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class IntVector2 | File: ../Math/Vector2.h
 static void Register_IntVector2(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_IntVector2(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_IntVector2(methods, fields);
     const char* asClassName = "IntVector2";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class IntVector3 | File: ../Math/Vector3.h
 static void Register_IntVector3(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_IntVector3(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_IntVector3(methods, fields);
     const char* asClassName = "IntVector3";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class JSONFile | File: ../Resource/JSONFile.h
 static void Register_JSONFile(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_JSONFile(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_JSONFile(methods, fields);
     const char* asClassName = "JSONFile";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class JSONValue | File: ../Resource/JSONValue.h
@@ -1078,30 +1363,39 @@ static void Register_JSONValue(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(JSONValue), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_JSONValue(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_JSONValue(methods, fields);
     const char* asClassName = "JSONValue";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct JoystickState | File: ../Input/Input.h
 static void Register_JoystickState(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_JoystickState(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_JoystickState(methods, fields);
     const char* asClassName = "JoystickState";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Light | File: ../Graphics/Light.h
 static void Register_Light(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Light(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Light(methods, fields);
     const char* asClassName = "Light";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct LightBatchQueue | File: ../Graphics/Batch.h
@@ -1111,10 +1405,13 @@ static void Register_LightBatchQueue(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("LightBatchQueue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(LightBatchQueue), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_LightBatchQueue(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_LightBatchQueue(methods, fields);
     const char* asClassName = "LightBatchQueue";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct LightQueryResult | File: ../Graphics/View.h
@@ -1124,20 +1421,26 @@ static void Register_LightQueryResult(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("LightQueryResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(LightQueryResult), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_LightQueryResult(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_LightQueryResult(methods, fields);
     const char* asClassName = "LightQueryResult";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class LineEdit | File: ../UI/LineEdit.h
 static void Register_LineEdit(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_LineEdit(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_LineEdit(methods, fields);
     const char* asClassName = "LineEdit";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct LinkedListNode | File: ../Container/LinkedList.h
@@ -1147,10 +1450,13 @@ static void Register_LinkedListNode(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("LinkedListNode", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(LinkedListNode), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_LinkedListNode(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_LinkedListNode(methods, fields);
     const char* asClassName = "LinkedListNode";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ListBase | File: ../Container/ListBase.h
@@ -1160,10 +1466,13 @@ static void Register_ListBase(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ListBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ListBase), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ListBase(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ListBase(methods, fields);
     const char* asClassName = "ListBase";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ListIteratorBase | File: ../Container/ListBase.h
@@ -1173,10 +1482,13 @@ static void Register_ListIteratorBase(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ListIteratorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ListIteratorBase), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ListIteratorBase(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ListIteratorBase(methods, fields);
     const char* asClassName = "ListIteratorBase";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ListNodeBase | File: ../Container/ListBase.h
@@ -1186,60 +1498,78 @@ static void Register_ListNodeBase(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ListNodeBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ListNodeBase), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ListNodeBase(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ListNodeBase(methods, fields);
     const char* asClassName = "ListNodeBase";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ListView | File: ../UI/ListView.h
 static void Register_ListView(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ListView(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ListView(methods, fields);
     const char* asClassName = "ListView";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Localization | File: ../Resource/Localization.h
 static void Register_Localization(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Localization(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Localization(methods, fields);
     const char* asClassName = "Localization";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Log | File: ../IO/Log.h
 static void Register_Log(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Log(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Log(methods, fields);
     const char* asClassName = "Log";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class LogicComponent | File: ../Scene/LogicComponent.h
 static void Register_LogicComponent(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_LogicComponent(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_LogicComponent(methods, fields);
     const char* asClassName = "LogicComponent";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Material | File: ../Graphics/Material.h
 static void Register_Material(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Material(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Material(methods, fields);
     const char* asClassName = "Material";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct MaterialShaderParameter | File: ../Graphics/Material.h
@@ -1249,80 +1579,104 @@ static void Register_MaterialShaderParameter(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("MaterialShaderParameter", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(MaterialShaderParameter), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_MaterialShaderParameter(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_MaterialShaderParameter(methods, fields);
     const char* asClassName = "MaterialShaderParameter";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Matrix2 | File: ../Math/Matrix2.h
 static void Register_Matrix2(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Matrix2(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Matrix2(methods, fields);
     const char* asClassName = "Matrix2";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Matrix3 | File: ../Math/Matrix3.h
 static void Register_Matrix3(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Matrix3(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Matrix3(methods, fields);
     const char* asClassName = "Matrix3";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
 static void Register_Matrix3x4(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Matrix3x4(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Matrix3x4(methods, fields);
     const char* asClassName = "Matrix3x4";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Matrix4 | File: ../Math/Matrix4.h
 static void Register_Matrix4(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Matrix4(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Matrix4(methods, fields);
     const char* asClassName = "Matrix4";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Menu | File: ../UI/Menu.h
 static void Register_Menu(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Menu(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Menu(methods, fields);
     const char* asClassName = "Menu";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class MessageBox | File: ../UI/MessageBox.h
 static void Register_MessageBox(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_MessageBox(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_MessageBox(methods, fields);
     const char* asClassName = "MessageBox";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Model | File: ../Graphics/Model.h
 static void Register_Model(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Model(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Model(methods, fields);
     const char* asClassName = "Model";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ModelMorph | File: ../Graphics/Model.h
@@ -1332,10 +1686,13 @@ static void Register_ModelMorph(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ModelMorph", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ModelMorph), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ModelMorph(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ModelMorph(methods, fields);
     const char* asClassName = "ModelMorph";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Mutex | File: ../Core/Mutex.h
@@ -1345,10 +1702,13 @@ static void Register_Mutex(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Mutex", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Mutex), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Mutex(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Mutex(methods, fields);
     const char* asClassName = "Mutex";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class MutexLock | File: ../Core/Mutex.h
@@ -1358,20 +1718,26 @@ static void Register_MutexLock(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(MutexLock), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_MutexLock(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_MutexLock(methods, fields);
     const char* asClassName = "MutexLock";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class NamedPipe | File: ../IO/NamedPipe.h
 static void Register_NamedPipe(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NamedPipe(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NamedPipe(methods, fields);
     const char* asClassName = "NamedPipe";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct NetworkState | File: ../Scene/ReplicationState.h
@@ -1381,20 +1747,26 @@ static void Register_NetworkState(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("NetworkState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NetworkState), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NetworkState(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NetworkState(methods, fields);
     const char* asClassName = "NetworkState";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Node | File: ../Scene/Node.h
 static void Register_Node(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Node(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Node(methods, fields);
     const char* asClassName = "Node";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct NodeImpl | File: ../Scene/Node.h
@@ -1404,10 +1776,13 @@ static void Register_NodeImpl(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("NodeImpl", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NodeImpl), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NodeImpl(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NodeImpl(methods, fields);
     const char* asClassName = "NodeImpl";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct NodeReplicationState | File: ../Scene/ReplicationState.h
@@ -1417,40 +1792,52 @@ static void Register_NodeReplicationState(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("NodeReplicationState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NodeReplicationState), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NodeReplicationState(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NodeReplicationState(methods, fields);
     const char* asClassName = "NodeReplicationState";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Object | File: ../Core/Object.h
 static void Register_Object(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Object(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Object(methods, fields);
     const char* asClassName = "Object";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
 static void Register_ObjectAnimation(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ObjectAnimation(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ObjectAnimation(methods, fields);
     const char* asClassName = "ObjectAnimation";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ObjectFactory | File: ../Core/Object.h
 static void Register_ObjectFactory(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ObjectFactory(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ObjectFactory(methods, fields);
     const char* asClassName = "ObjectFactory";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct OcclusionBatch | File: ../Graphics/OcclusionBuffer.h
@@ -1460,20 +1847,26 @@ static void Register_OcclusionBatch(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("OcclusionBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(OcclusionBatch), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_OcclusionBatch(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_OcclusionBatch(methods, fields);
     const char* asClassName = "OcclusionBatch";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class OcclusionBuffer | File: ../Graphics/OcclusionBuffer.h
 static void Register_OcclusionBuffer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_OcclusionBuffer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_OcclusionBuffer(methods, fields);
     const char* asClassName = "OcclusionBuffer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct OcclusionBufferData | File: ../Graphics/OcclusionBuffer.h
@@ -1483,20 +1876,26 @@ static void Register_OcclusionBufferData(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("OcclusionBufferData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(OcclusionBufferData), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_OcclusionBufferData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_OcclusionBufferData(methods, fields);
     const char* asClassName = "OcclusionBufferData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Octree | File: ../Graphics/Octree.h
 static void Register_Octree(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Octree(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Octree(methods, fields);
     const char* asClassName = "Octree";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct OctreeQueryResult | File: ../Graphics/OctreeQuery.h
@@ -1506,40 +1905,52 @@ static void Register_OctreeQueryResult(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("OctreeQueryResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(OctreeQueryResult), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_OctreeQueryResult(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_OctreeQueryResult(methods, fields);
     const char* asClassName = "OctreeQueryResult";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class OggVorbisSoundStream | File: ../Audio/OggVorbisSoundStream.h
 static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_OggVorbisSoundStream(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_OggVorbisSoundStream(methods, fields);
     const char* asClassName = "OggVorbisSoundStream";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct PackageEntry | File: ../IO/PackageFile.h
 static void Register_PackageEntry(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PackageEntry(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PackageEntry(methods, fields);
     const char* asClassName = "PackageEntry";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class PackageFile | File: ../IO/PackageFile.h
 static void Register_PackageFile(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PackageFile(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PackageFile(methods, fields);
     const char* asClassName = "PackageFile";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct Particle | File: ../Graphics/ParticleEmitter.h
@@ -1549,40 +1960,52 @@ static void Register_Particle(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Particle", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Particle), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Particle(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Particle(methods, fields);
     const char* asClassName = "Particle";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ParticleEffect | File: ../Graphics/ParticleEffect.h
 static void Register_ParticleEffect(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ParticleEffect(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ParticleEffect(methods, fields);
     const char* asClassName = "ParticleEffect";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ParticleEmitter | File: ../Graphics/ParticleEmitter.h
 static void Register_ParticleEmitter(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ParticleEmitter(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ParticleEmitter(methods, fields);
     const char* asClassName = "ParticleEmitter";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Pass | File: ../Graphics/Technique.h
 static void Register_Pass(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Pass(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Pass(methods, fields);
     const char* asClassName = "Pass";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct PerThreadSceneResult | File: ../Graphics/View.h
@@ -1592,20 +2015,26 @@ static void Register_PerThreadSceneResult(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("PerThreadSceneResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PerThreadSceneResult), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PerThreadSceneResult(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PerThreadSceneResult(methods, fields);
     const char* asClassName = "PerThreadSceneResult";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Plane | File: ../Math/Plane.h
 static void Register_Plane(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Plane(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Plane(methods, fields);
     const char* asClassName = "Plane";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Polyhedron | File: ../Math/Polyhedron.h
@@ -1615,50 +2044,65 @@ static void Register_Polyhedron(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Polyhedron", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Polyhedron), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Polyhedron(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Polyhedron(methods, fields);
     const char* asClassName = "Polyhedron";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Profiler | File: ../Core/Profiler.h
 static void Register_Profiler(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Profiler(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Profiler(methods, fields);
     const char* asClassName = "Profiler";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ProgressBar | File: ../UI/ProgressBar.h
 static void Register_ProgressBar(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ProgressBar(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ProgressBar(methods, fields);
     const char* asClassName = "ProgressBar";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Quaternion | File: ../Math/Quaternion.h
 static void Register_Quaternion(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Quaternion(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Quaternion(methods, fields);
     const char* asClassName = "Quaternion";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Ray | File: ../Math/Ray.h
 static void Register_Ray(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Ray(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Ray(methods, fields);
     const char* asClassName = "Ray";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct RayQueryResult | File: ../Graphics/OctreeQuery.h
@@ -1668,20 +2112,26 @@ static void Register_RayQueryResult(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("RayQueryResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RayQueryResult), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RayQueryResult(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RayQueryResult(methods, fields);
     const char* asClassName = "RayQueryResult";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Rect | File: ../Math/Rect.h
 static void Register_Rect(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Rect(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Rect(methods, fields);
     const char* asClassName = "Rect";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct RefCount | File: ../Container/RefCounted.h
@@ -1691,30 +2141,39 @@ static void Register_RefCount(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("RefCount", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RefCount), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RefCount(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RefCount(methods, fields);
     const char* asClassName = "RefCount";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class RefCounted | File: ../Container/RefCounted.h
 static void Register_RefCounted(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RefCounted(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RefCounted(methods, fields);
     const char* asClassName = "RefCounted";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class RenderPath | File: ../Graphics/RenderPath.h
 static void Register_RenderPath(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RenderPath(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RenderPath(methods, fields);
     const char* asClassName = "RenderPath";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct RenderPathCommand | File: ../Graphics/RenderPath.h
@@ -1724,20 +2183,26 @@ static void Register_RenderPathCommand(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("RenderPathCommand", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RenderPathCommand), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RenderPathCommand(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RenderPathCommand(methods, fields);
     const char* asClassName = "RenderPathCommand";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class RenderSurface | File: ../Graphics/RenderSurface.h
 static void Register_RenderSurface(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RenderSurface(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RenderSurface(methods, fields);
     const char* asClassName = "RenderSurface";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct RenderTargetInfo | File: ../Graphics/RenderPath.h
@@ -1747,20 +2212,26 @@ static void Register_RenderTargetInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("RenderTargetInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RenderTargetInfo), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RenderTargetInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RenderTargetInfo(methods, fields);
     const char* asClassName = "RenderTargetInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Renderer | File: ../Graphics/Renderer.h
 static void Register_Renderer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Renderer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Renderer(methods, fields);
     const char* asClassName = "Renderer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ReplicationState | File: ../Scene/ReplicationState.h
@@ -1770,30 +2241,39 @@ static void Register_ReplicationState(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ReplicationState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ReplicationState), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ReplicationState(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ReplicationState(methods, fields);
     const char* asClassName = "ReplicationState";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Resource | File: ../Resource/Resource.h
 static void Register_Resource(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Resource(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Resource(methods, fields);
     const char* asClassName = "Resource";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ResourceCache | File: ../Resource/ResourceCache.h
 static void Register_ResourceCache(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ResourceCache(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ResourceCache(methods, fields);
     const char* asClassName = "ResourceCache";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ResourceGroup | File: ../Resource/ResourceCache.h
@@ -1803,10 +2283,13 @@ static void Register_ResourceGroup(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ResourceGroup", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceGroup), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ResourceGroup(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ResourceGroup(methods, fields);
     const char* asClassName = "ResourceGroup";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ResourceRef | File: ../Core/Variant.h
@@ -1816,10 +2299,13 @@ static void Register_ResourceRef(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceRef), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ResourceRef(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ResourceRef(methods, fields);
     const char* asClassName = "ResourceRef";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ResourceRefList | File: ../Core/Variant.h
@@ -1829,40 +2315,52 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ResourceRefList", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceRefList), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ResourceRefList(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ResourceRefList(methods, fields);
     const char* asClassName = "ResourceRefList";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ResourceWithMetadata | File: ../Resource/Resource.h
 static void Register_ResourceWithMetadata(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ResourceWithMetadata(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ResourceWithMetadata(methods, fields);
     const char* asClassName = "ResourceWithMetadata";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class RibbonTrail | File: ../Graphics/RibbonTrail.h
 static void Register_RibbonTrail(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RibbonTrail(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RibbonTrail(methods, fields);
     const char* asClassName = "RibbonTrail";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Scene | File: ../Scene/Scene.h
 static void Register_Scene(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Scene(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Scene(methods, fields);
     const char* asClassName = "Scene";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ScenePassInfo | File: ../Graphics/View.h
@@ -1872,10 +2370,13 @@ static void Register_ScenePassInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ScenePassInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ScenePassInfo), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ScenePassInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ScenePassInfo(methods, fields);
     const char* asClassName = "ScenePassInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct SceneReplicationState | File: ../Scene/ReplicationState.h
@@ -1885,10 +2386,13 @@ static void Register_SceneReplicationState(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("SceneReplicationState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SceneReplicationState), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SceneReplicationState(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SceneReplicationState(methods, fields);
     const char* asClassName = "SceneReplicationState";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class SceneResolver | File: ../Scene/SceneResolver.h
@@ -1898,10 +2402,13 @@ static void Register_SceneResolver(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("SceneResolver", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SceneResolver), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SceneResolver(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SceneResolver(methods, fields);
     const char* asClassName = "SceneResolver";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ScratchBuffer | File: ../Graphics/Graphics.h
@@ -1911,10 +2418,13 @@ static void Register_ScratchBuffer(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ScratchBuffer", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ScratchBuffer), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ScratchBuffer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ScratchBuffer(methods, fields);
     const char* asClassName = "ScratchBuffer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ScreenModeParams | File: ../Graphics/Graphics.h
@@ -1924,60 +2434,78 @@ static void Register_ScreenModeParams(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ScreenModeParams", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ScreenModeParams), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ScreenModeParams(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ScreenModeParams(methods, fields);
     const char* asClassName = "ScreenModeParams";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ScrollBar | File: ../UI/ScrollBar.h
 static void Register_ScrollBar(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ScrollBar(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ScrollBar(methods, fields);
     const char* asClassName = "ScrollBar";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ScrollView | File: ../UI/ScrollView.h
 static void Register_ScrollView(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ScrollView(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ScrollView(methods, fields);
     const char* asClassName = "ScrollView";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Serializable | File: ../Scene/Serializable.h
 static void Register_Serializable(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Serializable(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Serializable(methods, fields);
     const char* asClassName = "Serializable";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Serializer | File: ../IO/Serializer.h
 static void Register_Serializer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Serializer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Serializer(methods, fields);
     const char* asClassName = "Serializer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Shader | File: ../Graphics/Shader.h
 static void Register_Shader(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Shader(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Shader(methods, fields);
     const char* asClassName = "Shader";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ShaderParameter | File: ../Graphics/ShaderVariation.h
@@ -1987,40 +2515,52 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ShaderParameter), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ShaderParameter(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ShaderParameter(methods, fields);
     const char* asClassName = "ShaderParameter";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ShaderParameterAnimationInfo | File: ../Graphics/Material.h
 static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ShaderParameterAnimationInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ShaderParameterAnimationInfo(methods, fields);
     const char* asClassName = "ShaderParameterAnimationInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ShaderPrecache | File: ../Graphics/ShaderPrecache.h
 static void Register_ShaderPrecache(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ShaderPrecache(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ShaderPrecache(methods, fields);
     const char* asClassName = "ShaderPrecache";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ShaderVariation | File: ../Graphics/ShaderVariation.h
 static void Register_ShaderVariation(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ShaderVariation(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ShaderVariation(methods, fields);
     const char* asClassName = "ShaderVariation";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ShadowBatchQueue | File: ../Graphics/Batch.h
@@ -2030,100 +2570,130 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ShadowBatchQueue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ShadowBatchQueue), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ShadowBatchQueue(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ShadowBatchQueue(methods, fields);
     const char* asClassName = "ShadowBatchQueue";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Skeleton | File: ../Graphics/Skeleton.h
 static void Register_Skeleton(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Skeleton(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Skeleton(methods, fields);
     const char* asClassName = "Skeleton";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Skybox | File: ../Graphics/Skybox.h
 static void Register_Skybox(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Skybox(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Skybox(methods, fields);
     const char* asClassName = "Skybox";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Slider | File: ../UI/Slider.h
 static void Register_Slider(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Slider(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Slider(methods, fields);
     const char* asClassName = "Slider";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
 static void Register_SmoothedTransform(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SmoothedTransform(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SmoothedTransform(methods, fields);
     const char* asClassName = "SmoothedTransform";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Sound | File: ../Audio/Sound.h
 static void Register_Sound(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Sound(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Sound(methods, fields);
     const char* asClassName = "Sound";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class SoundListener | File: ../Audio/SoundListener.h
 static void Register_SoundListener(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SoundListener(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SoundListener(methods, fields);
     const char* asClassName = "SoundListener";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class SoundSource | File: ../Audio/SoundSource.h
 static void Register_SoundSource(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SoundSource(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SoundSource(methods, fields);
     const char* asClassName = "SoundSource";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
 static void Register_SoundSource3D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SoundSource3D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SoundSource3D(methods, fields);
     const char* asClassName = "SoundSource3D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class SoundStream | File: ../Audio/SoundStream.h
 static void Register_SoundStream(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SoundStream(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SoundStream(methods, fields);
     const char* asClassName = "SoundStream";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct SourceBatch | File: ../Graphics/Drawable.h
@@ -2133,20 +2703,26 @@ static void Register_SourceBatch(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("SourceBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SourceBatch), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SourceBatch(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SourceBatch(methods, fields);
     const char* asClassName = "SourceBatch";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Sphere | File: ../Math/Sphere.h
 static void Register_Sphere(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Sphere(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Sphere(methods, fields);
     const char* asClassName = "Sphere";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Spline | File: ../Core/Spline.h
@@ -2156,40 +2732,52 @@ static void Register_Spline(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Spline", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Spline), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Spline(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Spline(methods, fields);
     const char* asClassName = "Spline";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class SplinePath | File: ../Scene/SplinePath.h
 static void Register_SplinePath(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SplinePath(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SplinePath(methods, fields);
     const char* asClassName = "SplinePath";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Sprite | File: ../UI/Sprite.h
 static void Register_Sprite(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Sprite(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Sprite(methods, fields);
     const char* asClassName = "Sprite";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class StaticModel | File: ../Graphics/StaticModel.h
 static void Register_StaticModel(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_StaticModel(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_StaticModel(methods, fields);
     const char* asClassName = "StaticModel";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct StaticModelGeometryData | File: ../Graphics/StaticModel.h
@@ -2199,20 +2787,26 @@ static void Register_StaticModelGeometryData(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("StaticModelGeometryData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StaticModelGeometryData), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_StaticModelGeometryData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_StaticModelGeometryData(methods, fields);
     const char* asClassName = "StaticModelGeometryData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class StaticModelGroup | File: ../Graphics/StaticModelGroup.h
 static void Register_StaticModelGroup(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_StaticModelGroup(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_StaticModelGroup(methods, fields);
     const char* asClassName = "StaticModelGroup";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct StoredLogMessage | File: ../IO/Log.h
@@ -2222,10 +2816,13 @@ static void Register_StoredLogMessage(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("StoredLogMessage", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StoredLogMessage), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_StoredLogMessage(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_StoredLogMessage(methods, fields);
     const char* asClassName = "StoredLogMessage";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class String | File: ../Container/Str.h
@@ -2241,20 +2838,26 @@ static void Register_String(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("String", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(String), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_String(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_String(methods, fields);
     const char* asClassName = "String";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class StringHash | File: ../Math/StringHash.h
 static void Register_StringHash(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_StringHash(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_StringHash(methods, fields);
     const char* asClassName = "StringHash";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class StringHashRegister | File: ../Core/StringHashRegister.h
@@ -2264,20 +2867,26 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("StringHashRegister", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StringHashRegister), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_StringHashRegister(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_StringHashRegister(methods, fields);
     const char* asClassName = "StringHashRegister";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Technique | File: ../Graphics/Technique.h
 static void Register_Technique(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Technique(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Technique(methods, fields);
     const char* asClassName = "Technique";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct TechniqueEntry | File: ../Graphics/Material.h
@@ -2287,150 +2896,195 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("TechniqueEntry", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(TechniqueEntry), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TechniqueEntry(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TechniqueEntry(methods, fields);
     const char* asClassName = "TechniqueEntry";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Terrain | File: ../Graphics/Terrain.h
 static void Register_Terrain(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Terrain(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Terrain(methods, fields);
     const char* asClassName = "Terrain";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TerrainPatch | File: ../Graphics/TerrainPatch.h
 static void Register_TerrainPatch(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TerrainPatch(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TerrainPatch(methods, fields);
     const char* asClassName = "TerrainPatch";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Text | File: ../UI/Text.h
 static void Register_Text(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Text(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Text(methods, fields);
     const char* asClassName = "Text";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Text3D | File: ../UI/Text3D.h
 static void Register_Text3D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Text3D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Text3D(methods, fields);
     const char* asClassName = "Text3D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Texture | File: ../Graphics/Texture.h
 static void Register_Texture(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Texture(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Texture(methods, fields);
     const char* asClassName = "Texture";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Texture2D | File: ../Graphics/Texture2D.h
 static void Register_Texture2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Texture2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Texture2D(methods, fields);
     const char* asClassName = "Texture2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Texture2DArray | File: ../Graphics/Texture2DArray.h
 static void Register_Texture2DArray(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Texture2DArray(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Texture2DArray(methods, fields);
     const char* asClassName = "Texture2DArray";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Texture3D | File: ../Graphics/Texture3D.h
 static void Register_Texture3D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Texture3D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Texture3D(methods, fields);
     const char* asClassName = "Texture3D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TextureCube | File: ../Graphics/TextureCube.h
 static void Register_TextureCube(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TextureCube(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TextureCube(methods, fields);
     const char* asClassName = "TextureCube";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct TextureFrame | File: ../Graphics/ParticleEffect.h
 static void Register_TextureFrame(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TextureFrame(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TextureFrame(methods, fields);
     const char* asClassName = "TextureFrame";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Time | File: ../Core/Timer.h
 static void Register_Time(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Time(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Time(methods, fields);
     const char* asClassName = "Time";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Timer | File: ../Core/Timer.h
 static void Register_Timer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Timer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Timer(methods, fields);
     const char* asClassName = "Timer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ToolTip | File: ../UI/ToolTip.h
 static void Register_ToolTip(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ToolTip(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ToolTip(methods, fields);
     const char* asClassName = "ToolTip";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct TouchState | File: ../Input/Input.h
 static void Register_TouchState(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TouchState(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TouchState(methods, fields);
     const char* asClassName = "TouchState";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct TrailPoint | File: ../Graphics/RibbonTrail.h
@@ -2440,20 +3094,26 @@ static void Register_TrailPoint(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("TrailPoint", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(TrailPoint), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TrailPoint(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TrailPoint(methods, fields);
     const char* asClassName = "TrailPoint";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class UI | File: ../UI/UI.h
 static void Register_UI(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_UI(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_UI(methods, fields);
     const char* asClassName = "UI";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class UIBatch | File: ../UI/UIBatch.h
@@ -2463,50 +3123,65 @@ static void Register_UIBatch(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("UIBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(UIBatch), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_UIBatch(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_UIBatch(methods, fields);
     const char* asClassName = "UIBatch";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class UIComponent | File: ../UI/UIComponent.h
 static void Register_UIComponent(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_UIComponent(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_UIComponent(methods, fields);
     const char* asClassName = "UIComponent";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class UIElement | File: ../UI/UIElement.h
 static void Register_UIElement(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_UIElement(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_UIElement(methods, fields);
     const char* asClassName = "UIElement";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class UISelectable | File: ../UI/UISelectable.h
 static void Register_UISelectable(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_UISelectable(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_UISelectable(methods, fields);
     const char* asClassName = "UISelectable";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class UnknownComponent | File: ../Scene/UnknownComponent.h
 static void Register_UnknownComponent(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_UnknownComponent(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_UnknownComponent(methods, fields);
     const char* asClassName = "UnknownComponent";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct VAnimEventFrame | File: ../Scene/ValueAnimation.h
@@ -2516,10 +3191,13 @@ static void Register_VAnimEventFrame(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("VAnimEventFrame", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VAnimEventFrame), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_VAnimEventFrame(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_VAnimEventFrame(methods, fields);
     const char* asClassName = "VAnimEventFrame";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct VAnimKeyFrame | File: ../Scene/ValueAnimation.h
@@ -2529,30 +3207,39 @@ static void Register_VAnimKeyFrame(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("VAnimKeyFrame", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VAnimKeyFrame), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_VAnimKeyFrame(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_VAnimKeyFrame(methods, fields);
     const char* asClassName = "VAnimKeyFrame";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ValueAnimation | File: ../Scene/ValueAnimation.h
 static void Register_ValueAnimation(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ValueAnimation(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ValueAnimation(methods, fields);
     const char* asClassName = "ValueAnimation";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h
 static void Register_ValueAnimationInfo(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ValueAnimationInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ValueAnimationInfo(methods, fields);
     const char* asClassName = "ValueAnimationInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Variant | File: ../Core/Variant.h
@@ -2562,40 +3249,52 @@ static void Register_Variant(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Variant", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Variant), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Variant(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Variant(methods, fields);
     const char* asClassName = "Variant";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Vector2 | File: ../Math/Vector2.h
 static void Register_Vector2(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Vector2(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Vector2(methods, fields);
     const char* asClassName = "Vector2";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Vector3 | File: ../Math/Vector3.h
 static void Register_Vector3(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Vector3(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Vector3(methods, fields);
     const char* asClassName = "Vector3";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Vector4 | File: ../Math/Vector4.h
 static void Register_Vector4(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Vector4(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Vector4(methods, fields);
     const char* asClassName = "Vector4";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class VectorBase | File: ../Container/VectorBase.h
@@ -2605,10 +3304,13 @@ static void Register_VectorBase(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("VectorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VectorBase), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_VectorBase(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_VectorBase(methods, fields);
     const char* asClassName = "VectorBase";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class VectorBuffer | File: ../IO/VectorBuffer.h
@@ -2618,20 +3320,26 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("VectorBuffer", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VectorBuffer), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_VectorBuffer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_VectorBuffer(methods, fields);
     const char* asClassName = "VectorBuffer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class VertexBuffer | File: ../Graphics/VertexBuffer.h
 static void Register_VertexBuffer(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_VertexBuffer(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_VertexBuffer(methods, fields);
     const char* asClassName = "VertexBuffer";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct VertexBufferDesc | File: ../Graphics/Model.h
@@ -2641,10 +3349,13 @@ static void Register_VertexBufferDesc(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("VertexBufferDesc", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VertexBufferDesc), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_VertexBufferDesc(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_VertexBufferDesc(methods, fields);
     const char* asClassName = "VertexBufferDesc";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct VertexBufferMorph | File: ../Graphics/Model.h
@@ -2654,10 +3365,13 @@ static void Register_VertexBufferMorph(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("VertexBufferMorph", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VertexBufferMorph), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_VertexBufferMorph(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_VertexBufferMorph(methods, fields);
     const char* asClassName = "VertexBufferMorph";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct VertexElement | File: ../Graphics/GraphicsDefs.h
@@ -2667,50 +3381,65 @@ static void Register_VertexElement(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("VertexElement", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VertexElement), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_VertexElement(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_VertexElement(methods, fields);
     const char* asClassName = "VertexElement";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class View | File: ../Graphics/View.h
 static void Register_View(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_View(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_View(methods, fields);
     const char* asClassName = "View";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class View3D | File: ../UI/View3D.h
 static void Register_View3D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_View3D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_View3D(methods, fields);
     const char* asClassName = "View3D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Viewport | File: ../Graphics/Viewport.h
 static void Register_Viewport(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Viewport(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Viewport(methods, fields);
     const char* asClassName = "Viewport";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Window | File: ../UI/Window.h
 static void Register_Window(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Window(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Window(methods, fields);
     const char* asClassName = "Window";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct WindowModeParams | File: ../Graphics/Graphics.h
@@ -2720,20 +3449,26 @@ static void Register_WindowModeParams(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("WindowModeParams", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(WindowModeParams), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_WindowModeParams(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_WindowModeParams(methods, fields);
     const char* asClassName = "WindowModeParams";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class WorkQueue | File: ../Core/WorkQueue.h
 static void Register_WorkQueue(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_WorkQueue(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_WorkQueue(methods, fields);
     const char* asClassName = "WorkQueue";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class XMLElement | File: ../Resource/XMLElement.h
@@ -2743,20 +3478,26 @@ static void Register_XMLElement(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("XMLElement", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XMLElement), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_XMLElement(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_XMLElement(methods, fields);
     const char* asClassName = "XMLElement";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class XMLFile | File: ../Resource/XMLFile.h
 static void Register_XMLFile(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_XMLFile(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_XMLFile(methods, fields);
     const char* asClassName = "XMLFile";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class XPathQuery | File: ../Resource/XMLElement.h
@@ -2766,10 +3507,13 @@ static void Register_XPathQuery(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("XPathQuery", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XPathQuery), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_XPathQuery(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_XPathQuery(methods, fields);
     const char* asClassName = "XPathQuery";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class XPathResultSet | File: ../Resource/XMLElement.h
@@ -2779,20 +3523,26 @@ static void Register_XPathResultSet(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("XPathResultSet", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XPathResultSet), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_XPathResultSet(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_XPathResultSet(methods, fields);
     const char* asClassName = "XPathResultSet";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Zone | File: ../Graphics/Zone.h
 static void Register_Zone(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Zone(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Zone(methods, fields);
     const char* asClassName = "Zone";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 #ifdef URHO3D_DATABASE
@@ -2801,10 +3551,13 @@ static void Register_Zone(asIScriptEngine* engine)
 static void Register_Database(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Database(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Database(methods, fields);
     const char* asClassName = "Database";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 #endif // def URHO3D_DATABASE
@@ -2815,30 +3568,39 @@ static void Register_Database(asIScriptEngine* engine)
 static void Register_IKConstraint(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_IKConstraint(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_IKConstraint(methods, fields);
     const char* asClassName = "IKConstraint";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class IKEffector | File: ../IK/IKEffector.h
 static void Register_IKEffector(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_IKEffector(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_IKEffector(methods, fields);
     const char* asClassName = "IKEffector";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class IKSolver | File: ../IK/IKSolver.h
 static void Register_IKSolver(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_IKSolver(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_IKSolver(methods, fields);
     const char* asClassName = "IKSolver";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 #endif // def URHO3D_IK
@@ -2849,50 +3611,65 @@ static void Register_IKSolver(asIScriptEngine* engine)
 static void Register_CrowdAgent(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CrowdAgent(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CrowdAgent(methods, fields);
     const char* asClassName = "CrowdAgent";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CrowdManager | File: ../Navigation/CrowdManager.h
 static void Register_CrowdManager(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CrowdManager(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CrowdManager(methods, fields);
     const char* asClassName = "CrowdManager";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct CrowdObstacleAvoidanceParams | File: ../Navigation/CrowdManager.h
 static void Register_CrowdObstacleAvoidanceParams(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CrowdObstacleAvoidanceParams(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CrowdObstacleAvoidanceParams(methods, fields);
     const char* asClassName = "CrowdObstacleAvoidanceParams";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
 static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DynamicNavigationMesh(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DynamicNavigationMesh(methods, fields);
     const char* asClassName = "DynamicNavigationMesh";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class NavArea | File: ../Navigation/NavArea.h
 static void Register_NavArea(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NavArea(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NavArea(methods, fields);
     const char* asClassName = "NavArea";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct NavAreaStub | File: ../Navigation/NavBuildData.h
@@ -2902,10 +3679,13 @@ static void Register_NavAreaStub(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("NavAreaStub", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NavAreaStub), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NavAreaStub(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NavAreaStub(methods, fields);
     const char* asClassName = "NavAreaStub";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct NavBuildData | File: ../Navigation/NavBuildData.h
@@ -2915,20 +3695,26 @@ static void Register_NavBuildData(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("NavBuildData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NavBuildData), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NavBuildData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NavBuildData(methods, fields);
     const char* asClassName = "NavBuildData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Navigable | File: ../Navigation/Navigable.h
 static void Register_Navigable(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Navigable(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Navigable(methods, fields);
     const char* asClassName = "Navigable";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
@@ -2938,20 +3724,26 @@ static void Register_NavigationGeometryInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("NavigationGeometryInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NavigationGeometryInfo), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NavigationGeometryInfo(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NavigationGeometryInfo(methods, fields);
     const char* asClassName = "NavigationGeometryInfo";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
 static void Register_NavigationMesh(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NavigationMesh(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NavigationMesh(methods, fields);
     const char* asClassName = "NavigationMesh";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct NavigationPathPoint | File: ../Navigation/NavigationMesh.h
@@ -2961,30 +3753,39 @@ static void Register_NavigationPathPoint(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("NavigationPathPoint", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NavigationPathPoint), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NavigationPathPoint(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NavigationPathPoint(methods, fields);
     const char* asClassName = "NavigationPathPoint";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Obstacle | File: ../Navigation/Obstacle.h
 static void Register_Obstacle(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Obstacle(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Obstacle(methods, fields);
     const char* asClassName = "Obstacle";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
 static void Register_OffMeshConnection(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_OffMeshConnection(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_OffMeshConnection(methods, fields);
     const char* asClassName = "OffMeshConnection";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h
@@ -2994,10 +3795,13 @@ static void Register_SimpleNavBuildData(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("SimpleNavBuildData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SimpleNavBuildData), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SimpleNavBuildData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SimpleNavBuildData(methods, fields);
     const char* asClassName = "SimpleNavBuildData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 #endif // def URHO3D_NAVIGATION
@@ -3008,40 +3812,52 @@ static void Register_SimpleNavBuildData(asIScriptEngine* engine)
 static void Register_Connection(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Connection(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Connection(methods, fields);
     const char* asClassName = "Connection";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class HttpRequest | File: ../Network/HttpRequest.h
 static void Register_HttpRequest(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_HttpRequest(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_HttpRequest(methods, fields);
     const char* asClassName = "HttpRequest";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Network | File: ../Network/Network.h
 static void Register_Network(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Network(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Network(methods, fields);
     const char* asClassName = "Network";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class NetworkPriority | File: ../Network/NetworkPriority.h
 static void Register_NetworkPriority(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_NetworkPriority(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_NetworkPriority(methods, fields);
     const char* asClassName = "NetworkPriority";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct PackageDownload | File: ../Network/Connection.h
@@ -3051,10 +3867,13 @@ static void Register_PackageDownload(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("PackageDownload", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PackageDownload), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PackageDownload(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PackageDownload(methods, fields);
     const char* asClassName = "PackageDownload";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct PackageUpload | File: ../Network/Connection.h
@@ -3064,10 +3883,13 @@ static void Register_PackageUpload(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("PackageUpload", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PackageUpload), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PackageUpload(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PackageUpload(methods, fields);
     const char* asClassName = "PackageUpload";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct RemoteEvent | File: ../Network/Connection.h
@@ -3077,10 +3899,13 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("RemoteEvent", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RemoteEvent), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RemoteEvent(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RemoteEvent(methods, fields);
     const char* asClassName = "RemoteEvent";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 #endif // def URHO3D_NETWORK
@@ -3091,40 +3916,52 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
 static void Register_CollisionGeometryData(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CollisionGeometryData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CollisionGeometryData(methods, fields);
     const char* asClassName = "CollisionGeometryData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CollisionShape | File: ../Physics/CollisionShape.h
 static void Register_CollisionShape(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CollisionShape(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CollisionShape(methods, fields);
     const char* asClassName = "CollisionShape";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Constraint | File: ../Physics/Constraint.h
 static void Register_Constraint(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Constraint(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Constraint(methods, fields);
     const char* asClassName = "Constraint";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ConvexData | File: ../Physics/CollisionShape.h
 static void Register_ConvexData(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConvexData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConvexData(methods, fields);
     const char* asClassName = "ConvexData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct DelayedWorldTransform | File: ../Physics/PhysicsWorld.h
@@ -3134,30 +3971,39 @@ static void Register_DelayedWorldTransform(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("DelayedWorldTransform", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DelayedWorldTransform), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DelayedWorldTransform(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DelayedWorldTransform(methods, fields);
     const char* asClassName = "DelayedWorldTransform";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct GImpactMeshData | File: ../Physics/CollisionShape.h
 static void Register_GImpactMeshData(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_GImpactMeshData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_GImpactMeshData(methods, fields);
     const char* asClassName = "GImpactMeshData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct HeightfieldData | File: ../Physics/CollisionShape.h
 static void Register_HeightfieldData(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_HeightfieldData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_HeightfieldData(methods, fields);
     const char* asClassName = "HeightfieldData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct ManifoldPair | File: ../Physics/PhysicsWorld.h
@@ -3167,10 +4013,13 @@ static void Register_ManifoldPair(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ManifoldPair", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ManifoldPair), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ManifoldPair(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ManifoldPair(methods, fields);
     const char* asClassName = "ManifoldPair";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct PhysicsRaycastResult | File: ../Physics/PhysicsWorld.h
@@ -3180,20 +4029,26 @@ static void Register_PhysicsRaycastResult(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("PhysicsRaycastResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PhysicsRaycastResult), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PhysicsRaycastResult(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PhysicsRaycastResult(methods, fields);
     const char* asClassName = "PhysicsRaycastResult";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
 static void Register_PhysicsWorld(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PhysicsWorld(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PhysicsWorld(methods, fields);
     const char* asClassName = "PhysicsWorld";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct PhysicsWorldConfig | File: ../Physics/PhysicsWorld.h
@@ -3203,40 +4058,52 @@ static void Register_PhysicsWorldConfig(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("PhysicsWorldConfig", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PhysicsWorldConfig), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PhysicsWorldConfig(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PhysicsWorldConfig(methods, fields);
     const char* asClassName = "PhysicsWorldConfig";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h
 static void Register_RaycastVehicle(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RaycastVehicle(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RaycastVehicle(methods, fields);
     const char* asClassName = "RaycastVehicle";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class RigidBody | File: ../Physics/RigidBody.h
 static void Register_RigidBody(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RigidBody(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RigidBody(methods, fields);
     const char* asClassName = "RigidBody";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h
 static void Register_TriangleMeshData(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TriangleMeshData(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TriangleMeshData(methods, fields);
     const char* asClassName = "TriangleMeshData";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 #endif // def URHO3D_PHYSICS
@@ -3247,200 +4114,260 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
 static void Register_AnimatedSprite2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimatedSprite2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimatedSprite2D(methods, fields);
     const char* asClassName = "AnimatedSprite2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class AnimationSet2D | File: ../Urho2D/AnimationSet2D.h
 static void Register_AnimationSet2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_AnimationSet2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_AnimationSet2D(methods, fields);
     const char* asClassName = "AnimationSet2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CollisionBox2D | File: ../Urho2D/CollisionBox2D.h
 static void Register_CollisionBox2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CollisionBox2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CollisionBox2D(methods, fields);
     const char* asClassName = "CollisionBox2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CollisionChain2D | File: ../Urho2D/CollisionChain2D.h
 static void Register_CollisionChain2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CollisionChain2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CollisionChain2D(methods, fields);
     const char* asClassName = "CollisionChain2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CollisionCircle2D | File: ../Urho2D/CollisionCircle2D.h
 static void Register_CollisionCircle2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CollisionCircle2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CollisionCircle2D(methods, fields);
     const char* asClassName = "CollisionCircle2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CollisionEdge2D | File: ../Urho2D/CollisionEdge2D.h
 static void Register_CollisionEdge2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CollisionEdge2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CollisionEdge2D(methods, fields);
     const char* asClassName = "CollisionEdge2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CollisionPolygon2D | File: ../Urho2D/CollisionPolygon2D.h
 static void Register_CollisionPolygon2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CollisionPolygon2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CollisionPolygon2D(methods, fields);
     const char* asClassName = "CollisionPolygon2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class CollisionShape2D | File: ../Urho2D/CollisionShape2D.h
 static void Register_CollisionShape2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_CollisionShape2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_CollisionShape2D(methods, fields);
     const char* asClassName = "CollisionShape2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Constraint2D | File: ../Urho2D/Constraint2D.h
 static void Register_Constraint2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Constraint2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Constraint2D(methods, fields);
     const char* asClassName = "Constraint2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintDistance2D | File: ../Urho2D/ConstraintDistance2D.h
 static void Register_ConstraintDistance2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintDistance2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintDistance2D(methods, fields);
     const char* asClassName = "ConstraintDistance2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintFriction2D | File: ../Urho2D/ConstraintFriction2D.h
 static void Register_ConstraintFriction2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintFriction2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintFriction2D(methods, fields);
     const char* asClassName = "ConstraintFriction2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintGear2D | File: ../Urho2D/ConstraintGear2D.h
 static void Register_ConstraintGear2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintGear2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintGear2D(methods, fields);
     const char* asClassName = "ConstraintGear2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintMotor2D | File: ../Urho2D/ConstraintMotor2D.h
 static void Register_ConstraintMotor2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintMotor2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintMotor2D(methods, fields);
     const char* asClassName = "ConstraintMotor2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintMouse2D | File: ../Urho2D/ConstraintMouse2D.h
 static void Register_ConstraintMouse2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintMouse2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintMouse2D(methods, fields);
     const char* asClassName = "ConstraintMouse2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintPrismatic2D | File: ../Urho2D/ConstraintPrismatic2D.h
 static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintPrismatic2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintPrismatic2D(methods, fields);
     const char* asClassName = "ConstraintPrismatic2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintPulley2D | File: ../Urho2D/ConstraintPulley2D.h
 static void Register_ConstraintPulley2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintPulley2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintPulley2D(methods, fields);
     const char* asClassName = "ConstraintPulley2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintRevolute2D | File: ../Urho2D/ConstraintRevolute2D.h
 static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintRevolute2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintRevolute2D(methods, fields);
     const char* asClassName = "ConstraintRevolute2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintRope2D | File: ../Urho2D/ConstraintRope2D.h
 static void Register_ConstraintRope2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintRope2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintRope2D(methods, fields);
     const char* asClassName = "ConstraintRope2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintWeld2D | File: ../Urho2D/ConstraintWeld2D.h
 static void Register_ConstraintWeld2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintWeld2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintWeld2D(methods, fields);
     const char* asClassName = "ConstraintWeld2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ConstraintWheel2D | File: ../Urho2D/ConstraintWheel2D.h
 static void Register_ConstraintWheel2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ConstraintWheel2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ConstraintWheel2D(methods, fields);
     const char* asClassName = "ConstraintWheel2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct DelayedWorldTransform2D | File: ../Urho2D/PhysicsWorld2D.h
@@ -3450,20 +4377,26 @@ static void Register_DelayedWorldTransform2D(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("DelayedWorldTransform2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DelayedWorldTransform2D), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_DelayedWorldTransform2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_DelayedWorldTransform2D(methods, fields);
     const char* asClassName = "DelayedWorldTransform2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Drawable2D | File: ../Urho2D/Drawable2D.h
 static void Register_Drawable2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Drawable2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Drawable2D(methods, fields);
     const char* asClassName = "Drawable2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct Particle2D | File: ../Urho2D/ParticleEmitter2D.h
@@ -3473,30 +4406,39 @@ static void Register_Particle2D(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Particle2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Particle2D), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Particle2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Particle2D(methods, fields);
     const char* asClassName = "Particle2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ParticleEffect2D | File: ../Urho2D/ParticleEffect2D.h
 static void Register_ParticleEffect2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ParticleEffect2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ParticleEffect2D(methods, fields);
     const char* asClassName = "ParticleEffect2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class ParticleEmitter2D | File: ../Urho2D/ParticleEmitter2D.h
 static void Register_ParticleEmitter2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_ParticleEmitter2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_ParticleEmitter2D(methods, fields);
     const char* asClassName = "ParticleEmitter2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct PhysicsRaycastResult2D | File: ../Urho2D/PhysicsWorld2D.h
@@ -3506,50 +4448,65 @@ static void Register_PhysicsRaycastResult2D(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("PhysicsRaycastResult2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PhysicsRaycastResult2D), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PhysicsRaycastResult2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PhysicsRaycastResult2D(methods, fields);
     const char* asClassName = "PhysicsRaycastResult2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class PhysicsWorld2D | File: ../Urho2D/PhysicsWorld2D.h
 static void Register_PhysicsWorld2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PhysicsWorld2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PhysicsWorld2D(methods, fields);
     const char* asClassName = "PhysicsWorld2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class PropertySet2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_PropertySet2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_PropertySet2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_PropertySet2D(methods, fields);
     const char* asClassName = "PropertySet2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Renderer2D | File: ../Urho2D/Renderer2D.h
 static void Register_Renderer2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Renderer2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Renderer2D(methods, fields);
     const char* asClassName = "Renderer2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class RigidBody2D | File: ../Urho2D/RigidBody2D.h
 static void Register_RigidBody2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_RigidBody2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_RigidBody2D(methods, fields);
     const char* asClassName = "RigidBody2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct SourceBatch2D | File: ../Urho2D/Drawable2D.h
@@ -3559,150 +4516,195 @@ static void Register_SourceBatch2D(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("SourceBatch2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SourceBatch2D), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SourceBatch2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SourceBatch2D(methods, fields);
     const char* asClassName = "SourceBatch2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Sprite2D | File: ../Urho2D/Sprite2D.h
 static void Register_Sprite2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Sprite2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Sprite2D(methods, fields);
     const char* asClassName = "Sprite2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class SpriteSheet2D | File: ../Urho2D/SpriteSheet2D.h
 static void Register_SpriteSheet2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_SpriteSheet2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_SpriteSheet2D(methods, fields);
     const char* asClassName = "SpriteSheet2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class StaticSprite2D | File: ../Urho2D/StaticSprite2D.h
 static void Register_StaticSprite2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_StaticSprite2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_StaticSprite2D(methods, fields);
     const char* asClassName = "StaticSprite2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class StretchableSprite2D | File: ../Urho2D/StretchableSprite2D.h
 static void Register_StretchableSprite2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_StretchableSprite2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_StretchableSprite2D(methods, fields);
     const char* asClassName = "StretchableSprite2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class Tile2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_Tile2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Tile2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Tile2D(methods, fields);
     const char* asClassName = "Tile2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TileMap2D | File: ../Urho2D/TileMap2D.h
 static void Register_TileMap2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TileMap2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TileMap2D(methods, fields);
     const char* asClassName = "TileMap2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct TileMapInfo2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_TileMapInfo2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TileMapInfo2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TileMapInfo2D(methods, fields);
     const char* asClassName = "TileMapInfo2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TileMapLayer2D | File: ../Urho2D/TileMapLayer2D.h
 static void Register_TileMapLayer2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TileMapLayer2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TileMapLayer2D(methods, fields);
     const char* asClassName = "TileMapLayer2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TileMapObject2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_TileMapObject2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TileMapObject2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TileMapObject2D(methods, fields);
     const char* asClassName = "TileMapObject2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TmxFile2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxFile2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TmxFile2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TmxFile2D(methods, fields);
     const char* asClassName = "TmxFile2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TmxImageLayer2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxImageLayer2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TmxImageLayer2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TmxImageLayer2D(methods, fields);
     const char* asClassName = "TmxImageLayer2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TmxLayer2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxLayer2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TmxLayer2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TmxLayer2D(methods, fields);
     const char* asClassName = "TmxLayer2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TmxObjectGroup2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TmxObjectGroup2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TmxObjectGroup2D(methods, fields);
     const char* asClassName = "TmxObjectGroup2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // class TmxTileLayer2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxTileLayer2D(asIScriptEngine* engine)
 {
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_TmxTileLayer2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_TmxTileLayer2D(methods, fields);
     const char* asClassName = "TmxTileLayer2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 // struct Vertex2D | File: ../Urho2D/Drawable2D.h
@@ -3712,10 +4714,13 @@ static void Register_Vertex2D(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Vertex2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Vertex2D), AS_CALL_CDECL_OBJFIRST);
 
     Vector<RegisterObjectMethodArgs> methods;
-    CollectMembers_Vertex2D(methods);
+    Vector<RegisterObjectPropertyArgs> fields;
+    CollectMembers_Vertex2D(methods, fields);
     const char* asClassName = "Vertex2D";
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
+    for (const RegisterObjectPropertyArgs& field : fields)
+        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
 }
 
 #endif // def URHO3D_URHO2D
