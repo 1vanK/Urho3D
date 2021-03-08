@@ -37,8 +37,8 @@ enum class TypeUsage
 {
     FunctionParameter = 0,
     FunctionReturn,
-    ClassStaticVariable,
-    ClassVariable,
+    StaticField,
+    Field,
 };
 
 struct ConvertedVariable
@@ -56,8 +56,8 @@ enum class VariableUsage
 {
     FunctionParameter = 0,
     FunctionReturn,
-    ClassStaticVariable,
-    ClassVariable,
+    StaticField,
+    Field,
 };
 
 ConvertedVariable CppVariableToAS(const TypeAnalyzer& type, VariableUsage usage, const string& name = "", const string& defaultValue = "");

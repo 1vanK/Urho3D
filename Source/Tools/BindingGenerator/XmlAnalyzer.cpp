@@ -685,16 +685,31 @@ vector<MethodAnalyzer> ClassAnalyzer::GetThisPublicMethods() const
     return result;
 }
 
-vector<ClassVariableAnalyzer> ClassAnalyzer::GetVariables() const
+vector<FieldAnalyzer> ClassAnalyzer::GetAllFields() const
 {
-    vector<ClassVariableAnalyzer> result;
+    vector<FieldAnalyzer> result;
 
     vector<xml_node> memberdefs = GetMemberdefs();
 
     for (xml_node memberdef : memberdefs)
     {
         if (ExtractKind(memberdef) == "variable")
-            result.push_back(ClassVariableAnalyzer(*this, memberdef));
+            result.push_back(FieldAnalyzer(*this, memberdef));
+    }
+
+    return result;
+}
+
+vector<FieldAnalyzer> ClassAnalyzer::GetThisPublicFields() const
+{
+    vector<FieldAnalyzer> result;
+
+    xml_node sectiondef = FindSectiondef(compounddef_, "public-attrib");
+
+    for (xml_node memberdef : sectiondef.children("memberdef"))
+    {
+        FieldAnalyzer fieldAnalyzer(*this, memberdef);
+        result.push_back(fieldAnalyzer);
     }
 
     return result;
@@ -772,14 +787,14 @@ bool ClassAnalyzer::AllFloats() const
     if (Contains(GetComment(), "ALL_FLOATS")) // TODO: remove
         return true;
 
-    vector<ClassVariableAnalyzer> variables = GetVariables();
+    vector<FieldAnalyzer> fields = GetAllFields();
 
-    for (const ClassVariableAnalyzer& variable : variables)
+    for (const FieldAnalyzer& field : fields)
     {
-        if (variable.IsStatic())
+        if (field.IsStatic())
             continue;
 
-        string type = variable.GetType().ToString();
+        string type = field.GetType().ToString();
         if (type != "float" && type != "double")
             return false;
     }
@@ -792,14 +807,14 @@ bool ClassAnalyzer::AllInts() const
     if (Contains(GetComment(), "ALL_INTS")) // TODO: remove
         return true;
 
-    vector<ClassVariableAnalyzer> variables = GetVariables();
+    vector<FieldAnalyzer> fields = GetAllFields();
 
-    for (const ClassVariableAnalyzer& variable : variables)
+    for (const FieldAnalyzer& field : fields)
     {
-        if (variable.IsStatic())
+        if (field.IsStatic())
             continue;
 
-        string type = variable.GetType().ToString();
+        string type = field.GetType().ToString();
         if (type != "int" && type != "unsigned")
             return false;
     }
@@ -1110,7 +1125,7 @@ shared_ptr<MethodAnalyzer> MethodAnalyzer::Reimplements() const
 
 // ============================================================================
 
-ClassVariableAnalyzer::ClassVariableAnalyzer(ClassAnalyzer classAnalyzer, xml_node memberdef)
+FieldAnalyzer::FieldAnalyzer(ClassAnalyzer classAnalyzer, xml_node memberdef)
     : classAnalyzer_(classAnalyzer)
     , memberdef_(memberdef)
 {
@@ -1118,18 +1133,25 @@ ClassVariableAnalyzer::ClassVariableAnalyzer(ClassAnalyzer classAnalyzer, xml_no
     assert(ExtractKind(memberdef) == "variable");
 }
 
-string ClassVariableAnalyzer::GetLocation() const
+string FieldAnalyzer::GetDeclaration() const
 {
     string definition = ExtractDefinition(memberdef_);
     assert(!definition.empty());
-    
+
     // Remove Urho3D::
     smatch match;
     regex_match(definition, match, regex("(.*)Urho3D::(.+)"));
     assert(match.size() == 3);
-    string result =  match[1].str() + match[2].str();
+    string result = match[1].str() + match[2].str();
 
     result = BeautifyDefinition(result);
+
+    return result;
+}
+
+string FieldAnalyzer::GetLocation() const
+{
+    string result = GetDeclaration();
     result += " | File: " + GetHeaderFile();
 
     if (!classAnalyzer_.usingLocation_.empty())

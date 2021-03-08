@@ -2358,6 +2358,17 @@ void CollectMembers_RenderSurface(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("bool RenderSurface::IsResolveDirty() const", "bool IsResolveDirty() const", AS_METHODPR(RenderSurface, IsResolveDirty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool RenderSurface::IsResolveDirty() const", "bool get_resolveDirty() const", AS_METHODPR(RenderSurface, IsResolveDirty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void RenderSurface::SetResolveDirty(bool enable)", "void SetResolveDirty(bool)", AS_METHODPR(RenderSurface, SetResolveDirty, (bool), void), AS_CALL_THISCALL));
+
+    // void* RenderSurface::surface_
+    // Not registered because have @nobind mark
+    // void* RenderSurface::renderTargetView_
+    // Not registered because have @nobind mark
+    // unsigned RenderSurface::renderBuffer_
+    // Not registered because have @nobind mark
+    // void* RenderSurface::readOnlyView_
+    // Not registered because have @nobind mark
+    // unsigned RenderSurface::target_
+    // Not registered because have @nobind mark
 }
 
 // struct RenderTargetInfo | File: ../Graphics/RenderPath.h

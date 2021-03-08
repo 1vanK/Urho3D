@@ -891,7 +891,7 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, bool templateVe
     }
 }
 
-static void RegisterClassVarAsProperty(ClassVariableAnalyzer& variable)
+static void RegisterClassVarAsProperty(FieldAnalyzer& variable)
 {
     if (!variable.IsPublic())
         return;
@@ -920,7 +920,7 @@ static void RegisterClassVarAsProperty(ClassVariableAnalyzer& variable)
 
         try
         {
-            asType = CppTypeToAS(variable.GetType(), TypeUsage::ClassStaticVariable);
+            asType = CppTypeToAS(variable.GetType(), TypeUsage::StaticField);
         }
         catch (const Exception& e)
         {
@@ -966,7 +966,7 @@ static void RegisterClassVarAsProperty(ClassVariableAnalyzer& variable)
         
         try
         {
-            propType = CppTypeToAS(variable.GetType(), TypeUsage::ClassVariable);
+            propType = CppTypeToAS(variable.GetType(), TypeUsage::Field);
         }
         catch (const Exception& e)
         {
@@ -1000,8 +1000,8 @@ static void RegisterObjectMembers(const ClassAnalyzer& classAnalyzer, bool templ
     if (!insideDefine.empty())
         result->reg_ << "#ifdef " << insideDefine << "\n";
 
-    vector<ClassVariableAnalyzer> variables = classAnalyzer.GetVariables();
-    for (ClassVariableAnalyzer variable : variables)
+    vector<FieldAnalyzer> variables = classAnalyzer.GetAllFields();
+    for (FieldAnalyzer variable : variables)
         RegisterClassVarAsProperty(variable);
 
     vector<MethodAnalyzer> methods = classAnalyzer.GetAllMethods();

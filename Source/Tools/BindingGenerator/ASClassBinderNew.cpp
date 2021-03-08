@@ -458,6 +458,106 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
     processedClass.methods_.push_back(result);
 }
 
+static void RegisterField(const FieldAnalyzer& fieldAnalyzer, ProcessedClass& processedClass)
+{
+    if (Contains(fieldAnalyzer.GetComment(), "NO_BIND"))
+    {
+        MemberRegistrationError regError;
+        regError.name_ = fieldAnalyzer.GetName();
+        regError.comment_ = fieldAnalyzer.GetDeclaration();
+        regError.message_ = "Not registered because have @nobind mark";
+        processedClass.unregisteredFields_.push_back(regError);
+        return;
+    }
+
+    if (Contains(fieldAnalyzer.GetComment(), "MANUAL_BIND"))
+    {
+        MemberRegistrationError regError;
+        regError.name_ = fieldAnalyzer.GetName();
+        regError.comment_ = fieldAnalyzer.GetDeclaration();
+        regError.message_ = "Not registered because have @manualbind mark";
+        processedClass.unregisteredFields_.push_back(regError);
+        return;
+    }
+
+#if 0
+    if (variable.IsStatic())
+    {
+        result->reg_ << "    // " << variable.GetLocation() << "\n";
+
+        string asType;
+
+        try
+        {
+            asType = CppTypeToAS(variable.GetType(), TypeUsage::StaticField);
+        }
+        catch (const Exception& e)
+        {
+            result->reg_ << "    // " << e.what() << "\n";
+            return;
+        }
+
+        if (variable.GetType().IsConst())
+            asType = "const " + asType;
+
+        asType = ReplaceAll(asType, "struct ", "");
+
+        string className = variable.GetClassName();
+
+        result->reg_ <<
+            "    engine->SetDefaultNamespace(\"" << className << "\");\n";
+
+        result->reg_ <<
+            "    engine->RegisterGlobalProperty("
+            "\"" << asType << " " << variable.GetName() << "\", "
+            "(void*)&" << className << "::" << variable.GetName() << ");\n";
+
+        result->reg_ << "    engine->SetDefaultNamespace(\"\");\n";
+    }
+    else
+    {
+
+        result->reg_ << "    // " << variable.GetLocation() << "\n";
+
+        if (variable.IsArray())
+        {
+            result->reg_ << "    // Not registered because array\n";
+            return;
+        }
+
+        if (variable.GetType().IsPointer())
+        {
+            result->reg_ << "    // " << variable.GetType().ToString() << " can not be registered\n";
+            return;
+        }
+
+        string propType;
+
+        try
+        {
+            propType = CppTypeToAS(variable.GetType(), TypeUsage::Field);
+        }
+        catch (const Exception& e)
+        {
+            result->reg_ << "    // " << e.what() << "\n";
+            return;
+        }
+
+        string varName = variable.GetName();
+        assert(!varName.empty());
+        string propName = CutEnd(varName, "_");
+
+        string className = variable.GetClassName();
+
+        result->reg_ <<
+            "    engine->RegisterObjectProperty("
+            "\"" << className << "\", "
+            "\"" << propType << " " << propName << "\", "
+            "offsetof(" << className << ", " << varName << "));\n";
+    }
+#endif
+}
+
 static void ProcessClass(const ClassAnalyzer& classAnalyzer)
 {
     if (classAnalyzer.IsInternal())
@@ -491,6 +591,10 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
         else
             RegisterMethod(method, processedClass);
     }
+
+    vector<FieldAnalyzer> fields = classAnalyzer.GetThisPublicFields();
+    for (const FieldAnalyzer& field : fields)
+        RegisterField(field, processedClass);
 
     if (classAnalyzer.IsAbstract() && !(classAnalyzer.IsRefCounted() || Contains(classAnalyzer.GetComment(), "FAKE_REF")))
     {

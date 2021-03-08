@@ -278,6 +278,17 @@ void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods)
     methods.Push(RegisterObjectMethodArgs("Variant JSONValue::GetVariantValue(VariantType type) const", "Variant GetVariantValue(VariantType) const", AS_METHODPR(JSONValue, GetVariantValue, (VariantType) const, Variant), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void JSONValue::SetVariantMap(const VariantMap& variantMap, Context* context=nullptr)", "void SetVariantMap(const VariantMap&in)", AS_FUNCTION_OBJFIRST(JSONValue_SetVariantMap_VariantMap_Context), AS_CALL_CDECL_OBJFIRST));
     methods.Push(RegisterObjectMethodArgs("VariantMap JSONValue::GetVariantMap() const", "VariantMap GetVariantMap() const", AS_METHODPR(JSONValue, GetVariantMap, () const, VariantMap), AS_CALL_THISCALL));
+
+    // bool JSONValue::boolValue_
+    // Not registered because have @nobind mark
+    // double JSONValue::numberValue_
+    // Not registered because have @nobind mark
+    // String* JSONValue::stringValue_
+    // Not registered because have @nobind mark
+    // JSONArray* JSONValue::arrayValue_
+    // Not registered because have @nobind mark
+    // JSONObject* JSONValue::objectValue_
+    // Not registered because have @nobind mark
 }
 
 // class Localization | File: ../Resource/Localization.h

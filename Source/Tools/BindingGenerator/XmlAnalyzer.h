@@ -251,7 +251,7 @@ public:
 };
 
 class MethodAnalyzer;
-class ClassVariableAnalyzer;
+class FieldAnalyzer;
 
 // <compounddef kind="class|struct">...</compounddef>
 class ClassAnalyzer
@@ -278,7 +278,8 @@ public:
     bool IsTemplate() const { return ::IsTemplate(compounddef_); }
     vector<MethodAnalyzer> GetAllMethods() const;
     vector<MethodAnalyzer> GetThisPublicMethods() const;
-    vector<ClassVariableAnalyzer> GetVariables() const;
+    vector<FieldAnalyzer> GetAllFields() const;
+    vector<FieldAnalyzer> GetThisPublicFields() const;
     bool ContainsMethod(const string& name) const;
     shared_ptr<MethodAnalyzer> GetMethod(const string& name) const;
     int NumMethods(const string& name) const;
@@ -385,13 +386,13 @@ public:
 // <compounddef kind="class|struct">
 //     <sectiondef>
 //         <memberdef kind="variable">...</memberdef>
-class ClassVariableAnalyzer
+class FieldAnalyzer
 {
     ClassAnalyzer classAnalyzer_;
     xml_node memberdef_;
 
 public:
-    ClassVariableAnalyzer(ClassAnalyzer classAnalyzer, xml_node memberdef);
+    FieldAnalyzer(ClassAnalyzer classAnalyzer, xml_node memberdef);
 
     bool IsStatic() const { return ::IsStatic(memberdef_); }
     TypeAnalyzer GetType() const { return ExtractType(memberdef_); }
@@ -399,6 +400,7 @@ public:
     string GetComment() const { return ExtractComment(memberdef_); }
     bool IsPublic() const { return ExtractProt(memberdef_) == "public"; }
     string GetHeaderFile() const { return ExtractHeaderFile(memberdef_); }
+    string GetDeclaration() const;
     string GetLocation() const;
     string GetClassName() const { return classAnalyzer_.GetClassName(); }
     bool IsArray() const { return StartsWith(ExtractArgsstring(memberdef_), "["); };

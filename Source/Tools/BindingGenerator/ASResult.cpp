@@ -831,6 +831,18 @@ namespace Result
                 file->needGap_ = true;
             }
 
+            if (file->needGap_ && processedClass.unregisteredFields_.size())
+                file->ofs_ << '\n';
+
+            for (const MemberRegistrationError& unregisteredField : processedClass.unregisteredFields_)
+            {
+                file->ofs_ <<
+                    "    // " << unregisteredField.comment_ << "\n"
+                    "    // " << unregisteredField.message_ << "\n";
+
+                file->needGap_ = true;
+            }
+
             file->ofs_ << "}\n";
         }
 

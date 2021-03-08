@@ -169,6 +169,8 @@ struct ProcessedClass
     vector<MethodRegistration> methods_;
     vector<MemberRegistrationError> unregisteredMethods_;
 
+    vector<MemberRegistrationError> unregisteredFields_;
+
     bool noBind_ = false;
 
     vector<string> baseClassNames_;
