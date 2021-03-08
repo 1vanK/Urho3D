@@ -23,7 +23,6 @@ void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods)
 // class BoundingBox | File: ../Math/BoundingBox.h
 void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void BoundingBox::Define(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
     // void BoundingBox::Merge(const Vector3* vertices, unsigned count)
@@ -73,7 +72,6 @@ void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods)
 // class Color | File: ../Math/Color.h
 void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void Color::Bounds(float* min, float* max, bool clipped=false) const
     // Error: type "float*" can not automatically bind
     // const float* Color::Data() const
@@ -129,7 +127,6 @@ void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods)
 // class Frustum | File: ../Math/Frustum.h
 void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("Frustum& Frustum::operator=(const Frustum& rhs) noexcept", "Frustum& opAssign(const Frustum&in)", AS_METHODPR(Frustum, operator=, (const Frustum&), Frustum&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Frustum::Define(float fov, float aspectRatio, float zoom, float nearZ, float farZ, const Matrix3x4& transform=Matrix3x4::IDENTITY)", "void Define(float, float, float, float, float, const Matrix3x4&in = Matrix3x4::IDENTITY)", AS_METHODPR(Frustum, Define, (float, float, float, float, float, const Matrix3x4&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Frustum::Define(const Vector3& near, const Vector3& far, const Matrix3x4& transform=Matrix3x4::IDENTITY)", "void Define(const Vector3&in, const Vector3&in, const Matrix3x4&in = Matrix3x4::IDENTITY)", AS_METHODPR(Frustum, Define, (const Vector3&, const Vector3&, const Matrix3x4&), void), AS_CALL_THISCALL));
@@ -154,7 +151,6 @@ void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods)
 // class IntRect | File: ../Math/Rect.h
 void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const int* IntRect::Data() const
     // Error: type "const int*" can not automatically bind
     // bool IntRect::operator!=(const IntRect& rhs) const
@@ -191,7 +187,6 @@ void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods)
 // class IntVector2 | File: ../Math/Vector2.h
 void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const int* IntVector2::Data() const
     // Error: type "const int*" can not automatically bind
     // bool IntVector2::operator!=(const IntVector2& rhs) const
@@ -220,7 +215,6 @@ void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods)
 // class IntVector3 | File: ../Math/Vector3.h
 void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const int* IntVector3::Data() const
     // Error: type "const int*" can not automatically bind
     // bool IntVector3::operator!=(const IntVector3& rhs) const
@@ -249,7 +243,6 @@ void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods)
 // class Matrix2 | File: ../Math/Matrix2.h
 void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Matrix2::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Matrix2::operator!=(const Matrix2& rhs) const
@@ -277,7 +270,6 @@ void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods)
 // class Matrix3 | File: ../Math/Matrix3.h
 void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Matrix3::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Matrix3::operator!=(const Matrix3& rhs) const
@@ -309,7 +301,6 @@ void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods)
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
 void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Matrix3x4::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Matrix3x4::operator!=(const Matrix3x4& rhs) const
@@ -351,7 +342,6 @@ void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods)
 // class Matrix4 | File: ../Math/Matrix4.h
 void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Matrix4::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Matrix4::operator!=(const Matrix4& rhs) const
@@ -392,7 +382,6 @@ void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods)
 // class Plane | File: ../Math/Plane.h
 void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("Plane& Plane::operator=(const Plane& rhs) noexcept=default", "Plane& opAssign(const Plane&in)", AS_METHODPR(Plane, operator=, (const Plane&), Plane&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Plane::Define(const Vector3& v0, const Vector3& v1, const Vector3& v2)", "void Define(const Vector3&in, const Vector3&in, const Vector3&in)", AS_METHODPR(Plane, Define, (const Vector3&, const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Plane::Define(const Vector3& normal, const Vector3& point)", "void Define(const Vector3&in, const Vector3&in)", AS_METHODPR(Plane, Define, (const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
@@ -423,7 +412,6 @@ static void Polyhedron_AddFace_PODVectorVector3(Polyhedron* ptr, CScriptArray* f
 // class Polyhedron | File: ../Math/Polyhedron.h
 void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("Polyhedron& Polyhedron::operator=(const Polyhedron& rhs)", "Polyhedron& opAssign(const Polyhedron&in)", AS_METHODPR(Polyhedron, operator=, (const Polyhedron&), Polyhedron&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Polyhedron::Define(const BoundingBox& box)", "void Define(const BoundingBox&in)", AS_METHODPR(Polyhedron, Define, (const BoundingBox&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Polyhedron::Define(const Frustum& frustum)", "void Define(const Frustum&in)", AS_METHODPR(Polyhedron, Define, (const Frustum&), void), AS_CALL_THISCALL));
@@ -444,7 +432,6 @@ void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods)
 // class Quaternion | File: ../Math/Quaternion.h
 void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Quaternion::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Quaternion::operator!=(const Quaternion& rhs) const
@@ -497,7 +484,6 @@ void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods)
 // class Ray | File: ../Math/Ray.h
 void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // float Ray::HitDistance(const Vector3& v0, const Vector3& v1, const Vector3& v2, Vector3* outNormal=nullptr, Vector3* outBary=nullptr) const
     // Error: type "Vector3*" can not automatically bind
     // float Ray::HitDistance(const void* vertexData, unsigned vertexStride, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount, Vector3* outNormal=nullptr, Vector2* outUV=nullptr, unsigned uvOffset=0) const
@@ -527,7 +513,6 @@ void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods)
 // class Rect | File: ../Math/Rect.h
 void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Rect::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Rect::operator!=(const Rect& rhs) const
@@ -577,7 +562,6 @@ void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods)
 // class Sphere | File: ../Math/Sphere.h
 void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void Sphere::Define(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
     // void Sphere::Merge(const Vector3* vertices, unsigned count)
@@ -612,7 +596,6 @@ void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods)
 // class StringHash | File: ../Math/StringHash.h
 void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool StringHash::operator!=(const StringHash& rhs) const
     // Only operator== is needed
     // bool StringHash::operator<(const StringHash& rhs) const
@@ -635,7 +618,6 @@ void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods)
 // class Vector2 | File: ../Math/Vector2.h
 void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Vector2::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Vector2::operator!=(const Vector2& rhs) const
@@ -679,7 +661,6 @@ void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods)
 // class Vector3 | File: ../Math/Vector3.h
 void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Vector3::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Vector3::operator!=(const Vector3& rhs) const
@@ -730,7 +711,6 @@ void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods)
 // class Vector4 | File: ../Math/Vector4.h
 void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const float* Vector4::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Vector4::operator!=(const Vector4& rhs) const

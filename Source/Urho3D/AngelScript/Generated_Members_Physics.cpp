@@ -208,7 +208,6 @@ void CollectMembers_ManifoldPair(Vector<RegisterObjectMethodArgs>& methods)
 // struct PhysicsRaycastResult | File: ../Physics/PhysicsWorld.h
 void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool PhysicsRaycastResult::operator!=(const PhysicsRaycastResult& rhs) const
     // Only operator== is needed
 }

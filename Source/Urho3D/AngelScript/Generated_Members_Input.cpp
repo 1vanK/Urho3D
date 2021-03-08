@@ -125,7 +125,6 @@ void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods)
 // struct JoystickState | File: ../Input/Input.h
 void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void JoystickState::Initialize(unsigned numButtons, unsigned numAxes, unsigned numHats)", "void Initialize(uint, uint, uint)", AS_METHODPR(JoystickState, Initialize, (unsigned, unsigned, unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void JoystickState::Reset()", "void Reset()", AS_METHODPR(JoystickState, Reset, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool JoystickState::IsController() const", "bool IsController() const", AS_METHODPR(JoystickState, IsController, () const, bool), AS_CALL_THISCALL));
@@ -149,7 +148,6 @@ void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods)
 // struct TouchState | File: ../Input/Input.h
 void CollectMembers_TouchState(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("UIElement* TouchState::GetTouchedElement()", "UIElement@+ GetTouchedElement()", AS_METHODPR(TouchState, GetTouchedElement, (), UIElement*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("UIElement* TouchState::GetTouchedElement()", "UIElement@+ get_touchedElement()", AS_METHODPR(TouchState, GetTouchedElement, (), UIElement*), AS_CALL_THISCALL));
 }

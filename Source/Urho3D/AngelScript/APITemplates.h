@@ -83,7 +83,7 @@ inline void Remove(Vector<RegisterObjectMethodArgs>& methods, const String& cppD
     auto it = methods.Begin();
     while (it != methods.End())
     {
-        if (it->asDeclaration_ == cppDeclaration)
+        if (it->cppDeclaration_ == cppDeclaration)
             it = methods.Erase(it);
         else
             ++it;

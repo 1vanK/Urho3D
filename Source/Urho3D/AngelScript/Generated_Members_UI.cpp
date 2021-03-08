@@ -1250,7 +1250,6 @@ void CollectMembers_UI(Vector<RegisterObjectMethodArgs>& methods)
 // class UIBatch | File: ../UI/UIBatch.h
 void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void UIBatch::SetColor(const Color& color, bool overrideAlpha=false)", "void SetColor(const Color&in, bool = false)", AS_METHODPR(UIBatch, SetColor, (const Color&, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void UIBatch::SetDefaultColor()", "void SetDefaultColor()", AS_METHODPR(UIBatch, SetDefaultColor, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(float x, float y, float width, float height, int texOffsetX, int texOffsetY, int texWidth=0, int texHeight=0)", "void AddQuad(float, float, float, float, int, int, int = 0, int = 0)", AS_METHODPR(UIBatch, AddQuad, (float, float, float, float, int, int, int, int), void), AS_CALL_THISCALL));

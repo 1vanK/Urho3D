@@ -110,7 +110,6 @@ void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& 
 // struct DirtyBits | File: ../Scene/ReplicationState.h
 void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void DirtyBits::Set(unsigned index)", "void Set(uint)", AS_METHODPR(DirtyBits, Set, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DirtyBits::Clear(unsigned index)", "void Clear(uint)", AS_METHODPR(DirtyBits, Clear, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DirtyBits::ClearAll()", "void ClearAll()", AS_METHODPR(DirtyBits, ClearAll, (), void), AS_CALL_THISCALL));
@@ -646,7 +645,6 @@ void CollectMembers_SceneReplicationState(Vector<RegisterObjectMethodArgs>& meth
 // class SceneResolver | File: ../Scene/SceneResolver.h
 void CollectMembers_SceneResolver(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::Reset()", "void Reset()", AS_METHODPR(SceneResolver, Reset, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::AddNode(unsigned oldID, Node* node)", "void AddNode(uint, Node@+)", AS_METHODPR(SceneResolver, AddNode, (unsigned, Node*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::AddComponent(unsigned oldID, Component* component)", "void AddComponent(uint, Component@+)", AS_METHODPR(SceneResolver, AddComponent, (unsigned, Component*), void), AS_CALL_THISCALL));

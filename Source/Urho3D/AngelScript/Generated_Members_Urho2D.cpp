@@ -774,7 +774,6 @@ void CollectMembers_ParticleEmitter2D(Vector<RegisterObjectMethodArgs>& methods)
 // struct PhysicsRaycastResult2D | File: ../Urho2D/PhysicsWorld2D.h
 void CollectMembers_PhysicsRaycastResult2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool PhysicsRaycastResult2D::operator!=(const PhysicsRaycastResult2D& rhs) const
     // Only operator== is needed
 }
@@ -1203,7 +1202,6 @@ void CollectMembers_TileMap2D(Vector<RegisterObjectMethodArgs>& methods)
 // struct TileMapInfo2D | File: ../Urho2D/TileMapDefs2D.h
 void CollectMembers_TileMapInfo2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("float TileMapInfo2D::GetMapWidth() const", "float GetMapWidth() const", AS_METHODPR(TileMapInfo2D, GetMapWidth, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float TileMapInfo2D::GetMapWidth() const", "float get_mapWidth() const", AS_METHODPR(TileMapInfo2D, GetMapWidth, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float TileMapInfo2D::GetMapHeight() const", "float GetMapHeight() const", AS_METHODPR(TileMapInfo2D, GetMapHeight, () const, float), AS_CALL_THISCALL));

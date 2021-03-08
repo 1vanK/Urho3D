@@ -778,6 +778,8 @@ namespace Result
                 "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods)\n"
                 "{\n";
 
+            file->needGap_ = false;
+
             if (processedClass.baseClassNames_.size())
             {
                 for (const string& baseClassName : processedClass.baseClassNames_)

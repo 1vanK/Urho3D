@@ -324,7 +324,6 @@ void CollectMembers_AnimationStateTrack(Vector<RegisterObjectMethodArgs>& method
 // struct AnimationTrack | File: ../Graphics/Animation.h
 void CollectMembers_AnimationTrack(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // AnimationKeyFrame* AnimationTrack::GetKeyFrame(unsigned index)
     // Error: type "AnimationKeyFrame*" can not automatically bind
 
@@ -347,7 +346,6 @@ void CollectMembers_AnimationTriggerPoint(Vector<RegisterObjectMethodArgs>& meth
 // struct Batch | File: ../Graphics/Batch.h
 void CollectMembers_Batch(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void Batch::CalculateSortKey()", "void CalculateSortKey()", AS_METHODPR(Batch, CalculateSortKey, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool allowDepthWrite) const", "void Prepare(View@+, Camera@+, bool, bool) const", AS_METHODPR(Batch, Prepare, (View*, Camera*, bool, bool) const, void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const", "void Draw(View@+, Camera@+, bool) const", AS_METHODPR(Batch, Draw, (View*, Camera*, bool) const, void), AS_CALL_THISCALL));
@@ -370,7 +368,6 @@ void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods)
 // struct BatchGroupKey | File: ../Graphics/Batch.h
 void CollectMembers_BatchGroupKey(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool BatchGroupKey::operator!=(const BatchGroupKey& rhs) const
     // Only operator== is needed
 
@@ -381,7 +378,6 @@ void CollectMembers_BatchGroupKey(Vector<RegisterObjectMethodArgs>& methods)
 // struct BatchQueue | File: ../Graphics/Batch.h
 void CollectMembers_BatchQueue(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void BatchQueue::SetInstancingData(void* lockedData, unsigned stride, unsigned& freeIndex)
     // Error: type "void*" can not automatically bind
     // void BatchQueue::SortFrontToBack2Pass(PODVector<Batch*>& batches)
@@ -398,7 +394,6 @@ void CollectMembers_BatchQueue(Vector<RegisterObjectMethodArgs>& methods)
 // struct BiasParameters | File: ../Graphics/Light.h
 void CollectMembers_BiasParameters(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void BiasParameters::Validate()", "void Validate()", AS_METHODPR(BiasParameters, Validate, (), void), AS_CALL_THISCALL));
 }
 
@@ -485,7 +480,6 @@ void CollectMembers_Bone(Vector<RegisterObjectMethodArgs>& methods)
 // class BoxOctreeQuery | File: ../Graphics/OctreeQuery.h
 void CollectMembers_BoxOctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void BoxOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
 
@@ -611,7 +605,6 @@ void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods)
 // struct CascadeParameters | File: ../Graphics/Light.h
 void CollectMembers_CascadeParameters(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void CascadeParameters::Validate()", "void Validate()", AS_METHODPR(CascadeParameters, Validate, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float CascadeParameters::GetShadowRange() const", "float GetShadowRange() const", AS_METHODPR(CascadeParameters, GetShadowRange, () const, float), AS_CALL_THISCALL));
 }
@@ -619,7 +612,6 @@ void CollectMembers_CascadeParameters(Vector<RegisterObjectMethodArgs>& methods)
 // struct ColorFrame | File: ../Graphics/ParticleEffect.h
 void CollectMembers_ColorFrame(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("Color ColorFrame::Interpolate(const ColorFrame& next, float time) const", "Color Interpolate(const ColorFrame&in, float) const", AS_METHODPR(ColorFrame, Interpolate, (const ColorFrame&, float) const, Color), AS_CALL_THISCALL));
 }
 
@@ -759,7 +751,6 @@ void CollectMembers_DebugTriangle(Vector<RegisterObjectMethodArgs>& methods)
 // struct Decal | File: ../Graphics/DecalSet.h
 void CollectMembers_Decal(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void Decal::AddVertex(const DecalVertex& vertex)", "void AddVertex(const DecalVertex&in)", AS_METHODPR(Decal, AddVertex, (const DecalVertex&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Decal::CalculateBoundingBox()", "void CalculateBoundingBox()", AS_METHODPR(Decal, CalculateBoundingBox, (), void), AS_CALL_THISCALL));
 }
@@ -952,7 +943,6 @@ void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods)
 // struct FocusParameters | File: ../Graphics/Light.h
 void CollectMembers_FocusParameters(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void FocusParameters::Validate()", "void Validate()", AS_METHODPR(FocusParameters, Validate, (), void), AS_CALL_THISCALL));
 }
 
@@ -964,7 +954,6 @@ void CollectMembers_FrameInfo(Vector<RegisterObjectMethodArgs>& methods)
 // class FrustumOctreeQuery | File: ../Graphics/OctreeQuery.h
 void CollectMembers_FrustumOctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void FrustumOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
 
@@ -974,7 +963,6 @@ void CollectMembers_FrustumOctreeQuery(Vector<RegisterObjectMethodArgs>& methods
 // class GPUObject | File: ../Graphics/GPUObject.h
 void CollectMembers_GPUObject(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void* GPUObject::GetGPUObject() const
     // Error: type "void*" can not automatically bind
 
@@ -1804,7 +1792,6 @@ void CollectMembers_OcclusionBufferData(Vector<RegisterObjectMethodArgs>& method
 // class Octant | File: ../Graphics/Octree.h
 void CollectMembers_Octant(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // Octant* Octant::GetOrCreateChild(unsigned index)
     // Error: type "Octant" can not automatically bind bacause have @nobind mark
     // Octant* Octant::GetParent() const
@@ -1856,7 +1843,6 @@ void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods)
 // class OctreeQuery | File: ../Graphics/OctreeQuery.h
 void CollectMembers_OctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // virtual void OctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside)=0
     // Error: type "Drawable**" can not automatically bind
 
@@ -1866,7 +1852,6 @@ void CollectMembers_OctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 // struct OctreeQueryResult | File: ../Graphics/OctreeQuery.h
 void CollectMembers_OctreeQueryResult(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool OctreeQueryResult::operator!=(const OctreeQueryResult& rhs) const
     // Only operator== is needed
 }
@@ -2222,7 +2207,6 @@ void CollectMembers_PerThreadSceneResult(Vector<RegisterObjectMethodArgs>& metho
 // class PointOctreeQuery | File: ../Graphics/OctreeQuery.h
 void CollectMembers_PointOctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void PointOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
 
@@ -2237,7 +2221,6 @@ void CollectMembers_RayOctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 // struct RayQueryResult | File: ../Graphics/OctreeQuery.h
 void CollectMembers_RayQueryResult(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool RayQueryResult::operator!=(const RayQueryResult& rhs) const
     // Only operator== is needed
 }
@@ -2293,7 +2276,6 @@ void CollectMembers_RenderPath(Vector<RegisterObjectMethodArgs>& methods)
 // struct RenderPathCommand | File: ../Graphics/RenderPath.h
 void CollectMembers_RenderPathCommand(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void RenderPathCommand::Load(const XMLElement& element)", "void Load(const XMLElement&in)", AS_METHODPR(RenderPathCommand, Load, (const XMLElement&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetTextureName(TextureUnit unit, const String& name)", "void SetTextureName(TextureUnit, const String&in)", AS_METHODPR(RenderPathCommand, SetTextureName, (TextureUnit, const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetTextureName(TextureUnit unit, const String& name)", "void set_textureNames(TextureUnit, const String&in)", AS_METHODPR(RenderPathCommand, SetTextureName, (TextureUnit, const String&), void), AS_CALL_THISCALL));
@@ -2381,7 +2363,6 @@ void CollectMembers_RenderSurface(Vector<RegisterObjectMethodArgs>& methods)
 // struct RenderTargetInfo | File: ../Graphics/RenderPath.h
 void CollectMembers_RenderTargetInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void RenderTargetInfo::Load(const XMLElement& element)", "void Load(const XMLElement&in)", AS_METHODPR(RenderTargetInfo, Load, (const XMLElement&), void), AS_CALL_THISCALL));
 }
 
@@ -2657,7 +2638,6 @@ void CollectMembers_ScratchBuffer(Vector<RegisterObjectMethodArgs>& methods)
 // struct ScreenModeParams | File: ../Graphics/Graphics.h
 void CollectMembers_ScreenModeParams(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool ScreenModeParams::operator!=(const ScreenModeParams& rhs) const
     // Only operator== is needed
 
@@ -2745,7 +2725,6 @@ void CollectMembers_ShadowBatchQueue(Vector<RegisterObjectMethodArgs>& methods)
 // class Skeleton | File: ../Graphics/Skeleton.h
 void CollectMembers_Skeleton(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // Bone* Skeleton::GetBone(const char* name)
     // Error: type "const char*" can not automatically bind
     // const Vector<Bone>& Skeleton::GetBones() const
@@ -2792,14 +2771,12 @@ void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods)
 // struct SourceBatch | File: ../Graphics/Drawable.h
 void CollectMembers_SourceBatch(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("SourceBatch& SourceBatch::operator=(const SourceBatch& rhs)", "SourceBatch& opAssign(const SourceBatch&in)", AS_METHODPR(SourceBatch, operator=, (const SourceBatch&), SourceBatch&), AS_CALL_THISCALL));
 }
 
 // class SphereOctreeQuery | File: ../Graphics/OctreeQuery.h
 void CollectMembers_SphereOctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void SphereOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
 
@@ -3449,7 +3426,6 @@ void CollectMembers_VertexBufferMorph(Vector<RegisterObjectMethodArgs>& methods)
 // struct VertexElement | File: ../Graphics/GraphicsDefs.h
 void CollectMembers_VertexElement(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool VertexElement::operator!=(const VertexElement& rhs) const
     // Only operator== is needed
 

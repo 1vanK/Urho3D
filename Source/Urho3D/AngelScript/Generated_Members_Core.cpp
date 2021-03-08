@@ -22,7 +22,6 @@ void CollectMembers_AttributeAccessor(Vector<RegisterObjectMethodArgs>& methods)
 // struct AttributeHandle | File: ../Core/Attribute.h
 void CollectMembers_AttributeHandle(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // AttributeHandle& AttributeHandle::SetMetadata(StringHash key, const Variant& value)
     // Error: type "AttributeHandle" can not automatically bind bacause have @nobind mark
 }
@@ -30,7 +29,6 @@ void CollectMembers_AttributeHandle(Vector<RegisterObjectMethodArgs>& methods)
 // struct AttributeInfo | File: ../Core/Attribute.h
 void CollectMembers_AttributeInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("const Variant& AttributeInfo::GetMetadata(const StringHash& key) const", "const Variant& GetMetadata(const StringHash&in) const", AS_METHODPR(AttributeInfo, GetMetadata, (const StringHash&) const, const Variant&), AS_CALL_THISCALL));
 }
 
@@ -42,7 +40,6 @@ void CollectMembers_AutoProfileBlock(Vector<RegisterObjectMethodArgs>& methods)
 // class Condition | File: ../Core/Condition.h
 void CollectMembers_Condition(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void Condition::Set()", "void Set()", AS_METHODPR(Condition, Set, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Condition::Wait()", "void Wait()", AS_METHODPR(Condition, Wait, (), void), AS_CALL_THISCALL));
 }
@@ -108,7 +105,6 @@ void CollectMembers_Context(Vector<RegisterObjectMethodArgs>& methods)
 // class CustomVariantValue | File: ../Core/Variant.h
 void CollectMembers_CustomVariantValue(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // virtual bool CustomVariantValue::Assign(const CustomVariantValue& rhs)
     // Error: type "CustomVariantValue" can not automatically bind bacause have @nobind mark
     // virtual CustomVariantValue* CustomVariantValue::Clone() const
@@ -128,7 +124,6 @@ void CollectMembers_CustomVariantValue(Vector<RegisterObjectMethodArgs>& methods
 // class EventHandler | File: ../Core/Object.h
 void CollectMembers_EventHandler(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // virtual EventHandler* EventHandler::Clone() const =0
     // Error: type "EventHandler*" can not automatically bind
     // void* EventHandler::GetUserData() const
@@ -144,7 +139,6 @@ void CollectMembers_EventHandler(Vector<RegisterObjectMethodArgs>& methods)
 // class EventHandler11Impl | File: ../Core/Object.h
 void CollectMembers_EventHandler11Impl(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // EventHandler* EventHandler11Impl::Clone() const override
     // Error: type "EventHandler*" can not automatically bind
 
@@ -164,7 +158,6 @@ void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods)
 // class EventProfilerBlock | File: ../Core/EventProfiler.h
 void CollectMembers_EventProfilerBlock(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // EventProfilerBlock* EventProfilerBlock::GetChild(StringHash eventID)
     // Error: type "EventProfilerBlock" can not automatically bind bacause have @nobind mark
 }
@@ -183,7 +176,6 @@ void CollectMembers_EventReceiverGroup(Vector<RegisterObjectMethodArgs>& methods
 // class HiresTimer | File: ../Core/Timer.h
 void CollectMembers_HiresTimer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("long long HiresTimer::GetUSec(bool reset)", "int64 GetUSec(bool)", AS_METHODPR(HiresTimer, GetUSec, (bool), long long), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void HiresTimer::Reset()", "void Reset()", AS_METHODPR(HiresTimer, Reset, (), void), AS_CALL_THISCALL));
 }
@@ -191,7 +183,6 @@ void CollectMembers_HiresTimer(Vector<RegisterObjectMethodArgs>& methods)
 // class Mutex | File: ../Core/Mutex.h
 void CollectMembers_Mutex(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void Mutex::Acquire()", "void Acquire()", AS_METHODPR(Mutex, Acquire, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Mutex::TryAcquire()", "bool TryAcquire()", AS_METHODPR(Mutex, TryAcquire, (), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Mutex::Release()", "void Release()", AS_METHODPR(Mutex, Release, (), void), AS_CALL_THISCALL));
@@ -310,7 +301,6 @@ void CollectMembers_Profiler(Vector<RegisterObjectMethodArgs>& methods)
 // class ProfilerBlock | File: ../Core/Profiler.h
 void CollectMembers_ProfilerBlock(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // ProfilerBlock* ProfilerBlock::GetChild(const char* name)
     // Error: type "const char*" can not automatically bind
 
@@ -323,7 +313,6 @@ void CollectMembers_ProfilerBlock(Vector<RegisterObjectMethodArgs>& methods)
 // struct ResourceRef | File: ../Core/Variant.h
 void CollectMembers_ResourceRef(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool ResourceRef::operator!=(const ResourceRef& rhs) const
     // Only operator== is needed
 
@@ -333,7 +322,6 @@ void CollectMembers_ResourceRef(Vector<RegisterObjectMethodArgs>& methods)
 // struct ResourceRefList | File: ../Core/Variant.h
 void CollectMembers_ResourceRefList(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool ResourceRefList::operator!=(const ResourceRefList& rhs) const
     // Only operator== is needed
 
@@ -343,7 +331,6 @@ void CollectMembers_ResourceRefList(Vector<RegisterObjectMethodArgs>& methods)
 // class Spline | File: ../Core/Spline.h
 void CollectMembers_Spline(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const VariantVector& Spline::GetKnots() const
     // Error: type "const VariantVector&" can not automatically bind
     // void Spline::SetKnots(const Vector<Variant>& knots)
@@ -371,7 +358,6 @@ void CollectMembers_Spline(Vector<RegisterObjectMethodArgs>& methods)
 // class StringHashRegister | File: ../Core/StringHashRegister.h
 void CollectMembers_StringHashRegister(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const StringMap& StringHashRegister::GetInternalMap() const
     // Error: type "const StringMap&" can not automatically bind
     // StringHash StringHashRegister::RegisterString(const StringHash& hash, const char* string)
@@ -387,7 +373,6 @@ void CollectMembers_StringHashRegister(Vector<RegisterObjectMethodArgs>& methods
 // class Thread | File: ../Core/Thread.h
 void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("virtual void Thread::ThreadFunction()=0", "void ThreadFunction()", AS_METHODPR(Thread, ThreadFunction, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Thread::Run()", "bool Run()", AS_METHODPR(Thread, Run, (), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Thread::Stop()", "void Stop()", AS_METHODPR(Thread, Stop, (), void), AS_CALL_THISCALL));
@@ -417,7 +402,6 @@ void CollectMembers_Time(Vector<RegisterObjectMethodArgs>& methods)
 // class Timer | File: ../Core/Timer.h
 void CollectMembers_Timer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("unsigned Timer::GetMSec(bool reset)", "uint GetMSec(bool)", AS_METHODPR(Timer, GetMSec, (bool), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Timer::Reset()", "void Reset()", AS_METHODPR(Timer, Reset, (), void), AS_CALL_THISCALL));
 }
@@ -425,7 +409,6 @@ void CollectMembers_Timer(Vector<RegisterObjectMethodArgs>& methods)
 // class TypeInfo | File: ../Core/Object.h
 void CollectMembers_TypeInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const TypeInfo* TypeInfo::GetBaseTypeInfo() const
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
     // bool TypeInfo::IsTypeOf(const TypeInfo* typeInfo) const
@@ -468,7 +451,6 @@ static CScriptArray* Variant_GetStringVector_void(Variant* ptr)
 // class Variant | File: ../Core/Variant.h
 void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // void Variant::FromString(VariantType type, const char* value)
     // Error: type "const char*" can not automatically bind
     // void Variant::FromString(const char* type, const char* value)

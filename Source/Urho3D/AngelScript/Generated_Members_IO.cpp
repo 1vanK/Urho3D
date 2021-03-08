@@ -36,7 +36,6 @@ static CScriptArray* Deserializer_ReadStringVector_void(Deserializer* ptr)
 // class Deserializer | File: ../IO/Deserializer.h
 void CollectMembers_Deserializer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // virtual unsigned Deserializer::Read(void* dest, unsigned size)=0
     // Error: type "void*" can not automatically bind
     // PODVector<unsigned char> Deserializer::ReadBuffer()
@@ -235,7 +234,6 @@ void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods)
 // class MemoryBuffer | File: ../IO/MemoryBuffer.h
 void CollectMembers_MemoryBuffer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // unsigned char* MemoryBuffer::GetData()
     // Error: type "unsigned char*" can not automatically bind
     // unsigned MemoryBuffer::Read(void* dest, unsigned size) override
@@ -332,7 +330,6 @@ static bool Serializer_WriteStringVector_StringVector(Serializer* ptr, CScriptAr
 // class Serializer | File: ../IO/Serializer.h
 void CollectMembers_Serializer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // virtual unsigned Serializer::Write(const void* data, unsigned size)=0
     // Error: type "const void*" can not automatically bind
     // bool Serializer::WriteBuffer(const PODVector<unsigned char>& value)

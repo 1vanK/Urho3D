@@ -315,6 +315,9 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
     if (methodAnalyzer.IsDeleted())
         return;
 
+    if (methodAnalyzer.IsStatic())
+        return;
+
     if (HaveMark(methodAnalyzer, "NO_BIND"))
     {
         //result->reg_ << "    // " << methodAnalyzer.GetLocation() << "\n";

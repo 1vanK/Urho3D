@@ -28,7 +28,6 @@ void CollectMembers_BackgroundLoader(Vector<RegisterObjectMethodArgs>& methods)
 // struct CompressedLevel | File: ../Resource/Image.h
 void CollectMembers_CompressedLevel(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool CompressedLevel::Decompress(unsigned char* dest) const
     // Error: type "unsigned char*" can not automatically bind
 }
@@ -198,7 +197,6 @@ static void JSONValue_SetVariantMap_VariantMap_Context(JSONValue* ptr, const Var
 // class JSONValue | File: ../Resource/JSONValue.h
 void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // ConstJSONObjectIterator JSONValue::Begin() const
     // Error: type "ConstJSONObjectIterator" can not automatically bind
     // JSONObjectIterator JSONValue::Begin()
@@ -451,7 +449,6 @@ void CollectMembers_ResourceGroup(Vector<RegisterObjectMethodArgs>& methods)
 // class ResourceRouter | File: ../Resource/ResourceCache.h
 void CollectMembers_ResourceRouter(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("virtual void ResourceRouter::Route(String& name, ResourceRequest requestType)=0", "void Route(String&, ResourceRequest)", AS_METHODPR(ResourceRouter, Route, (String&, ResourceRequest), void), AS_CALL_THISCALL));
 }
 
@@ -501,7 +498,6 @@ static CScriptArray* XMLElement_GetStringVector_void(XMLElement* ptr)
 // class XMLElement | File: ../Resource/XMLElement.h
 void CollectMembers_XMLElement(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // XMLElement XMLElement::CreateChild(const char* name)
     // Error: type "const char*" can not automatically bind
     // String XMLElement::GetAttribute(const char* name) const
@@ -682,7 +678,6 @@ void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods)
 // class XPathQuery | File: ../Resource/XMLElement.h
 void CollectMembers_XPathQuery(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // pugi::xpath_query* XPathQuery::GetXPathQuery() const
     // Error: type "pugi::xpath_query*" can not automatically bind
     // pugi::xpath_variable_set* XPathQuery::GetXPathVariableSet() const
@@ -708,7 +703,6 @@ void CollectMembers_XPathQuery(Vector<RegisterObjectMethodArgs>& methods)
 // class XPathResultSet | File: ../Resource/XMLElement.h
 void CollectMembers_XPathResultSet(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // pugi::xpath_node_set* XPathResultSet::GetXPathNodeSet() const
     // Error: type "pugi::xpath_node_set*" can not automatically bind
 

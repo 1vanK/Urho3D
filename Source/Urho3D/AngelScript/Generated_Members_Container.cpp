@@ -32,7 +32,6 @@ void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods)
 // struct HashIteratorBase | File: ../Container/HashBase.h
 void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool HashIteratorBase::operator!=(const HashIteratorBase& rhs) const
     // Only operator== is needed
 
@@ -54,14 +53,12 @@ void CollectMembers_LinkedListNode(Vector<RegisterObjectMethodArgs>& methods)
 // class ListBase | File: ../Container/ListBase.h
 void CollectMembers_ListBase(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void ListBase::Swap(ListBase& rhs)", "void Swap(ListBase&)", AS_METHODPR(ListBase, Swap, (ListBase&), void), AS_CALL_THISCALL));
 }
 
 // struct ListIteratorBase | File: ../Container/ListBase.h
 void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // bool ListIteratorBase::operator!=(const ListIteratorBase& rhs) const
     // Only operator== is needed
 
@@ -83,7 +80,6 @@ void CollectMembers_RefCount(Vector<RegisterObjectMethodArgs>& methods)
 // class RefCounted | File: ../Container/RefCounted.h
 void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // RefCount* RefCounted::RefCountPtr()
     // Error: type "RefCount*" can not automatically bind
 
@@ -116,7 +112,6 @@ static void String_Join_VectorString_String(String* ptr, CScriptArray* subString
 // class String | File: ../Container/Str.h
 void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // String& String::Append(const char* str)
     // Error: type "const char*" can not automatically bind
     // String& String::Append(const char* str, unsigned length)
@@ -248,14 +243,12 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods)
 // class VectorBase | File: ../Container/VectorBase.h
 void CollectMembers_VectorBase(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     methods.Push(RegisterObjectMethodArgs("void VectorBase::Swap(VectorBase& rhs)", "void Swap(VectorBase&)", AS_METHODPR(VectorBase, Swap, (VectorBase&), void), AS_CALL_THISCALL));
 }
 
 // class WString | File: ../Container/Str.h
 void CollectMembers_WString(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     // const wchar_t& WString::At(unsigned index) const
     // Error: type "const wchar_t&" can not automatically bind
     // wchar_t& WString::At(unsigned index)
