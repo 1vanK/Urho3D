@@ -22,7 +22,6 @@ void CollectMembers_Controls(Vector<RegisterObjectMethodArgs>& methods)
 // class Input | File: ../Input/Input.h
 void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void Input::Update()", "void Update()", AS_METHODPR(Input, Update, (), void), AS_CALL_THISCALL));

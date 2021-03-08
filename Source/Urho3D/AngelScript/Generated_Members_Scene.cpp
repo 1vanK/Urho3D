@@ -55,7 +55,6 @@ void CollectMembers_AsyncProgress(Vector<RegisterObjectMethodArgs>& methods)
 // class AttributeAnimationInfo | File: ../Scene/Animatable.h
 void CollectMembers_AttributeAnimationInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ValueAnimationInfo(methods);
 
     methods.Push(RegisterObjectMethodArgs("const AttributeInfo& AttributeAnimationInfo::GetAttributeInfo() const", "const AttributeInfo& GetAttributeInfo() const", AS_METHODPR(AttributeAnimationInfo, GetAttributeInfo, () const, const AttributeInfo&), AS_CALL_THISCALL));
@@ -64,7 +63,6 @@ void CollectMembers_AttributeAnimationInfo(Vector<RegisterObjectMethodArgs>& met
 // class Component | File: ../Scene/Component.h
 void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Animatable(methods);
 
     Remove(methods, "bool Animatable::SaveJSON(JSONValue& dest) const override");
@@ -106,7 +104,6 @@ void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods)
 // struct ComponentReplicationState | File: ../Scene/ReplicationState.h
 void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ReplicationState(methods);
 }
 
@@ -124,7 +121,6 @@ void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods)
 // class LogicComponent | File: ../Scene/LogicComponent.h
 void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
@@ -219,7 +215,6 @@ static CScriptArray* Node_GetDependencyNodes_void(Node* ptr)
 // class Node | File: ../Scene/Node.h
 void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Animatable(methods);
 
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
@@ -480,14 +475,12 @@ void CollectMembers_NodeImpl(Vector<RegisterObjectMethodArgs>& methods)
 // struct NodeReplicationState | File: ../Scene/ReplicationState.h
 void CollectMembers_NodeReplicationState(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ReplicationState(methods);
 }
 
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
 void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -531,7 +524,6 @@ static CScriptArray* Scene_GetRequiredPackageFiles_void(Scene* ptr)
 // class Scene | File: ../Scene/Scene.h
 void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Node(methods);
 
     Remove(methods, "Component* Node::GetComponent(StringHash type, bool recursive=false) const");
@@ -646,7 +638,6 @@ void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods)
 // struct SceneReplicationState | File: ../Scene/ReplicationState.h
 void CollectMembers_SceneReplicationState(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ReplicationState(methods);
 
     methods.Push(RegisterObjectMethodArgs("void SceneReplicationState::Clear()", "void Clear()", AS_METHODPR(SceneReplicationState, Clear, (), void), AS_CALL_THISCALL));
@@ -665,7 +656,6 @@ void CollectMembers_SceneResolver(Vector<RegisterObjectMethodArgs>& methods)
 // class Serializable | File: ../Scene/Serializable.h
 void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const
@@ -718,7 +708,6 @@ void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods)
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
 void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -747,7 +736,6 @@ void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods)
 // class SplinePath | File: ../Scene/SplinePath.h
 void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -801,7 +789,6 @@ static CScriptArray* UnknownComponent_GetXMLAttributes_void(UnknownComponent* pt
 // class UnknownComponent | File: ../Scene/UnknownComponent.h
 void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
@@ -849,7 +836,6 @@ void CollectMembers_VAnimKeyFrame(Vector<RegisterObjectMethodArgs>& methods)
 // class ValueAnimation | File: ../Scene/ValueAnimation.h
 void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -894,7 +880,6 @@ void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods)
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h
 void CollectMembers_ValueAnimationInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     methods.Push(RegisterObjectMethodArgs("bool ValueAnimationInfo::Update(float timeStep)", "bool Update(float)", AS_METHODPR(ValueAnimationInfo, Update, (float), bool), AS_CALL_THISCALL));

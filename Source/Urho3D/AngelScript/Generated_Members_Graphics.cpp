@@ -40,7 +40,6 @@ static CScriptArray* AnimatedModel_GetMorphVertexBuffers_void(AnimatedModel* ptr
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
 void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_StaticModel(methods);
 
     Remove(methods, "ResourceRef StaticModel::GetModelAttr() const");
@@ -145,7 +144,6 @@ static Animation* Animation_Clone_String(Animation* ptr, const String& cloneName
 // class Animation | File: ../Graphics/Animation.h
 void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ResourceWithMetadata(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -199,7 +197,6 @@ void CollectMembers_AnimationControl(Vector<RegisterObjectMethodArgs>& methods)
 // class AnimationController | File: ../Graphics/AnimationController.h
 void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -268,7 +265,6 @@ void CollectMembers_AnimationKeyFrame(Vector<RegisterObjectMethodArgs>& methods)
 // class AnimationState | File: ../Graphics/AnimationState.h
 void CollectMembers_AnimationState(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     methods.Push(RegisterObjectMethodArgs("void AnimationState::SetStartBone(Bone* startBone)", "void SetStartBone(Bone@+)", AS_METHODPR(AnimationState, SetStartBone, (Bone*), void), AS_CALL_THISCALL));
@@ -360,7 +356,6 @@ void CollectMembers_Batch(Vector<RegisterObjectMethodArgs>& methods)
 // struct BatchGroup | File: ../Graphics/Batch.h
 void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Batch(methods);
 
     Remove(methods, "void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const");
@@ -415,7 +410,6 @@ void CollectMembers_Billboard(Vector<RegisterObjectMethodArgs>& methods)
 // class BillboardSet | File: ../Graphics/BillboardSet.h
 void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -501,7 +495,6 @@ void CollectMembers_BoxOctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 // class Camera | File: ../Graphics/Camera.h
 void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -633,7 +626,6 @@ void CollectMembers_ColorFrame(Vector<RegisterObjectMethodArgs>& methods)
 // class ConstantBuffer | File: ../Graphics/ConstantBuffer.h
 void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
     CollectMembers_GPUObject(methods);
 
@@ -656,7 +648,6 @@ void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods)
 // class CustomGeometry | File: ../Graphics/CustomGeometry.h
 void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -720,7 +711,6 @@ void CollectMembers_DebugLine(Vector<RegisterObjectMethodArgs>& methods)
 // class DebugRenderer | File: ../Graphics/DebugRenderer.h
 void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -777,7 +767,6 @@ void CollectMembers_Decal(Vector<RegisterObjectMethodArgs>& methods)
 // class DecalSet | File: ../Graphics/DecalSet.h
 void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -860,7 +849,6 @@ static CScriptArray* Drawable_GetVertexLights_void(Drawable* ptr)
 // class Drawable | File: ../Graphics/Drawable.h
 void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -1013,7 +1001,6 @@ static CScriptArray* Geometry_GetVertexBuffers_void(Geometry* ptr)
 // class Geometry | File: ../Graphics/Geometry.h
 void CollectMembers_Geometry(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // float Geometry::GetHitDistance(const Ray& ray, Vector3* outNormal=nullptr, Vector2* outUV=nullptr) const
@@ -1100,7 +1087,6 @@ static CScriptArray* Graphics_GetMultiSampleLevels_void(Graphics* ptr)
 // class Graphics | File: ../Graphics/Graphics.h
 void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // void Graphics::AddGPUObject(GPUObject* object)
@@ -1338,7 +1324,6 @@ void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods)
 // class IndexBuffer | File: ../Graphics/IndexBuffer.h
 void CollectMembers_IndexBuffer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
     CollectMembers_GPUObject(methods);
 
@@ -1389,7 +1374,6 @@ void CollectMembers_InstanceData(Vector<RegisterObjectMethodArgs>& methods)
 // class Light | File: ../Graphics/Light.h
 void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -1543,7 +1527,6 @@ static Material* Material_Clone_String(Material* ptr, const String& cloneName)
 // class Material | File: ../Graphics/Material.h
 void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "bool Resource::Load(Deserializer& source)");
@@ -1710,7 +1693,6 @@ static CScriptArray* Model_GetGeometryCenters_void(Model* ptr)
 // class Model | File: ../Graphics/Model.h
 void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ResourceWithMetadata(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -1783,7 +1765,6 @@ void CollectMembers_OcclusionBatch(Vector<RegisterObjectMethodArgs>& methods)
 // class OcclusionBuffer | File: ../Graphics/OcclusionBuffer.h
 void CollectMembers_OcclusionBuffer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // bool OcclusionBuffer::AddTriangles(const Matrix3x4& model, const void* vertexData, unsigned vertexSize, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount)
@@ -1848,7 +1829,6 @@ void CollectMembers_Octant(Vector<RegisterObjectMethodArgs>& methods)
 // class Octree | File: ../Graphics/Octree.h
 void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
     CollectMembers_Octant(methods);
 
@@ -1908,7 +1888,6 @@ static ParticleEffect* ParticleEffect_Clone_String(ParticleEffect* ptr, const St
 // class ParticleEffect | File: ../Graphics/ParticleEffect.h
 void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "bool Resource::Load(Deserializer& source)");
@@ -2086,7 +2065,6 @@ void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods)
 // class ParticleEmitter | File: ../Graphics/ParticleEmitter.h
 void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BillboardSet(methods);
 
     Remove(methods, "static void BillboardSet::RegisterObject(Context* context)");
@@ -2169,7 +2147,6 @@ static CScriptArray* Pass_GetPixelShaders_StringHash(Pass* ptr, const StringHash
 // class Pass | File: ../Graphics/Technique.h
 void CollectMembers_Pass(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     methods.Push(RegisterObjectMethodArgs("void Pass::SetBlendMode(BlendMode mode)", "void SetBlendMode(BlendMode)", AS_METHODPR(Pass, SetBlendMode, (BlendMode), void), AS_CALL_THISCALL));
@@ -2277,7 +2254,6 @@ static RenderPath* RenderPath_Clone_void(RenderPath* ptr)
 // class RenderPath | File: ../Graphics/RenderPath.h
 void CollectMembers_RenderPath(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     // RenderPathCommand* RenderPath::GetCommand(unsigned index)
@@ -2350,7 +2326,6 @@ void CollectMembers_RenderPathCommand(Vector<RegisterObjectMethodArgs>& methods)
 // class RenderSurface | File: ../Graphics/RenderSurface.h
 void CollectMembers_RenderSurface(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     // void* RenderSurface::GetReadOnlyView() const
@@ -2413,7 +2388,6 @@ void CollectMembers_RenderTargetInfo(Vector<RegisterObjectMethodArgs>& methods)
 // class Renderer | File: ../Graphics/Renderer.h
 void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void Renderer::SetNumViewports(unsigned num)", "void SetNumViewports(uint)", AS_METHODPR(Renderer, SetNumViewports, (unsigned), void), AS_CALL_THISCALL));
@@ -2587,7 +2561,6 @@ void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods)
 // class RibbonTrail | File: ../Graphics/RibbonTrail.h
 void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -2695,7 +2668,6 @@ void CollectMembers_ScreenModeParams(Vector<RegisterObjectMethodArgs>& methods)
 // class Shader | File: ../Graphics/Shader.h
 void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -2719,7 +2691,6 @@ void CollectMembers_ShaderParameter(Vector<RegisterObjectMethodArgs>& methods)
 // class ShaderParameterAnimationInfo | File: ../Graphics/Material.h
 void CollectMembers_ShaderParameterAnimationInfo(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ValueAnimationInfo(methods);
 
     methods.Push(RegisterObjectMethodArgs("const String& ShaderParameterAnimationInfo::GetName() const", "const String& GetName() const", AS_METHODPR(ShaderParameterAnimationInfo, GetName, () const, const String&), AS_CALL_THISCALL));
@@ -2728,7 +2699,6 @@ void CollectMembers_ShaderParameterAnimationInfo(Vector<RegisterObjectMethodArgs
 // class ShaderPrecache | File: ../Graphics/ShaderPrecache.h
 void CollectMembers_ShaderPrecache(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void ShaderPrecache::StoreShaders(ShaderVariation* vs, ShaderVariation* ps)", "void StoreShaders(ShaderVariation@+, ShaderVariation@+)", AS_METHODPR(ShaderPrecache, StoreShaders, (ShaderVariation*, ShaderVariation*), void), AS_CALL_THISCALL));
@@ -2737,7 +2707,6 @@ void CollectMembers_ShaderPrecache(Vector<RegisterObjectMethodArgs>& methods)
 // class ShaderVariation | File: ../Graphics/ShaderVariation.h
 void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
     CollectMembers_GPUObject(methods);
 
@@ -2808,7 +2777,6 @@ void CollectMembers_Skeleton(Vector<RegisterObjectMethodArgs>& methods)
 // class Skybox | File: ../Graphics/Skybox.h
 void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_StaticModel(methods);
 
     Remove(methods, "static void StaticModel::RegisterObject(Context* context)");
@@ -2841,7 +2809,6 @@ void CollectMembers_SphereOctreeQuery(Vector<RegisterObjectMethodArgs>& methods)
 // class StaticModel | File: ../Graphics/StaticModel.h
 void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -2891,7 +2858,6 @@ void CollectMembers_StaticModelGeometryData(Vector<RegisterObjectMethodArgs>& me
 // class StaticModelGroup | File: ../Graphics/StaticModelGroup.h
 void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_StaticModel(methods);
 
     Remove(methods, "bool StaticModel::DrawOcclusion(OcclusionBuffer* buffer) override");
@@ -2960,7 +2926,6 @@ static Technique* Technique_CloneWithDefines_String_String(Technique* ptr, const
 // class Technique | File: ../Graphics/Technique.h
 void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -2999,7 +2964,6 @@ void CollectMembers_TechniqueEntry(Vector<RegisterObjectMethodArgs>& methods)
 // class Terrain | File: ../Graphics/Terrain.h
 void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -3128,7 +3092,6 @@ void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods)
 // class TerrainPatch | File: ../Graphics/TerrainPatch.h
 void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -3175,7 +3138,6 @@ void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods)
 // class Texture | File: ../Graphics/Texture.h
 void CollectMembers_Texture(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ResourceWithMetadata(methods);
     CollectMembers_GPUObject(methods);
 
@@ -3271,7 +3233,6 @@ static Image* Texture2D_GetImage_void(Texture2D* ptr)
 // class Texture2D | File: ../Graphics/Texture2D.h
 void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Texture(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -3301,7 +3262,6 @@ void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods)
 // class Texture2DArray | File: ../Graphics/Texture2DArray.h
 void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Texture(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -3334,7 +3294,6 @@ void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods)
 // class Texture3D | File: ../Graphics/Texture3D.h
 void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Texture(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -3369,7 +3328,6 @@ static Image* TextureCube_GetImage_CubeMapFace(TextureCube* ptr, CubeMapFace fac
 // class TextureCube | File: ../Graphics/TextureCube.h
 void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Texture(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -3428,7 +3386,6 @@ static CScriptArray* VertexBuffer_GetElements_void(VertexBuffer* ptr)
 // class VertexBuffer | File: ../Graphics/VertexBuffer.h
 void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
     CollectMembers_GPUObject(methods);
 
@@ -3529,7 +3486,6 @@ static CScriptArray* View_GetLights_void(View* ptr)
 // class View | File: ../Graphics/View.h
 void CollectMembers_View(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // const Vector<LightBatchQueue>& View::GetLightQueues() const
@@ -3566,7 +3522,6 @@ void CollectMembers_View(Vector<RegisterObjectMethodArgs>& methods)
 // class Viewport | File: ../Graphics/Viewport.h
 void CollectMembers_Viewport(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void Viewport::SetScene(Scene* scene)", "void SetScene(Scene@+)", AS_METHODPR(Viewport, SetScene, (Scene*), void), AS_CALL_THISCALL));
@@ -3609,7 +3564,6 @@ void CollectMembers_WindowModeParams(Vector<RegisterObjectMethodArgs>& methods)
 // class Zone | File: ../Graphics/Zone.h
 void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");

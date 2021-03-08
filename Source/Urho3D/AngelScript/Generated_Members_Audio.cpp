@@ -67,7 +67,6 @@ void CollectMembers_Audio(Vector<RegisterObjectMethodArgs>& methods)
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
 void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_SoundStream(methods);
 
     Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
@@ -89,7 +88,6 @@ void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& method
 // class OggVorbisSoundStream | File: ../Audio/OggVorbisSoundStream.h
 void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_SoundStream(methods);
 
     Remove(methods, "virtual bool SoundStream::Seek(unsigned sample_number)");
@@ -113,7 +111,6 @@ static SoundStream* Sound_GetDecoderStream_void(Sound* ptr)
 // class Sound | File: ../Audio/Sound.h
 void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ResourceWithMetadata(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -161,7 +158,6 @@ void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods)
 // class SoundListener | File: ../Audio/SoundListener.h
 void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -170,7 +166,6 @@ void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods)
 // class SoundSource | File: ../Audio/SoundSource.h
 void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -230,7 +225,6 @@ void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods)
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
 void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_SoundSource(methods);
 
     Remove(methods, "static void SoundSource::RegisterObject(Context* context)");
@@ -267,7 +261,6 @@ void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods)
 // class SoundStream | File: ../Audio/SoundStream.h
 void CollectMembers_SoundStream(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     // virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0

@@ -69,7 +69,6 @@ void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods)
 // class Button | File: ../UI/Button.h
 void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BorderImage(methods);
 
     Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
@@ -119,7 +118,6 @@ void CollectMembers_CharLocation(Vector<RegisterObjectMethodArgs>& methods)
 // class CheckBox | File: ../UI/CheckBox.h
 void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BorderImage(methods);
 
     Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
@@ -146,7 +144,6 @@ void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods)
 // class Cursor | File: ../UI/Cursor.h
 void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BorderImage(methods);
 
     Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
@@ -190,7 +187,6 @@ static CScriptArray* DropDownList_GetItems_void(DropDownList* ptr)
 // class DropDownList | File: ../UI/DropDownList.h
 void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Menu(methods);
 
     Remove(methods, "static void Menu::RegisterObject(Context* context)");
@@ -250,7 +246,6 @@ static void FileSelector_SetFilters_VectorString_unsigned(FileSelector* ptr, CSc
 // class FileSelector | File: ../UI/FileSelector.h
 void CollectMembers_FileSelector(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void FileSelector::SetDefaultStyle(XMLFile* style)", "void SetDefaultStyle(XMLFile@+)", AS_METHODPR(FileSelector, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
@@ -307,7 +302,6 @@ void CollectMembers_FileSelectorEntry(Vector<RegisterObjectMethodArgs>& methods)
 // class Font | File: ../UI/Font.h
 void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -342,7 +336,6 @@ static CScriptArray* FontFace_GetTextures_void(FontFace* ptr)
 // class FontFace | File: ../UI/FontFace.h
 void CollectMembers_FontFace(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     // virtual const FontGlyph* FontFace::GetGlyph(unsigned c)
@@ -361,7 +354,6 @@ void CollectMembers_FontFace(Vector<RegisterObjectMethodArgs>& methods)
 // class FontFaceBitmap | File: ../UI/FontFaceBitmap.h
 void CollectMembers_FontFaceBitmap(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_FontFace(methods);
 
     Remove(methods, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
@@ -376,7 +368,6 @@ void CollectMembers_FontFaceBitmap(Vector<RegisterObjectMethodArgs>& methods)
 // class FontFaceFreeType | File: ../UI/FontFaceFreeType.h
 void CollectMembers_FontFaceFreeType(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_FontFace(methods);
 
     Remove(methods, "virtual bool FontFace::HasMutableGlyphs() const");
@@ -404,7 +395,6 @@ void CollectMembers_GlyphLocation(Vector<RegisterObjectMethodArgs>& methods)
 // class LineEdit | File: ../UI/LineEdit.h
 void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BorderImage(methods);
 
     Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
@@ -506,7 +496,6 @@ static CScriptArray* ListView_GetSelectedItems_void(ListView* ptr)
 // class ListView | File: ../UI/ListView.h
 void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_ScrollView(methods);
 
     Remove(methods, "bool UIElement::IsSelected() const");
@@ -582,7 +571,6 @@ void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods)
 // class Menu | File: ../UI/Menu.h
 void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Button(methods);
 
     Remove(methods, "bool UIElement::LoadXML(Deserializer& source)");
@@ -623,7 +611,6 @@ void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods)
 // class MessageBox | File: ../UI/MessageBox.h
 void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void MessageBox::SetTitle(const String& text)", "void SetTitle(const String&in)", AS_METHODPR(MessageBox, SetTitle, (const String&), void), AS_CALL_THISCALL));
@@ -641,7 +628,6 @@ void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods)
 // class ProgressBar | File: ../UI/ProgressBar.h
 void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BorderImage(methods);
 
     Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
@@ -674,7 +660,6 @@ void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods)
 // class ScrollBar | File: ../UI/ScrollBar.h
 void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BorderImage(methods);
 
     Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
@@ -721,7 +706,6 @@ void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods)
 // class ScrollView | File: ../UI/ScrollView.h
 void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_UIElement(methods);
 
     Remove(methods, "static void UIElement::RegisterObject(Context* context)");
@@ -796,7 +780,6 @@ void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods)
 // class Slider | File: ../UI/Slider.h
 void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BorderImage(methods);
 
     Remove(methods, "static void BorderImage::RegisterObject(Context* context)");
@@ -841,7 +824,6 @@ void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods)
 // class Sprite | File: ../UI/Sprite.h
 void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_UIElement(methods);
 
     Remove(methods, "const IntVector2& UIElement::GetPosition() const");
@@ -905,7 +887,6 @@ void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods)
 // class Text | File: ../UI/Text.h
 void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_UISelectable(methods);
 
     Remove(methods, "UISelectable::URHO3D_OBJECT(UISelectable, UIElement)");
@@ -998,7 +979,6 @@ void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods)
 // class Text3D | File: ../UI/Text3D.h
 void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -1120,7 +1100,6 @@ void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods)
 // class ToolTip | File: ../UI/ToolTip.h
 void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_UIElement(methods);
 
     Remove(methods, "static void UIElement::RegisterObject(Context* context)");
@@ -1156,7 +1135,6 @@ static UIElement* UI_LoadLayout_XMLFile_XMLFile(UI* ptr, XMLFile* file, XMLFile*
 // class UI | File: ../UI/UI.h
 void CollectMembers_UI(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // const Vector<UIElement*> UI::GetDragElements()
@@ -1287,7 +1265,6 @@ void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods)
 // class UIComponent | File: ../UI/UIComponent.h
 void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -1358,7 +1335,6 @@ static CScriptArray* UIElement_GetChildrenWithTag_String_bool(UIElement* ptr, co
 // class UIElement | File: ../UI/UIElement.h
 void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Animatable(methods);
 
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
@@ -1693,7 +1669,6 @@ void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods)
 // class UISelectable | File: ../UI/UISelectable.h
 void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_UIElement(methods);
 
     Remove(methods, "explicit UIElement::UIElement(Context* context)");
@@ -1718,7 +1693,6 @@ void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods)
 // class View3D | File: ../UI/View3D.h
 void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Window(methods);
 
     Remove(methods, "static void Window::RegisterObject(Context* context)");
@@ -1750,7 +1724,6 @@ void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods)
 // class Window | File: ../UI/Window.h
 void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_BorderImage(methods);
 
     Remove(methods, "static void BorderImage::RegisterObject(Context* context)");

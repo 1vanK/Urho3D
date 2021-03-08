@@ -21,7 +21,6 @@ void CollectMembers_CollisionGeometryData(Vector<RegisterObjectMethodArgs>& meth
 // class CollisionShape | File: ../Physics/CollisionShape.h
 void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -90,7 +89,6 @@ void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods)
 // class Constraint | File: ../Physics/Constraint.h
 void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -180,7 +178,6 @@ static void ConvexData_BuildHull_PODVectorVector3(ConvexData* ptr, CScriptArray*
 // struct ConvexData | File: ../Physics/CollisionShape.h
 void CollectMembers_ConvexData(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionGeometryData(methods);
 
     methods.Push(RegisterObjectMethodArgs("void ConvexData::BuildHull(const PODVector<Vector3>& vertices)", "void BuildHull(Array<Vector3>@+)", AS_FUNCTION_OBJFIRST(ConvexData_BuildHull_PODVectorVector3), AS_CALL_CDECL_OBJFIRST));
@@ -194,14 +191,12 @@ void CollectMembers_DelayedWorldTransform(Vector<RegisterObjectMethodArgs>& meth
 // struct GImpactMeshData | File: ../Physics/CollisionShape.h
 void CollectMembers_GImpactMeshData(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionGeometryData(methods);
 }
 
 // struct HeightfieldData | File: ../Physics/CollisionShape.h
 void CollectMembers_HeightfieldData(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionGeometryData(methods);
 }
 
@@ -221,7 +216,6 @@ void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& metho
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
 void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -326,7 +320,6 @@ void CollectMembers_PhysicsWorldConfig(Vector<RegisterObjectMethodArgs>& methods
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h
 void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_LogicComponent(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -407,7 +400,6 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods)
 // class RigidBody | File: ../Physics/RigidBody.h
 void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -559,7 +551,6 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods)
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h
 void CollectMembers_TriangleMeshData(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionGeometryData(methods);
 }
 

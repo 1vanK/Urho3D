@@ -106,7 +106,6 @@ static CScriptArray* CrowdManager_GetAgents_Node_bool(CrowdManager* ptr, Node* n
 // class CrowdManager | File: ../Navigation/CrowdManager.h
 void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -183,7 +182,6 @@ void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& method
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
 void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_NavigationMesh(methods);
 
     Remove(methods, "static void NavigationMesh::RegisterObject(Context* context)");
@@ -235,7 +233,6 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
 // class NavArea | File: ../Navigation/NavArea.h
 void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -267,7 +264,6 @@ void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods)
 // class Navigable | File: ../Navigation/Navigable.h
 void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -286,7 +282,6 @@ void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& met
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
 void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -418,7 +413,6 @@ void CollectMembers_NavigationPathPoint(Vector<RegisterObjectMethodArgs>& method
 // class Obstacle | File: ../Navigation/Obstacle.h
 void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -443,7 +437,6 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods)
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
 void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -477,7 +470,6 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods)
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h
 void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_NavBuildData(methods);
 }
 

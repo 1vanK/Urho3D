@@ -780,9 +780,6 @@ namespace Result
 
             if (processedClass.baseClassNames_.size())
             {
-                if (file->needGap_)
-                    file->ofs_ << '\n';
-
                 for (const string& baseClassName : processedClass.baseClassNames_)
                     file->ofs_ << "    CollectMembers_" << baseClassName << "(methods);\n";
 

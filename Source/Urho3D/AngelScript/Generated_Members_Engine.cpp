@@ -67,7 +67,6 @@ void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods)
 // class DebugHud | File: ../Engine/DebugHud.h
 void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void DebugHud::Update()", "void Update()", AS_METHODPR(DebugHud, Update, (), void), AS_CALL_THISCALL));
@@ -110,7 +109,6 @@ void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods)
 // class Engine | File: ../Engine/Engine.h
 void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("bool Engine::Initialize(const VariantMap& parameters)", "bool Initialize(const VariantMap&in)", AS_METHODPR(Engine, Initialize, (const VariantMap&), bool), AS_CALL_THISCALL));

@@ -49,7 +49,6 @@ void CollectMembers_AnimatedSprite2D(Vector<RegisterObjectMethodArgs>& methods)
 // class AnimationSet2D | File: ../Urho2D/AnimationSet2D.h
 void CollectMembers_AnimationSet2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -71,7 +70,6 @@ void CollectMembers_AnimationSet2D(Vector<RegisterObjectMethodArgs>& methods)
 // class CollisionBox2D | File: ../Urho2D/CollisionBox2D.h
 void CollectMembers_CollisionBox2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionShape2D(methods);
 
     Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
@@ -117,7 +115,6 @@ static CScriptArray* CollisionChain2D_GetVertices_void(CollisionChain2D* ptr)
 // class CollisionChain2D | File: ../Urho2D/CollisionChain2D.h
 void CollectMembers_CollisionChain2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionShape2D(methods);
 
     Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
@@ -144,7 +141,6 @@ void CollectMembers_CollisionChain2D(Vector<RegisterObjectMethodArgs>& methods)
 // class CollisionCircle2D | File: ../Urho2D/CollisionCircle2D.h
 void CollectMembers_CollisionCircle2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionShape2D(methods);
 
     Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
@@ -163,7 +159,6 @@ void CollectMembers_CollisionCircle2D(Vector<RegisterObjectMethodArgs>& methods)
 // class CollisionEdge2D | File: ../Urho2D/CollisionEdge2D.h
 void CollectMembers_CollisionEdge2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionShape2D(methods);
 
     Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
@@ -204,7 +199,6 @@ static CScriptArray* CollisionPolygon2D_GetVertices_void(CollisionPolygon2D* ptr
 // class CollisionPolygon2D | File: ../Urho2D/CollisionPolygon2D.h
 void CollectMembers_CollisionPolygon2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_CollisionShape2D(methods);
 
     Remove(methods, "static void CollisionShape2D::RegisterObject(Context* context)");
@@ -227,7 +221,6 @@ void CollectMembers_CollisionPolygon2D(Vector<RegisterObjectMethodArgs>& methods
 // class CollisionShape2D | File: ../Urho2D/CollisionShape2D.h
 void CollectMembers_CollisionShape2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -278,7 +271,6 @@ void CollectMembers_CollisionShape2D(Vector<RegisterObjectMethodArgs>& methods)
 // class Constraint2D | File: ../Urho2D/Constraint2D.h
 void CollectMembers_Constraint2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -309,7 +301,6 @@ void CollectMembers_Constraint2D(Vector<RegisterObjectMethodArgs>& methods)
 // class ConstraintDistance2D | File: ../Urho2D/ConstraintDistance2D.h
 void CollectMembers_ConstraintDistance2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -339,7 +330,6 @@ void CollectMembers_ConstraintDistance2D(Vector<RegisterObjectMethodArgs>& metho
 // class ConstraintFriction2D | File: ../Urho2D/ConstraintFriction2D.h
 void CollectMembers_ConstraintFriction2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -361,7 +351,6 @@ void CollectMembers_ConstraintFriction2D(Vector<RegisterObjectMethodArgs>& metho
 // class ConstraintGear2D | File: ../Urho2D/ConstraintGear2D.h
 void CollectMembers_ConstraintGear2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -383,7 +372,6 @@ void CollectMembers_ConstraintGear2D(Vector<RegisterObjectMethodArgs>& methods)
 // class ConstraintMotor2D | File: ../Urho2D/ConstraintMotor2D.h
 void CollectMembers_ConstraintMotor2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -413,7 +401,6 @@ void CollectMembers_ConstraintMotor2D(Vector<RegisterObjectMethodArgs>& methods)
 // class ConstraintMouse2D | File: ../Urho2D/ConstraintMouse2D.h
 void CollectMembers_ConstraintMouse2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -439,7 +426,6 @@ void CollectMembers_ConstraintMouse2D(Vector<RegisterObjectMethodArgs>& methods)
 // class ConstraintPrismatic2D | File: ../Urho2D/ConstraintPrismatic2D.h
 void CollectMembers_ConstraintPrismatic2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -481,7 +467,6 @@ void CollectMembers_ConstraintPrismatic2D(Vector<RegisterObjectMethodArgs>& meth
 // class ConstraintPulley2D | File: ../Urho2D/ConstraintPulley2D.h
 void CollectMembers_ConstraintPulley2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -511,7 +496,6 @@ void CollectMembers_ConstraintPulley2D(Vector<RegisterObjectMethodArgs>& methods
 // class ConstraintRevolute2D | File: ../Urho2D/ConstraintRevolute2D.h
 void CollectMembers_ConstraintRevolute2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -549,7 +533,6 @@ void CollectMembers_ConstraintRevolute2D(Vector<RegisterObjectMethodArgs>& metho
 // class ConstraintRope2D | File: ../Urho2D/ConstraintRope2D.h
 void CollectMembers_ConstraintRope2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -571,7 +554,6 @@ void CollectMembers_ConstraintRope2D(Vector<RegisterObjectMethodArgs>& methods)
 // class ConstraintWeld2D | File: ../Urho2D/ConstraintWeld2D.h
 void CollectMembers_ConstraintWeld2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -593,7 +575,6 @@ void CollectMembers_ConstraintWeld2D(Vector<RegisterObjectMethodArgs>& methods)
 // class ConstraintWheel2D | File: ../Urho2D/ConstraintWheel2D.h
 void CollectMembers_ConstraintWheel2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Constraint2D(methods);
 
     Remove(methods, "static void Constraint2D::RegisterObject(Context* context)");
@@ -636,7 +617,6 @@ void CollectMembers_DelayedWorldTransform2D(Vector<RegisterObjectMethodArgs>& me
 // class Drawable2D | File: ../Urho2D/Drawable2D.h
 void CollectMembers_Drawable2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -675,7 +655,6 @@ static ParticleEffect2D* ParticleEffect2D_Clone_String(ParticleEffect2D* ptr, co
 // class ParticleEffect2D | File: ../Urho2D/ParticleEffect2D.h
 void CollectMembers_ParticleEffect2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -761,7 +740,6 @@ void CollectMembers_ParticleEffect2D(Vector<RegisterObjectMethodArgs>& methods)
 // class ParticleEmitter2D | File: ../Urho2D/ParticleEmitter2D.h
 void CollectMembers_ParticleEmitter2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable2D(methods);
 
     Remove(methods, "static void Drawable2D::RegisterObject(Context* context)");
@@ -804,7 +782,6 @@ void CollectMembers_PhysicsRaycastResult2D(Vector<RegisterObjectMethodArgs>& met
 // class PhysicsWorld2D | File: ../Urho2D/PhysicsWorld2D.h
 void CollectMembers_PhysicsWorld2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -909,7 +886,6 @@ void CollectMembers_PhysicsWorld2D(Vector<RegisterObjectMethodArgs>& methods)
 // class PropertySet2D | File: ../Urho2D/TileMapDefs2D.h
 void CollectMembers_PropertySet2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     methods.Push(RegisterObjectMethodArgs("void PropertySet2D::Load(const XMLElement& element)", "void Load(const XMLElement&in)", AS_METHODPR(PropertySet2D, Load, (const XMLElement&), void), AS_CALL_THISCALL));
@@ -920,7 +896,6 @@ void CollectMembers_PropertySet2D(Vector<RegisterObjectMethodArgs>& methods)
 // class Renderer2D | File: ../Urho2D/Renderer2D.h
 void CollectMembers_Renderer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable(methods);
 
     Remove(methods, "static void Drawable::RegisterObject(Context* context)");
@@ -944,7 +919,6 @@ void CollectMembers_Renderer2D(Vector<RegisterObjectMethodArgs>& methods)
 // class RigidBody2D | File: ../Urho2D/RigidBody2D.h
 void CollectMembers_RigidBody2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -1032,7 +1006,6 @@ void CollectMembers_SourceBatch2D(Vector<RegisterObjectMethodArgs>& methods)
 // class Sprite2D | File: ../Urho2D/Sprite2D.h
 void CollectMembers_Sprite2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -1070,7 +1043,6 @@ void CollectMembers_Sprite2D(Vector<RegisterObjectMethodArgs>& methods)
 // class SpriteSheet2D | File: ../Urho2D/SpriteSheet2D.h
 void CollectMembers_SpriteSheet2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -1092,7 +1064,6 @@ void CollectMembers_SpriteSheet2D(Vector<RegisterObjectMethodArgs>& methods)
 // class StaticSprite2D | File: ../Urho2D/StaticSprite2D.h
 void CollectMembers_StaticSprite2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Drawable2D(methods);
 
     Remove(methods, "static void Drawable2D::RegisterObject(Context* context)");
@@ -1163,7 +1134,6 @@ void CollectMembers_StaticSprite2D(Vector<RegisterObjectMethodArgs>& methods)
 // class StretchableSprite2D | File: ../Urho2D/StretchableSprite2D.h
 void CollectMembers_StretchableSprite2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_StaticSprite2D(methods);
 
     Remove(methods, "static void StaticSprite2D::RegisterObject(Context* context)");
@@ -1177,7 +1147,6 @@ void CollectMembers_StretchableSprite2D(Vector<RegisterObjectMethodArgs>& method
 // class Tile2D | File: ../Urho2D/TileMapDefs2D.h
 void CollectMembers_Tile2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     methods.Push(RegisterObjectMethodArgs("unsigned Tile2D::GetGid() const", "uint GetGid() const", AS_METHODPR(Tile2D, GetGid, () const, unsigned), AS_CALL_THISCALL));
@@ -1208,7 +1177,6 @@ static CScriptArray* TileMap2D_GetTileCollisionShapes_unsigned(TileMap2D* ptr, u
 // class TileMap2D | File: ../Urho2D/TileMap2D.h
 void CollectMembers_TileMap2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -1248,7 +1216,6 @@ void CollectMembers_TileMapInfo2D(Vector<RegisterObjectMethodArgs>& methods)
 // class TileMapLayer2D | File: ../Urho2D/TileMapLayer2D.h
 void CollectMembers_TileMapLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -1287,7 +1254,6 @@ void CollectMembers_TileMapLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 // class TileMapObject2D | File: ../Urho2D/TileMapDefs2D.h
 void CollectMembers_TileMapObject2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     methods.Push(RegisterObjectMethodArgs("TileMapObjectType2D TileMapObject2D::GetObjectType() const", "TileMapObjectType2D GetObjectType() const", AS_METHODPR(TileMapObject2D, GetObjectType, () const, TileMapObjectType2D), AS_CALL_THISCALL));
@@ -1331,7 +1297,6 @@ static CScriptArray* TmxFile2D_GetTileCollisionShapes_unsigned(TmxFile2D* ptr, u
 // class TmxFile2D | File: ../Urho2D/TmxFile2D.h
 void CollectMembers_TmxFile2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -1359,7 +1324,6 @@ void CollectMembers_TmxFile2D(Vector<RegisterObjectMethodArgs>& methods)
 // class TmxImageLayer2D | File: ../Urho2D/TmxFile2D.h
 void CollectMembers_TmxImageLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_TmxLayer2D(methods);
 
     methods.Push(RegisterObjectMethodArgs("bool TmxImageLayer2D::Load(const XMLElement& element, const TileMapInfo2D& info)", "bool Load(const XMLElement&in, const TileMapInfo2D&in)", AS_METHODPR(TmxImageLayer2D, Load, (const XMLElement&, const TileMapInfo2D&), bool), AS_CALL_THISCALL));
@@ -1371,7 +1335,6 @@ void CollectMembers_TmxImageLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 // class TmxLayer2D | File: ../Urho2D/TmxFile2D.h
 void CollectMembers_TmxLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     methods.Push(RegisterObjectMethodArgs("TmxFile2D* TmxLayer2D::GetTmxFile() const", "TmxFile2D@+ GetTmxFile() const", AS_METHODPR(TmxLayer2D, GetTmxFile, () const, TmxFile2D*), AS_CALL_THISCALL));
@@ -1387,7 +1350,6 @@ void CollectMembers_TmxLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 // class TmxObjectGroup2D | File: ../Urho2D/TmxFile2D.h
 void CollectMembers_TmxObjectGroup2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_TmxLayer2D(methods);
 
     // void TmxObjectGroup2D::StoreObject(const XMLElement& objectElem, const SharedPtr<TileMapObject2D>& object, const TileMapInfo2D& info, bool isTile=false)
@@ -1401,7 +1363,6 @@ void CollectMembers_TmxObjectGroup2D(Vector<RegisterObjectMethodArgs>& methods)
 // class TmxTileLayer2D | File: ../Urho2D/TmxFile2D.h
 void CollectMembers_TmxTileLayer2D(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_TmxLayer2D(methods);
 
     methods.Push(RegisterObjectMethodArgs("bool TmxTileLayer2D::Load(const XMLElement& element, const TileMapInfo2D& info)", "bool Load(const XMLElement&in, const TileMapInfo2D&in)", AS_METHODPR(TmxTileLayer2D, Load, (const XMLElement&, const TileMapInfo2D&), bool), AS_CALL_THISCALL));

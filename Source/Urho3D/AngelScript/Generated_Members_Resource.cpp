@@ -72,7 +72,6 @@ static Image* Image_GetDecompressedImage_void(Image* ptr)
 // class Image | File: ../Resource/Image.h
 void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -154,7 +153,6 @@ void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods)
 // class JSONFile | File: ../Resource/JSONFile.h
 void CollectMembers_JSONFile(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -287,7 +285,6 @@ void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods)
 // class Localization | File: ../Resource/Localization.h
 void CollectMembers_Localization(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("int Localization::GetNumLanguages() const", "int GetNumLanguages() const", AS_METHODPR(Localization, GetNumLanguages, () const, int), AS_CALL_THISCALL));
@@ -310,7 +307,6 @@ void CollectMembers_Localization(Vector<RegisterObjectMethodArgs>& methods)
 // class Resource | File: ../Resource/Resource.h
 void CollectMembers_Resource(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("bool Resource::Load(Deserializer& source)", "bool Load(Deserializer&)", AS_METHODPR(Resource, Load, (Deserializer&), bool), AS_CALL_THISCALL));
@@ -375,7 +371,6 @@ static CScriptArray* ResourceCache_GetPackageFiles_void(ResourceCache* ptr)
 // class ResourceCache | File: ../Resource/ResourceCache.h
 void CollectMembers_ResourceCache(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // void ResourceCache::AddResourceRouter(ResourceRouter* router, bool addAsFirst=false)
@@ -463,7 +458,6 @@ void CollectMembers_ResourceRouter(Vector<RegisterObjectMethodArgs>& methods)
 // class ResourceWithMetadata | File: ../Resource/Resource.h
 void CollectMembers_ResourceWithMetadata(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     methods.Push(RegisterObjectMethodArgs("void ResourceWithMetadata::AddMetadata(const String& name, const Variant& value)", "void AddMetadata(const String&in, const Variant&in)", AS_METHODPR(ResourceWithMetadata, AddMetadata, (const String&, const Variant&), void), AS_CALL_THISCALL));
@@ -665,7 +659,6 @@ void CollectMembers_XMLElement(Vector<RegisterObjectMethodArgs>& methods)
 // class XMLFile | File: ../Resource/XMLFile.h
 void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Resource(methods);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");

@@ -59,7 +59,6 @@ static Object* Context_CreateObject_StringHash(Context* ptr, StringHash objectTy
 // class Context | File: ../Core/Context.h
 void CollectMembers_Context(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     // const HashMap<StringHash, Vector<AttributeInfo>>& Context::GetAllAttributes() const
@@ -155,7 +154,6 @@ void CollectMembers_EventHandler11Impl(Vector<RegisterObjectMethodArgs>& methods
 // class EventProfiler | File: ../Core/EventProfiler.h
 void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Profiler(methods);
 
     Remove(methods, "void Profiler::BeginBlock(const char* name)");
@@ -174,7 +172,6 @@ void CollectMembers_EventProfilerBlock(Vector<RegisterObjectMethodArgs>& methods
 // class EventReceiverGroup | File: ../Core/Context.h
 void CollectMembers_EventReceiverGroup(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     methods.Push(RegisterObjectMethodArgs("void EventReceiverGroup::BeginSendEvent()", "void BeginSendEvent()", AS_METHODPR(EventReceiverGroup, BeginSendEvent, (), void), AS_CALL_THISCALL));
@@ -217,7 +214,6 @@ static void Object_UnsubscribeFromAllEventsExcept_PODVectorStringHash_bool(Objec
 // class Object | File: ../Core/Object.h
 void CollectMembers_Object(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     // Context* Object::GetContext() const
@@ -280,7 +276,6 @@ static Object* ObjectFactory_CreateObject_void(ObjectFactory* ptr)
 // class ObjectFactory | File: ../Core/Object.h
 void CollectMembers_ObjectFactory(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
 
     // Context* ObjectFactory::GetContext() const
@@ -296,7 +291,6 @@ void CollectMembers_ObjectFactory(Vector<RegisterObjectMethodArgs>& methods)
 // class Profiler | File: ../Core/Profiler.h
 void CollectMembers_Profiler(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // void Profiler::BeginBlock(const char* name)
@@ -404,7 +398,6 @@ void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods)
 // class Time | File: ../Core/Timer.h
 void CollectMembers_Time(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void Time::BeginFrame(float timeStep)", "void BeginFrame(float)", AS_METHODPR(Time, BeginFrame, (float), void), AS_CALL_THISCALL));
@@ -683,7 +676,6 @@ void CollectMembers_WorkItem(Vector<RegisterObjectMethodArgs>& methods)
 // class WorkQueue | File: ../Core/WorkQueue.h
 void CollectMembers_WorkQueue(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // void WorkQueue::AddWorkItem(const SharedPtr<WorkItem>& item)

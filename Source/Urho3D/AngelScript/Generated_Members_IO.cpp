@@ -100,7 +100,6 @@ void CollectMembers_Deserializer(Vector<RegisterObjectMethodArgs>& methods)
 // class File | File: ../IO/File.h
 void CollectMembers_File(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
     CollectMembers_AbstractFile(methods);
 
@@ -154,7 +153,6 @@ static unsigned FileSystem_SystemRunAsync_String_VectorString(FileSystem* ptr, c
 // class FileSystem | File: ../IO/FileSystem.h
 void CollectMembers_FileSystem(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // void FileSystem::ScanDir(Vector<String>& result, const String& pathName, const String& filter, unsigned flags, bool recursive) const
@@ -196,7 +194,6 @@ void CollectMembers_FileSystem(Vector<RegisterObjectMethodArgs>& methods)
 // class FileWatcher | File: ../IO/FileWatcher.h
 void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
     CollectMembers_Thread(methods);
 
@@ -215,7 +212,6 @@ void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods)
 // class Log | File: ../IO/Log.h
 void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     methods.Push(RegisterObjectMethodArgs("void Log::Open(const String& fileName)", "void Open(const String&in)", AS_METHODPR(Log, Open, (const String&), void), AS_CALL_THISCALL));
@@ -254,7 +250,6 @@ void CollectMembers_MemoryBuffer(Vector<RegisterObjectMethodArgs>& methods)
 // class NamedPipe | File: ../IO/NamedPipe.h
 void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
     CollectMembers_AbstractFile(methods);
 
@@ -299,7 +294,6 @@ static CScriptArray* PackageFile_GetEntryNames_void(PackageFile* ptr)
 // class PackageFile | File: ../IO/PackageFile.h
 void CollectMembers_PackageFile(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // const HashMap<String, PackageEntry>& PackageFile::GetEntries() const
@@ -394,7 +388,6 @@ void CollectMembers_StoredLogMessage(Vector<RegisterObjectMethodArgs>& methods)
 // class VectorBuffer | File: ../IO/VectorBuffer.h
 void CollectMembers_VectorBuffer(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_AbstractFile(methods);
 
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");

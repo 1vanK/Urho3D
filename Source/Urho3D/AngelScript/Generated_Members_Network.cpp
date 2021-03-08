@@ -100,7 +100,6 @@ void CollectMembers_Connection(Vector<RegisterObjectMethodArgs>& methods)
 // class HttpRequest | File: ../Network/HttpRequest.h
 void CollectMembers_HttpRequest(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_RefCounted(methods);
     CollectMembers_Deserializer(methods);
     CollectMembers_Thread(methods);
@@ -157,7 +156,6 @@ static CScriptArray* Network_GetClientConnections_void(Network* ptr)
 // class Network | File: ../Network/Network.h
 void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Object(methods);
 
     // void Network::BroadcastMessage(int msgID, bool reliable, bool inOrder, const unsigned char* data, unsigned numBytes, unsigned contentID=0)
@@ -223,7 +221,6 @@ void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods)
 // class NetworkPriority | File: ../Network/NetworkPriority.h
 void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");

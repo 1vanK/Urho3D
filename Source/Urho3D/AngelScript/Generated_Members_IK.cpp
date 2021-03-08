@@ -30,7 +30,6 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods)
 // class IKEffector | File: ../IK/IKEffector.h
 void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
@@ -81,7 +80,6 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods)
 // class IKSolver | File: ../IK/IKSolver.h
 void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods)
 {
-
     CollectMembers_Component(methods);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
