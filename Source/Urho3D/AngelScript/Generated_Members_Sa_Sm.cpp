@@ -184,8 +184,6 @@ void ASRegisterGenerated_Members_Sa_Sm(asIScriptEngine* engine)
     RegisterSubclass<Object, ShaderPrecache>(engine, "Object", "ShaderPrecache");
     RegisterSubclass<RefCounted, ShaderPrecache>(engine, "RefCounted", "ShaderPrecache");
 
-    // const char* ShaderVariation::elementSemanticNames[] | File: ../Graphics/ShaderVariation.h
-    // Error: type "const char*" can not automatically bind
 #ifdef REGISTER_MANUAL_PART_RefCounted
     REGISTER_MANUAL_PART_RefCounted(ShaderVariation, "ShaderVariation")
 #endif
@@ -301,28 +299,12 @@ void ASRegisterGenerated_Members_Sa_Sm(asIScriptEngine* engine)
     RegisterSubclass<Object, SmoothedTransform>(engine, "Object", "SmoothedTransform");
     RegisterSubclass<RefCounted, SmoothedTransform>(engine, "RefCounted", "SmoothedTransform");
 
-    // bool ScenePassInfo::allowInstancing_ | File: ../Graphics/View.h
-    engine->RegisterObjectProperty("ScenePassInfo", "bool allowInstancing", offsetof(ScenePassInfo, allowInstancing_));
-    // BatchQueue* ScenePassInfo::batchQueue_ | File: ../Graphics/View.h
-    // BatchQueue* can not be registered
-    // bool ScenePassInfo::markToStencil_ | File: ../Graphics/View.h
-    engine->RegisterObjectProperty("ScenePassInfo", "bool markToStencil", offsetof(ScenePassInfo, markToStencil_));
-    // unsigned ScenePassInfo::passIndex_ | File: ../Graphics/View.h
-    engine->RegisterObjectProperty("ScenePassInfo", "uint passIndex", offsetof(ScenePassInfo, passIndex_));
-    // bool ScenePassInfo::vertexLights_ | File: ../Graphics/View.h
-    engine->RegisterObjectProperty("ScenePassInfo", "bool vertexLights", offsetof(ScenePassInfo, vertexLights_));
     // ScenePassInfo& ScenePassInfo::operator=(const ScenePassInfo&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ScenePassInfo>(engine, "ScenePassInfo");
 #ifdef REGISTER_MANUAL_PART_ScenePassInfo
     REGISTER_MANUAL_PART_ScenePassInfo(ScenePassInfo, "ScenePassInfo")
 #endif
 
-    // Connection* ReplicationState::connection_ | File: ../Scene/ReplicationState.h
-    // Connection* can not be registered
-    // HashSet<unsigned> SceneReplicationState::dirtyNodes_ | File: ../Scene/ReplicationState.h
-    // Error: type "HashSet<unsigned>" can not automatically bind
-    // HashMap<unsigned, NodeReplicationState> SceneReplicationState::nodeStates_ | File: ../Scene/ReplicationState.h
-    // Error: type "HashMap<unsigned, NodeReplicationState>" can not automatically bind
     // SceneReplicationState& SceneReplicationState::operator=(const SceneReplicationState&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<SceneReplicationState>(engine, "SceneReplicationState");
 #ifdef REGISTER_MANUAL_PART_ReplicationState
@@ -332,78 +314,24 @@ void ASRegisterGenerated_Members_Sa_Sm(asIScriptEngine* engine)
     REGISTER_MANUAL_PART_SceneReplicationState(SceneReplicationState, "SceneReplicationState")
 #endif
 
-    // SharedArrayPtr<unsigned char> ScratchBuffer::data_ | File: ../Graphics/Graphics.h
-    // Error: type "SharedArrayPtr<unsigned char>" can not automatically bind
-    // bool ScratchBuffer::reserved_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScratchBuffer", "bool reserved", offsetof(ScratchBuffer, reserved_));
-    // unsigned ScratchBuffer::size_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScratchBuffer", "uint size", offsetof(ScratchBuffer, size_));
     // ScratchBuffer& ScratchBuffer::operator=(const ScratchBuffer&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ScratchBuffer>(engine, "ScratchBuffer");
 #ifdef REGISTER_MANUAL_PART_ScratchBuffer
     REGISTER_MANUAL_PART_ScratchBuffer(ScratchBuffer, "ScratchBuffer")
 #endif
 
-    // bool ScreenModeParams::borderless_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "bool borderless", offsetof(ScreenModeParams, borderless_));
-    // bool ScreenModeParams::fullscreen_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "bool fullscreen", offsetof(ScreenModeParams, fullscreen_));
-    // bool ScreenModeParams::highDPI_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "bool highDPI", offsetof(ScreenModeParams, highDPI_));
-    // int ScreenModeParams::monitor_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "int monitor", offsetof(ScreenModeParams, monitor_));
-    // int ScreenModeParams::multiSample_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "int multiSample", offsetof(ScreenModeParams, multiSample_));
-    // int ScreenModeParams::refreshRate_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "int refreshRate", offsetof(ScreenModeParams, refreshRate_));
-    // bool ScreenModeParams::resizable_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "bool resizable", offsetof(ScreenModeParams, resizable_));
-    // bool ScreenModeParams::tripleBuffer_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "bool tripleBuffer", offsetof(ScreenModeParams, tripleBuffer_));
-    // bool ScreenModeParams::vsync_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("ScreenModeParams", "bool vsync", offsetof(ScreenModeParams, vsync_));
     // ScreenModeParams& ScreenModeParams::operator=(const ScreenModeParams&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ScreenModeParams>(engine, "ScreenModeParams");
 #ifdef REGISTER_MANUAL_PART_ScreenModeParams
     REGISTER_MANUAL_PART_ScreenModeParams(ScreenModeParams, "ScreenModeParams")
 #endif
 
-    // unsigned ShaderParameter::buffer_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "uint buffer", offsetof(ShaderParameter, buffer_));
-    // ConstantBuffer* ShaderParameter::bufferPtr_ | File: ../Graphics/ShaderVariation.h
-    // ConstantBuffer* can not be registered
-    // unsigned ShaderParameter::glType_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "uint glType", offsetof(ShaderParameter, glType_));
-    // int ShaderParameter::location_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "int location", offsetof(ShaderParameter, location_));
-    // String ShaderParameter::name_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "String name", offsetof(ShaderParameter, name_));
-    // unsigned ShaderParameter::offset_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "uint offset", offsetof(ShaderParameter, offset_));
-    // unsigned ShaderParameter::regCount_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "uint regCount", offsetof(ShaderParameter, regCount_));
-    // unsigned ShaderParameter::register_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "uint register", offsetof(ShaderParameter, register_));
-    // unsigned ShaderParameter::size_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "uint size", offsetof(ShaderParameter, size_));
-    // ShaderType ShaderParameter::type_ | File: ../Graphics/ShaderVariation.h
-    engine->RegisterObjectProperty("ShaderParameter", "ShaderType type", offsetof(ShaderParameter, type_));
     // ShaderParameter& ShaderParameter::operator=(const ShaderParameter&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ShaderParameter>(engine, "ShaderParameter");
 #ifdef REGISTER_MANUAL_PART_ShaderParameter
     REGISTER_MANUAL_PART_ShaderParameter(ShaderParameter, "ShaderParameter")
 #endif
 
-    // float ShadowBatchQueue::farSplit_ | File: ../Graphics/Batch.h
-    engine->RegisterObjectProperty("ShadowBatchQueue", "float farSplit", offsetof(ShadowBatchQueue, farSplit_));
-    // float ShadowBatchQueue::nearSplit_ | File: ../Graphics/Batch.h
-    engine->RegisterObjectProperty("ShadowBatchQueue", "float nearSplit", offsetof(ShadowBatchQueue, nearSplit_));
-    // BatchQueue ShadowBatchQueue::shadowBatches_ | File: ../Graphics/Batch.h
-    engine->RegisterObjectProperty("ShadowBatchQueue", "BatchQueue shadowBatches", offsetof(ShadowBatchQueue, shadowBatches_));
-    // Camera* ShadowBatchQueue::shadowCamera_ | File: ../Graphics/Batch.h
-    // Camera* can not be registered
-    // IntRect ShadowBatchQueue::shadowViewport_ | File: ../Graphics/Batch.h
-    engine->RegisterObjectProperty("ShadowBatchQueue", "IntRect shadowViewport", offsetof(ShadowBatchQueue, shadowViewport_));
     // ShadowBatchQueue& ShadowBatchQueue::operator=(const ShadowBatchQueue&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ShadowBatchQueue>(engine, "ShadowBatchQueue");
 #ifdef REGISTER_MANUAL_PART_ShadowBatchQueue
@@ -411,36 +339,6 @@ void ASRegisterGenerated_Members_Sa_Sm(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NAVIGATION
-    // rcCompactHeightfield* NavBuildData::compactHeightField_ | File: ../Navigation/NavBuildData.h
-    // rcCompactHeightfield* can not be registered
-    // rcContourSet* SimpleNavBuildData::contourSet_ | File: ../Navigation/NavBuildData.h
-    // rcContourSet* can not be registered
-    // rcContext* NavBuildData::ctx_ | File: ../Navigation/NavBuildData.h
-    // rcContext* can not be registered
-    // rcHeightfield* NavBuildData::heightField_ | File: ../Navigation/NavBuildData.h
-    // rcHeightfield* can not be registered
-    // PODVector<int> NavBuildData::indices_ | File: ../Navigation/NavBuildData.h
-    // Error: type "PODVector<int>" can not automatically bind
-    // PODVector<NavAreaStub> NavBuildData::navAreas_ | File: ../Navigation/NavBuildData.h
-    // Error: type "PODVector<NavAreaStub>" can not automatically bind
-    // PODVector<unsigned char> NavBuildData::offMeshAreas_ | File: ../Navigation/NavBuildData.h
-    // Error: type "PODVector<unsigned char>" can not automatically bind
-    // PODVector<unsigned char> NavBuildData::offMeshDir_ | File: ../Navigation/NavBuildData.h
-    // Error: type "PODVector<unsigned char>" can not automatically bind
-    // PODVector<unsigned short> NavBuildData::offMeshFlags_ | File: ../Navigation/NavBuildData.h
-    // Error: type "PODVector<unsigned short>" can not automatically bind
-    // PODVector<float> NavBuildData::offMeshRadii_ | File: ../Navigation/NavBuildData.h
-    // Error: type "PODVector<float>" can not automatically bind
-    // PODVector<Vector3> NavBuildData::offMeshVertices_ | File: ../Navigation/NavBuildData.h
-    // Error: type "PODVector<Vector3>" can not automatically bind
-    // rcPolyMesh* SimpleNavBuildData::polyMesh_ | File: ../Navigation/NavBuildData.h
-    // rcPolyMesh* can not be registered
-    // rcPolyMeshDetail* SimpleNavBuildData::polyMeshDetail_ | File: ../Navigation/NavBuildData.h
-    // rcPolyMeshDetail* can not be registered
-    // PODVector<Vector3> NavBuildData::vertices_ | File: ../Navigation/NavBuildData.h
-    // Error: type "PODVector<Vector3>" can not automatically bind
-    // BoundingBox NavBuildData::worldBoundingBox_ | File: ../Navigation/NavBuildData.h
-    engine->RegisterObjectProperty("SimpleNavBuildData", "BoundingBox worldBoundingBox", offsetof(SimpleNavBuildData, worldBoundingBox_));
     // SimpleNavBuildData& SimpleNavBuildData::operator=(const SimpleNavBuildData&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<SimpleNavBuildData>(engine, "SimpleNavBuildData");
 #ifdef REGISTER_MANUAL_PART_NavBuildData

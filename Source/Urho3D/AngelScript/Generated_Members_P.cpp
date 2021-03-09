@@ -153,8 +153,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, Pass>(engine, "RefCounted", "Pass");
 
 #ifdef URHO3D_PHYSICS
-    // struct PhysicsWorldConfig PhysicsWorld::config | File: ../Physics/PhysicsWorld.h
-    // Error: type "struct PhysicsWorldConfig" can not automatically bind
     // static const TypeInfo* Object::GetTypeInfoStatic() | File: ../Core/Object.h
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
     // static void PhysicsWorld::RegisterObject(Context* context) | File: ../Physics/PhysicsWorld.h
@@ -214,22 +212,10 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, PhysicsWorld2D>(engine, "RefCounted", "PhysicsWorld2D");
 #endif
 
-    // Vector3 Plane::absNormal_ | File: ../Math/Plane.h
-    engine->RegisterObjectProperty("Plane", "Vector3 absNormal", offsetof(Plane, absNormal_));
-    // float Plane::d_ | File: ../Math/Plane.h
-    engine->RegisterObjectProperty("Plane", "float d", offsetof(Plane, d_));
-    // Vector3 Plane::normal_ | File: ../Math/Plane.h
-    engine->RegisterObjectProperty("Plane", "Vector3 normal", offsetof(Plane, normal_));
-    // const Plane Plane::UP | File: ../Math/Plane.h
-    engine->SetDefaultNamespace("Plane");
-    engine->RegisterGlobalProperty("const Plane UP", (void*)&Plane::UP);
-    engine->SetDefaultNamespace("");
 #ifdef REGISTER_MANUAL_PART_Plane
     REGISTER_MANUAL_PART_Plane(Plane, "Plane")
 #endif
 
-    // Vector<PODVector<Vector3>> Polyhedron::faces_ | File: ../Math/Polyhedron.h
-    // Error: type "Vector<PODVector<Vector3>>" can not automatically bind
 #ifdef REGISTER_MANUAL_PART_Polyhedron
     REGISTER_MANUAL_PART_Polyhedron(Polyhedron, "Polyhedron")
 #endif
@@ -291,18 +277,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NETWORK
-    // unsigned PackageDownload::checksum_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("PackageDownload", "uint checksum", offsetof(PackageDownload, checksum_));
-    // SharedPtr<File> PackageDownload::file_ | File: ../Network/Connection.h
-    // Error: type "SharedPtr<File>" can not automatically bind
-    // bool PackageDownload::initiated_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("PackageDownload", "bool initiated", offsetof(PackageDownload, initiated_));
-    // String PackageDownload::name_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("PackageDownload", "String name", offsetof(PackageDownload, name_));
-    // HashSet<unsigned> PackageDownload::receivedFragments_ | File: ../Network/Connection.h
-    // Error: type "HashSet<unsigned>" can not automatically bind
-    // unsigned PackageDownload::totalFragments_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("PackageDownload", "uint totalFragments", offsetof(PackageDownload, totalFragments_));
     // PackageDownload& PackageDownload::operator=(const PackageDownload&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<PackageDownload>(engine, "PackageDownload");
 #ifdef REGISTER_MANUAL_PART_PackageDownload
@@ -310,12 +284,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 #endif
 
-    // unsigned PackageEntry::checksum_ | File: ../IO/PackageFile.h
-    engine->RegisterObjectProperty("PackageEntry", "uint checksum", offsetof(PackageEntry, checksum_));
-    // unsigned PackageEntry::offset_ | File: ../IO/PackageFile.h
-    engine->RegisterObjectProperty("PackageEntry", "uint offset", offsetof(PackageEntry, offset_));
-    // unsigned PackageEntry::size_ | File: ../IO/PackageFile.h
-    engine->RegisterObjectProperty("PackageEntry", "uint size", offsetof(PackageEntry, size_));
     // PackageEntry& PackageEntry::operator=(const PackageEntry&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<PackageEntry>(engine, "PackageEntry");
 #ifdef REGISTER_MANUAL_PART_PackageEntry
@@ -323,12 +291,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NETWORK
-    // SharedPtr<File> PackageUpload::file_ | File: ../Network/Connection.h
-    // Error: type "SharedPtr<File>" can not automatically bind
-    // unsigned PackageUpload::fragment_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("PackageUpload", "uint fragment", offsetof(PackageUpload, fragment_));
-    // unsigned PackageUpload::totalFragments_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("PackageUpload", "uint totalFragments", offsetof(PackageUpload, totalFragments_));
     // PackageUpload& PackageUpload::operator=(const PackageUpload&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<PackageUpload>(engine, "PackageUpload");
 #ifdef REGISTER_MANUAL_PART_PackageUpload
@@ -336,22 +298,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 #endif
 
-    // unsigned Particle::colorIndex_ | File: ../Graphics/ParticleEmitter.h
-    engine->RegisterObjectProperty("Particle", "uint colorIndex", offsetof(Particle, colorIndex_));
-    // float Particle::rotationSpeed_ | File: ../Graphics/ParticleEmitter.h
-    engine->RegisterObjectProperty("Particle", "float rotationSpeed", offsetof(Particle, rotationSpeed_));
-    // float Particle::scale_ | File: ../Graphics/ParticleEmitter.h
-    engine->RegisterObjectProperty("Particle", "float scale", offsetof(Particle, scale_));
-    // Vector2 Particle::size_ | File: ../Graphics/ParticleEmitter.h
-    engine->RegisterObjectProperty("Particle", "Vector2 size", offsetof(Particle, size_));
-    // unsigned Particle::texIndex_ | File: ../Graphics/ParticleEmitter.h
-    engine->RegisterObjectProperty("Particle", "uint texIndex", offsetof(Particle, texIndex_));
-    // float Particle::timer_ | File: ../Graphics/ParticleEmitter.h
-    engine->RegisterObjectProperty("Particle", "float timer", offsetof(Particle, timer_));
-    // float Particle::timeToLive_ | File: ../Graphics/ParticleEmitter.h
-    engine->RegisterObjectProperty("Particle", "float timeToLive", offsetof(Particle, timeToLive_));
-    // Vector3 Particle::velocity_ | File: ../Graphics/ParticleEmitter.h
-    engine->RegisterObjectProperty("Particle", "Vector3 velocity", offsetof(Particle, velocity_));
     // Particle& Particle::operator=(const Particle&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<Particle>(engine, "Particle");
 #ifdef REGISTER_MANUAL_PART_Particle
@@ -359,38 +305,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_URHO2D
-    // Color Particle2D::color_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "Color color", offsetof(Particle2D, color_));
-    // Color Particle2D::colorDelta_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "Color colorDelta", offsetof(Particle2D, colorDelta_));
-    // float Particle2D::emitRadius_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float emitRadius", offsetof(Particle2D, emitRadius_));
-    // float Particle2D::emitRadiusDelta_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float emitRadiusDelta", offsetof(Particle2D, emitRadiusDelta_));
-    // float Particle2D::emitRotation_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float emitRotation", offsetof(Particle2D, emitRotation_));
-    // float Particle2D::emitRotationDelta_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float emitRotationDelta", offsetof(Particle2D, emitRotationDelta_));
-    // Vector3 Particle2D::position_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "Vector3 position", offsetof(Particle2D, position_));
-    // float Particle2D::radialAcceleration_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float radialAcceleration", offsetof(Particle2D, radialAcceleration_));
-    // float Particle2D::rotation_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float rotation", offsetof(Particle2D, rotation_));
-    // float Particle2D::rotationDelta_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float rotationDelta", offsetof(Particle2D, rotationDelta_));
-    // float Particle2D::size_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float size", offsetof(Particle2D, size_));
-    // float Particle2D::sizeDelta_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float sizeDelta", offsetof(Particle2D, sizeDelta_));
-    // Vector2 Particle2D::startPos_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "Vector2 startPos", offsetof(Particle2D, startPos_));
-    // float Particle2D::tangentialAcceleration_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float tangentialAcceleration", offsetof(Particle2D, tangentialAcceleration_));
-    // float Particle2D::timeToLive_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "float timeToLive", offsetof(Particle2D, timeToLive_));
-    // Vector2 Particle2D::velocity_ | File: ../Urho2D/ParticleEmitter2D.h
-    engine->RegisterObjectProperty("Particle2D", "Vector2 velocity", offsetof(Particle2D, velocity_));
     // Particle2D& Particle2D::operator=(const Particle2D&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<Particle2D>(engine, "Particle2D");
 #ifdef REGISTER_MANUAL_PART_Particle2D
@@ -398,14 +312,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 #endif
 
-    // PODVector<Drawable*> PerThreadSceneResult::geometries_ | File: ../Graphics/View.h
-    // Error: type "PODVector<Drawable*>" can not automatically bind
-    // PODVector<Light*> PerThreadSceneResult::lights_ | File: ../Graphics/View.h
-    // Error: type "PODVector<Light*>" can not automatically bind
-    // float PerThreadSceneResult::maxZ_ | File: ../Graphics/View.h
-    engine->RegisterObjectProperty("PerThreadSceneResult", "float maxZ", offsetof(PerThreadSceneResult, maxZ_));
-    // float PerThreadSceneResult::minZ_ | File: ../Graphics/View.h
-    engine->RegisterObjectProperty("PerThreadSceneResult", "float minZ", offsetof(PerThreadSceneResult, minZ_));
     // PerThreadSceneResult& PerThreadSceneResult::operator=(const PerThreadSceneResult&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<PerThreadSceneResult>(engine, "PerThreadSceneResult");
 #ifdef REGISTER_MANUAL_PART_PerThreadSceneResult
@@ -413,16 +319,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // RigidBody* PhysicsRaycastResult::body_ | File: ../Physics/PhysicsWorld.h
-    // RigidBody* can not be registered
-    // float PhysicsRaycastResult::distance_ | File: ../Physics/PhysicsWorld.h
-    engine->RegisterObjectProperty("PhysicsRaycastResult", "float distance", offsetof(PhysicsRaycastResult, distance_));
-    // float PhysicsRaycastResult::hitFraction_ | File: ../Physics/PhysicsWorld.h
-    engine->RegisterObjectProperty("PhysicsRaycastResult", "float hitFraction", offsetof(PhysicsRaycastResult, hitFraction_));
-    // Vector3 PhysicsRaycastResult::normal_ | File: ../Physics/PhysicsWorld.h
-    engine->RegisterObjectProperty("PhysicsRaycastResult", "Vector3 normal", offsetof(PhysicsRaycastResult, normal_));
-    // Vector3 PhysicsRaycastResult::position_ | File: ../Physics/PhysicsWorld.h
-    engine->RegisterObjectProperty("PhysicsRaycastResult", "Vector3 position", offsetof(PhysicsRaycastResult, position_));
     // PhysicsRaycastResult& PhysicsRaycastResult::operator=(const PhysicsRaycastResult&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<PhysicsRaycastResult>(engine, "PhysicsRaycastResult");
 #ifdef REGISTER_MANUAL_PART_PhysicsRaycastResult
@@ -431,14 +327,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_URHO2D
-    // RigidBody2D* PhysicsRaycastResult2D::body_ | File: ../Urho2D/PhysicsWorld2D.h
-    // RigidBody2D* can not be registered
-    // float PhysicsRaycastResult2D::distance_ | File: ../Urho2D/PhysicsWorld2D.h
-    engine->RegisterObjectProperty("PhysicsRaycastResult2D", "float distance", offsetof(PhysicsRaycastResult2D, distance_));
-    // Vector2 PhysicsRaycastResult2D::normal_ | File: ../Urho2D/PhysicsWorld2D.h
-    engine->RegisterObjectProperty("PhysicsRaycastResult2D", "Vector2 normal", offsetof(PhysicsRaycastResult2D, normal_));
-    // Vector2 PhysicsRaycastResult2D::position_ | File: ../Urho2D/PhysicsWorld2D.h
-    engine->RegisterObjectProperty("PhysicsRaycastResult2D", "Vector2 position", offsetof(PhysicsRaycastResult2D, position_));
     // PhysicsRaycastResult2D& PhysicsRaycastResult2D::operator=(const PhysicsRaycastResult2D&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<PhysicsRaycastResult2D>(engine, "PhysicsRaycastResult2D");
 #ifdef REGISTER_MANUAL_PART_PhysicsRaycastResult2D
@@ -447,8 +335,6 @@ void ASRegisterGenerated_Members_P(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // btCollisionConfiguration* PhysicsWorldConfig::collisionConfig_ | File: ../Physics/PhysicsWorld.h
-    // btCollisionConfiguration* can not be registered
     // PhysicsWorldConfig& PhysicsWorldConfig::operator=(const PhysicsWorldConfig&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<PhysicsWorldConfig>(engine, "PhysicsWorldConfig");
 #ifdef REGISTER_MANUAL_PART_PhysicsWorldConfig

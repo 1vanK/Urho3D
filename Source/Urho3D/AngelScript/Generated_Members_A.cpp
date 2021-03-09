@@ -250,54 +250,18 @@ void ASRegisterGenerated_Members_A(asIScriptEngine* engine)
     RegisterSubclass<Object, Audio>(engine, "Object", "Audio");
     RegisterSubclass<RefCounted, Audio>(engine, "RefCounted", "Audio");
 
-    // unsigned AllocatorBlock::capacity_ | File: ../Container/Allocator.h
-    engine->RegisterObjectProperty("AllocatorBlock", "uint capacity", offsetof(AllocatorBlock, capacity_));
-    // AllocatorNode* AllocatorBlock::free_ | File: ../Container/Allocator.h
-    // AllocatorNode* can not be registered
-    // AllocatorBlock* AllocatorBlock::next_ | File: ../Container/Allocator.h
-    // AllocatorBlock* can not be registered
-    // unsigned AllocatorBlock::nodeSize_ | File: ../Container/Allocator.h
-    engine->RegisterObjectProperty("AllocatorBlock", "uint nodeSize", offsetof(AllocatorBlock, nodeSize_));
     // AllocatorBlock& AllocatorBlock::operator=(const AllocatorBlock&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AllocatorBlock>(engine, "AllocatorBlock");
 #ifdef REGISTER_MANUAL_PART_AllocatorBlock
     REGISTER_MANUAL_PART_AllocatorBlock(AllocatorBlock, "AllocatorBlock")
 #endif
 
-    // AllocatorNode* AllocatorNode::next_ | File: ../Container/Allocator.h
-    // AllocatorNode* can not be registered
     // AllocatorNode& AllocatorNode::operator=(const AllocatorNode&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AllocatorNode>(engine, "AllocatorNode");
 #ifdef REGISTER_MANUAL_PART_AllocatorNode
     REGISTER_MANUAL_PART_AllocatorNode(AllocatorNode, "AllocatorNode")
 #endif
 
-    // float AnimationControl::autoFadeTime_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "float autoFadeTime", offsetof(AnimationControl, autoFadeTime_));
-    // float AnimationControl::fadeTime_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "float fadeTime", offsetof(AnimationControl, fadeTime_));
-    // StringHash AnimationControl::hash_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "StringHash hash", offsetof(AnimationControl, hash_));
-    // String AnimationControl::name_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "String name", offsetof(AnimationControl, name_));
-    // bool AnimationControl::removeOnCompletion_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "bool removeOnCompletion", offsetof(AnimationControl, removeOnCompletion_));
-    // unsigned short AnimationControl::setTime_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "uint16 setTime", offsetof(AnimationControl, setTime_));
-    // unsigned char AnimationControl::setTimeRev_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "uint8 setTimeRev", offsetof(AnimationControl, setTimeRev_));
-    // float AnimationControl::setTimeTtl_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "float setTimeTtl", offsetof(AnimationControl, setTimeTtl_));
-    // unsigned char AnimationControl::setWeight_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "uint8 setWeight", offsetof(AnimationControl, setWeight_));
-    // unsigned char AnimationControl::setWeightRev_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "uint8 setWeightRev", offsetof(AnimationControl, setWeightRev_));
-    // float AnimationControl::setWeightTtl_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "float setWeightTtl", offsetof(AnimationControl, setWeightTtl_));
-    // float AnimationControl::speed_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "float speed", offsetof(AnimationControl, speed_));
-    // float AnimationControl::targetWeight_ | File: ../Graphics/AnimationController.h
-    engine->RegisterObjectProperty("AnimationControl", "float targetWeight", offsetof(AnimationControl, targetWeight_));
     // AnimationControl& AnimationControl::operator=(const AnimationControl&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationControl>(engine, "AnimationControl");
     engine->RegisterObjectBehaviour("AnimationControl", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
@@ -306,44 +270,18 @@ void ASRegisterGenerated_Members_A(asIScriptEngine* engine)
     REGISTER_MANUAL_PART_AnimationControl(AnimationControl, "AnimationControl")
 #endif
 
-    // Vector3 AnimationKeyFrame::position_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationKeyFrame", "Vector3 position", offsetof(AnimationKeyFrame, position_));
-    // Quaternion AnimationKeyFrame::rotation_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationKeyFrame", "Quaternion rotation", offsetof(AnimationKeyFrame, rotation_));
-    // Vector3 AnimationKeyFrame::scale_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationKeyFrame", "Vector3 scale", offsetof(AnimationKeyFrame, scale_));
-    // float AnimationKeyFrame::time_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationKeyFrame", "float time", offsetof(AnimationKeyFrame, time_));
     // AnimationKeyFrame& AnimationKeyFrame::operator=(const AnimationKeyFrame&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationKeyFrame>(engine, "AnimationKeyFrame");
 #ifdef REGISTER_MANUAL_PART_AnimationKeyFrame
     REGISTER_MANUAL_PART_AnimationKeyFrame(AnimationKeyFrame, "AnimationKeyFrame")
 #endif
 
-    // Bone* AnimationStateTrack::bone_ | File: ../Graphics/AnimationState.h
-    // Bone* can not be registered
-    // unsigned AnimationStateTrack::keyFrame_ | File: ../Graphics/AnimationState.h
-    engine->RegisterObjectProperty("AnimationStateTrack", "uint keyFrame", offsetof(AnimationStateTrack, keyFrame_));
-    // WeakPtr<Node> AnimationStateTrack::node_ | File: ../Graphics/AnimationState.h
-    // Error: type "WeakPtr<Node>" can not automatically bind
-    // const AnimationTrack* AnimationStateTrack::track_ | File: ../Graphics/AnimationState.h
-    // const AnimationTrack* can not be registered
-    // float AnimationStateTrack::weight_ | File: ../Graphics/AnimationState.h
-    engine->RegisterObjectProperty("AnimationStateTrack", "float weight", offsetof(AnimationStateTrack, weight_));
     // AnimationStateTrack& AnimationStateTrack::operator=(const AnimationStateTrack&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationStateTrack>(engine, "AnimationStateTrack");
 #ifdef REGISTER_MANUAL_PART_AnimationStateTrack
     REGISTER_MANUAL_PART_AnimationStateTrack(AnimationStateTrack, "AnimationStateTrack")
 #endif
 
-    // AnimationChannelFlags AnimationTrack::channelMask_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationTrack", "AnimationChannelFlags channelMask", offsetof(AnimationTrack, channelMask_));
-    // Vector<AnimationKeyFrame> AnimationTrack::keyFrames_ | File: ../Graphics/Animation.h
-    // Error: type "Vector<AnimationKeyFrame>" can not automatically bind
-    // String AnimationTrack::name_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationTrack", "String name", offsetof(AnimationTrack, name_));
-    // StringHash AnimationTrack::nameHash_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationTrack", "StringHash nameHash", offsetof(AnimationTrack, nameHash_));
     // AnimationTrack& AnimationTrack::operator=(const AnimationTrack&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationTrack>(engine, "AnimationTrack");
     engine->RegisterObjectBehaviour("AnimationTrack", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
@@ -352,60 +290,18 @@ void ASRegisterGenerated_Members_A(asIScriptEngine* engine)
     REGISTER_MANUAL_PART_AnimationTrack(AnimationTrack, "AnimationTrack")
 #endif
 
-    // Variant AnimationTriggerPoint::data_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationTriggerPoint", "Variant data", offsetof(AnimationTriggerPoint, data_));
-    // float AnimationTriggerPoint::time_ | File: ../Graphics/Animation.h
-    engine->RegisterObjectProperty("AnimationTriggerPoint", "float time", offsetof(AnimationTriggerPoint, time_));
     // AnimationTriggerPoint& AnimationTriggerPoint::operator=(const AnimationTriggerPoint&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationTriggerPoint>(engine, "AnimationTriggerPoint");
 #ifdef REGISTER_MANUAL_PART_AnimationTriggerPoint
     REGISTER_MANUAL_PART_AnimationTriggerPoint(AnimationTriggerPoint, "AnimationTriggerPoint")
 #endif
 
-    // SharedPtr<File> AsyncProgress::file_ | File: ../Scene/Scene.h
-    // Error: type "SharedPtr<File>" can not automatically bind
-    // SharedPtr<JSONFile> AsyncProgress::jsonFile_ | File: ../Scene/Scene.h
-    // Error: type "SharedPtr<JSONFile>" can not automatically bind
-    // unsigned AsyncProgress::jsonIndex_ | File: ../Scene/Scene.h
-    engine->RegisterObjectProperty("AsyncProgress", "uint jsonIndex", offsetof(AsyncProgress, jsonIndex_));
-    // unsigned AsyncProgress::loadedNodes_ | File: ../Scene/Scene.h
-    engine->RegisterObjectProperty("AsyncProgress", "uint loadedNodes", offsetof(AsyncProgress, loadedNodes_));
-    // unsigned AsyncProgress::loadedResources_ | File: ../Scene/Scene.h
-    engine->RegisterObjectProperty("AsyncProgress", "uint loadedResources", offsetof(AsyncProgress, loadedResources_));
-    // LoadMode AsyncProgress::mode_ | File: ../Scene/Scene.h
-    engine->RegisterObjectProperty("AsyncProgress", "LoadMode mode", offsetof(AsyncProgress, mode_));
-    // HashSet<StringHash> AsyncProgress::resources_ | File: ../Scene/Scene.h
-    // Error: type "HashSet<StringHash>" can not automatically bind
-    // unsigned AsyncProgress::totalNodes_ | File: ../Scene/Scene.h
-    engine->RegisterObjectProperty("AsyncProgress", "uint totalNodes", offsetof(AsyncProgress, totalNodes_));
-    // unsigned AsyncProgress::totalResources_ | File: ../Scene/Scene.h
-    engine->RegisterObjectProperty("AsyncProgress", "uint totalResources", offsetof(AsyncProgress, totalResources_));
-    // XMLElement AsyncProgress::xmlElement_ | File: ../Scene/Scene.h
-    engine->RegisterObjectProperty("AsyncProgress", "XMLElement xmlElement", offsetof(AsyncProgress, xmlElement_));
-    // SharedPtr<XMLFile> AsyncProgress::xmlFile_ | File: ../Scene/Scene.h
-    // Error: type "SharedPtr<XMLFile>" can not automatically bind
     // AsyncProgress& AsyncProgress::operator=(const AsyncProgress&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AsyncProgress>(engine, "AsyncProgress");
 #ifdef REGISTER_MANUAL_PART_AsyncProgress
     REGISTER_MANUAL_PART_AsyncProgress(AsyncProgress, "AsyncProgress")
 #endif
 
-    // SharedPtr<AttributeAccessor> AttributeInfo::accessor_ | File: ../Core/Attribute.h
-    // Error: type "SharedPtr<AttributeAccessor>" can not automatically bind
-    // Variant AttributeInfo::defaultValue_ | File: ../Core/Attribute.h
-    engine->RegisterObjectProperty("AttributeInfo", "Variant defaultValue", offsetof(AttributeInfo, defaultValue_));
-    // const char** AttributeInfo::enumNames_ | File: ../Core/Attribute.h
-    // Error: type "const char**" can not automatically bind
-    // VariantMap AttributeInfo::metadata_ | File: ../Core/Attribute.h
-    engine->RegisterObjectProperty("AttributeInfo", "VariantMap metadata", offsetof(AttributeInfo, metadata_));
-    // AttributeModeFlags AttributeInfo::mode_ | File: ../Core/Attribute.h
-    engine->RegisterObjectProperty("AttributeInfo", "AttributeModeFlags mode", offsetof(AttributeInfo, mode_));
-    // String AttributeInfo::name_ | File: ../Core/Attribute.h
-    engine->RegisterObjectProperty("AttributeInfo", "String name", offsetof(AttributeInfo, name_));
-    // void* AttributeInfo::ptr_ | File: ../Core/Attribute.h
-    // void* can not be registered
-    // VariantType AttributeInfo::type_ | File: ../Core/Attribute.h
-    engine->RegisterObjectProperty("AttributeInfo", "VariantType type", offsetof(AttributeInfo, type_));
     // AttributeInfo& AttributeInfo::operator=(const AttributeInfo&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<AttributeInfo>(engine, "AttributeInfo");
 #ifdef REGISTER_MANUAL_PART_AttributeInfo

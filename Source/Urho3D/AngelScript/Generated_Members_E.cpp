@@ -74,8 +74,6 @@ void ASRegisterGenerated_Members_E(asIScriptEngine* engine)
     RegisterSubclass<Object, EventProfiler>(engine, "Object", "EventProfiler");
     RegisterSubclass<RefCounted, EventProfiler>(engine, "RefCounted", "EventProfiler");
 
-    // PODVector<Object*> EventReceiverGroup::receivers_ | File: ../Core/Context.h
-    // Error: type "PODVector<Object*>" can not automatically bind
 #ifdef REGISTER_MANUAL_PART_RefCounted
     REGISTER_MANUAL_PART_RefCounted(EventReceiverGroup, "EventReceiverGroup")
 #endif

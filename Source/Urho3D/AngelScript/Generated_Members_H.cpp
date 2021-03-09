@@ -14,14 +14,6 @@ void FakeReleaseRef(void* ptr);
 
 void ASRegisterGenerated_Members_H(asIScriptEngine* engine)
 {
-    // const unsigned HashBase::MAX_LOAD_FACTOR | File: ../Container/HashBase.h
-    engine->SetDefaultNamespace("HashBase");
-    engine->RegisterGlobalProperty("const uint MAX_LOAD_FACTOR", (void*)&HashBase::MAX_LOAD_FACTOR);
-    engine->SetDefaultNamespace("");
-    // const unsigned HashBase::MIN_BUCKETS | File: ../Container/HashBase.h
-    engine->SetDefaultNamespace("HashBase");
-    engine->RegisterGlobalProperty("const uint MIN_BUCKETS", (void*)&HashBase::MIN_BUCKETS);
-    engine->SetDefaultNamespace("");
     // HashBase& HashBase::operator=(const HashBase&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<HashBase>(engine, "HashBase");
 #ifdef REGISTER_MANUAL_PART_HashBase
@@ -69,20 +61,12 @@ void ASRegisterGenerated_Members_H(asIScriptEngine* engine)
     RegisterSubclass<Deserializer, HttpRequest>(engine, "Deserializer", "HttpRequest");
 #endif
 
-    // HashNodeBase* HashIteratorBase::ptr_ | File: ../Container/HashBase.h
-    // HashNodeBase* can not be registered
     // HashIteratorBase& HashIteratorBase::operator=(const HashIteratorBase&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<HashIteratorBase>(engine, "HashIteratorBase");
 #ifdef REGISTER_MANUAL_PART_HashIteratorBase
     REGISTER_MANUAL_PART_HashIteratorBase(HashIteratorBase, "HashIteratorBase")
 #endif
 
-    // HashNodeBase* HashNodeBase::down_ | File: ../Container/HashBase.h
-    // HashNodeBase* can not be registered
-    // HashNodeBase* HashNodeBase::next_ | File: ../Container/HashBase.h
-    // HashNodeBase* can not be registered
-    // HashNodeBase* HashNodeBase::prev_ | File: ../Container/HashBase.h
-    // HashNodeBase* can not be registered
     // HashNodeBase& HashNodeBase::operator=(const HashNodeBase&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<HashNodeBase>(engine, "HashNodeBase");
 #ifdef REGISTER_MANUAL_PART_HashNodeBase
@@ -90,16 +74,6 @@ void ASRegisterGenerated_Members_H(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // SharedArrayPtr<float> HeightfieldData::heightData_ | File: ../Physics/CollisionShape.h
-    // Error: type "SharedArrayPtr<float>" can not automatically bind
-    // float HeightfieldData::maxHeight_ | File: ../Physics/CollisionShape.h
-    engine->RegisterObjectProperty("HeightfieldData", "float maxHeight", offsetof(HeightfieldData, maxHeight_));
-    // float HeightfieldData::minHeight_ | File: ../Physics/CollisionShape.h
-    engine->RegisterObjectProperty("HeightfieldData", "float minHeight", offsetof(HeightfieldData, minHeight_));
-    // IntVector2 HeightfieldData::size_ | File: ../Physics/CollisionShape.h
-    engine->RegisterObjectProperty("HeightfieldData", "IntVector2 size", offsetof(HeightfieldData, size_));
-    // Vector3 HeightfieldData::spacing_ | File: ../Physics/CollisionShape.h
-    engine->RegisterObjectProperty("HeightfieldData", "Vector3 spacing", offsetof(HeightfieldData, spacing_));
 #ifdef REGISTER_MANUAL_PART_CollisionGeometryData
     REGISTER_MANUAL_PART_CollisionGeometryData(HeightfieldData, "HeightfieldData")
 #endif

@@ -77,19 +77,6 @@ struct RegisterObjectMethodArgs
     }
 };
 
-inline void Remove(Vector<RegisterObjectMethodArgs>& methods, const String& cppDeclaration)
-{
-    // The vector can contain several functions with the same cppDeclaration (aliases)
-    auto it = methods.Begin();
-    while (it != methods.End())
-    {
-        if (it->cppDeclaration_ == cppDeclaration)
-            it = methods.Erase(it);
-        else
-            ++it;
-    }
-}
-
 struct RegisterObjectPropertyArgs
 {
     String cppDeclaration_;
@@ -121,6 +108,20 @@ struct RegisterGlobalPropertyArgs
     {
     }
 };
+
+// Where T is RegisterObjectMethodArgs, RegisterObjectPropertyArgs, RegisterGlobalPropertyArgs
+template<typename T> void Remove(Vector<T>& list, const String& cppDeclaration)
+{
+    // The vector can contain several elements with the same cppDeclaration (aliases)
+    auto it = list.Begin();
+    while (it != list.End())
+    {
+        if (it->cppDeclaration_ == cppDeclaration)
+            it = list.Erase(it);
+        else
+            ++it;
+    }
+}
 
 /// Template function for Vector to array conversion.
 template <class T> CScriptArray* VectorToArray(const Vector<T>& vector, const char* arrayName)

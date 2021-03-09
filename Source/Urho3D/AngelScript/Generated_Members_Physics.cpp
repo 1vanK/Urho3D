@@ -23,10 +23,15 @@ void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Ve
 {
     CollectMembers_Component(methods, fields, staticFields);
 
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(fields, "virtual void Component::OnSetEnabled()");
+    Remove(staticFields, "virtual void Component::OnSetEnabled()");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(fields, "virtual void Serializable::ApplyAttributes()");
+    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
 
     // btCollisionShape* CollisionShape::GetCollisionShape() const
     // Error: type "btCollisionShape*" can not automatically bind
@@ -91,11 +96,18 @@ void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector
 {
     CollectMembers_Component(methods, fields, staticFields);
 
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::GetDependencyNodes(PODVector<Node*>& dest)");
+    Remove(fields, "virtual void Component::GetDependencyNodes(PODVector<Node*>& dest)");
+    Remove(staticFields, "virtual void Component::GetDependencyNodes(PODVector<Node*>& dest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(fields, "virtual void Component::OnSetEnabled()");
+    Remove(staticFields, "virtual void Component::OnSetEnabled()");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(fields, "virtual void Serializable::ApplyAttributes()");
+    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
 
     // btTypedConstraint* Constraint::GetConstraint() const
     // Error: type "btTypedConstraint*" can not automatically bind
@@ -255,8 +267,9 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vect
 {
     CollectMembers_Component(methods, fields, staticFields);
 
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
     // void PhysicsWorld::ConvexCast(PhysicsRaycastResult& result, btCollisionShape* shape, const Vector3& startPos, const Quaternion& startRot, const Vector3& endPos, const Quaternion& endRot, unsigned collisionMask=M_MAX_UNSIGNED)
     // Error: type "btCollisionShape*" can not automatically bind
@@ -364,8 +377,9 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Ve
 {
     CollectMembers_LogicComponent(methods, fields, staticFields);
 
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(fields, "virtual void Serializable::ApplyAttributes()");
+    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
 
     // VariantVector RaycastVehicle::GetWheelDataAttr() const
     // Error: type "VariantVector" can not automatically bind
@@ -451,10 +465,15 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<
 {
     CollectMembers_Component(methods, fields, staticFields);
 
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(fields, "virtual void Component::OnSetEnabled()");
+    Remove(staticFields, "virtual void Component::OnSetEnabled()");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(fields, "virtual void Serializable::ApplyAttributes()");
+    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
 
     // btRigidBody* RigidBody::GetBody() const
     // Error: type "btRigidBody*" can not automatically bind

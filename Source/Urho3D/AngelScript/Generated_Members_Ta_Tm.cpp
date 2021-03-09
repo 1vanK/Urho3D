@@ -14,38 +14,6 @@ void FakeReleaseRef(void* ptr);
 
 void ASRegisterGenerated_Members_Ta_Tm(asIScriptEngine* engine)
 {
-    // unsigned Technique::alphaPassIndex | File: ../Graphics/Technique.h
-    engine->SetDefaultNamespace("Technique");
-    engine->RegisterGlobalProperty("uint alphaPassIndex", (void*)&Technique::alphaPassIndex);
-    engine->SetDefaultNamespace("");
-    // unsigned Technique::basePassIndex | File: ../Graphics/Technique.h
-    engine->SetDefaultNamespace("Technique");
-    engine->RegisterGlobalProperty("uint basePassIndex", (void*)&Technique::basePassIndex);
-    engine->SetDefaultNamespace("");
-    // unsigned Technique::deferredPassIndex | File: ../Graphics/Technique.h
-    engine->SetDefaultNamespace("Technique");
-    engine->RegisterGlobalProperty("uint deferredPassIndex", (void*)&Technique::deferredPassIndex);
-    engine->SetDefaultNamespace("");
-    // unsigned Technique::lightPassIndex | File: ../Graphics/Technique.h
-    engine->SetDefaultNamespace("Technique");
-    engine->RegisterGlobalProperty("uint lightPassIndex", (void*)&Technique::lightPassIndex);
-    engine->SetDefaultNamespace("");
-    // unsigned Technique::litAlphaPassIndex | File: ../Graphics/Technique.h
-    engine->SetDefaultNamespace("Technique");
-    engine->RegisterGlobalProperty("uint litAlphaPassIndex", (void*)&Technique::litAlphaPassIndex);
-    engine->SetDefaultNamespace("");
-    // unsigned Technique::litBasePassIndex | File: ../Graphics/Technique.h
-    engine->SetDefaultNamespace("Technique");
-    engine->RegisterGlobalProperty("uint litBasePassIndex", (void*)&Technique::litBasePassIndex);
-    engine->SetDefaultNamespace("");
-    // unsigned Technique::materialPassIndex | File: ../Graphics/Technique.h
-    engine->SetDefaultNamespace("Technique");
-    engine->RegisterGlobalProperty("uint materialPassIndex", (void*)&Technique::materialPassIndex);
-    engine->SetDefaultNamespace("");
-    // unsigned Technique::shadowPassIndex | File: ../Graphics/Technique.h
-    engine->SetDefaultNamespace("Technique");
-    engine->RegisterGlobalProperty("uint shadowPassIndex", (void*)&Technique::shadowPassIndex);
-    engine->SetDefaultNamespace("");
     // static unsigned Technique::GetPassIndex(const String& passName) | File: ../Graphics/Technique.h
     engine->SetDefaultNamespace("Technique");
     engine->RegisterGlobalFunction("uint GetPassIndex(const String&in)", AS_FUNCTIONPR(Technique::GetPassIndex, (const String&), unsigned), AS_CALL_CDECL);
@@ -613,24 +581,12 @@ void ASRegisterGenerated_Members_Ta_Tm(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, TmxTileLayer2D>(engine, "RefCounted", "TmxTileLayer2D");
 #endif
 
-    // float TechniqueEntry::lodDistance_ | File: ../Graphics/Material.h
-    engine->RegisterObjectProperty("TechniqueEntry", "float lodDistance", offsetof(TechniqueEntry, lodDistance_));
-    // SharedPtr<Technique> TechniqueEntry::original_ | File: ../Graphics/Material.h
-    // Error: type "SharedPtr<Technique>" can not automatically bind
-    // MaterialQuality TechniqueEntry::qualityLevel_ | File: ../Graphics/Material.h
-    engine->RegisterObjectProperty("TechniqueEntry", "MaterialQuality qualityLevel", offsetof(TechniqueEntry, qualityLevel_));
-    // SharedPtr<Technique> TechniqueEntry::technique_ | File: ../Graphics/Material.h
-    // Error: type "SharedPtr<Technique>" can not automatically bind
     // TechniqueEntry& TechniqueEntry::operator=(const TechniqueEntry&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<TechniqueEntry>(engine, "TechniqueEntry");
 #ifdef REGISTER_MANUAL_PART_TechniqueEntry
     REGISTER_MANUAL_PART_TechniqueEntry(TechniqueEntry, "TechniqueEntry")
 #endif
 
-    // float TextureFrame::time_ | File: ../Graphics/ParticleEffect.h
-    engine->RegisterObjectProperty("TextureFrame", "float time", offsetof(TextureFrame, time_));
-    // Rect TextureFrame::uv_ | File: ../Graphics/ParticleEffect.h
-    engine->RegisterObjectProperty("TextureFrame", "Rect uv", offsetof(TextureFrame, uv_));
     // TextureFrame& TextureFrame::operator=(const TextureFrame&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<TextureFrame>(engine, "TextureFrame");
     engine->RegisterObjectBehaviour("TextureFrame", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
@@ -640,16 +596,6 @@ void ASRegisterGenerated_Members_Ta_Tm(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_URHO2D
-    // int TileMapInfo2D::height_ | File: ../Urho2D/TileMapDefs2D.h
-    engine->RegisterObjectProperty("TileMapInfo2D", "int height", offsetof(TileMapInfo2D, height_));
-    // Orientation2D TileMapInfo2D::orientation_ | File: ../Urho2D/TileMapDefs2D.h
-    engine->RegisterObjectProperty("TileMapInfo2D", "Orientation2D orientation", offsetof(TileMapInfo2D, orientation_));
-    // float TileMapInfo2D::tileHeight_ | File: ../Urho2D/TileMapDefs2D.h
-    engine->RegisterObjectProperty("TileMapInfo2D", "float tileHeight", offsetof(TileMapInfo2D, tileHeight_));
-    // float TileMapInfo2D::tileWidth_ | File: ../Urho2D/TileMapDefs2D.h
-    engine->RegisterObjectProperty("TileMapInfo2D", "float tileWidth", offsetof(TileMapInfo2D, tileWidth_));
-    // int TileMapInfo2D::width_ | File: ../Urho2D/TileMapDefs2D.h
-    engine->RegisterObjectProperty("TileMapInfo2D", "int width", offsetof(TileMapInfo2D, width_));
     // TileMapInfo2D& TileMapInfo2D::operator=(const TileMapInfo2D&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<TileMapInfo2D>(engine, "TileMapInfo2D");
     engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);

@@ -28,32 +28,6 @@ void ASRegisterGenerated_Members_U(asIScriptEngine* engine)
     RegisterSubclass<Object, UI>(engine, "Object", "UI");
     RegisterSubclass<RefCounted, UI>(engine, "RefCounted", "UI");
 
-    // BlendMode UIBatch::blendMode_ | File: ../UI/UIBatch.h
-    engine->RegisterObjectProperty("UIBatch", "BlendMode blendMode", offsetof(UIBatch, blendMode_));
-    // unsigned UIBatch::color_ | File: ../UI/UIBatch.h
-    engine->RegisterObjectProperty("UIBatch", "uint color", offsetof(UIBatch, color_));
-    // Material* UIBatch::customMaterial_ | File: ../UI/UIBatch.h
-    // Material* can not be registered
-    // UIElement* UIBatch::element_ | File: ../UI/UIBatch.h
-    // UIElement* can not be registered
-    // Vector2 UIBatch::invTextureSize_ | File: ../UI/UIBatch.h
-    engine->RegisterObjectProperty("UIBatch", "Vector2 invTextureSize", offsetof(UIBatch, invTextureSize_));
-    // Vector3 UIBatch::posAdjust | File: ../UI/UIBatch.h
-    engine->SetDefaultNamespace("UIBatch");
-    engine->RegisterGlobalProperty("Vector3 posAdjust", (void*)&UIBatch::posAdjust);
-    engine->SetDefaultNamespace("");
-    // IntRect UIBatch::scissor_ | File: ../UI/UIBatch.h
-    engine->RegisterObjectProperty("UIBatch", "IntRect scissor", offsetof(UIBatch, scissor_));
-    // Texture* UIBatch::texture_ | File: ../UI/UIBatch.h
-    // Texture* can not be registered
-    // bool UIBatch::useGradient_ | File: ../UI/UIBatch.h
-    engine->RegisterObjectProperty("UIBatch", "bool useGradient", offsetof(UIBatch, useGradient_));
-    // PODVector<float>* UIBatch::vertexData_ | File: ../UI/UIBatch.h
-    // PODVector<float>* can not be registered
-    // unsigned UIBatch::vertexEnd_ | File: ../UI/UIBatch.h
-    engine->RegisterObjectProperty("UIBatch", "uint vertexEnd", offsetof(UIBatch, vertexEnd_));
-    // unsigned UIBatch::vertexStart_ | File: ../UI/UIBatch.h
-    engine->RegisterObjectProperty("UIBatch", "uint vertexStart", offsetof(UIBatch, vertexStart_));
     // static void UIBatch::AddOrMerge(const UIBatch& batch, PODVector<UIBatch>& batches) | File: ../UI/UIBatch.h
     // Error: type "PODVector<UIBatch>&" can not automatically bind
     // UIBatch& UIBatch::operator=(const UIBatch&) | Possible implicitly-declared

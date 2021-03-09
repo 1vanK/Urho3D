@@ -14,10 +14,6 @@ void FakeReleaseRef(void* ptr);
 
 void ASRegisterGenerated_Members_X(asIScriptEngine* engine)
 {
-    // const XMLElement XMLElement::EMPTY | File: ../Resource/XMLElement.h
-    engine->SetDefaultNamespace("XMLElement");
-    engine->RegisterGlobalProperty("const XMLElement EMPTY", (void*)&XMLElement::EMPTY);
-    engine->SetDefaultNamespace("");
 #ifdef REGISTER_MANUAL_PART_XMLElement
     REGISTER_MANUAL_PART_XMLElement(XMLElement, "XMLElement")
 #endif

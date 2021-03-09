@@ -619,12 +619,12 @@ vector<string> ClassAnalyzer::GetAllPublicMembersRefids() const
     return result;
 }
 
-vector<string> ClassAnalyzer::GetHiddenMembers() const
+static vector<xml_node> GetHiddenMemberdefs(const ClassAnalyzer& classAnalyzer)
 {
-    vector<string> thisRefids = GetAllPublicMembersRefids();
-    vector<ClassAnalyzer> baseClasses = GetBaseClasses();
+    vector<string> thisRefids = classAnalyzer.GetAllPublicMembersRefids();
+    vector<ClassAnalyzer> baseClasses = classAnalyzer.GetBaseClasses();
 
-    vector<string> result;
+    vector<xml_node> result;
 
     for (const ClassAnalyzer& baseClass : baseClasses)
     {
@@ -640,16 +640,71 @@ vector<string> ClassAnalyzer::GetHiddenMembers() const
                 continue;
 
             xml_node memberdef = it->second;
-            string kind = ExtractKind(memberdef);
-            if (kind == "function")
-            {
-                result.push_back(GetFunctionDeclaration(memberdef));
-            }
-            else
-            {
-                // TODO variable declarations
-            }
+            result.push_back(memberdef);
         }
+    }
+
+    return result;
+}
+
+vector<string> ClassAnalyzer::GetHiddenMethods() const
+{
+    vector<xml_node> hiddenMemberdefs = GetHiddenMemberdefs(*this);
+
+    vector<string> result;
+
+    for (xml_node memberdef : hiddenMemberdefs)
+    {
+        if (ExtractKind(memberdef) == "function" && !IsStatic(memberdef))
+            result.push_back(GetFunctionDeclaration(memberdef));
+    }
+
+    sort(result.begin(), result.end());
+    return result;
+}
+
+vector<string> ClassAnalyzer::GetHiddenStaticMethods() const
+{
+    vector<xml_node> hiddenMemberdefs = GetHiddenMemberdefs(*this);
+
+    vector<string> result;
+
+    for (xml_node memberdef : hiddenMemberdefs)
+    {
+        if (ExtractKind(memberdef) == "function" && IsStatic(memberdef))
+            result.push_back(GetFunctionDeclaration(memberdef));
+    }
+
+    sort(result.begin(), result.end());
+    return result;
+}
+
+vector<string> ClassAnalyzer::GetHiddenFields() const
+{
+    vector<xml_node> hiddenMemberdefs = GetHiddenMemberdefs(*this);
+
+    vector<string> result;
+
+    for (xml_node memberdef : hiddenMemberdefs)
+    {
+        if (ExtractKind(memberdef) == "variable" && !IsStatic(memberdef))
+            result.push_back("TODO");
+    }
+
+    sort(result.begin(), result.end());
+    return result;
+}
+
+vector<string> ClassAnalyzer::GetHiddenStaticFields() const
+{
+    vector<xml_node> hiddenMemberdefs = GetHiddenMemberdefs(*this);
+
+    vector<string> result;
+
+    for (xml_node memberdef : hiddenMemberdefs)
+    {
+        if (ExtractKind(memberdef) == "variable" && !IsStatic(memberdef))
+            result.push_back("TODO");
     }
 
     sort(result.begin(), result.end());

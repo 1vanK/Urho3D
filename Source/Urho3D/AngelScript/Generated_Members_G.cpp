@@ -129,8 +129,6 @@ void ASRegisterGenerated_Members_G(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, Graphics>(engine, "RefCounted", "Graphics");
 
 #ifdef URHO3D_PHYSICS
-    // UniquePtr<TriangleMeshInterface> GImpactMeshData::meshInterface_ | File: ../Physics/CollisionShape.h
-    // Error: type "UniquePtr<TriangleMeshInterface>" can not automatically bind
 #ifdef REGISTER_MANUAL_PART_CollisionGeometryData
     REGISTER_MANUAL_PART_CollisionGeometryData(GImpactMeshData, "GImpactMeshData")
 #endif
@@ -144,16 +142,6 @@ void ASRegisterGenerated_Members_G(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, GImpactMeshData>(engine, "RefCounted", "GImpactMeshData");
 #endif
 
-    // unsigned GeometryDesc::ibRef_ | File: ../Graphics/Model.h
-    engine->RegisterObjectProperty("GeometryDesc", "uint ibRef", offsetof(GeometryDesc, ibRef_));
-    // unsigned GeometryDesc::indexCount_ | File: ../Graphics/Model.h
-    engine->RegisterObjectProperty("GeometryDesc", "uint indexCount", offsetof(GeometryDesc, indexCount_));
-    // unsigned GeometryDesc::indexStart_ | File: ../Graphics/Model.h
-    engine->RegisterObjectProperty("GeometryDesc", "uint indexStart", offsetof(GeometryDesc, indexStart_));
-    // PrimitiveType GeometryDesc::type_ | File: ../Graphics/Model.h
-    engine->RegisterObjectProperty("GeometryDesc", "PrimitiveType type", offsetof(GeometryDesc, type_));
-    // unsigned GeometryDesc::vbRef_ | File: ../Graphics/Model.h
-    engine->RegisterObjectProperty("GeometryDesc", "uint vbRef", offsetof(GeometryDesc, vbRef_));
     // GeometryDesc& GeometryDesc::operator=(const GeometryDesc&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<GeometryDesc>(engine, "GeometryDesc");
 #ifdef REGISTER_MANUAL_PART_GeometryDesc

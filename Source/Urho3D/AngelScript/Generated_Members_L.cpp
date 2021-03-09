@@ -184,74 +184,30 @@ void ASRegisterGenerated_Members_L(asIScriptEngine* engine)
     RegisterSubclass<Object, LogicComponent>(engine, "Object", "LogicComponent");
     RegisterSubclass<RefCounted, LogicComponent>(engine, "RefCounted", "LogicComponent");
 
-    // Light* LightBatchQueue::light_ | File: ../Graphics/Batch.h
-    // Light* can not be registered
-    // BatchQueue LightBatchQueue::litBaseBatches_ | File: ../Graphics/Batch.h
-    engine->RegisterObjectProperty("LightBatchQueue", "BatchQueue litBaseBatches", offsetof(LightBatchQueue, litBaseBatches_));
-    // BatchQueue LightBatchQueue::litBatches_ | File: ../Graphics/Batch.h
-    engine->RegisterObjectProperty("LightBatchQueue", "BatchQueue litBatches", offsetof(LightBatchQueue, litBatches_));
-    // bool LightBatchQueue::negative_ | File: ../Graphics/Batch.h
-    engine->RegisterObjectProperty("LightBatchQueue", "bool negative", offsetof(LightBatchQueue, negative_));
-    // Texture2D* LightBatchQueue::shadowMap_ | File: ../Graphics/Batch.h
-    // Texture2D* can not be registered
-    // Vector<ShadowBatchQueue> LightBatchQueue::shadowSplits_ | File: ../Graphics/Batch.h
-    // Error: type "Vector<ShadowBatchQueue>" can not automatically bind
-    // PODVector<Light*> LightBatchQueue::vertexLights_ | File: ../Graphics/Batch.h
-    // Error: type "PODVector<Light*>" can not automatically bind
-    // PODVector<Batch> LightBatchQueue::volumeBatches_ | File: ../Graphics/Batch.h
-    // Error: type "PODVector<Batch>" can not automatically bind
     // LightBatchQueue& LightBatchQueue::operator=(const LightBatchQueue&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<LightBatchQueue>(engine, "LightBatchQueue");
 #ifdef REGISTER_MANUAL_PART_LightBatchQueue
     REGISTER_MANUAL_PART_LightBatchQueue(LightBatchQueue, "LightBatchQueue")
 #endif
 
-    // Light* LightQueryResult::light_ | File: ../Graphics/View.h
-    // Light* can not be registered
-    // PODVector<Drawable*> LightQueryResult::litGeometries_ | File: ../Graphics/View.h
-    // Error: type "PODVector<Drawable*>" can not automatically bind
-    // unsigned LightQueryResult::numSplits_ | File: ../Graphics/View.h
-    engine->RegisterObjectProperty("LightQueryResult", "uint numSplits", offsetof(LightQueryResult, numSplits_));
-    // Camera* LightQueryResult::shadowCameras_[MAX_LIGHT_SPLITS] | File: ../Graphics/View.h
-    // Not registered because array
-    // unsigned LightQueryResult::shadowCasterBegin_[MAX_LIGHT_SPLITS] | File: ../Graphics/View.h
-    // Not registered because array
-    // BoundingBox LightQueryResult::shadowCasterBox_[MAX_LIGHT_SPLITS] | File: ../Graphics/View.h
-    // Not registered because array
-    // unsigned LightQueryResult::shadowCasterEnd_[MAX_LIGHT_SPLITS] | File: ../Graphics/View.h
-    // Not registered because array
-    // PODVector<Drawable*> LightQueryResult::shadowCasters_ | File: ../Graphics/View.h
-    // Error: type "PODVector<Drawable*>" can not automatically bind
-    // float LightQueryResult::shadowFarSplits_[MAX_LIGHT_SPLITS] | File: ../Graphics/View.h
-    // Not registered because array
-    // float LightQueryResult::shadowNearSplits_[MAX_LIGHT_SPLITS] | File: ../Graphics/View.h
-    // Not registered because array
     // LightQueryResult& LightQueryResult::operator=(const LightQueryResult&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<LightQueryResult>(engine, "LightQueryResult");
 #ifdef REGISTER_MANUAL_PART_LightQueryResult
     REGISTER_MANUAL_PART_LightQueryResult(LightQueryResult, "LightQueryResult")
 #endif
 
-    // LinkedListNode* LinkedListNode::next_ | File: ../Container/LinkedList.h
-    // LinkedListNode* can not be registered
     // LinkedListNode& LinkedListNode::operator=(const LinkedListNode&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<LinkedListNode>(engine, "LinkedListNode");
 #ifdef REGISTER_MANUAL_PART_LinkedListNode
     REGISTER_MANUAL_PART_LinkedListNode(LinkedListNode, "LinkedListNode")
 #endif
 
-    // ListNodeBase* ListIteratorBase::ptr_ | File: ../Container/ListBase.h
-    // ListNodeBase* can not be registered
     // ListIteratorBase& ListIteratorBase::operator=(const ListIteratorBase&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ListIteratorBase>(engine, "ListIteratorBase");
 #ifdef REGISTER_MANUAL_PART_ListIteratorBase
     REGISTER_MANUAL_PART_ListIteratorBase(ListIteratorBase, "ListIteratorBase")
 #endif
 
-    // ListNodeBase* ListNodeBase::next_ | File: ../Container/ListBase.h
-    // ListNodeBase* can not be registered
-    // ListNodeBase* ListNodeBase::prev_ | File: ../Container/ListBase.h
-    // ListNodeBase* can not be registered
     // ListNodeBase& ListNodeBase::operator=(const ListNodeBase&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ListNodeBase>(engine, "ListNodeBase");
 #ifdef REGISTER_MANUAL_PART_ListNodeBase

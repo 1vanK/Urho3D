@@ -16,9 +16,17 @@ void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods, Vector
     CollectMembers_Serializable(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Serializable::LoadJSON(const JSONValue& source)");
+    Remove(fields, "virtual bool Serializable::LoadJSON(const JSONValue& source)");
+    Remove(staticFields, "virtual bool Serializable::LoadJSON(const JSONValue& source)");
     Remove(methods, "virtual bool Serializable::LoadXML(const XMLElement& source)");
+    Remove(fields, "virtual bool Serializable::LoadXML(const XMLElement& source)");
+    Remove(staticFields, "virtual bool Serializable::LoadXML(const XMLElement& source)");
     Remove(methods, "virtual bool Serializable::SaveJSON(JSONValue& dest) const");
+    Remove(fields, "virtual bool Serializable::SaveJSON(JSONValue& dest) const");
+    Remove(staticFields, "virtual bool Serializable::SaveJSON(JSONValue& dest) const");
     Remove(methods, "virtual bool Serializable::SaveXML(XMLElement& dest) const");
+    Remove(fields, "virtual bool Serializable::SaveXML(XMLElement& dest) const");
+    Remove(staticFields, "virtual bool Serializable::SaveXML(XMLElement& dest) const");
 
     methods.Push(RegisterObjectMethodArgs("bool Animatable::LoadXML(const XMLElement& source) override", "bool LoadXML(const XMLElement&in)", AS_METHODPR(Animatable, LoadXML, (const XMLElement&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Animatable::SaveXML(XMLElement& dest) const override", "bool SaveXML(XMLElement&) const", AS_METHODPR(Animatable, SaveXML, (XMLElement&) const, bool), AS_CALL_THISCALL));
@@ -82,9 +90,17 @@ void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_Animatable(methods, fields, staticFields);
 
     Remove(methods, "bool Animatable::SaveJSON(JSONValue& dest) const override");
+    Remove(fields, "bool Animatable::SaveJSON(JSONValue& dest) const override");
+    Remove(staticFields, "bool Animatable::SaveJSON(JSONValue& dest) const override");
     Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
+    Remove(fields, "bool Animatable::SaveXML(XMLElement& dest) const override");
+    Remove(staticFields, "bool Animatable::SaveXML(XMLElement& dest) const override");
     Remove(methods, "virtual bool Serializable::Save(Serializer& dest) const");
+    Remove(fields, "virtual bool Serializable::Save(Serializer& dest) const");
+    Remove(staticFields, "virtual bool Serializable::Save(Serializer& dest) const");
     Remove(methods, "virtual void Serializable::MarkNetworkUpdate()");
+    Remove(fields, "virtual void Serializable::MarkNetworkUpdate()");
+    Remove(staticFields, "virtual void Serializable::MarkNetworkUpdate()");
 
     // void Component::AddReplicationState(ComponentReplicationState* state)
     // Error: type "ComponentReplicationState*" can not automatically bind
@@ -151,6 +167,8 @@ void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
+    Remove(fields, "virtual void Component::OnSetEnabled()");
+    Remove(staticFields, "virtual void Component::OnSetEnabled()");
 }
 
 // struct NetworkState | File: ../Scene/ReplicationState.h
@@ -256,15 +274,32 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     CollectMembers_Animatable(methods, fields, staticFields);
 
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
+    Remove(fields, "bool Animatable::LoadJSON(const JSONValue& source) override");
+    Remove(staticFields, "bool Animatable::LoadJSON(const JSONValue& source) override");
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
+    Remove(fields, "bool Animatable::LoadXML(const XMLElement& source) override");
+    Remove(staticFields, "bool Animatable::LoadXML(const XMLElement& source) override");
     Remove(methods, "bool Animatable::SaveJSON(JSONValue& dest) const override");
+    Remove(fields, "bool Animatable::SaveJSON(JSONValue& dest) const override");
+    Remove(staticFields, "bool Animatable::SaveJSON(JSONValue& dest) const override");
     Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(fields, "bool Animatable::SaveXML(XMLElement& dest) const override");
+    Remove(staticFields, "bool Animatable::SaveXML(XMLElement& dest) const override");
     Remove(methods, "virtual bool Serializable::Load(Deserializer& source)");
+    Remove(fields, "virtual bool Serializable::Load(Deserializer& source)");
+    Remove(staticFields, "virtual bool Serializable::Load(Deserializer& source)");
     Remove(methods, "virtual bool Serializable::Save(Serializer& dest) const");
+    Remove(fields, "virtual bool Serializable::Save(Serializer& dest) const");
+    Remove(staticFields, "virtual bool Serializable::Save(Serializer& dest) const");
     Remove(methods, "virtual bool Serializable::SaveDefaultAttributes() const");
+    Remove(fields, "virtual bool Serializable::SaveDefaultAttributes() const");
+    Remove(staticFields, "virtual bool Serializable::SaveDefaultAttributes() const");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(fields, "virtual void Serializable::ApplyAttributes()");
+    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
     Remove(methods, "virtual void Serializable::MarkNetworkUpdate()");
+    Remove(fields, "virtual void Serializable::MarkNetworkUpdate()");
+    Remove(staticFields, "virtual void Serializable::MarkNetworkUpdate()");
 
     // virtual void Node::AddReplicationState(NodeReplicationState* state)
     // Error: type "NodeReplicationState*" can not automatically bind
@@ -545,7 +580,11 @@ void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods, V
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const HashMap<String, SharedPtr<ValueAnimationInfo>>& ObjectAnimation::GetAttributeAnimationInfos() const
     // Error: type "const HashMap<String, SharedPtr<ValueAnimationInfo>>&" can not automatically bind
@@ -590,24 +629,59 @@ void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     CollectMembers_Node(methods, fields, staticFields);
 
     Remove(methods, "Component* Node::GetComponent(StringHash type, bool recursive=false) const");
+    Remove(fields, "Component* Node::GetComponent(StringHash type, bool recursive=false) const");
+    Remove(staticFields, "Component* Node::GetComponent(StringHash type, bool recursive=false) const");
     Remove(methods, "bool Node::Load(Deserializer& source) override");
+    Remove(fields, "bool Node::Load(Deserializer& source) override");
+    Remove(staticFields, "bool Node::Load(Deserializer& source) override");
     Remove(methods, "bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(fields, "bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(staticFields, "bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
     Remove(methods, "bool Node::LoadJSON(const JSONValue& source) override");
+    Remove(fields, "bool Node::LoadJSON(const JSONValue& source) override");
+    Remove(staticFields, "bool Node::LoadJSON(const JSONValue& source) override");
     Remove(methods, "bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(fields, "bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(staticFields, "bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
     Remove(methods, "bool Node::LoadXML(const XMLElement& source) override");
+    Remove(fields, "bool Node::LoadXML(const XMLElement& source) override");
+    Remove(staticFields, "bool Node::LoadXML(const XMLElement& source) override");
     Remove(methods, "bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(fields, "bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(staticFields, "bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
     Remove(methods, "bool Node::Save(Serializer& dest) const override");
+    Remove(fields, "bool Node::Save(Serializer& dest) const override");
+    Remove(staticFields, "bool Node::Save(Serializer& dest) const override");
     Remove(methods, "bool Node::SaveJSON(JSONValue& dest) const override");
+    Remove(fields, "bool Node::SaveJSON(JSONValue& dest) const override");
+    Remove(staticFields, "bool Node::SaveJSON(JSONValue& dest) const override");
     Remove(methods, "bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(fields, "bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(staticFields, "bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const");
     Remove(methods, "bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(fields, "bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(staticFields, "bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
     Remove(methods, "bool Node::SaveXML(XMLElement& dest) const override");
-    Remove(methods, "static void Node::RegisterObject(Context* context)");
+    Remove(fields, "bool Node::SaveXML(XMLElement& dest) const override");
+    Remove(staticFields, "bool Node::SaveXML(XMLElement& dest) const override");
     Remove(methods, "template<class T> T* Node::GetComponent(bool recursive=false) const");
+    Remove(fields, "template<class T> T* Node::GetComponent(bool recursive=false) const");
+    Remove(staticFields, "template<class T> T* Node::GetComponent(bool recursive=false) const");
     Remove(methods, "virtual void Node::AddReplicationState(NodeReplicationState* state)");
+    Remove(fields, "virtual void Node::AddReplicationState(NodeReplicationState* state)");
+    Remove(staticFields, "virtual void Node::AddReplicationState(NodeReplicationState* state)");
     Remove(methods, "void Node::CleanupConnection(Connection* connection)");
+    Remove(fields, "void Node::CleanupConnection(Connection* connection)");
+    Remove(staticFields, "void Node::CleanupConnection(Connection* connection)");
     Remove(methods, "void Node::MarkNetworkUpdate() override");
+    Remove(fields, "void Node::MarkNetworkUpdate() override");
+    Remove(staticFields, "void Node::MarkNetworkUpdate() override");
     Remove(methods, "void Node::MarkReplicationDirty()");
+    Remove(fields, "void Node::MarkReplicationDirty()");
+    Remove(staticFields, "void Node::MarkReplicationDirty()");
     Remove(methods, "void Node::PrepareNetworkUpdate()");
+    Remove(fields, "void Node::PrepareNetworkUpdate()");
+    Remove(staticFields, "void Node::PrepareNetworkUpdate()");
 
     // void Scene::AddReplicationState(NodeReplicationState* state) override
     // Error: type "NodeReplicationState*" can not automatically bind
@@ -777,8 +851,6 @@ void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods,
 {
     CollectMembers_Component(methods, fields, staticFields);
 
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
-
     methods.Push(RegisterObjectMethodArgs("void SmoothedTransform::Update(float constant, float squaredSnapThreshold)", "void Update(float, float)", AS_METHODPR(SmoothedTransform, Update, (float, float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SmoothedTransform::SetTargetPosition(const Vector3& position)", "void SetTargetPosition(const Vector3&in)", AS_METHODPR(SmoothedTransform, SetTargetPosition, (const Vector3&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SmoothedTransform::SetTargetPosition(const Vector3& position)", "void set_targetPosition(const Vector3&in)", AS_METHODPR(SmoothedTransform, SetTargetPosition, (const Vector3&), void), AS_CALL_THISCALL));
@@ -805,9 +877,12 @@ void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods, Vector
 {
     CollectMembers_Component(methods, fields, staticFields);
 
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
+    Remove(fields, "virtual void Serializable::ApplyAttributes()");
+    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
 
     // const VariantVector& SplinePath::GetControlPointIdsAttr() const
     // Error: type "const VariantVector&" can not automatically bind
@@ -859,15 +934,32 @@ void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods, 
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
+    Remove(fields, "bool Animatable::LoadJSON(const JSONValue& source) override");
+    Remove(staticFields, "bool Animatable::LoadJSON(const JSONValue& source) override");
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
+    Remove(fields, "bool Animatable::LoadXML(const XMLElement& source) override");
+    Remove(staticFields, "bool Animatable::LoadXML(const XMLElement& source) override");
     Remove(methods, "bool Component::Save(Serializer& dest) const override");
+    Remove(fields, "bool Component::Save(Serializer& dest) const override");
+    Remove(staticFields, "bool Component::Save(Serializer& dest) const override");
     Remove(methods, "bool Component::SaveJSON(JSONValue& dest) const override");
+    Remove(fields, "bool Component::SaveJSON(JSONValue& dest) const override");
+    Remove(staticFields, "bool Component::SaveJSON(JSONValue& dest) const override");
     Remove(methods, "bool Component::SaveXML(XMLElement& dest) const override");
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
+    Remove(fields, "bool Component::SaveXML(XMLElement& dest) const override");
+    Remove(staticFields, "bool Component::SaveXML(XMLElement& dest) const override");
     Remove(methods, "virtual StringHash Object::GetType() const =0");
+    Remove(fields, "virtual StringHash Object::GetType() const =0");
+    Remove(staticFields, "virtual StringHash Object::GetType() const =0");
     Remove(methods, "virtual bool Serializable::Load(Deserializer& source)");
+    Remove(fields, "virtual bool Serializable::Load(Deserializer& source)");
+    Remove(staticFields, "virtual bool Serializable::Load(Deserializer& source)");
     Remove(methods, "virtual const String& Object::GetTypeName() const =0");
+    Remove(fields, "virtual const String& Object::GetTypeName() const =0");
+    Remove(staticFields, "virtual const String& Object::GetTypeName() const =0");
     Remove(methods, "virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const");
+    Remove(fields, "virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const");
+    Remove(staticFields, "virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const");
 
     // const Vector<AttributeInfo>* UnknownComponent::GetAttributes() const override
     // Error: type "const Vector<AttributeInfo>*" can not automatically bind
@@ -911,7 +1003,11 @@ void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     // void ValueAnimation::GetEventFrames(float beginTime, float endTime, PODVector<const VAnimEventFrame*>& eventFrames) const
     // Error: type "PODVector<const VAnimEventFrame*>&" can not automatically bind

@@ -42,136 +42,22 @@ void ASRegisterGenerated_Members_M(asIScriptEngine* engine)
     RegisterSubclass<Object, Material>(engine, "Object", "Material");
     RegisterSubclass<RefCounted, Material>(engine, "RefCounted", "Material");
 
-    // const Matrix2 Matrix2::IDENTITY | File: ../Math/Matrix2.h
-    engine->SetDefaultNamespace("Matrix2");
-    engine->RegisterGlobalProperty("const Matrix2 IDENTITY", (void*)&Matrix2::IDENTITY);
-    engine->SetDefaultNamespace("");
-    // float Matrix2::m00_ | File: ../Math/Matrix2.h
-    engine->RegisterObjectProperty("Matrix2", "float m00", offsetof(Matrix2, m00_));
-    // float Matrix2::m01_ | File: ../Math/Matrix2.h
-    engine->RegisterObjectProperty("Matrix2", "float m01", offsetof(Matrix2, m01_));
-    // float Matrix2::m10_ | File: ../Math/Matrix2.h
-    engine->RegisterObjectProperty("Matrix2", "float m10", offsetof(Matrix2, m10_));
-    // float Matrix2::m11_ | File: ../Math/Matrix2.h
-    engine->RegisterObjectProperty("Matrix2", "float m11", offsetof(Matrix2, m11_));
-    // const Matrix2 Matrix2::ZERO | File: ../Math/Matrix2.h
-    engine->SetDefaultNamespace("Matrix2");
-    engine->RegisterGlobalProperty("const Matrix2 ZERO", (void*)&Matrix2::ZERO);
-    engine->SetDefaultNamespace("");
     // static void Matrix2::BulkTranspose(float* dest, const float* src, unsigned count) | File: ../Math/Matrix2.h
     // Error: type "float*" can not automatically bind
 #ifdef REGISTER_MANUAL_PART_Matrix2
     REGISTER_MANUAL_PART_Matrix2(Matrix2, "Matrix2")
 #endif
 
-    // const Matrix3 Matrix3::IDENTITY | File: ../Math/Matrix3.h
-    engine->SetDefaultNamespace("Matrix3");
-    engine->RegisterGlobalProperty("const Matrix3 IDENTITY", (void*)&Matrix3::IDENTITY);
-    engine->SetDefaultNamespace("");
-    // float Matrix3::m00_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m00", offsetof(Matrix3, m00_));
-    // float Matrix3::m01_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m01", offsetof(Matrix3, m01_));
-    // float Matrix3::m02_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m02", offsetof(Matrix3, m02_));
-    // float Matrix3::m10_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m10", offsetof(Matrix3, m10_));
-    // float Matrix3::m11_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m11", offsetof(Matrix3, m11_));
-    // float Matrix3::m12_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m12", offsetof(Matrix3, m12_));
-    // float Matrix3::m20_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m20", offsetof(Matrix3, m20_));
-    // float Matrix3::m21_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m21", offsetof(Matrix3, m21_));
-    // float Matrix3::m22_ | File: ../Math/Matrix3.h
-    engine->RegisterObjectProperty("Matrix3", "float m22", offsetof(Matrix3, m22_));
-    // const Matrix3 Matrix3::ZERO | File: ../Math/Matrix3.h
-    engine->SetDefaultNamespace("Matrix3");
-    engine->RegisterGlobalProperty("const Matrix3 ZERO", (void*)&Matrix3::ZERO);
-    engine->SetDefaultNamespace("");
     // static void Matrix3::BulkTranspose(float* dest, const float* src, unsigned count) | File: ../Math/Matrix3.h
     // Error: type "float*" can not automatically bind
 #ifdef REGISTER_MANUAL_PART_Matrix3
     REGISTER_MANUAL_PART_Matrix3(Matrix3, "Matrix3")
 #endif
 
-    // const Matrix3x4 Matrix3x4::IDENTITY | File: ../Math/Matrix3x4.h
-    engine->SetDefaultNamespace("Matrix3x4");
-    engine->RegisterGlobalProperty("const Matrix3x4 IDENTITY", (void*)&Matrix3x4::IDENTITY);
-    engine->SetDefaultNamespace("");
-    // float Matrix3x4::m00_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m00", offsetof(Matrix3x4, m00_));
-    // float Matrix3x4::m01_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m01", offsetof(Matrix3x4, m01_));
-    // float Matrix3x4::m02_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m02", offsetof(Matrix3x4, m02_));
-    // float Matrix3x4::m03_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m03", offsetof(Matrix3x4, m03_));
-    // float Matrix3x4::m10_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m10", offsetof(Matrix3x4, m10_));
-    // float Matrix3x4::m11_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m11", offsetof(Matrix3x4, m11_));
-    // float Matrix3x4::m12_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m12", offsetof(Matrix3x4, m12_));
-    // float Matrix3x4::m13_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m13", offsetof(Matrix3x4, m13_));
-    // float Matrix3x4::m20_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m20", offsetof(Matrix3x4, m20_));
-    // float Matrix3x4::m21_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m21", offsetof(Matrix3x4, m21_));
-    // float Matrix3x4::m22_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m22", offsetof(Matrix3x4, m22_));
-    // float Matrix3x4::m23_ | File: ../Math/Matrix3x4.h
-    engine->RegisterObjectProperty("Matrix3x4", "float m23", offsetof(Matrix3x4, m23_));
-    // const Matrix3x4 Matrix3x4::ZERO | File: ../Math/Matrix3x4.h
-    engine->SetDefaultNamespace("Matrix3x4");
-    engine->RegisterGlobalProperty("const Matrix3x4 ZERO", (void*)&Matrix3x4::ZERO);
-    engine->SetDefaultNamespace("");
 #ifdef REGISTER_MANUAL_PART_Matrix3x4
     REGISTER_MANUAL_PART_Matrix3x4(Matrix3x4, "Matrix3x4")
 #endif
 
-    // const Matrix4 Matrix4::IDENTITY | File: ../Math/Matrix4.h
-    engine->SetDefaultNamespace("Matrix4");
-    engine->RegisterGlobalProperty("const Matrix4 IDENTITY", (void*)&Matrix4::IDENTITY);
-    engine->SetDefaultNamespace("");
-    // float Matrix4::m00_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m00", offsetof(Matrix4, m00_));
-    // float Matrix4::m01_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m01", offsetof(Matrix4, m01_));
-    // float Matrix4::m02_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m02", offsetof(Matrix4, m02_));
-    // float Matrix4::m03_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m03", offsetof(Matrix4, m03_));
-    // float Matrix4::m10_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m10", offsetof(Matrix4, m10_));
-    // float Matrix4::m11_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m11", offsetof(Matrix4, m11_));
-    // float Matrix4::m12_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m12", offsetof(Matrix4, m12_));
-    // float Matrix4::m13_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m13", offsetof(Matrix4, m13_));
-    // float Matrix4::m20_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m20", offsetof(Matrix4, m20_));
-    // float Matrix4::m21_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m21", offsetof(Matrix4, m21_));
-    // float Matrix4::m22_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m22", offsetof(Matrix4, m22_));
-    // float Matrix4::m23_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m23", offsetof(Matrix4, m23_));
-    // float Matrix4::m30_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m30", offsetof(Matrix4, m30_));
-    // float Matrix4::m31_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m31", offsetof(Matrix4, m31_));
-    // float Matrix4::m32_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m32", offsetof(Matrix4, m32_));
-    // float Matrix4::m33_ | File: ../Math/Matrix4.h
-    engine->RegisterObjectProperty("Matrix4", "float m33", offsetof(Matrix4, m33_));
-    // const Matrix4 Matrix4::ZERO | File: ../Math/Matrix4.h
-    engine->SetDefaultNamespace("Matrix4");
-    engine->RegisterGlobalProperty("const Matrix4 ZERO", (void*)&Matrix4::ZERO);
-    engine->SetDefaultNamespace("");
     // static void Matrix4::BulkTranspose(float* dest, const float* src, unsigned count) | File: ../Math/Matrix4.h
     // Error: type "float*" can not automatically bind
 #ifdef REGISTER_MANUAL_PART_Matrix4
@@ -265,10 +151,6 @@ void ASRegisterGenerated_Members_M(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // btPersistentManifold* ManifoldPair::flippedManifold_ | File: ../Physics/PhysicsWorld.h
-    // btPersistentManifold* can not be registered
-    // btPersistentManifold* ManifoldPair::manifold_ | File: ../Physics/PhysicsWorld.h
-    // btPersistentManifold* can not be registered
     // ManifoldPair& ManifoldPair::operator=(const ManifoldPair&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ManifoldPair>(engine, "ManifoldPair");
 #ifdef REGISTER_MANUAL_PART_ManifoldPair
@@ -276,24 +158,12 @@ void ASRegisterGenerated_Members_M(asIScriptEngine* engine)
 #endif
 #endif
 
-    // String MaterialShaderParameter::name_ | File: ../Graphics/Material.h
-    engine->RegisterObjectProperty("MaterialShaderParameter", "String name", offsetof(MaterialShaderParameter, name_));
-    // Variant MaterialShaderParameter::value_ | File: ../Graphics/Material.h
-    engine->RegisterObjectProperty("MaterialShaderParameter", "Variant value", offsetof(MaterialShaderParameter, value_));
     // MaterialShaderParameter& MaterialShaderParameter::operator=(const MaterialShaderParameter&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<MaterialShaderParameter>(engine, "MaterialShaderParameter");
 #ifdef REGISTER_MANUAL_PART_MaterialShaderParameter
     REGISTER_MANUAL_PART_MaterialShaderParameter(MaterialShaderParameter, "MaterialShaderParameter")
 #endif
 
-    // HashMap<unsigned, VertexBufferMorph> ModelMorph::buffers_ | File: ../Graphics/Model.h
-    // Error: type "HashMap<unsigned, VertexBufferMorph>" can not automatically bind
-    // String ModelMorph::name_ | File: ../Graphics/Model.h
-    engine->RegisterObjectProperty("ModelMorph", "String name", offsetof(ModelMorph, name_));
-    // StringHash ModelMorph::nameHash_ | File: ../Graphics/Model.h
-    engine->RegisterObjectProperty("ModelMorph", "StringHash nameHash", offsetof(ModelMorph, nameHash_));
-    // float ModelMorph::weight_ | File: ../Graphics/Model.h
-    engine->RegisterObjectProperty("ModelMorph", "float weight", offsetof(ModelMorph, weight_));
     // ModelMorph& ModelMorph::operator=(const ModelMorph&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ModelMorph>(engine, "ModelMorph");
 #ifdef REGISTER_MANUAL_PART_ModelMorph

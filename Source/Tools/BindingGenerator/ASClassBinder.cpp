@@ -893,6 +893,8 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, bool templateVe
 
 static void RegisterClassVarAsProperty(FieldAnalyzer& variable)
 {
+    return;
+
     if (!variable.IsPublic())
         return;
 

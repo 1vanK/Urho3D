@@ -74,22 +74,12 @@ void ASRegisterGenerated_Members_Ca_Cm(asIScriptEngine* engine)
     RegisterSubclass<Object, CheckBox>(engine, "Object", "CheckBox");
     RegisterSubclass<RefCounted, CheckBox>(engine, "RefCounted", "CheckBox");
 
-    // float CascadeParameters::biasAutoAdjust_ | File: ../Graphics/Light.h
-    engine->RegisterObjectProperty("CascadeParameters", "float biasAutoAdjust", offsetof(CascadeParameters, biasAutoAdjust_));
-    // float CascadeParameters::fadeStart_ | File: ../Graphics/Light.h
-    engine->RegisterObjectProperty("CascadeParameters", "float fadeStart", offsetof(CascadeParameters, fadeStart_));
-    // Vector4 CascadeParameters::splits_ | File: ../Graphics/Light.h
-    engine->RegisterObjectProperty("CascadeParameters", "Vector4 splits", offsetof(CascadeParameters, splits_));
     // CascadeParameters& CascadeParameters::operator=(const CascadeParameters&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<CascadeParameters>(engine, "CascadeParameters");
 #ifdef REGISTER_MANUAL_PART_CascadeParameters
     REGISTER_MANUAL_PART_CascadeParameters(CascadeParameters, "CascadeParameters")
 #endif
 
-    // Vector2 CharLocation::position_ | File: ../UI/Text.h
-    engine->RegisterObjectProperty("CharLocation", "Vector2 position", offsetof(CharLocation, position_));
-    // Vector2 CharLocation::size_ | File: ../UI/Text.h
-    engine->RegisterObjectProperty("CharLocation", "Vector2 size", offsetof(CharLocation, size_));
     // CharLocation& CharLocation::operator=(const CharLocation&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<CharLocation>(engine, "CharLocation");
 #ifdef REGISTER_MANUAL_PART_CharLocation

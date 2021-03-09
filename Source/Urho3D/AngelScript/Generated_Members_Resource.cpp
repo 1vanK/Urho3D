@@ -94,8 +94,14 @@ void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
     Remove(methods, "virtual bool Resource::SaveFile(const String& fileName) const");
+    Remove(fields, "virtual bool Resource::SaveFile(const String& fileName) const");
+    Remove(staticFields, "virtual bool Resource::SaveFile(const String& fileName) const");
 
     // unsigned char* Image::GetData() const
     // Error: type "unsigned char*" can not automatically bind
@@ -175,7 +181,11 @@ void CollectMembers_JSONFile(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     methods.Push(RegisterObjectMethodArgs("bool JSONFile::BeginLoad(Deserializer& source) override", "bool BeginLoad(Deserializer&)", AS_METHODPR(JSONFile, BeginLoad, (Deserializer&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool JSONFile::Save(Serializer& dest) const override", "bool Save(Serializer&) const", AS_METHODPR(JSONFile, Save, (Serializer&) const, bool), AS_CALL_THISCALL));
@@ -703,7 +713,11 @@ void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
+    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
+    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     // pugi::xml_document* XMLFile::GetDocument() const
     // Error: type "pugi::xml_document*" can not automatically bind

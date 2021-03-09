@@ -164,6 +164,8 @@ void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods, Vec
     CollectMembers_Profiler(methods, fields, staticFields);
 
     Remove(methods, "void Profiler::BeginBlock(const char* name)");
+    Remove(fields, "void Profiler::BeginBlock(const char* name)");
+    Remove(staticFields, "void Profiler::BeginBlock(const char* name)");
 
     methods.Push(RegisterObjectMethodArgs("void EventProfiler::BeginBlock(StringHash eventID)", "void BeginBlock(StringHash)", AS_METHODPR(EventProfiler, BeginBlock, (StringHash), void), AS_CALL_THISCALL));
 }

@@ -169,42 +169,18 @@ void ASRegisterGenerated_Members_O(asIScriptEngine* engine)
     RegisterSubclass<SoundStream, OggVorbisSoundStream>(engine, "SoundStream", "OggVorbisSoundStream");
     RegisterSubclass<RefCounted, OggVorbisSoundStream>(engine, "RefCounted", "OggVorbisSoundStream");
 
-    // unsigned OcclusionBatch::drawCount_ | File: ../Graphics/OcclusionBuffer.h
-    engine->RegisterObjectProperty("OcclusionBatch", "uint drawCount", offsetof(OcclusionBatch, drawCount_));
-    // unsigned OcclusionBatch::drawStart_ | File: ../Graphics/OcclusionBuffer.h
-    engine->RegisterObjectProperty("OcclusionBatch", "uint drawStart", offsetof(OcclusionBatch, drawStart_));
-    // const void* OcclusionBatch::indexData_ | File: ../Graphics/OcclusionBuffer.h
-    // const void* can not be registered
-    // unsigned OcclusionBatch::indexSize_ | File: ../Graphics/OcclusionBuffer.h
-    engine->RegisterObjectProperty("OcclusionBatch", "uint indexSize", offsetof(OcclusionBatch, indexSize_));
-    // Matrix3x4 OcclusionBatch::model_ | File: ../Graphics/OcclusionBuffer.h
-    engine->RegisterObjectProperty("OcclusionBatch", "Matrix3x4 model", offsetof(OcclusionBatch, model_));
-    // const void* OcclusionBatch::vertexData_ | File: ../Graphics/OcclusionBuffer.h
-    // const void* can not be registered
-    // unsigned OcclusionBatch::vertexSize_ | File: ../Graphics/OcclusionBuffer.h
-    engine->RegisterObjectProperty("OcclusionBatch", "uint vertexSize", offsetof(OcclusionBatch, vertexSize_));
     // OcclusionBatch& OcclusionBatch::operator=(const OcclusionBatch&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<OcclusionBatch>(engine, "OcclusionBatch");
 #ifdef REGISTER_MANUAL_PART_OcclusionBatch
     REGISTER_MANUAL_PART_OcclusionBatch(OcclusionBatch, "OcclusionBatch")
 #endif
 
-    // int* OcclusionBufferData::data_ | File: ../Graphics/OcclusionBuffer.h
-    // int* can not be registered
-    // SharedArrayPtr<int> OcclusionBufferData::dataWithSafety_ | File: ../Graphics/OcclusionBuffer.h
-    // Error: type "SharedArrayPtr<int>" can not automatically bind
-    // bool OcclusionBufferData::used_ | File: ../Graphics/OcclusionBuffer.h
-    engine->RegisterObjectProperty("OcclusionBufferData", "bool used", offsetof(OcclusionBufferData, used_));
     // OcclusionBufferData& OcclusionBufferData::operator=(const OcclusionBufferData&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<OcclusionBufferData>(engine, "OcclusionBufferData");
 #ifdef REGISTER_MANUAL_PART_OcclusionBufferData
     REGISTER_MANUAL_PART_OcclusionBufferData(OcclusionBufferData, "OcclusionBufferData")
 #endif
 
-    // Drawable* OctreeQueryResult::drawable_ | File: ../Graphics/OctreeQuery.h
-    // Drawable* can not be registered
-    // Node* OctreeQueryResult::node_ | File: ../Graphics/OctreeQuery.h
-    // Node* can not be registered
     // OctreeQueryResult& OctreeQueryResult::operator=(const OctreeQueryResult&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<OctreeQueryResult>(engine, "OctreeQueryResult");
 #ifdef REGISTER_MANUAL_PART_OctreeQueryResult

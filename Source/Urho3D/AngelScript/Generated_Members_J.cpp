@@ -34,24 +34,6 @@ void ASRegisterGenerated_Members_J(asIScriptEngine* engine)
     RegisterSubclass<Object, JSONFile>(engine, "Object", "JSONFile");
     RegisterSubclass<RefCounted, JSONFile>(engine, "RefCounted", "JSONFile");
 
-    // JSONArray* JSONValue::arrayValue_ | File: ../Resource/JSONValue.h
-    // Not registered because have @nobind mark
-    // bool JSONValue::boolValue_ | File: ../Resource/JSONValue.h
-    // Not registered because have @nobind mark
-    // const JSONValue JSONValue::EMPTY | File: ../Resource/JSONValue.h
-    engine->SetDefaultNamespace("JSONValue");
-    engine->RegisterGlobalProperty("const JSONValue EMPTY", (void*)&JSONValue::EMPTY);
-    engine->SetDefaultNamespace("");
-    // const JSONArray JSONValue::emptyArray | File: ../Resource/JSONValue.h
-    // Error: type "const JSONArray" can not automatically bind
-    // const JSONObject JSONValue::emptyObject | File: ../Resource/JSONValue.h
-    // Error: type "const JSONObject" can not automatically bind
-    // double JSONValue::numberValue_ | File: ../Resource/JSONValue.h
-    // Not registered because have @nobind mark
-    // JSONObject* JSONValue::objectValue_ | File: ../Resource/JSONValue.h
-    // Not registered because have @nobind mark
-    // String* JSONValue::stringValue_ | File: ../Resource/JSONValue.h
-    // Not registered because have @nobind mark
     // static JSONNumberType JSONValue::GetNumberTypeFromName(const String& typeName) | File: ../Resource/JSONValue.h
     engine->SetDefaultNamespace("JSONValue");
     engine->RegisterGlobalFunction("JSONNumberType GetNumberTypeFromName(const String&in)", AS_FUNCTIONPR(JSONValue::GetNumberTypeFromName, (const String&), JSONNumberType), AS_CALL_CDECL);
@@ -76,24 +58,6 @@ void ASRegisterGenerated_Members_J(asIScriptEngine* engine)
     REGISTER_MANUAL_PART_JSONValue(JSONValue, "JSONValue")
 #endif
 
-    // PODVector<float> JoystickState::axes_ | File: ../Input/Input.h
-    // Error: type "PODVector<float>" can not automatically bind
-    // PODVector<bool> JoystickState::buttonPress_ | File: ../Input/Input.h
-    // Error: type "PODVector<bool>" can not automatically bind
-    // PODVector<bool> JoystickState::buttons_ | File: ../Input/Input.h
-    // Error: type "PODVector<bool>" can not automatically bind
-    // SDL_GameController* JoystickState::controller_ | File: ../Input/Input.h
-    // SDL_GameController* can not be registered
-    // PODVector<int> JoystickState::hats_ | File: ../Input/Input.h
-    // Error: type "PODVector<int>" can not automatically bind
-    // SDL_Joystick* JoystickState::joystick_ | File: ../Input/Input.h
-    // SDL_Joystick* can not be registered
-    // SDL_JoystickID JoystickState::joystickID_ | File: ../Input/Input.h
-    engine->RegisterObjectProperty("JoystickState", "SDL_JoystickID joystickID", offsetof(JoystickState, joystickID_));
-    // String JoystickState::name_ | File: ../Input/Input.h
-    engine->RegisterObjectProperty("JoystickState", "String name", offsetof(JoystickState, name_));
-    // UIElement* JoystickState::screenJoystick_ | File: ../Input/Input.h
-    // UIElement* can not be registered
     // JoystickState& JoystickState::operator=(const JoystickState&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<JoystickState>(engine, "JoystickState");
     engine->RegisterObjectBehaviour("JoystickState", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);

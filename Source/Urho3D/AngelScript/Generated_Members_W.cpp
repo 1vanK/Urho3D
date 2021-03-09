@@ -60,12 +60,6 @@ void ASRegisterGenerated_Members_W(asIScriptEngine* engine)
     RegisterSubclass<Object, WorkQueue>(engine, "Object", "WorkQueue");
     RegisterSubclass<RefCounted, WorkQueue>(engine, "RefCounted", "WorkQueue");
 
-    // int WindowModeParams::height_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("WindowModeParams", "int height", offsetof(WindowModeParams, height_));
-    // ScreenModeParams WindowModeParams::screenParams_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("WindowModeParams", "ScreenModeParams screenParams", offsetof(WindowModeParams, screenParams_));
-    // int WindowModeParams::width_ | File: ../Graphics/Graphics.h
-    engine->RegisterObjectProperty("WindowModeParams", "int width", offsetof(WindowModeParams, width_));
     // WindowModeParams& WindowModeParams::operator=(const WindowModeParams&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<WindowModeParams>(engine, "WindowModeParams");
 #ifdef REGISTER_MANUAL_PART_WindowModeParams

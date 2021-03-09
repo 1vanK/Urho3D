@@ -244,58 +244,6 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, CollisionShape2D>(engine, "RefCounted", "CollisionShape2D");
 #endif
 
-    // float Color::a_ | File: ../Math/Color.h
-    engine->RegisterObjectProperty("Color", "float a", offsetof(Color, a_));
-    // const ChannelMask Color::ABGR | File: ../Math/Color.h
-    // Error: type "const ChannelMask" can not automatically bind
-    // const ChannelMask Color::ARGB | File: ../Math/Color.h
-    // Error: type "const ChannelMask" can not automatically bind
-    // float Color::b_ | File: ../Math/Color.h
-    engine->RegisterObjectProperty("Color", "float b", offsetof(Color, b_));
-    // const Color Color::BLACK | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color BLACK", (void*)&Color::BLACK);
-    engine->SetDefaultNamespace("");
-    // const Color Color::BLUE | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color BLUE", (void*)&Color::BLUE);
-    engine->SetDefaultNamespace("");
-    // const Color Color::CYAN | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color CYAN", (void*)&Color::CYAN);
-    engine->SetDefaultNamespace("");
-    // float Color::g_ | File: ../Math/Color.h
-    engine->RegisterObjectProperty("Color", "float g", offsetof(Color, g_));
-    // const Color Color::GRAY | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color GRAY", (void*)&Color::GRAY);
-    engine->SetDefaultNamespace("");
-    // const Color Color::GREEN | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color GREEN", (void*)&Color::GREEN);
-    engine->SetDefaultNamespace("");
-    // const Color Color::MAGENTA | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color MAGENTA", (void*)&Color::MAGENTA);
-    engine->SetDefaultNamespace("");
-    // float Color::r_ | File: ../Math/Color.h
-    engine->RegisterObjectProperty("Color", "float r", offsetof(Color, r_));
-    // const Color Color::RED | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color RED", (void*)&Color::RED);
-    engine->SetDefaultNamespace("");
-    // const Color Color::TRANSPARENT_BLACK | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color TRANSPARENT_BLACK", (void*)&Color::TRANSPARENT_BLACK);
-    engine->SetDefaultNamespace("");
-    // const Color Color::WHITE | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color WHITE", (void*)&Color::WHITE);
-    engine->SetDefaultNamespace("");
-    // const Color Color::YELLOW | File: ../Math/Color.h
-    engine->SetDefaultNamespace("Color");
-    engine->RegisterGlobalProperty("const Color YELLOW", (void*)&Color::YELLOW);
-    engine->SetDefaultNamespace("");
     // static float Color::ConvertGammaToLinear(float value) | File: ../Math/Color.h
     engine->SetDefaultNamespace("Color");
     engine->RegisterGlobalFunction("float ConvertGammaToLinear(float)", AS_FUNCTIONPR(Color::ConvertGammaToLinear, (float), float), AS_CALL_CDECL);
@@ -339,12 +287,6 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NETWORK
-    // Controls Connection::controls_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("Connection", "Controls controls", offsetof(Connection, controls_));
-    // VariantMap Connection::identity_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("Connection", "VariantMap identity", offsetof(Connection, identity_));
-    // unsigned char Connection::timeStamp_ | File: ../Network/Connection.h
-    engine->RegisterObjectProperty("Connection", "uint8 timeStamp", offsetof(Connection, timeStamp_));
     // static const TypeInfo* Object::GetTypeInfoStatic() | File: ../Core/Object.h
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
 #ifdef REGISTER_MANUAL_PART_Object
@@ -399,14 +341,6 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
 #endif
     RegisterSubclass<RefCounted, Context>(engine, "RefCounted", "Context");
 
-    // unsigned Controls::buttons_ | File: ../Input/Controls.h
-    engine->RegisterObjectProperty("Controls", "uint buttons", offsetof(Controls, buttons_));
-    // VariantMap Controls::extraData_ | File: ../Input/Controls.h
-    engine->RegisterObjectProperty("Controls", "VariantMap extraData", offsetof(Controls, extraData_));
-    // float Controls::pitch_ | File: ../Input/Controls.h
-    engine->RegisterObjectProperty("Controls", "float pitch", offsetof(Controls, pitch_));
-    // float Controls::yaw_ | File: ../Input/Controls.h
-    engine->RegisterObjectProperty("Controls", "float yaw", offsetof(Controls, yaw_));
     // Controls& Controls::operator=(const Controls&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<Controls>(engine, "Controls");
 #ifdef REGISTER_MANUAL_PART_Controls
@@ -547,10 +481,6 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, CollisionGeometryData>(engine, "RefCounted", "CollisionGeometryData");
 #endif
 
-    // Color ColorFrame::color_ | File: ../Graphics/ParticleEffect.h
-    engine->RegisterObjectProperty("ColorFrame", "Color color", offsetof(ColorFrame, color_));
-    // float ColorFrame::time_ | File: ../Graphics/ParticleEffect.h
-    engine->RegisterObjectProperty("ColorFrame", "float time", offsetof(ColorFrame, time_));
     // ColorFrame& ColorFrame::operator=(const ColorFrame&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ColorFrame>(engine, "ColorFrame");
     engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
@@ -559,14 +489,6 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
     REGISTER_MANUAL_PART_ColorFrame(ColorFrame, "ColorFrame")
 #endif
 
-    // WeakPtr<Component> ComponentReplicationState::component_ | File: ../Scene/ReplicationState.h
-    // Error: type "WeakPtr<Component>" can not automatically bind
-    // Connection* ReplicationState::connection_ | File: ../Scene/ReplicationState.h
-    // Connection* can not be registered
-    // DirtyBits ComponentReplicationState::dirtyAttributes_ | File: ../Scene/ReplicationState.h
-    engine->RegisterObjectProperty("ComponentReplicationState", "DirtyBits dirtyAttributes", offsetof(ComponentReplicationState, dirtyAttributes_));
-    // NodeReplicationState* ComponentReplicationState::nodeState_ | File: ../Scene/ReplicationState.h
-    // NodeReplicationState* can not be registered
     // ComponentReplicationState& ComponentReplicationState::operator=(const ComponentReplicationState&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<ComponentReplicationState>(engine, "ComponentReplicationState");
 #ifdef REGISTER_MANUAL_PART_ReplicationState
@@ -576,24 +498,6 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
     REGISTER_MANUAL_PART_ComponentReplicationState(ComponentReplicationState, "ComponentReplicationState")
 #endif
 
-    // unsigned CompressedLevel::blockSize_ | File: ../Resource/Image.h
-    engine->RegisterObjectProperty("CompressedLevel", "uint blockSize", offsetof(CompressedLevel, blockSize_));
-    // unsigned char* CompressedLevel::data_ | File: ../Resource/Image.h
-    // unsigned char* can not be registered
-    // unsigned CompressedLevel::dataSize_ | File: ../Resource/Image.h
-    engine->RegisterObjectProperty("CompressedLevel", "uint dataSize", offsetof(CompressedLevel, dataSize_));
-    // int CompressedLevel::depth_ | File: ../Resource/Image.h
-    engine->RegisterObjectProperty("CompressedLevel", "int depth", offsetof(CompressedLevel, depth_));
-    // CompressedFormat CompressedLevel::format_ | File: ../Resource/Image.h
-    engine->RegisterObjectProperty("CompressedLevel", "CompressedFormat format", offsetof(CompressedLevel, format_));
-    // int CompressedLevel::height_ | File: ../Resource/Image.h
-    engine->RegisterObjectProperty("CompressedLevel", "int height", offsetof(CompressedLevel, height_));
-    // unsigned CompressedLevel::rows_ | File: ../Resource/Image.h
-    engine->RegisterObjectProperty("CompressedLevel", "uint rows", offsetof(CompressedLevel, rows_));
-    // unsigned CompressedLevel::rowSize_ | File: ../Resource/Image.h
-    engine->RegisterObjectProperty("CompressedLevel", "uint rowSize", offsetof(CompressedLevel, rowSize_));
-    // int CompressedLevel::width_ | File: ../Resource/Image.h
-    engine->RegisterObjectProperty("CompressedLevel", "int width", offsetof(CompressedLevel, width_));
     // CompressedLevel& CompressedLevel::operator=(const CompressedLevel&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<CompressedLevel>(engine, "CompressedLevel");
 #ifdef REGISTER_MANUAL_PART_CompressedLevel
@@ -601,14 +505,6 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // unsigned ConvexData::indexCount_ | File: ../Physics/CollisionShape.h
-    engine->RegisterObjectProperty("ConvexData", "uint indexCount", offsetof(ConvexData, indexCount_));
-    // SharedArrayPtr<unsigned> ConvexData::indexData_ | File: ../Physics/CollisionShape.h
-    // Error: type "SharedArrayPtr<unsigned>" can not automatically bind
-    // unsigned ConvexData::vertexCount_ | File: ../Physics/CollisionShape.h
-    engine->RegisterObjectProperty("ConvexData", "uint vertexCount", offsetof(ConvexData, vertexCount_));
-    // SharedArrayPtr<Vector3> ConvexData::vertexData_ | File: ../Physics/CollisionShape.h
-    // Error: type "SharedArrayPtr<Vector3>" can not automatically bind
 #ifdef REGISTER_MANUAL_PART_CollisionGeometryData
     REGISTER_MANUAL_PART_CollisionGeometryData(ConvexData, "ConvexData")
 #endif
@@ -623,26 +519,6 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_NAVIGATION
-    // unsigned char CrowdObstacleAvoidanceParams::adaptiveDepth | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "uint8 adaptiveDepth", offsetof(CrowdObstacleAvoidanceParams, adaptiveDepth));
-    // unsigned char CrowdObstacleAvoidanceParams::adaptiveDivs | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "uint8 adaptiveDivs", offsetof(CrowdObstacleAvoidanceParams, adaptiveDivs));
-    // unsigned char CrowdObstacleAvoidanceParams::adaptiveRings | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "uint8 adaptiveRings", offsetof(CrowdObstacleAvoidanceParams, adaptiveRings));
-    // unsigned char CrowdObstacleAvoidanceParams::gridSize | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "uint8 gridSize", offsetof(CrowdObstacleAvoidanceParams, gridSize));
-    // float CrowdObstacleAvoidanceParams::horizTime | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "float horizTime", offsetof(CrowdObstacleAvoidanceParams, horizTime));
-    // float CrowdObstacleAvoidanceParams::velBias | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "float velBias", offsetof(CrowdObstacleAvoidanceParams, velBias));
-    // float CrowdObstacleAvoidanceParams::weightCurVel | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "float weightCurVel", offsetof(CrowdObstacleAvoidanceParams, weightCurVel));
-    // float CrowdObstacleAvoidanceParams::weightDesVel | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "float weightDesVel", offsetof(CrowdObstacleAvoidanceParams, weightDesVel));
-    // float CrowdObstacleAvoidanceParams::weightSide | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "float weightSide", offsetof(CrowdObstacleAvoidanceParams, weightSide));
-    // float CrowdObstacleAvoidanceParams::weightToi | File: ../Navigation/CrowdManager.h
-    engine->RegisterObjectProperty("CrowdObstacleAvoidanceParams", "float weightToi", offsetof(CrowdObstacleAvoidanceParams, weightToi));
     // CrowdObstacleAvoidanceParams& CrowdObstacleAvoidanceParams::operator=(const CrowdObstacleAvoidanceParams&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<CrowdObstacleAvoidanceParams>(engine, "CrowdObstacleAvoidanceParams");
 #ifdef REGISTER_MANUAL_PART_CrowdObstacleAvoidanceParams
@@ -650,36 +526,12 @@ void ASRegisterGenerated_Members_Cn_Cz(asIScriptEngine* engine)
 #endif
 #endif
 
-    // IntVector2 CursorShapeInfo::hotSpot_ | File: ../UI/Cursor.h
-    engine->RegisterObjectProperty("CursorShapeInfo", "IntVector2 hotSpot", offsetof(CursorShapeInfo, hotSpot_));
-    // SharedPtr<Image> CursorShapeInfo::image_ | File: ../UI/Cursor.h
-    // Error: type "SharedPtr<Image>" can not automatically bind
-    // IntRect CursorShapeInfo::imageRect_ | File: ../UI/Cursor.h
-    engine->RegisterObjectProperty("CursorShapeInfo", "IntRect imageRect", offsetof(CursorShapeInfo, imageRect_));
-    // SDL_Cursor* CursorShapeInfo::osCursor_ | File: ../UI/Cursor.h
-    // SDL_Cursor* can not be registered
-    // int CursorShapeInfo::systemCursor_ | File: ../UI/Cursor.h
-    engine->RegisterObjectProperty("CursorShapeInfo", "int systemCursor", offsetof(CursorShapeInfo, systemCursor_));
-    // bool CursorShapeInfo::systemDefined_ | File: ../UI/Cursor.h
-    engine->RegisterObjectProperty("CursorShapeInfo", "bool systemDefined", offsetof(CursorShapeInfo, systemDefined_));
-    // SharedPtr<Texture> CursorShapeInfo::texture_ | File: ../UI/Cursor.h
-    // Error: type "SharedPtr<Texture>" can not automatically bind
     // CursorShapeInfo& CursorShapeInfo::operator=(const CursorShapeInfo&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<CursorShapeInfo>(engine, "CursorShapeInfo");
 #ifdef REGISTER_MANUAL_PART_CursorShapeInfo
     REGISTER_MANUAL_PART_CursorShapeInfo(CursorShapeInfo, "CursorShapeInfo")
 #endif
 
-    // unsigned CustomGeometryVertex::color_ | File: ../Graphics/CustomGeometry.h
-    engine->RegisterObjectProperty("CustomGeometryVertex", "uint color", offsetof(CustomGeometryVertex, color_));
-    // Vector3 CustomGeometryVertex::normal_ | File: ../Graphics/CustomGeometry.h
-    engine->RegisterObjectProperty("CustomGeometryVertex", "Vector3 normal", offsetof(CustomGeometryVertex, normal_));
-    // Vector3 CustomGeometryVertex::position_ | File: ../Graphics/CustomGeometry.h
-    engine->RegisterObjectProperty("CustomGeometryVertex", "Vector3 position", offsetof(CustomGeometryVertex, position_));
-    // Vector4 CustomGeometryVertex::tangent_ | File: ../Graphics/CustomGeometry.h
-    engine->RegisterObjectProperty("CustomGeometryVertex", "Vector4 tangent", offsetof(CustomGeometryVertex, tangent_));
-    // Vector2 CustomGeometryVertex::texCoord_ | File: ../Graphics/CustomGeometry.h
-    engine->RegisterObjectProperty("CustomGeometryVertex", "Vector2 texCoord", offsetof(CustomGeometryVertex, texCoord_));
     // CustomGeometryVertex& CustomGeometryVertex::operator=(const CustomGeometryVertex&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<CustomGeometryVertex>(engine, "CustomGeometryVertex");
     engine->RegisterObjectBehaviour("CustomGeometryVertex", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);

@@ -252,60 +252,24 @@ void ASRegisterGenerated_Members_D(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, DynamicNavigationMesh>(engine, "RefCounted", "DynamicNavigationMesh");
 #endif
 
-    // unsigned DebugLine::color_ | File: ../Graphics/DebugRenderer.h
-    engine->RegisterObjectProperty("DebugLine", "uint color", offsetof(DebugLine, color_));
-    // Vector3 DebugLine::end_ | File: ../Graphics/DebugRenderer.h
-    engine->RegisterObjectProperty("DebugLine", "Vector3 end", offsetof(DebugLine, end_));
-    // Vector3 DebugLine::start_ | File: ../Graphics/DebugRenderer.h
-    engine->RegisterObjectProperty("DebugLine", "Vector3 start", offsetof(DebugLine, start_));
     // DebugLine& DebugLine::operator=(const DebugLine&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<DebugLine>(engine, "DebugLine");
 #ifdef REGISTER_MANUAL_PART_DebugLine
     REGISTER_MANUAL_PART_DebugLine(DebugLine, "DebugLine")
 #endif
 
-    // unsigned DebugTriangle::color_ | File: ../Graphics/DebugRenderer.h
-    engine->RegisterObjectProperty("DebugTriangle", "uint color", offsetof(DebugTriangle, color_));
-    // Vector3 DebugTriangle::v1_ | File: ../Graphics/DebugRenderer.h
-    engine->RegisterObjectProperty("DebugTriangle", "Vector3 v1", offsetof(DebugTriangle, v1_));
-    // Vector3 DebugTriangle::v2_ | File: ../Graphics/DebugRenderer.h
-    engine->RegisterObjectProperty("DebugTriangle", "Vector3 v2", offsetof(DebugTriangle, v2_));
-    // Vector3 DebugTriangle::v3_ | File: ../Graphics/DebugRenderer.h
-    engine->RegisterObjectProperty("DebugTriangle", "Vector3 v3", offsetof(DebugTriangle, v3_));
     // DebugTriangle& DebugTriangle::operator=(const DebugTriangle&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<DebugTriangle>(engine, "DebugTriangle");
 #ifdef REGISTER_MANUAL_PART_DebugTriangle
     REGISTER_MANUAL_PART_DebugTriangle(DebugTriangle, "DebugTriangle")
 #endif
 
-    // BoundingBox Decal::boundingBox_ | File: ../Graphics/DecalSet.h
-    engine->RegisterObjectProperty("Decal", "BoundingBox boundingBox", offsetof(Decal, boundingBox_));
-    // PODVector<unsigned short> Decal::indices_ | File: ../Graphics/DecalSet.h
-    // Error: type "PODVector<unsigned short>" can not automatically bind
-    // float Decal::timer_ | File: ../Graphics/DecalSet.h
-    engine->RegisterObjectProperty("Decal", "float timer", offsetof(Decal, timer_));
-    // float Decal::timeToLive_ | File: ../Graphics/DecalSet.h
-    engine->RegisterObjectProperty("Decal", "float timeToLive", offsetof(Decal, timeToLive_));
-    // PODVector<DecalVertex> Decal::vertices_ | File: ../Graphics/DecalSet.h
-    // Error: type "PODVector<DecalVertex>" can not automatically bind
     // Decal& Decal::operator=(const Decal&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<Decal>(engine, "Decal");
 #ifdef REGISTER_MANUAL_PART_Decal
     REGISTER_MANUAL_PART_Decal(Decal, "Decal")
 #endif
 
-    // unsigned char DecalVertex::blendIndices_[4] | File: ../Graphics/DecalSet.h
-    // Not registered because array
-    // float DecalVertex::blendWeights_[4] | File: ../Graphics/DecalSet.h
-    // Not registered because array
-    // Vector3 DecalVertex::normal_ | File: ../Graphics/DecalSet.h
-    engine->RegisterObjectProperty("DecalVertex", "Vector3 normal", offsetof(DecalVertex, normal_));
-    // Vector3 DecalVertex::position_ | File: ../Graphics/DecalSet.h
-    engine->RegisterObjectProperty("DecalVertex", "Vector3 position", offsetof(DecalVertex, position_));
-    // Vector4 DecalVertex::tangent_ | File: ../Graphics/DecalSet.h
-    engine->RegisterObjectProperty("DecalVertex", "Vector4 tangent", offsetof(DecalVertex, tangent_));
-    // Vector2 DecalVertex::texCoord_ | File: ../Graphics/DecalSet.h
-    engine->RegisterObjectProperty("DecalVertex", "Vector2 texCoord", offsetof(DecalVertex, texCoord_));
     // DecalVertex& DecalVertex::operator=(const DecalVertex&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<DecalVertex>(engine, "DecalVertex");
 #ifdef REGISTER_MANUAL_PART_DecalVertex
@@ -313,14 +277,6 @@ void ASRegisterGenerated_Members_D(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_PHYSICS
-    // RigidBody* DelayedWorldTransform::parentRigidBody_ | File: ../Physics/PhysicsWorld.h
-    // RigidBody* can not be registered
-    // RigidBody* DelayedWorldTransform::rigidBody_ | File: ../Physics/PhysicsWorld.h
-    // RigidBody* can not be registered
-    // Vector3 DelayedWorldTransform::worldPosition_ | File: ../Physics/PhysicsWorld.h
-    engine->RegisterObjectProperty("DelayedWorldTransform", "Vector3 worldPosition", offsetof(DelayedWorldTransform, worldPosition_));
-    // Quaternion DelayedWorldTransform::worldRotation_ | File: ../Physics/PhysicsWorld.h
-    engine->RegisterObjectProperty("DelayedWorldTransform", "Quaternion worldRotation", offsetof(DelayedWorldTransform, worldRotation_));
     // DelayedWorldTransform& DelayedWorldTransform::operator=(const DelayedWorldTransform&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<DelayedWorldTransform>(engine, "DelayedWorldTransform");
 #ifdef REGISTER_MANUAL_PART_DelayedWorldTransform
@@ -329,14 +285,6 @@ void ASRegisterGenerated_Members_D(asIScriptEngine* engine)
 #endif
 
 #ifdef URHO3D_URHO2D
-    // RigidBody2D* DelayedWorldTransform2D::parentRigidBody_ | File: ../Urho2D/PhysicsWorld2D.h
-    // RigidBody2D* can not be registered
-    // RigidBody2D* DelayedWorldTransform2D::rigidBody_ | File: ../Urho2D/PhysicsWorld2D.h
-    // RigidBody2D* can not be registered
-    // Vector3 DelayedWorldTransform2D::worldPosition_ | File: ../Urho2D/PhysicsWorld2D.h
-    engine->RegisterObjectProperty("DelayedWorldTransform2D", "Vector3 worldPosition", offsetof(DelayedWorldTransform2D, worldPosition_));
-    // Quaternion DelayedWorldTransform2D::worldRotation_ | File: ../Urho2D/PhysicsWorld2D.h
-    engine->RegisterObjectProperty("DelayedWorldTransform2D", "Quaternion worldRotation", offsetof(DelayedWorldTransform2D, worldRotation_));
     // DelayedWorldTransform2D& DelayedWorldTransform2D::operator=(const DelayedWorldTransform2D&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<DelayedWorldTransform2D>(engine, "DelayedWorldTransform2D");
 #ifdef REGISTER_MANUAL_PART_DelayedWorldTransform2D
@@ -344,20 +292,12 @@ void ASRegisterGenerated_Members_D(asIScriptEngine* engine)
 #endif
 #endif
 
-    // int DepthValue::max_ | File: ../Graphics/OcclusionBuffer.h
-    engine->RegisterObjectProperty("DepthValue", "int max", offsetof(DepthValue, max_));
-    // int DepthValue::min_ | File: ../Graphics/OcclusionBuffer.h
-    engine->RegisterObjectProperty("DepthValue", "int min", offsetof(DepthValue, min_));
     // DepthValue& DepthValue::operator=(const DepthValue&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<DepthValue>(engine, "DepthValue");
 #ifdef REGISTER_MANUAL_PART_DepthValue
     REGISTER_MANUAL_PART_DepthValue(DepthValue, "DepthValue")
 #endif
 
-    // unsigned char DirtyBits::count_ | File: ../Scene/ReplicationState.h
-    engine->RegisterObjectProperty("DirtyBits", "uint8 count", offsetof(DirtyBits, count_));
-    // unsigned char DirtyBits::data_[MAX_NETWORK_ATTRIBUTES/8] | File: ../Scene/ReplicationState.h
-    // Not registered because array
     // DirtyBits& DirtyBits::operator=(const DirtyBits&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<DirtyBits>(engine, "DirtyBits");
 #ifdef REGISTER_MANUAL_PART_DirtyBits

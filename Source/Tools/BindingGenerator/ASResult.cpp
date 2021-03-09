@@ -658,7 +658,6 @@ namespace Result
                 "    }\n";
 
             ofs << "}\n";
-
         }
 
         if (!openedDefine.empty())
@@ -808,6 +807,8 @@ namespace Result
             {
                 string escaped = ReplaceAll(hiddenMember, "\"", "\\\"");
                 file->ofs_ << "    Remove(methods, \"" << escaped << "\");\n";
+                file->ofs_ << "    Remove(fields, \"" << escaped << "\");\n";
+                file->ofs_ << "    Remove(staticFields, \"" << escaped << "\");\n";
                 file->needGap_ = true;
             }
 

@@ -309,7 +309,10 @@ public:
     vector<string> GetAllPublicMembersRefids() const;
 
     // Base class members that were hidden in this class (c++ declarations)
-    vector<string> GetHiddenMembers() const;
+    vector<string> GetHiddenMethods() const;
+    vector<string> GetHiddenStaticMethods() const;
+    vector<string> GetHiddenFields() const;
+    vector<string> GetHiddenStaticFields() const;
 };
 
 // <memberdef kind="function">...</memberdef>

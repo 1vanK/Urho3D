@@ -160,10 +160,6 @@ void ASRegisterGenerated_Members_Sn_Sz(asIScriptEngine* engine)
 #endif
     RegisterSubclass<RefCounted, SoundStream>(engine, "RefCounted", "SoundStream");
 
-    // Vector3 Sphere::center_ | File: ../Math/Sphere.h
-    engine->RegisterObjectProperty("Sphere", "Vector3 center", offsetof(Sphere, center_));
-    // float Sphere::radius_ | File: ../Math/Sphere.h
-    engine->RegisterObjectProperty("Sphere", "float radius", offsetof(Sphere, radius_));
 #ifdef REGISTER_MANUAL_PART_Sphere
     REGISTER_MANUAL_PART_Sphere(Sphere, "Sphere")
 #endif
@@ -428,18 +424,6 @@ void ASRegisterGenerated_Members_Sn_Sz(asIScriptEngine* engine)
     RegisterSubclass<RefCounted, StretchableSprite2D>(engine, "RefCounted", "StretchableSprite2D");
 #endif
 
-    // const String String::EMPTY | File: ../Container/Str.h
-    engine->SetDefaultNamespace("String");
-    engine->RegisterGlobalProperty("const String EMPTY", (void*)&String::EMPTY);
-    engine->SetDefaultNamespace("");
-    // const unsigned String::MIN_CAPACITY | File: ../Container/Str.h
-    engine->SetDefaultNamespace("String");
-    engine->RegisterGlobalProperty("const uint MIN_CAPACITY", (void*)&String::MIN_CAPACITY);
-    engine->SetDefaultNamespace("");
-    // const unsigned String::NPOS | File: ../Container/Str.h
-    engine->SetDefaultNamespace("String");
-    engine->RegisterGlobalProperty("const uint NPOS", (void*)&String::NPOS);
-    engine->SetDefaultNamespace("");
     // static int String::Compare(const char* lhs, const char* rhs, bool caseSensitive) | File: ../Container/Str.h
     // Error: type "const char*" can not automatically bind
     // static unsigned String::CStringLength(const char* str) | File: ../Container/Str.h
@@ -459,10 +443,6 @@ void ASRegisterGenerated_Members_Sn_Sz(asIScriptEngine* engine)
     REGISTER_MANUAL_PART_String(String, "String")
 #endif
 
-    // const StringHash StringHash::ZERO | File: ../Math/StringHash.h
-    engine->SetDefaultNamespace("StringHash");
-    engine->RegisterGlobalProperty("const StringHash ZERO", (void*)&StringHash::ZERO);
-    engine->SetDefaultNamespace("");
     // static unsigned StringHash::Calculate(const char* str, unsigned hash=0) | File: ../Math/StringHash.h
     // Error: type "const char*" can not automatically bind
     // static StringHashRegister* StringHash::GetGlobalStringHashRegister() | File: ../Math/StringHash.h
@@ -480,35 +460,11 @@ void ASRegisterGenerated_Members_Sn_Sz(asIScriptEngine* engine)
     REGISTER_MANUAL_PART_StringHashRegister(StringHashRegister, "StringHashRegister")
 #endif
 
-    // float SourceBatch::distance_ | File: ../Graphics/Drawable.h
-    engine->RegisterObjectProperty("SourceBatch", "float distance", offsetof(SourceBatch, distance_));
-    // Geometry* SourceBatch::geometry_ | File: ../Graphics/Drawable.h
-    // Geometry* can not be registered
-    // GeometryType SourceBatch::geometryType_ | File: ../Graphics/Drawable.h
-    engine->RegisterObjectProperty("SourceBatch", "GeometryType geometryType", offsetof(SourceBatch, geometryType_));
-    // void* SourceBatch::instancingData_ | File: ../Graphics/Drawable.h
-    // void* can not be registered
-    // SharedPtr<Material> SourceBatch::material_ | File: ../Graphics/Drawable.h
-    // Error: type "SharedPtr<Material>" can not automatically bind
-    // unsigned SourceBatch::numWorldTransforms_ | File: ../Graphics/Drawable.h
-    engine->RegisterObjectProperty("SourceBatch", "uint numWorldTransforms", offsetof(SourceBatch, numWorldTransforms_));
-    // const Matrix3x4* SourceBatch::worldTransform_ | File: ../Graphics/Drawable.h
-    // const Matrix3x4* can not be registered
 #ifdef REGISTER_MANUAL_PART_SourceBatch
     REGISTER_MANUAL_PART_SourceBatch(SourceBatch, "SourceBatch")
 #endif
 
 #ifdef URHO3D_URHO2D
-    // float SourceBatch2D::distance_ | File: ../Urho2D/Drawable2D.h
-    engine->RegisterObjectProperty("SourceBatch2D", "float distance", offsetof(SourceBatch2D, distance_));
-    // int SourceBatch2D::drawOrder_ | File: ../Urho2D/Drawable2D.h
-    engine->RegisterObjectProperty("SourceBatch2D", "int drawOrder", offsetof(SourceBatch2D, drawOrder_));
-    // SharedPtr<Material> SourceBatch2D::material_ | File: ../Urho2D/Drawable2D.h
-    // Error: type "SharedPtr<Material>" can not automatically bind
-    // WeakPtr<Drawable2D> SourceBatch2D::owner_ | File: ../Urho2D/Drawable2D.h
-    // Error: type "WeakPtr<Drawable2D>" can not automatically bind
-    // Vector<Vertex2D> SourceBatch2D::vertices_ | File: ../Urho2D/Drawable2D.h
-    // Error: type "Vector<Vertex2D>" can not automatically bind
     // SourceBatch2D& SourceBatch2D::operator=(const SourceBatch2D&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<SourceBatch2D>(engine, "SourceBatch2D");
 #ifdef REGISTER_MANUAL_PART_SourceBatch2D
@@ -516,22 +472,12 @@ void ASRegisterGenerated_Members_Sn_Sz(asIScriptEngine* engine)
 #endif
 #endif
 
-    // Vector3 StaticModelGeometryData::center_ | File: ../Graphics/StaticModel.h
-    engine->RegisterObjectProperty("StaticModelGeometryData", "Vector3 center", offsetof(StaticModelGeometryData, center_));
-    // unsigned StaticModelGeometryData::lodLevel_ | File: ../Graphics/StaticModel.h
-    engine->RegisterObjectProperty("StaticModelGeometryData", "uint lodLevel", offsetof(StaticModelGeometryData, lodLevel_));
     // StaticModelGeometryData& StaticModelGeometryData::operator=(const StaticModelGeometryData&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<StaticModelGeometryData>(engine, "StaticModelGeometryData");
 #ifdef REGISTER_MANUAL_PART_StaticModelGeometryData
     REGISTER_MANUAL_PART_StaticModelGeometryData(StaticModelGeometryData, "StaticModelGeometryData")
 #endif
 
-    // bool StoredLogMessage::error_ | File: ../IO/Log.h
-    engine->RegisterObjectProperty("StoredLogMessage", "bool error", offsetof(StoredLogMessage, error_));
-    // int StoredLogMessage::level_ | File: ../IO/Log.h
-    engine->RegisterObjectProperty("StoredLogMessage", "int level", offsetof(StoredLogMessage, level_));
-    // String StoredLogMessage::message_ | File: ../IO/Log.h
-    engine->RegisterObjectProperty("StoredLogMessage", "String message", offsetof(StoredLogMessage, message_));
     // StoredLogMessage& StoredLogMessage::operator=(const StoredLogMessage&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<StoredLogMessage>(engine, "StoredLogMessage");
 #ifdef REGISTER_MANUAL_PART_StoredLogMessage

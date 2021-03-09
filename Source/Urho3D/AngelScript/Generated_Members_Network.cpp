@@ -109,9 +109,17 @@ void CollectMembers_HttpRequest(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_Thread(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Deserializer::IsEof() const");
+    Remove(fields, "virtual bool Deserializer::IsEof() const");
+    Remove(staticFields, "virtual bool Deserializer::IsEof() const");
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
+    Remove(fields, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
+    Remove(staticFields, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
     Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
+    Remove(fields, "virtual unsigned Deserializer::Seek(unsigned position)=0");
+    Remove(staticFields, "virtual unsigned Deserializer::Seek(unsigned position)=0");
     Remove(methods, "virtual void Thread::ThreadFunction()=0");
+    Remove(fields, "virtual void Thread::ThreadFunction()=0");
+    Remove(staticFields, "virtual void Thread::ThreadFunction()=0");
 
     // unsigned HttpRequest::Read(void* dest, unsigned size) override
     // Error: type "void*" can not automatically bind
@@ -226,8 +234,6 @@ void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Component(methods, fields, staticFields);
-
-    Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void NetworkPriority::SetBasePriority(float priority)", "void SetBasePriority(float)", AS_METHODPR(NetworkPriority, SetBasePriority, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void NetworkPriority::SetBasePriority(float priority)", "void set_basePriority(float)", AS_METHODPR(NetworkPriority, SetBasePriority, (float), void), AS_CALL_THISCALL));

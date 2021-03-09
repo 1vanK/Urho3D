@@ -149,76 +149,28 @@ void ASRegisterGenerated_Members_F(asIScriptEngine* engine)
     RegisterSubclass<FontFace, FontFaceFreeType>(engine, "FontFace", "FontFaceFreeType");
     RegisterSubclass<RefCounted, FontFaceFreeType>(engine, "RefCounted", "FontFaceFreeType");
 
-    // Plane Frustum::planes_[NUM_FRUSTUM_PLANES] | File: ../Math/Frustum.h
-    // Not registered because array
-    // Vector3 Frustum::vertices_[NUM_FRUSTUM_VERTICES] | File: ../Math/Frustum.h
-    // Not registered because array
 #ifdef REGISTER_MANUAL_PART_Frustum
     REGISTER_MANUAL_PART_Frustum(Frustum, "Frustum")
 #endif
 
-    // bool FileSelectorEntry::directory_ | File: ../UI/FileSelector.h
-    engine->RegisterObjectProperty("FileSelectorEntry", "bool directory", offsetof(FileSelectorEntry, directory_));
-    // String FileSelectorEntry::name_ | File: ../UI/FileSelector.h
-    engine->RegisterObjectProperty("FileSelectorEntry", "String name", offsetof(FileSelectorEntry, name_));
     // FileSelectorEntry& FileSelectorEntry::operator=(const FileSelectorEntry&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<FileSelectorEntry>(engine, "FileSelectorEntry");
 #ifdef REGISTER_MANUAL_PART_FileSelectorEntry
     REGISTER_MANUAL_PART_FileSelectorEntry(FileSelectorEntry, "FileSelectorEntry")
 #endif
 
-    // bool FocusParameters::autoSize_ | File: ../Graphics/Light.h
-    engine->RegisterObjectProperty("FocusParameters", "bool autoSize", offsetof(FocusParameters, autoSize_));
-    // bool FocusParameters::focus_ | File: ../Graphics/Light.h
-    engine->RegisterObjectProperty("FocusParameters", "bool focus", offsetof(FocusParameters, focus_));
-    // float FocusParameters::minView_ | File: ../Graphics/Light.h
-    engine->RegisterObjectProperty("FocusParameters", "float minView", offsetof(FocusParameters, minView_));
-    // bool FocusParameters::nonUniform_ | File: ../Graphics/Light.h
-    engine->RegisterObjectProperty("FocusParameters", "bool nonUniform", offsetof(FocusParameters, nonUniform_));
-    // float FocusParameters::quantize_ | File: ../Graphics/Light.h
-    engine->RegisterObjectProperty("FocusParameters", "float quantize", offsetof(FocusParameters, quantize_));
     // FocusParameters& FocusParameters::operator=(const FocusParameters&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<FocusParameters>(engine, "FocusParameters");
 #ifdef REGISTER_MANUAL_PART_FocusParameters
     REGISTER_MANUAL_PART_FocusParameters(FocusParameters, "FocusParameters")
 #endif
 
-    // float FontGlyph::advanceX_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "float advanceX", offsetof(FontGlyph, advanceX_));
-    // float FontGlyph::height_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "float height", offsetof(FontGlyph, height_));
-    // float FontGlyph::offsetX_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "float offsetX", offsetof(FontGlyph, offsetX_));
-    // float FontGlyph::offsetY_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "float offsetY", offsetof(FontGlyph, offsetY_));
-    // unsigned FontGlyph::page_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "uint page", offsetof(FontGlyph, page_));
-    // short FontGlyph::texHeight_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "int16 texHeight", offsetof(FontGlyph, texHeight_));
-    // short FontGlyph::texWidth_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "int16 texWidth", offsetof(FontGlyph, texWidth_));
-    // bool FontGlyph::used_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "bool used", offsetof(FontGlyph, used_));
-    // float FontGlyph::width_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "float width", offsetof(FontGlyph, width_));
-    // short FontGlyph::x_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "int16 x", offsetof(FontGlyph, x_));
-    // short FontGlyph::y_ | File: ../UI/FontFace.h
-    engine->RegisterObjectProperty("FontGlyph", "int16 y", offsetof(FontGlyph, y_));
     // FontGlyph& FontGlyph::operator=(const FontGlyph&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<FontGlyph>(engine, "FontGlyph");
 #ifdef REGISTER_MANUAL_PART_FontGlyph
     REGISTER_MANUAL_PART_FontGlyph(FontGlyph, "FontGlyph")
 #endif
 
-    // Camera* FrameInfo::camera_ | File: ../Graphics/Drawable.h
-    // Camera* can not be registered
-    // unsigned FrameInfo::frameNumber_ | File: ../Graphics/Drawable.h
-    engine->RegisterObjectProperty("FrameInfo", "uint frameNumber", offsetof(FrameInfo, frameNumber_));
-    // float FrameInfo::timeStep_ | File: ../Graphics/Drawable.h
-    engine->RegisterObjectProperty("FrameInfo", "float timeStep", offsetof(FrameInfo, timeStep_));
-    // IntVector2 FrameInfo::viewSize_ | File: ../Graphics/Drawable.h
-    engine->RegisterObjectProperty("FrameInfo", "IntVector2 viewSize", offsetof(FrameInfo, viewSize_));
     // FrameInfo& FrameInfo::operator=(const FrameInfo&) | Possible implicitly-declared
     RegisterImplicitlyDeclaredAssignOperatorIfPossible<FrameInfo>(engine, "FrameInfo");
 #ifdef REGISTER_MANUAL_PART_FrameInfo
