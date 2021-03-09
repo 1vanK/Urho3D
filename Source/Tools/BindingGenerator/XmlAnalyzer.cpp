@@ -511,25 +511,6 @@ GlobalVariableAnalyzer::GlobalVariableAnalyzer(xml_node memberdef)
     assert(ExtractKind(memberdef) == "variable");
 }
 
-string GlobalVariableAnalyzer::GetLocation() const
-{
-    string result = ExtractDefinition(memberdef_);
-
-    result = RemoveFirst(result, "URHO3D_API ");
-    result = RemoveFirst(result, " URHO3D_API");
-
-    assert(Contains(result, " Urho3D::"));
-    result = ReplaceFirst(result, " Urho3D::", " ");
-
-    if (IsStatic())
-        result = "static " + result;
-
-    result = BeautifyDefinition(result);
-    result += " | File: " + GetHeaderFile();
-
-    return result;
-}
-
 // ============================================================================
 
 ClassAnalyzer::ClassAnalyzer(xml_node compounddef, const TemplateSpecialization& specialization)
@@ -1058,6 +1039,45 @@ string MethodAnalyzer::GetContainsClassName() const
     return result;
 }
 
+/*
+string FieldAnalyzer::GetDeclaration() const
+{
+    string definition = ExtractDefinition(memberdef_);
+    assert(!definition.empty());
+
+    // Remove Urho3D::
+    smatch match;
+    regex_match(definition, match, regex("(.*)Urho3D::(.+)"));
+    assert(match.size() == 3);
+    string result = match[1].str() + match[2].str();
+
+    result = BeautifyDefinition(result);
+
+    return result;
+}
+*/
+
+string GetVariableDeclaration(xml_node memberdef)
+{
+    assert(IsMemberdef(memberdef));
+    assert(ExtractKind(memberdef) == "variable");
+
+    string result = ExtractDefinition(memberdef);
+
+    result = RemoveFirst(result, "URHO3D_API ");
+    result = RemoveFirst(result, " URHO3D_API");
+
+    assert(Contains(result, " Urho3D::"));
+    result = ReplaceFirst(result, " Urho3D::", " ");
+
+    if (IsStatic(memberdef))
+        result = "static " + result;
+
+    result = BeautifyDefinition(result);
+
+    return result;
+}
+
 string GetFunctionDeclaration(xml_node memberdef)
 {
     assert(IsMemberdef(memberdef));
@@ -1201,22 +1221,6 @@ FieldAnalyzer::FieldAnalyzer(ClassAnalyzer classAnalyzer, xml_node memberdef)
 {
     assert(IsMemberdef(memberdef));
     assert(ExtractKind(memberdef) == "variable");
-}
-
-string FieldAnalyzer::GetDeclaration() const
-{
-    string definition = ExtractDefinition(memberdef_);
-    assert(!definition.empty());
-
-    // Remove Urho3D::
-    smatch match;
-    regex_match(definition, match, regex("(.*)Urho3D::(.+)"));
-    assert(match.size() == 3);
-    string result = match[1].str() + match[2].str();
-
-    result = BeautifyDefinition(result);
-
-    return result;
 }
 
 string FieldAnalyzer::GetLocation() const

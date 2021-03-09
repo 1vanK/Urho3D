@@ -165,6 +165,10 @@ string JoinParamsNames(xml_node memberdef, bool skipContext = false);
 //     ...
 string GetFunctionDeclaration(xml_node memberdef);
 
+// <memberdef kind="variable">
+//     ...
+string GetVariableDeclaration(xml_node memberdef);
+
 // <memberdef kind="function">
 //     ...
 string GetFunctionLocation(xml_node memberdef);
@@ -247,7 +251,7 @@ public:
     bool IsStatic() const { return ::IsStatic(memberdef_); }
     TypeAnalyzer GetType() const { return ExtractType(memberdef_); }
     bool IsArray() const { return StartsWith(ExtractArgsstring(memberdef_), "["); }
-    string GetLocation() const;
+    string GetLocation() const { return GetVariableDeclaration(memberdef_) + " | File: " + GetHeaderFile(); }
 };
 
 class MethodAnalyzer;
@@ -404,7 +408,7 @@ public:
     string GetComment() const { return ExtractComment(memberdef_); }
     bool IsPublic() const { return ExtractProt(memberdef_) == "public"; }
     string GetHeaderFile() const { return ExtractHeaderFile(memberdef_); }
-    string GetDeclaration() const;
+    string GetDeclaration() const { return GetVariableDeclaration(memberdef_); }
     string GetLocation() const;
     string GetClassName() const { return classAnalyzer_.GetClassName(); }
     bool IsArray() const { return StartsWith(ExtractArgsstring(memberdef_), "["); };

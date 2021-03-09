@@ -698,17 +698,17 @@ void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("bool Variant::IsEmpty() const", "bool get_empty() const", AS_METHODPR(Variant, IsEmpty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Variant::IsCustom() const", "bool IsCustom() const", AS_METHODPR(Variant, IsCustom, () const, bool), AS_CALL_THISCALL));
 
-    // const PODVector<unsigned char> Variant::emptyBuffer
+    // static const PODVector<unsigned char> Variant::emptyBuffer
     // Error: type "const PODVector<unsigned char>" can not automatically bind
-    // const VariantVector Variant::emptyVariantVector
+    // static const VariantVector Variant::emptyVariantVector
     // Error: type "const VariantVector" can not automatically bind
-    // const StringVector Variant::emptyStringVector
+    // static const StringVector Variant::emptyStringVector
     // Error: type "const StringVector" can not automatically bind
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Variant Variant::EMPTY", "const Variant EMPTY", (void*)&Variant::EMPTY));
-    staticFields.Push(RegisterGlobalPropertyArgs("const ResourceRef Variant::emptyResourceRef", "const ResourceRef emptyResourceRef", (void*)&Variant::emptyResourceRef));
-    staticFields.Push(RegisterGlobalPropertyArgs("const ResourceRefList Variant::emptyResourceRefList", "const ResourceRefList emptyResourceRefList", (void*)&Variant::emptyResourceRefList));
-    staticFields.Push(RegisterGlobalPropertyArgs("const VariantMap Variant::emptyVariantMap", "const VariantMap emptyVariantMap", (void*)&Variant::emptyVariantMap));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Variant Variant::EMPTY", "const Variant EMPTY", (void*)&Variant::EMPTY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const ResourceRef Variant::emptyResourceRef", "const ResourceRef emptyResourceRef", (void*)&Variant::emptyResourceRef));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const ResourceRefList Variant::emptyResourceRefList", "const ResourceRefList emptyResourceRefList", (void*)&Variant::emptyResourceRefList));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const VariantMap Variant::emptyVariantMap", "const VariantMap emptyVariantMap", (void*)&Variant::emptyVariantMap));
 }
 
 // struct WorkItem | File: ../Core/WorkQueue.h

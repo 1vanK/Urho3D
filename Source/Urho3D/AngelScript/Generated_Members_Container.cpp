@@ -37,8 +37,8 @@ void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("unsigned HashBase::NumBuckets() const", "uint NumBuckets() const", AS_METHODPR(HashBase, NumBuckets, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool HashBase::Empty() const", "bool Empty() const", AS_METHODPR(HashBase, Empty, () const, bool), AS_CALL_THISCALL));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const unsigned HashBase::MIN_BUCKETS", "const uint MIN_BUCKETS", (void*)&HashBase::MIN_BUCKETS));
-    staticFields.Push(RegisterGlobalPropertyArgs("const unsigned HashBase::MAX_LOAD_FACTOR", "const uint MAX_LOAD_FACTOR", (void*)&HashBase::MAX_LOAD_FACTOR));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned HashBase::MIN_BUCKETS", "const uint MIN_BUCKETS", (void*)&HashBase::MIN_BUCKETS));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned HashBase::MAX_LOAD_FACTOR", "const uint MAX_LOAD_FACTOR", (void*)&HashBase::MAX_LOAD_FACTOR));
 }
 
 // struct HashIteratorBase | File: ../Container/HashBase.h
@@ -271,9 +271,9 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("String String::SubstringUTF8(unsigned pos, unsigned length) const", "String SubstringUTF8(uint, uint) const", AS_METHODPR(String, SubstringUTF8, (unsigned, unsigned) const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned String::ToHash() const", "uint ToHash() const", AS_METHODPR(String, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const unsigned String::NPOS", "const uint NPOS", (void*)&String::NPOS));
-    staticFields.Push(RegisterGlobalPropertyArgs("const unsigned String::MIN_CAPACITY", "const uint MIN_CAPACITY", (void*)&String::MIN_CAPACITY));
-    staticFields.Push(RegisterGlobalPropertyArgs("const String String::EMPTY", "const String EMPTY", (void*)&String::EMPTY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::NPOS", "const uint NPOS", (void*)&String::NPOS));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::MIN_CAPACITY", "const uint MIN_CAPACITY", (void*)&String::MIN_CAPACITY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const String String::EMPTY", "const String EMPTY", (void*)&String::EMPTY));
 }
 
 // class VectorBase | File: ../Container/VectorBase.h

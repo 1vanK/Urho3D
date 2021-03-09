@@ -133,21 +133,21 @@ void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     fields.Push(RegisterObjectPropertyArgs("float Color::b_", "float b", offsetof(Color, b_)));
     fields.Push(RegisterObjectPropertyArgs("float Color::a_", "float a", offsetof(Color, a_)));
 
-    // const ChannelMask Color::ABGR
+    // static const ChannelMask Color::ABGR
     // Error: type "const ChannelMask" can not automatically bind
-    // const ChannelMask Color::ARGB
+    // static const ChannelMask Color::ARGB
     // Error: type "const ChannelMask" can not automatically bind
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::WHITE", "const Color WHITE", (void*)&Color::WHITE));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::GRAY", "const Color GRAY", (void*)&Color::GRAY));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::BLACK", "const Color BLACK", (void*)&Color::BLACK));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::RED", "const Color RED", (void*)&Color::RED));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::GREEN", "const Color GREEN", (void*)&Color::GREEN));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::BLUE", "const Color BLUE", (void*)&Color::BLUE));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::CYAN", "const Color CYAN", (void*)&Color::CYAN));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::MAGENTA", "const Color MAGENTA", (void*)&Color::MAGENTA));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::YELLOW", "const Color YELLOW", (void*)&Color::YELLOW));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Color Color::TRANSPARENT_BLACK", "const Color TRANSPARENT_BLACK", (void*)&Color::TRANSPARENT_BLACK));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::WHITE", "const Color WHITE", (void*)&Color::WHITE));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::GRAY", "const Color GRAY", (void*)&Color::GRAY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::BLACK", "const Color BLACK", (void*)&Color::BLACK));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::RED", "const Color RED", (void*)&Color::RED));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::GREEN", "const Color GREEN", (void*)&Color::GREEN));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::BLUE", "const Color BLUE", (void*)&Color::BLUE));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::CYAN", "const Color CYAN", (void*)&Color::CYAN));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::MAGENTA", "const Color MAGENTA", (void*)&Color::MAGENTA));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::YELLOW", "const Color YELLOW", (void*)&Color::YELLOW));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::TRANSPARENT_BLACK", "const Color TRANSPARENT_BLACK", (void*)&Color::TRANSPARENT_BLACK));
 }
 
 // class Frustum | File: ../Math/Frustum.h
@@ -219,7 +219,7 @@ void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("int IntRect::right_", "int right", offsetof(IntRect, right_)));
     fields.Push(RegisterObjectPropertyArgs("int IntRect::bottom_", "int bottom", offsetof(IntRect, bottom_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntRect IntRect::ZERO", "const IntRect ZERO", (void*)&IntRect::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntRect IntRect::ZERO", "const IntRect ZERO", (void*)&IntRect::ZERO));
 }
 
 // class IntVector2 | File: ../Math/Vector2.h
@@ -252,12 +252,12 @@ void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("int IntVector2::x_", "int x", offsetof(IntVector2, x_)));
     fields.Push(RegisterObjectPropertyArgs("int IntVector2::y_", "int y", offsetof(IntVector2, y_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector2 IntVector2::ZERO", "const IntVector2 ZERO", (void*)&IntVector2::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector2 IntVector2::LEFT", "const IntVector2 LEFT", (void*)&IntVector2::LEFT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector2 IntVector2::RIGHT", "const IntVector2 RIGHT", (void*)&IntVector2::RIGHT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector2 IntVector2::UP", "const IntVector2 UP", (void*)&IntVector2::UP));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector2 IntVector2::DOWN", "const IntVector2 DOWN", (void*)&IntVector2::DOWN));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector2 IntVector2::ONE", "const IntVector2 ONE", (void*)&IntVector2::ONE));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::ZERO", "const IntVector2 ZERO", (void*)&IntVector2::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::LEFT", "const IntVector2 LEFT", (void*)&IntVector2::LEFT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::RIGHT", "const IntVector2 RIGHT", (void*)&IntVector2::RIGHT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::UP", "const IntVector2 UP", (void*)&IntVector2::UP));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::DOWN", "const IntVector2 DOWN", (void*)&IntVector2::DOWN));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::ONE", "const IntVector2 ONE", (void*)&IntVector2::ONE));
 }
 
 // class IntVector3 | File: ../Math/Vector3.h
@@ -291,14 +291,14 @@ void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("int IntVector3::y_", "int y", offsetof(IntVector3, y_)));
     fields.Push(RegisterObjectPropertyArgs("int IntVector3::z_", "int z", offsetof(IntVector3, z_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 IntVector3::ZERO", "const IntVector3 ZERO", (void*)&IntVector3::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 IntVector3::LEFT", "const IntVector3 LEFT", (void*)&IntVector3::LEFT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 IntVector3::RIGHT", "const IntVector3 RIGHT", (void*)&IntVector3::RIGHT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 IntVector3::UP", "const IntVector3 UP", (void*)&IntVector3::UP));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 IntVector3::DOWN", "const IntVector3 DOWN", (void*)&IntVector3::DOWN));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 IntVector3::FORWARD", "const IntVector3 FORWARD", (void*)&IntVector3::FORWARD));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 IntVector3::BACK", "const IntVector3 BACK", (void*)&IntVector3::BACK));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 IntVector3::ONE", "const IntVector3 ONE", (void*)&IntVector3::ONE));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::ZERO", "const IntVector3 ZERO", (void*)&IntVector3::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::LEFT", "const IntVector3 LEFT", (void*)&IntVector3::LEFT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::RIGHT", "const IntVector3 RIGHT", (void*)&IntVector3::RIGHT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::UP", "const IntVector3 UP", (void*)&IntVector3::UP));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::DOWN", "const IntVector3 DOWN", (void*)&IntVector3::DOWN));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::FORWARD", "const IntVector3 FORWARD", (void*)&IntVector3::FORWARD));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::BACK", "const IntVector3 BACK", (void*)&IntVector3::BACK));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::ONE", "const IntVector3 ONE", (void*)&IntVector3::ONE));
 }
 
 // class Matrix2 | File: ../Math/Matrix2.h
@@ -332,8 +332,8 @@ void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("float Matrix2::m10_", "float m10", offsetof(Matrix2, m10_)));
     fields.Push(RegisterObjectPropertyArgs("float Matrix2::m11_", "float m11", offsetof(Matrix2, m11_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Matrix2 Matrix2::ZERO", "const Matrix2 ZERO", (void*)&Matrix2::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Matrix2 Matrix2::IDENTITY", "const Matrix2 IDENTITY", (void*)&Matrix2::IDENTITY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix2 Matrix2::ZERO", "const Matrix2 ZERO", (void*)&Matrix2::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix2 Matrix2::IDENTITY", "const Matrix2 IDENTITY", (void*)&Matrix2::IDENTITY));
 }
 
 // class Matrix3 | File: ../Math/Matrix3.h
@@ -376,8 +376,8 @@ void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("float Matrix3::m21_", "float m21", offsetof(Matrix3, m21_)));
     fields.Push(RegisterObjectPropertyArgs("float Matrix3::m22_", "float m22", offsetof(Matrix3, m22_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Matrix3 Matrix3::ZERO", "const Matrix3 ZERO", (void*)&Matrix3::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Matrix3 Matrix3::IDENTITY", "const Matrix3 IDENTITY", (void*)&Matrix3::IDENTITY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix3 Matrix3::ZERO", "const Matrix3 ZERO", (void*)&Matrix3::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix3 Matrix3::IDENTITY", "const Matrix3 IDENTITY", (void*)&Matrix3::IDENTITY));
 }
 
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
@@ -433,8 +433,8 @@ void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m22_", "float m22", offsetof(Matrix3x4, m22_)));
     fields.Push(RegisterObjectPropertyArgs("float Matrix3x4::m23_", "float m23", offsetof(Matrix3x4, m23_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Matrix3x4 Matrix3x4::ZERO", "const Matrix3x4 ZERO", (void*)&Matrix3x4::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Matrix3x4 Matrix3x4::IDENTITY", "const Matrix3x4 IDENTITY", (void*)&Matrix3x4::IDENTITY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix3x4 Matrix3x4::ZERO", "const Matrix3x4 ZERO", (void*)&Matrix3x4::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix3x4 Matrix3x4::IDENTITY", "const Matrix3x4 IDENTITY", (void*)&Matrix3x4::IDENTITY));
 }
 
 // class Matrix4 | File: ../Math/Matrix4.h
@@ -493,8 +493,8 @@ void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("float Matrix4::m32_", "float m32", offsetof(Matrix4, m32_)));
     fields.Push(RegisterObjectPropertyArgs("float Matrix4::m33_", "float m33", offsetof(Matrix4, m33_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Matrix4 Matrix4::ZERO", "const Matrix4 ZERO", (void*)&Matrix4::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Matrix4 Matrix4::IDENTITY", "const Matrix4 IDENTITY", (void*)&Matrix4::IDENTITY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix4 Matrix4::ZERO", "const Matrix4 ZERO", (void*)&Matrix4::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix4 Matrix4::IDENTITY", "const Matrix4 IDENTITY", (void*)&Matrix4::IDENTITY));
 }
 
 // class Plane | File: ../Math/Plane.h
@@ -521,7 +521,7 @@ void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     fields.Push(RegisterObjectPropertyArgs("Vector3 Plane::absNormal_", "Vector3 absNormal", offsetof(Plane, absNormal_)));
     fields.Push(RegisterObjectPropertyArgs("float Plane::d_", "float d", offsetof(Plane, d_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Plane Plane::UP", "const Plane UP", (void*)&Plane::UP));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Plane Plane::UP", "const Plane UP", (void*)&Plane::UP));
 }
 
 // void Polyhedron::AddFace(const PODVector<Vector3>& face)
@@ -612,7 +612,7 @@ void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("float Quaternion::y_", "float y", offsetof(Quaternion, y_)));
     fields.Push(RegisterObjectPropertyArgs("float Quaternion::z_", "float z", offsetof(Quaternion, z_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Quaternion Quaternion::IDENTITY", "const Quaternion IDENTITY", (void*)&Quaternion::IDENTITY));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Quaternion Quaternion::IDENTITY", "const Quaternion IDENTITY", (void*)&Quaternion::IDENTITY));
 }
 
 // class Ray | File: ../Math/Ray.h
@@ -698,9 +698,9 @@ void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     fields.Push(RegisterObjectPropertyArgs("Vector2 Rect::min_", "Vector2 min", offsetof(Rect, min_)));
     fields.Push(RegisterObjectPropertyArgs("Vector2 Rect::max_", "Vector2 max", offsetof(Rect, max_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Rect Rect::FULL", "const Rect FULL", (void*)&Rect::FULL));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Rect Rect::POSITIVE", "const Rect POSITIVE", (void*)&Rect::POSITIVE));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Rect Rect::ZERO", "const Rect ZERO", (void*)&Rect::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Rect Rect::FULL", "const Rect FULL", (void*)&Rect::FULL));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Rect Rect::POSITIVE", "const Rect POSITIVE", (void*)&Rect::POSITIVE));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Rect Rect::ZERO", "const Rect ZERO", (void*)&Rect::ZERO));
 }
 
 // class Sphere | File: ../Math/Sphere.h
@@ -761,7 +761,7 @@ void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("String StringHash::Reverse() const", "String Reverse() const", AS_METHODPR(StringHash, Reverse, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned StringHash::ToHash() const", "uint ToHash() const", AS_METHODPR(StringHash, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const StringHash StringHash::ZERO", "const StringHash ZERO", (void*)&StringHash::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const StringHash StringHash::ZERO", "const StringHash ZERO", (void*)&StringHash::ZERO));
 }
 
 // class Vector2 | File: ../Math/Vector2.h
@@ -809,12 +809,12 @@ void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("float Vector2::x_", "float x", offsetof(Vector2, x_)));
     fields.Push(RegisterObjectPropertyArgs("float Vector2::y_", "float y", offsetof(Vector2, y_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector2 Vector2::ZERO", "const Vector2 ZERO", (void*)&Vector2::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector2 Vector2::LEFT", "const Vector2 LEFT", (void*)&Vector2::LEFT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector2 Vector2::RIGHT", "const Vector2 RIGHT", (void*)&Vector2::RIGHT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector2 Vector2::UP", "const Vector2 UP", (void*)&Vector2::UP));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector2 Vector2::DOWN", "const Vector2 DOWN", (void*)&Vector2::DOWN));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector2 Vector2::ONE", "const Vector2 ONE", (void*)&Vector2::ONE));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::ZERO", "const Vector2 ZERO", (void*)&Vector2::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::LEFT", "const Vector2 LEFT", (void*)&Vector2::LEFT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::RIGHT", "const Vector2 RIGHT", (void*)&Vector2::RIGHT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::UP", "const Vector2 UP", (void*)&Vector2::UP));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::DOWN", "const Vector2 DOWN", (void*)&Vector2::DOWN));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::ONE", "const Vector2 ONE", (void*)&Vector2::ONE));
 }
 
 // class Vector3 | File: ../Math/Vector3.h
@@ -870,14 +870,14 @@ void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("float Vector3::y_", "float y", offsetof(Vector3, y_)));
     fields.Push(RegisterObjectPropertyArgs("float Vector3::z_", "float z", offsetof(Vector3, z_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector3 Vector3::ZERO", "const Vector3 ZERO", (void*)&Vector3::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector3 Vector3::LEFT", "const Vector3 LEFT", (void*)&Vector3::LEFT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector3 Vector3::RIGHT", "const Vector3 RIGHT", (void*)&Vector3::RIGHT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector3 Vector3::UP", "const Vector3 UP", (void*)&Vector3::UP));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector3 Vector3::DOWN", "const Vector3 DOWN", (void*)&Vector3::DOWN));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector3 Vector3::FORWARD", "const Vector3 FORWARD", (void*)&Vector3::FORWARD));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector3 Vector3::BACK", "const Vector3 BACK", (void*)&Vector3::BACK));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector3 Vector3::ONE", "const Vector3 ONE", (void*)&Vector3::ONE));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::ZERO", "const Vector3 ZERO", (void*)&Vector3::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::LEFT", "const Vector3 LEFT", (void*)&Vector3::LEFT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::RIGHT", "const Vector3 RIGHT", (void*)&Vector3::RIGHT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::UP", "const Vector3 UP", (void*)&Vector3::UP));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::DOWN", "const Vector3 DOWN", (void*)&Vector3::DOWN));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::FORWARD", "const Vector3 FORWARD", (void*)&Vector3::FORWARD));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::BACK", "const Vector3 BACK", (void*)&Vector3::BACK));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::ONE", "const Vector3 ONE", (void*)&Vector3::ONE));
 }
 
 // class Vector4 | File: ../Math/Vector4.h
@@ -923,8 +923,8 @@ void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("float Vector4::z_", "float z", offsetof(Vector4, z_)));
     fields.Push(RegisterObjectPropertyArgs("float Vector4::w_", "float w", offsetof(Vector4, w_)));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector4 Vector4::ZERO", "const Vector4 ZERO", (void*)&Vector4::ZERO));
-    staticFields.Push(RegisterGlobalPropertyArgs("const Vector4 Vector4::ONE", "const Vector4 ONE", (void*)&Vector4::ONE));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector4 Vector4::ZERO", "const Vector4 ZERO", (void*)&Vector4::ZERO));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const Vector4 Vector4::ONE", "const Vector4 ONE", (void*)&Vector4::ONE));
 }
 
 } // namespace Urho3D

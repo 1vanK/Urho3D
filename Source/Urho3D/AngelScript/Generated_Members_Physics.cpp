@@ -361,7 +361,7 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("bool PhysicsWorld::IsApplyingTransforms() const", "bool IsApplyingTransforms() const", AS_METHODPR(PhysicsWorld, IsApplyingTransforms, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool PhysicsWorld::IsSimulating() const", "bool IsSimulating() const", AS_METHODPR(PhysicsWorld, IsSimulating, () const, bool), AS_CALL_THISCALL));
 
-    // struct PhysicsWorldConfig PhysicsWorld::config
+    // static struct PhysicsWorldConfig PhysicsWorld::config
     // Error: type "struct PhysicsWorldConfig" can not automatically bind
 }
 
@@ -452,12 +452,12 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("IntVector3 RaycastVehicle::GetCoordinateSystem() const", "IntVector3 GetCoordinateSystem() const", AS_METHODPR(RaycastVehicle, GetCoordinateSystem, () const, IntVector3), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("IntVector3 RaycastVehicle::GetCoordinateSystem() const", "IntVector3 get_coordinateSystem() const", AS_METHODPR(RaycastVehicle, GetCoordinateSystem, () const, IntVector3), AS_CALL_THISCALL));
 
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 RaycastVehicle::RIGHT_UP_FORWARD", "const IntVector3 RIGHT_UP_FORWARD", (void*)&RaycastVehicle::RIGHT_UP_FORWARD));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 RaycastVehicle::RIGHT_FORWARD_UP", "const IntVector3 RIGHT_FORWARD_UP", (void*)&RaycastVehicle::RIGHT_FORWARD_UP));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 RaycastVehicle::UP_FORWARD_RIGHT", "const IntVector3 UP_FORWARD_RIGHT", (void*)&RaycastVehicle::UP_FORWARD_RIGHT));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 RaycastVehicle::UP_RIGHT_FORWARD", "const IntVector3 UP_RIGHT_FORWARD", (void*)&RaycastVehicle::UP_RIGHT_FORWARD));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 RaycastVehicle::FORWARD_RIGHT_UP", "const IntVector3 FORWARD_RIGHT_UP", (void*)&RaycastVehicle::FORWARD_RIGHT_UP));
-    staticFields.Push(RegisterGlobalPropertyArgs("const IntVector3 RaycastVehicle::FORWARD_UP_RIGHT", "const IntVector3 FORWARD_UP_RIGHT", (void*)&RaycastVehicle::FORWARD_UP_RIGHT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::RIGHT_UP_FORWARD", "const IntVector3 RIGHT_UP_FORWARD", (void*)&RaycastVehicle::RIGHT_UP_FORWARD));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::RIGHT_FORWARD_UP", "const IntVector3 RIGHT_FORWARD_UP", (void*)&RaycastVehicle::RIGHT_FORWARD_UP));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::UP_FORWARD_RIGHT", "const IntVector3 UP_FORWARD_RIGHT", (void*)&RaycastVehicle::UP_FORWARD_RIGHT));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::UP_RIGHT_FORWARD", "const IntVector3 UP_RIGHT_FORWARD", (void*)&RaycastVehicle::UP_RIGHT_FORWARD));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::FORWARD_RIGHT_UP", "const IntVector3 FORWARD_RIGHT_UP", (void*)&RaycastVehicle::FORWARD_RIGHT_UP));
+    staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::FORWARD_UP_RIGHT", "const IntVector3 FORWARD_UP_RIGHT", (void*)&RaycastVehicle::FORWARD_UP_RIGHT));
 }
 
 // class RigidBody | File: ../Physics/RigidBody.h
