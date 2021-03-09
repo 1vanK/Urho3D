@@ -17,8 +17,6 @@ void CollectMembers_AbstractFile(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_Serializer(methods, fields, staticFields);
 
     Remove(methods, "virtual const String& Deserializer::GetName() const");
-    Remove(fields, "virtual const String& Deserializer::GetName() const");
-    Remove(staticFields, "virtual const String& Deserializer::GetName() const");
 
     methods.Push(RegisterObjectMethodArgs("virtual void AbstractFile::SetName(const String& name)", "void SetName(const String&in)", AS_METHODPR(AbstractFile, SetName, (const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("virtual void AbstractFile::SetName(const String& name)", "void set_name(const String&in)", AS_METHODPR(AbstractFile, SetName, (const String&), void), AS_CALL_THISCALL));
@@ -105,17 +103,9 @@ void CollectMembers_File(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     CollectMembers_AbstractFile(methods, fields, staticFields);
 
     Remove(methods, "virtual unsigned Deserializer::GetChecksum()");
-    Remove(fields, "virtual unsigned Deserializer::GetChecksum()");
-    Remove(staticFields, "virtual unsigned Deserializer::GetChecksum()");
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(fields, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(staticFields, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
     Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(fields, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(staticFields, "virtual unsigned Deserializer::Seek(unsigned position)=0");
     Remove(methods, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
-    Remove(fields, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
-    Remove(staticFields, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
 
     // void* File::GetHandle() const
     // Error: type "void*" can not automatically bind
@@ -207,8 +197,6 @@ void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_Thread(methods, fields, staticFields);
 
     Remove(methods, "virtual void Thread::ThreadFunction()=0");
-    Remove(fields, "virtual void Thread::ThreadFunction()=0");
-    Remove(staticFields, "virtual void Thread::ThreadFunction()=0");
 
     methods.Push(RegisterObjectMethodArgs("void FileWatcher::ThreadFunction() override", "void ThreadFunction()", AS_METHODPR(FileWatcher, ThreadFunction, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool FileWatcher::StartWatching(const String& pathName, bool watchSubDirs)", "bool StartWatching(const String&in, bool)", AS_METHODPR(FileWatcher, StartWatching, (const String&, bool), bool), AS_CALL_THISCALL));
@@ -264,20 +252,10 @@ void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_AbstractFile(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Deserializer::IsEof() const");
-    Remove(fields, "virtual bool Deserializer::IsEof() const");
-    Remove(staticFields, "virtual bool Deserializer::IsEof() const");
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(fields, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(staticFields, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
     Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(fields, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(staticFields, "virtual unsigned Deserializer::Seek(unsigned position)=0");
     Remove(methods, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
-    Remove(fields, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
-    Remove(staticFields, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
     Remove(methods, "virtual void AbstractFile::SetName(const String& name)");
-    Remove(fields, "virtual void AbstractFile::SetName(const String& name)");
-    Remove(staticFields, "virtual void AbstractFile::SetName(const String& name)");
 
     // unsigned NamedPipe::Read(void* dest, unsigned size) override
     // Error: type "void*" can not automatically bind
@@ -416,14 +394,8 @@ void CollectMembers_VectorBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_AbstractFile(methods, fields, staticFields);
 
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(fields, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(staticFields, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
     Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(fields, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(staticFields, "virtual unsigned Deserializer::Seek(unsigned position)=0");
     Remove(methods, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
-    Remove(fields, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
-    Remove(staticFields, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
 
     // const PODVector<unsigned char>& VectorBuffer::GetBuffer() const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind

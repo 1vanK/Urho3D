@@ -800,14 +800,45 @@ namespace Result
                 file->needGap_ = true;
             }
 
-            if (file->needGap_ && processedClass.hiddenMembers_.size())
+            // TODO поля могут быть обернут в функциями и тогда они не будут в списке свойств
+            // Нужно сделать удалять пропертисы из функций так же или отдельный список для обернутых пропертисов
+
+            if (file->needGap_ && processedClass.hiddenMethods_.size())
                 file->ofs_ << '\n';
 
-            for (const string& hiddenMember : processedClass.hiddenMembers_)
+            for (const string& hiddenMethod : processedClass.hiddenMethods_)
             {
-                string escaped = ReplaceAll(hiddenMember, "\"", "\\\"");
+                string escaped = ReplaceAll(hiddenMethod, "\"", "\\\"");
                 file->ofs_ << "    Remove(methods, \"" << escaped << "\");\n";
+                file->needGap_ = true;
+            }
+
+            if (file->needGap_ && processedClass.hiddenStaticMethods_.size())
+                file->ofs_ << '\n';
+
+            for (const string& hiddenStaticMethod : processedClass.hiddenStaticMethods_)
+            {
+                string escaped = ReplaceAll(hiddenStaticMethod, "\"", "\\\"");
+                file->ofs_ << "    Remove(staticMethods, \"" << escaped << "\");\n";
+                file->needGap_ = true;
+            }
+
+            if (file->needGap_ && processedClass.hiddenFields_.size())
+                file->ofs_ << '\n';
+
+            for (const string& hiddenField : processedClass.hiddenFields_)
+            {
+                string escaped = ReplaceAll(hiddenField, "\"", "\\\"");
                 file->ofs_ << "    Remove(fields, \"" << escaped << "\");\n";
+                file->needGap_ = true;
+            }
+
+            if (file->needGap_ && processedClass.hiddenStaticFields_.size())
+                file->ofs_ << '\n';
+
+            for (const string& hiddenStaticField : processedClass.hiddenStaticFields_)
+            {
+                string escaped = ReplaceAll(hiddenStaticField, "\"", "\\\"");
                 file->ofs_ << "    Remove(staticFields, \"" << escaped << "\");\n";
                 file->needGap_ = true;
             }

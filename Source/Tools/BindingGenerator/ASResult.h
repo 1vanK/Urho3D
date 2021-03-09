@@ -206,7 +206,10 @@ struct ProcessedClass
     vector<string> baseClassNames_;
 
     // Base class members that were hidden in this class (c++ declarations)
-    vector<string> hiddenMembers_;
+    vector<string> hiddenMethods_;
+    vector<string> hiddenStaticMethods_;
+    vector<string> hiddenFields_;
+    vector<string> hiddenStaticFields_;
 
 };
 

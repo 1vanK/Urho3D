@@ -669,7 +669,7 @@ vector<string> ClassAnalyzer::GetHiddenFields() const
     for (xml_node memberdef : hiddenMemberdefs)
     {
         if (ExtractKind(memberdef) == "variable" && !IsStatic(memberdef))
-            result.push_back("TODO");
+            result.push_back(GetVariableDeclaration(memberdef));
     }
 
     sort(result.begin(), result.end());
@@ -684,8 +684,8 @@ vector<string> ClassAnalyzer::GetHiddenStaticFields() const
 
     for (xml_node memberdef : hiddenMemberdefs)
     {
-        if (ExtractKind(memberdef) == "variable" && !IsStatic(memberdef))
-            result.push_back("TODO");
+        if (ExtractKind(memberdef) == "variable" && IsStatic(memberdef))
+            result.push_back(GetVariableDeclaration(memberdef));
     }
 
     sort(result.begin(), result.end());

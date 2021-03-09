@@ -18,8 +18,8 @@ void CollectMembers_AnimatedSprite2D(Vector<RegisterObjectMethodArgs>& methods, 
     CollectMembers_StaticSprite2D(methods, fields, staticFields);
 
     Remove(methods, "void Drawable2D::OnSetEnabled() override");
-    Remove(fields, "void Drawable2D::OnSetEnabled() override");
-    Remove(staticFields, "void Drawable2D::OnSetEnabled() override");
+
+    Remove(staticMethods, "static void StaticSprite2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::OnSetEnabled() override", "void OnSetEnabled()", AS_METHODPR(AnimatedSprite2D, OnSetEnabled, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetAnimationSet(AnimationSet2D* animationSet)", "void SetAnimationSet(AnimationSet2D@+)", AS_METHODPR(AnimatedSprite2D, SetAnimationSet, (AnimationSet2D*), void), AS_CALL_THISCALL));
@@ -53,11 +53,7 @@ void CollectMembers_AnimationSet2D(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
 
     // Spriter::SpriterData* AnimationSet2D::GetSpriterData() const
     // Error: type "Spriter::SpriterData*" can not automatically bind
@@ -76,6 +72,8 @@ void CollectMembers_AnimationSet2D(Vector<RegisterObjectMethodArgs>& methods, Ve
 void CollectMembers_CollisionBox2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_CollisionShape2D(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void CollisionShape2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void CollisionBox2D::SetSize(const Vector2& size)", "void SetSize(const Vector2&in)", AS_METHODPR(CollisionBox2D, SetSize, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void CollisionBox2D::SetSize(const Vector2& size)", "void set_size(const Vector2&in)", AS_METHODPR(CollisionBox2D, SetSize, (const Vector2&), void), AS_CALL_THISCALL));
@@ -120,6 +118,8 @@ void CollectMembers_CollisionChain2D(Vector<RegisterObjectMethodArgs>& methods, 
 {
     CollectMembers_CollisionShape2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void CollisionShape2D::RegisterObject(Context* context)");
+
     // PODVector<unsigned char> CollisionChain2D::GetVerticesAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
     // void CollisionChain2D::SetVerticesAttr(const PODVector<unsigned char>& value)
@@ -144,6 +144,8 @@ void CollectMembers_CollisionCircle2D(Vector<RegisterObjectMethodArgs>& methods,
 {
     CollectMembers_CollisionShape2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void CollisionShape2D::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void CollisionCircle2D::SetRadius(float radius)", "void SetRadius(float)", AS_METHODPR(CollisionCircle2D, SetRadius, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void CollisionCircle2D::SetRadius(float radius)", "void set_radius(float)", AS_METHODPR(CollisionCircle2D, SetRadius, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void CollisionCircle2D::SetCenter(const Vector2& center)", "void SetCenter(const Vector2&in)", AS_METHODPR(CollisionCircle2D, SetCenter, (const Vector2&), void), AS_CALL_THISCALL));
@@ -159,6 +161,8 @@ void CollectMembers_CollisionCircle2D(Vector<RegisterObjectMethodArgs>& methods,
 void CollectMembers_CollisionEdge2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_CollisionShape2D(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void CollisionShape2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void CollisionEdge2D::SetVertex1(const Vector2& vertex)", "void SetVertex1(const Vector2&in)", AS_METHODPR(CollisionEdge2D, SetVertex1, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void CollisionEdge2D::SetVertex1(const Vector2& vertex)", "void set_vertex1(const Vector2&in)", AS_METHODPR(CollisionEdge2D, SetVertex1, (const Vector2&), void), AS_CALL_THISCALL));
@@ -198,6 +202,8 @@ void CollectMembers_CollisionPolygon2D(Vector<RegisterObjectMethodArgs>& methods
 {
     CollectMembers_CollisionShape2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void CollisionShape2D::RegisterObject(Context* context)");
+
     // PODVector<unsigned char> CollisionPolygon2D::GetVerticesAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
     // void CollisionPolygon2D::SetVerticesAttr(const PODVector<unsigned char>& value)
@@ -219,8 +225,8 @@ void CollectMembers_CollisionShape2D(Vector<RegisterObjectMethodArgs>& methods, 
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
-    Remove(fields, "virtual void Component::OnSetEnabled()");
-    Remove(staticFields, "virtual void Component::OnSetEnabled()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // b2Fixture* CollisionShape2D::GetFixture() const
     // Error: type "b2Fixture*" can not automatically bind
@@ -270,11 +276,9 @@ void CollectMembers_Constraint2D(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
-    Remove(fields, "virtual void Component::OnSetEnabled()");
-    Remove(staticFields, "virtual void Component::OnSetEnabled()");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // b2Joint* Constraint2D::GetJoint() const
     // Error: type "b2Joint*" can not automatically bind
@@ -301,6 +305,8 @@ void CollectMembers_Constraint2D(Vector<RegisterObjectMethodArgs>& methods, Vect
 void CollectMembers_ConstraintDistance2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ConstraintDistance2D::SetOwnerBodyAnchor(const Vector2& anchor)", "void SetOwnerBodyAnchor(const Vector2&in)", AS_METHODPR(ConstraintDistance2D, SetOwnerBodyAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintDistance2D::SetOwnerBodyAnchor(const Vector2& anchor)", "void set_ownerBodyAnchor(const Vector2&in)", AS_METHODPR(ConstraintDistance2D, SetOwnerBodyAnchor, (const Vector2&), void), AS_CALL_THISCALL));
@@ -329,6 +335,8 @@ void CollectMembers_ConstraintFriction2D(Vector<RegisterObjectMethodArgs>& metho
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void ConstraintFriction2D::SetAnchor(const Vector2& anchor)", "void SetAnchor(const Vector2&in)", AS_METHODPR(ConstraintFriction2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintFriction2D::SetAnchor(const Vector2& anchor)", "void set_anchor(const Vector2&in)", AS_METHODPR(ConstraintFriction2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintFriction2D::SetMaxForce(float maxForce)", "void SetMaxForce(float)", AS_METHODPR(ConstraintFriction2D, SetMaxForce, (float), void), AS_CALL_THISCALL));
@@ -348,6 +356,8 @@ void CollectMembers_ConstraintGear2D(Vector<RegisterObjectMethodArgs>& methods, 
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void ConstraintGear2D::SetOwnerConstraint(Constraint2D* constraint)", "void SetOwnerConstraint(Constraint2D@+)", AS_METHODPR(ConstraintGear2D, SetOwnerConstraint, (Constraint2D*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintGear2D::SetOwnerConstraint(Constraint2D* constraint)", "void set_ownerConstraint(Constraint2D@+)", AS_METHODPR(ConstraintGear2D, SetOwnerConstraint, (Constraint2D*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintGear2D::SetOtherConstraint(Constraint2D* constraint)", "void SetOtherConstraint(Constraint2D@+)", AS_METHODPR(ConstraintGear2D, SetOtherConstraint, (Constraint2D*), void), AS_CALL_THISCALL));
@@ -366,6 +376,8 @@ void CollectMembers_ConstraintGear2D(Vector<RegisterObjectMethodArgs>& methods, 
 void CollectMembers_ConstraintMotor2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ConstraintMotor2D::SetLinearOffset(const Vector2& linearOffset)", "void SetLinearOffset(const Vector2&in)", AS_METHODPR(ConstraintMotor2D, SetLinearOffset, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintMotor2D::SetLinearOffset(const Vector2& linearOffset)", "void set_linearOffset(const Vector2&in)", AS_METHODPR(ConstraintMotor2D, SetLinearOffset, (const Vector2&), void), AS_CALL_THISCALL));
@@ -394,6 +406,8 @@ void CollectMembers_ConstraintMouse2D(Vector<RegisterObjectMethodArgs>& methods,
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void ConstraintMouse2D::SetTarget(const Vector2& target)", "void SetTarget(const Vector2&in)", AS_METHODPR(ConstraintMouse2D, SetTarget, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintMouse2D::SetTarget(const Vector2& target)", "void set_target(const Vector2&in)", AS_METHODPR(ConstraintMouse2D, SetTarget, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintMouse2D::SetMaxForce(float maxForce)", "void SetMaxForce(float)", AS_METHODPR(ConstraintMouse2D, SetMaxForce, (float), void), AS_CALL_THISCALL));
@@ -416,6 +430,8 @@ void CollectMembers_ConstraintMouse2D(Vector<RegisterObjectMethodArgs>& methods,
 void CollectMembers_ConstraintPrismatic2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ConstraintPrismatic2D::SetAnchor(const Vector2& anchor)", "void SetAnchor(const Vector2&in)", AS_METHODPR(ConstraintPrismatic2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintPrismatic2D::SetAnchor(const Vector2& anchor)", "void set_anchor(const Vector2&in)", AS_METHODPR(ConstraintPrismatic2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
@@ -456,6 +472,8 @@ void CollectMembers_ConstraintPulley2D(Vector<RegisterObjectMethodArgs>& methods
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void ConstraintPulley2D::SetOwnerBodyGroundAnchor(const Vector2& groundAnchor)", "void SetOwnerBodyGroundAnchor(const Vector2&in)", AS_METHODPR(ConstraintPulley2D, SetOwnerBodyGroundAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintPulley2D::SetOwnerBodyGroundAnchor(const Vector2& groundAnchor)", "void set_ownerBodyGroundAnchor(const Vector2&in)", AS_METHODPR(ConstraintPulley2D, SetOwnerBodyGroundAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintPulley2D::SetOtherBodyGroundAnchor(const Vector2& groundAnchor)", "void SetOtherBodyGroundAnchor(const Vector2&in)", AS_METHODPR(ConstraintPulley2D, SetOtherBodyGroundAnchor, (const Vector2&), void), AS_CALL_THISCALL));
@@ -482,6 +500,8 @@ void CollectMembers_ConstraintPulley2D(Vector<RegisterObjectMethodArgs>& methods
 void CollectMembers_ConstraintRevolute2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ConstraintRevolute2D::SetAnchor(const Vector2& anchor)", "void SetAnchor(const Vector2&in)", AS_METHODPR(ConstraintRevolute2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintRevolute2D::SetAnchor(const Vector2& anchor)", "void set_anchor(const Vector2&in)", AS_METHODPR(ConstraintRevolute2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
@@ -518,6 +538,8 @@ void CollectMembers_ConstraintRope2D(Vector<RegisterObjectMethodArgs>& methods, 
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void ConstraintRope2D::SetOwnerBodyAnchor(const Vector2& anchor)", "void SetOwnerBodyAnchor(const Vector2&in)", AS_METHODPR(ConstraintRope2D, SetOwnerBodyAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintRope2D::SetOwnerBodyAnchor(const Vector2& anchor)", "void set_ownerBodyAnchor(const Vector2&in)", AS_METHODPR(ConstraintRope2D, SetOwnerBodyAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintRope2D::SetOtherBodyAnchor(const Vector2& anchor)", "void SetOtherBodyAnchor(const Vector2&in)", AS_METHODPR(ConstraintRope2D, SetOtherBodyAnchor, (const Vector2&), void), AS_CALL_THISCALL));
@@ -537,6 +559,8 @@ void CollectMembers_ConstraintWeld2D(Vector<RegisterObjectMethodArgs>& methods, 
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void ConstraintWeld2D::SetAnchor(const Vector2& anchor)", "void SetAnchor(const Vector2&in)", AS_METHODPR(ConstraintWeld2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintWeld2D::SetAnchor(const Vector2& anchor)", "void set_anchor(const Vector2&in)", AS_METHODPR(ConstraintWeld2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintWeld2D::SetFrequencyHz(float frequencyHz)", "void SetFrequencyHz(float)", AS_METHODPR(ConstraintWeld2D, SetFrequencyHz, (float), void), AS_CALL_THISCALL));
@@ -555,6 +579,8 @@ void CollectMembers_ConstraintWeld2D(Vector<RegisterObjectMethodArgs>& methods, 
 void CollectMembers_ConstraintWheel2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Constraint2D(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Constraint2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ConstraintWheel2D::SetAnchor(const Vector2& anchor)", "void SetAnchor(const Vector2&in)", AS_METHODPR(ConstraintWheel2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ConstraintWheel2D::SetAnchor(const Vector2& anchor)", "void set_anchor(const Vector2&in)", AS_METHODPR(ConstraintWheel2D, SetAnchor, (const Vector2&), void), AS_CALL_THISCALL));
@@ -604,8 +630,8 @@ void CollectMembers_Drawable2D(Vector<RegisterObjectMethodArgs>& methods, Vector
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "void Drawable::OnSetEnabled() override");
-    Remove(fields, "void Drawable::OnSetEnabled() override");
-    Remove(staticFields, "void Drawable::OnSetEnabled() override");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // const Vector<SourceBatch2D>& Drawable2D::GetSourceBatches()
     // Error: type "const Vector<SourceBatch2D>&" can not automatically bind
@@ -659,14 +685,8 @@ void CollectMembers_ParticleEffect2D(Vector<RegisterObjectMethodArgs>& methods, 
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     methods.Push(RegisterObjectMethodArgs("bool ParticleEffect2D::BeginLoad(Deserializer& source) override", "bool BeginLoad(Deserializer&)", AS_METHODPR(ParticleEffect2D, BeginLoad, (Deserializer&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ParticleEffect2D::EndLoad() override", "bool EndLoad()", AS_METHODPR(ParticleEffect2D, EndLoad, (), bool), AS_CALL_THISCALL));
@@ -750,11 +770,9 @@ void CollectMembers_ParticleEmitter2D(Vector<RegisterObjectMethodArgs>& methods,
     CollectMembers_Drawable2D(methods, fields, staticFields);
 
     Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::Update(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::Update(const FrameInfo& frame)");
     Remove(methods, "void Drawable2D::OnSetEnabled() override");
-    Remove(fields, "void Drawable2D::OnSetEnabled() override");
-    Remove(staticFields, "void Drawable2D::OnSetEnabled() override");
+
+    Remove(staticMethods, "static void Drawable2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ParticleEmitter2D::OnSetEnabled() override", "void OnSetEnabled()", AS_METHODPR(ParticleEmitter2D, OnSetEnabled, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ParticleEmitter2D::SetEffect(ParticleEffect2D* effect)", "void SetEffect(ParticleEffect2D@+)", AS_METHODPR(ParticleEmitter2D, SetEffect, (ParticleEffect2D*), void), AS_CALL_THISCALL));
@@ -801,8 +819,8 @@ void CollectMembers_PhysicsWorld2D(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // void PhysicsWorld2D::BeginContact(b2Contact* contact) override
     // Error: type "b2Contact*" can not automatically bind
@@ -916,17 +934,11 @@ void CollectMembers_Renderer2D(Vector<RegisterObjectMethodArgs>& methods, Vector
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(fields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(staticFields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(fields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(staticFields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
     Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // void Renderer2D::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -946,8 +958,8 @@ void CollectMembers_RigidBody2D(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
-    Remove(fields, "virtual void Component::OnSetEnabled()");
-    Remove(staticFields, "virtual void Component::OnSetEnabled()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // b2Body* RigidBody2D::GetBody() const
     // Error: type "b2Body*" can not automatically bind
@@ -1043,11 +1055,7 @@ void CollectMembers_Sprite2D(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
 
     methods.Push(RegisterObjectMethodArgs("bool Sprite2D::BeginLoad(Deserializer& source) override", "bool BeginLoad(Deserializer&)", AS_METHODPR(Sprite2D, BeginLoad, (Deserializer&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Sprite2D::EndLoad() override", "bool EndLoad()", AS_METHODPR(Sprite2D, EndLoad, (), bool), AS_CALL_THISCALL));
@@ -1084,11 +1092,7 @@ void CollectMembers_SpriteSheet2D(Vector<RegisterObjectMethodArgs>& methods, Vec
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
 
     // const HashMap<String, SharedPtr<Sprite2D>>& SpriteSheet2D::GetSpriteMapping() const
     // Error: type "const HashMap<String, SharedPtr<Sprite2D>>&" can not automatically bind
@@ -1107,6 +1111,8 @@ void CollectMembers_SpriteSheet2D(Vector<RegisterObjectMethodArgs>& methods, Vec
 void CollectMembers_StaticSprite2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Drawable2D(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Drawable2D::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetSprite(Sprite2D* sprite)", "void SetSprite(Sprite2D@+)", AS_METHODPR(StaticSprite2D, SetSprite, (Sprite2D*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetSprite(Sprite2D* sprite)", "void set_sprite(Sprite2D@+)", AS_METHODPR(StaticSprite2D, SetSprite, (Sprite2D*), void), AS_CALL_THISCALL));
@@ -1176,6 +1182,8 @@ void CollectMembers_StretchableSprite2D(Vector<RegisterObjectMethodArgs>& method
 {
     CollectMembers_StaticSprite2D(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void StaticSprite2D::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void StretchableSprite2D::SetBorder(const IntRect& border)", "void SetBorder(const IntRect&in)", AS_METHODPR(StretchableSprite2D, SetBorder, (const IntRect&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void StretchableSprite2D::SetBorder(const IntRect& border)", "void set_border(const IntRect&in)", AS_METHODPR(StretchableSprite2D, SetBorder, (const IntRect&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const IntRect& StretchableSprite2D::GetBorder() const", "const IntRect& GetBorder() const", AS_METHODPR(StretchableSprite2D, GetBorder, () const, const IntRect&), AS_CALL_THISCALL));
@@ -1218,8 +1226,8 @@ void CollectMembers_TileMap2D(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void TileMap2D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(TileMap2D, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void TileMap2D::SetTmxFile(TmxFile2D* tmxFile)", "void SetTmxFile(TmxFile2D@+)", AS_METHODPR(TileMap2D, SetTmxFile, (TmxFile2D*), void), AS_CALL_THISCALL));
@@ -1263,8 +1271,8 @@ void CollectMembers_TileMapLayer2D(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void TileMapLayer2D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(TileMapLayer2D, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void TileMapLayer2D::Initialize(TileMap2D* tileMap, const TmxLayer2D* tmxLayer)", "void Initialize(TileMap2D@+, TmxLayer2D@+)", AS_METHODPR(TileMapLayer2D, Initialize, (TileMap2D*, const TmxLayer2D*), void), AS_CALL_THISCALL));
@@ -1345,11 +1353,7 @@ void CollectMembers_TmxFile2D(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
 
     // void TmxFile2D::AddLayer(Urho3D::TmxLayer2D* layer)
     // Error: type "Urho3D::TmxLayer2D*" can not automatically bind

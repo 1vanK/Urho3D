@@ -17,6 +17,8 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vect
 {
     CollectMembers_Component(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("float IKConstraint::GetStiffness() const", "float GetStiffness() const", AS_METHODPR(IKConstraint, GetStiffness, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKConstraint::SetStiffness(float stiffness)", "void SetStiffness(float)", AS_METHODPR(IKConstraint, SetStiffness, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float IKConstraint::GetStretchiness() const", "float GetStretchiness() const", AS_METHODPR(IKConstraint, GetStretchiness, () const, float), AS_CALL_THISCALL));
@@ -31,8 +33,8 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("Node* IKEffector::GetTargetNode() const", "Node@+ GetTargetNode() const", AS_METHODPR(IKEffector, GetTargetNode, () const, Node*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Node* IKEffector::GetTargetNode() const", "Node@+ get_targetNode() const", AS_METHODPR(IKEffector, GetTargetNode, () const, Node*), AS_CALL_THISCALL));
@@ -82,8 +84,8 @@ void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("unsigned IKSolver::GetMaximumIterations() const", "uint GetMaximumIterations() const", AS_METHODPR(IKSolver, GetMaximumIterations, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned IKSolver::GetMaximumIterations() const", "uint get_maximumIterations() const", AS_METHODPR(IKSolver, GetMaximumIterations, () const, unsigned), AS_CALL_THISCALL));

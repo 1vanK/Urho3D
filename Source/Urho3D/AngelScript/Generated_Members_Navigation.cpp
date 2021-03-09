@@ -18,14 +18,10 @@ void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
-    Remove(fields, "virtual void Component::OnSetEnabled()");
-    Remove(staticFields, "virtual void Component::OnSetEnabled()");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void CrowdAgent::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(CrowdAgent, ApplyAttributes, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void CrowdAgent::OnSetEnabled() override", "void OnSetEnabled()", AS_METHODPR(CrowdAgent, OnSetEnabled, (), void), AS_CALL_THISCALL));
@@ -114,11 +110,9 @@ void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // Vector3 CrowdManager::FindNearestPoint(const Vector3& point, int queryFilterType, dtPolyRef* nearestRef=nullptr)
     // Error: type "dtPolyRef*" can not automatically bind
@@ -211,41 +205,19 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
     CollectMembers_NavigationMesh(methods, fields, staticFields);
 
     Remove(methods, "virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const");
-    Remove(fields, "virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const");
-    Remove(staticFields, "virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const");
     Remove(methods, "virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const");
-    Remove(fields, "virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const");
-    Remove(staticFields, "virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const");
     Remove(methods, "virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)");
-    Remove(fields, "virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)");
-    Remove(staticFields, "virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)");
     Remove(methods, "virtual bool NavigationMesh::Allocate(const BoundingBox& boundingBox, unsigned maxTiles)");
-    Remove(fields, "virtual bool NavigationMesh::Allocate(const BoundingBox& boundingBox, unsigned maxTiles)");
-    Remove(staticFields, "virtual bool NavigationMesh::Allocate(const BoundingBox& boundingBox, unsigned maxTiles)");
     Remove(methods, "virtual bool NavigationMesh::Build()");
-    Remove(fields, "virtual bool NavigationMesh::Build()");
-    Remove(staticFields, "virtual bool NavigationMesh::Build()");
     Remove(methods, "virtual bool NavigationMesh::Build(const BoundingBox& boundingBox)");
-    Remove(fields, "virtual bool NavigationMesh::Build(const BoundingBox& boundingBox)");
-    Remove(staticFields, "virtual bool NavigationMesh::Build(const BoundingBox& boundingBox)");
     Remove(methods, "virtual bool NavigationMesh::Build(const IntVector2& from, const IntVector2& to)");
-    Remove(fields, "virtual bool NavigationMesh::Build(const IntVector2& from, const IntVector2& to)");
-    Remove(staticFields, "virtual bool NavigationMesh::Build(const IntVector2& from, const IntVector2& to)");
     Remove(methods, "virtual void NavigationMesh::RemoveAllTiles()");
-    Remove(fields, "virtual void NavigationMesh::RemoveAllTiles()");
-    Remove(staticFields, "virtual void NavigationMesh::RemoveAllTiles()");
     Remove(methods, "virtual void NavigationMesh::RemoveTile(const IntVector2& tile)");
-    Remove(fields, "virtual void NavigationMesh::RemoveTile(const IntVector2& tile)");
-    Remove(staticFields, "virtual void NavigationMesh::RemoveTile(const IntVector2& tile)");
     Remove(methods, "virtual void NavigationMesh::SetNavigationDataAttr(const PODVector<unsigned char>& value)");
-    Remove(fields, "virtual void NavigationMesh::SetNavigationDataAttr(const PODVector<unsigned char>& value)");
-    Remove(staticFields, "virtual void NavigationMesh::SetNavigationDataAttr(const PODVector<unsigned char>& value)");
     Remove(methods, "void NavigationMesh::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(fields, "void NavigationMesh::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(staticFields, "void NavigationMesh::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
     Remove(methods, "void NavigationMesh::DrawDebugGeometry(bool depthTest)");
-    Remove(fields, "void NavigationMesh::DrawDebugGeometry(bool depthTest)");
-    Remove(staticFields, "void NavigationMesh::DrawDebugGeometry(bool depthTest)");
+
+    Remove(staticMethods, "static void NavigationMesh::RegisterObject(Context* context)");
 
     // bool DynamicNavigationMesh::AddTile(const PODVector<unsigned char>& tileData) override
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
@@ -285,8 +257,8 @@ void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void NavArea::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(NavArea, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned NavArea::GetAreaID() const", "uint GetAreaID() const", AS_METHODPR(NavArea, GetAreaID, () const, unsigned), AS_CALL_THISCALL));
@@ -342,6 +314,8 @@ void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<
 {
     CollectMembers_Component(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("void Navigable::SetRecursive(bool enable)", "void SetRecursive(bool)", AS_METHODPR(Navigable, SetRecursive, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Navigable::SetRecursive(bool enable)", "void set_recursive(bool)", AS_METHODPR(Navigable, SetRecursive, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Navigable::IsRecursive() const", "bool IsRecursive() const", AS_METHODPR(Navigable, IsRecursive, () const, bool), AS_CALL_THISCALL));
@@ -365,8 +339,8 @@ void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
@@ -500,11 +474,9 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
-    Remove(fields, "virtual void Component::OnSetEnabled()");
-    Remove(staticFields, "virtual void Component::OnSetEnabled()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void Obstacle::OnSetEnabled() override", "void OnSetEnabled()", AS_METHODPR(Obstacle, OnSetEnabled, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Obstacle::GetHeight() const", "float GetHeight() const", AS_METHODPR(Obstacle, GetHeight, () const, float), AS_CALL_THISCALL));
@@ -527,11 +499,9 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods,
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void OffMeshConnection::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(OffMeshConnection, ApplyAttributes, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void OffMeshConnection::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(OffMeshConnection, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));

@@ -43,44 +43,20 @@ void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods, Vec
     CollectMembers_StaticModel(methods, fields, staticFields);
 
     Remove(methods, "ResourceRef StaticModel::GetModelAttr() const");
-    Remove(fields, "ResourceRef StaticModel::GetModelAttr() const");
-    Remove(staticFields, "ResourceRef StaticModel::GetModelAttr() const");
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
-    Remove(fields, "bool Animatable::LoadJSON(const JSONValue& source) override");
-    Remove(staticFields, "bool Animatable::LoadJSON(const JSONValue& source) override");
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
-    Remove(fields, "bool Animatable::LoadXML(const XMLElement& source) override");
-    Remove(staticFields, "bool Animatable::LoadXML(const XMLElement& source) override");
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(fields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(staticFields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual bool Serializable::Load(Deserializer& source)");
-    Remove(fields, "virtual bool Serializable::Load(Deserializer& source)");
-    Remove(staticFields, "virtual bool Serializable::Load(Deserializer& source)");
     Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::Update(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::Update(const FrameInfo& frame)");
     Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
     Remove(methods, "virtual void StaticModel::SetModel(Model* model)");
-    Remove(fields, "virtual void StaticModel::SetModel(Model* model)");
-    Remove(staticFields, "virtual void StaticModel::SetModel(Model* model)");
     Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(fields, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(staticFields, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
     Remove(methods, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
-    Remove(fields, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
-    Remove(staticFields, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
     Remove(methods, "void StaticModel::SetModelAttr(const ResourceRef& value)");
-    Remove(fields, "void StaticModel::SetModelAttr(const ResourceRef& value)");
-    Remove(staticFields, "void StaticModel::SetModelAttr(const ResourceRef& value)");
     Remove(methods, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
-    Remove(fields, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
-    Remove(staticFields, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
+
+    Remove(staticMethods, "static void StaticModel::RegisterObject(Context* context)");
 
     // VariantVector AnimatedModel::GetAnimationStatesAttr() const
     // Error: type "VariantVector" can not automatically bind
@@ -172,11 +148,7 @@ void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_ResourceWithMetadata(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const HashMap<StringHash, AnimationTrack>& Animation::GetTracks() const
     // Error: type "const HashMap<StringHash, AnimationTrack>&" can not automatically bind
@@ -242,8 +214,8 @@ void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& method
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
-    Remove(fields, "virtual void Component::OnSetEnabled()");
-    Remove(staticFields, "virtual void Component::OnSetEnabled()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // const Vector<AnimationControl>& AnimationController::GetAnimations() const
     // Error: type "const Vector<AnimationControl>&" can not automatically bind
@@ -449,8 +421,6 @@ void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods, Vector
     CollectMembers_Batch(methods, fields, staticFields);
 
     Remove(methods, "void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const");
-    Remove(fields, "void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const");
-    Remove(staticFields, "void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const");
 
     // void BatchGroup::SetInstancingData(void* lockedData, unsigned stride, unsigned& freeIndex)
     // Error: type "void*" can not automatically bind
@@ -555,17 +525,11 @@ void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(fields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(staticFields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(fields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(staticFields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
     Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // PODVector<Billboard>& BillboardSet::GetBillboards()
     // Error: type "PODVector<Billboard>&" can not automatically bind
@@ -662,8 +626,8 @@ void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void Camera::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(Camera, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Camera::SetNearClip(float nearClip)", "void SetNearClip(float)", AS_METHODPR(Camera, SetNearClip, (float), void), AS_CALL_THISCALL));
@@ -800,11 +764,7 @@ void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_GPUObject(methods, fields, staticFields);
 
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
-    Remove(fields, "virtual void GPUObject::OnDeviceReset()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceReset()");
     Remove(methods, "virtual void GPUObject::Release()");
-    Remove(fields, "virtual void GPUObject::Release()");
-    Remove(staticFields, "virtual void GPUObject::Release()");
 
     // void ConstantBuffer::SetParameter(unsigned offset, unsigned size, const void* data)
     // Error: type "const void*" can not automatically bind
@@ -825,17 +785,11 @@ void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
-    Remove(fields, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
-    Remove(staticFields, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
     Remove(methods, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
-    Remove(fields, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
-    Remove(staticFields, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
     Remove(methods, "virtual unsigned Drawable::GetNumOccluderTriangles()");
-    Remove(fields, "virtual unsigned Drawable::GetNumOccluderTriangles()");
-    Remove(staticFields, "virtual unsigned Drawable::GetNumOccluderTriangles()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(fields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(staticFields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // PODVector<unsigned char> CustomGeometry::GetGeometryDataAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
@@ -901,6 +855,8 @@ void CollectMembers_DebugLine(Vector<RegisterObjectMethodArgs>& methods, Vector<
 void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Component(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // void DebugRenderer::AddTriangleMesh(const void* vertexData, unsigned vertexSize, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount, const Matrix3x4& transform, const Color& color, bool depthTest=true)
     // Error: type "const void*" can not automatically bind
@@ -969,23 +925,13 @@ void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(fields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(staticFields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(fields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(staticFields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
     Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
     Remove(methods, "void Drawable::OnSetEnabled() override");
-    Remove(fields, "void Drawable::OnSetEnabled() override");
-    Remove(staticFields, "void Drawable::OnSetEnabled() override");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // PODVector<unsigned char> DecalSet::GetDecalsAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
@@ -1073,11 +1019,9 @@ void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
-    Remove(fields, "virtual void Component::OnSetEnabled()");
-    Remove(staticFields, "virtual void Component::OnSetEnabled()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // const Vector<SourceBatch>& Drawable::GetBatches() const
     // Error: type "const Vector<SourceBatch>&" can not automatically bind
@@ -1568,14 +1512,8 @@ void CollectMembers_IndexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_GPUObject(methods, fields, staticFields);
 
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
-    Remove(fields, "virtual void GPUObject::OnDeviceLost()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
-    Remove(fields, "virtual void GPUObject::OnDeviceReset()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceReset()");
     Remove(methods, "virtual void GPUObject::Release()");
-    Remove(fields, "virtual void GPUObject::Release()");
-    Remove(staticFields, "virtual void GPUObject::Release()");
 
     // unsigned char* IndexBuffer::GetShadowData() const
     // Error: type "unsigned char*" can not automatically bind
@@ -1635,14 +1573,10 @@ void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(fields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(staticFields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
     Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(fields, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(staticFields, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // LightBatchQueue* Light::GetLightQueue() const
     // Error: type "LightBatchQueue*" can not automatically bind
@@ -1827,17 +1761,9 @@ void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "bool Resource::Load(Deserializer& source)");
-    Remove(fields, "bool Resource::Load(Deserializer& source)");
-    Remove(staticFields, "bool Resource::Load(Deserializer& source)");
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const HashMap<StringHash, MaterialShaderParameter>& Material::GetShaderParameters() const
     // Error: type "const HashMap<StringHash, MaterialShaderParameter>&" can not automatically bind
@@ -2003,14 +1929,8 @@ void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     CollectMembers_ResourceWithMetadata(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const Vector<Vector<SharedPtr<Geometry>>>& Model::GetGeometries() const
     // Error: type "const Vector<Vector<SharedPtr<Geometry>>>&" can not automatically bind
@@ -2167,11 +2087,9 @@ void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_Octant(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // void Octree::Raycast(RayOctreeQuery& query) const
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -2245,17 +2163,9 @@ void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "bool Resource::Load(Deserializer& source)");
-    Remove(fields, "bool Resource::Load(Deserializer& source)");
-    Remove(staticFields, "bool Resource::Load(Deserializer& source)");
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(fields, "virtual bool Resource::Save(Serializer& dest) const");
-    Remove(staticFields, "virtual bool Resource::Save(Serializer& dest) const");
 
     // const Vector<ColorFrame>& ParticleEffect::GetColorFrames() const
     // Error: type "const Vector<ColorFrame>&" can not automatically bind
@@ -2430,11 +2340,9 @@ void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods, V
     CollectMembers_BillboardSet(methods, fields, staticFields);
 
     Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::Update(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::Update(const FrameInfo& frame)");
     Remove(methods, "void Drawable::OnSetEnabled() override");
-    Remove(fields, "void Drawable::OnSetEnabled() override");
-    Remove(staticFields, "void Drawable::OnSetEnabled() override");
+
+    Remove(staticMethods, "static void BillboardSet::RegisterObject(Context* context)");
 
     // VariantVector ParticleEmitter::GetParticleBillboardsAttr() const
     // Error: type "VariantVector" can not automatically bind
@@ -3012,23 +2920,13 @@ void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(fields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(staticFields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(fields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(staticFields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
     Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::Update(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::Update(const FrameInfo& frame)");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
     Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
     Remove(methods, "void Drawable::OnSetEnabled() override");
-    Remove(fields, "void Drawable::OnSetEnabled() override");
-    Remove(staticFields, "void Drawable::OnSetEnabled() override");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // void RibbonTrail::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -3151,11 +3049,7 @@ void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
 
     // ShaderVariation* Shader::GetVariation(ShaderType type, const char* defines)
     // Error: type "const char*" can not automatically bind
@@ -3211,11 +3105,7 @@ void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods, V
     CollectMembers_GPUObject(methods, fields, staticFields);
 
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
-    Remove(fields, "virtual void GPUObject::OnDeviceLost()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::Release()");
-    Remove(fields, "virtual void GPUObject::Release()");
-    Remove(staticFields, "virtual void GPUObject::Release()");
 
     // const PODVector<unsigned char>& ShaderVariation::GetByteCode() const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
@@ -3293,11 +3183,9 @@ void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_StaticModel(methods, fields, staticFields);
 
     Remove(methods, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
-    Remove(fields, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
-    Remove(staticFields, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
     Remove(methods, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
-    Remove(fields, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
-    Remove(staticFields, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
+
+    Remove(staticMethods, "static void StaticModel::RegisterObject(Context* context)");
 
     // void Skybox::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -3341,20 +3229,12 @@ void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
-    Remove(fields, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
-    Remove(staticFields, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
     Remove(methods, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
-    Remove(fields, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
-    Remove(staticFields, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
     Remove(methods, "virtual unsigned Drawable::GetNumOccluderTriangles()");
-    Remove(fields, "virtual unsigned Drawable::GetNumOccluderTriangles()");
-    Remove(staticFields, "virtual unsigned Drawable::GetNumOccluderTriangles()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(fields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(staticFields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
@@ -3401,20 +3281,12 @@ void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods, 
     CollectMembers_StaticModel(methods, fields, staticFields);
 
     Remove(methods, "bool StaticModel::DrawOcclusion(OcclusionBuffer* buffer) override");
-    Remove(fields, "bool StaticModel::DrawOcclusion(OcclusionBuffer* buffer) override");
-    Remove(staticFields, "bool StaticModel::DrawOcclusion(OcclusionBuffer* buffer) override");
     Remove(methods, "unsigned StaticModel::GetNumOccluderTriangles() override");
-    Remove(fields, "unsigned StaticModel::GetNumOccluderTriangles() override");
-    Remove(staticFields, "unsigned StaticModel::GetNumOccluderTriangles() override");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
     Remove(methods, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
-    Remove(fields, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
-    Remove(staticFields, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
     Remove(methods, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
-    Remove(fields, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
-    Remove(staticFields, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
+
+    Remove(staticMethods, "static void StaticModel::RegisterObject(Context* context)");
 
     // const VariantVector& StaticModelGroup::GetNodeIDsAttr() const
     // Error: type "const VariantVector&" can not automatically bind
@@ -3478,8 +3350,6 @@ void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
     methods.Push(RegisterObjectMethodArgs("bool Technique::BeginLoad(Deserializer& source) override", "bool BeginLoad(Deserializer&)", AS_METHODPR(Technique, BeginLoad, (Deserializer&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Technique::SetIsDesktop(bool enable)", "void SetIsDesktop(bool)", AS_METHODPR(Technique, SetIsDesktop, (bool), void), AS_CALL_THISCALL));
@@ -3534,11 +3404,9 @@ void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
-    Remove(fields, "virtual void Component::OnSetEnabled()");
-    Remove(staticFields, "virtual void Component::OnSetEnabled()");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // SharedArrayPtr<float> Terrain::GetHeightData() const
     // Error: type "SharedArrayPtr<float>" can not automatically bind
@@ -3665,29 +3533,15 @@ void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
-    Remove(fields, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
-    Remove(staticFields, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(fields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(staticFields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
-    Remove(fields, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
-    Remove(staticFields, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
     Remove(methods, "virtual unsigned Drawable::GetNumOccluderTriangles()");
-    Remove(fields, "virtual unsigned Drawable::GetNumOccluderTriangles()");
-    Remove(staticFields, "virtual unsigned Drawable::GetNumOccluderTriangles()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(fields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
-    Remove(staticFields, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
     Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
     Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(fields, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(staticFields, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     // PODVector<float>& TerrainPatch::GetLodErrors()
     // Error: type "PODVector<float>&" can not automatically bind
@@ -3821,20 +3675,10 @@ void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_Texture(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
-    Remove(fields, "virtual void GPUObject::OnDeviceLost()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
-    Remove(fields, "virtual void GPUObject::OnDeviceReset()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceReset()");
     Remove(methods, "virtual void GPUObject::Release()");
-    Remove(fields, "virtual void GPUObject::Release()");
-    Remove(staticFields, "virtual void GPUObject::Release()");
 
     // bool Texture2D::GetData(unsigned level, void* dest) const
     // Error: type "void*" can not automatically bind
@@ -3860,20 +3704,10 @@ void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_Texture(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
-    Remove(fields, "virtual void GPUObject::OnDeviceLost()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
-    Remove(fields, "virtual void GPUObject::OnDeviceReset()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceReset()");
     Remove(methods, "virtual void GPUObject::Release()");
-    Remove(fields, "virtual void GPUObject::Release()");
-    Remove(staticFields, "virtual void GPUObject::Release()");
 
     // bool Texture2DArray::GetData(unsigned layer, unsigned level, void* dest) const
     // Error: type "void*" can not automatically bind
@@ -3902,20 +3736,10 @@ void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_Texture(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
-    Remove(fields, "virtual void GPUObject::OnDeviceLost()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
-    Remove(fields, "virtual void GPUObject::OnDeviceReset()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceReset()");
     Remove(methods, "virtual void GPUObject::Release()");
-    Remove(fields, "virtual void GPUObject::Release()");
-    Remove(staticFields, "virtual void GPUObject::Release()");
 
     // bool Texture3D::GetData(unsigned level, void* dest) const
     // Error: type "void*" can not automatically bind
@@ -3946,20 +3770,10 @@ void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_Texture(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
-    Remove(fields, "virtual bool Resource::EndLoad()");
-    Remove(staticFields, "virtual bool Resource::EndLoad()");
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
-    Remove(fields, "virtual void GPUObject::OnDeviceLost()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
-    Remove(fields, "virtual void GPUObject::OnDeviceReset()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceReset()");
     Remove(methods, "virtual void GPUObject::Release()");
-    Remove(fields, "virtual void GPUObject::Release()");
-    Remove(staticFields, "virtual void GPUObject::Release()");
 
     // bool TextureCube::GetData(CubeMapFace face, unsigned level, void* dest) const
     // Error: type "void*" can not automatically bind
@@ -4026,14 +3840,8 @@ void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_GPUObject(methods, fields, staticFields);
 
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
-    Remove(fields, "virtual void GPUObject::OnDeviceLost()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
-    Remove(fields, "virtual void GPUObject::OnDeviceReset()");
-    Remove(staticFields, "virtual void GPUObject::OnDeviceReset()");
     Remove(methods, "virtual void GPUObject::Release()");
-    Remove(fields, "virtual void GPUObject::Release()");
-    Remove(staticFields, "virtual void GPUObject::Release()");
 
     // const VertexElement* VertexBuffer::GetElement(VertexElementSemantic semantic, unsigned char index=0) const
     // Error: type "const VertexElement*" can not automatically bind
@@ -4230,8 +4038,8 @@ void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(fields, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
-    Remove(staticFields, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void Zone::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(Zone, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Zone::SetBoundingBox(const BoundingBox& box)", "void SetBoundingBox(const BoundingBox&in)", AS_METHODPR(Zone, SetBoundingBox, (const BoundingBox&), void), AS_CALL_THISCALL));

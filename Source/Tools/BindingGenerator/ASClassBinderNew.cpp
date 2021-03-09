@@ -642,7 +642,10 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
     for (const ClassAnalyzer& baseClass : baseClasses)
         processedClass.baseClassNames_.push_back(baseClass.GetClassName());
 
-    processedClass.hiddenMembers_ = classAnalyzer.GetHiddenMethods();
+    processedClass.hiddenMethods_ = classAnalyzer.GetHiddenMethods();
+    processedClass.hiddenStaticMethods_ = classAnalyzer.GetHiddenStaticMethods();
+    processedClass.hiddenFields_ = classAnalyzer.GetHiddenFields();
+    processedClass.hiddenStaticFields_ = classAnalyzer.GetHiddenStaticFields();
 
     if (classAnalyzer.IsAbstract()) // Abstract refcounted type
     {

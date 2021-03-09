@@ -16,8 +16,8 @@ void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_UIElement(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
-    Remove(fields, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
-    Remove(staticFields, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
+
+    Remove(staticMethods, "static void UIElement::RegisterObject(Context* context)");
 
     // void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -73,23 +73,13 @@ void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_BorderImage(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
-    Remove(fields, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
-    Remove(staticFields, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
     Remove(methods, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(fields, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(staticFields, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
     Remove(methods, "virtual void UIElement::Update(float timeStep)");
-    Remove(fields, "virtual void UIElement::Update(float timeStep)");
-    Remove(staticFields, "virtual void UIElement::Update(float timeStep)");
     Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(fields, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(staticFields, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
+
+    Remove(staticMethods, "static void BorderImage::RegisterObject(Context* context)");
 
     // void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -135,14 +125,10 @@ void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_BorderImage(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(fields, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(staticFields, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
     Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(fields, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(staticFields, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
+
+    Remove(staticMethods, "static void BorderImage::RegisterObject(Context* context)");
 
     // void CheckBox::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -166,8 +152,8 @@ void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_BorderImage(methods, fields, staticFields);
 
     Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(fields, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(staticFields, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
+
+    Remove(staticMethods, "static void BorderImage::RegisterObject(Context* context)");
 
     // void Cursor::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -221,20 +207,12 @@ void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_Menu(methods, fields, staticFields);
 
     Remove(methods, "virtual void Menu::OnHidePopup()");
-    Remove(fields, "virtual void Menu::OnHidePopup()");
-    Remove(staticFields, "virtual void Menu::OnHidePopup()");
     Remove(methods, "virtual void Menu::OnShowPopup()");
-    Remove(fields, "virtual void Menu::OnShowPopup()");
-    Remove(staticFields, "virtual void Menu::OnShowPopup()");
     Remove(methods, "virtual void UIElement::OnSetEditable()");
-    Remove(fields, "virtual void UIElement::OnSetEditable()");
-    Remove(staticFields, "virtual void UIElement::OnSetEditable()");
     Remove(methods, "void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(fields, "void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(staticFields, "void Button::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
     Remove(methods, "void UIElement::ApplyAttributes() override");
-    Remove(fields, "void UIElement::ApplyAttributes() override");
-    Remove(staticFields, "void UIElement::ApplyAttributes() override");
+
+    Remove(staticMethods, "static void Menu::RegisterObject(Context* context)");
 
     // void DropDownList::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -347,8 +325,6 @@ void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     CollectMembers_Resource(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
     methods.Push(RegisterObjectMethodArgs("bool Font::BeginLoad(Deserializer& source) override", "bool BeginLoad(Deserializer&)", AS_METHODPR(Font, BeginLoad, (Deserializer&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Font::SaveXML(Serializer& dest, int pointSize, bool usedGlyphs=false, const String& indentation=\"\t\")", "bool SaveXML(Serializer&, int, bool = false, const String&in = \"\t\")", AS_METHODPR(Font, SaveXML, (Serializer&, int, bool, const String&), bool), AS_CALL_THISCALL));
@@ -401,8 +377,6 @@ void CollectMembers_FontFaceBitmap(Vector<RegisterObjectMethodArgs>& methods, Ve
     CollectMembers_FontFace(methods, fields, staticFields);
 
     Remove(methods, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
-    Remove(fields, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
-    Remove(staticFields, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
 
     // bool FontFaceBitmap::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize) override
     // Error: type "const unsigned char*" can not automatically bind
@@ -417,14 +391,8 @@ void CollectMembers_FontFaceFreeType(Vector<RegisterObjectMethodArgs>& methods, 
     CollectMembers_FontFace(methods, fields, staticFields);
 
     Remove(methods, "virtual bool FontFace::HasMutableGlyphs() const");
-    Remove(fields, "virtual bool FontFace::HasMutableGlyphs() const");
-    Remove(staticFields, "virtual bool FontFace::HasMutableGlyphs() const");
     Remove(methods, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
-    Remove(fields, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
-    Remove(staticFields, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
     Remove(methods, "virtual const FontGlyph* FontFace::GetGlyph(unsigned c)");
-    Remove(fields, "virtual const FontGlyph* FontFace::GetGlyph(unsigned c)");
-    Remove(staticFields, "virtual const FontGlyph* FontFace::GetGlyph(unsigned c)");
 
     // const FontGlyph* FontFaceFreeType::GetGlyph(unsigned c) override
     // Error: type "const FontGlyph*" can not automatically bind
@@ -466,35 +434,17 @@ void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_BorderImage(methods, fields, staticFields);
 
     Remove(methods, "virtual bool UIElement::OnDragDropFinish(UIElement* source)");
-    Remove(fields, "virtual bool UIElement::OnDragDropFinish(UIElement* source)");
-    Remove(staticFields, "virtual bool UIElement::OnDragDropFinish(UIElement* source)");
     Remove(methods, "virtual bool UIElement::OnDragDropTest(UIElement* source)");
-    Remove(fields, "virtual bool UIElement::OnDragDropTest(UIElement* source)");
-    Remove(staticFields, "virtual bool UIElement::OnDragDropTest(UIElement* source)");
     Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDoubleClick(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDoubleClick(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDoubleClick(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(fields, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(staticFields, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
     Remove(methods, "virtual void UIElement::OnTextInput(const String& text)");
-    Remove(fields, "virtual void UIElement::OnTextInput(const String& text)");
-    Remove(staticFields, "virtual void UIElement::OnTextInput(const String& text)");
     Remove(methods, "virtual void UIElement::Update(float timeStep)");
-    Remove(fields, "virtual void UIElement::Update(float timeStep)");
-    Remove(staticFields, "virtual void UIElement::Update(float timeStep)");
     Remove(methods, "void UIElement::ApplyAttributes() override");
-    Remove(fields, "void UIElement::ApplyAttributes() override");
-    Remove(staticFields, "void UIElement::ApplyAttributes() override");
+
+    Remove(staticMethods, "static void BorderImage::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void LineEdit::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(LineEdit, ApplyAttributes, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void LineEdit::Update(float timeStep) override", "void Update(float)", AS_METHODPR(LineEdit, Update, (float), void), AS_CALL_THISCALL));
@@ -586,14 +536,10 @@ void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     CollectMembers_ScrollView(methods, fields, staticFields);
 
     Remove(methods, "bool UIElement::IsSelected() const");
-    Remove(fields, "bool UIElement::IsSelected() const");
-    Remove(staticFields, "bool UIElement::IsSelected() const");
     Remove(methods, "void ScrollView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override");
-    Remove(fields, "void ScrollView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override");
-    Remove(staticFields, "void ScrollView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override");
     Remove(methods, "void ScrollView::OnResize(const IntVector2& newSize, const IntVector2& delta) override");
-    Remove(fields, "void ScrollView::OnResize(const IntVector2& newSize, const IntVector2& delta) override");
-    Remove(staticFields, "void ScrollView::OnResize(const IntVector2& newSize, const IntVector2& delta) override");
+
+    Remove(staticMethods, "static void ScrollView::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ListView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override", "void OnKey(Key, MouseButtonFlags, QualifierFlags)", AS_METHODPR(ListView, OnKey, (Key, MouseButtonFlags, QualifierFlags), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ListView::OnResize(const IntVector2& newSize, const IntVector2& delta) override", "void OnResize(const IntVector2&in, const IntVector2&in)", AS_METHODPR(ListView, OnResize, (const IntVector2&, const IntVector2&), void), AS_CALL_THISCALL));
@@ -666,26 +612,14 @@ void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     CollectMembers_Button(methods, fields, staticFields);
 
     Remove(methods, "bool UIElement::LoadXML(Deserializer& source)");
-    Remove(fields, "bool UIElement::LoadXML(Deserializer& source)");
-    Remove(staticFields, "bool UIElement::LoadXML(Deserializer& source)");
     Remove(methods, "bool UIElement::LoadXML(const XMLElement& source) override");
-    Remove(fields, "bool UIElement::LoadXML(const XMLElement& source) override");
-    Remove(staticFields, "bool UIElement::LoadXML(const XMLElement& source) override");
     Remove(methods, "bool UIElement::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
-    Remove(fields, "bool UIElement::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
-    Remove(staticFields, "bool UIElement::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
     Remove(methods, "bool UIElement::SaveXML(XMLElement& dest) const override");
-    Remove(fields, "bool UIElement::SaveXML(XMLElement& dest) const override");
-    Remove(staticFields, "bool UIElement::SaveXML(XMLElement& dest) const override");
     Remove(methods, "virtual bool UIElement::LoadXML(const XMLElement& source, XMLFile* styleFile)");
-    Remove(fields, "virtual bool UIElement::LoadXML(const XMLElement& source, XMLFile* styleFile)");
-    Remove(staticFields, "virtual bool UIElement::LoadXML(const XMLElement& source, XMLFile* styleFile)");
     Remove(methods, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "void Button::Update(float timeStep) override");
-    Remove(fields, "void Button::Update(float timeStep) override");
-    Remove(staticFields, "void Button::Update(float timeStep) override");
+
+    Remove(staticMethods, "static void Button::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("bool Menu::LoadXML(const XMLElement& source, XMLFile* styleFile) override", "bool LoadXML(const XMLElement&in, XMLFile@+)", AS_METHODPR(Menu, LoadXML, (const XMLElement&, XMLFile*), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Menu::SaveXML(XMLElement& dest) const override", "bool SaveXML(XMLElement&) const", AS_METHODPR(Menu, SaveXML, (XMLElement&) const, bool), AS_CALL_THISCALL));
@@ -736,8 +670,8 @@ void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods, Vecto
     CollectMembers_BorderImage(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(fields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(staticFields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
+
+    Remove(staticMethods, "static void BorderImage::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ProgressBar::OnResize(const IntVector2& newSize, const IntVector2& delta) override", "void OnResize(const IntVector2&in, const IntVector2&in)", AS_METHODPR(ProgressBar, OnResize, (const IntVector2&, const IntVector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ProgressBar::SetOrientation(Orientation orientation)", "void SetOrientation(Orientation)", AS_METHODPR(ProgressBar, SetOrientation, (Orientation), void), AS_CALL_THISCALL));
@@ -769,14 +703,10 @@ void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_BorderImage(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(fields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(staticFields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
     Remove(methods, "virtual void UIElement::OnSetEditable()");
-    Remove(fields, "virtual void UIElement::OnSetEditable()");
-    Remove(staticFields, "virtual void UIElement::OnSetEditable()");
     Remove(methods, "void UIElement::ApplyAttributes() override");
-    Remove(fields, "void UIElement::ApplyAttributes() override");
-    Remove(staticFields, "void UIElement::ApplyAttributes() override");
+
+    Remove(staticMethods, "static void BorderImage::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ScrollBar::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(ScrollBar, ApplyAttributes, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ScrollBar::OnResize(const IntVector2& newSize, const IntVector2& delta) override", "void OnResize(const IntVector2&in, const IntVector2&in)", AS_METHODPR(ScrollBar, OnResize, (const IntVector2&, const IntVector2&), void), AS_CALL_THISCALL));
@@ -820,23 +750,13 @@ void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods, Vector
     CollectMembers_UIElement(methods, fields, staticFields);
 
     Remove(methods, "virtual bool UIElement::IsWheelHandler() const");
-    Remove(fields, "virtual bool UIElement::IsWheelHandler() const");
-    Remove(staticFields, "virtual bool UIElement::IsWheelHandler() const");
     Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(fields, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(staticFields, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(fields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(staticFields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
     Remove(methods, "virtual void UIElement::OnWheel(int delta, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(fields, "virtual void UIElement::OnWheel(int delta, MouseButtonFlags buttons, QualifierFlags qualifiers)");
-    Remove(staticFields, "virtual void UIElement::OnWheel(int delta, MouseButtonFlags buttons, QualifierFlags qualifiers)");
     Remove(methods, "virtual void UIElement::Update(float timeStep)");
-    Remove(fields, "virtual void UIElement::Update(float timeStep)");
-    Remove(staticFields, "virtual void UIElement::Update(float timeStep)");
     Remove(methods, "void UIElement::ApplyAttributes() override");
-    Remove(fields, "void UIElement::ApplyAttributes() override");
-    Remove(staticFields, "void UIElement::ApplyAttributes() override");
+
+    Remove(staticMethods, "static void UIElement::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ScrollView::Update(float timeStep) override", "void Update(float)", AS_METHODPR(ScrollView, Update, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ScrollView::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(ScrollView, ApplyAttributes, (), void), AS_CALL_THISCALL));
@@ -905,29 +825,15 @@ void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_BorderImage(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
-    Remove(fields, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
-    Remove(staticFields, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
     Remove(methods, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(fields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(staticFields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
     Remove(methods, "virtual void UIElement::Update(float timeStep)");
-    Remove(fields, "virtual void UIElement::Update(float timeStep)");
-    Remove(staticFields, "virtual void UIElement::Update(float timeStep)");
+
+    Remove(staticMethods, "static void BorderImage::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void Slider::Update(float timeStep) override", "void Update(float)", AS_METHODPR(Slider, Update, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Slider::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor) override", "void OnHover(const IntVector2&in, const IntVector2&in, MouseButtonFlags, QualifierFlags, Cursor@+)", AS_METHODPR(Slider, OnHover, (const IntVector2&, const IntVector2&, MouseButtonFlags, QualifierFlags, Cursor*), void), AS_CALL_THISCALL));
@@ -964,32 +870,16 @@ void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_UIElement(methods, fields, staticFields);
 
     Remove(methods, "const IntVector2& UIElement::GetPosition() const");
-    Remove(fields, "const IntVector2& UIElement::GetPosition() const");
-    Remove(staticFields, "const IntVector2& UIElement::GetPosition() const");
     Remove(methods, "virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)");
-    Remove(fields, "virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)");
-    Remove(staticFields, "virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)");
     Remove(methods, "virtual IntVector2 UIElement::ScreenToElement(const IntVector2& screenPosition)");
-    Remove(fields, "virtual IntVector2 UIElement::ScreenToElement(const IntVector2& screenPosition)");
-    Remove(staticFields, "virtual IntVector2 UIElement::ScreenToElement(const IntVector2& screenPosition)");
     Remove(methods, "virtual bool UIElement::IsWithinScissor(const IntRect& currentScissor)");
-    Remove(fields, "virtual bool UIElement::IsWithinScissor(const IntRect& currentScissor)");
-    Remove(staticFields, "virtual bool UIElement::IsWithinScissor(const IntRect& currentScissor)");
     Remove(methods, "virtual const IntVector2& UIElement::GetScreenPosition() const");
-    Remove(fields, "virtual const IntVector2& UIElement::GetScreenPosition() const");
-    Remove(staticFields, "virtual const IntVector2& UIElement::GetScreenPosition() const");
     Remove(methods, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
-    Remove(fields, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
-    Remove(staticFields, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
     Remove(methods, "virtual void UIElement::OnPositionSet(const IntVector2& newPosition)");
-    Remove(fields, "virtual void UIElement::OnPositionSet(const IntVector2& newPosition)");
-    Remove(staticFields, "virtual void UIElement::OnPositionSet(const IntVector2& newPosition)");
     Remove(methods, "void UIElement::SetPosition(const IntVector2& position)");
-    Remove(fields, "void UIElement::SetPosition(const IntVector2& position)");
-    Remove(staticFields, "void UIElement::SetPosition(const IntVector2& position)");
     Remove(methods, "void UIElement::SetPosition(int x, int y)");
-    Remove(fields, "void UIElement::SetPosition(int x, int y)");
-    Remove(staticFields, "void UIElement::SetPosition(int x, int y)");
+
+    Remove(staticMethods, "static void UIElement::RegisterObject(Context* context)");
 
     // void Sprite::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -1044,20 +934,12 @@ void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     CollectMembers_UISelectable(methods, fields, staticFields);
 
     Remove(methods, "UISelectable::URHO3D_OBJECT(UISelectable, UIElement)");
-    Remove(fields, "UISelectable::URHO3D_OBJECT(UISelectable, UIElement)");
-    Remove(staticFields, "UISelectable::URHO3D_OBJECT(UISelectable, UIElement)");
     Remove(methods, "virtual void UIElement::OnIndentSet()");
-    Remove(fields, "virtual void UIElement::OnIndentSet()");
-    Remove(staticFields, "virtual void UIElement::OnIndentSet()");
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(fields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(staticFields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
     Remove(methods, "void UIElement::ApplyAttributes() override");
-    Remove(fields, "void UIElement::ApplyAttributes() override");
-    Remove(staticFields, "void UIElement::ApplyAttributes() override");
     Remove(methods, "void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(fields, "void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(staticFields, "void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
+
+    Remove(staticMethods, "static void UISelectable::RegisterObject(Context* context)");
 
     // void Text::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -1145,17 +1027,11 @@ void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_Drawable(methods, fields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(fields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
-    Remove(staticFields, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
     Remove(methods, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(fields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
-    Remove(staticFields, "virtual void Drawable::UpdateGeometry(const FrameInfo& frame)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
+
+    Remove(staticMethods, "static void Drawable::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void Text3D::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(Text3D, ApplyAttributes, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Text3D::UpdateBatches(const FrameInfo& frame) override", "void UpdateBatches(const FrameInfo&in)", AS_METHODPR(Text3D, UpdateBatches, (const FrameInfo&), void), AS_CALL_THISCALL));
@@ -1273,8 +1149,8 @@ void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     CollectMembers_UIElement(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::Update(float timeStep)");
-    Remove(fields, "virtual void UIElement::Update(float timeStep)");
-    Remove(staticFields, "virtual void UIElement::Update(float timeStep)");
+
+    Remove(staticMethods, "static void UIElement::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void ToolTip::Update(float timeStep) override", "void Update(float)", AS_METHODPR(ToolTip, Update, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ToolTip::Reset()", "void Reset()", AS_METHODPR(ToolTip, Reset, (), void), AS_CALL_THISCALL));
@@ -1456,6 +1332,8 @@ void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods, Vecto
 {
     CollectMembers_Component(methods, fields, staticFields);
 
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
+
     methods.Push(RegisterObjectMethodArgs("UIElement* UIComponent::GetRoot() const", "UIElement@+ GetRoot() const", AS_METHODPR(UIComponent, GetRoot, () const, UIElement*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("UIElement* UIComponent::GetRoot() const", "UIElement@+ get_root() const", AS_METHODPR(UIComponent, GetRoot, () const, UIElement*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Material* UIComponent::GetMaterial() const", "Material@+ GetMaterial() const", AS_METHODPR(UIComponent, GetMaterial, () const, Material*), AS_CALL_THISCALL));
@@ -1525,14 +1403,10 @@ void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods, Vector<
     CollectMembers_Animatable(methods, fields, staticFields);
 
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
-    Remove(fields, "bool Animatable::LoadXML(const XMLElement& source) override");
-    Remove(staticFields, "bool Animatable::LoadXML(const XMLElement& source) override");
     Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
-    Remove(fields, "bool Animatable::SaveXML(XMLElement& dest) const override");
-    Remove(staticFields, "bool Animatable::SaveXML(XMLElement& dest) const override");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
-    Remove(fields, "virtual void Serializable::ApplyAttributes()");
-    Remove(staticFields, "virtual void Serializable::ApplyAttributes()");
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -1864,11 +1738,9 @@ void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods, Vect
     CollectMembers_UIElement(methods, fields, staticFields);
 
     Remove(methods, "explicit UIElement::UIElement(Context* context)");
-    Remove(fields, "explicit UIElement::UIElement(Context* context)");
-    Remove(staticFields, "explicit UIElement::UIElement(Context* context)");
     Remove(methods, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
-    Remove(fields, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
-    Remove(staticFields, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
+
+    Remove(staticMethods, "static void UIElement::RegisterObject(Context* context)");
 
     // void UISelectable::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -1891,8 +1763,8 @@ void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_Window(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(fields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
-    Remove(staticFields, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
+
+    Remove(staticMethods, "static void Window::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void View3D::OnResize(const IntVector2& newSize, const IntVector2& delta) override", "void OnResize(const IntVector2&in, const IntVector2&in)", AS_METHODPR(View3D, OnResize, (const IntVector2&, const IntVector2&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void View3D::SetView(Scene* scene, Camera* camera, bool ownScene=true)", "void SetView(Scene@+, Camera@+, bool = true)", AS_METHODPR(View3D, SetView, (Scene*, Camera*, bool), void), AS_CALL_THISCALL));
@@ -1923,23 +1795,13 @@ void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     CollectMembers_BorderImage(methods, fields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDragCancel(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags cancelButtons, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragCancel(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags cancelButtons, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragCancel(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags cancelButtons, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags releaseButtons, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnDragMove(const IntVector2& position, const IntVector2& screenPosition, const IntVector2& deltaPos, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(fields, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
-    Remove(staticFields, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(fields, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
-    Remove(staticFields, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
+
+    Remove(staticMethods, "static void BorderImage::RegisterObject(Context* context)");
 
     // void Window::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override
     // Error: type "PODVector<UIBatch>&" can not automatically bind

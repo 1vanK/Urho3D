@@ -70,8 +70,6 @@ void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& method
     CollectMembers_SoundStream(methods, fields, staticFields);
 
     Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
-    Remove(fields, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
-    Remove(staticFields, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
 
     // void BufferedSoundStream::AddData(const SharedArrayPtr<signed char>& data, unsigned numBytes)
     // Error: type "const SharedArrayPtr<signed char>&" can not automatically bind
@@ -93,11 +91,7 @@ void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& metho
     CollectMembers_SoundStream(methods, fields, staticFields);
 
     Remove(methods, "virtual bool SoundStream::Seek(unsigned sample_number)");
-    Remove(fields, "virtual bool SoundStream::Seek(unsigned sample_number)");
-    Remove(staticFields, "virtual bool SoundStream::Seek(unsigned sample_number)");
     Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
-    Remove(fields, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
-    Remove(staticFields, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
 
     // unsigned OggVorbisSoundStream::GetData(signed char* dest, unsigned numBytes) override
     // Error: type "signed char*" can not automatically bind
@@ -120,8 +114,6 @@ void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     CollectMembers_ResourceWithMetadata(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(fields, "virtual bool Resource::BeginLoad(Deserializer& source)");
-    Remove(staticFields, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
     // SharedArrayPtr<signed char> Sound::GetData() const
     // Error: type "SharedArrayPtr<signed char>" can not automatically bind
@@ -167,12 +159,16 @@ void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Component(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 }
 
 // class SoundSource | File: ../Audio/SoundSource.h
 void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     CollectMembers_Component(methods, fields, staticFields);
+
+    Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // volatile signed char* SoundSource::GetPlayPosition() const
     // Error: type "signed char*" can not automatically bind
@@ -232,11 +228,9 @@ void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vec
     CollectMembers_SoundSource(methods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(fields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
-    Remove(staticFields, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void SoundSource::Update(float timeStep)");
-    Remove(fields, "virtual void SoundSource::Update(float timeStep)");
-    Remove(staticFields, "virtual void SoundSource::Update(float timeStep)");
+
+    Remove(staticMethods, "static void SoundSource::RegisterObject(Context* context)");
 
     methods.Push(RegisterObjectMethodArgs("void SoundSource3D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(SoundSource3D, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SoundSource3D::Update(float timeStep) override", "void Update(float)", AS_METHODPR(SoundSource3D, Update, (float), void), AS_CALL_THISCALL));
