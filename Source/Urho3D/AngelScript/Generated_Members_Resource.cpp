@@ -309,6 +309,13 @@ void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods, Vector<
     // Not registered because have @nobind mark
     // JSONObject* JSONValue::objectValue_
     // Not registered because have @nobind mark
+
+    // const JSONArray JSONValue::emptyArray
+    // Error: type "const JSONArray" can not automatically bind
+    // const JSONObject JSONValue::emptyObject
+    // Error: type "const JSONObject" can not automatically bind
+
+    staticFields.Push(RegisterGlobalPropertyArgs("const JSONValue JSONValue::EMPTY", "const JSONValue EMPTY", (void*)&JSONValue::EMPTY));
 }
 
 // class Localization | File: ../Resource/Localization.h
@@ -686,6 +693,8 @@ void CollectMembers_XMLElement(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("unsigned XMLElement::GetXPathResultIndex() const", "uint GetXPathResultIndex() const", AS_METHODPR(XMLElement, GetXPathResultIndex, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("XMLElement XMLElement::NextResult() const", "XMLElement NextResult() const", AS_METHODPR(XMLElement, NextResult, () const, XMLElement), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("XMLElement XMLElement::NextResult() const", "XMLElement get_nextResult() const", AS_METHODPR(XMLElement, NextResult, () const, XMLElement), AS_CALL_THISCALL));
+
+    staticFields.Push(RegisterGlobalPropertyArgs("const XMLElement XMLElement::EMPTY", "const XMLElement EMPTY", (void*)&XMLElement::EMPTY));
 }
 
 // class XMLFile | File: ../Resource/XMLFile.h

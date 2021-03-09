@@ -27,9 +27,9 @@ static void Register_AbstractFile(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -50,9 +50,9 @@ static void Register_AllocatorBlock(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -73,9 +73,9 @@ static void Register_AllocatorNode(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -93,9 +93,9 @@ static void Register_Animatable(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -113,9 +113,9 @@ static void Register_AnimatedModel(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -133,9 +133,9 @@ static void Register_Animation(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -153,9 +153,9 @@ static void Register_AnimationControl(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -173,9 +173,9 @@ static void Register_AnimationController(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -196,9 +196,9 @@ static void Register_AnimationKeyFrame(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -216,9 +216,9 @@ static void Register_AnimationState(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -239,9 +239,9 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -259,9 +259,9 @@ static void Register_AnimationTrack(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -282,9 +282,9 @@ static void Register_AnimationTriggerPoint(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -305,9 +305,9 @@ static void Register_AreaAllocator(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -328,9 +328,9 @@ static void Register_AsyncProgress(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -348,9 +348,9 @@ static void Register_AttributeAccessor(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -368,9 +368,9 @@ static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -391,9 +391,9 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -411,9 +411,9 @@ static void Register_Audio(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -434,9 +434,9 @@ static void Register_BackgroundLoadItem(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -457,9 +457,9 @@ static void Register_Batch(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -480,9 +480,9 @@ static void Register_BatchGroup(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -503,9 +503,9 @@ static void Register_BatchGroupKey(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -526,9 +526,9 @@ static void Register_BatchQueue(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -546,9 +546,9 @@ static void Register_BiasParameters(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -566,9 +566,9 @@ static void Register_Billboard(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -586,9 +586,9 @@ static void Register_BillboardSet(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -606,9 +606,9 @@ static void Register_Bone(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -626,9 +626,9 @@ static void Register_BorderImage(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -646,9 +646,9 @@ static void Register_BoundingBox(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -666,9 +666,9 @@ static void Register_BufferedSoundStream(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -686,9 +686,9 @@ static void Register_Button(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -706,9 +706,9 @@ static void Register_Camera(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -726,9 +726,9 @@ static void Register_CascadeParameters(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -749,9 +749,9 @@ static void Register_CharLocation(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -769,9 +769,9 @@ static void Register_CheckBox(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -789,9 +789,9 @@ static void Register_Color(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -809,9 +809,9 @@ static void Register_ColorFrame(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -829,9 +829,9 @@ static void Register_Component(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -852,9 +852,9 @@ static void Register_ComponentReplicationState(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -875,9 +875,9 @@ static void Register_CompressedLevel(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -898,9 +898,9 @@ static void Register_Condition(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -918,9 +918,9 @@ static void Register_Console(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -938,9 +938,9 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -958,9 +958,9 @@ static void Register_Context(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -981,9 +981,9 @@ static void Register_Controls(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1001,9 +1001,9 @@ static void Register_Cursor(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1024,9 +1024,9 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1044,9 +1044,9 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1064,9 +1064,9 @@ static void Register_CustomGeometryVertex(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1084,9 +1084,9 @@ static void Register_DebugHud(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1107,9 +1107,9 @@ static void Register_DebugLine(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1127,9 +1127,9 @@ static void Register_DebugRenderer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1150,9 +1150,9 @@ static void Register_DebugTriangle(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1173,9 +1173,9 @@ static void Register_Decal(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1193,9 +1193,9 @@ static void Register_DecalSet(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1216,9 +1216,9 @@ static void Register_DecalVertex(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1236,9 +1236,9 @@ static void Register_DepthValue(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1256,9 +1256,9 @@ static void Register_Deserializer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1279,9 +1279,9 @@ static void Register_DirtyBits(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1299,9 +1299,9 @@ static void Register_Drawable(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1319,9 +1319,9 @@ static void Register_DropDownList(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1339,9 +1339,9 @@ static void Register_Engine(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1359,9 +1359,9 @@ static void Register_EventProfiler(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1379,9 +1379,9 @@ static void Register_EventReceiverGroup(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1399,9 +1399,9 @@ static void Register_File(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1419,9 +1419,9 @@ static void Register_FileSelector(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1442,9 +1442,9 @@ static void Register_FileSelectorEntry(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1462,9 +1462,9 @@ static void Register_FileSystem(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1482,9 +1482,9 @@ static void Register_FileWatcher(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1502,9 +1502,9 @@ static void Register_FocusParameters(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1522,9 +1522,9 @@ static void Register_Font(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1542,9 +1542,9 @@ static void Register_FontFace(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1562,9 +1562,9 @@ static void Register_FontFaceBitmap(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1582,9 +1582,9 @@ static void Register_FontFaceFreeType(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1605,9 +1605,9 @@ static void Register_FontGlyph(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1628,9 +1628,9 @@ static void Register_FrameInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1651,9 +1651,9 @@ static void Register_Frustum(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1674,9 +1674,9 @@ static void Register_GPUObject(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1694,9 +1694,9 @@ static void Register_Geometry(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1717,9 +1717,9 @@ static void Register_GeometryDesc(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1737,9 +1737,9 @@ static void Register_Graphics(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1760,9 +1760,9 @@ static void Register_HashBase(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1783,9 +1783,9 @@ static void Register_HashIteratorBase(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1806,9 +1806,9 @@ static void Register_HashNodeBase(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1829,9 +1829,9 @@ static void Register_HiresTimer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1849,9 +1849,9 @@ static void Register_Image(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1869,9 +1869,9 @@ static void Register_IndexBuffer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1892,9 +1892,9 @@ static void Register_IndexBufferDesc(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1912,9 +1912,9 @@ static void Register_Input(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1935,9 +1935,9 @@ static void Register_InstanceData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1955,9 +1955,9 @@ static void Register_IntRect(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1975,9 +1975,9 @@ static void Register_IntVector2(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -1995,9 +1995,9 @@ static void Register_IntVector3(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2015,9 +2015,9 @@ static void Register_JSONFile(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2038,9 +2038,9 @@ static void Register_JSONValue(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2058,9 +2058,9 @@ static void Register_JoystickState(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2078,9 +2078,9 @@ static void Register_Light(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2101,9 +2101,9 @@ static void Register_LightBatchQueue(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2124,9 +2124,9 @@ static void Register_LightQueryResult(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2144,9 +2144,9 @@ static void Register_LineEdit(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2167,9 +2167,9 @@ static void Register_LinkedListNode(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2190,9 +2190,9 @@ static void Register_ListBase(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2213,9 +2213,9 @@ static void Register_ListIteratorBase(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2236,9 +2236,9 @@ static void Register_ListNodeBase(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2256,9 +2256,9 @@ static void Register_ListView(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2276,9 +2276,9 @@ static void Register_Localization(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2296,9 +2296,9 @@ static void Register_Log(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2316,9 +2316,9 @@ static void Register_LogicComponent(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2336,9 +2336,9 @@ static void Register_Material(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2359,9 +2359,9 @@ static void Register_MaterialShaderParameter(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2379,9 +2379,9 @@ static void Register_Matrix2(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2399,9 +2399,9 @@ static void Register_Matrix3(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2419,9 +2419,9 @@ static void Register_Matrix3x4(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2439,9 +2439,9 @@ static void Register_Matrix4(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2459,9 +2459,9 @@ static void Register_Menu(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2479,9 +2479,9 @@ static void Register_MessageBox(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2499,9 +2499,9 @@ static void Register_Model(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2522,9 +2522,9 @@ static void Register_ModelMorph(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2545,9 +2545,9 @@ static void Register_Mutex(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2568,9 +2568,9 @@ static void Register_MutexLock(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2588,9 +2588,9 @@ static void Register_NamedPipe(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2611,9 +2611,9 @@ static void Register_NetworkState(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2631,9 +2631,9 @@ static void Register_Node(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2654,9 +2654,9 @@ static void Register_NodeImpl(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2677,9 +2677,9 @@ static void Register_NodeReplicationState(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2697,9 +2697,9 @@ static void Register_Object(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2717,9 +2717,9 @@ static void Register_ObjectAnimation(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2737,9 +2737,9 @@ static void Register_ObjectFactory(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2760,9 +2760,9 @@ static void Register_OcclusionBatch(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2780,9 +2780,9 @@ static void Register_OcclusionBuffer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2803,9 +2803,9 @@ static void Register_OcclusionBufferData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2823,9 +2823,9 @@ static void Register_Octree(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2846,9 +2846,9 @@ static void Register_OctreeQueryResult(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2866,9 +2866,9 @@ static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2886,9 +2886,9 @@ static void Register_PackageEntry(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2906,9 +2906,9 @@ static void Register_PackageFile(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2929,9 +2929,9 @@ static void Register_Particle(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2949,9 +2949,9 @@ static void Register_ParticleEffect(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2969,9 +2969,9 @@ static void Register_ParticleEmitter(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -2989,9 +2989,9 @@ static void Register_Pass(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3012,9 +3012,9 @@ static void Register_PerThreadSceneResult(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3032,9 +3032,9 @@ static void Register_Plane(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3055,9 +3055,9 @@ static void Register_Polyhedron(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3075,9 +3075,9 @@ static void Register_Profiler(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3095,9 +3095,9 @@ static void Register_ProgressBar(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3115,9 +3115,9 @@ static void Register_Quaternion(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3135,9 +3135,9 @@ static void Register_Ray(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3158,9 +3158,9 @@ static void Register_RayQueryResult(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3178,9 +3178,9 @@ static void Register_Rect(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3201,9 +3201,9 @@ static void Register_RefCount(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3221,9 +3221,9 @@ static void Register_RefCounted(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3241,9 +3241,9 @@ static void Register_RenderPath(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3264,9 +3264,9 @@ static void Register_RenderPathCommand(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3284,9 +3284,9 @@ static void Register_RenderSurface(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3307,9 +3307,9 @@ static void Register_RenderTargetInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3327,9 +3327,9 @@ static void Register_Renderer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3350,9 +3350,9 @@ static void Register_ReplicationState(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3370,9 +3370,9 @@ static void Register_Resource(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3390,9 +3390,9 @@ static void Register_ResourceCache(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3413,9 +3413,9 @@ static void Register_ResourceGroup(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3436,9 +3436,9 @@ static void Register_ResourceRef(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3459,9 +3459,9 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3479,9 +3479,9 @@ static void Register_ResourceWithMetadata(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3499,9 +3499,9 @@ static void Register_RibbonTrail(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3519,9 +3519,9 @@ static void Register_Scene(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3542,9 +3542,9 @@ static void Register_ScenePassInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3565,9 +3565,9 @@ static void Register_SceneReplicationState(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3588,9 +3588,9 @@ static void Register_SceneResolver(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3611,9 +3611,9 @@ static void Register_ScratchBuffer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3634,9 +3634,9 @@ static void Register_ScreenModeParams(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3654,9 +3654,9 @@ static void Register_ScrollBar(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3674,9 +3674,9 @@ static void Register_ScrollView(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3694,9 +3694,9 @@ static void Register_Serializable(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3714,9 +3714,9 @@ static void Register_Serializer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3734,9 +3734,9 @@ static void Register_Shader(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3757,9 +3757,9 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3777,9 +3777,9 @@ static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3797,9 +3797,9 @@ static void Register_ShaderPrecache(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3817,9 +3817,9 @@ static void Register_ShaderVariation(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3840,9 +3840,9 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3860,9 +3860,9 @@ static void Register_Skeleton(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3880,9 +3880,9 @@ static void Register_Skybox(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3900,9 +3900,9 @@ static void Register_Slider(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3920,9 +3920,9 @@ static void Register_SmoothedTransform(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3940,9 +3940,9 @@ static void Register_Sound(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3960,9 +3960,9 @@ static void Register_SoundListener(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -3980,9 +3980,9 @@ static void Register_SoundSource(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4000,9 +4000,9 @@ static void Register_SoundSource3D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4020,9 +4020,9 @@ static void Register_SoundStream(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4043,9 +4043,9 @@ static void Register_SourceBatch(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4063,9 +4063,9 @@ static void Register_Sphere(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4086,9 +4086,9 @@ static void Register_Spline(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4106,9 +4106,9 @@ static void Register_SplinePath(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4126,9 +4126,9 @@ static void Register_Sprite(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4146,9 +4146,9 @@ static void Register_StaticModel(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4169,9 +4169,9 @@ static void Register_StaticModelGeometryData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4189,9 +4189,9 @@ static void Register_StaticModelGroup(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4212,9 +4212,9 @@ static void Register_StoredLogMessage(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4241,9 +4241,9 @@ static void Register_String(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4261,9 +4261,9 @@ static void Register_StringHash(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4284,9 +4284,9 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4304,9 +4304,9 @@ static void Register_Technique(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4327,9 +4327,9 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4347,9 +4347,9 @@ static void Register_Terrain(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4367,9 +4367,9 @@ static void Register_TerrainPatch(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4387,9 +4387,9 @@ static void Register_Text(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4407,9 +4407,9 @@ static void Register_Text3D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4427,9 +4427,9 @@ static void Register_Texture(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4447,9 +4447,9 @@ static void Register_Texture2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4467,9 +4467,9 @@ static void Register_Texture2DArray(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4487,9 +4487,9 @@ static void Register_Texture3D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4507,9 +4507,9 @@ static void Register_TextureCube(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4527,9 +4527,9 @@ static void Register_TextureFrame(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4547,9 +4547,9 @@ static void Register_Time(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4567,9 +4567,9 @@ static void Register_Timer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4587,9 +4587,9 @@ static void Register_ToolTip(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4607,9 +4607,9 @@ static void Register_TouchState(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4630,9 +4630,9 @@ static void Register_TrailPoint(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4650,9 +4650,9 @@ static void Register_UI(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4673,9 +4673,9 @@ static void Register_UIBatch(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4693,9 +4693,9 @@ static void Register_UIComponent(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4713,9 +4713,9 @@ static void Register_UIElement(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4733,9 +4733,9 @@ static void Register_UISelectable(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4753,9 +4753,9 @@ static void Register_UnknownComponent(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4776,9 +4776,9 @@ static void Register_VAnimEventFrame(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4799,9 +4799,9 @@ static void Register_VAnimKeyFrame(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4819,9 +4819,9 @@ static void Register_ValueAnimation(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4839,9 +4839,9 @@ static void Register_ValueAnimationInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4862,9 +4862,9 @@ static void Register_Variant(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4882,9 +4882,9 @@ static void Register_Vector2(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4902,9 +4902,9 @@ static void Register_Vector3(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4922,9 +4922,9 @@ static void Register_Vector4(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4945,9 +4945,9 @@ static void Register_VectorBase(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4968,9 +4968,9 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -4988,9 +4988,9 @@ static void Register_VertexBuffer(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5011,9 +5011,9 @@ static void Register_VertexBufferDesc(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5034,9 +5034,9 @@ static void Register_VertexBufferMorph(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5057,9 +5057,9 @@ static void Register_VertexElement(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5077,9 +5077,9 @@ static void Register_View(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5097,9 +5097,9 @@ static void Register_View3D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5117,9 +5117,9 @@ static void Register_Viewport(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5137,9 +5137,9 @@ static void Register_Window(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5160,9 +5160,9 @@ static void Register_WindowModeParams(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5180,9 +5180,9 @@ static void Register_WorkQueue(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5203,9 +5203,9 @@ static void Register_XMLElement(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5223,9 +5223,9 @@ static void Register_XMLFile(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5246,9 +5246,9 @@ static void Register_XPathQuery(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5269,9 +5269,9 @@ static void Register_XPathResultSet(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5289,9 +5289,9 @@ static void Register_Zone(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5311,9 +5311,9 @@ static void Register_Database(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5335,9 +5335,9 @@ static void Register_IKConstraint(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5355,9 +5355,9 @@ static void Register_IKEffector(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5375,9 +5375,9 @@ static void Register_IKSolver(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5399,9 +5399,9 @@ static void Register_CrowdAgent(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5419,9 +5419,9 @@ static void Register_CrowdManager(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5439,9 +5439,9 @@ static void Register_CrowdObstacleAvoidanceParams(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5459,9 +5459,9 @@ static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5479,9 +5479,9 @@ static void Register_NavArea(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5502,9 +5502,9 @@ static void Register_NavAreaStub(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5525,9 +5525,9 @@ static void Register_NavBuildData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5545,9 +5545,9 @@ static void Register_Navigable(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5568,9 +5568,9 @@ static void Register_NavigationGeometryInfo(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5588,9 +5588,9 @@ static void Register_NavigationMesh(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5611,9 +5611,9 @@ static void Register_NavigationPathPoint(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5631,9 +5631,9 @@ static void Register_Obstacle(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5651,9 +5651,9 @@ static void Register_OffMeshConnection(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5674,9 +5674,9 @@ static void Register_SimpleNavBuildData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5698,9 +5698,9 @@ static void Register_Connection(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5718,9 +5718,9 @@ static void Register_HttpRequest(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5738,9 +5738,9 @@ static void Register_Network(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5758,9 +5758,9 @@ static void Register_NetworkPriority(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5781,9 +5781,9 @@ static void Register_PackageDownload(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5804,9 +5804,9 @@ static void Register_PackageUpload(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5827,9 +5827,9 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5851,9 +5851,9 @@ static void Register_CollisionGeometryData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5871,9 +5871,9 @@ static void Register_CollisionShape(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5891,9 +5891,9 @@ static void Register_Constraint(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5911,9 +5911,9 @@ static void Register_ConvexData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5934,9 +5934,9 @@ static void Register_DelayedWorldTransform(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5954,9 +5954,9 @@ static void Register_GImpactMeshData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5974,9 +5974,9 @@ static void Register_HeightfieldData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -5997,9 +5997,9 @@ static void Register_ManifoldPair(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6020,9 +6020,9 @@ static void Register_PhysicsRaycastResult(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6040,9 +6040,9 @@ static void Register_PhysicsWorld(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6063,9 +6063,9 @@ static void Register_PhysicsWorldConfig(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6083,9 +6083,9 @@ static void Register_RaycastVehicle(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6103,9 +6103,9 @@ static void Register_RigidBody(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6123,9 +6123,9 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6147,9 +6147,9 @@ static void Register_AnimatedSprite2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6167,9 +6167,9 @@ static void Register_AnimationSet2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6187,9 +6187,9 @@ static void Register_CollisionBox2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6207,9 +6207,9 @@ static void Register_CollisionChain2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6227,9 +6227,9 @@ static void Register_CollisionCircle2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6247,9 +6247,9 @@ static void Register_CollisionEdge2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6267,9 +6267,9 @@ static void Register_CollisionPolygon2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6287,9 +6287,9 @@ static void Register_CollisionShape2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6307,9 +6307,9 @@ static void Register_Constraint2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6327,9 +6327,9 @@ static void Register_ConstraintDistance2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6347,9 +6347,9 @@ static void Register_ConstraintFriction2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6367,9 +6367,9 @@ static void Register_ConstraintGear2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6387,9 +6387,9 @@ static void Register_ConstraintMotor2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6407,9 +6407,9 @@ static void Register_ConstraintMouse2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6427,9 +6427,9 @@ static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6447,9 +6447,9 @@ static void Register_ConstraintPulley2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6467,9 +6467,9 @@ static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6487,9 +6487,9 @@ static void Register_ConstraintRope2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6507,9 +6507,9 @@ static void Register_ConstraintWeld2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6527,9 +6527,9 @@ static void Register_ConstraintWheel2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6550,9 +6550,9 @@ static void Register_DelayedWorldTransform2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6570,9 +6570,9 @@ static void Register_Drawable2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6593,9 +6593,9 @@ static void Register_Particle2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6613,9 +6613,9 @@ static void Register_ParticleEffect2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6633,9 +6633,9 @@ static void Register_ParticleEmitter2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6656,9 +6656,9 @@ static void Register_PhysicsRaycastResult2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6676,9 +6676,9 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6696,9 +6696,9 @@ static void Register_PropertySet2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6716,9 +6716,9 @@ static void Register_Renderer2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6736,9 +6736,9 @@ static void Register_RigidBody2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6759,9 +6759,9 @@ static void Register_SourceBatch2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6779,9 +6779,9 @@ static void Register_Sprite2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6799,9 +6799,9 @@ static void Register_SpriteSheet2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6819,9 +6819,9 @@ static void Register_StaticSprite2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6839,9 +6839,9 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6859,9 +6859,9 @@ static void Register_Tile2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6879,9 +6879,9 @@ static void Register_TileMap2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6899,9 +6899,9 @@ static void Register_TileMapInfo2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6919,9 +6919,9 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6939,9 +6939,9 @@ static void Register_TileMapObject2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6959,9 +6959,9 @@ static void Register_TmxFile2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6979,9 +6979,9 @@ static void Register_TmxImageLayer2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -6999,9 +6999,9 @@ static void Register_TmxLayer2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -7019,9 +7019,9 @@ static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -7039,9 +7039,9 @@ static void Register_TmxTileLayer2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 
@@ -7062,9 +7062,9 @@ static void Register_Vertex2D(asIScriptEngine* engine)
         engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
     for (const RegisterGlobalPropertyArgs& staticField : staticFields)
     {
-    engine->SetDefaultNamespace(asClassName);
+        engine->SetDefaultNamespace(asClassName);
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-    engine->SetDefaultNamespace("");
+        engine->SetDefaultNamespace("");
     }
 }
 

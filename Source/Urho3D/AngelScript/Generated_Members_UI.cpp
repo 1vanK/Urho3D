@@ -1307,6 +1307,8 @@ void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("unsigned UIBatch::vertexEnd_", "uint vertexEnd", offsetof(UIBatch, vertexEnd_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned UIBatch::color_", "uint color", offsetof(UIBatch, color_)));
     fields.Push(RegisterObjectPropertyArgs("bool UIBatch::useGradient_", "bool useGradient", offsetof(UIBatch, useGradient_)));
+
+    staticFields.Push(RegisterGlobalPropertyArgs("Vector3 UIBatch::posAdjust", "Vector3 posAdjust", (void*)&UIBatch::posAdjust));
 }
 
 // class UIComponent | File: ../UI/UIComponent.h

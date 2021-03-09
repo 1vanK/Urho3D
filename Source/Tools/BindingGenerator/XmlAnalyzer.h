@@ -280,6 +280,7 @@ public:
     vector<MethodAnalyzer> GetThisPublicMethods() const;
     vector<FieldAnalyzer> GetAllFields() const;
     vector<FieldAnalyzer> GetThisPublicFields() const;
+    vector<FieldAnalyzer> GetThisPublicStaticFields() const;
     bool ContainsMethod(const string& name) const;
     shared_ptr<MethodAnalyzer> GetMethod(const string& name) const;
     int NumMethods(const string& name) const;

@@ -649,9 +649,9 @@ namespace Result
                 "        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);\n"
                 "    for (const RegisterGlobalPropertyArgs& staticField : staticFields)\n"
                 "    {\n"
-                "    engine->SetDefaultNamespace(asClassName);\n"
+                "        engine->SetDefaultNamespace(asClassName);\n"
                 "        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);\n"
-                "    engine->SetDefaultNamespace(\"\");\n"
+                "        engine->SetDefaultNamespace(\"\");\n"
                 "    }\n";
 
             ofs << "}\n";
@@ -863,6 +863,32 @@ namespace Result
 
                 for (const string& asDeclaration : args.asDeclarations_)
                     file->ofs_ << "    fields.Push(RegisterObjectPropertyArgs(\"" << field.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.byteOffset_ << "));\n";
+
+                file->needGap_ = true;
+            }
+
+            if (file->needGap_ && processedClass.unregisteredStaticFields_.size())
+                file->ofs_ << '\n';
+
+            for (const MemberRegistrationError& unregisteredStaticField : processedClass.unregisteredStaticFields_)
+            {
+                file->ofs_ <<
+                    "    // " << unregisteredStaticField.comment_ << "\n"
+                    "    // " << unregisteredStaticField.message_ << "\n";
+
+                file->needGap_ = true;
+            }
+
+            if (file->needGap_ && processedClass.staticFields_.size())
+                file->ofs_ << '\n';
+
+            for (const StaticFieldRegistration& staticField : processedClass.staticFields_)
+            {
+                const RegisterGlobalPropertyArgs& args = staticField.registration_;
+                assert(args.asDeclarations_.size());
+
+                for (const string& asDeclaration : args.asDeclarations_)
+                    file->ofs_ << "    staticFields.Push(RegisterGlobalPropertyArgs(\"" << staticField.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.pointer_ << "));\n";
 
                 file->needGap_ = true;
             }

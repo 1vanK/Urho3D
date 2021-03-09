@@ -606,6 +606,10 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
     for (const FieldAnalyzer& field : fields)
         RegisterField(field, processedClass);
 
+    vector<FieldAnalyzer> staticFields = classAnalyzer.GetThisPublicStaticFields();
+    for (const FieldAnalyzer& staticField : staticFields)
+        RegisterField(staticField, processedClass);
+
     if (classAnalyzer.IsAbstract() && !(classAnalyzer.IsRefCounted() || Contains(classAnalyzer.GetComment(), "FAKE_REF")))
     {
         processedClass.objectTypeRegistration_ = "// Not registered because value types can not be abstract";

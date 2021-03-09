@@ -3118,6 +3118,9 @@ void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods, V
     methods.Push(RegisterObjectMethodArgs("const String& ShaderVariation::GetDefines() const", "const String& GetDefines() const", AS_METHODPR(ShaderVariation, GetDefines, () const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& ShaderVariation::GetCompilerOutput() const", "const String& GetCompilerOutput() const", AS_METHODPR(ShaderVariation, GetCompilerOutput, () const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& ShaderVariation::GetDefinesClipPlane()", "const String& GetDefinesClipPlane()", AS_METHODPR(ShaderVariation, GetDefinesClipPlane, (), const String&), AS_CALL_THISCALL));
+
+    // const char* ShaderVariation::elementSemanticNames[]
+    // Error: type "const char*" can not automatically bind
 }
 
 // struct ShadowBatchQueue | File: ../Graphics/Batch.h
@@ -3358,6 +3361,15 @@ void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("PODVector<Pass*> Technique::GetPasses() const", "Array<Pass@>@ GetPasses() const", AS_FUNCTION_OBJFIRST(Technique_GetPasses_void), AS_CALL_CDECL_OBJFIRST));
     methods.Push(RegisterObjectMethodArgs("PODVector<Pass*> Technique::GetPasses() const", "Array<Pass@>@ get_passes() const", AS_FUNCTION_OBJFIRST(Technique_GetPasses_void), AS_CALL_CDECL_OBJFIRST));
     methods.Push(RegisterObjectMethodArgs("SharedPtr<Technique> Technique::CloneWithDefines(const String& vsDefines, const String& psDefines)", "Technique@+ CloneWithDefines(const String&in, const String&in)", AS_FUNCTION_OBJFIRST(Technique_CloneWithDefines_String_String), AS_CALL_CDECL_OBJFIRST));
+
+    staticFields.Push(RegisterGlobalPropertyArgs("unsigned Technique::basePassIndex", "uint basePassIndex", (void*)&Technique::basePassIndex));
+    staticFields.Push(RegisterGlobalPropertyArgs("unsigned Technique::alphaPassIndex", "uint alphaPassIndex", (void*)&Technique::alphaPassIndex));
+    staticFields.Push(RegisterGlobalPropertyArgs("unsigned Technique::materialPassIndex", "uint materialPassIndex", (void*)&Technique::materialPassIndex));
+    staticFields.Push(RegisterGlobalPropertyArgs("unsigned Technique::deferredPassIndex", "uint deferredPassIndex", (void*)&Technique::deferredPassIndex));
+    staticFields.Push(RegisterGlobalPropertyArgs("unsigned Technique::lightPassIndex", "uint lightPassIndex", (void*)&Technique::lightPassIndex));
+    staticFields.Push(RegisterGlobalPropertyArgs("unsigned Technique::litBasePassIndex", "uint litBasePassIndex", (void*)&Technique::litBasePassIndex));
+    staticFields.Push(RegisterGlobalPropertyArgs("unsigned Technique::litAlphaPassIndex", "uint litAlphaPassIndex", (void*)&Technique::litAlphaPassIndex));
+    staticFields.Push(RegisterGlobalPropertyArgs("unsigned Technique::shadowPassIndex", "uint shadowPassIndex", (void*)&Technique::shadowPassIndex));
 }
 
 // struct TechniqueEntry | File: ../Graphics/Material.h
