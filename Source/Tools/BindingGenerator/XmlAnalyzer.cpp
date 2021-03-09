@@ -721,6 +721,21 @@ vector<MethodAnalyzer> ClassAnalyzer::GetThisPublicMethods() const
     return result;
 }
 
+vector<MethodAnalyzer> ClassAnalyzer::GetThisPublicStaticMethods() const
+{
+    vector<MethodAnalyzer> result;
+
+    xml_node sectiondef = FindSectiondef(compounddef_, "public-static-func");
+
+    for (xml_node memberdef : sectiondef.children("memberdef"))
+    {
+        MethodAnalyzer methodAnalyzer(*this, memberdef);
+        result.push_back(methodAnalyzer);
+    }
+
+    return result;
+}
+
 vector<FieldAnalyzer> ClassAnalyzer::GetAllFields() const
 {
     vector<FieldAnalyzer> result;

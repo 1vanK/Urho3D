@@ -282,6 +282,7 @@ public:
     bool IsTemplate() const { return ::IsTemplate(compounddef_); }
     vector<MethodAnalyzer> GetAllMethods() const;
     vector<MethodAnalyzer> GetThisPublicMethods() const;
+    vector<MethodAnalyzer> GetThisPublicStaticMethods() const;
     vector<FieldAnalyzer> GetAllFields() const;
     vector<FieldAnalyzer> GetThisPublicFields() const;
     vector<FieldAnalyzer> GetThisPublicStaticFields() const;

@@ -884,6 +884,32 @@ namespace Result
                 file->needGap_ = true;
             }
 
+            if (file->needGap_ && processedClass.unregisteredStaticMethods_.size())
+                file->ofs_ << '\n';
+
+            for (const MemberRegistrationError& unregisteredStaticMethod : processedClass.unregisteredStaticMethods_)
+            {
+                file->ofs_ <<
+                    "    // " << unregisteredStaticMethod.comment_ << "\n"
+                    "    // " << unregisteredStaticMethod.message_ << "\n";
+
+                file->needGap_ = true;
+            }
+
+            if (file->needGap_ && processedClass.staticMethods_.size())
+                file->ofs_ << '\n';
+
+            for (const StaticMethodRegistration& staticMethod : processedClass.staticMethods_)
+            {
+                const RegisterGlobalFunctionArgs& args = staticMethod.registration_;
+                assert(args.asDeclarations_.size());
+
+                for (const string& asDeclaration : args.asDeclarations_)
+                    file->ofs_ << "    methods.Push(RegisterGlobalFunctionArgs(\"" << staticMethod.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
+
+                file->needGap_ = true;
+            }
+
             if (file->needGap_ && processedClass.unregisteredFields_.size())
                 file->ofs_ << '\n';
 

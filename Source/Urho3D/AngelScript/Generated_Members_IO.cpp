@@ -229,6 +229,12 @@ void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods, Vector<Regist
     methods.Push(RegisterObjectMethodArgs("String Log::GetLastMessage() const", "String get_lastMessage() const", AS_METHODPR(Log, GetLastMessage, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Log::IsQuiet() const", "bool IsQuiet() const", AS_METHODPR(Log, IsQuiet, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Log::IsQuiet() const", "bool get_quiet() const", AS_METHODPR(Log, IsQuiet, () const, bool), AS_CALL_THISCALL));
+
+    // static void Log::WriteFormat(int level, const char* format,...) | File: ../IO/Log.h
+    // Error: type "const char*" can not automatically bind
+
+    methods.Push(RegisterGlobalFunctionArgs("static void Log::Write(int level, const String& message) | File: ../IO/Log.h", "void Write(int, const String&in)", AS_FUNCTIONPR(Log::Write, (int, const String&), void), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Log::WriteRaw(const String& message, bool error=false) | File: ../IO/Log.h", "void WriteRaw(const String&in, bool = false)", AS_FUNCTIONPR(Log::WriteRaw, (const String&, bool), void), AS_CALL_CDECL));
 }
 
 // class MemoryBuffer | File: ../IO/MemoryBuffer.h

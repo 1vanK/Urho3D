@@ -166,6 +166,9 @@ void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods, Vec
     Remove(methods, "void Profiler::BeginBlock(const char* name)");
 
     methods.Push(RegisterObjectMethodArgs("void EventProfiler::BeginBlock(StringHash eventID)", "void BeginBlock(StringHash)", AS_METHODPR(EventProfiler, BeginBlock, (StringHash), void), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void EventProfiler::SetActive(bool newActive) | File: ../Core/EventProfiler.h", "void SetActive(bool)", AS_FUNCTIONPR(EventProfiler::SetActive, (bool), void), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static bool EventProfiler::IsActive() | File: ../Core/EventProfiler.h", "bool IsActive()", AS_FUNCTIONPR(EventProfiler::IsActive, (), bool), AS_CALL_CDECL));
 }
 
 // class EventProfilerBlock | File: ../Core/EventProfiler.h
@@ -196,6 +199,9 @@ void CollectMembers_HiresTimer(Vector<RegisterObjectMethodArgs>& methods, Vector
 {
     methods.Push(RegisterObjectMethodArgs("long long HiresTimer::GetUSec(bool reset)", "int64 GetUSec(bool)", AS_METHODPR(HiresTimer, GetUSec, (bool), long long), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void HiresTimer::Reset()", "void Reset()", AS_METHODPR(HiresTimer, Reset, (), void), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static bool HiresTimer::IsSupported() | File: ../Core/Timer.h", "bool IsSupported()", AS_FUNCTIONPR(HiresTimer::IsSupported, (), bool), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static long long HiresTimer::GetFrequency() | File: ../Core/Timer.h", "int64 GetFrequency()", AS_FUNCTIONPR(HiresTimer::GetFrequency, (), long long), AS_CALL_CDECL));
 }
 
 // class Mutex | File: ../Core/Mutex.h
@@ -271,6 +277,9 @@ void CollectMembers_Object(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("const String& Object::GetCategory() const", "const String& get_category() const", AS_METHODPR(Object, GetCategory, () const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Object::SetBlockEvents(bool block)", "void SetBlockEvents(bool)", AS_METHODPR(Object, SetBlockEvents, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Object::GetBlockEvents() const", "bool GetBlockEvents() const", AS_METHODPR(Object, GetBlockEvents, () const, bool), AS_CALL_THISCALL));
+
+    // static const TypeInfo* Object::GetTypeInfoStatic() | File: ../Core/Object.h
+    // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
 }
 
 // virtual SharedPtr<Object> ObjectFactory::CreateObject()=0
@@ -425,6 +434,12 @@ void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("void Thread::Stop()", "void Stop()", AS_METHODPR(Thread, Stop, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Thread::SetPriority(int priority)", "void SetPriority(int)", AS_METHODPR(Thread, SetPriority, (int), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Thread::IsStarted() const", "bool IsStarted() const", AS_METHODPR(Thread, IsStarted, () const, bool), AS_CALL_THISCALL));
+
+    // static ThreadID Thread::GetCurrentThreadID() | File: ../Core/Thread.h
+    // Error: type "ThreadID" can not automatically bind
+
+    methods.Push(RegisterGlobalFunctionArgs("static void Thread::SetMainThread() | File: ../Core/Thread.h", "void SetMainThread()", AS_FUNCTIONPR(Thread::SetMainThread, (), void), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static bool Thread::IsMainThread() | File: ../Core/Thread.h", "bool IsMainThread()", AS_FUNCTIONPR(Thread::IsMainThread, (), bool), AS_CALL_CDECL));
 }
 
 // class Time | File: ../Core/Timer.h
@@ -444,6 +459,11 @@ void CollectMembers_Time(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("float Time::GetElapsedTime()", "float get_elapsedTime()", AS_METHODPR(Time, GetElapsedTime, (), float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Time::GetFramesPerSecond() const", "float GetFramesPerSecond() const", AS_METHODPR(Time, GetFramesPerSecond, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Time::GetFramesPerSecond() const", "float get_framesPerSecond() const", AS_METHODPR(Time, GetFramesPerSecond, () const, float), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static unsigned Time::GetSystemTime() | File: ../Core/Timer.h", "uint GetSystemTime()", AS_FUNCTIONPR(Time::GetSystemTime, (), unsigned), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static unsigned Time::GetTimeSinceEpoch() | File: ../Core/Timer.h", "uint GetTimeSinceEpoch()", AS_FUNCTIONPR(Time::GetTimeSinceEpoch, (), unsigned), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static String Time::GetTimeStamp() | File: ../Core/Timer.h", "String GetTimeStamp()", AS_FUNCTIONPR(Time::GetTimeStamp, (), String), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Time::Sleep(unsigned mSec) | File: ../Core/Timer.h", "void Sleep(uint)", AS_FUNCTIONPR(Time::Sleep, (unsigned), void), AS_CALL_CDECL));
 }
 
 // class Timer | File: ../Core/Timer.h
@@ -695,6 +715,12 @@ void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("bool Variant::IsEmpty() const", "bool IsEmpty() const", AS_METHODPR(Variant, IsEmpty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Variant::IsEmpty() const", "bool get_empty() const", AS_METHODPR(Variant, IsEmpty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Variant::IsCustom() const", "bool IsCustom() const", AS_METHODPR(Variant, IsCustom, () const, bool), AS_CALL_THISCALL));
+
+    // static VariantType Variant::GetTypeFromName(const char* typeName) | File: ../Core/Variant.h
+    // Error: type "const char*" can not automatically bind
+
+    methods.Push(RegisterGlobalFunctionArgs("static String Variant::GetTypeName(VariantType type) | File: ../Core/Variant.h", "String GetTypeName(VariantType)", AS_FUNCTIONPR(Variant::GetTypeName, (VariantType), String), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static VariantType Variant::GetTypeFromName(const String& typeName) | File: ../Core/Variant.h", "VariantType GetTypeFromName(const String&in)", AS_FUNCTIONPR(Variant::GetTypeFromName, (const String&), VariantType), AS_CALL_CDECL));
 
     // static const PODVector<unsigned char> Variant::emptyBuffer
     // Error: type "const PODVector<unsigned char>" can not automatically bind

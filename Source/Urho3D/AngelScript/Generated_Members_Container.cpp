@@ -271,6 +271,19 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("String String::SubstringUTF8(unsigned pos, unsigned length) const", "String SubstringUTF8(uint, uint) const", AS_METHODPR(String, SubstringUTF8, (unsigned, unsigned) const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned String::ToHash() const", "uint ToHash() const", AS_METHODPR(String, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
+    // static Vector<String> String::Split(const char* str, char separator, bool keepEmptyStrings=false) | File: ../Container/Str.h
+    // Error: type "const char*" can not automatically bind
+    // static void String::EncodeUTF8(char*& dest, unsigned unicodeChar) | File: ../Container/Str.h
+    // Error: type "char*&" can not automatically bind
+    // static unsigned String::DecodeUTF8(const char*& src) | File: ../Container/Str.h
+    // Error: type "const char*&" can not automatically bind
+    // static unsigned String::CStringLength(const char* str) | File: ../Container/Str.h
+    // Error: type "const char*" can not automatically bind
+    // static int String::Compare(const char* lhs, const char* rhs, bool caseSensitive) | File: ../Container/Str.h
+    // Error: type "const char*" can not automatically bind
+
+    methods.Push(RegisterGlobalFunctionArgs("static String String::Joined(const Vector<String>& subStrings, const String& glue) | File: ../Container/Str.h", "String Joined(Array<String>@+, const String&in)", AS_FUNCTION(String_Joined_VectorString_String), AS_CALL_CDECL));
+
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::NPOS", "const uint NPOS", (void*)&String::NPOS));
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::MIN_CAPACITY", "const uint MIN_CAPACITY", (void*)&String::MIN_CAPACITY));
     staticFields.Push(RegisterGlobalPropertyArgs("static const String String::EMPTY", "const String EMPTY", (void*)&String::EMPTY));

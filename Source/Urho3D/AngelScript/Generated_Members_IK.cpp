@@ -25,6 +25,8 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("void IKConstraint::SetStretchiness(float stretchiness)", "void SetStretchiness(float)", AS_METHODPR(IKConstraint, SetStretchiness, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Vector2& IKConstraint::GetLengthConstraints() const", "const Vector2& GetLengthConstraints() const", AS_METHODPR(IKConstraint, GetLengthConstraints, () const, const Vector2&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKConstraint::SetLengthConstraints(const Vector2& lengthConstraints)", "void SetLengthConstraints(const Vector2&in)", AS_METHODPR(IKConstraint, SetLengthConstraints, (const Vector2&), void), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void IKConstraint::RegisterObject(Context* context) | File: ../IK/IKConstraint.h", "void RegisterObject()", AS_FUNCTION(IKConstraint_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class IKEffector | File: ../IK/IKEffector.h
@@ -76,6 +78,8 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("bool IKEffector::GetINHERIT_PARENT_ROTATION() const", "bool GetINHERIT_PARENT_ROTATION() const", AS_METHODPR(IKEffector, GetINHERIT_PARENT_ROTATION, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKEffector::SetWEIGHT_NLERP(bool enable)", "void SetWEIGHT_NLERP(bool)", AS_METHODPR(IKEffector, SetWEIGHT_NLERP, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKEffector::SetINHERIT_PARENT_ROTATION(bool enable)", "void SetINHERIT_PARENT_ROTATION(bool)", AS_METHODPR(IKEffector, SetINHERIT_PARENT_ROTATION, (bool), void), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void IKEffector::RegisterObject(Context* context) | File: ../IK/IKEffector.h", "void RegisterObject()", AS_FUNCTION(IKEffector_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class IKSolver | File: ../IK/IKSolver.h
@@ -134,6 +138,8 @@ void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void IKSolver::SetCONSTRAINTS(bool enable)", "void set_CONSTRAINTS(bool)", AS_METHODPR(IKSolver, SetCONSTRAINTS, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKSolver::SetAUTO_SOLVE(bool enable)", "void SetAUTO_SOLVE(bool)", AS_METHODPR(IKSolver, SetAUTO_SOLVE, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKSolver::SetAUTO_SOLVE(bool enable)", "void set_AUTO_SOLVE(bool)", AS_METHODPR(IKSolver, SetAUTO_SOLVE, (bool), void), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void IKSolver::RegisterObject(Context* context) | File: ../IK/IKSolver.h", "void RegisterObject()", AS_FUNCTION(IKSolver_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 #endif // def URHO3D_IK

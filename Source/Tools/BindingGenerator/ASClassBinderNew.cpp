@@ -316,7 +316,93 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
         return;
 
     if (methodAnalyzer.IsStatic())
+    {
+        ClassStaticFunctionAnalyzer staticMethodAnalyzer(methodAnalyzer.GetClass(), methodAnalyzer.GetMemberdef());
+
+        vector<ParamAnalyzer> params = staticMethodAnalyzer.GetParams();
+        vector<ConvertedVariable> convertedParams;
+        string outGlue;
+        bool needWrapper = false;
+
+        for (const ParamAnalyzer& param : params)
+        {
+            ConvertedVariable conv;
+            try
+            {
+                conv = CppVariableToAS(param.GetType(), VariableUsage::FunctionParameter, param.GetDeclname(), param.GetDefval());
+            }
+            catch (const Exception& e)
+            {
+                MemberRegistrationError regError;
+                regError.name_ = staticMethodAnalyzer.GetName();
+                regError.comment_ = methodAnalyzer.GetDeclaration();
+                regError.message_ = e.what();
+                processedClass.unregisteredStaticMethods_.push_back(regError);
+                return;
+            }
+
+            if (conv.NeedWrapper())
+                needWrapper = true;
+
+            convertedParams.push_back(conv);
+        }
+
+        ConvertedVariable convertedReturn;
+
+        try
+        {
+            convertedReturn = CppVariableToAS(staticMethodAnalyzer.GetReturnType(), VariableUsage::FunctionReturn);
+        }
+        catch (const Exception& e)
+        {
+            MemberRegistrationError regError;
+            regError.name_ = staticMethodAnalyzer.GetName();
+            regError.comment_ = methodAnalyzer.GetDeclaration();
+            regError.message_ = e.what();
+            processedClass.unregisteredStaticMethods_.push_back(regError);
+            return;
+        }
+
+        if (convertedReturn.NeedWrapper())
+            needWrapper = true;
+
+        string asFunctionName = staticMethodAnalyzer.GetName();
+        string className = staticMethodAnalyzer.GetClassName();
+
+        /*if (needWrapper)
+            result->glue_ << GenerateWrapper(functionAnalyzer, convertedParams, convertedReturn);*/
+
+        string decl = convertedReturn.asDeclaration_ + " " + asFunctionName + "(" + JoinASDeclarations(convertedParams) + ")";
+
+        /*result->reg_ << "    engine->SetDefaultNamespace(\"" << className << "\");\n";
+
+        result->reg_ << "    engine->RegisterGlobalFunction(\"" << decl << "\", ";
+
+        if (needWrapper)
+            result->reg_ << "AS_FUNCTION(" << GenerateWrapperName(functionAnalyzer) << "), AS_CALL_CDECL);\n";
+        else
+            result->reg_ << Generate_asFUNCTIONPR(functionAnalyzer) << ", AS_CALL_CDECL);\n";
+
+        result->reg_ << "    engine->SetDefaultNamespace(\"\");\n";*/
+
+        StaticMethodRegistration result;
+        result.cppDeclaration_ = methodAnalyzer.GetDeclaration();
+        result.name_ = staticMethodAnalyzer.GetName();
+        result.registration_.asDeclarations_.push_back(decl);
+        result.registration_.callConv_ = "AS_CALL_CDECL";
+        
+        if (needWrapper)
+            result.registration_.funcPointer_ = "AS_FUNCTION(" + GenerateWrapperName(staticMethodAnalyzer) + ")";
+        else
+            result.registration_.funcPointer_ = Generate_asFUNCTIONPR(staticMethodAnalyzer);
+
+        if (needWrapper)
+            result.glue_ = GenerateWrapper(staticMethodAnalyzer, convertedParams, convertedReturn);
+
+        processedClass.staticMethods_.push_back(result);
+
         return;
+    }
 
     if (HaveMark(methodAnalyzer, "NO_BIND"))
     {
@@ -600,6 +686,13 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
             continue;
         else
             RegisterMethod(method, processedClass);
+    }
+
+    // TODO отдельный класс для статических методов?
+    vector<MethodAnalyzer> staticMethods = classAnalyzer.GetThisPublicStaticMethods();
+    for (const MethodAnalyzer& staticMethod : staticMethods)
+    {
+        RegisterMethod(staticMethod, processedClass);
     }
 
     vector<FieldAnalyzer> fields = classAnalyzer.GetThisPublicFields();

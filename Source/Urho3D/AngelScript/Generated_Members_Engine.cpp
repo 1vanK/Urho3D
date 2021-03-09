@@ -155,6 +155,10 @@ void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("void Engine::Update()", "void Update()", AS_METHODPR(Engine, Update, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Engine::Render()", "void Render()", AS_METHODPR(Engine, Render, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Engine::ApplyFrameLimit()", "void ApplyFrameLimit()", AS_METHODPR(Engine, ApplyFrameLimit, (), void), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static VariantMap Engine::ParseParameters(const Vector<String>& arguments) | File: ../Engine/Engine.h", "VariantMap ParseParameters(Array<String>@+)", AS_FUNCTION(Engine_ParseParameters_VectorString), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static bool Engine::HasParameter(const VariantMap& parameters, const String& parameter) | File: ../Engine/Engine.h", "bool HasParameter(const VariantMap&in, const String&in)", AS_FUNCTIONPR(Engine::HasParameter, (const VariantMap&, const String&), bool), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static const Variant& Engine::GetParameter(const VariantMap& parameters, const String& parameter, const Variant& defaultValue=Variant::EMPTY) | File: ../Engine/Engine.h", "const Variant& GetParameter(const VariantMap&in, const String&in, const Variant&in = Variant::EMPTY)", AS_FUNCTIONPR(Engine::GetParameter, (const VariantMap&, const String&, const Variant&), const Variant&), AS_CALL_CDECL));
 }
 
 } // namespace Urho3D

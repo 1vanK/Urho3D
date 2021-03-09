@@ -91,6 +91,8 @@ void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("bool CrowdAgent::HasArrived() const", "bool get_arrived() const", AS_METHODPR(CrowdAgent, HasArrived, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool CrowdAgent::IsInCrowd() const", "bool IsInCrowd() const", AS_METHODPR(CrowdAgent, IsInCrowd, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool CrowdAgent::IsInCrowd() const", "bool get_inCrowd() const", AS_METHODPR(CrowdAgent, IsInCrowd, () const, bool), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void CrowdAgent::RegisterObject(Context* context) | File: ../Navigation/CrowdAgent.h", "void RegisterObject()", AS_FUNCTION(CrowdAgent_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node=nullptr, bool inCrowdFilter=true) const
@@ -169,6 +171,8 @@ void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("unsigned CrowdManager::GetNumObstacleAvoidanceTypes() const", "uint GetNumObstacleAvoidanceTypes() const", AS_METHODPR(CrowdManager, GetNumObstacleAvoidanceTypes, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned CrowdManager::GetNumObstacleAvoidanceTypes() const", "uint get_numObstacleAvoidanceTypes() const", AS_METHODPR(CrowdManager, GetNumObstacleAvoidanceTypes, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const CrowdObstacleAvoidanceParams& CrowdManager::GetObstacleAvoidanceParams(unsigned obstacleAvoidanceType) const", "const CrowdObstacleAvoidanceParams& GetObstacleAvoidanceParams(uint) const", AS_METHODPR(CrowdManager, GetObstacleAvoidanceParams, (unsigned) const, const CrowdObstacleAvoidanceParams&), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void CrowdManager::RegisterObject(Context* context) | File: ../Navigation/CrowdManager.h", "void RegisterObject()", AS_FUNCTION(CrowdManager_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct CrowdObstacleAvoidanceParams | File: ../Navigation/CrowdManager.h
@@ -249,6 +253,8 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
     methods.Push(RegisterObjectMethodArgs("void DynamicNavigationMesh::SetDrawObstacles(bool enable)", "void set_drawObstacles(bool)", AS_METHODPR(DynamicNavigationMesh, SetDrawObstacles, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool DynamicNavigationMesh::GetDrawObstacles() const", "bool GetDrawObstacles() const", AS_METHODPR(DynamicNavigationMesh, GetDrawObstacles, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool DynamicNavigationMesh::GetDrawObstacles() const", "bool get_drawObstacles() const", AS_METHODPR(DynamicNavigationMesh, GetDrawObstacles, () const, bool), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void DynamicNavigationMesh::RegisterObject(Context* context) | File: ../Navigation/DynamicNavigationMesh.h", "void RegisterObject()", AS_FUNCTION(DynamicNavigationMesh_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class NavArea | File: ../Navigation/NavArea.h
@@ -271,6 +277,8 @@ void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("void NavArea::SetBoundingBox(const BoundingBox& bnds)", "void set_boundingBox(const BoundingBox&in)", AS_METHODPR(NavArea, SetBoundingBox, (const BoundingBox&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("BoundingBox NavArea::GetWorldBoundingBox() const", "BoundingBox GetWorldBoundingBox() const", AS_METHODPR(NavArea, GetWorldBoundingBox, () const, BoundingBox), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("BoundingBox NavArea::GetWorldBoundingBox() const", "BoundingBox get_worldBoundingBox() const", AS_METHODPR(NavArea, GetWorldBoundingBox, () const, BoundingBox), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void NavArea::RegisterObject(Context* context) | File: ../Navigation/NavArea.h", "void RegisterObject()", AS_FUNCTION(NavArea_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct NavAreaStub | File: ../Navigation/NavBuildData.h
@@ -320,6 +328,8 @@ void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("void Navigable::SetRecursive(bool enable)", "void set_recursive(bool)", AS_METHODPR(Navigable, SetRecursive, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Navigable::IsRecursive() const", "bool IsRecursive() const", AS_METHODPR(Navigable, IsRecursive, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Navigable::IsRecursive() const", "bool get_recursive() const", AS_METHODPR(Navigable, IsRecursive, () const, bool), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void Navigable::RegisterObject(Context* context) | File: ../Navigation/Navigable.h", "void RegisterObject()", AS_FUNCTION(Navigable_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
@@ -458,6 +468,8 @@ void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("void NavigationMesh::SetDrawNavAreas(bool enable)", "void set_drawNavAreas(bool)", AS_METHODPR(NavigationMesh, SetDrawNavAreas, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool NavigationMesh::GetDrawNavAreas() const", "bool GetDrawNavAreas() const", AS_METHODPR(NavigationMesh, GetDrawNavAreas, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool NavigationMesh::GetDrawNavAreas() const", "bool get_drawNavAreas() const", AS_METHODPR(NavigationMesh, GetDrawNavAreas, () const, bool), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void NavigationMesh::RegisterObject(Context* context) | File: ../Navigation/NavigationMesh.h", "void RegisterObject()", AS_FUNCTION(NavigationMesh_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct NavigationPathPoint | File: ../Navigation/NavigationMesh.h
@@ -491,6 +503,8 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("unsigned Obstacle::GetObstacleID() const", "uint get_obstacleId() const", AS_METHODPR(Obstacle, GetObstacleID, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Obstacle::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(Obstacle, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Obstacle::DrawDebugGeometry(bool depthTest)", "void DrawDebugGeometry(bool)", AS_METHODPR(Obstacle, DrawDebugGeometry, (bool), void), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void Obstacle::RegisterObject(Context* context) | File: ../Navigation/Obstacle.h", "void RegisterObject()", AS_FUNCTION(Obstacle_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
@@ -525,6 +539,8 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods,
     methods.Push(RegisterObjectMethodArgs("unsigned OffMeshConnection::GetMask() const", "uint get_mask() const", AS_METHODPR(OffMeshConnection, GetMask, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned OffMeshConnection::GetAreaID() const", "uint GetAreaID() const", AS_METHODPR(OffMeshConnection, GetAreaID, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned OffMeshConnection::GetAreaID() const", "uint get_areaID() const", AS_METHODPR(OffMeshConnection, GetAreaID, () const, unsigned), AS_CALL_THISCALL));
+
+    methods.Push(RegisterGlobalFunctionArgs("static void OffMeshConnection::RegisterObject(Context* context) | File: ../Navigation/OffMeshConnection.h", "void RegisterObject()", AS_FUNCTION(OffMeshConnection_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h
