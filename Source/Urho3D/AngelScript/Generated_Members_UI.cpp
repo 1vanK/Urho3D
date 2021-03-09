@@ -66,7 +66,7 @@ void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("void BorderImage::SetMaterialAttr(const ResourceRef& value)", "void SetMaterialAttr(const ResourceRef&in)", AS_METHODPR(BorderImage, SetMaterialAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef BorderImage::GetMaterialAttr() const", "ResourceRef GetMaterialAttr() const", AS_METHODPR(BorderImage, GetMaterialAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void BorderImage::RegisterObject(Context* context) | File: ../UI/BorderImage.h", "void RegisterObject()", AS_FUNCTION(BorderImage_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void BorderImage::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(BorderImage_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Button | File: ../UI/Button.h
@@ -113,7 +113,7 @@ void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("bool Button::IsPressed() const", "bool IsPressed() const", AS_METHODPR(Button, IsPressed, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Button::IsPressed() const", "bool get_pressed() const", AS_METHODPR(Button, IsPressed, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Button::RegisterObject(Context* context) | File: ../UI/Button.h", "void RegisterObject()", AS_FUNCTION(Button_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Button::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Button_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct CharLocation | File: ../UI/Text.h
@@ -149,7 +149,7 @@ void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("const IntVector2& CheckBox::GetCheckedOffset() const", "const IntVector2& GetCheckedOffset() const", AS_METHODPR(CheckBox, GetCheckedOffset, () const, const IntVector2&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const IntVector2& CheckBox::GetCheckedOffset() const", "const IntVector2& get_checkedOffset() const", AS_METHODPR(CheckBox, GetCheckedOffset, () const, const IntVector2&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void CheckBox::RegisterObject(Context* context) | File: ../UI/CheckBox.h", "void RegisterObject()", AS_FUNCTION(CheckBox_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void CheckBox::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CheckBox_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Cursor | File: ../UI/Cursor.h
@@ -181,7 +181,7 @@ void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("bool Cursor::GetUseSystemShapes() const", "bool get_useSystemShapes() const", AS_METHODPR(Cursor, GetUseSystemShapes, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Cursor::ApplyOSCursorShape()", "void ApplyOSCursorShape()", AS_METHODPR(Cursor, ApplyOSCursorShape, (), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Cursor::RegisterObject(Context* context) | File: ../UI/Cursor.h", "void RegisterObject()", AS_FUNCTION(Cursor_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Cursor::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Cursor_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct CursorShapeInfo | File: ../UI/Cursor.h
@@ -259,7 +259,7 @@ void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("bool DropDownList::GetResizePopup() const", "bool get_resizePopup() const", AS_METHODPR(DropDownList, GetResizePopup, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DropDownList::SetSelectionAttr(unsigned index)", "void SetSelectionAttr(uint)", AS_METHODPR(DropDownList, SetSelectionAttr, (unsigned), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void DropDownList::RegisterObject(Context* context) | File: ../UI/DropDownList.h", "void RegisterObject()", AS_FUNCTION(DropDownList_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void DropDownList::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(DropDownList_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // void FileSelector::SetFilters(const Vector<String>& filters, unsigned defaultIndex)
@@ -321,7 +321,7 @@ void CollectMembers_FileSelector(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("bool FileSelector::GetDirectoryMode() const", "bool GetDirectoryMode() const", AS_METHODPR(FileSelector, GetDirectoryMode, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool FileSelector::GetDirectoryMode() const", "bool get_directoryMode() const", AS_METHODPR(FileSelector, GetDirectoryMode, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void FileSelector::RegisterObject(Context* context) | File: ../UI/FileSelector.h", "void RegisterObject()", AS_FUNCTION(FileSelector_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void FileSelector::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(FileSelector_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct FileSelectorEntry | File: ../UI/FileSelector.h
@@ -355,7 +355,7 @@ void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("IntVector2 Font::GetTotalGlyphOffset(float pointSize) const", "IntVector2 GetTotalGlyphOffset(float) const", AS_METHODPR(Font, GetTotalGlyphOffset, (float) const, IntVector2), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Font::ReleaseFaces()", "void ReleaseFaces()", AS_METHODPR(Font, ReleaseFaces, (), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Font::RegisterObject(Context* context) | File: ../UI/Font.h", "void RegisterObject()", AS_FUNCTION(Font_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Font::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Font_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // const Vector<SharedPtr<Texture2D>>& FontFace::GetTextures() const
@@ -507,7 +507,7 @@ void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("BorderImage* LineEdit::GetCursor() const", "BorderImage@+ GetCursor() const", AS_METHODPR(LineEdit, GetCursor, () const, BorderImage*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("BorderImage* LineEdit::GetCursor() const", "BorderImage@+ get_cursor() const", AS_METHODPR(LineEdit, GetCursor, () const, BorderImage*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void LineEdit::RegisterObject(Context* context) | File: ../UI/LineEdit.h", "void RegisterObject()", AS_FUNCTION(LineEdit_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void LineEdit::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(LineEdit_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // void ListView::SetSelections(const PODVector<unsigned>& indices)
@@ -621,7 +621,7 @@ void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void ListView::EnsureItemVisibility(unsigned index)", "void EnsureItemVisibility(uint)", AS_METHODPR(ListView, EnsureItemVisibility, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ListView::EnsureItemVisibility(UIElement* item)", "void EnsureItemVisibility(UIElement@+)", AS_METHODPR(ListView, EnsureItemVisibility, (UIElement*), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ListView::RegisterObject(Context* context) | File: ../UI/ListView.h", "void RegisterObject()", AS_FUNCTION(ListView_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void ListView::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ListView_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Menu | File: ../UI/Menu.h
@@ -664,7 +664,7 @@ void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("int Menu::GetAcceleratorQualifiers() const", "int GetAcceleratorQualifiers() const", AS_METHODPR(Menu, GetAcceleratorQualifiers, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int Menu::GetAcceleratorQualifiers() const", "int get_acceleratorQualifiers() const", AS_METHODPR(Menu, GetAcceleratorQualifiers, () const, int), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Menu::RegisterObject(Context* context) | File: ../UI/Menu.h", "void RegisterObject()", AS_FUNCTION(Menu_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Menu::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Menu_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class MessageBox | File: ../UI/MessageBox.h
@@ -683,7 +683,7 @@ void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("UIElement* MessageBox::GetWindow() const", "UIElement@+ GetWindow() const", AS_METHODPR(MessageBox, GetWindow, () const, UIElement*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("UIElement* MessageBox::GetWindow() const", "UIElement@+ get_window() const", AS_METHODPR(MessageBox, GetWindow, () const, UIElement*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void MessageBox::RegisterObject(Context* context) | File: ../UI/MessageBox.h", "void RegisterObject()", AS_FUNCTION(MessageBox_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void MessageBox::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(MessageBox_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class ProgressBar | File: ../UI/ProgressBar.h
@@ -718,7 +718,7 @@ void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("bool ProgressBar::GetShowPercentText() const", "bool GetShowPercentText() const", AS_METHODPR(ProgressBar, GetShowPercentText, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ProgressBar::GetShowPercentText() const", "bool get_showPercentText() const", AS_METHODPR(ProgressBar, GetShowPercentText, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ProgressBar::RegisterObject(Context* context) | File: ../UI/ProgressBar.h", "void RegisterObject()", AS_FUNCTION(ProgressBar_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void ProgressBar::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ProgressBar_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class ScrollBar | File: ../UI/ScrollBar.h
@@ -767,7 +767,7 @@ void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("Slider* ScrollBar::GetSlider() const", "Slider@+ GetSlider() const", AS_METHODPR(ScrollBar, GetSlider, () const, Slider*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Slider* ScrollBar::GetSlider() const", "Slider@+ get_slider() const", AS_METHODPR(ScrollBar, GetSlider, () const, Slider*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ScrollBar::RegisterObject(Context* context) | File: ../UI/ScrollBar.h", "void RegisterObject()", AS_FUNCTION(ScrollBar_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void ScrollBar::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ScrollBar_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class ScrollView | File: ../UI/ScrollView.h
@@ -844,7 +844,7 @@ void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("float ScrollView::GetAutoDisableThreshold() const", "float get_autoDisableThreshold() const", AS_METHODPR(ScrollView, GetAutoDisableThreshold, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ScrollView::SetViewPositionAttr(const IntVector2& value)", "void SetViewPositionAttr(const IntVector2&in)", AS_METHODPR(ScrollView, SetViewPositionAttr, (const IntVector2&), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ScrollView::RegisterObject(Context* context) | File: ../UI/ScrollView.h", "void RegisterObject()", AS_FUNCTION(ScrollView_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void ScrollView::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ScrollView_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Slider | File: ../UI/Slider.h
@@ -891,7 +891,7 @@ void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("float Slider::GetRepeatRate() const", "float GetRepeatRate() const", AS_METHODPR(Slider, GetRepeatRate, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Slider::GetRepeatRate() const", "float get_repeatRate() const", AS_METHODPR(Slider, GetRepeatRate, () const, float), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Slider::RegisterObject(Context* context) | File: ../UI/Slider.h", "void RegisterObject()", AS_FUNCTION(Slider_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Slider::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Slider_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Sprite | File: ../UI/Sprite.h
@@ -957,7 +957,7 @@ void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("ResourceRef Sprite::GetTextureAttr() const", "ResourceRef GetTextureAttr() const", AS_METHODPR(Sprite, GetTextureAttr, () const, ResourceRef), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Matrix3x4& Sprite::GetTransform() const", "const Matrix3x4& GetTransform() const", AS_METHODPR(Sprite, GetTransform, () const, const Matrix3x4&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Sprite::RegisterObject(Context* context) | File: ../UI/Sprite.h", "void RegisterObject()", AS_FUNCTION(Sprite_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Sprite::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Sprite_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Text | File: ../UI/Text.h
@@ -1052,7 +1052,7 @@ void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("void Text::SetTextAttr(const String& value)", "void SetTextAttr(const String&in)", AS_METHODPR(Text, SetTextAttr, (const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Text::GetTextAttr() const", "String GetTextAttr() const", AS_METHODPR(Text, GetTextAttr, () const, String), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Text::RegisterObject(Context* context) | File: ../UI/Text.h", "void RegisterObject()", AS_FUNCTION(Text_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Text::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Text_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Text3D | File: ../UI/Text3D.h
@@ -1176,7 +1176,7 @@ void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("String Text3D::GetTextAttr() const", "String GetTextAttr() const", AS_METHODPR(Text3D, GetTextAttr, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Color& Text3D::GetColorAttr() const", "const Color& GetColorAttr() const", AS_METHODPR(Text3D, GetColorAttr, () const, const Color&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Text3D::RegisterObject(Context* context) | File: ../UI/Text3D.h", "void RegisterObject()", AS_FUNCTION(Text3D_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Text3D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Text3D_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class ToolTip | File: ../UI/ToolTip.h
@@ -1196,7 +1196,7 @@ void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("float ToolTip::GetDelay() const", "float GetDelay() const", AS_METHODPR(ToolTip, GetDelay, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float ToolTip::GetDelay() const", "float get_delay() const", AS_METHODPR(ToolTip, GetDelay, () const, float), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ToolTip::RegisterObject(Context* context) | File: ../UI/ToolTip.h", "void RegisterObject()", AS_FUNCTION(ToolTip_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void ToolTip::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ToolTip_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr)
@@ -1345,7 +1345,7 @@ void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("bool UIBatch::Merge(const UIBatch& batch)", "bool Merge(const UIBatch&in)", AS_METHODPR(UIBatch, Merge, (const UIBatch&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned UIBatch::GetInterpolatedColor(float x, float y)", "uint GetInterpolatedColor(float, float)", AS_METHODPR(UIBatch, GetInterpolatedColor, (float, float), unsigned), AS_CALL_THISCALL));
 
-    // static void UIBatch::AddOrMerge(const UIBatch& batch, PODVector<UIBatch>& batches) | File: ../UI/UIBatch.h
+    // static void UIBatch::AddOrMerge(const UIBatch& batch, PODVector<UIBatch>& batches)
     // Error: type "PODVector<UIBatch>&" can not automatically bind
 
     // UIElement* UIBatch::element_
@@ -1383,7 +1383,7 @@ void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("Texture2D* UIComponent::GetTexture() const", "Texture2D@+ get_texture() const", AS_METHODPR(UIComponent, GetTexture, () const, Texture2D*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void UIComponent::SetViewportIndex(unsigned index)", "void SetViewportIndex(uint)", AS_METHODPR(UIComponent, SetViewportIndex, (unsigned), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void UIComponent::RegisterObject(Context* context) | File: ../UI/UIComponent.h", "void RegisterObject()", AS_FUNCTION(UIComponent_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void UIComponent::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(UIComponent_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // void UIElement::SetTags(const StringVector& tags)
@@ -1774,7 +1774,7 @@ void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("IntVector2 UIElement::GetEffectiveMinSize() const", "IntVector2 GetEffectiveMinSize() const", AS_METHODPR(UIElement, GetEffectiveMinSize, () const, IntVector2), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void UIElement::SetRenderTexture(Texture2D* texture)", "void SetRenderTexture(Texture2D@+)", AS_METHODPR(UIElement, SetRenderTexture, (Texture2D*), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void UIElement::RegisterObject(Context* context) | File: ../UI/UIElement.h", "void RegisterObject()", AS_FUNCTION(UIElement_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void UIElement::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(UIElement_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class UISelectable | File: ../UI/UISelectable.h
@@ -1801,7 +1801,7 @@ void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("const Color& UISelectable::GetHoverColor() const", "const Color& GetHoverColor() const", AS_METHODPR(UISelectable, GetHoverColor, () const, const Color&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Color& UISelectable::GetHoverColor() const", "const Color& get_hoverColor() const", AS_METHODPR(UISelectable, GetHoverColor, () const, const Color&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void UISelectable::RegisterObject(Context* context) | File: ../UI/UISelectable.h", "void RegisterObject()", AS_FUNCTION(UISelectable_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void UISelectable::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(UISelectable_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class View3D | File: ../UI/View3D.h
@@ -1835,7 +1835,7 @@ void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("Viewport* View3D::GetViewport() const", "Viewport@+ GetViewport() const", AS_METHODPR(View3D, GetViewport, () const, Viewport*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Viewport* View3D::GetViewport() const", "Viewport@+ get_viewport() const", AS_METHODPR(View3D, GetViewport, () const, Viewport*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void View3D::RegisterObject(Context* context) | File: ../UI/View3D.h", "void RegisterObject()", AS_FUNCTION(View3D_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void View3D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(View3D_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Window | File: ../UI/Window.h
@@ -1901,7 +1901,7 @@ void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("bool Window::GetModalAutoDismiss() const", "bool GetModalAutoDismiss() const", AS_METHODPR(Window, GetModalAutoDismiss, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Window::GetModalAutoDismiss() const", "bool get_modalAutoDismiss() const", AS_METHODPR(Window, GetModalAutoDismiss, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Window::RegisterObject(Context* context) | File: ../UI/Window.h", "void RegisterObject()", AS_FUNCTION(Window_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Window::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Window_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 } // namespace Urho3D

@@ -168,7 +168,7 @@ void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("bool Image::SetSubimage(const Image* image, const IntRect& rect)", "bool SetSubimage(Image@+, const IntRect&in)", AS_METHODPR(Image, SetSubimage, (const Image*, const IntRect&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Image::CleanupLevels()", "void CleanupLevels()", AS_METHODPR(Image, CleanupLevels, (), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Image::RegisterObject(Context* context) | File: ../Resource/Image.h", "void RegisterObject()", AS_FUNCTION(Image_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Image::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Image_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class JSONFile | File: ../Resource/JSONFile.h
@@ -188,7 +188,7 @@ void CollectMembers_JSONFile(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("JSONValue& JSONFile::GetRoot()", "JSONValue& get_root()", AS_METHODPR(JSONFile, GetRoot, (), JSONValue&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const JSONValue& JSONFile::GetRoot() const", "const JSONValue& GetRoot() const", AS_METHODPR(JSONFile, GetRoot, () const, const JSONValue&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void JSONFile::RegisterObject(Context* context) | File: ../Resource/JSONFile.h", "void RegisterObject()", AS_FUNCTION(JSONFile_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void JSONFile::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(JSONFile_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // void JSONValue::SetVariant(const Variant& variant, Context* context=nullptr)
@@ -303,15 +303,15 @@ void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("void JSONValue::SetVariantMap(const VariantMap& variantMap, Context* context=nullptr)", "void SetVariantMap(const VariantMap&in)", AS_FUNCTION_OBJFIRST(JSONValue_SetVariantMap_VariantMap_Context), AS_CALL_CDECL_OBJFIRST));
     methods.Push(RegisterObjectMethodArgs("VariantMap JSONValue::GetVariantMap() const", "VariantMap GetVariantMap() const", AS_METHODPR(JSONValue, GetVariantMap, () const, VariantMap), AS_CALL_THISCALL));
 
-    // static JSONValueType JSONValue::GetValueTypeFromName(const char* typeName) | File: ../Resource/JSONValue.h
+    // static JSONValueType JSONValue::GetValueTypeFromName(const char* typeName)
     // Error: type "const char*" can not automatically bind
-    // static JSONNumberType JSONValue::GetNumberTypeFromName(const char* typeName) | File: ../Resource/JSONValue.h
+    // static JSONNumberType JSONValue::GetNumberTypeFromName(const char* typeName)
     // Error: type "const char*" can not automatically bind
 
-    methods.Push(RegisterGlobalFunctionArgs("static String JSONValue::GetValueTypeName(JSONValueType type) | File: ../Resource/JSONValue.h", "String GetValueTypeName(JSONValueType)", AS_FUNCTIONPR(JSONValue::GetValueTypeName, (JSONValueType), String), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static String JSONValue::GetNumberTypeName(JSONNumberType type) | File: ../Resource/JSONValue.h", "String GetNumberTypeName(JSONNumberType)", AS_FUNCTIONPR(JSONValue::GetNumberTypeName, (JSONNumberType), String), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static JSONValueType JSONValue::GetValueTypeFromName(const String& typeName) | File: ../Resource/JSONValue.h", "JSONValueType GetValueTypeFromName(const String&in)", AS_FUNCTIONPR(JSONValue::GetValueTypeFromName, (const String&), JSONValueType), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static JSONNumberType JSONValue::GetNumberTypeFromName(const String& typeName) | File: ../Resource/JSONValue.h", "JSONNumberType GetNumberTypeFromName(const String&in)", AS_FUNCTIONPR(JSONValue::GetNumberTypeFromName, (const String&), JSONNumberType), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static String JSONValue::GetValueTypeName(JSONValueType type)", "String GetValueTypeName(JSONValueType)", AS_FUNCTIONPR(JSONValue::GetValueTypeName, (JSONValueType), String), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static String JSONValue::GetNumberTypeName(JSONNumberType type)", "String GetNumberTypeName(JSONNumberType)", AS_FUNCTIONPR(JSONValue::GetNumberTypeName, (JSONNumberType), String), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static JSONValueType JSONValue::GetValueTypeFromName(const String& typeName)", "JSONValueType GetValueTypeFromName(const String&in)", AS_FUNCTIONPR(JSONValue::GetValueTypeFromName, (const String&), JSONValueType), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static JSONNumberType JSONValue::GetNumberTypeFromName(const String& typeName)", "JSONNumberType GetNumberTypeFromName(const String&in)", AS_FUNCTIONPR(JSONValue::GetNumberTypeFromName, (const String&), JSONNumberType), AS_CALL_CDECL));
 
     // bool JSONValue::boolValue_
     // Not registered because have @nobind mark
@@ -733,7 +733,7 @@ void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("void XMLFile::Patch(XMLFile* patchFile)", "void Patch(XMLFile@+)", AS_METHODPR(XMLFile, Patch, (XMLFile*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void XMLFile::Patch(const XMLElement& patchElement)", "void Patch(const XMLElement&in)", AS_METHODPR(XMLFile, Patch, (const XMLElement&), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void XMLFile::RegisterObject(Context* context) | File: ../Resource/XMLFile.h", "void RegisterObject()", AS_FUNCTION(XMLFile_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void XMLFile::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(XMLFile_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class XPathQuery | File: ../Resource/XMLElement.h

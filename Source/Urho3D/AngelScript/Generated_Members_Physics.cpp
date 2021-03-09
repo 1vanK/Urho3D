@@ -86,7 +86,7 @@ void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("ResourceRef CollisionShape::GetModelAttr() const", "ResourceRef GetModelAttr() const", AS_METHODPR(CollisionShape, GetModelAttr, () const, ResourceRef), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void CollisionShape::ReleaseShape()", "void ReleaseShape()", AS_METHODPR(CollisionShape, ReleaseShape, (), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void CollisionShape::RegisterObject(Context* context) | File: ../Physics/CollisionShape.h", "void RegisterObject()", AS_FUNCTION(CollisionShape_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void CollisionShape::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CollisionShape_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Constraint | File: ../Physics/Constraint.h
@@ -167,7 +167,7 @@ void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("void Constraint::ReleaseConstraint()", "void ReleaseConstraint()", AS_METHODPR(Constraint, ReleaseConstraint, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Constraint::ApplyFrames()", "void ApplyFrames()", AS_METHODPR(Constraint, ApplyFrames, (), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Constraint::RegisterObject(Context* context) | File: ../Physics/Constraint.h", "void RegisterObject()", AS_FUNCTION(Constraint_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Constraint::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Constraint_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // void ConvexData::BuildHull(const PODVector<Vector3>& vertices)
@@ -355,7 +355,7 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("bool PhysicsWorld::IsApplyingTransforms() const", "bool IsApplyingTransforms() const", AS_METHODPR(PhysicsWorld, IsApplyingTransforms, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool PhysicsWorld::IsSimulating() const", "bool IsSimulating() const", AS_METHODPR(PhysicsWorld, IsSimulating, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void PhysicsWorld::RegisterObject(Context* context) | File: ../Physics/PhysicsWorld.h", "void RegisterObject()", AS_FUNCTION(PhysicsWorld_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void PhysicsWorld::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(PhysicsWorld_RegisterObject_Context), AS_CALL_CDECL));
 
     // static struct PhysicsWorldConfig PhysicsWorld::config
     // Error: type "struct PhysicsWorldConfig" can not automatically bind
@@ -448,7 +448,7 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("IntVector3 RaycastVehicle::GetCoordinateSystem() const", "IntVector3 GetCoordinateSystem() const", AS_METHODPR(RaycastVehicle, GetCoordinateSystem, () const, IntVector3), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("IntVector3 RaycastVehicle::GetCoordinateSystem() const", "IntVector3 get_coordinateSystem() const", AS_METHODPR(RaycastVehicle, GetCoordinateSystem, () const, IntVector3), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void RaycastVehicle::RegisterObject(Context* context) | File: ../Physics/RaycastVehicle.h", "void RegisterObject()", AS_FUNCTION(RaycastVehicle_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void RaycastVehicle::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(RaycastVehicle_RegisterObject_Context), AS_CALL_CDECL));
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::RIGHT_UP_FORWARD", "const IntVector3 RIGHT_UP_FORWARD", (void*)&RaycastVehicle::RIGHT_UP_FORWARD));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::RIGHT_FORWARD_UP", "const IntVector3 RIGHT_FORWARD_UP", (void*)&RaycastVehicle::RIGHT_FORWARD_UP));
@@ -609,7 +609,7 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("void RigidBody::RemoveConstraint(Constraint* constraint)", "void RemoveConstraint(Constraint@+)", AS_METHODPR(RigidBody, RemoveConstraint, (Constraint*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void RigidBody::ReleaseBody()", "void ReleaseBody()", AS_METHODPR(RigidBody, ReleaseBody, (), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void RigidBody::RegisterObject(Context* context) | File: ../Physics/RigidBody.h", "void RegisterObject()", AS_FUNCTION(RigidBody_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void RigidBody::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(RigidBody_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h

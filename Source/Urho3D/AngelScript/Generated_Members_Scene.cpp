@@ -46,7 +46,7 @@ void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("void Animatable::SetObjectAnimationAttr(const ResourceRef& value)", "void SetObjectAnimationAttr(const ResourceRef&in)", AS_METHODPR(Animatable, SetObjectAnimationAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef Animatable::GetObjectAnimationAttr() const", "ResourceRef GetObjectAnimationAttr() const", AS_METHODPR(Animatable, GetObjectAnimationAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Animatable::RegisterObject(Context* context) | File: ../Scene/Animatable.h", "void RegisterObject()", AS_FUNCTION(Animatable_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Animatable::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Animatable_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct AsyncProgress | File: ../Scene/Scene.h
@@ -507,7 +507,7 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("void Node::SetScaleSilent(const Vector3& scale)", "void SetScaleSilent(const Vector3&in)", AS_METHODPR(Node, SetScaleSilent, (const Vector3&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Node::SetTransformSilent(const Vector3& position, const Quaternion& rotation, const Vector3& scale)", "void SetTransformSilent(const Vector3&in, const Quaternion&in, const Vector3&in)", AS_METHODPR(Node, SetTransformSilent, (const Vector3&, const Quaternion&, const Vector3&), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Node::RegisterObject(Context* context) | File: ../Scene/Node.h", "void RegisterObject()", AS_FUNCTION(Node_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Node::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Node_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct NodeImpl | File: ../Scene/Node.h
@@ -572,7 +572,7 @@ void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods, V
     methods.Push(RegisterObjectMethodArgs("float ObjectAnimation::GetAttributeAnimationSpeed(const String& name) const", "float get_speeds(const String&in) const", AS_METHODPR(ObjectAnimation, GetAttributeAnimationSpeed, (const String&) const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ValueAnimationInfo* ObjectAnimation::GetAttributeAnimationInfo(const String& name) const", "ValueAnimationInfo@+ GetAttributeAnimationInfo(const String&in) const", AS_METHODPR(ObjectAnimation, GetAttributeAnimationInfo, (const String&) const, ValueAnimationInfo*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ObjectAnimation::RegisterObject(Context* context) | File: ../Scene/ObjectAnimation.h", "void RegisterObject()", AS_FUNCTION(ObjectAnimation_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void ObjectAnimation::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ObjectAnimation_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct ReplicationState | File: ../Scene/ReplicationState.h
@@ -705,8 +705,8 @@ void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("void Scene::MarkNetworkUpdate(Component* component)", "void MarkNetworkUpdate(Component@+)", AS_METHODPR(Scene, MarkNetworkUpdate, (Component*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Scene::MarkReplicationDirty(Node* node)", "void MarkReplicationDirty(Node@+)", AS_METHODPR(Scene, MarkReplicationDirty, (Node*), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Scene::RegisterObject(Context* context) | File: ../Scene/Scene.h", "void RegisterObject()", AS_FUNCTION(Scene_RegisterObject_Context), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static bool Scene::IsReplicatedID(unsigned id) | File: ../Scene/Scene.h", "bool IsReplicatedID(uint)", AS_FUNCTIONPR(Scene::IsReplicatedID, (unsigned), bool), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void Scene::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Scene_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static bool Scene::IsReplicatedID(unsigned id)", "bool IsReplicatedID(uint)", AS_FUNCTIONPR(Scene::IsReplicatedID, (unsigned), bool), AS_CALL_CDECL));
 }
 
 // struct SceneReplicationState | File: ../Scene/ReplicationState.h
@@ -810,7 +810,7 @@ void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods,
     methods.Push(RegisterObjectMethodArgs("bool SmoothedTransform::IsInProgress() const", "bool IsInProgress() const", AS_METHODPR(SmoothedTransform, IsInProgress, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool SmoothedTransform::IsInProgress() const", "bool get_inProgress() const", AS_METHODPR(SmoothedTransform, IsInProgress, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void SmoothedTransform::RegisterObject(Context* context) | File: ../Scene/SmoothedTransform.h", "void RegisterObject()", AS_FUNCTION(SmoothedTransform_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void SmoothedTransform::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(SmoothedTransform_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class SplinePath | File: ../Scene/SplinePath.h
@@ -857,7 +857,7 @@ void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("void SplinePath::SetControlledIdAttr(unsigned value)", "void SetControlledIdAttr(uint)", AS_METHODPR(SplinePath, SetControlledIdAttr, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned SplinePath::GetControlledIdAttr() const", "uint GetControlledIdAttr() const", AS_METHODPR(SplinePath, GetControlledIdAttr, () const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void SplinePath::RegisterObject(Context* context) | File: ../Scene/SplinePath.h", "void RegisterObject()", AS_FUNCTION(SplinePath_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void SplinePath::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(SplinePath_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // const Vector<String>& UnknownComponent::GetXMLAttributes() const
@@ -906,12 +906,12 @@ void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods, 
     methods.Push(RegisterObjectMethodArgs("const Vector<String>& UnknownComponent::GetXMLAttributes() const", "Array<String>@ GetXMLAttributes() const", AS_FUNCTION_OBJFIRST(UnknownComponent_GetXMLAttributes_void), AS_CALL_CDECL_OBJFIRST));
     methods.Push(RegisterObjectMethodArgs("bool UnknownComponent::GetUseXML() const", "bool GetUseXML() const", AS_METHODPR(UnknownComponent, GetUseXML, () const, bool), AS_CALL_THISCALL));
 
-    // static Urho3D::StringHash UnknownComponent::GetTypeStatic() | File: ../Scene/UnknownComponent.h
+    // static Urho3D::StringHash UnknownComponent::GetTypeStatic()
     // Error: type "Urho3D::StringHash" can not automatically bind
-    // static const Urho3D::String& UnknownComponent::GetTypeNameStatic() | File: ../Scene/UnknownComponent.h
+    // static const Urho3D::String& UnknownComponent::GetTypeNameStatic()
     // Error: type "const Urho3D::String&" can not automatically bind
 
-    methods.Push(RegisterGlobalFunctionArgs("static void UnknownComponent::RegisterObject(Context* context) | File: ../Scene/UnknownComponent.h", "void RegisterObject()", AS_FUNCTION(UnknownComponent_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void UnknownComponent::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(UnknownComponent_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct VAnimEventFrame | File: ../Scene/ValueAnimation.h
@@ -972,7 +972,7 @@ void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("Variant ValueAnimation::GetAnimationValue(float scaledTime) const", "Variant GetAnimationValue(float) const", AS_METHODPR(ValueAnimation, GetAnimationValue, (float) const, Variant), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ValueAnimation::HasEventFrames() const", "bool HasEventFrames() const", AS_METHODPR(ValueAnimation, HasEventFrames, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ValueAnimation::RegisterObject(Context* context) | File: ../Scene/ValueAnimation.h", "void RegisterObject()", AS_FUNCTION(ValueAnimation_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void ValueAnimation::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ValueAnimation_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h

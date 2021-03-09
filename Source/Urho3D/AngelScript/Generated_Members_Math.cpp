@@ -128,8 +128,8 @@ void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("unsigned Color::ToUIntArgb() const", "uint ToUIntArgb() const", AS_METHODPR(Color, ToUIntArgb, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Color::ToHash() const", "uint ToHash() const", AS_METHODPR(Color, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static float Color::ConvertGammaToLinear(float value) | File: ../Math/Color.h", "float ConvertGammaToLinear(float)", AS_FUNCTIONPR(Color::ConvertGammaToLinear, (float), float), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static float Color::ConvertLinearToGamma(float value) | File: ../Math/Color.h", "float ConvertLinearToGamma(float)", AS_FUNCTIONPR(Color::ConvertLinearToGamma, (float), float), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static float Color::ConvertGammaToLinear(float value)", "float ConvertGammaToLinear(float)", AS_FUNCTIONPR(Color::ConvertGammaToLinear, (float), float), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static float Color::ConvertLinearToGamma(float value)", "float ConvertLinearToGamma(float)", AS_FUNCTIONPR(Color::ConvertLinearToGamma, (float), float), AS_CALL_CDECL));
 
     fields.Push(RegisterObjectPropertyArgs("float Color::r_", "float r", offsetof(Color, r_)));
     fields.Push(RegisterObjectPropertyArgs("float Color::g_", "float g", offsetof(Color, g_)));
@@ -330,7 +330,7 @@ void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("bool Matrix2::IsInf() const", "bool IsInf() const", AS_METHODPR(Matrix2, IsInf, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Matrix2::ToString() const", "String ToString() const", AS_METHODPR(Matrix2, ToString, () const, String), AS_CALL_THISCALL));
 
-    // static void Matrix2::BulkTranspose(float* dest, const float* src, unsigned count) | File: ../Math/Matrix2.h
+    // static void Matrix2::BulkTranspose(float* dest, const float* src, unsigned count)
     // Error: type "float*" can not automatically bind
 
     fields.Push(RegisterObjectPropertyArgs("float Matrix2::m00_", "float m00", offsetof(Matrix2, m00_)));
@@ -372,7 +372,7 @@ void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("bool Matrix3::IsInf() const", "bool IsInf() const", AS_METHODPR(Matrix3, IsInf, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Matrix3::ToString() const", "String ToString() const", AS_METHODPR(Matrix3, ToString, () const, String), AS_CALL_THISCALL));
 
-    // static void Matrix3::BulkTranspose(float* dest, const float* src, unsigned count) | File: ../Math/Matrix3.h
+    // static void Matrix3::BulkTranspose(float* dest, const float* src, unsigned count)
     // Error: type "float*" can not automatically bind
 
     fields.Push(RegisterObjectPropertyArgs("float Matrix3::m00_", "float m00", offsetof(Matrix3, m00_)));
@@ -485,7 +485,7 @@ void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("bool Matrix4::IsInf() const", "bool IsInf() const", AS_METHODPR(Matrix4, IsInf, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Matrix4::ToString() const", "String ToString() const", AS_METHODPR(Matrix4, ToString, () const, String), AS_CALL_THISCALL));
 
-    // static void Matrix4::BulkTranspose(float* dest, const float* src, unsigned count) | File: ../Math/Matrix4.h
+    // static void Matrix4::BulkTranspose(float* dest, const float* src, unsigned count)
     // Error: type "float*" can not automatically bind
 
     fields.Push(RegisterObjectPropertyArgs("float Matrix4::m00_", "float m00", offsetof(Matrix4, m00_)));
@@ -773,9 +773,9 @@ void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("String StringHash::Reverse() const", "String Reverse() const", AS_METHODPR(StringHash, Reverse, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned StringHash::ToHash() const", "uint ToHash() const", AS_METHODPR(StringHash, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
-    // static unsigned StringHash::Calculate(const char* str, unsigned hash=0) | File: ../Math/StringHash.h
+    // static unsigned StringHash::Calculate(const char* str, unsigned hash=0)
     // Error: type "const char*" can not automatically bind
-    // static StringHashRegister* StringHash::GetGlobalStringHashRegister() | File: ../Math/StringHash.h
+    // static StringHashRegister* StringHash::GetGlobalStringHashRegister()
     // Error: type "StringHashRegister*" can not automatically bind
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const StringHash StringHash::ZERO", "const StringHash ZERO", (void*)&StringHash::ZERO));

@@ -247,7 +247,7 @@ void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods, V
     methods.Push(RegisterObjectMethodArgs("bool NetworkPriority::GetAlwaysUpdateOwner() const", "bool get_alwaysUpdateOwner() const", AS_METHODPR(NetworkPriority, GetAlwaysUpdateOwner, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool NetworkPriority::CheckUpdate(float distance, float& accumulator)", "bool CheckUpdate(float, float&)", AS_METHODPR(NetworkPriority, CheckUpdate, (float, float&), bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void NetworkPriority::RegisterObject(Context* context) | File: ../Network/NetworkPriority.h", "void RegisterObject()", AS_FUNCTION(NetworkPriority_RegisterObject_Context), AS_CALL_CDECL));
+    methods.Push(RegisterGlobalFunctionArgs("static void NetworkPriority::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(NetworkPriority_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct PackageDownload | File: ../Network/Connection.h
