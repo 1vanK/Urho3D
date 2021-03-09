@@ -11,7 +11,7 @@ namespace Urho3D
 {
 
 // class AreaAllocator | File: ../Math/AreaAllocator.h
-void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void AreaAllocator::Reset(int width, int height, int maxWidth=0, int maxHeight=0, bool fastMode=true)", "void Reset(int, int, int = 0, int = 0, bool = true)", AS_METHODPR(AreaAllocator, Reset, (int, int, int, int, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool AreaAllocator::Allocate(int width, int height, int& x, int& y)", "bool Allocate(int, int, int&, int&)", AS_METHODPR(AreaAllocator, Allocate, (int, int, int&, int&), bool), AS_CALL_THISCALL));
@@ -21,7 +21,7 @@ void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods, Vec
 }
 
 // class BoundingBox | File: ../Math/BoundingBox.h
-void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void BoundingBox::Define(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
@@ -75,7 +75,7 @@ void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods, Vecto
 }
 
 // class Color | File: ../Math/Color.h
-void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void Color::Bounds(float* min, float* max, bool clipped=false) const
     // Error: type "float*" can not automatically bind
@@ -135,7 +135,7 @@ void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 }
 
 // class Frustum | File: ../Math/Frustum.h
-void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("Frustum& Frustum::operator=(const Frustum& rhs) noexcept", "Frustum& opAssign(const Frustum&in)", AS_METHODPR(Frustum, operator=, (const Frustum&), Frustum&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Frustum::Define(float fov, float aspectRatio, float zoom, float nearZ, float farZ, const Matrix3x4& transform=Matrix3x4::IDENTITY)", "void Define(float, float, float, float, float, const Matrix3x4&in = Matrix3x4::IDENTITY)", AS_METHODPR(Frustum, Define, (float, float, float, float, float, const Matrix3x4&), void), AS_CALL_THISCALL));
@@ -164,7 +164,7 @@ void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 }
 
 // class IntRect | File: ../Math/Rect.h
-void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const int* IntRect::Data() const
     // Error: type "const int*" can not automatically bind
@@ -205,7 +205,7 @@ void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 }
 
 // class IntVector2 | File: ../Math/Vector2.h
-void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const int* IntVector2::Data() const
     // Error: type "const int*" can not automatically bind
@@ -236,7 +236,7 @@ void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector
 }
 
 // class IntVector3 | File: ../Math/Vector3.h
-void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const int* IntVector3::Data() const
     // Error: type "const int*" can not automatically bind
@@ -268,7 +268,7 @@ void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector
 }
 
 // class Matrix2 | File: ../Math/Matrix2.h
-void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Matrix2::Data() const
     // Error: type "const float*" can not automatically bind
@@ -300,7 +300,7 @@ void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 }
 
 // class Matrix3 | File: ../Math/Matrix3.h
-void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Matrix3::Data() const
     // Error: type "const float*" can not automatically bind
@@ -341,7 +341,7 @@ void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 }
 
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
-void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Matrix3x4::Data() const
     // Error: type "const float*" can not automatically bind
@@ -395,7 +395,7 @@ void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<
 }
 
 // class Matrix4 | File: ../Math/Matrix4.h
-void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Matrix4::Data() const
     // Error: type "const float*" can not automatically bind
@@ -452,7 +452,7 @@ void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 }
 
 // class Plane | File: ../Math/Plane.h
-void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("Plane& Plane::operator=(const Plane& rhs) noexcept=default", "Plane& opAssign(const Plane&in)", AS_METHODPR(Plane, operator=, (const Plane&), Plane&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Plane::Define(const Vector3& v0, const Vector3& v1, const Vector3& v2)", "void Define(const Vector3&in, const Vector3&in, const Vector3&in)", AS_METHODPR(Plane, Define, (const Vector3&, const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
@@ -486,7 +486,7 @@ static void Polyhedron_AddFace_PODVectorVector3(Polyhedron* ptr, CScriptArray* f
 
 
 // class Polyhedron | File: ../Math/Polyhedron.h
-void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("Polyhedron& Polyhedron::operator=(const Polyhedron& rhs)", "Polyhedron& opAssign(const Polyhedron&in)", AS_METHODPR(Polyhedron, operator=, (const Polyhedron&), Polyhedron&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Polyhedron::Define(const BoundingBox& box)", "void Define(const BoundingBox&in)", AS_METHODPR(Polyhedron, Define, (const BoundingBox&), void), AS_CALL_THISCALL));
@@ -509,7 +509,7 @@ void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods, Vector
 }
 
 // class Quaternion | File: ../Math/Quaternion.h
-void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Quaternion::Data() const
     // Error: type "const float*" can not automatically bind
@@ -566,7 +566,7 @@ void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector
 }
 
 // class Ray | File: ../Math/Ray.h
-void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // float Ray::HitDistance(const Vector3& v0, const Vector3& v1, const Vector3& v2, Vector3* outNormal=nullptr, Vector3* outBary=nullptr) const
     // Error: type "Vector3*" can not automatically bind
@@ -598,7 +598,7 @@ void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods, Vector<Regist
 }
 
 // class Rect | File: ../Math/Rect.h
-void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Rect::Data() const
     // Error: type "const float*" can not automatically bind
@@ -650,7 +650,7 @@ void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
 }
 
 // class Sphere | File: ../Math/Sphere.h
-void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void Sphere::Define(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
@@ -687,7 +687,7 @@ void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 }
 
 // class StringHash | File: ../Math/StringHash.h
-void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool StringHash::operator!=(const StringHash& rhs) const
     // Only operator== is needed
@@ -709,7 +709,7 @@ void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector
 }
 
 // class Vector2 | File: ../Math/Vector2.h
-void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Vector2::Data() const
     // Error: type "const float*" can not automatically bind
@@ -755,7 +755,7 @@ void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 }
 
 // class Vector3 | File: ../Math/Vector3.h
-void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Vector3::Data() const
     // Error: type "const float*" can not automatically bind
@@ -809,7 +809,7 @@ void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 }
 
 // class Vector4 | File: ../Math/Vector4.h
-void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Vector4::Data() const
     // Error: type "const float*" can not automatically bind

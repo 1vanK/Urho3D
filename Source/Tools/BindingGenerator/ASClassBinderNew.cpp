@@ -482,38 +482,37 @@ static void RegisterField(const FieldAnalyzer& fieldAnalyzer, ProcessedClass& pr
 
     if (fieldAnalyzer.IsStatic())
     {
-        /*
-        result->reg_ << "    // " << variable.GetLocation() << "\n";
-
         string asType;
 
         try
         {
-            asType = CppTypeToAS(variable.GetType(), TypeUsage::StaticField);
+            asType = CppTypeToAS(fieldAnalyzer.GetType(), TypeUsage::StaticField);
         }
         catch (const Exception& e)
         {
-            result->reg_ << "    // " << e.what() << "\n";
+            MemberRegistrationError regError;
+            regError.name_ = fieldAnalyzer.GetName();
+            regError.comment_ = fieldAnalyzer.GetDeclaration();
+            regError.message_ = e.what();
+            processedClass.unregisteredStaticFields_.push_back(regError);
             return;
         }
 
-        if (variable.GetType().IsConst())
+        if (fieldAnalyzer.GetType().IsConst())
             asType = "const " + asType;
 
         asType = ReplaceAll(asType, "struct ", "");
 
-        string className = variable.GetClassName();
+        string cppClassName = fieldAnalyzer.GetClassName();
+        string asPropertyName = fieldAnalyzer.GetName();
 
-        result->reg_ <<
-            "    engine->SetDefaultNamespace(\"" << className << "\");\n";
+        StaticFieldRegistration result;
+        result.cppDeclaration_ = fieldAnalyzer.GetDeclaration();
+        result.name_ = fieldAnalyzer.GetName();
+        result.registration_.asDeclarations_.push_back(asType + " " + asPropertyName);
+        result.registration_.pointer_ = "(void*)&" + cppClassName + "::" + fieldAnalyzer.GetName();
 
-        result->reg_ <<
-            "    engine->RegisterGlobalProperty("
-            "\"" << asType << " " << variable.GetName() << "\", "
-            "(void*)&" << className << "::" << variable.GetName() << ");\n";
-
-        result->reg_ << "    engine->SetDefaultNamespace(\"\");\n";
-        */
+        processedClass.staticFields_.push_back(result);
     }
     else
     {

@@ -640,12 +640,19 @@ namespace Result
             ofs <<
                 "    Vector<RegisterObjectMethodArgs> methods;\n"
                 "    Vector<RegisterObjectPropertyArgs> fields;\n"
-                "    CollectMembers_" << processedClass.name_ << "(methods, fields);\n"
+                "    Vector<RegisterGlobalPropertyArgs> staticFields;\n"
+                "    CollectMembers_" << processedClass.name_ << "(methods, fields, staticFields);\n"
                 "    const char* asClassName = \"" << processedClass.name_ << "\";\n"
                 "    for (const RegisterObjectMethodArgs& method : methods)\n"
                 "        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);\n"
                 "    for (const RegisterObjectPropertyArgs& field : fields)\n"
-                "        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);\n";
+                "        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);\n"
+                "    for (const RegisterGlobalPropertyArgs& staticField : staticFields)\n"
+                "    {\n"
+                "    engine->SetDefaultNamespace(asClassName);\n"
+                "        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);\n"
+                "    engine->SetDefaultNamespace(\"\");\n"
+                "    }\n";
 
             ofs << "}\n";
 
@@ -778,7 +785,7 @@ namespace Result
             file->ofs_ <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
-                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)\n"
+                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)\n"
                 "{\n";
 
             file->needGap_ = false;
@@ -786,7 +793,7 @@ namespace Result
             if (processedClass.baseClassNames_.size())
             {
                 for (const string& baseClassName : processedClass.baseClassNames_)
-                    file->ofs_ << "    CollectMembers_" << baseClassName << "(methods, fields);\n";
+                    file->ofs_ << "    CollectMembers_" << baseClassName << "(methods, fields, staticFields);\n";
 
                 file->needGap_ = true;
             }
@@ -920,7 +927,7 @@ namespace Result
             ofsH <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
-                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields);\n";
+                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields);\n";
         }
 
         if (!openedDefine.empty())

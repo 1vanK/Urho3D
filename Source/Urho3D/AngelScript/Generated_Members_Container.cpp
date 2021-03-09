@@ -11,7 +11,7 @@ namespace Urho3D
 {
 
 // struct AllocatorBlock | File: ../Container/Allocator.h
-void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // AllocatorNode* AllocatorBlock::free_
     // Not registered because pointer
@@ -23,14 +23,14 @@ void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods, Ve
 }
 
 // struct AllocatorNode | File: ../Container/Allocator.h
-void CollectMembers_AllocatorNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_AllocatorNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // AllocatorNode* AllocatorNode::next_
     // Not registered because pointer
 }
 
 // class HashBase | File: ../Container/HashBase.h
-void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void HashBase::Swap(HashBase& rhs)", "void Swap(HashBase&)", AS_METHODPR(HashBase, Swap, (HashBase&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned HashBase::Size() const", "uint Size() const", AS_METHODPR(HashBase, Size, () const, unsigned), AS_CALL_THISCALL));
@@ -39,7 +39,7 @@ void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 }
 
 // struct HashIteratorBase | File: ../Container/HashBase.h
-void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool HashIteratorBase::operator!=(const HashIteratorBase& rhs) const
     // Only operator== is needed
@@ -53,7 +53,7 @@ void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods, 
 }
 
 // struct HashNodeBase | File: ../Container/HashBase.h
-void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // HashNodeBase* HashNodeBase::down_
     // Not registered because pointer
@@ -64,20 +64,20 @@ void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vect
 }
 
 // struct LinkedListNode | File: ../Container/LinkedList.h
-void CollectMembers_LinkedListNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_LinkedListNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // LinkedListNode* LinkedListNode::next_
     // Not registered because pointer
 }
 
 // class ListBase | File: ../Container/ListBase.h
-void CollectMembers_ListBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_ListBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void ListBase::Swap(ListBase& rhs)", "void Swap(ListBase&)", AS_METHODPR(ListBase, Swap, (ListBase&), void), AS_CALL_THISCALL));
 }
 
 // struct ListIteratorBase | File: ../Container/ListBase.h
-void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool ListIteratorBase::operator!=(const ListIteratorBase& rhs) const
     // Only operator== is needed
@@ -91,7 +91,7 @@ void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods, 
 }
 
 // struct ListNodeBase | File: ../Container/ListBase.h
-void CollectMembers_ListNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_ListNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // ListNodeBase* ListNodeBase::prev_
     // Not registered because pointer
@@ -100,14 +100,14 @@ void CollectMembers_ListNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vect
 }
 
 // struct RefCount | File: ../Container/RefCounted.h
-void CollectMembers_RefCount(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_RefCount(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("int RefCount::refs_", "int refs", offsetof(RefCount, refs_)));
     fields.Push(RegisterObjectPropertyArgs("int RefCount::weakRefs_", "int weakRefs", offsetof(RefCount, weakRefs_)));
 }
 
 // class RefCounted | File: ../Container/RefCounted.h
-void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // RefCount* RefCounted::RefCountPtr()
     // Error: type "RefCount*" can not automatically bind
@@ -139,7 +139,7 @@ static void String_Join_VectorString_String(String* ptr, CScriptArray* subString
 
 
 // class String | File: ../Container/Str.h
-void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // String& String::Append(const char* str)
     // Error: type "const char*" can not automatically bind
@@ -270,13 +270,13 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 }
 
 // class VectorBase | File: ../Container/VectorBase.h
-void CollectMembers_VectorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_VectorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void VectorBase::Swap(VectorBase& rhs)", "void Swap(VectorBase&)", AS_METHODPR(VectorBase, Swap, (VectorBase&), void), AS_CALL_THISCALL));
 }
 
 // class WString | File: ../Container/Str.h
-void CollectMembers_WString(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_WString(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const wchar_t& WString::At(unsigned index) const
     // Error: type "const wchar_t&" can not automatically bind

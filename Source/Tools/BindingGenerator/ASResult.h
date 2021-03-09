@@ -148,6 +148,19 @@ struct FieldRegistration
     RegisterObjectPropertyArgs registration_;
 };
 
+struct RegisterGlobalPropertyArgs
+{
+    vector<string> asDeclarations_; // String
+    string pointer_;                // void*
+};
+
+struct StaticFieldRegistration
+{
+    string name_; // Used for sorting
+    string cppDeclaration_;
+    RegisterGlobalPropertyArgs registration_;
+};
+
 struct MemberRegistrationError
 {
     string name_; // Used for sorting
@@ -184,6 +197,9 @@ struct ProcessedClass
 
     vector<FieldRegistration> fields_;
     vector<MemberRegistrationError> unregisteredFields_;
+
+    vector<StaticFieldRegistration> staticFields_;
+    vector<MemberRegistrationError> unregisteredStaticFields_;
 
     bool noBind_ = false;
 

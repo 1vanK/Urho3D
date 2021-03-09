@@ -20,9 +20,9 @@ static CScriptArray* Audio_GetSoundSources_void(Audio* ptr)
 
 
 // class Audio | File: ../Audio/Audio.h
-void CollectMembers_Audio(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Audio(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, fields);
+    CollectMembers_Object(methods, fields, staticFields);
 
     // void Audio::MixOutput(void* dest, unsigned samples)
     // Error: type "void*" can not automatically bind
@@ -65,9 +65,9 @@ void CollectMembers_Audio(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 }
 
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
-void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_SoundStream(methods, fields);
+    CollectMembers_SoundStream(methods, fields, staticFields);
 
     Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
 
@@ -86,9 +86,9 @@ void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& method
 }
 
 // class OggVorbisSoundStream | File: ../Audio/OggVorbisSoundStream.h
-void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_SoundStream(methods, fields);
+    CollectMembers_SoundStream(methods, fields, staticFields);
 
     Remove(methods, "virtual bool SoundStream::Seek(unsigned sample_number)");
     Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
@@ -109,9 +109,9 @@ static SoundStream* Sound_GetDecoderStream_void(Sound* ptr)
 
 
 // class Sound | File: ../Audio/Sound.h
-void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ResourceWithMetadata(methods, fields);
+    CollectMembers_ResourceWithMetadata(methods, fields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
@@ -156,17 +156,17 @@ void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 }
 
 // class SoundListener | File: ../Audio/SoundListener.h
-void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, fields);
+    CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 }
 
 // class SoundSource | File: ../Audio/SoundSource.h
-void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, fields);
+    CollectMembers_Component(methods, fields, staticFields);
 
     Remove(methods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -223,9 +223,9 @@ void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vecto
 }
 
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
-void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_SoundSource(methods, fields);
+    CollectMembers_SoundSource(methods, fields, staticFields);
 
     Remove(methods, "static void SoundSource::RegisterObject(Context* context)");
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -259,9 +259,9 @@ void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vec
 }
 
 // class SoundStream | File: ../Audio/SoundStream.h
-void CollectMembers_SoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields)
+void CollectMembers_SoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, fields);
+    CollectMembers_RefCounted(methods, fields, staticFields);
 
     // virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0
     // Error: type "signed char*" can not automatically bind

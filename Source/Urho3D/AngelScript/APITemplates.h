@@ -106,6 +106,22 @@ struct RegisterObjectPropertyArgs
     }
 };
 
+struct RegisterGlobalPropertyArgs
+{
+    String cppDeclaration_;
+    String asDeclaration_;
+    void* pointer_ = nullptr;
+
+    RegisterGlobalPropertyArgs() = default;
+    
+    RegisterGlobalPropertyArgs(const String& cppDeclaration, const String& asDeclaration, void* pointer)
+        : cppDeclaration_(cppDeclaration)
+        , asDeclaration_(asDeclaration)
+        , pointer_(pointer)
+    {
+    }
+};
+
 /// Template function for Vector to array conversion.
 template <class T> CScriptArray* VectorToArray(const Vector<T>& vector, const char* arrayName)
 {
