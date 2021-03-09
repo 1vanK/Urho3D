@@ -13,9 +13,9 @@ namespace Urho3D
 #ifdef URHO3D_IK
 
 // class IKConstraint | File: ../IK/IKConstraint.h
-void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -28,9 +28,9 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vect
 }
 
 // class IKEffector | File: ../IK/IKEffector.h
-void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
@@ -79,9 +79,9 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector
 }
 
 // class IKSolver | File: ../IK/IKSolver.h
-void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 

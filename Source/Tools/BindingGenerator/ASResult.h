@@ -135,6 +135,21 @@ struct MethodRegistration
     RegisterObjectMethodArgs registration_;
 };
 
+struct RegisterGlobalFunctionArgs
+{
+    vector<string> asDeclarations_; // String
+    string funcPointer_;            // asSFuncPtr
+    string callConv_;               // asDWORD
+};
+
+struct StaticMethodRegistration
+{
+    string name_; // Used for sorting
+    string cppDeclaration_;
+    string glue_;
+    RegisterGlobalFunctionArgs registration_;
+};
+
 struct RegisterObjectPropertyArgs
 {
     vector<string> asDeclarations_; // String
@@ -194,6 +209,9 @@ struct ProcessedClass
 
     vector<MethodRegistration> methods_;
     vector<MemberRegistrationError> unregisteredMethods_;
+
+    vector<StaticMethodRegistration> staticMethods_;
+    vector<MemberRegistrationError> unregisteredStaticMethods_;
 
     vector<FieldRegistration> fields_;
     vector<MemberRegistrationError> unregisteredFields_;

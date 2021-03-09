@@ -11,7 +11,7 @@ namespace Urho3D
 {
 
 // class Controls | File: ../Input/Controls.h
-void CollectMembers_Controls(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Controls(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void Controls::Reset()", "void Reset()", AS_METHODPR(Controls, Reset, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Controls::Set(unsigned buttons, bool down=true)", "void Set(uint, bool = true)", AS_METHODPR(Controls, Set, (unsigned, bool), void), AS_CALL_THISCALL));
@@ -25,9 +25,9 @@ void CollectMembers_Controls(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 }
 
 // class Input | File: ../Input/Input.h
-void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void Input::Update()", "void Update()", AS_METHODPR(Input, Update, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Input::SetToggleFullscreen(bool enable)", "void SetToggleFullscreen(bool)", AS_METHODPR(Input, SetToggleFullscreen, (bool), void), AS_CALL_THISCALL));
@@ -128,7 +128,7 @@ void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 }
 
 // struct JoystickState | File: ../Input/Input.h
-void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void JoystickState::Initialize(unsigned numButtons, unsigned numAxes, unsigned numHats)", "void Initialize(uint, uint, uint)", AS_METHODPR(JoystickState, Initialize, (unsigned, unsigned, unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void JoystickState::Reset()", "void Reset()", AS_METHODPR(JoystickState, Reset, (), void), AS_CALL_THISCALL));
@@ -169,7 +169,7 @@ void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods, Vec
 }
 
 // struct TouchState | File: ../Input/Input.h
-void CollectMembers_TouchState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_TouchState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("UIElement* TouchState::GetTouchedElement()", "UIElement@+ GetTouchedElement()", AS_METHODPR(TouchState, GetTouchedElement, (), UIElement*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("UIElement* TouchState::GetTouchedElement()", "UIElement@+ get_touchedElement()", AS_METHODPR(TouchState, GetTouchedElement, (), UIElement*), AS_CALL_THISCALL));

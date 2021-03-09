@@ -13,9 +13,9 @@ namespace Urho3D
 #ifdef URHO3D_NETWORK
 
 // class Connection | File: ../Network/Connection.h
-void CollectMembers_Connection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Connection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, staticFields);
 
     // const SLNet::AddressOrGUID& Connection::GetAddressOrGUID() const
     // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
@@ -102,11 +102,11 @@ void CollectMembers_Connection(Vector<RegisterObjectMethodArgs>& methods, Vector
 }
 
 // class HttpRequest | File: ../Network/HttpRequest.h
-void CollectMembers_HttpRequest(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_HttpRequest(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, fields, staticFields);
-    CollectMembers_Deserializer(methods, fields, staticFields);
-    CollectMembers_Thread(methods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_Deserializer(methods, staticMethods, fields, staticFields);
+    CollectMembers_Thread(methods, staticMethods, fields, staticFields);
 
     Remove(methods, "virtual bool Deserializer::IsEof() const");
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
@@ -158,9 +158,9 @@ static CScriptArray* Network_GetClientConnections_void(Network* ptr)
 
 
 // class Network | File: ../Network/Network.h
-void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, staticFields);
 
     // void Network::BroadcastMessage(int msgID, bool reliable, bool inOrder, const unsigned char* data, unsigned numBytes, unsigned contentID=0)
     // Error: type "const unsigned char*" can not automatically bind
@@ -223,9 +223,9 @@ void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 }
 
 // class NetworkPriority | File: ../Network/NetworkPriority.h
-void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -249,7 +249,7 @@ void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods, V
 }
 
 // struct PackageDownload | File: ../Network/Connection.h
-void CollectMembers_PackageDownload(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PackageDownload(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedPtr<File> PackageDownload::file_
     // Error: type "SharedPtr<File>" can not automatically bind
@@ -263,7 +263,7 @@ void CollectMembers_PackageDownload(Vector<RegisterObjectMethodArgs>& methods, V
 }
 
 // struct PackageUpload | File: ../Network/Connection.h
-void CollectMembers_PackageUpload(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PackageUpload(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedPtr<File> PackageUpload::file_
     // Error: type "SharedPtr<File>" can not automatically bind
@@ -273,7 +273,7 @@ void CollectMembers_PackageUpload(Vector<RegisterObjectMethodArgs>& methods, Vec
 }
 
 // struct RemoteEvent | File: ../Network/Connection.h
-void CollectMembers_RemoteEvent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RemoteEvent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("unsigned RemoteEvent::senderID_", "uint senderID", offsetof(RemoteEvent, senderID_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash RemoteEvent::eventType_", "StringHash eventType", offsetof(RemoteEvent, eventType_)));

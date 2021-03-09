@@ -77,6 +77,24 @@ struct RegisterObjectMethodArgs
     }
 };
 
+struct RegisterGlobalFunctionArgs
+{
+    String cppDeclaration_;
+    String asDeclaration_;
+    asSFuncPtr funcPointer_;
+    asDWORD callConv_ = 0;
+
+    RegisterGlobalFunctionArgs() = default;
+
+    RegisterGlobalFunctionArgs(const String& cppDeclaration, const String& asDeclaration, const asSFuncPtr& funcPointer, asDWORD callConv)
+        : cppDeclaration_(cppDeclaration)
+        , asDeclaration_(asDeclaration)
+        , funcPointer_(funcPointer)
+        , callConv_(callConv)
+    {
+    }
+};
+
 struct RegisterObjectPropertyArgs
 {
     String cppDeclaration_;
