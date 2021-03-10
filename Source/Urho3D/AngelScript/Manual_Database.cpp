@@ -26,7 +26,8 @@
 #include "../AngelScript/APITemplates.h"
 
 #include "../Database/Database.h"
-#include "../AngelScript/Generated_Templates.h"
+//#include "../AngelScript/Generated_Templates.h"
+#include "../AngelScript/GeneratedClassMembers.h"
 
 namespace Urho3D
 {
@@ -84,10 +85,12 @@ static void RegisterDbResult(asIScriptEngine* engine)
 
 static void RegisterDbConnection(asIScriptEngine* engine)
 {
+    /*
     RegisterObject<DbConnection>(engine, "DbConnection");
     engine->RegisterObjectMethod("DbConnection", "DbResult Execute(const String&in, bool useCursorEvent = false)", AS_METHOD(DbConnection, Execute), AS_CALL_THISCALL);
     engine->RegisterObjectMethod("DbConnection", "const String& get_connectionString() const", AS_METHOD(DbConnection, GetConnectionString), AS_CALL_THISCALL);
     engine->RegisterObjectMethod("DbConnection", "bool get_connected() const", AS_METHOD(DbConnection, IsConnected), AS_CALL_THISCALL);
+    */
 }
 
 // ========================================================================================
