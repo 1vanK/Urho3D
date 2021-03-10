@@ -24,7 +24,7 @@
 
 using namespace std;
 
-#define DEVELOP
+//#define DEVELOP
 
 // Path to Urho3D's root folder (CMAKE_SOURCE_DIR). There must be no slash at the end
 string _sourceDir;

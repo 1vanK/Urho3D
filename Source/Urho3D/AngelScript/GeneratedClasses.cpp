@@ -13,32 +13,6 @@ namespace Urho3D
 void FakeAddRef(void* ptr);
 void FakeReleaseRef(void* ptr);
 
-inline void RegisterMembers(asIScriptEngine* engine, const char* asClassName, Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
-{
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
-}
-
 // class AbstractFile | File: ../IO/AbstractFile.h
 static void Register_AbstractFile(asIScriptEngine* engine)
 {
