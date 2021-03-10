@@ -13,17 +13,8 @@ namespace Urho3D
 void FakeAddRef(void* ptr);
 void FakeReleaseRef(void* ptr);
 
-// class AbstractFile | File: ../IO/AbstractFile.h
-static void Register_AbstractFile(asIScriptEngine* engine)
+inline void RegisterMembers(asIScriptEngine* engine, const char* asClassName, Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AbstractFile(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AbstractFile";
-
     for (const RegisterObjectMethodArgs& method : methods)
         engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
 
@@ -46,6 +37,18 @@ static void Register_AbstractFile(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+}
+
+// class AbstractFile | File: ../IO/AbstractFile.h
+static void Register_AbstractFile(asIScriptEngine* engine)
+{
+    Vector<RegisterObjectMethodArgs> methods;
+    Vector<RegisterGlobalFunctionArgs> staticMethods;
+    Vector<RegisterObjectPropertyArgs> fields;
+    Vector<RegisterObjectMethodArgs> wrappedFields;
+    Vector<RegisterGlobalPropertyArgs> staticFields;
+    CollectMembers_AbstractFile(methods, staticMethods, fields, wrappedFields, staticFields);
+    RegisterMembers(engine, "AbstractFile", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AbstractFile
         REGISTER_CLASS_MANUAL_PART_AbstractFile();
@@ -64,30 +67,7 @@ static void Register_AllocatorBlock(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AllocatorBlock(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AllocatorBlock";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AllocatorBlock", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AllocatorBlock
         REGISTER_CLASS_MANUAL_PART_AllocatorBlock();
@@ -106,30 +86,7 @@ static void Register_AllocatorNode(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AllocatorNode(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AllocatorNode";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AllocatorNode", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AllocatorNode
         REGISTER_CLASS_MANUAL_PART_AllocatorNode();
@@ -145,30 +102,7 @@ static void Register_Animatable(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Animatable(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Animatable";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Animatable", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Animatable
         REGISTER_CLASS_MANUAL_PART_Animatable();
@@ -194,30 +128,7 @@ static void Register_AnimatedModel(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimatedModel(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimatedModel";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimatedModel", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimatedModel
         REGISTER_CLASS_MANUAL_PART_AnimatedModel();
@@ -243,30 +154,7 @@ static void Register_Animation(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Animation(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Animation";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Animation", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Animation
         REGISTER_CLASS_MANUAL_PART_Animation();
@@ -282,30 +170,7 @@ static void Register_AnimationControl(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimationControl(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimationControl";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimationControl", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationControl
         REGISTER_CLASS_MANUAL_PART_AnimationControl();
@@ -331,30 +196,7 @@ static void Register_AnimationController(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimationController(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimationController";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimationController", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationController
         REGISTER_CLASS_MANUAL_PART_AnimationController();
@@ -373,30 +215,7 @@ static void Register_AnimationKeyFrame(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimationKeyFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimationKeyFrame";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimationKeyFrame", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationKeyFrame
         REGISTER_CLASS_MANUAL_PART_AnimationKeyFrame();
@@ -429,30 +248,7 @@ static void Register_AnimationState(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimationState";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimationState", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationState
         REGISTER_CLASS_MANUAL_PART_AnimationState();
@@ -471,30 +267,7 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimationStateTrack(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimationStateTrack";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimationStateTrack", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationStateTrack
         REGISTER_CLASS_MANUAL_PART_AnimationStateTrack();
@@ -510,30 +283,7 @@ static void Register_AnimationTrack(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimationTrack(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimationTrack";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimationTrack", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationTrack
         REGISTER_CLASS_MANUAL_PART_AnimationTrack();
@@ -552,30 +302,7 @@ static void Register_AnimationTriggerPoint(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimationTriggerPoint(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimationTriggerPoint";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimationTriggerPoint", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationTriggerPoint
         REGISTER_CLASS_MANUAL_PART_AnimationTriggerPoint();
@@ -612,30 +339,7 @@ static void Register_AreaAllocator(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AreaAllocator(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AreaAllocator";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AreaAllocator", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AreaAllocator
         REGISTER_CLASS_MANUAL_PART_AreaAllocator();
@@ -654,30 +358,7 @@ static void Register_AsyncProgress(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AsyncProgress(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AsyncProgress";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AsyncProgress", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AsyncProgress
         REGISTER_CLASS_MANUAL_PART_AsyncProgress();
@@ -693,30 +374,7 @@ static void Register_AttributeAccessor(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AttributeAccessor(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AttributeAccessor";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AttributeAccessor", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AttributeAccessor
         REGISTER_CLASS_MANUAL_PART_AttributeAccessor();
@@ -749,30 +407,7 @@ static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AttributeAnimationInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AttributeAnimationInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AttributeAnimationInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AttributeAnimationInfo
         REGISTER_CLASS_MANUAL_PART_AttributeAnimationInfo();
@@ -795,30 +430,7 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AttributeInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AttributeInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AttributeInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AttributeInfo
         REGISTER_CLASS_MANUAL_PART_AttributeInfo();
@@ -844,30 +456,7 @@ static void Register_Audio(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Audio(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Audio";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Audio", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Audio
         REGISTER_CLASS_MANUAL_PART_Audio();
@@ -886,30 +475,7 @@ static void Register_BackgroundLoadItem(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BackgroundLoadItem(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BackgroundLoadItem";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BackgroundLoadItem", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BackgroundLoadItem
         REGISTER_CLASS_MANUAL_PART_BackgroundLoadItem();
@@ -938,30 +504,7 @@ static void Register_Batch(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Batch(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Batch";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Batch", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Batch
         REGISTER_CLASS_MANUAL_PART_Batch();
@@ -990,30 +533,7 @@ static void Register_BatchGroup(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BatchGroup(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BatchGroup";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BatchGroup", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchGroup
         REGISTER_CLASS_MANUAL_PART_BatchGroup();
@@ -1042,30 +562,7 @@ static void Register_BatchGroupKey(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BatchGroupKey(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BatchGroupKey";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BatchGroupKey", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchGroupKey
         REGISTER_CLASS_MANUAL_PART_BatchGroupKey();
@@ -1084,30 +581,7 @@ static void Register_BatchQueue(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BatchQueue(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BatchQueue";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BatchQueue", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchQueue
         REGISTER_CLASS_MANUAL_PART_BatchQueue();
@@ -1132,30 +606,7 @@ static void Register_BiasParameters(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BiasParameters(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BiasParameters";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BiasParameters", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BiasParameters
         REGISTER_CLASS_MANUAL_PART_BiasParameters();
@@ -1171,30 +622,7 @@ static void Register_Billboard(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Billboard(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Billboard";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Billboard", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Billboard
         REGISTER_CLASS_MANUAL_PART_Billboard();
@@ -1220,30 +648,7 @@ static void Register_BillboardSet(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BillboardSet(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BillboardSet";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BillboardSet", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BillboardSet
         REGISTER_CLASS_MANUAL_PART_BillboardSet();
@@ -1259,30 +664,7 @@ static void Register_Bone(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Bone(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Bone";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Bone", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Bone
         REGISTER_CLASS_MANUAL_PART_Bone();
@@ -1308,30 +690,7 @@ static void Register_BorderImage(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BorderImage";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BorderImage", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BorderImage
         REGISTER_CLASS_MANUAL_PART_BorderImage();
@@ -1407,30 +766,7 @@ static void Register_BoundingBox(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BoundingBox(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BoundingBox";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BoundingBox", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BoundingBox
         REGISTER_CLASS_MANUAL_PART_BoundingBox();
@@ -1446,30 +782,7 @@ static void Register_BufferedSoundStream(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_BufferedSoundStream(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "BufferedSoundStream";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "BufferedSoundStream", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BufferedSoundStream
         REGISTER_CLASS_MANUAL_PART_BufferedSoundStream();
@@ -1495,30 +808,7 @@ static void Register_Button(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Button(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Button";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Button", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Button
         REGISTER_CLASS_MANUAL_PART_Button();
@@ -1544,30 +834,7 @@ static void Register_Camera(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Camera(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Camera";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Camera", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Camera
         REGISTER_CLASS_MANUAL_PART_Camera();
@@ -1592,30 +859,7 @@ static void Register_CascadeParameters(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CascadeParameters(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CascadeParameters";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CascadeParameters", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CascadeParameters
         REGISTER_CLASS_MANUAL_PART_CascadeParameters();
@@ -1634,30 +878,7 @@ static void Register_CharLocation(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CharLocation(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CharLocation";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CharLocation", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CharLocation
         REGISTER_CLASS_MANUAL_PART_CharLocation();
@@ -1683,30 +904,7 @@ static void Register_CheckBox(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CheckBox(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CheckBox";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CheckBox", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CheckBox
         REGISTER_CLASS_MANUAL_PART_CheckBox();
@@ -1776,30 +974,7 @@ static void Register_Color(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Color(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Color";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Color", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Color
         REGISTER_CLASS_MANUAL_PART_Color();
@@ -1832,30 +1007,7 @@ static void Register_ColorFrame(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ColorFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ColorFrame";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ColorFrame", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ColorFrame
         REGISTER_CLASS_MANUAL_PART_ColorFrame();
@@ -1881,30 +1033,7 @@ static void Register_Component(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Component";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Component", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Component
         REGISTER_CLASS_MANUAL_PART_Component();
@@ -1923,30 +1052,7 @@ static void Register_ComponentReplicationState(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ComponentReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ComponentReplicationState";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ComponentReplicationState", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ComponentReplicationState
         REGISTER_CLASS_MANUAL_PART_ComponentReplicationState();
@@ -1965,30 +1071,7 @@ static void Register_CompressedLevel(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CompressedLevel(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CompressedLevel";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CompressedLevel", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CompressedLevel
         REGISTER_CLASS_MANUAL_PART_CompressedLevel();
@@ -2007,30 +1090,7 @@ static void Register_Condition(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Condition(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Condition";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Condition", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Condition
         REGISTER_CLASS_MANUAL_PART_Condition();
@@ -2056,30 +1116,7 @@ static void Register_Console(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Console(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Console";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Console", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Console
         REGISTER_CLASS_MANUAL_PART_Console();
@@ -2105,30 +1142,7 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstantBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstantBuffer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstantBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstantBuffer
         REGISTER_CLASS_MANUAL_PART_ConstantBuffer();
@@ -2144,30 +1158,7 @@ static void Register_Context(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Context(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Context";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Context", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Context
         REGISTER_CLASS_MANUAL_PART_Context();
@@ -2186,30 +1177,7 @@ static void Register_Controls(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Controls(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Controls";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Controls", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Controls
         REGISTER_CLASS_MANUAL_PART_Controls();
@@ -2235,30 +1203,7 @@ static void Register_Cursor(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Cursor(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Cursor";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Cursor", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Cursor
         REGISTER_CLASS_MANUAL_PART_Cursor();
@@ -2287,30 +1232,7 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CursorShapeInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CursorShapeInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CursorShapeInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CursorShapeInfo
         REGISTER_CLASS_MANUAL_PART_CursorShapeInfo();
@@ -2336,30 +1258,7 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CustomGeometry(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CustomGeometry";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CustomGeometry", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CustomGeometry
         REGISTER_CLASS_MANUAL_PART_CustomGeometry();
@@ -2375,30 +1274,7 @@ static void Register_CustomGeometryVertex(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CustomGeometryVertex(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CustomGeometryVertex";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CustomGeometryVertex", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CustomGeometryVertex
         REGISTER_CLASS_MANUAL_PART_CustomGeometryVertex();
@@ -2424,30 +1300,7 @@ static void Register_DebugHud(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DebugHud(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DebugHud";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DebugHud", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugHud
         REGISTER_CLASS_MANUAL_PART_DebugHud();
@@ -2476,30 +1329,7 @@ static void Register_DebugLine(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DebugLine(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DebugLine";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DebugLine", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugLine
         REGISTER_CLASS_MANUAL_PART_DebugLine();
@@ -2525,30 +1355,7 @@ static void Register_DebugRenderer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DebugRenderer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DebugRenderer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DebugRenderer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugRenderer
         REGISTER_CLASS_MANUAL_PART_DebugRenderer();
@@ -2577,30 +1384,7 @@ static void Register_DebugTriangle(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DebugTriangle(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DebugTriangle";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DebugTriangle", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugTriangle
         REGISTER_CLASS_MANUAL_PART_DebugTriangle();
@@ -2619,30 +1403,7 @@ static void Register_Decal(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Decal(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Decal";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Decal", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Decal
         REGISTER_CLASS_MANUAL_PART_Decal();
@@ -2668,30 +1429,7 @@ static void Register_DecalSet(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DecalSet(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DecalSet";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DecalSet", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DecalSet
         REGISTER_CLASS_MANUAL_PART_DecalSet();
@@ -2723,30 +1461,7 @@ static void Register_DecalVertex(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DecalVertex(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DecalVertex";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DecalVertex", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DecalVertex
         REGISTER_CLASS_MANUAL_PART_DecalVertex();
@@ -2762,30 +1477,7 @@ static void Register_DepthValue(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DepthValue(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DepthValue";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DepthValue", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DepthValue
         REGISTER_CLASS_MANUAL_PART_DepthValue();
@@ -2801,30 +1493,7 @@ static void Register_Deserializer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Deserializer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Deserializer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Deserializer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Deserializer
         REGISTER_CLASS_MANUAL_PART_Deserializer();
@@ -2853,30 +1522,7 @@ static void Register_DirtyBits(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DirtyBits(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DirtyBits";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DirtyBits", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DirtyBits
         REGISTER_CLASS_MANUAL_PART_DirtyBits();
@@ -2892,30 +1538,7 @@ static void Register_Drawable(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Drawable";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Drawable", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Drawable
         REGISTER_CLASS_MANUAL_PART_Drawable();
@@ -2941,30 +1564,7 @@ static void Register_DropDownList(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DropDownList(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DropDownList";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DropDownList", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DropDownList
         REGISTER_CLASS_MANUAL_PART_DropDownList();
@@ -2990,30 +1590,7 @@ static void Register_Engine(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Engine(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Engine";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Engine", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Engine
         REGISTER_CLASS_MANUAL_PART_Engine();
@@ -3039,30 +1616,7 @@ static void Register_EventProfiler(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_EventProfiler(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "EventProfiler";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "EventProfiler", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_EventProfiler
         REGISTER_CLASS_MANUAL_PART_EventProfiler();
@@ -3078,30 +1632,7 @@ static void Register_EventReceiverGroup(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_EventReceiverGroup(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "EventReceiverGroup";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "EventReceiverGroup", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_EventReceiverGroup
         REGISTER_CLASS_MANUAL_PART_EventReceiverGroup();
@@ -3145,30 +1676,7 @@ static void Register_File(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_File(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "File";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "File", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_File
         REGISTER_CLASS_MANUAL_PART_File();
@@ -3194,30 +1702,7 @@ static void Register_FileSelector(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FileSelector(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FileSelector";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FileSelector", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FileSelector
         REGISTER_CLASS_MANUAL_PART_FileSelector();
@@ -3236,30 +1721,7 @@ static void Register_FileSelectorEntry(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FileSelectorEntry(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FileSelectorEntry";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FileSelectorEntry", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FileSelectorEntry
         REGISTER_CLASS_MANUAL_PART_FileSelectorEntry();
@@ -3285,30 +1747,7 @@ static void Register_FileSystem(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FileSystem(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FileSystem";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FileSystem", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FileSystem
         REGISTER_CLASS_MANUAL_PART_FileSystem();
@@ -3334,30 +1773,7 @@ static void Register_FileWatcher(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FileWatcher(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FileWatcher";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FileWatcher", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FileWatcher
         REGISTER_CLASS_MANUAL_PART_FileWatcher();
@@ -3382,30 +1798,7 @@ static void Register_FocusParameters(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FocusParameters(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FocusParameters";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FocusParameters", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FocusParameters
         REGISTER_CLASS_MANUAL_PART_FocusParameters();
@@ -3431,30 +1824,7 @@ static void Register_Font(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Font(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Font";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Font", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Font
         REGISTER_CLASS_MANUAL_PART_Font();
@@ -3470,30 +1840,7 @@ static void Register_FontFace(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FontFace(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FontFace";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FontFace", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FontFace
         REGISTER_CLASS_MANUAL_PART_FontFace();
@@ -3518,30 +1865,7 @@ static void Register_FontFaceBitmap(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FontFaceBitmap(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FontFaceBitmap";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FontFaceBitmap", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FontFaceBitmap
         REGISTER_CLASS_MANUAL_PART_FontFaceBitmap();
@@ -3566,30 +1890,7 @@ static void Register_FontFaceFreeType(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FontFaceFreeType(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FontFaceFreeType";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FontFaceFreeType", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FontFaceFreeType
         REGISTER_CLASS_MANUAL_PART_FontFaceFreeType();
@@ -3608,30 +1909,7 @@ static void Register_FontGlyph(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FontGlyph(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FontGlyph";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FontGlyph", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FontGlyph
         REGISTER_CLASS_MANUAL_PART_FontGlyph();
@@ -3650,30 +1928,7 @@ static void Register_FrameInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_FrameInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "FrameInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "FrameInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FrameInfo
         REGISTER_CLASS_MANUAL_PART_FrameInfo();
@@ -3702,30 +1957,7 @@ static void Register_Frustum(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Frustum(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Frustum";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Frustum", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Frustum
         REGISTER_CLASS_MANUAL_PART_Frustum();
@@ -3754,30 +1986,7 @@ static void Register_GPUObject(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_GPUObject(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "GPUObject";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "GPUObject", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_GPUObject
         REGISTER_CLASS_MANUAL_PART_GPUObject();
@@ -3803,30 +2012,7 @@ static void Register_Geometry(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Geometry(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Geometry";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Geometry", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Geometry
         REGISTER_CLASS_MANUAL_PART_Geometry();
@@ -3845,30 +2031,7 @@ static void Register_GeometryDesc(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_GeometryDesc(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "GeometryDesc";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "GeometryDesc", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_GeometryDesc
         REGISTER_CLASS_MANUAL_PART_GeometryDesc();
@@ -3894,30 +2057,7 @@ static void Register_Graphics(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Graphics(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Graphics";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Graphics", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Graphics
         REGISTER_CLASS_MANUAL_PART_Graphics();
@@ -3936,30 +2076,7 @@ static void Register_HashBase(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_HashBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "HashBase";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "HashBase", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HashBase
         REGISTER_CLASS_MANUAL_PART_HashBase();
@@ -3982,30 +2099,7 @@ static void Register_HashIteratorBase(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_HashIteratorBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "HashIteratorBase";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "HashIteratorBase", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HashIteratorBase
         REGISTER_CLASS_MANUAL_PART_HashIteratorBase();
@@ -4024,30 +2118,7 @@ static void Register_HashNodeBase(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_HashNodeBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "HashNodeBase";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "HashNodeBase", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HashNodeBase
         REGISTER_CLASS_MANUAL_PART_HashNodeBase();
@@ -4066,30 +2137,7 @@ static void Register_HiresTimer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_HiresTimer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "HiresTimer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "HiresTimer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HiresTimer
         REGISTER_CLASS_MANUAL_PART_HiresTimer();
@@ -4115,30 +2163,7 @@ static void Register_Image(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Image(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Image";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Image", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Image
         REGISTER_CLASS_MANUAL_PART_Image();
@@ -4164,30 +2189,7 @@ static void Register_IndexBuffer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_IndexBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "IndexBuffer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "IndexBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IndexBuffer
         REGISTER_CLASS_MANUAL_PART_IndexBuffer();
@@ -4206,30 +2208,7 @@ static void Register_IndexBufferDesc(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_IndexBufferDesc(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "IndexBufferDesc";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "IndexBufferDesc", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IndexBufferDesc
         REGISTER_CLASS_MANUAL_PART_IndexBufferDesc();
@@ -4255,30 +2234,7 @@ static void Register_Input(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Input(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Input";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Input", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Input
         REGISTER_CLASS_MANUAL_PART_Input();
@@ -4301,30 +2257,7 @@ static void Register_InstanceData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_InstanceData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "InstanceData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "InstanceData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_InstanceData
         REGISTER_CLASS_MANUAL_PART_InstanceData();
@@ -4360,30 +2293,7 @@ static void Register_IntRect(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_IntRect(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "IntRect";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "IntRect", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IntRect
         REGISTER_CLASS_MANUAL_PART_IntRect();
@@ -4421,30 +2331,7 @@ static void Register_IntVector2(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_IntVector2(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "IntVector2";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "IntVector2", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IntVector2
         REGISTER_CLASS_MANUAL_PART_IntVector2();
@@ -4480,30 +2367,7 @@ static void Register_IntVector3(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_IntVector3(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "IntVector3";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "IntVector3", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IntVector3
         REGISTER_CLASS_MANUAL_PART_IntVector3();
@@ -4529,30 +2393,7 @@ static void Register_JSONFile(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_JSONFile(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "JSONFile";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "JSONFile", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_JSONFile
         REGISTER_CLASS_MANUAL_PART_JSONFile();
@@ -4636,30 +2477,7 @@ static void Register_JSONValue(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_JSONValue(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "JSONValue";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "JSONValue", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_JSONValue
         REGISTER_CLASS_MANUAL_PART_JSONValue();
@@ -4675,30 +2493,7 @@ static void Register_JoystickState(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_JoystickState(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "JoystickState";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "JoystickState", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_JoystickState
         REGISTER_CLASS_MANUAL_PART_JoystickState();
@@ -4724,30 +2519,7 @@ static void Register_Light(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Light(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Light";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Light", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Light
         REGISTER_CLASS_MANUAL_PART_Light();
@@ -4766,30 +2538,7 @@ static void Register_LightBatchQueue(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_LightBatchQueue(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "LightBatchQueue";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "LightBatchQueue", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LightBatchQueue
         REGISTER_CLASS_MANUAL_PART_LightBatchQueue();
@@ -4808,30 +2557,7 @@ static void Register_LightQueryResult(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_LightQueryResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "LightQueryResult";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "LightQueryResult", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LightQueryResult
         REGISTER_CLASS_MANUAL_PART_LightQueryResult();
@@ -4857,30 +2583,7 @@ static void Register_LineEdit(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_LineEdit(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "LineEdit";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "LineEdit", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LineEdit
         REGISTER_CLASS_MANUAL_PART_LineEdit();
@@ -4899,30 +2602,7 @@ static void Register_LinkedListNode(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_LinkedListNode(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "LinkedListNode";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "LinkedListNode", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LinkedListNode
         REGISTER_CLASS_MANUAL_PART_LinkedListNode();
@@ -4941,30 +2621,7 @@ static void Register_ListBase(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ListBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ListBase";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ListBase", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ListBase
         REGISTER_CLASS_MANUAL_PART_ListBase();
@@ -4987,30 +2644,7 @@ static void Register_ListIteratorBase(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ListIteratorBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ListIteratorBase";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ListIteratorBase", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ListIteratorBase
         REGISTER_CLASS_MANUAL_PART_ListIteratorBase();
@@ -5029,30 +2663,7 @@ static void Register_ListNodeBase(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ListNodeBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ListNodeBase";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ListNodeBase", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ListNodeBase
         REGISTER_CLASS_MANUAL_PART_ListNodeBase();
@@ -5078,30 +2689,7 @@ static void Register_ListView(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ListView(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ListView";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ListView", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ListView
         REGISTER_CLASS_MANUAL_PART_ListView();
@@ -5127,30 +2715,7 @@ static void Register_Localization(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Localization(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Localization";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Localization", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Localization
         REGISTER_CLASS_MANUAL_PART_Localization();
@@ -5176,30 +2741,7 @@ static void Register_Log(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Log(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Log";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Log", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Log
         REGISTER_CLASS_MANUAL_PART_Log();
@@ -5215,30 +2757,7 @@ static void Register_LogicComponent(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_LogicComponent(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "LogicComponent";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "LogicComponent", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LogicComponent
         REGISTER_CLASS_MANUAL_PART_LogicComponent();
@@ -5264,30 +2783,7 @@ static void Register_Material(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Material(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Material";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Material", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Material
         REGISTER_CLASS_MANUAL_PART_Material();
@@ -5306,30 +2802,7 @@ static void Register_MaterialShaderParameter(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_MaterialShaderParameter(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "MaterialShaderParameter";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "MaterialShaderParameter", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_MaterialShaderParameter
         REGISTER_CLASS_MANUAL_PART_MaterialShaderParameter();
@@ -5365,30 +2838,7 @@ static void Register_Matrix2(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Matrix2(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Matrix2";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Matrix2", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Matrix2
         REGISTER_CLASS_MANUAL_PART_Matrix2();
@@ -5424,30 +2874,7 @@ static void Register_Matrix3(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Matrix3(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Matrix3";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Matrix3", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Matrix3
         REGISTER_CLASS_MANUAL_PART_Matrix3();
@@ -5515,30 +2942,7 @@ static void Register_Matrix3x4(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Matrix3x4(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Matrix3x4";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Matrix3x4", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Matrix3x4
         REGISTER_CLASS_MANUAL_PART_Matrix3x4();
@@ -5582,30 +2986,7 @@ static void Register_Matrix4(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Matrix4(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Matrix4";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Matrix4", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Matrix4
         REGISTER_CLASS_MANUAL_PART_Matrix4();
@@ -5631,30 +3012,7 @@ static void Register_Menu(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Menu(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Menu";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Menu", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Menu
         REGISTER_CLASS_MANUAL_PART_Menu();
@@ -5680,30 +3038,7 @@ static void Register_MessageBox(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_MessageBox(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "MessageBox";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "MessageBox", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_MessageBox
         REGISTER_CLASS_MANUAL_PART_MessageBox();
@@ -5729,30 +3064,7 @@ static void Register_Model(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Model(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Model";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Model", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Model
         REGISTER_CLASS_MANUAL_PART_Model();
@@ -5771,30 +3083,7 @@ static void Register_ModelMorph(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ModelMorph(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ModelMorph";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ModelMorph", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ModelMorph
         REGISTER_CLASS_MANUAL_PART_ModelMorph();
@@ -5813,30 +3102,7 @@ static void Register_Mutex(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Mutex(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Mutex";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Mutex", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Mutex
         REGISTER_CLASS_MANUAL_PART_Mutex();
@@ -5868,30 +3134,7 @@ static void Register_MutexLock(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_MutexLock(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "MutexLock";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "MutexLock", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_MutexLock
         REGISTER_CLASS_MANUAL_PART_MutexLock();
@@ -5926,30 +3169,7 @@ static void Register_NamedPipe(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NamedPipe(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NamedPipe";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NamedPipe", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NamedPipe
         REGISTER_CLASS_MANUAL_PART_NamedPipe();
@@ -5968,30 +3188,7 @@ static void Register_NetworkState(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NetworkState(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NetworkState";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NetworkState", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NetworkState
         REGISTER_CLASS_MANUAL_PART_NetworkState();
@@ -6017,30 +3214,7 @@ static void Register_Node(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Node(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Node";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Node", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Node
         REGISTER_CLASS_MANUAL_PART_Node();
@@ -6059,30 +3233,7 @@ static void Register_NodeImpl(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NodeImpl(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NodeImpl";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NodeImpl", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NodeImpl
         REGISTER_CLASS_MANUAL_PART_NodeImpl();
@@ -6101,30 +3252,7 @@ static void Register_NodeReplicationState(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NodeReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NodeReplicationState";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NodeReplicationState", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NodeReplicationState
         REGISTER_CLASS_MANUAL_PART_NodeReplicationState();
@@ -6140,30 +3268,7 @@ static void Register_Object(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Object";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Object", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Object
         REGISTER_CLASS_MANUAL_PART_Object();
@@ -6189,30 +3294,7 @@ static void Register_ObjectAnimation(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ObjectAnimation(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ObjectAnimation";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ObjectAnimation", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ObjectAnimation
         REGISTER_CLASS_MANUAL_PART_ObjectAnimation();
@@ -6228,30 +3310,7 @@ static void Register_ObjectFactory(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ObjectFactory(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ObjectFactory";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ObjectFactory", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ObjectFactory
         REGISTER_CLASS_MANUAL_PART_ObjectFactory();
@@ -6270,30 +3329,7 @@ static void Register_OcclusionBatch(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_OcclusionBatch(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "OcclusionBatch";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "OcclusionBatch", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBatch
         REGISTER_CLASS_MANUAL_PART_OcclusionBatch();
@@ -6319,30 +3355,7 @@ static void Register_OcclusionBuffer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_OcclusionBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "OcclusionBuffer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "OcclusionBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBuffer
         REGISTER_CLASS_MANUAL_PART_OcclusionBuffer();
@@ -6361,30 +3374,7 @@ static void Register_OcclusionBufferData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_OcclusionBufferData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "OcclusionBufferData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "OcclusionBufferData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBufferData
         REGISTER_CLASS_MANUAL_PART_OcclusionBufferData();
@@ -6410,30 +3400,7 @@ static void Register_Octree(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Octree(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Octree";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Octree", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Octree
         REGISTER_CLASS_MANUAL_PART_Octree();
@@ -6452,30 +3419,7 @@ static void Register_OctreeQueryResult(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_OctreeQueryResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "OctreeQueryResult";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "OctreeQueryResult", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OctreeQueryResult
         REGISTER_CLASS_MANUAL_PART_OctreeQueryResult();
@@ -6500,30 +3444,7 @@ static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_OggVorbisSoundStream(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "OggVorbisSoundStream";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "OggVorbisSoundStream", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OggVorbisSoundStream
         REGISTER_CLASS_MANUAL_PART_OggVorbisSoundStream();
@@ -6539,30 +3460,7 @@ static void Register_PackageEntry(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PackageEntry(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PackageEntry";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PackageEntry", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageEntry
         REGISTER_CLASS_MANUAL_PART_PackageEntry();
@@ -6597,30 +3495,7 @@ static void Register_PackageFile(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PackageFile(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PackageFile";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PackageFile", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageFile
         REGISTER_CLASS_MANUAL_PART_PackageFile();
@@ -6639,30 +3514,7 @@ static void Register_Particle(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Particle(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Particle";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Particle", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Particle
         REGISTER_CLASS_MANUAL_PART_Particle();
@@ -6688,30 +3540,7 @@ static void Register_ParticleEffect(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ParticleEffect(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ParticleEffect";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ParticleEffect", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEffect
         REGISTER_CLASS_MANUAL_PART_ParticleEffect();
@@ -6737,30 +3566,7 @@ static void Register_ParticleEmitter(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ParticleEmitter(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ParticleEmitter";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ParticleEmitter", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEmitter
         REGISTER_CLASS_MANUAL_PART_ParticleEmitter();
@@ -6785,30 +3591,7 @@ static void Register_Pass(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Pass(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Pass";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Pass", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Pass
         REGISTER_CLASS_MANUAL_PART_Pass();
@@ -6827,30 +3610,7 @@ static void Register_PerThreadSceneResult(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PerThreadSceneResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PerThreadSceneResult";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PerThreadSceneResult", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PerThreadSceneResult
         REGISTER_CLASS_MANUAL_PART_PerThreadSceneResult();
@@ -6899,30 +3659,7 @@ static void Register_Plane(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Plane(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Plane";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Plane", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Plane
         REGISTER_CLASS_MANUAL_PART_Plane();
@@ -6970,30 +3707,7 @@ static void Register_Polyhedron(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Polyhedron(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Polyhedron";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Polyhedron", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Polyhedron
         REGISTER_CLASS_MANUAL_PART_Polyhedron();
@@ -7019,30 +3733,7 @@ static void Register_Profiler(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Profiler(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Profiler";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Profiler", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Profiler
         REGISTER_CLASS_MANUAL_PART_Profiler();
@@ -7068,30 +3759,7 @@ static void Register_ProgressBar(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ProgressBar(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ProgressBar";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ProgressBar", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ProgressBar
         REGISTER_CLASS_MANUAL_PART_ProgressBar();
@@ -7183,30 +3851,7 @@ static void Register_Quaternion(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Quaternion(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Quaternion";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Quaternion", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Quaternion
         REGISTER_CLASS_MANUAL_PART_Quaternion();
@@ -7239,30 +3884,7 @@ static void Register_Ray(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Ray(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Ray";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Ray", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Ray
         REGISTER_CLASS_MANUAL_PART_Ray();
@@ -7281,30 +3903,7 @@ static void Register_RayQueryResult(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RayQueryResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RayQueryResult";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RayQueryResult", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RayQueryResult
         REGISTER_CLASS_MANUAL_PART_RayQueryResult();
@@ -7356,30 +3955,7 @@ static void Register_Rect(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Rect(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Rect";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Rect", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Rect
         REGISTER_CLASS_MANUAL_PART_Rect();
@@ -7398,30 +3974,7 @@ static void Register_RefCount(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RefCount(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RefCount";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RefCount", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RefCount
         REGISTER_CLASS_MANUAL_PART_RefCount();
@@ -7440,30 +3993,7 @@ static void Register_RefCounted(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RefCounted";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RefCounted", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RefCounted
         REGISTER_CLASS_MANUAL_PART_RefCounted();
@@ -7479,30 +4009,7 @@ static void Register_RenderPath(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RenderPath(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RenderPath";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RenderPath", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderPath
         REGISTER_CLASS_MANUAL_PART_RenderPath();
@@ -7521,30 +4028,7 @@ static void Register_RenderPathCommand(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RenderPathCommand(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RenderPathCommand";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RenderPathCommand", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderPathCommand
         REGISTER_CLASS_MANUAL_PART_RenderPathCommand();
@@ -7569,30 +4053,7 @@ static void Register_RenderSurface(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RenderSurface(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RenderSurface";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RenderSurface", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderSurface
         REGISTER_CLASS_MANUAL_PART_RenderSurface();
@@ -7611,30 +4072,7 @@ static void Register_RenderTargetInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RenderTargetInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RenderTargetInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RenderTargetInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderTargetInfo
         REGISTER_CLASS_MANUAL_PART_RenderTargetInfo();
@@ -7660,30 +4098,7 @@ static void Register_Renderer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Renderer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Renderer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Renderer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Renderer
         REGISTER_CLASS_MANUAL_PART_Renderer();
@@ -7702,30 +4117,7 @@ static void Register_ReplicationState(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ReplicationState";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ReplicationState", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ReplicationState
         REGISTER_CLASS_MANUAL_PART_ReplicationState();
@@ -7751,30 +4143,7 @@ static void Register_Resource(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Resource";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Resource", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Resource
         REGISTER_CLASS_MANUAL_PART_Resource();
@@ -7800,30 +4169,7 @@ static void Register_ResourceCache(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ResourceCache(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ResourceCache";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ResourceCache", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceCache
         REGISTER_CLASS_MANUAL_PART_ResourceCache();
@@ -7842,30 +4188,7 @@ static void Register_ResourceGroup(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ResourceGroup(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ResourceGroup";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ResourceGroup", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceGroup
         REGISTER_CLASS_MANUAL_PART_ResourceGroup();
@@ -7921,30 +4244,7 @@ static void Register_ResourceRef(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ResourceRef(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ResourceRef";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ResourceRef", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceRef
         REGISTER_CLASS_MANUAL_PART_ResourceRef();
@@ -7982,30 +4282,7 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ResourceRefList(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ResourceRefList";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ResourceRefList", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceRefList
         REGISTER_CLASS_MANUAL_PART_ResourceRefList();
@@ -8031,30 +4308,7 @@ static void Register_ResourceWithMetadata(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ResourceWithMetadata";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ResourceWithMetadata", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceWithMetadata
         REGISTER_CLASS_MANUAL_PART_ResourceWithMetadata();
@@ -8080,30 +4334,7 @@ static void Register_RibbonTrail(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RibbonTrail(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RibbonTrail";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RibbonTrail", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RibbonTrail
         REGISTER_CLASS_MANUAL_PART_RibbonTrail();
@@ -8129,30 +4360,7 @@ static void Register_Scene(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Scene(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Scene";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Scene", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Scene
         REGISTER_CLASS_MANUAL_PART_Scene();
@@ -8171,30 +4379,7 @@ static void Register_ScenePassInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ScenePassInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ScenePassInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ScenePassInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScenePassInfo
         REGISTER_CLASS_MANUAL_PART_ScenePassInfo();
@@ -8213,30 +4398,7 @@ static void Register_SceneReplicationState(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SceneReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SceneReplicationState";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SceneReplicationState", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SceneReplicationState
         REGISTER_CLASS_MANUAL_PART_SceneReplicationState();
@@ -8255,30 +4417,7 @@ static void Register_SceneResolver(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SceneResolver(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SceneResolver";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SceneResolver", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SceneResolver
         REGISTER_CLASS_MANUAL_PART_SceneResolver();
@@ -8297,30 +4436,7 @@ static void Register_ScratchBuffer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ScratchBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ScratchBuffer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ScratchBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScratchBuffer
         REGISTER_CLASS_MANUAL_PART_ScratchBuffer();
@@ -8339,30 +4455,7 @@ static void Register_ScreenModeParams(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ScreenModeParams(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ScreenModeParams";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ScreenModeParams", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScreenModeParams
         REGISTER_CLASS_MANUAL_PART_ScreenModeParams();
@@ -8388,30 +4481,7 @@ static void Register_ScrollBar(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ScrollBar(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ScrollBar";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ScrollBar", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScrollBar
         REGISTER_CLASS_MANUAL_PART_ScrollBar();
@@ -8437,30 +4507,7 @@ static void Register_ScrollView(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ScrollView(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ScrollView";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ScrollView", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScrollView
         REGISTER_CLASS_MANUAL_PART_ScrollView();
@@ -8486,30 +4533,7 @@ static void Register_Serializable(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Serializable(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Serializable";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Serializable", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Serializable
         REGISTER_CLASS_MANUAL_PART_Serializable();
@@ -8525,30 +4549,7 @@ static void Register_Serializer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Serializer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Serializer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Serializer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Serializer
         REGISTER_CLASS_MANUAL_PART_Serializer();
@@ -8574,30 +4575,7 @@ static void Register_Shader(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Shader(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Shader";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Shader", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Shader
         REGISTER_CLASS_MANUAL_PART_Shader();
@@ -8642,30 +4620,7 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ShaderParameter(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ShaderParameter";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ShaderParameter", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderParameter
         REGISTER_CLASS_MANUAL_PART_ShaderParameter();
@@ -8698,30 +4653,7 @@ static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ShaderParameterAnimationInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ShaderParameterAnimationInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ShaderParameterAnimationInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderParameterAnimationInfo
         REGISTER_CLASS_MANUAL_PART_ShaderParameterAnimationInfo();
@@ -8747,30 +4679,7 @@ static void Register_ShaderPrecache(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ShaderPrecache(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ShaderPrecache";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ShaderPrecache", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderPrecache
         REGISTER_CLASS_MANUAL_PART_ShaderPrecache();
@@ -8795,30 +4704,7 @@ static void Register_ShaderVariation(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ShaderVariation(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ShaderVariation";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ShaderVariation", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderVariation
         REGISTER_CLASS_MANUAL_PART_ShaderVariation();
@@ -8837,30 +4723,7 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ShadowBatchQueue(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ShadowBatchQueue";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ShadowBatchQueue", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShadowBatchQueue
         REGISTER_CLASS_MANUAL_PART_ShadowBatchQueue();
@@ -8876,30 +4739,7 @@ static void Register_Skeleton(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Skeleton(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Skeleton";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Skeleton", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Skeleton
         REGISTER_CLASS_MANUAL_PART_Skeleton();
@@ -8925,30 +4765,7 @@ static void Register_Skybox(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Skybox(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Skybox";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Skybox", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Skybox
         REGISTER_CLASS_MANUAL_PART_Skybox();
@@ -8974,30 +4791,7 @@ static void Register_Slider(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Slider(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Slider";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Slider", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Slider
         REGISTER_CLASS_MANUAL_PART_Slider();
@@ -9023,30 +4817,7 @@ static void Register_SmoothedTransform(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SmoothedTransform(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SmoothedTransform";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SmoothedTransform", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SmoothedTransform
         REGISTER_CLASS_MANUAL_PART_SmoothedTransform();
@@ -9072,30 +4843,7 @@ static void Register_Sound(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Sound(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Sound";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Sound", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Sound
         REGISTER_CLASS_MANUAL_PART_Sound();
@@ -9121,30 +4869,7 @@ static void Register_SoundListener(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SoundListener(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SoundListener";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SoundListener", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SoundListener
         REGISTER_CLASS_MANUAL_PART_SoundListener();
@@ -9170,30 +4895,7 @@ static void Register_SoundSource(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SoundSource(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SoundSource";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SoundSource", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SoundSource
         REGISTER_CLASS_MANUAL_PART_SoundSource();
@@ -9219,30 +4921,7 @@ static void Register_SoundSource3D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SoundSource3D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SoundSource3D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SoundSource3D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SoundSource3D
         REGISTER_CLASS_MANUAL_PART_SoundSource3D();
@@ -9258,30 +4937,7 @@ static void Register_SoundStream(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SoundStream(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SoundStream";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SoundStream", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SoundStream
         REGISTER_CLASS_MANUAL_PART_SoundStream();
@@ -9310,30 +4966,7 @@ static void Register_SourceBatch(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SourceBatch(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SourceBatch";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SourceBatch", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SourceBatch
         REGISTER_CLASS_MANUAL_PART_SourceBatch();
@@ -9393,30 +5026,7 @@ static void Register_Sphere(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Sphere(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Sphere";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Sphere", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Sphere
         REGISTER_CLASS_MANUAL_PART_Sphere();
@@ -9456,30 +5066,7 @@ static void Register_Spline(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Spline(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Spline";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Spline", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Spline
         REGISTER_CLASS_MANUAL_PART_Spline();
@@ -9505,30 +5092,7 @@ static void Register_SplinePath(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SplinePath(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SplinePath";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SplinePath", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SplinePath
         REGISTER_CLASS_MANUAL_PART_SplinePath();
@@ -9554,30 +5118,7 @@ static void Register_Sprite(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Sprite(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Sprite";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Sprite", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Sprite
         REGISTER_CLASS_MANUAL_PART_Sprite();
@@ -9603,30 +5144,7 @@ static void Register_StaticModel(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_StaticModel(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "StaticModel";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "StaticModel", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticModel
         REGISTER_CLASS_MANUAL_PART_StaticModel();
@@ -9645,30 +5163,7 @@ static void Register_StaticModelGeometryData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_StaticModelGeometryData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "StaticModelGeometryData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "StaticModelGeometryData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticModelGeometryData
         REGISTER_CLASS_MANUAL_PART_StaticModelGeometryData();
@@ -9694,30 +5189,7 @@ static void Register_StaticModelGroup(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_StaticModelGroup(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "StaticModelGroup";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "StaticModelGroup", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticModelGroup
         REGISTER_CLASS_MANUAL_PART_StaticModelGroup();
@@ -9746,30 +5218,7 @@ static void Register_StoredLogMessage(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_StoredLogMessage(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "StoredLogMessage";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "StoredLogMessage", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StoredLogMessage
         REGISTER_CLASS_MANUAL_PART_StoredLogMessage();
@@ -9907,30 +5356,7 @@ static void Register_String(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_String(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "String";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "String", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_String
         REGISTER_CLASS_MANUAL_PART_String();
@@ -9974,30 +5400,7 @@ static void Register_StringHash(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_StringHash(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "StringHash";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "StringHash", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StringHash
         REGISTER_CLASS_MANUAL_PART_StringHash();
@@ -10026,30 +5429,7 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_StringHashRegister(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "StringHashRegister";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "StringHashRegister", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StringHashRegister
         REGISTER_CLASS_MANUAL_PART_StringHashRegister();
@@ -10075,30 +5455,7 @@ static void Register_Technique(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Technique(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Technique";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Technique", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Technique
         REGISTER_CLASS_MANUAL_PART_Technique();
@@ -10127,30 +5484,7 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TechniqueEntry(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TechniqueEntry";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TechniqueEntry", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TechniqueEntry
         REGISTER_CLASS_MANUAL_PART_TechniqueEntry();
@@ -10176,30 +5510,7 @@ static void Register_Terrain(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Terrain(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Terrain";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Terrain", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Terrain
         REGISTER_CLASS_MANUAL_PART_Terrain();
@@ -10225,30 +5536,7 @@ static void Register_TerrainPatch(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TerrainPatch(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TerrainPatch";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TerrainPatch", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TerrainPatch
         REGISTER_CLASS_MANUAL_PART_TerrainPatch();
@@ -10274,30 +5562,7 @@ static void Register_Text(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Text(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Text";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Text", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Text
         REGISTER_CLASS_MANUAL_PART_Text();
@@ -10323,30 +5588,7 @@ static void Register_Text3D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Text3D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Text3D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Text3D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Text3D
         REGISTER_CLASS_MANUAL_PART_Text3D();
@@ -10372,30 +5614,7 @@ static void Register_Texture(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Texture(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Texture";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Texture", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Texture
         REGISTER_CLASS_MANUAL_PART_Texture();
@@ -10421,30 +5640,7 @@ static void Register_Texture2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Texture2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Texture2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Texture2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Texture2D
         REGISTER_CLASS_MANUAL_PART_Texture2D();
@@ -10470,30 +5666,7 @@ static void Register_Texture2DArray(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Texture2DArray(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Texture2DArray";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Texture2DArray", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Texture2DArray
         REGISTER_CLASS_MANUAL_PART_Texture2DArray();
@@ -10519,30 +5692,7 @@ static void Register_Texture3D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Texture3D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Texture3D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Texture3D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Texture3D
         REGISTER_CLASS_MANUAL_PART_Texture3D();
@@ -10568,30 +5718,7 @@ static void Register_TextureCube(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TextureCube(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TextureCube";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TextureCube", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TextureCube
         REGISTER_CLASS_MANUAL_PART_TextureCube();
@@ -10607,30 +5734,7 @@ static void Register_TextureFrame(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TextureFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TextureFrame";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TextureFrame", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TextureFrame
         REGISTER_CLASS_MANUAL_PART_TextureFrame();
@@ -10656,30 +5760,7 @@ static void Register_Time(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Time(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Time";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Time", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Time
         REGISTER_CLASS_MANUAL_PART_Time();
@@ -10695,30 +5776,7 @@ static void Register_Timer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Timer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Timer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Timer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Timer
         REGISTER_CLASS_MANUAL_PART_Timer();
@@ -10744,30 +5802,7 @@ static void Register_ToolTip(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ToolTip(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ToolTip";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ToolTip", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ToolTip
         REGISTER_CLASS_MANUAL_PART_ToolTip();
@@ -10783,30 +5818,7 @@ static void Register_TouchState(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TouchState(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TouchState";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TouchState", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TouchState
         REGISTER_CLASS_MANUAL_PART_TouchState();
@@ -10835,30 +5847,7 @@ static void Register_TrailPoint(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TrailPoint(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TrailPoint";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TrailPoint", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TrailPoint
         REGISTER_CLASS_MANUAL_PART_TrailPoint();
@@ -10884,30 +5873,7 @@ static void Register_UI(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_UI(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "UI";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "UI", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UI
         REGISTER_CLASS_MANUAL_PART_UI();
@@ -10930,30 +5896,7 @@ static void Register_UIBatch(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_UIBatch(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "UIBatch";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "UIBatch", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UIBatch
         REGISTER_CLASS_MANUAL_PART_UIBatch();
@@ -10979,30 +5922,7 @@ static void Register_UIComponent(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_UIComponent(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "UIComponent";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "UIComponent", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UIComponent
         REGISTER_CLASS_MANUAL_PART_UIComponent();
@@ -11028,30 +5948,7 @@ static void Register_UIElement(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_UIElement(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "UIElement";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "UIElement", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UIElement
         REGISTER_CLASS_MANUAL_PART_UIElement();
@@ -11067,30 +5964,7 @@ static void Register_UISelectable(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_UISelectable(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "UISelectable";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "UISelectable", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UISelectable
         REGISTER_CLASS_MANUAL_PART_UISelectable();
@@ -11106,30 +5980,7 @@ static void Register_UnknownComponent(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_UnknownComponent(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "UnknownComponent";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "UnknownComponent", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UnknownComponent
         REGISTER_CLASS_MANUAL_PART_UnknownComponent();
@@ -11148,30 +5999,7 @@ static void Register_VAnimEventFrame(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_VAnimEventFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "VAnimEventFrame";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "VAnimEventFrame", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VAnimEventFrame
         REGISTER_CLASS_MANUAL_PART_VAnimEventFrame();
@@ -11190,30 +6018,7 @@ static void Register_VAnimKeyFrame(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_VAnimKeyFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "VAnimKeyFrame";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "VAnimKeyFrame", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VAnimKeyFrame
         REGISTER_CLASS_MANUAL_PART_VAnimKeyFrame();
@@ -11239,30 +6044,7 @@ static void Register_ValueAnimation(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ValueAnimation(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ValueAnimation";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ValueAnimation", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ValueAnimation
         REGISTER_CLASS_MANUAL_PART_ValueAnimation();
@@ -11303,30 +6085,7 @@ static void Register_ValueAnimationInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ValueAnimationInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ValueAnimationInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ValueAnimationInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ValueAnimationInfo
         REGISTER_CLASS_MANUAL_PART_ValueAnimationInfo();
@@ -11603,30 +6362,7 @@ static void Register_Variant(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Variant(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Variant";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Variant", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Variant
         REGISTER_CLASS_MANUAL_PART_Variant();
@@ -11670,30 +6406,7 @@ static void Register_Vector2(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Vector2(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Vector2";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Vector2", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Vector2
         REGISTER_CLASS_MANUAL_PART_Vector2();
@@ -11761,30 +6474,7 @@ static void Register_Vector3(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Vector3(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Vector3";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Vector3", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Vector3
         REGISTER_CLASS_MANUAL_PART_Vector3();
@@ -11828,30 +6518,7 @@ static void Register_Vector4(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Vector4(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Vector4";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Vector4", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Vector4
         REGISTER_CLASS_MANUAL_PART_Vector4();
@@ -11870,30 +6537,7 @@ static void Register_VectorBase(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_VectorBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "VectorBase";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "VectorBase", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VectorBase
         REGISTER_CLASS_MANUAL_PART_VectorBase();
@@ -11927,30 +6571,7 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_VectorBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "VectorBuffer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "VectorBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VectorBuffer
         REGISTER_CLASS_MANUAL_PART_VectorBuffer();
@@ -11976,30 +6597,7 @@ static void Register_VertexBuffer(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_VertexBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "VertexBuffer";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "VertexBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexBuffer
         REGISTER_CLASS_MANUAL_PART_VertexBuffer();
@@ -12018,30 +6616,7 @@ static void Register_VertexBufferDesc(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_VertexBufferDesc(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "VertexBufferDesc";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "VertexBufferDesc", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexBufferDesc
         REGISTER_CLASS_MANUAL_PART_VertexBufferDesc();
@@ -12060,30 +6635,7 @@ static void Register_VertexBufferMorph(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_VertexBufferMorph(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "VertexBufferMorph";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "VertexBufferMorph", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexBufferMorph
         REGISTER_CLASS_MANUAL_PART_VertexBufferMorph();
@@ -12112,30 +6664,7 @@ static void Register_VertexElement(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_VertexElement(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "VertexElement";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "VertexElement", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexElement
         REGISTER_CLASS_MANUAL_PART_VertexElement();
@@ -12161,30 +6690,7 @@ static void Register_View(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_View(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "View";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "View", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_View
         REGISTER_CLASS_MANUAL_PART_View();
@@ -12210,30 +6716,7 @@ static void Register_View3D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_View3D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "View3D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "View3D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_View3D
         REGISTER_CLASS_MANUAL_PART_View3D();
@@ -12277,30 +6760,7 @@ static void Register_Viewport(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Viewport(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Viewport";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Viewport", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Viewport
         REGISTER_CLASS_MANUAL_PART_Viewport();
@@ -12326,30 +6786,7 @@ static void Register_Window(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Window(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Window";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Window", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Window
         REGISTER_CLASS_MANUAL_PART_Window();
@@ -12368,30 +6805,7 @@ static void Register_WindowModeParams(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_WindowModeParams(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "WindowModeParams";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "WindowModeParams", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_WindowModeParams
         REGISTER_CLASS_MANUAL_PART_WindowModeParams();
@@ -12417,30 +6831,7 @@ static void Register_WorkQueue(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_WorkQueue(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "WorkQueue";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "WorkQueue", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_WorkQueue
         REGISTER_CLASS_MANUAL_PART_WorkQueue();
@@ -12474,30 +6865,7 @@ static void Register_XMLElement(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_XMLElement(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "XMLElement";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "XMLElement", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_XMLElement
         REGISTER_CLASS_MANUAL_PART_XMLElement();
@@ -12523,30 +6891,7 @@ static void Register_XMLFile(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_XMLFile(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "XMLFile";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "XMLFile", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_XMLFile
         REGISTER_CLASS_MANUAL_PART_XMLFile();
@@ -12575,30 +6920,7 @@ static void Register_XPathQuery(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_XPathQuery(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "XPathQuery";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "XPathQuery", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_XPathQuery
         REGISTER_CLASS_MANUAL_PART_XPathQuery();
@@ -12630,30 +6952,7 @@ static void Register_XPathResultSet(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_XPathResultSet(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "XPathResultSet";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "XPathResultSet", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_XPathResultSet
         REGISTER_CLASS_MANUAL_PART_XPathResultSet();
@@ -12679,30 +6978,7 @@ static void Register_Zone(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Zone(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Zone";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Zone", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Zone
         REGISTER_CLASS_MANUAL_PART_Zone();
@@ -12730,30 +7006,7 @@ static void Register_Database(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Database(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Database";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Database", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Database
         REGISTER_CLASS_MANUAL_PART_Database();
@@ -12783,30 +7036,7 @@ static void Register_IKConstraint(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_IKConstraint(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "IKConstraint";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "IKConstraint", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IKConstraint
         REGISTER_CLASS_MANUAL_PART_IKConstraint();
@@ -12832,30 +7062,7 @@ static void Register_IKEffector(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_IKEffector(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "IKEffector";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "IKEffector", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IKEffector
         REGISTER_CLASS_MANUAL_PART_IKEffector();
@@ -12881,30 +7088,7 @@ static void Register_IKSolver(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_IKSolver(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "IKSolver";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "IKSolver", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IKSolver
         REGISTER_CLASS_MANUAL_PART_IKSolver();
@@ -12934,30 +7118,7 @@ static void Register_CrowdAgent(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CrowdAgent(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CrowdAgent";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CrowdAgent", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CrowdAgent
         REGISTER_CLASS_MANUAL_PART_CrowdAgent();
@@ -12983,30 +7144,7 @@ static void Register_CrowdManager(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CrowdManager(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CrowdManager";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CrowdManager", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CrowdManager
         REGISTER_CLASS_MANUAL_PART_CrowdManager();
@@ -13022,30 +7160,7 @@ static void Register_CrowdObstacleAvoidanceParams(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CrowdObstacleAvoidanceParams(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CrowdObstacleAvoidanceParams";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CrowdObstacleAvoidanceParams", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CrowdObstacleAvoidanceParams
         REGISTER_CLASS_MANUAL_PART_CrowdObstacleAvoidanceParams();
@@ -13071,30 +7186,7 @@ static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DynamicNavigationMesh(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DynamicNavigationMesh";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DynamicNavigationMesh", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DynamicNavigationMesh
         REGISTER_CLASS_MANUAL_PART_DynamicNavigationMesh();
@@ -13120,30 +7212,7 @@ static void Register_NavArea(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NavArea(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NavArea";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NavArea", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavArea
         REGISTER_CLASS_MANUAL_PART_NavArea();
@@ -13162,30 +7231,7 @@ static void Register_NavAreaStub(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NavAreaStub(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NavAreaStub";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NavAreaStub", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavAreaStub
         REGISTER_CLASS_MANUAL_PART_NavAreaStub();
@@ -13204,30 +7250,7 @@ static void Register_NavBuildData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NavBuildData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NavBuildData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NavBuildData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavBuildData
         REGISTER_CLASS_MANUAL_PART_NavBuildData();
@@ -13253,30 +7276,7 @@ static void Register_Navigable(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Navigable(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Navigable";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Navigable", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Navigable
         REGISTER_CLASS_MANUAL_PART_Navigable();
@@ -13295,30 +7295,7 @@ static void Register_NavigationGeometryInfo(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NavigationGeometryInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NavigationGeometryInfo";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NavigationGeometryInfo", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavigationGeometryInfo
         REGISTER_CLASS_MANUAL_PART_NavigationGeometryInfo();
@@ -13344,30 +7321,7 @@ static void Register_NavigationMesh(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NavigationMesh(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NavigationMesh";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NavigationMesh", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavigationMesh
         REGISTER_CLASS_MANUAL_PART_NavigationMesh();
@@ -13386,30 +7340,7 @@ static void Register_NavigationPathPoint(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NavigationPathPoint(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NavigationPathPoint";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NavigationPathPoint", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavigationPathPoint
         REGISTER_CLASS_MANUAL_PART_NavigationPathPoint();
@@ -13435,30 +7366,7 @@ static void Register_Obstacle(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Obstacle(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Obstacle";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Obstacle", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Obstacle
         REGISTER_CLASS_MANUAL_PART_Obstacle();
@@ -13484,30 +7392,7 @@ static void Register_OffMeshConnection(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_OffMeshConnection(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "OffMeshConnection";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "OffMeshConnection", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OffMeshConnection
         REGISTER_CLASS_MANUAL_PART_OffMeshConnection();
@@ -13526,30 +7411,7 @@ static void Register_SimpleNavBuildData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SimpleNavBuildData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SimpleNavBuildData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SimpleNavBuildData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SimpleNavBuildData
         REGISTER_CLASS_MANUAL_PART_SimpleNavBuildData();
@@ -13572,30 +7434,7 @@ static void Register_Connection(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Connection(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Connection";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Connection", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Connection
         REGISTER_CLASS_MANUAL_PART_Connection();
@@ -13621,30 +7460,7 @@ static void Register_HttpRequest(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_HttpRequest(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "HttpRequest";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "HttpRequest", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HttpRequest
         REGISTER_CLASS_MANUAL_PART_HttpRequest();
@@ -13670,30 +7486,7 @@ static void Register_Network(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Network(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Network";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Network", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Network
         REGISTER_CLASS_MANUAL_PART_Network();
@@ -13719,30 +7512,7 @@ static void Register_NetworkPriority(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_NetworkPriority(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "NetworkPriority";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "NetworkPriority", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NetworkPriority
         REGISTER_CLASS_MANUAL_PART_NetworkPriority();
@@ -13761,30 +7531,7 @@ static void Register_PackageDownload(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PackageDownload(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PackageDownload";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PackageDownload", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageDownload
         REGISTER_CLASS_MANUAL_PART_PackageDownload();
@@ -13803,30 +7550,7 @@ static void Register_PackageUpload(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PackageUpload(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PackageUpload";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PackageUpload", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageUpload
         REGISTER_CLASS_MANUAL_PART_PackageUpload();
@@ -13845,30 +7569,7 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RemoteEvent(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RemoteEvent";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RemoteEvent", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RemoteEvent
         REGISTER_CLASS_MANUAL_PART_RemoteEvent();
@@ -13888,30 +7589,7 @@ static void Register_CollisionGeometryData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CollisionGeometryData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CollisionGeometryData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CollisionGeometryData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionGeometryData
         REGISTER_CLASS_MANUAL_PART_CollisionGeometryData();
@@ -13937,30 +7615,7 @@ static void Register_CollisionShape(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CollisionShape(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CollisionShape";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CollisionShape", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionShape
         REGISTER_CLASS_MANUAL_PART_CollisionShape();
@@ -13986,30 +7641,7 @@ static void Register_Constraint(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Constraint(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Constraint";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Constraint", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Constraint
         REGISTER_CLASS_MANUAL_PART_Constraint();
@@ -14042,30 +7674,7 @@ static void Register_ConvexData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConvexData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConvexData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConvexData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConvexData
         REGISTER_CLASS_MANUAL_PART_ConvexData();
@@ -14084,30 +7693,7 @@ static void Register_DelayedWorldTransform(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DelayedWorldTransform(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DelayedWorldTransform";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DelayedWorldTransform", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform
         REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform();
@@ -14140,30 +7726,7 @@ static void Register_GImpactMeshData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_GImpactMeshData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "GImpactMeshData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "GImpactMeshData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_GImpactMeshData
         REGISTER_CLASS_MANUAL_PART_GImpactMeshData();
@@ -14188,30 +7751,7 @@ static void Register_HeightfieldData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_HeightfieldData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "HeightfieldData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "HeightfieldData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HeightfieldData
         REGISTER_CLASS_MANUAL_PART_HeightfieldData();
@@ -14230,30 +7770,7 @@ static void Register_ManifoldPair(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ManifoldPair(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ManifoldPair";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ManifoldPair", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ManifoldPair
         REGISTER_CLASS_MANUAL_PART_ManifoldPair();
@@ -14272,30 +7789,7 @@ static void Register_PhysicsRaycastResult(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PhysicsRaycastResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PhysicsRaycastResult";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PhysicsRaycastResult", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult
         REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult();
@@ -14321,30 +7815,7 @@ static void Register_PhysicsWorld(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PhysicsWorld(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PhysicsWorld";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PhysicsWorld", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorld
         REGISTER_CLASS_MANUAL_PART_PhysicsWorld();
@@ -14363,30 +7834,7 @@ static void Register_PhysicsWorldConfig(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PhysicsWorldConfig(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PhysicsWorldConfig";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PhysicsWorldConfig", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorldConfig
         REGISTER_CLASS_MANUAL_PART_PhysicsWorldConfig();
@@ -14405,30 +7853,7 @@ static void Register_RaycastVehicle(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RaycastVehicle(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RaycastVehicle";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RaycastVehicle", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RaycastVehicle
         REGISTER_CLASS_MANUAL_PART_RaycastVehicle();
@@ -14454,30 +7879,7 @@ static void Register_RigidBody(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RigidBody(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RigidBody";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RigidBody", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RigidBody
         REGISTER_CLASS_MANUAL_PART_RigidBody();
@@ -14510,30 +7912,7 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TriangleMeshData(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TriangleMeshData";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TriangleMeshData", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TriangleMeshData
         REGISTER_CLASS_MANUAL_PART_TriangleMeshData();
@@ -14563,30 +7942,7 @@ static void Register_AnimatedSprite2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimatedSprite2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimatedSprite2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimatedSprite2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimatedSprite2D
         REGISTER_CLASS_MANUAL_PART_AnimatedSprite2D();
@@ -14612,30 +7968,7 @@ static void Register_AnimationSet2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_AnimationSet2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "AnimationSet2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "AnimationSet2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationSet2D
         REGISTER_CLASS_MANUAL_PART_AnimationSet2D();
@@ -14661,30 +7994,7 @@ static void Register_CollisionBox2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CollisionBox2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CollisionBox2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CollisionBox2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionBox2D
         REGISTER_CLASS_MANUAL_PART_CollisionBox2D();
@@ -14710,30 +8020,7 @@ static void Register_CollisionChain2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CollisionChain2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CollisionChain2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CollisionChain2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionChain2D
         REGISTER_CLASS_MANUAL_PART_CollisionChain2D();
@@ -14759,30 +8046,7 @@ static void Register_CollisionCircle2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CollisionCircle2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CollisionCircle2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CollisionCircle2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionCircle2D
         REGISTER_CLASS_MANUAL_PART_CollisionCircle2D();
@@ -14808,30 +8072,7 @@ static void Register_CollisionEdge2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CollisionEdge2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CollisionEdge2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CollisionEdge2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionEdge2D
         REGISTER_CLASS_MANUAL_PART_CollisionEdge2D();
@@ -14857,30 +8098,7 @@ static void Register_CollisionPolygon2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CollisionPolygon2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CollisionPolygon2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CollisionPolygon2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionPolygon2D
         REGISTER_CLASS_MANUAL_PART_CollisionPolygon2D();
@@ -14896,30 +8114,7 @@ static void Register_CollisionShape2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_CollisionShape2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "CollisionShape2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "CollisionShape2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionShape2D
         REGISTER_CLASS_MANUAL_PART_CollisionShape2D();
@@ -14945,30 +8140,7 @@ static void Register_Constraint2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Constraint2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Constraint2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Constraint2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Constraint2D
         REGISTER_CLASS_MANUAL_PART_Constraint2D();
@@ -14994,30 +8166,7 @@ static void Register_ConstraintDistance2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintDistance2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintDistance2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintDistance2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintDistance2D
         REGISTER_CLASS_MANUAL_PART_ConstraintDistance2D();
@@ -15043,30 +8192,7 @@ static void Register_ConstraintFriction2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintFriction2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintFriction2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintFriction2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintFriction2D
         REGISTER_CLASS_MANUAL_PART_ConstraintFriction2D();
@@ -15092,30 +8218,7 @@ static void Register_ConstraintGear2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintGear2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintGear2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintGear2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintGear2D
         REGISTER_CLASS_MANUAL_PART_ConstraintGear2D();
@@ -15141,30 +8244,7 @@ static void Register_ConstraintMotor2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintMotor2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintMotor2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintMotor2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintMotor2D
         REGISTER_CLASS_MANUAL_PART_ConstraintMotor2D();
@@ -15190,30 +8270,7 @@ static void Register_ConstraintMouse2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintMouse2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintMouse2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintMouse2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintMouse2D
         REGISTER_CLASS_MANUAL_PART_ConstraintMouse2D();
@@ -15239,30 +8296,7 @@ static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintPrismatic2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintPrismatic2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintPrismatic2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintPrismatic2D
         REGISTER_CLASS_MANUAL_PART_ConstraintPrismatic2D();
@@ -15288,30 +8322,7 @@ static void Register_ConstraintPulley2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintPulley2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintPulley2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintPulley2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintPulley2D
         REGISTER_CLASS_MANUAL_PART_ConstraintPulley2D();
@@ -15337,30 +8348,7 @@ static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintRevolute2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintRevolute2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintRevolute2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintRevolute2D
         REGISTER_CLASS_MANUAL_PART_ConstraintRevolute2D();
@@ -15386,30 +8374,7 @@ static void Register_ConstraintRope2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintRope2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintRope2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintRope2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintRope2D
         REGISTER_CLASS_MANUAL_PART_ConstraintRope2D();
@@ -15435,30 +8400,7 @@ static void Register_ConstraintWeld2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintWeld2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintWeld2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintWeld2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintWeld2D
         REGISTER_CLASS_MANUAL_PART_ConstraintWeld2D();
@@ -15484,30 +8426,7 @@ static void Register_ConstraintWheel2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ConstraintWheel2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ConstraintWheel2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ConstraintWheel2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintWheel2D
         REGISTER_CLASS_MANUAL_PART_ConstraintWheel2D();
@@ -15526,30 +8445,7 @@ static void Register_DelayedWorldTransform2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_DelayedWorldTransform2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "DelayedWorldTransform2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "DelayedWorldTransform2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform2D
         REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform2D();
@@ -15565,30 +8461,7 @@ static void Register_Drawable2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Drawable2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Drawable2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Drawable2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Drawable2D
         REGISTER_CLASS_MANUAL_PART_Drawable2D();
@@ -15607,30 +8480,7 @@ static void Register_Particle2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Particle2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Particle2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Particle2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Particle2D
         REGISTER_CLASS_MANUAL_PART_Particle2D();
@@ -15656,30 +8506,7 @@ static void Register_ParticleEffect2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ParticleEffect2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ParticleEffect2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ParticleEffect2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEffect2D
         REGISTER_CLASS_MANUAL_PART_ParticleEffect2D();
@@ -15705,30 +8532,7 @@ static void Register_ParticleEmitter2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_ParticleEmitter2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "ParticleEmitter2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "ParticleEmitter2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEmitter2D
         REGISTER_CLASS_MANUAL_PART_ParticleEmitter2D();
@@ -15747,30 +8551,7 @@ static void Register_PhysicsRaycastResult2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PhysicsRaycastResult2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PhysicsRaycastResult2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PhysicsRaycastResult2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult2D
         REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult2D();
@@ -15796,30 +8577,7 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PhysicsWorld2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PhysicsWorld2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PhysicsWorld2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorld2D
         REGISTER_CLASS_MANUAL_PART_PhysicsWorld2D();
@@ -15835,30 +8593,7 @@ static void Register_PropertySet2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_PropertySet2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "PropertySet2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "PropertySet2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PropertySet2D
         REGISTER_CLASS_MANUAL_PART_PropertySet2D();
@@ -15884,30 +8619,7 @@ static void Register_Renderer2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Renderer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Renderer2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Renderer2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Renderer2D
         REGISTER_CLASS_MANUAL_PART_Renderer2D();
@@ -15933,30 +8645,7 @@ static void Register_RigidBody2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_RigidBody2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "RigidBody2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "RigidBody2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RigidBody2D
         REGISTER_CLASS_MANUAL_PART_RigidBody2D();
@@ -15975,30 +8664,7 @@ static void Register_SourceBatch2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SourceBatch2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SourceBatch2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SourceBatch2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SourceBatch2D
         REGISTER_CLASS_MANUAL_PART_SourceBatch2D();
@@ -16024,30 +8690,7 @@ static void Register_Sprite2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Sprite2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Sprite2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Sprite2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Sprite2D
         REGISTER_CLASS_MANUAL_PART_Sprite2D();
@@ -16073,30 +8716,7 @@ static void Register_SpriteSheet2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_SpriteSheet2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "SpriteSheet2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "SpriteSheet2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SpriteSheet2D
         REGISTER_CLASS_MANUAL_PART_SpriteSheet2D();
@@ -16122,30 +8742,7 @@ static void Register_StaticSprite2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_StaticSprite2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "StaticSprite2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "StaticSprite2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticSprite2D
         REGISTER_CLASS_MANUAL_PART_StaticSprite2D();
@@ -16171,30 +8768,7 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_StretchableSprite2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "StretchableSprite2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "StretchableSprite2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StretchableSprite2D
         REGISTER_CLASS_MANUAL_PART_StretchableSprite2D();
@@ -16210,30 +8784,7 @@ static void Register_Tile2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Tile2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Tile2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Tile2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Tile2D
         REGISTER_CLASS_MANUAL_PART_Tile2D();
@@ -16259,30 +8810,7 @@ static void Register_TileMap2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TileMap2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TileMap2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TileMap2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMap2D
         REGISTER_CLASS_MANUAL_PART_TileMap2D();
@@ -16298,30 +8826,7 @@ static void Register_TileMapInfo2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TileMapInfo2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TileMapInfo2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TileMapInfo2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMapInfo2D
         REGISTER_CLASS_MANUAL_PART_TileMapInfo2D();
@@ -16347,30 +8852,7 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TileMapLayer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TileMapLayer2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TileMapLayer2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMapLayer2D
         REGISTER_CLASS_MANUAL_PART_TileMapLayer2D();
@@ -16386,30 +8868,7 @@ static void Register_TileMapObject2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TileMapObject2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TileMapObject2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TileMapObject2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMapObject2D
         REGISTER_CLASS_MANUAL_PART_TileMapObject2D();
@@ -16435,30 +8894,7 @@ static void Register_TmxFile2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TmxFile2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TmxFile2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TmxFile2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxFile2D
         REGISTER_CLASS_MANUAL_PART_TmxFile2D();
@@ -16483,30 +8919,7 @@ static void Register_TmxImageLayer2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TmxImageLayer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TmxImageLayer2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TmxImageLayer2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxImageLayer2D
         REGISTER_CLASS_MANUAL_PART_TmxImageLayer2D();
@@ -16531,30 +8944,7 @@ static void Register_TmxLayer2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TmxLayer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TmxLayer2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TmxLayer2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxLayer2D
         REGISTER_CLASS_MANUAL_PART_TmxLayer2D();
@@ -16579,30 +8969,7 @@ static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TmxObjectGroup2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TmxObjectGroup2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TmxObjectGroup2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxObjectGroup2D
         REGISTER_CLASS_MANUAL_PART_TmxObjectGroup2D();
@@ -16627,30 +8994,7 @@ static void Register_TmxTileLayer2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_TmxTileLayer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "TmxTileLayer2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "TmxTileLayer2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxTileLayer2D
         REGISTER_CLASS_MANUAL_PART_TmxTileLayer2D();
@@ -16669,30 +9013,7 @@ static void Register_Vertex2D(asIScriptEngine* engine)
     Vector<RegisterObjectMethodArgs> wrappedFields;
     Vector<RegisterGlobalPropertyArgs> staticFields;
     CollectMembers_Vertex2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    const char* asClassName = "Vertex2D";
-
-    for (const RegisterObjectMethodArgs& method : methods)
-        engine->RegisterObjectMethod(asClassName, method.asDeclaration_.CString(), method.funcPointer_, method.callConv_);
-
-    for (const RegisterGlobalFunctionArgs& staticMethod : staticMethods)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalFunction(staticMethod.asDeclaration_.CString(), staticMethod.funcPointer_, staticMethod.callConv_);
-        engine->SetDefaultNamespace("");
-    }
-
-    for (const RegisterObjectPropertyArgs& field : fields)
-        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);
-
-    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)
-        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);
-
-    for (const RegisterGlobalPropertyArgs& staticField : staticFields)
-    {
-        engine->SetDefaultNamespace(asClassName);
-        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
-        engine->SetDefaultNamespace("");
-    }
+    RegisterMembers(engine, "Vertex2D", methods, staticMethods, fields, wrappedFields, staticFields);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Vertex2D
         REGISTER_CLASS_MANUAL_PART_Vertex2D();
