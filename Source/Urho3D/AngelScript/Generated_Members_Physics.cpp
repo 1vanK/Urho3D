@@ -17,8 +17,8 @@ void CollectMembers_CollisionGeometryData(Vector<RegisterObjectMethodArgs>& meth
 {
     CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
-    #ifdef REGISTER_MANUAL_PART_CollisionGeometryData
-        REGISTER_MANUAL_PART_CollisionGeometryData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CollisionGeometryData
+        REGISTER_MEMBER_MANUAL_PART_CollisionGeometryData();
     #endif
 }
 
@@ -93,8 +93,8 @@ void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Ve
     // static void CollisionShape::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_CollisionShape
-        REGISTER_MANUAL_PART_CollisionShape();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CollisionShape
+        REGISTER_MEMBER_MANUAL_PART_CollisionShape();
     #endif
 }
 
@@ -179,8 +179,8 @@ void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector
     // static void Constraint::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Constraint
-        REGISTER_MANUAL_PART_Constraint();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Constraint
+        REGISTER_MEMBER_MANUAL_PART_Constraint();
     #endif
 }
 
@@ -210,8 +210,8 @@ void CollectMembers_ConvexData(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("unsigned ConvexData::vertexCount_", "uint vertexCount", offsetof(ConvexData, vertexCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned ConvexData::indexCount_", "uint indexCount", offsetof(ConvexData, indexCount_)));
 
-    #ifdef REGISTER_MANUAL_PART_ConvexData
-        REGISTER_MANUAL_PART_ConvexData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ConvexData
+        REGISTER_MEMBER_MANUAL_PART_ConvexData();
     #endif
 }
 
@@ -226,8 +226,8 @@ void CollectMembers_DelayedWorldTransform(Vector<RegisterObjectMethodArgs>& meth
     fields.Push(RegisterObjectPropertyArgs("Vector3 DelayedWorldTransform::worldPosition_", "Vector3 worldPosition", offsetof(DelayedWorldTransform, worldPosition_)));
     fields.Push(RegisterObjectPropertyArgs("Quaternion DelayedWorldTransform::worldRotation_", "Quaternion worldRotation", offsetof(DelayedWorldTransform, worldRotation_)));
 
-    #ifdef REGISTER_MANUAL_PART_DelayedWorldTransform
-        REGISTER_MANUAL_PART_DelayedWorldTransform();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DelayedWorldTransform
+        REGISTER_MEMBER_MANUAL_PART_DelayedWorldTransform();
     #endif
 }
 
@@ -239,8 +239,8 @@ void CollectMembers_GImpactMeshData(Vector<RegisterObjectMethodArgs>& methods, V
     // UniquePtr<TriangleMeshInterface> GImpactMeshData::meshInterface_
     // Error: type "UniquePtr<TriangleMeshInterface>" can not automatically bind
 
-    #ifdef REGISTER_MANUAL_PART_GImpactMeshData
-        REGISTER_MANUAL_PART_GImpactMeshData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_GImpactMeshData
+        REGISTER_MEMBER_MANUAL_PART_GImpactMeshData();
     #endif
 }
 
@@ -257,8 +257,8 @@ void CollectMembers_HeightfieldData(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("float HeightfieldData::minHeight_", "float minHeight", offsetof(HeightfieldData, minHeight_)));
     fields.Push(RegisterObjectPropertyArgs("float HeightfieldData::maxHeight_", "float maxHeight", offsetof(HeightfieldData, maxHeight_)));
 
-    #ifdef REGISTER_MANUAL_PART_HeightfieldData
-        REGISTER_MANUAL_PART_HeightfieldData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_HeightfieldData
+        REGISTER_MEMBER_MANUAL_PART_HeightfieldData();
     #endif
 }
 
@@ -270,8 +270,8 @@ void CollectMembers_ManifoldPair(Vector<RegisterObjectMethodArgs>& methods, Vect
     // btPersistentManifold* ManifoldPair::flippedManifold_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_ManifoldPair
-        REGISTER_MANUAL_PART_ManifoldPair();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ManifoldPair
+        REGISTER_MEMBER_MANUAL_PART_ManifoldPair();
     #endif
 }
 
@@ -289,8 +289,8 @@ void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& metho
     fields.Push(RegisterObjectPropertyArgs("float PhysicsRaycastResult::distance_", "float distance", offsetof(PhysicsRaycastResult, distance_)));
     fields.Push(RegisterObjectPropertyArgs("float PhysicsRaycastResult::hitFraction_", "float hitFraction", offsetof(PhysicsRaycastResult, hitFraction_)));
 
-    #ifdef REGISTER_MANUAL_PART_PhysicsRaycastResult
-        REGISTER_MANUAL_PART_PhysicsRaycastResult();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_PhysicsRaycastResult
+        REGISTER_MEMBER_MANUAL_PART_PhysicsRaycastResult();
     #endif
 }
 
@@ -399,8 +399,8 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vect
     // static struct PhysicsWorldConfig PhysicsWorld::config
     // Error: type "struct PhysicsWorldConfig" can not automatically bind
 
-    #ifdef REGISTER_MANUAL_PART_PhysicsWorld
-        REGISTER_MANUAL_PART_PhysicsWorld();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_PhysicsWorld
+        REGISTER_MEMBER_MANUAL_PART_PhysicsWorld();
     #endif
 }
 
@@ -410,8 +410,8 @@ void CollectMembers_PhysicsWorldConfig(Vector<RegisterObjectMethodArgs>& methods
     // btCollisionConfiguration* PhysicsWorldConfig::collisionConfig_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_PhysicsWorldConfig
-        REGISTER_MANUAL_PART_PhysicsWorldConfig();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_PhysicsWorldConfig
+        REGISTER_MEMBER_MANUAL_PART_PhysicsWorldConfig();
     #endif
 }
 
@@ -505,8 +505,8 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Ve
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::FORWARD_RIGHT_UP", "const IntVector3 FORWARD_RIGHT_UP", (void*)&RaycastVehicle::FORWARD_RIGHT_UP));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::FORWARD_UP_RIGHT", "const IntVector3 FORWARD_UP_RIGHT", (void*)&RaycastVehicle::FORWARD_UP_RIGHT));
 
-    #ifdef REGISTER_MANUAL_PART_RaycastVehicle
-        REGISTER_MANUAL_PART_RaycastVehicle();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RaycastVehicle
+        REGISTER_MEMBER_MANUAL_PART_RaycastVehicle();
     #endif
 }
 
@@ -668,8 +668,8 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<
     // static void RigidBody::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_RigidBody
-        REGISTER_MANUAL_PART_RigidBody();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RigidBody
+        REGISTER_MEMBER_MANUAL_PART_RigidBody();
     #endif
 }
 
@@ -685,8 +685,8 @@ void CollectMembers_TriangleMeshData(Vector<RegisterObjectMethodArgs>& methods, 
     // UniquePtr<btTriangleInfoMap> TriangleMeshData::infoMap_
     // Error: type "UniquePtr<btTriangleInfoMap>" can not automatically bind
 
-    #ifdef REGISTER_MANUAL_PART_TriangleMeshData
-        REGISTER_MANUAL_PART_TriangleMeshData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_TriangleMeshData
+        REGISTER_MEMBER_MANUAL_PART_TriangleMeshData();
     #endif
 }
 

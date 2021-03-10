@@ -18,8 +18,8 @@ void CollectMembers_AttributeAccessor(Vector<RegisterObjectMethodArgs>& methods,
     methods.Push(RegisterObjectMethodArgs("virtual void AttributeAccessor::Get(const Serializable* ptr, Variant& dest) const =0", "void Get(Serializable@+, Variant&) const", AS_METHODPR(AttributeAccessor, Get, (const Serializable*, Variant&) const, void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("virtual void AttributeAccessor::Set(Serializable* ptr, const Variant& src)=0", "void Set(Serializable@+, const Variant&in)", AS_METHODPR(AttributeAccessor, Set, (Serializable*, const Variant&), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_AttributeAccessor
-        REGISTER_MANUAL_PART_AttributeAccessor();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AttributeAccessor
+        REGISTER_MEMBER_MANUAL_PART_AttributeAccessor();
     #endif
 }
 
@@ -29,8 +29,8 @@ void CollectMembers_AttributeHandle(Vector<RegisterObjectMethodArgs>& methods, V
     // AttributeHandle& AttributeHandle::SetMetadata(StringHash key, const Variant& value)
     // Error: type "AttributeHandle" can not automatically bind bacause have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_AttributeHandle
-        REGISTER_MANUAL_PART_AttributeHandle();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AttributeHandle
+        REGISTER_MEMBER_MANUAL_PART_AttributeHandle();
     #endif
 }
 
@@ -52,16 +52,16 @@ void CollectMembers_AttributeInfo(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("AttributeModeFlags AttributeInfo::mode_", "AttributeModeFlags mode", offsetof(AttributeInfo, mode_)));
     fields.Push(RegisterObjectPropertyArgs("VariantMap AttributeInfo::metadata_", "VariantMap metadata", offsetof(AttributeInfo, metadata_)));
 
-    #ifdef REGISTER_MANUAL_PART_AttributeInfo
-        REGISTER_MANUAL_PART_AttributeInfo();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AttributeInfo
+        REGISTER_MEMBER_MANUAL_PART_AttributeInfo();
     #endif
 }
 
 // class AutoProfileBlock | File: ../Core/Profiler.h
 void CollectMembers_AutoProfileBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    #ifdef REGISTER_MANUAL_PART_AutoProfileBlock
-        REGISTER_MANUAL_PART_AutoProfileBlock();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AutoProfileBlock
+        REGISTER_MEMBER_MANUAL_PART_AutoProfileBlock();
     #endif
 }
 
@@ -71,8 +71,8 @@ void CollectMembers_Condition(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("void Condition::Set()", "void Set()", AS_METHODPR(Condition, Set, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Condition::Wait()", "void Wait()", AS_METHODPR(Condition, Wait, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Condition
-        REGISTER_MANUAL_PART_Condition();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Condition
+        REGISTER_MEMBER_MANUAL_PART_Condition();
     #endif
 }
 
@@ -133,8 +133,8 @@ void CollectMembers_Context(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("EventReceiverGroup* Context::GetEventReceivers(Object* sender, StringHash eventType)", "EventReceiverGroup@+ GetEventReceivers(Object@+, StringHash)", AS_METHODPR(Context, GetEventReceivers, (Object*, StringHash), EventReceiverGroup*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("EventReceiverGroup* Context::GetEventReceivers(StringHash eventType)", "EventReceiverGroup@+ GetEventReceivers(StringHash)", AS_METHODPR(Context, GetEventReceivers, (StringHash), EventReceiverGroup*), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Context
-        REGISTER_MANUAL_PART_Context();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Context
+        REGISTER_MEMBER_MANUAL_PART_Context();
     #endif
 }
 
@@ -156,8 +156,8 @@ void CollectMembers_CustomVariantValue(Vector<RegisterObjectMethodArgs>& methods
     methods.Push(RegisterObjectMethodArgs("virtual bool CustomVariantValue::IsZero() const", "bool IsZero() const", AS_METHODPR(CustomVariantValue, IsZero, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("virtual String CustomVariantValue::ToString() const", "String ToString() const", AS_METHODPR(CustomVariantValue, ToString, () const, String), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_CustomVariantValue
-        REGISTER_MANUAL_PART_CustomVariantValue();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CustomVariantValue
+        REGISTER_MEMBER_MANUAL_PART_CustomVariantValue();
     #endif
 }
 
@@ -175,8 +175,8 @@ void CollectMembers_EventHandler(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("Object* EventHandler::GetSender() const", "Object@+ GetSender() const", AS_METHODPR(EventHandler, GetSender, () const, Object*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const StringHash& EventHandler::GetEventType() const", "const StringHash& GetEventType() const", AS_METHODPR(EventHandler, GetEventType, () const, const StringHash&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_EventHandler
-        REGISTER_MANUAL_PART_EventHandler();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_EventHandler
+        REGISTER_MEMBER_MANUAL_PART_EventHandler();
     #endif
 }
 
@@ -188,8 +188,8 @@ void CollectMembers_EventHandler11Impl(Vector<RegisterObjectMethodArgs>& methods
 
     methods.Push(RegisterObjectMethodArgs("void EventHandler11Impl::Invoke(VariantMap& eventData) override", "void Invoke(VariantMap&)", AS_METHODPR(EventHandler11Impl, Invoke, (VariantMap&), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_EventHandler11Impl
-        REGISTER_MANUAL_PART_EventHandler11Impl();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_EventHandler11Impl
+        REGISTER_MEMBER_MANUAL_PART_EventHandler11Impl();
     #endif
 }
 
@@ -205,8 +205,8 @@ void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods, Vec
     staticMethods.Push(RegisterGlobalFunctionArgs("static void EventProfiler::SetActive(bool newActive)", "void SetActive(bool)", AS_FUNCTIONPR(EventProfiler::SetActive, (bool), void), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool EventProfiler::IsActive()", "bool IsActive()", AS_FUNCTIONPR(EventProfiler::IsActive, (), bool), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_EventProfiler
-        REGISTER_MANUAL_PART_EventProfiler();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_EventProfiler
+        REGISTER_MEMBER_MANUAL_PART_EventProfiler();
     #endif
 }
 
@@ -218,8 +218,8 @@ void CollectMembers_EventProfilerBlock(Vector<RegisterObjectMethodArgs>& methods
 
     fields.Push(RegisterObjectPropertyArgs("StringHash EventProfilerBlock::eventID_", "StringHash eventID", offsetof(EventProfilerBlock, eventID_)));
 
-    #ifdef REGISTER_MANUAL_PART_EventProfilerBlock
-        REGISTER_MANUAL_PART_EventProfilerBlock();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_EventProfilerBlock
+        REGISTER_MEMBER_MANUAL_PART_EventProfilerBlock();
     #endif
 }
 
@@ -236,8 +236,8 @@ void CollectMembers_EventReceiverGroup(Vector<RegisterObjectMethodArgs>& methods
     // PODVector<Object*> EventReceiverGroup::receivers_
     // Error: type "PODVector<Object*>" can not automatically bind
 
-    #ifdef REGISTER_MANUAL_PART_EventReceiverGroup
-        REGISTER_MANUAL_PART_EventReceiverGroup();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_EventReceiverGroup
+        REGISTER_MEMBER_MANUAL_PART_EventReceiverGroup();
     #endif
 }
 
@@ -250,8 +250,8 @@ void CollectMembers_HiresTimer(Vector<RegisterObjectMethodArgs>& methods, Vector
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool HiresTimer::IsSupported()", "bool IsSupported()", AS_FUNCTIONPR(HiresTimer::IsSupported, (), bool), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static long long HiresTimer::GetFrequency()", "int64 GetFrequency()", AS_FUNCTIONPR(HiresTimer::GetFrequency, (), long long), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_HiresTimer
-        REGISTER_MANUAL_PART_HiresTimer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_HiresTimer
+        REGISTER_MEMBER_MANUAL_PART_HiresTimer();
     #endif
 }
 
@@ -262,16 +262,16 @@ void CollectMembers_Mutex(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("bool Mutex::TryAcquire()", "bool TryAcquire()", AS_METHODPR(Mutex, TryAcquire, (), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Mutex::Release()", "void Release()", AS_METHODPR(Mutex, Release, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Mutex
-        REGISTER_MANUAL_PART_Mutex();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Mutex
+        REGISTER_MEMBER_MANUAL_PART_Mutex();
     #endif
 }
 
 // class MutexLock | File: ../Core/Mutex.h
 void CollectMembers_MutexLock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    #ifdef REGISTER_MANUAL_PART_MutexLock
-        REGISTER_MANUAL_PART_MutexLock();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_MutexLock
+        REGISTER_MEMBER_MANUAL_PART_MutexLock();
     #endif
 }
 
@@ -339,8 +339,8 @@ void CollectMembers_Object(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     // static const TypeInfo* Object::GetTypeInfoStatic()
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Object
-        REGISTER_MANUAL_PART_Object();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Object
+        REGISTER_MEMBER_MANUAL_PART_Object();
     #endif
 }
 
@@ -367,8 +367,8 @@ void CollectMembers_ObjectFactory(Vector<RegisterObjectMethodArgs>& methods, Vec
     methods.Push(RegisterObjectMethodArgs("StringHash ObjectFactory::GetType() const", "StringHash GetType() const", AS_METHODPR(ObjectFactory, GetType, () const, StringHash), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& ObjectFactory::GetTypeName() const", "const String& GetTypeName() const", AS_METHODPR(ObjectFactory, GetTypeName, () const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_ObjectFactory
-        REGISTER_MANUAL_PART_ObjectFactory();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ObjectFactory
+        REGISTER_MEMBER_MANUAL_PART_ObjectFactory();
     #endif
 }
 
@@ -390,8 +390,8 @@ void CollectMembers_Profiler(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void Profiler::BeginInterval()", "void BeginInterval()", AS_METHODPR(Profiler, BeginInterval, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& Profiler::PrintData(bool showUnused=false, bool showTotal=false, unsigned maxDepth=M_MAX_UNSIGNED) const", "const String& PrintData(bool = false, bool = false, uint = M_MAX_UNSIGNED) const", AS_METHODPR(Profiler, PrintData, (bool, bool, unsigned) const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Profiler
-        REGISTER_MANUAL_PART_Profiler();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Profiler
+        REGISTER_MEMBER_MANUAL_PART_Profiler();
     #endif
 }
 
@@ -427,8 +427,8 @@ void CollectMembers_ProfilerBlock(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("long long ProfilerBlock::totalMaxTime_", "int64 totalMaxTime", offsetof(ProfilerBlock, totalMaxTime_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned ProfilerBlock::totalCount_", "uint totalCount", offsetof(ProfilerBlock, totalCount_)));
 
-    #ifdef REGISTER_MANUAL_PART_ProfilerBlock
-        REGISTER_MANUAL_PART_ProfilerBlock();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ProfilerBlock
+        REGISTER_MEMBER_MANUAL_PART_ProfilerBlock();
     #endif
 }
 
@@ -443,8 +443,8 @@ void CollectMembers_ResourceRef(Vector<RegisterObjectMethodArgs>& methods, Vecto
     fields.Push(RegisterObjectPropertyArgs("StringHash ResourceRef::type_", "StringHash type", offsetof(ResourceRef, type_)));
     fields.Push(RegisterObjectPropertyArgs("String ResourceRef::name_", "String name", offsetof(ResourceRef, name_)));
 
-    #ifdef REGISTER_MANUAL_PART_ResourceRef
-        REGISTER_MANUAL_PART_ResourceRef();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ResourceRef
+        REGISTER_MEMBER_MANUAL_PART_ResourceRef();
     #endif
 }
 
@@ -461,8 +461,8 @@ void CollectMembers_ResourceRefList(Vector<RegisterObjectMethodArgs>& methods, V
 
     fields.Push(RegisterObjectPropertyArgs("StringHash ResourceRefList::type_", "StringHash type", offsetof(ResourceRefList, type_)));
 
-    #ifdef REGISTER_MANUAL_PART_ResourceRefList
-        REGISTER_MANUAL_PART_ResourceRefList();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ResourceRefList
+        REGISTER_MEMBER_MANUAL_PART_ResourceRefList();
     #endif
 }
 
@@ -492,8 +492,8 @@ void CollectMembers_Spline(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("void Spline::RemoveKnot(unsigned index)", "void RemoveKnot(uint)", AS_METHODPR(Spline, RemoveKnot, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Spline::Clear()", "void Clear()", AS_METHODPR(Spline, Clear, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Spline
-        REGISTER_MANUAL_PART_Spline();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Spline
+        REGISTER_MEMBER_MANUAL_PART_Spline();
     #endif
 }
 
@@ -511,8 +511,8 @@ void CollectMembers_StringHashRegister(Vector<RegisterObjectMethodArgs>& methods
     methods.Push(RegisterObjectMethodArgs("bool StringHashRegister::Contains(const StringHash& hash) const", "bool Contains(const StringHash&in) const", AS_METHODPR(StringHashRegister, Contains, (const StringHash&) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& StringHashRegister::GetString(const StringHash& hash) const", "const String& GetString(const StringHash&in) const", AS_METHODPR(StringHashRegister, GetString, (const StringHash&) const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_StringHashRegister
-        REGISTER_MANUAL_PART_StringHashRegister();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_StringHashRegister
+        REGISTER_MEMBER_MANUAL_PART_StringHashRegister();
     #endif
 }
 
@@ -531,8 +531,8 @@ void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     staticMethods.Push(RegisterGlobalFunctionArgs("static void Thread::SetMainThread()", "void SetMainThread()", AS_FUNCTIONPR(Thread::SetMainThread, (), void), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool Thread::IsMainThread()", "bool IsMainThread()", AS_FUNCTIONPR(Thread::IsMainThread, (), bool), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Thread
-        REGISTER_MANUAL_PART_Thread();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Thread
+        REGISTER_MEMBER_MANUAL_PART_Thread();
     #endif
 }
 
@@ -559,8 +559,8 @@ void CollectMembers_Time(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     staticMethods.Push(RegisterGlobalFunctionArgs("static String Time::GetTimeStamp()", "String GetTimeStamp()", AS_FUNCTIONPR(Time::GetTimeStamp, (), String), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static void Time::Sleep(unsigned mSec)", "void Sleep(uint)", AS_FUNCTIONPR(Time::Sleep, (unsigned), void), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Time
-        REGISTER_MANUAL_PART_Time();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Time
+        REGISTER_MEMBER_MANUAL_PART_Time();
     #endif
 }
 
@@ -570,8 +570,8 @@ void CollectMembers_Timer(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("unsigned Timer::GetMSec(bool reset)", "uint GetMSec(bool)", AS_METHODPR(Timer, GetMSec, (bool), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Timer::Reset()", "void Reset()", AS_METHODPR(Timer, Reset, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Timer
-        REGISTER_MANUAL_PART_Timer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Timer
+        REGISTER_MEMBER_MANUAL_PART_Timer();
     #endif
 }
 
@@ -587,8 +587,8 @@ void CollectMembers_TypeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("StringHash TypeInfo::GetType() const", "StringHash GetType() const", AS_METHODPR(TypeInfo, GetType, () const, StringHash), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& TypeInfo::GetTypeName() const", "const String& GetTypeName() const", AS_METHODPR(TypeInfo, GetTypeName, () const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_TypeInfo
-        REGISTER_MANUAL_PART_TypeInfo();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_TypeInfo
+        REGISTER_MEMBER_MANUAL_PART_TypeInfo();
     #endif
 }
 
@@ -840,8 +840,8 @@ void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     staticFields.Push(RegisterGlobalPropertyArgs("static const ResourceRefList Variant::emptyResourceRefList", "const ResourceRefList emptyResourceRefList", (void*)&Variant::emptyResourceRefList));
     staticFields.Push(RegisterGlobalPropertyArgs("static const VariantMap Variant::emptyVariantMap", "const VariantMap emptyVariantMap", (void*)&Variant::emptyVariantMap));
 
-    #ifdef REGISTER_MANUAL_PART_Variant
-        REGISTER_MANUAL_PART_Variant();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Variant
+        REGISTER_MEMBER_MANUAL_PART_Variant();
     #endif
 }
 
@@ -862,8 +862,8 @@ void CollectMembers_WorkItem(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     fields.Push(RegisterObjectPropertyArgs("unsigned WorkItem::priority_", "uint priority", offsetof(WorkItem, priority_)));
     fields.Push(RegisterObjectPropertyArgs("bool WorkItem::sendEvent_", "bool sendEvent", offsetof(WorkItem, sendEvent_)));
 
-    #ifdef REGISTER_MANUAL_PART_WorkItem
-        REGISTER_MANUAL_PART_WorkItem();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_WorkItem
+        REGISTER_MEMBER_MANUAL_PART_WorkItem();
     #endif
 }
 
@@ -893,8 +893,8 @@ void CollectMembers_WorkQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("int WorkQueue::GetTolerance() const", "int GetTolerance() const", AS_METHODPR(WorkQueue, GetTolerance, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int WorkQueue::GetNonThreadedWorkMs() const", "int GetNonThreadedWorkMs() const", AS_METHODPR(WorkQueue, GetNonThreadedWorkMs, () const, int), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_WorkQueue
-        REGISTER_MANUAL_PART_WorkQueue();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_WorkQueue
+        REGISTER_MEMBER_MANUAL_PART_WorkQueue();
     #endif
 }
 

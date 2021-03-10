@@ -23,8 +23,8 @@ void CollectMembers_AbstractFile(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("const String& AbstractFile::GetName() const override", "const String& GetName() const", AS_METHODPR(AbstractFile, GetName, () const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& AbstractFile::GetName() const override", "const String& get_name() const", AS_METHODPR(AbstractFile, GetName, () const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_AbstractFile
-        REGISTER_MANUAL_PART_AbstractFile();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AbstractFile
+        REGISTER_MEMBER_MANUAL_PART_AbstractFile();
     #endif
 }
 
@@ -99,8 +99,8 @@ void CollectMembers_Deserializer(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("unsigned Deserializer::ReadNetID()", "uint ReadNetID()", AS_METHODPR(Deserializer, ReadNetID, (), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Deserializer::ReadLine()", "String ReadLine()", AS_METHODPR(Deserializer, ReadLine, (), String), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Deserializer
-        REGISTER_MANUAL_PART_Deserializer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Deserializer
+        REGISTER_MEMBER_MANUAL_PART_Deserializer();
     #endif
 }
 
@@ -136,8 +136,8 @@ void CollectMembers_File(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("bool File::IsPackaged() const", "bool IsPackaged() const", AS_METHODPR(File, IsPackaged, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool File::IsPackaged() const", "bool get_packaged() const", AS_METHODPR(File, IsPackaged, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_File
-        REGISTER_MANUAL_PART_File();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_File
+        REGISTER_MEMBER_MANUAL_PART_File();
     #endif
 }
 
@@ -201,8 +201,8 @@ void CollectMembers_FileSystem(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("String FileSystem::GetTemporaryDir() const", "String GetTemporaryDir() const", AS_METHODPR(FileSystem, GetTemporaryDir, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String FileSystem::GetTemporaryDir() const", "String get_temporaryDir() const", AS_METHODPR(FileSystem, GetTemporaryDir, () const, String), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_FileSystem
-        REGISTER_MANUAL_PART_FileSystem();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_FileSystem
+        REGISTER_MEMBER_MANUAL_PART_FileSystem();
     #endif
 }
 
@@ -223,8 +223,8 @@ void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("const String& FileWatcher::GetPath() const", "const String& GetPath() const", AS_METHODPR(FileWatcher, GetPath, () const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float FileWatcher::GetDelay() const", "float GetDelay() const", AS_METHODPR(FileWatcher, GetDelay, () const, float), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_FileWatcher
-        REGISTER_MANUAL_PART_FileWatcher();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_FileWatcher
+        REGISTER_MEMBER_MANUAL_PART_FileWatcher();
     #endif
 }
 
@@ -257,8 +257,8 @@ void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods, Vector<Regist
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static void Log::WriteRaw(const String& message, bool error=false)", "void WriteRaw(const String&in, bool = false)", AS_FUNCTIONPR(Log::WriteRaw, (const String&, bool), void), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Log
-        REGISTER_MANUAL_PART_Log();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Log
+        REGISTER_MEMBER_MANUAL_PART_Log();
     #endif
 }
 
@@ -275,8 +275,8 @@ void CollectMembers_MemoryBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("unsigned MemoryBuffer::Seek(unsigned position) override", "uint Seek(uint)", AS_METHODPR(MemoryBuffer, Seek, (unsigned), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool MemoryBuffer::IsReadOnly()", "bool IsReadOnly()", AS_METHODPR(MemoryBuffer, IsReadOnly, (), bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_MemoryBuffer
-        REGISTER_MANUAL_PART_MemoryBuffer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_MemoryBuffer
+        REGISTER_MEMBER_MANUAL_PART_MemoryBuffer();
     #endif
 }
 
@@ -309,8 +309,8 @@ void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("bool NamedPipe::IsServer() const", "bool IsServer() const", AS_METHODPR(NamedPipe, IsServer, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool NamedPipe::IsServer() const", "bool get_server() const", AS_METHODPR(NamedPipe, IsServer, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_NamedPipe
-        REGISTER_MANUAL_PART_NamedPipe();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_NamedPipe
+        REGISTER_MEMBER_MANUAL_PART_NamedPipe();
     #endif
 }
 
@@ -321,8 +321,8 @@ void CollectMembers_PackageEntry(Vector<RegisterObjectMethodArgs>& methods, Vect
     fields.Push(RegisterObjectPropertyArgs("unsigned PackageEntry::size_", "uint size", offsetof(PackageEntry, size_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned PackageEntry::checksum_", "uint checksum", offsetof(PackageEntry, checksum_)));
 
-    #ifdef REGISTER_MANUAL_PART_PackageEntry
-        REGISTER_MANUAL_PART_PackageEntry();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_PackageEntry
+        REGISTER_MEMBER_MANUAL_PART_PackageEntry();
     #endif
 }
 
@@ -362,8 +362,8 @@ void CollectMembers_PackageFile(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("bool PackageFile::IsCompressed() const", "bool get_compressed() const", AS_METHODPR(PackageFile, IsCompressed, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Vector<String> PackageFile::GetEntryNames() const", "Array<String>@ GetEntryNames() const", AS_FUNCTION_OBJFIRST(PackageFile_GetEntryNames_void), AS_CALL_CDECL_OBJFIRST));
 
-    #ifdef REGISTER_MANUAL_PART_PackageFile
-        REGISTER_MANUAL_PART_PackageFile();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_PackageFile
+        REGISTER_MEMBER_MANUAL_PART_PackageFile();
     #endif
 }
 
@@ -426,8 +426,8 @@ void CollectMembers_Serializer(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("bool Serializer::WriteNetID(unsigned value)", "bool WriteNetID(uint)", AS_METHODPR(Serializer, WriteNetID, (unsigned), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Serializer::WriteLine(const String& value)", "bool WriteLine(const String&in)", AS_METHODPR(Serializer, WriteLine, (const String&), bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Serializer
-        REGISTER_MANUAL_PART_Serializer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Serializer
+        REGISTER_MEMBER_MANUAL_PART_Serializer();
     #endif
 }
 
@@ -438,8 +438,8 @@ void CollectMembers_StoredLogMessage(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("int StoredLogMessage::level_", "int level", offsetof(StoredLogMessage, level_)));
     fields.Push(RegisterObjectPropertyArgs("bool StoredLogMessage::error_", "bool error", offsetof(StoredLogMessage, error_)));
 
-    #ifdef REGISTER_MANUAL_PART_StoredLogMessage
-        REGISTER_MANUAL_PART_StoredLogMessage();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_StoredLogMessage
+        REGISTER_MEMBER_MANUAL_PART_StoredLogMessage();
     #endif
 }
 
@@ -472,8 +472,8 @@ void CollectMembers_VectorBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("void VectorBuffer::Clear()", "void Clear()", AS_METHODPR(VectorBuffer, Clear, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void VectorBuffer::Resize(unsigned size)", "void Resize(uint)", AS_METHODPR(VectorBuffer, Resize, (unsigned), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_VectorBuffer
-        REGISTER_MANUAL_PART_VectorBuffer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_VectorBuffer
+        REGISTER_MEMBER_MANUAL_PART_VectorBuffer();
     #endif
 }
 

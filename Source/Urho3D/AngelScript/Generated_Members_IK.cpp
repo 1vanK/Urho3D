@@ -29,8 +29,8 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vect
     // static void IKConstraint::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_IKConstraint
-        REGISTER_MANUAL_PART_IKConstraint();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_IKConstraint
+        REGISTER_MEMBER_MANUAL_PART_IKConstraint();
     #endif
 }
 
@@ -92,8 +92,8 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector
     // static void IKEffector::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_IKEffector
-        REGISTER_MANUAL_PART_IKEffector();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_IKEffector
+        REGISTER_MEMBER_MANUAL_PART_IKEffector();
     #endif
 }
 
@@ -166,8 +166,8 @@ void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     // static void IKSolver::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_IKSolver
-        REGISTER_MANUAL_PART_IKSolver();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_IKSolver
+        REGISTER_MEMBER_MANUAL_PART_IKSolver();
     #endif
 }
 

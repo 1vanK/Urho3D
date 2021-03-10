@@ -63,8 +63,8 @@ void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("bool Console::GetFocusOnShow() const", "bool GetFocusOnShow() const", AS_METHODPR(Console, GetFocusOnShow, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Console::GetFocusOnShow() const", "bool get_focusOnShow() const", AS_METHODPR(Console, GetFocusOnShow, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Console
-        REGISTER_MANUAL_PART_Console();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Console
+        REGISTER_MEMBER_MANUAL_PART_Console();
     #endif
 }
 
@@ -109,8 +109,8 @@ void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("bool DebugHud::ResetAppStats(const String& label)", "bool ResetAppStats(const String&in)", AS_METHODPR(DebugHud, ResetAppStats, (const String&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DebugHud::ClearAppStats()", "void ClearAppStats()", AS_METHODPR(DebugHud, ClearAppStats, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_DebugHud
-        REGISTER_MANUAL_PART_DebugHud();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DebugHud
+        REGISTER_MEMBER_MANUAL_PART_DebugHud();
     #endif
 }
 
@@ -178,8 +178,8 @@ void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool Engine::HasParameter(const VariantMap& parameters, const String& parameter)", "bool HasParameter(const VariantMap&in, const String&in)", AS_FUNCTIONPR(Engine::HasParameter, (const VariantMap&, const String&), bool), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static const Variant& Engine::GetParameter(const VariantMap& parameters, const String& parameter, const Variant& defaultValue=Variant::EMPTY)", "const Variant& GetParameter(const VariantMap&in, const String&in, const Variant&in = Variant::EMPTY)", AS_FUNCTIONPR(Engine::GetParameter, (const VariantMap&, const String&, const Variant&), const Variant&), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Engine
-        REGISTER_MANUAL_PART_Engine();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Engine
+        REGISTER_MEMBER_MANUAL_PART_Engine();
     #endif
 }
 

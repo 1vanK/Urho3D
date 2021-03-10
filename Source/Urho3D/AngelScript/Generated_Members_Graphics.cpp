@@ -18,8 +18,8 @@ void CollectMembers_AllContentOctreeQuery(Vector<RegisterObjectMethodArgs>& meth
 
     methods.Push(RegisterObjectMethodArgs("Intersection AllContentOctreeQuery::TestOctant(const BoundingBox& box, bool inside) override", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(AllContentOctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_AllContentOctreeQuery
-        REGISTER_MANUAL_PART_AllContentOctreeQuery();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AllContentOctreeQuery
+        REGISTER_MEMBER_MANUAL_PART_AllContentOctreeQuery();
     #endif
 }
 
@@ -139,8 +139,8 @@ void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods, Vec
     // static void AnimatedModel::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_AnimatedModel
-        REGISTER_MANUAL_PART_AnimatedModel();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimatedModel
+        REGISTER_MEMBER_MANUAL_PART_AnimatedModel();
     #endif
 }
 
@@ -203,8 +203,8 @@ void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods, Vector<
     // static void Animation::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Animation
-        REGISTER_MANUAL_PART_Animation();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Animation
+        REGISTER_MEMBER_MANUAL_PART_Animation();
     #endif
 }
 
@@ -225,8 +225,8 @@ void CollectMembers_AnimationControl(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("unsigned char AnimationControl::setWeightRev_", "uint8 setWeightRev", offsetof(AnimationControl, setWeightRev_)));
     fields.Push(RegisterObjectPropertyArgs("bool AnimationControl::removeOnCompletion_", "bool removeOnCompletion", offsetof(AnimationControl, removeOnCompletion_)));
 
-    #ifdef REGISTER_MANUAL_PART_AnimationControl
-        REGISTER_MANUAL_PART_AnimationControl();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimationControl
+        REGISTER_MEMBER_MANUAL_PART_AnimationControl();
     #endif
 }
 
@@ -296,8 +296,8 @@ void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& method
     // static void AnimationController::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_AnimationController
-        REGISTER_MANUAL_PART_AnimationController();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimationController
+        REGISTER_MEMBER_MANUAL_PART_AnimationController();
     #endif
 }
 
@@ -309,8 +309,8 @@ void CollectMembers_AnimationKeyFrame(Vector<RegisterObjectMethodArgs>& methods,
     fields.Push(RegisterObjectPropertyArgs("Quaternion AnimationKeyFrame::rotation_", "Quaternion rotation", offsetof(AnimationKeyFrame, rotation_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 AnimationKeyFrame::scale_", "Vector3 scale", offsetof(AnimationKeyFrame, scale_)));
 
-    #ifdef REGISTER_MANUAL_PART_AnimationKeyFrame
-        REGISTER_MANUAL_PART_AnimationKeyFrame();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimationKeyFrame
+        REGISTER_MEMBER_MANUAL_PART_AnimationKeyFrame();
     #endif
 }
 
@@ -367,8 +367,8 @@ void CollectMembers_AnimationState(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("unsigned char AnimationState::GetLayer() const", "uint8 get_layer() const", AS_METHODPR(AnimationState, GetLayer, () const, unsigned char), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void AnimationState::Apply()", "void Apply()", AS_METHODPR(AnimationState, Apply, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_AnimationState
-        REGISTER_MANUAL_PART_AnimationState();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimationState
+        REGISTER_MEMBER_MANUAL_PART_AnimationState();
     #endif
 }
 
@@ -385,8 +385,8 @@ void CollectMembers_AnimationStateTrack(Vector<RegisterObjectMethodArgs>& method
     fields.Push(RegisterObjectPropertyArgs("float AnimationStateTrack::weight_", "float weight", offsetof(AnimationStateTrack, weight_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned AnimationStateTrack::keyFrame_", "uint keyFrame", offsetof(AnimationStateTrack, keyFrame_)));
 
-    #ifdef REGISTER_MANUAL_PART_AnimationStateTrack
-        REGISTER_MANUAL_PART_AnimationStateTrack();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimationStateTrack
+        REGISTER_MEMBER_MANUAL_PART_AnimationStateTrack();
     #endif
 }
 
@@ -413,8 +413,8 @@ void CollectMembers_AnimationTrack(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("StringHash AnimationTrack::nameHash_", "StringHash nameHash", offsetof(AnimationTrack, nameHash_)));
     fields.Push(RegisterObjectPropertyArgs("AnimationChannelFlags AnimationTrack::channelMask_", "AnimationChannelFlags channelMask", offsetof(AnimationTrack, channelMask_)));
 
-    #ifdef REGISTER_MANUAL_PART_AnimationTrack
-        REGISTER_MANUAL_PART_AnimationTrack();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimationTrack
+        REGISTER_MEMBER_MANUAL_PART_AnimationTrack();
     #endif
 }
 
@@ -424,8 +424,8 @@ void CollectMembers_AnimationTriggerPoint(Vector<RegisterObjectMethodArgs>& meth
     fields.Push(RegisterObjectPropertyArgs("float AnimationTriggerPoint::time_", "float time", offsetof(AnimationTriggerPoint, time_)));
     fields.Push(RegisterObjectPropertyArgs("Variant AnimationTriggerPoint::data_", "Variant data", offsetof(AnimationTriggerPoint, data_)));
 
-    #ifdef REGISTER_MANUAL_PART_AnimationTriggerPoint
-        REGISTER_MANUAL_PART_AnimationTriggerPoint();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimationTriggerPoint
+        REGISTER_MEMBER_MANUAL_PART_AnimationTriggerPoint();
     #endif
 }
 
@@ -463,8 +463,8 @@ void CollectMembers_Batch(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     fields.Push(RegisterObjectPropertyArgs("unsigned Batch::numWorldTransforms_", "uint numWorldTransforms", offsetof(Batch, numWorldTransforms_)));
     fields.Push(RegisterObjectPropertyArgs("GeometryType Batch::geometryType_", "GeometryType geometryType", offsetof(Batch, geometryType_)));
 
-    #ifdef REGISTER_MANUAL_PART_Batch
-        REGISTER_MANUAL_PART_Batch();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Batch
+        REGISTER_MEMBER_MANUAL_PART_Batch();
     #endif
 }
 
@@ -486,8 +486,8 @@ void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     fields.Push(RegisterObjectPropertyArgs("unsigned BatchGroup::startIndex_", "uint startIndex", offsetof(BatchGroup, startIndex_)));
 
-    #ifdef REGISTER_MANUAL_PART_BatchGroup
-        REGISTER_MANUAL_PART_BatchGroup();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_BatchGroup
+        REGISTER_MEMBER_MANUAL_PART_BatchGroup();
     #endif
 }
 
@@ -513,8 +513,8 @@ void CollectMembers_BatchGroupKey(Vector<RegisterObjectMethodArgs>& methods, Vec
 
     fields.Push(RegisterObjectPropertyArgs("unsigned char BatchGroupKey::renderOrder_", "uint8 renderOrder", offsetof(BatchGroupKey, renderOrder_)));
 
-    #ifdef REGISTER_MANUAL_PART_BatchGroupKey
-        REGISTER_MANUAL_PART_BatchGroupKey();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_BatchGroupKey
+        REGISTER_MEMBER_MANUAL_PART_BatchGroupKey();
     #endif
 }
 
@@ -555,8 +555,8 @@ void CollectMembers_BatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("StringHash BatchQueue::vsExtraDefinesHash_", "StringHash vsExtraDefinesHash", offsetof(BatchQueue, vsExtraDefinesHash_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash BatchQueue::psExtraDefinesHash_", "StringHash psExtraDefinesHash", offsetof(BatchQueue, psExtraDefinesHash_)));
 
-    #ifdef REGISTER_MANUAL_PART_BatchQueue
-        REGISTER_MANUAL_PART_BatchQueue();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_BatchQueue
+        REGISTER_MEMBER_MANUAL_PART_BatchQueue();
     #endif
 }
 
@@ -569,8 +569,8 @@ void CollectMembers_BiasParameters(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("float BiasParameters::slopeScaledBias_", "float slopeScaledBias", offsetof(BiasParameters, slopeScaledBias_)));
     fields.Push(RegisterObjectPropertyArgs("float BiasParameters::normalOffset_", "float normalOffset", offsetof(BiasParameters, normalOffset_)));
 
-    #ifdef REGISTER_MANUAL_PART_BiasParameters
-        REGISTER_MANUAL_PART_BiasParameters();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_BiasParameters
+        REGISTER_MEMBER_MANUAL_PART_BiasParameters();
     #endif
 }
 
@@ -587,8 +587,8 @@ void CollectMembers_Billboard(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("float Billboard::sortDistance_", "float sortDistance", offsetof(Billboard, sortDistance_)));
     fields.Push(RegisterObjectPropertyArgs("float Billboard::screenScaleFactor_", "float screenScaleFactor", offsetof(Billboard, screenScaleFactor_)));
 
-    #ifdef REGISTER_MANUAL_PART_Billboard
-        REGISTER_MANUAL_PART_Billboard();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Billboard
+        REGISTER_MEMBER_MANUAL_PART_Billboard();
     #endif
 }
 
@@ -665,8 +665,8 @@ void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods, Vect
     // static void BillboardSet::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_BillboardSet
-        REGISTER_MANUAL_PART_BillboardSet();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_BillboardSet
+        REGISTER_MEMBER_MANUAL_PART_BillboardSet();
     #endif
 }
 
@@ -688,8 +688,8 @@ void CollectMembers_Bone(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     fields.Push(RegisterObjectPropertyArgs("float Bone::radius_", "float radius", offsetof(Bone, radius_)));
     fields.Push(RegisterObjectPropertyArgs("BoundingBox Bone::boundingBox_", "BoundingBox boundingBox", offsetof(Bone, boundingBox_)));
 
-    #ifdef REGISTER_MANUAL_PART_Bone
-        REGISTER_MANUAL_PART_Bone();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Bone
+        REGISTER_MEMBER_MANUAL_PART_Bone();
     #endif
 }
 
@@ -703,8 +703,8 @@ void CollectMembers_BoxOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     fields.Push(RegisterObjectPropertyArgs("BoundingBox BoxOctreeQuery::box_", "BoundingBox box", offsetof(BoxOctreeQuery, box_)));
 
-    #ifdef REGISTER_MANUAL_PART_BoxOctreeQuery
-        REGISTER_MANUAL_PART_BoxOctreeQuery();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_BoxOctreeQuery
+        REGISTER_MEMBER_MANUAL_PART_BoxOctreeQuery();
     #endif
 }
 
@@ -827,8 +827,8 @@ void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     // static void Camera::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Camera
-        REGISTER_MANUAL_PART_Camera();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Camera
+        REGISTER_MEMBER_MANUAL_PART_Camera();
     #endif
 }
 
@@ -842,8 +842,8 @@ void CollectMembers_CascadeParameters(Vector<RegisterObjectMethodArgs>& methods,
     fields.Push(RegisterObjectPropertyArgs("float CascadeParameters::fadeStart_", "float fadeStart", offsetof(CascadeParameters, fadeStart_)));
     fields.Push(RegisterObjectPropertyArgs("float CascadeParameters::biasAutoAdjust_", "float biasAutoAdjust", offsetof(CascadeParameters, biasAutoAdjust_)));
 
-    #ifdef REGISTER_MANUAL_PART_CascadeParameters
-        REGISTER_MANUAL_PART_CascadeParameters();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CascadeParameters
+        REGISTER_MEMBER_MANUAL_PART_CascadeParameters();
     #endif
 }
 
@@ -855,8 +855,8 @@ void CollectMembers_ColorFrame(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("Color ColorFrame::color_", "Color color", offsetof(ColorFrame, color_)));
     fields.Push(RegisterObjectPropertyArgs("float ColorFrame::time_", "float time", offsetof(ColorFrame, time_)));
 
-    #ifdef REGISTER_MANUAL_PART_ColorFrame
-        REGISTER_MANUAL_PART_ColorFrame();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ColorFrame
+        REGISTER_MEMBER_MANUAL_PART_ColorFrame();
     #endif
 }
 
@@ -881,8 +881,8 @@ void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("unsigned ConstantBuffer::GetSize() const", "uint GetSize() const", AS_METHODPR(ConstantBuffer, GetSize, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ConstantBuffer::IsDirty() const", "bool IsDirty() const", AS_METHODPR(ConstantBuffer, IsDirty, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_ConstantBuffer
-        REGISTER_MANUAL_PART_ConstantBuffer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstantBuffer
+        REGISTER_MEMBER_MANUAL_PART_ConstantBuffer();
     #endif
 }
 
@@ -942,8 +942,8 @@ void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods, Ve
     // static void CustomGeometry::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_CustomGeometry
-        REGISTER_MANUAL_PART_CustomGeometry();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CustomGeometry
+        REGISTER_MEMBER_MANUAL_PART_CustomGeometry();
     #endif
 }
 
@@ -956,8 +956,8 @@ void CollectMembers_CustomGeometryVertex(Vector<RegisterObjectMethodArgs>& metho
     fields.Push(RegisterObjectPropertyArgs("Vector2 CustomGeometryVertex::texCoord_", "Vector2 texCoord", offsetof(CustomGeometryVertex, texCoord_)));
     fields.Push(RegisterObjectPropertyArgs("Vector4 CustomGeometryVertex::tangent_", "Vector4 tangent", offsetof(CustomGeometryVertex, tangent_)));
 
-    #ifdef REGISTER_MANUAL_PART_CustomGeometryVertex
-        REGISTER_MANUAL_PART_CustomGeometryVertex();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CustomGeometryVertex
+        REGISTER_MEMBER_MANUAL_PART_CustomGeometryVertex();
     #endif
 }
 
@@ -968,8 +968,8 @@ void CollectMembers_DebugLine(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("Vector3 DebugLine::end_", "Vector3 end", offsetof(DebugLine, end_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned DebugLine::color_", "uint color", offsetof(DebugLine, color_)));
 
-    #ifdef REGISTER_MANUAL_PART_DebugLine
-        REGISTER_MANUAL_PART_DebugLine();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DebugLine
+        REGISTER_MEMBER_MANUAL_PART_DebugLine();
     #endif
 }
 
@@ -1018,8 +1018,8 @@ void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods, Vec
     // static void DebugRenderer::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_DebugRenderer
-        REGISTER_MANUAL_PART_DebugRenderer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DebugRenderer
+        REGISTER_MEMBER_MANUAL_PART_DebugRenderer();
     #endif
 }
 
@@ -1031,8 +1031,8 @@ void CollectMembers_DebugTriangle(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("Vector3 DebugTriangle::v3_", "Vector3 v3", offsetof(DebugTriangle, v3_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned DebugTriangle::color_", "uint color", offsetof(DebugTriangle, color_)));
 
-    #ifdef REGISTER_MANUAL_PART_DebugTriangle
-        REGISTER_MANUAL_PART_DebugTriangle();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DebugTriangle
+        REGISTER_MEMBER_MANUAL_PART_DebugTriangle();
     #endif
 }
 
@@ -1051,8 +1051,8 @@ void CollectMembers_Decal(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     fields.Push(RegisterObjectPropertyArgs("float Decal::timeToLive_", "float timeToLive", offsetof(Decal, timeToLive_)));
     fields.Push(RegisterObjectPropertyArgs("BoundingBox Decal::boundingBox_", "BoundingBox boundingBox", offsetof(Decal, boundingBox_)));
 
-    #ifdef REGISTER_MANUAL_PART_Decal
-        REGISTER_MANUAL_PART_Decal();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Decal
+        REGISTER_MEMBER_MANUAL_PART_Decal();
     #endif
 }
 
@@ -1113,8 +1113,8 @@ void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     // static void DecalSet::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_DecalSet
-        REGISTER_MANUAL_PART_DecalSet();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DecalSet
+        REGISTER_MEMBER_MANUAL_PART_DecalSet();
     #endif
 }
 
@@ -1131,8 +1131,8 @@ void CollectMembers_DecalVertex(Vector<RegisterObjectMethodArgs>& methods, Vecto
     fields.Push(RegisterObjectPropertyArgs("Vector2 DecalVertex::texCoord_", "Vector2 texCoord", offsetof(DecalVertex, texCoord_)));
     fields.Push(RegisterObjectPropertyArgs("Vector4 DecalVertex::tangent_", "Vector4 tangent", offsetof(DecalVertex, tangent_)));
 
-    #ifdef REGISTER_MANUAL_PART_DecalVertex
-        REGISTER_MANUAL_PART_DecalVertex();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DecalVertex
+        REGISTER_MEMBER_MANUAL_PART_DecalVertex();
     #endif
 }
 
@@ -1142,8 +1142,8 @@ void CollectMembers_DepthValue(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("int DepthValue::min_", "int min", offsetof(DepthValue, min_)));
     fields.Push(RegisterObjectPropertyArgs("int DepthValue::max_", "int max", offsetof(DepthValue, max_)));
 
-    #ifdef REGISTER_MANUAL_PART_DepthValue
-        REGISTER_MANUAL_PART_DepthValue();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DepthValue
+        REGISTER_MEMBER_MANUAL_PART_DepthValue();
     #endif
 }
 
@@ -1271,8 +1271,8 @@ void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     // static void Drawable::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Drawable
-        REGISTER_MANUAL_PART_Drawable();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Drawable
+        REGISTER_MEMBER_MANUAL_PART_Drawable();
     #endif
 }
 
@@ -1287,8 +1287,8 @@ void CollectMembers_FocusParameters(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("float FocusParameters::quantize_", "float quantize", offsetof(FocusParameters, quantize_)));
     fields.Push(RegisterObjectPropertyArgs("float FocusParameters::minView_", "float minView", offsetof(FocusParameters, minView_)));
 
-    #ifdef REGISTER_MANUAL_PART_FocusParameters
-        REGISTER_MANUAL_PART_FocusParameters();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_FocusParameters
+        REGISTER_MEMBER_MANUAL_PART_FocusParameters();
     #endif
 }
 
@@ -1302,8 +1302,8 @@ void CollectMembers_FrameInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("float FrameInfo::timeStep_", "float timeStep", offsetof(FrameInfo, timeStep_)));
     fields.Push(RegisterObjectPropertyArgs("IntVector2 FrameInfo::viewSize_", "IntVector2 viewSize", offsetof(FrameInfo, viewSize_)));
 
-    #ifdef REGISTER_MANUAL_PART_FrameInfo
-        REGISTER_MANUAL_PART_FrameInfo();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_FrameInfo
+        REGISTER_MEMBER_MANUAL_PART_FrameInfo();
     #endif
 }
 
@@ -1317,8 +1317,8 @@ void CollectMembers_FrustumOctreeQuery(Vector<RegisterObjectMethodArgs>& methods
 
     fields.Push(RegisterObjectPropertyArgs("Frustum FrustumOctreeQuery::frustum_", "Frustum frustum", offsetof(FrustumOctreeQuery, frustum_)));
 
-    #ifdef REGISTER_MANUAL_PART_FrustumOctreeQuery
-        REGISTER_MANUAL_PART_FrustumOctreeQuery();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_FrustumOctreeQuery
+        REGISTER_MEMBER_MANUAL_PART_FrustumOctreeQuery();
     #endif
 }
 
@@ -1338,8 +1338,8 @@ void CollectMembers_GPUObject(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("bool GPUObject::IsDataLost() const", "bool get_dataLost() const", AS_METHODPR(GPUObject, IsDataLost, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool GPUObject::HasPendingData() const", "bool HasPendingData() const", AS_METHODPR(GPUObject, HasPendingData, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_GPUObject
-        REGISTER_MANUAL_PART_GPUObject();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_GPUObject
+        REGISTER_MEMBER_MANUAL_PART_GPUObject();
     #endif
 }
 
@@ -1404,8 +1404,8 @@ void CollectMembers_Geometry(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("bool Geometry::IsEmpty() const", "bool IsEmpty() const", AS_METHODPR(Geometry, IsEmpty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Geometry::IsEmpty() const", "bool get_empty() const", AS_METHODPR(Geometry, IsEmpty, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Geometry
-        REGISTER_MANUAL_PART_Geometry();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Geometry
+        REGISTER_MEMBER_MANUAL_PART_Geometry();
     #endif
 }
 
@@ -1418,8 +1418,8 @@ void CollectMembers_GeometryDesc(Vector<RegisterObjectMethodArgs>& methods, Vect
     fields.Push(RegisterObjectPropertyArgs("unsigned GeometryDesc::indexStart_", "uint indexStart", offsetof(GeometryDesc, indexStart_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned GeometryDesc::indexCount_", "uint indexCount", offsetof(GeometryDesc, indexCount_)));
 
-    #ifdef REGISTER_MANUAL_PART_GeometryDesc
-        REGISTER_MANUAL_PART_GeometryDesc();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_GeometryDesc
+        REGISTER_MEMBER_MANUAL_PART_GeometryDesc();
     #endif
 }
 
@@ -1728,8 +1728,8 @@ void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetMaxBones()", "uint GetMaxBones()", AS_FUNCTIONPR(Graphics::GetMaxBones, (), unsigned), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool Graphics::GetGL3Support()", "bool GetGL3Support()", AS_FUNCTIONPR(Graphics::GetGL3Support, (), bool), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Graphics
-        REGISTER_MANUAL_PART_Graphics();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Graphics
+        REGISTER_MEMBER_MANUAL_PART_Graphics();
     #endif
 }
 
@@ -1772,8 +1772,8 @@ void CollectMembers_IndexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("unsigned IndexBuffer::GetIndexSize() const", "uint get_indexSize() const", AS_METHODPR(IndexBuffer, GetIndexSize, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool IndexBuffer::GetUsedVertexRange(unsigned start, unsigned count, unsigned& minVertex, unsigned& vertexCount)", "bool GetUsedVertexRange(uint, uint, uint&, uint&)", AS_METHODPR(IndexBuffer, GetUsedVertexRange, (unsigned, unsigned, unsigned&, unsigned&), bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_IndexBuffer
-        REGISTER_MANUAL_PART_IndexBuffer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_IndexBuffer
+        REGISTER_MEMBER_MANUAL_PART_IndexBuffer();
     #endif
 }
 
@@ -1787,8 +1787,8 @@ void CollectMembers_IndexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("unsigned IndexBufferDesc::indexSize_", "uint indexSize", offsetof(IndexBufferDesc, indexSize_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned IndexBufferDesc::dataSize_", "uint dataSize", offsetof(IndexBufferDesc, dataSize_)));
 
-    #ifdef REGISTER_MANUAL_PART_IndexBufferDesc
-        REGISTER_MANUAL_PART_IndexBufferDesc();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_IndexBufferDesc
+        REGISTER_MEMBER_MANUAL_PART_IndexBufferDesc();
     #endif
 }
 
@@ -1802,8 +1802,8 @@ void CollectMembers_InstanceData(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     fields.Push(RegisterObjectPropertyArgs("float InstanceData::distance_", "float distance", offsetof(InstanceData, distance_)));
 
-    #ifdef REGISTER_MANUAL_PART_InstanceData
-        REGISTER_MANUAL_PART_InstanceData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_InstanceData
+        REGISTER_MEMBER_MANUAL_PART_InstanceData();
     #endif
 }
 
@@ -1946,8 +1946,8 @@ void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static Matrix3x4 Light::GetFullscreenQuadTransform(Camera* camera)", "Matrix3x4 GetFullscreenQuadTransform(Camera@+)", AS_FUNCTIONPR(Light::GetFullscreenQuadTransform, (Camera*), Matrix3x4), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Light
-        REGISTER_MANUAL_PART_Light();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Light
+        REGISTER_MEMBER_MANUAL_PART_Light();
     #endif
 }
 
@@ -1969,8 +1969,8 @@ void CollectMembers_LightBatchQueue(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("BatchQueue LightBatchQueue::litBaseBatches_", "BatchQueue litBaseBatches", offsetof(LightBatchQueue, litBaseBatches_)));
     fields.Push(RegisterObjectPropertyArgs("BatchQueue LightBatchQueue::litBatches_", "BatchQueue litBatches", offsetof(LightBatchQueue, litBatches_)));
 
-    #ifdef REGISTER_MANUAL_PART_LightBatchQueue
-        REGISTER_MANUAL_PART_LightBatchQueue();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_LightBatchQueue
+        REGISTER_MEMBER_MANUAL_PART_LightBatchQueue();
     #endif
 }
 
@@ -1998,8 +1998,8 @@ void CollectMembers_LightQueryResult(Vector<RegisterObjectMethodArgs>& methods, 
 
     fields.Push(RegisterObjectPropertyArgs("unsigned LightQueryResult::numSplits_", "uint numSplits", offsetof(LightQueryResult, numSplits_)));
 
-    #ifdef REGISTER_MANUAL_PART_LightQueryResult
-        REGISTER_MANUAL_PART_LightQueryResult();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_LightQueryResult
+        REGISTER_MEMBER_MANUAL_PART_LightQueryResult();
     #endif
 }
 
@@ -2120,8 +2120,8 @@ void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     staticMethods.Push(RegisterGlobalFunctionArgs("static String Material::GetTextureUnitName(TextureUnit unit)", "String GetTextureUnitName(TextureUnit)", AS_FUNCTIONPR(Material::GetTextureUnitName, (TextureUnit), String), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static Variant Material::ParseShaderParameterValue(const String& value)", "Variant ParseShaderParameterValue(const String&in)", AS_FUNCTIONPR(Material::ParseShaderParameterValue, (const String&), Variant), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Material
-        REGISTER_MANUAL_PART_Material();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Material
+        REGISTER_MEMBER_MANUAL_PART_Material();
     #endif
 }
 
@@ -2131,8 +2131,8 @@ void CollectMembers_MaterialShaderParameter(Vector<RegisterObjectMethodArgs>& me
     fields.Push(RegisterObjectPropertyArgs("String MaterialShaderParameter::name_", "String name", offsetof(MaterialShaderParameter, name_)));
     fields.Push(RegisterObjectPropertyArgs("Variant MaterialShaderParameter::value_", "Variant value", offsetof(MaterialShaderParameter, value_)));
 
-    #ifdef REGISTER_MANUAL_PART_MaterialShaderParameter
-        REGISTER_MANUAL_PART_MaterialShaderParameter();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_MaterialShaderParameter
+        REGISTER_MEMBER_MANUAL_PART_MaterialShaderParameter();
     #endif
 }
 
@@ -2258,8 +2258,8 @@ void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     // static void Model::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Model
-        REGISTER_MANUAL_PART_Model();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Model
+        REGISTER_MEMBER_MANUAL_PART_Model();
     #endif
 }
 
@@ -2273,8 +2273,8 @@ void CollectMembers_ModelMorph(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("StringHash ModelMorph::nameHash_", "StringHash nameHash", offsetof(ModelMorph, nameHash_)));
     fields.Push(RegisterObjectPropertyArgs("float ModelMorph::weight_", "float weight", offsetof(ModelMorph, weight_)));
 
-    #ifdef REGISTER_MANUAL_PART_ModelMorph
-        REGISTER_MANUAL_PART_ModelMorph();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ModelMorph
+        REGISTER_MEMBER_MANUAL_PART_ModelMorph();
     #endif
 }
 
@@ -2292,8 +2292,8 @@ void CollectMembers_OcclusionBatch(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("unsigned OcclusionBatch::drawStart_", "uint drawStart", offsetof(OcclusionBatch, drawStart_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned OcclusionBatch::drawCount_", "uint drawCount", offsetof(OcclusionBatch, drawCount_)));
 
-    #ifdef REGISTER_MANUAL_PART_OcclusionBatch
-        REGISTER_MANUAL_PART_OcclusionBatch();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_OcclusionBatch
+        REGISTER_MEMBER_MANUAL_PART_OcclusionBatch();
     #endif
 }
 
@@ -2330,8 +2330,8 @@ void CollectMembers_OcclusionBuffer(Vector<RegisterObjectMethodArgs>& methods, V
     methods.Push(RegisterObjectMethodArgs("unsigned OcclusionBuffer::GetUseTimer()", "uint GetUseTimer()", AS_METHODPR(OcclusionBuffer, GetUseTimer, (), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void OcclusionBuffer::DrawBatch(const OcclusionBatch& batch, unsigned threadIndex)", "void DrawBatch(const OcclusionBatch&in, uint)", AS_METHODPR(OcclusionBuffer, DrawBatch, (const OcclusionBatch&, unsigned), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_OcclusionBuffer
-        REGISTER_MANUAL_PART_OcclusionBuffer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_OcclusionBuffer
+        REGISTER_MEMBER_MANUAL_PART_OcclusionBuffer();
     #endif
 }
 
@@ -2345,8 +2345,8 @@ void CollectMembers_OcclusionBufferData(Vector<RegisterObjectMethodArgs>& method
 
     fields.Push(RegisterObjectPropertyArgs("bool OcclusionBufferData::used_", "bool used", offsetof(OcclusionBufferData, used_)));
 
-    #ifdef REGISTER_MANUAL_PART_OcclusionBufferData
-        REGISTER_MANUAL_PART_OcclusionBufferData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_OcclusionBufferData
+        REGISTER_MEMBER_MANUAL_PART_OcclusionBufferData();
     #endif
 }
 
@@ -2373,8 +2373,8 @@ void CollectMembers_Octant(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("void Octant::ResetRoot()", "void ResetRoot()", AS_METHODPR(Octant, ResetRoot, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(Octant, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Octant
-        REGISTER_MANUAL_PART_Octant();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Octant
+        REGISTER_MEMBER_MANUAL_PART_Octant();
     #endif
 }
 
@@ -2410,8 +2410,8 @@ void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     // static void Octree::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Octree
-        REGISTER_MANUAL_PART_Octree();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Octree
+        REGISTER_MEMBER_MANUAL_PART_Octree();
     #endif
 }
 
@@ -2429,8 +2429,8 @@ void CollectMembers_OctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vecto
     fields.Push(RegisterObjectPropertyArgs("unsigned char OctreeQuery::drawableFlags_", "uint8 drawableFlags", offsetof(OctreeQuery, drawableFlags_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned OctreeQuery::viewMask_", "uint viewMask", offsetof(OctreeQuery, viewMask_)));
 
-    #ifdef REGISTER_MANUAL_PART_OctreeQuery
-        REGISTER_MANUAL_PART_OctreeQuery();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_OctreeQuery
+        REGISTER_MEMBER_MANUAL_PART_OctreeQuery();
     #endif
 }
 
@@ -2445,8 +2445,8 @@ void CollectMembers_OctreeQueryResult(Vector<RegisterObjectMethodArgs>& methods,
     // Node* OctreeQueryResult::node_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_OctreeQueryResult
-        REGISTER_MANUAL_PART_OctreeQueryResult();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_OctreeQueryResult
+        REGISTER_MEMBER_MANUAL_PART_OctreeQueryResult();
     #endif
 }
 
@@ -2462,8 +2462,8 @@ void CollectMembers_Particle(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     fields.Push(RegisterObjectPropertyArgs("unsigned Particle::colorIndex_", "uint colorIndex", offsetof(Particle, colorIndex_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned Particle::texIndex_", "uint texIndex", offsetof(Particle, texIndex_)));
 
-    #ifdef REGISTER_MANUAL_PART_Particle
-        REGISTER_MANUAL_PART_Particle();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Particle
+        REGISTER_MEMBER_MANUAL_PART_Particle();
     #endif
 }
 
@@ -2655,8 +2655,8 @@ void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods, Ve
     // static void ParticleEffect::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_ParticleEffect
-        REGISTER_MANUAL_PART_ParticleEffect();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ParticleEffect
+        REGISTER_MEMBER_MANUAL_PART_ParticleEffect();
     #endif
 }
 
@@ -2709,8 +2709,8 @@ void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods, V
     // static void ParticleEmitter::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_ParticleEmitter
-        REGISTER_MANUAL_PART_ParticleEmitter();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ParticleEmitter
+        REGISTER_MEMBER_MANUAL_PART_ParticleEmitter();
     #endif
 }
 
@@ -2819,8 +2819,8 @@ void CollectMembers_Pass(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("String Pass::GetEffectiveVertexShaderDefines() const", "String GetEffectiveVertexShaderDefines() const", AS_METHODPR(Pass, GetEffectiveVertexShaderDefines, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Pass::GetEffectivePixelShaderDefines() const", "String GetEffectivePixelShaderDefines() const", AS_METHODPR(Pass, GetEffectivePixelShaderDefines, () const, String), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Pass
-        REGISTER_MANUAL_PART_Pass();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Pass
+        REGISTER_MEMBER_MANUAL_PART_Pass();
     #endif
 }
 
@@ -2835,8 +2835,8 @@ void CollectMembers_PerThreadSceneResult(Vector<RegisterObjectMethodArgs>& metho
     fields.Push(RegisterObjectPropertyArgs("float PerThreadSceneResult::minZ_", "float minZ", offsetof(PerThreadSceneResult, minZ_)));
     fields.Push(RegisterObjectPropertyArgs("float PerThreadSceneResult::maxZ_", "float maxZ", offsetof(PerThreadSceneResult, maxZ_)));
 
-    #ifdef REGISTER_MANUAL_PART_PerThreadSceneResult
-        REGISTER_MANUAL_PART_PerThreadSceneResult();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_PerThreadSceneResult
+        REGISTER_MEMBER_MANUAL_PART_PerThreadSceneResult();
     #endif
 }
 
@@ -2850,8 +2850,8 @@ void CollectMembers_PointOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, 
 
     fields.Push(RegisterObjectPropertyArgs("Vector3 PointOctreeQuery::point_", "Vector3 point", offsetof(PointOctreeQuery, point_)));
 
-    #ifdef REGISTER_MANUAL_PART_PointOctreeQuery
-        REGISTER_MANUAL_PART_PointOctreeQuery();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_PointOctreeQuery
+        REGISTER_MEMBER_MANUAL_PART_PointOctreeQuery();
     #endif
 }
 
@@ -2867,8 +2867,8 @@ void CollectMembers_RayOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("float RayOctreeQuery::maxDistance_", "float maxDistance", offsetof(RayOctreeQuery, maxDistance_)));
     fields.Push(RegisterObjectPropertyArgs("RayQueryLevel RayOctreeQuery::level_", "RayQueryLevel level", offsetof(RayOctreeQuery, level_)));
 
-    #ifdef REGISTER_MANUAL_PART_RayOctreeQuery
-        REGISTER_MANUAL_PART_RayOctreeQuery();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RayOctreeQuery
+        REGISTER_MEMBER_MANUAL_PART_RayOctreeQuery();
     #endif
 }
 
@@ -2889,8 +2889,8 @@ void CollectMembers_RayQueryResult(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("float RayQueryResult::distance_", "float distance", offsetof(RayQueryResult, distance_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned RayQueryResult::subObject_", "uint subObject", offsetof(RayQueryResult, subObject_)));
 
-    #ifdef REGISTER_MANUAL_PART_RayQueryResult
-        REGISTER_MANUAL_PART_RayQueryResult();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RayQueryResult
+        REGISTER_MEMBER_MANUAL_PART_RayQueryResult();
     #endif
 }
 
@@ -2946,8 +2946,8 @@ void CollectMembers_RenderPath(Vector<RegisterObjectMethodArgs>& methods, Vector
     // Vector<RenderPathCommand> RenderPath::commands_
     // Error: type "Vector<RenderPathCommand>" can not automatically bind
 
-    #ifdef REGISTER_MANUAL_PART_RenderPath
-        REGISTER_MANUAL_PART_RenderPath();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RenderPath
+        REGISTER_MEMBER_MANUAL_PART_RenderPath();
     #endif
 }
 
@@ -3012,8 +3012,8 @@ void CollectMembers_RenderPathCommand(Vector<RegisterObjectMethodArgs>& methods,
     fields.Push(RegisterObjectPropertyArgs("bool RenderPathCommand::vertexLights_", "bool vertexLights", offsetof(RenderPathCommand, vertexLights_)));
     fields.Push(RegisterObjectPropertyArgs("String RenderPathCommand::eventName_", "String eventName", offsetof(RenderPathCommand, eventName_)));
 
-    #ifdef REGISTER_MANUAL_PART_RenderPathCommand
-        REGISTER_MANUAL_PART_RenderPathCommand();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RenderPathCommand
+        REGISTER_MEMBER_MANUAL_PART_RenderPathCommand();
     #endif
 }
 
@@ -3082,8 +3082,8 @@ void CollectMembers_RenderSurface(Vector<RegisterObjectMethodArgs>& methods, Vec
     // unsigned RenderSurface::target_
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_RenderSurface
-        REGISTER_MANUAL_PART_RenderSurface();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RenderSurface
+        REGISTER_MEMBER_MANUAL_PART_RenderSurface();
     #endif
 }
 
@@ -3105,8 +3105,8 @@ void CollectMembers_RenderTargetInfo(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("bool RenderTargetInfo::sRGB_", "bool sRGB", offsetof(RenderTargetInfo, sRGB_)));
     fields.Push(RegisterObjectPropertyArgs("bool RenderTargetInfo::persistent_", "bool persistent", offsetof(RenderTargetInfo, persistent_)));
 
-    #ifdef REGISTER_MANUAL_PART_RenderTargetInfo
-        REGISTER_MANUAL_PART_RenderTargetInfo();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RenderTargetInfo
+        REGISTER_MEMBER_MANUAL_PART_RenderTargetInfo();
     #endif
 }
 
@@ -3287,8 +3287,8 @@ void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static View* Renderer::GetActualView(View* view)", "View@+ GetActualView(View@+)", AS_FUNCTIONPR(Renderer::GetActualView, (View*), View*), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Renderer
-        REGISTER_MANUAL_PART_Renderer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Renderer
+        REGISTER_MEMBER_MANUAL_PART_Renderer();
     #endif
 }
 
@@ -3381,8 +3381,8 @@ void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods, Vecto
     // static void RibbonTrail::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_RibbonTrail
-        REGISTER_MANUAL_PART_RibbonTrail();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RibbonTrail
+        REGISTER_MEMBER_MANUAL_PART_RibbonTrail();
     #endif
 }
 
@@ -3397,8 +3397,8 @@ void CollectMembers_ScenePassInfo(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("bool ScenePassInfo::markToStencil_", "bool markToStencil", offsetof(ScenePassInfo, markToStencil_)));
     fields.Push(RegisterObjectPropertyArgs("bool ScenePassInfo::vertexLights_", "bool vertexLights", offsetof(ScenePassInfo, vertexLights_)));
 
-    #ifdef REGISTER_MANUAL_PART_ScenePassInfo
-        REGISTER_MANUAL_PART_ScenePassInfo();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ScenePassInfo
+        REGISTER_MEMBER_MANUAL_PART_ScenePassInfo();
     #endif
 }
 
@@ -3411,8 +3411,8 @@ void CollectMembers_ScratchBuffer(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("unsigned ScratchBuffer::size_", "uint size", offsetof(ScratchBuffer, size_)));
     fields.Push(RegisterObjectPropertyArgs("bool ScratchBuffer::reserved_", "bool reserved", offsetof(ScratchBuffer, reserved_)));
 
-    #ifdef REGISTER_MANUAL_PART_ScratchBuffer
-        REGISTER_MANUAL_PART_ScratchBuffer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ScratchBuffer
+        REGISTER_MEMBER_MANUAL_PART_ScratchBuffer();
     #endif
 }
 
@@ -3435,8 +3435,8 @@ void CollectMembers_ScreenModeParams(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("int ScreenModeParams::monitor_", "int monitor", offsetof(ScreenModeParams, monitor_)));
     fields.Push(RegisterObjectPropertyArgs("int ScreenModeParams::refreshRate_", "int refreshRate", offsetof(ScreenModeParams, refreshRate_)));
 
-    #ifdef REGISTER_MANUAL_PART_ScreenModeParams
-        REGISTER_MANUAL_PART_ScreenModeParams();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ScreenModeParams
+        REGISTER_MEMBER_MANUAL_PART_ScreenModeParams();
     #endif
 }
 
@@ -3460,8 +3460,8 @@ void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     // static void Shader::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Shader
-        REGISTER_MANUAL_PART_Shader();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Shader
+        REGISTER_MEMBER_MANUAL_PART_Shader();
     #endif
 }
 
@@ -3485,8 +3485,8 @@ void CollectMembers_ShaderParameter(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("unsigned ShaderParameter::regCount_", "uint regCount", offsetof(ShaderParameter, regCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned ShaderParameter::buffer_", "uint buffer", offsetof(ShaderParameter, buffer_)));
 
-    #ifdef REGISTER_MANUAL_PART_ShaderParameter
-        REGISTER_MANUAL_PART_ShaderParameter();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ShaderParameter
+        REGISTER_MEMBER_MANUAL_PART_ShaderParameter();
     #endif
 }
 
@@ -3497,8 +3497,8 @@ void CollectMembers_ShaderParameterAnimationInfo(Vector<RegisterObjectMethodArgs
 
     methods.Push(RegisterObjectMethodArgs("const String& ShaderParameterAnimationInfo::GetName() const", "const String& GetName() const", AS_METHODPR(ShaderParameterAnimationInfo, GetName, () const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_ShaderParameterAnimationInfo
-        REGISTER_MANUAL_PART_ShaderParameterAnimationInfo();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ShaderParameterAnimationInfo
+        REGISTER_MEMBER_MANUAL_PART_ShaderParameterAnimationInfo();
     #endif
 }
 
@@ -3511,8 +3511,8 @@ void CollectMembers_ShaderPrecache(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static void ShaderPrecache::LoadShaders(Graphics* graphics, Deserializer& source)", "void LoadShaders(Graphics@+, Deserializer&)", AS_FUNCTIONPR(ShaderPrecache::LoadShaders, (Graphics*, Deserializer&), void), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_ShaderPrecache
-        REGISTER_MANUAL_PART_ShaderPrecache();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ShaderPrecache
+        REGISTER_MEMBER_MANUAL_PART_ShaderPrecache();
     #endif
 }
 
@@ -3551,8 +3551,8 @@ void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods, V
     // static const char* ShaderVariation::elementSemanticNames[]
     // Error: type "const char*" can not automatically bind
 
-    #ifdef REGISTER_MANUAL_PART_ShaderVariation
-        REGISTER_MANUAL_PART_ShaderVariation();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ShaderVariation
+        REGISTER_MEMBER_MANUAL_PART_ShaderVariation();
     #endif
 }
 
@@ -3567,8 +3567,8 @@ void CollectMembers_ShadowBatchQueue(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("float ShadowBatchQueue::nearSplit_", "float nearSplit", offsetof(ShadowBatchQueue, nearSplit_)));
     fields.Push(RegisterObjectPropertyArgs("float ShadowBatchQueue::farSplit_", "float farSplit", offsetof(ShadowBatchQueue, farSplit_)));
 
-    #ifdef REGISTER_MANUAL_PART_ShadowBatchQueue
-        REGISTER_MANUAL_PART_ShadowBatchQueue();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ShadowBatchQueue
+        REGISTER_MEMBER_MANUAL_PART_ShadowBatchQueue();
     #endif
 }
 
@@ -3602,8 +3602,8 @@ void CollectMembers_Skeleton(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("Bone* Skeleton::GetBone(const StringHash& boneNameHash)", "Bone@+ GetBone(const StringHash&in)", AS_METHODPR(Skeleton, GetBone, (const StringHash&), Bone*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Skeleton::ResetSilent()", "void ResetSilent()", AS_METHODPR(Skeleton, ResetSilent, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Skeleton
-        REGISTER_MANUAL_PART_Skeleton();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Skeleton
+        REGISTER_MEMBER_MANUAL_PART_Skeleton();
     #endif
 }
 
@@ -3625,8 +3625,8 @@ void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     // static void Skybox::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Skybox
-        REGISTER_MANUAL_PART_Skybox();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Skybox
+        REGISTER_MEMBER_MANUAL_PART_Skybox();
     #endif
 }
 
@@ -3648,8 +3648,8 @@ void CollectMembers_SourceBatch(Vector<RegisterObjectMethodArgs>& methods, Vecto
     fields.Push(RegisterObjectPropertyArgs("unsigned SourceBatch::numWorldTransforms_", "uint numWorldTransforms", offsetof(SourceBatch, numWorldTransforms_)));
     fields.Push(RegisterObjectPropertyArgs("GeometryType SourceBatch::geometryType_", "GeometryType geometryType", offsetof(SourceBatch, geometryType_)));
 
-    #ifdef REGISTER_MANUAL_PART_SourceBatch
-        REGISTER_MANUAL_PART_SourceBatch();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_SourceBatch
+        REGISTER_MEMBER_MANUAL_PART_SourceBatch();
     #endif
 }
 
@@ -3663,8 +3663,8 @@ void CollectMembers_SphereOctreeQuery(Vector<RegisterObjectMethodArgs>& methods,
 
     fields.Push(RegisterObjectPropertyArgs("Sphere SphereOctreeQuery::sphere_", "Sphere sphere", offsetof(SphereOctreeQuery, sphere_)));
 
-    #ifdef REGISTER_MANUAL_PART_SphereOctreeQuery
-        REGISTER_MANUAL_PART_SphereOctreeQuery();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_SphereOctreeQuery
+        REGISTER_MEMBER_MANUAL_PART_SphereOctreeQuery();
     #endif
 }
 
@@ -3717,8 +3717,8 @@ void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vecto
     // static void StaticModel::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_StaticModel
-        REGISTER_MANUAL_PART_StaticModel();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_StaticModel
+        REGISTER_MEMBER_MANUAL_PART_StaticModel();
     #endif
 }
 
@@ -3728,8 +3728,8 @@ void CollectMembers_StaticModelGeometryData(Vector<RegisterObjectMethodArgs>& me
     fields.Push(RegisterObjectPropertyArgs("Vector3 StaticModelGeometryData::center_", "Vector3 center", offsetof(StaticModelGeometryData, center_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned StaticModelGeometryData::lodLevel_", "uint lodLevel", offsetof(StaticModelGeometryData, lodLevel_)));
 
-    #ifdef REGISTER_MANUAL_PART_StaticModelGeometryData
-        REGISTER_MANUAL_PART_StaticModelGeometryData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_StaticModelGeometryData
+        REGISTER_MEMBER_MANUAL_PART_StaticModelGeometryData();
     #endif
 }
 
@@ -3768,8 +3768,8 @@ void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods, 
     // static void StaticModelGroup::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_StaticModelGroup
-        REGISTER_MANUAL_PART_StaticModelGroup();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_StaticModelGroup
+        REGISTER_MEMBER_MANUAL_PART_StaticModelGroup();
     #endif
 }
 
@@ -3855,8 +3855,8 @@ void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<
     staticFields.Push(RegisterGlobalPropertyArgs("static unsigned Technique::litAlphaPassIndex", "uint litAlphaPassIndex", (void*)&Technique::litAlphaPassIndex));
     staticFields.Push(RegisterGlobalPropertyArgs("static unsigned Technique::shadowPassIndex", "uint shadowPassIndex", (void*)&Technique::shadowPassIndex));
 
-    #ifdef REGISTER_MANUAL_PART_Technique
-        REGISTER_MANUAL_PART_Technique();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Technique
+        REGISTER_MEMBER_MANUAL_PART_Technique();
     #endif
 }
 
@@ -3871,8 +3871,8 @@ void CollectMembers_TechniqueEntry(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("MaterialQuality TechniqueEntry::qualityLevel_", "MaterialQuality qualityLevel", offsetof(TechniqueEntry, qualityLevel_)));
     fields.Push(RegisterObjectPropertyArgs("float TechniqueEntry::lodDistance_", "float lodDistance", offsetof(TechniqueEntry, lodDistance_)));
 
-    #ifdef REGISTER_MANUAL_PART_TechniqueEntry
-        REGISTER_MANUAL_PART_TechniqueEntry();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_TechniqueEntry
+        REGISTER_MEMBER_MANUAL_PART_TechniqueEntry();
     #endif
 }
 
@@ -4007,8 +4007,8 @@ void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     // static void Terrain::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Terrain
-        REGISTER_MANUAL_PART_Terrain();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Terrain
+        REGISTER_MEMBER_MANUAL_PART_Terrain();
     #endif
 }
 
@@ -4061,8 +4061,8 @@ void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods, Vect
     // static void TerrainPatch::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_TerrainPatch
-        REGISTER_MANUAL_PART_TerrainPatch();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_TerrainPatch
+        REGISTER_MEMBER_MANUAL_PART_TerrainPatch();
     #endif
 }
 
@@ -4165,8 +4165,8 @@ void CollectMembers_Texture(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::CheckMaxLevels(int width, int height, unsigned requestedLevels)", "uint CheckMaxLevels(int, int, uint)", AS_FUNCTIONPR(Texture::CheckMaxLevels, (int, int, unsigned), unsigned), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::CheckMaxLevels(int width, int height, int depth, unsigned requestedLevels)", "uint CheckMaxLevels(int, int, int, uint)", AS_FUNCTIONPR(Texture::CheckMaxLevels, (int, int, int, unsigned), unsigned), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_Texture
-        REGISTER_MANUAL_PART_Texture();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Texture
+        REGISTER_MEMBER_MANUAL_PART_Texture();
     #endif
 }
 
@@ -4210,8 +4210,8 @@ void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods, Vector<
     // static void Texture2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Texture2D
-        REGISTER_MANUAL_PART_Texture2D();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Texture2D
+        REGISTER_MEMBER_MANUAL_PART_Texture2D();
     #endif
 }
 
@@ -4249,8 +4249,8 @@ void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods, Ve
     // static void Texture2DArray::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Texture2DArray
-        REGISTER_MANUAL_PART_Texture2DArray();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Texture2DArray
+        REGISTER_MEMBER_MANUAL_PART_Texture2DArray();
     #endif
 }
 
@@ -4281,8 +4281,8 @@ void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods, Vector<
     // static void Texture3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Texture3D
-        REGISTER_MANUAL_PART_Texture3D();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Texture3D
+        REGISTER_MEMBER_MANUAL_PART_Texture3D();
     #endif
 }
 
@@ -4326,8 +4326,8 @@ void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods, Vecto
     // static void TextureCube::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_TextureCube
-        REGISTER_MANUAL_PART_TextureCube();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_TextureCube
+        REGISTER_MEMBER_MANUAL_PART_TextureCube();
     #endif
 }
 
@@ -4337,8 +4337,8 @@ void CollectMembers_TextureFrame(Vector<RegisterObjectMethodArgs>& methods, Vect
     fields.Push(RegisterObjectPropertyArgs("Rect TextureFrame::uv_", "Rect uv", offsetof(TextureFrame, uv_)));
     fields.Push(RegisterObjectPropertyArgs("float TextureFrame::time_", "float time", offsetof(TextureFrame, time_)));
 
-    #ifdef REGISTER_MANUAL_PART_TextureFrame
-        REGISTER_MANUAL_PART_TextureFrame();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_TextureFrame
+        REGISTER_MEMBER_MANUAL_PART_TextureFrame();
     #endif
 }
 
@@ -4355,8 +4355,8 @@ void CollectMembers_TrailPoint(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("float TrailPoint::lifetime_", "float lifetime", offsetof(TrailPoint, lifetime_)));
     fields.Push(RegisterObjectPropertyArgs("float TrailPoint::sortDistance_", "float sortDistance", offsetof(TrailPoint, sortDistance_)));
 
-    #ifdef REGISTER_MANUAL_PART_TrailPoint
-        REGISTER_MANUAL_PART_TrailPoint();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_TrailPoint
+        REGISTER_MEMBER_MANUAL_PART_TrailPoint();
     #endif
 }
 
@@ -4481,8 +4481,8 @@ void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(const PODVector<VertexElement>& elements)", "uint GetVertexSize(Array<VertexElement>@+)", AS_FUNCTION(VertexBuffer_GetVertexSize_PODVectorVertexElement), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(unsigned elementMask)", "uint GetVertexSize(uint)", AS_FUNCTIONPR(VertexBuffer::GetVertexSize, (unsigned), unsigned), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MANUAL_PART_VertexBuffer
-        REGISTER_MANUAL_PART_VertexBuffer();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_VertexBuffer
+        REGISTER_MEMBER_MANUAL_PART_VertexBuffer();
     #endif
 }
 
@@ -4497,8 +4497,8 @@ void CollectMembers_VertexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexBufferDesc::vertexCount_", "uint vertexCount", offsetof(VertexBufferDesc, vertexCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexBufferDesc::dataSize_", "uint dataSize", offsetof(VertexBufferDesc, dataSize_)));
 
-    #ifdef REGISTER_MANUAL_PART_VertexBufferDesc
-        REGISTER_MANUAL_PART_VertexBufferDesc();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_VertexBufferDesc
+        REGISTER_MEMBER_MANUAL_PART_VertexBufferDesc();
     #endif
 }
 
@@ -4512,8 +4512,8 @@ void CollectMembers_VertexBufferMorph(Vector<RegisterObjectMethodArgs>& methods,
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexBufferMorph::vertexCount_", "uint vertexCount", offsetof(VertexBufferMorph, vertexCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexBufferMorph::dataSize_", "uint dataSize", offsetof(VertexBufferMorph, dataSize_)));
 
-    #ifdef REGISTER_MANUAL_PART_VertexBufferMorph
-        REGISTER_MANUAL_PART_VertexBufferMorph();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_VertexBufferMorph
+        REGISTER_MEMBER_MANUAL_PART_VertexBufferMorph();
     #endif
 }
 
@@ -4531,8 +4531,8 @@ void CollectMembers_VertexElement(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("bool VertexElement::perInstance_", "bool perInstance", offsetof(VertexElement, perInstance_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexElement::offset_", "uint offset", offsetof(VertexElement, offset_)));
 
-    #ifdef REGISTER_MANUAL_PART_VertexElement
-        REGISTER_MANUAL_PART_VertexElement();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_VertexElement
+        REGISTER_MEMBER_MANUAL_PART_VertexElement();
     #endif
 }
 
@@ -4598,8 +4598,8 @@ void CollectMembers_View(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("void View::DrawFullscreenQuad(bool setIdentityProjection=false)", "void DrawFullscreenQuad(bool = false)", AS_METHODPR(View, DrawFullscreenQuad, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Texture* View::FindNamedTexture(const String& name, bool isRenderTarget, bool isVolumeMap=false)", "Texture@+ FindNamedTexture(const String&in, bool, bool = false)", AS_METHODPR(View, FindNamedTexture, (const String&, bool, bool), Texture*), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_View
-        REGISTER_MANUAL_PART_View();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_View
+        REGISTER_MEMBER_MANUAL_PART_View();
     #endif
 }
 
@@ -4639,8 +4639,8 @@ void CollectMembers_Viewport(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("Vector3 Viewport::ScreenToWorldPoint(int x, int y, float depth) const", "Vector3 ScreenToWorldPoint(int, int, float) const", AS_METHODPR(Viewport, ScreenToWorldPoint, (int, int, float) const, Vector3), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Viewport::AllocateView()", "void AllocateView()", AS_METHODPR(Viewport, AllocateView, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Viewport
-        REGISTER_MANUAL_PART_Viewport();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Viewport
+        REGISTER_MEMBER_MANUAL_PART_Viewport();
     #endif
 }
 
@@ -4651,8 +4651,8 @@ void CollectMembers_WindowModeParams(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("int WindowModeParams::height_", "int height", offsetof(WindowModeParams, height_)));
     fields.Push(RegisterObjectPropertyArgs("ScreenModeParams WindowModeParams::screenParams_", "ScreenModeParams screenParams", offsetof(WindowModeParams, screenParams_)));
 
-    #ifdef REGISTER_MANUAL_PART_WindowModeParams
-        REGISTER_MANUAL_PART_WindowModeParams();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_WindowModeParams
+        REGISTER_MEMBER_MANUAL_PART_WindowModeParams();
     #endif
 }
 
@@ -4725,8 +4725,8 @@ void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     // static void Zone::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Zone
-        REGISTER_MANUAL_PART_Zone();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Zone
+        REGISTER_MEMBER_MANUAL_PART_Zone();
     #endif
 }
 

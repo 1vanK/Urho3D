@@ -95,8 +95,8 @@ void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector
     // static void CrowdAgent::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_CrowdAgent
-        REGISTER_MANUAL_PART_CrowdAgent();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CrowdAgent
+        REGISTER_MEMBER_MANUAL_PART_CrowdAgent();
     #endif
 }
 
@@ -180,8 +180,8 @@ void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vect
     // static void CrowdManager::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_CrowdManager
-        REGISTER_MANUAL_PART_CrowdManager();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CrowdManager
+        REGISTER_MEMBER_MANUAL_PART_CrowdManager();
     #endif
 }
 
@@ -199,8 +199,8 @@ void CollectMembers_CrowdObstacleAvoidanceParams(Vector<RegisterObjectMethodArgs
     fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::adaptiveRings", "uint8 adaptiveRings", offsetof(CrowdObstacleAvoidanceParams, adaptiveRings)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::adaptiveDepth", "uint8 adaptiveDepth", offsetof(CrowdObstacleAvoidanceParams, adaptiveDepth)));
 
-    #ifdef REGISTER_MANUAL_PART_CrowdObstacleAvoidanceParams
-        REGISTER_MANUAL_PART_CrowdObstacleAvoidanceParams();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CrowdObstacleAvoidanceParams
+        REGISTER_MEMBER_MANUAL_PART_CrowdObstacleAvoidanceParams();
     #endif
 }
 
@@ -216,8 +216,8 @@ void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& method
     // dtTileCacheAlloc* DynamicNavBuildData::alloc_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_DynamicNavBuildData
-        REGISTER_MANUAL_PART_DynamicNavBuildData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DynamicNavBuildData
+        REGISTER_MEMBER_MANUAL_PART_DynamicNavBuildData();
     #endif
 }
 
@@ -275,8 +275,8 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
     // static void DynamicNavigationMesh::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_DynamicNavigationMesh
-        REGISTER_MANUAL_PART_DynamicNavigationMesh();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_DynamicNavigationMesh
+        REGISTER_MEMBER_MANUAL_PART_DynamicNavigationMesh();
     #endif
 }
 
@@ -304,8 +304,8 @@ void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     // static void NavArea::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_NavArea
-        REGISTER_MANUAL_PART_NavArea();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_NavArea
+        REGISTER_MEMBER_MANUAL_PART_NavArea();
     #endif
 }
 
@@ -315,8 +315,8 @@ void CollectMembers_NavAreaStub(Vector<RegisterObjectMethodArgs>& methods, Vecto
     fields.Push(RegisterObjectPropertyArgs("BoundingBox NavAreaStub::bounds_", "BoundingBox bounds", offsetof(NavAreaStub, bounds_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char NavAreaStub::areaID_", "uint8 areaID", offsetof(NavAreaStub, areaID_)));
 
-    #ifdef REGISTER_MANUAL_PART_NavAreaStub
-        REGISTER_MANUAL_PART_NavAreaStub();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_NavAreaStub
+        REGISTER_MEMBER_MANUAL_PART_NavAreaStub();
     #endif
 }
 
@@ -348,8 +348,8 @@ void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     fields.Push(RegisterObjectPropertyArgs("BoundingBox NavBuildData::worldBoundingBox_", "BoundingBox worldBoundingBox", offsetof(NavBuildData, worldBoundingBox_)));
 
-    #ifdef REGISTER_MANUAL_PART_NavBuildData
-        REGISTER_MANUAL_PART_NavBuildData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_NavBuildData
+        REGISTER_MEMBER_MANUAL_PART_NavBuildData();
     #endif
 }
 
@@ -368,8 +368,8 @@ void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<
     // static void Navigable::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Navigable
-        REGISTER_MANUAL_PART_Navigable();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Navigable
+        REGISTER_MEMBER_MANUAL_PART_Navigable();
     #endif
 }
 
@@ -383,8 +383,8 @@ void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& met
     fields.Push(RegisterObjectPropertyArgs("Matrix3x4 NavigationGeometryInfo::transform_", "Matrix3x4 transform", offsetof(NavigationGeometryInfo, transform_)));
     fields.Push(RegisterObjectPropertyArgs("BoundingBox NavigationGeometryInfo::boundingBox_", "BoundingBox boundingBox", offsetof(NavigationGeometryInfo, boundingBox_)));
 
-    #ifdef REGISTER_MANUAL_PART_NavigationGeometryInfo
-        REGISTER_MANUAL_PART_NavigationGeometryInfo();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_NavigationGeometryInfo
+        REGISTER_MEMBER_MANUAL_PART_NavigationGeometryInfo();
     #endif
 }
 
@@ -517,8 +517,8 @@ void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Ve
     // static void NavigationMesh::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_NavigationMesh
-        REGISTER_MANUAL_PART_NavigationMesh();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_NavigationMesh
+        REGISTER_MEMBER_MANUAL_PART_NavigationMesh();
     #endif
 }
 
@@ -529,8 +529,8 @@ void CollectMembers_NavigationPathPoint(Vector<RegisterObjectMethodArgs>& method
     fields.Push(RegisterObjectPropertyArgs("NavigationPathPointFlag NavigationPathPoint::flag_", "NavigationPathPointFlag flag", offsetof(NavigationPathPoint, flag_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char NavigationPathPoint::areaID_", "uint8 areaID", offsetof(NavigationPathPoint, areaID_)));
 
-    #ifdef REGISTER_MANUAL_PART_NavigationPathPoint
-        REGISTER_MANUAL_PART_NavigationPathPoint();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_NavigationPathPoint
+        REGISTER_MEMBER_MANUAL_PART_NavigationPathPoint();
     #endif
 }
 
@@ -561,8 +561,8 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     // static void Obstacle::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Obstacle
-        REGISTER_MANUAL_PART_Obstacle();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Obstacle
+        REGISTER_MEMBER_MANUAL_PART_Obstacle();
     #endif
 }
 
@@ -602,8 +602,8 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods,
     // static void OffMeshConnection::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_OffMeshConnection
-        REGISTER_MANUAL_PART_OffMeshConnection();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_OffMeshConnection
+        REGISTER_MEMBER_MANUAL_PART_OffMeshConnection();
     #endif
 }
 
@@ -619,8 +619,8 @@ void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods
     // rcPolyMeshDetail* SimpleNavBuildData::polyMeshDetail_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_SimpleNavBuildData
-        REGISTER_MANUAL_PART_SimpleNavBuildData();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_SimpleNavBuildData
+        REGISTER_MEMBER_MANUAL_PART_SimpleNavBuildData();
     #endif
 }
 

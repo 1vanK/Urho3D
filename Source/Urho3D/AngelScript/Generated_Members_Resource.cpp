@@ -22,8 +22,8 @@ void CollectMembers_BackgroundLoadItem(Vector<RegisterObjectMethodArgs>& methods
 
     fields.Push(RegisterObjectPropertyArgs("bool BackgroundLoadItem::sendEventOnFailure_", "bool sendEventOnFailure", offsetof(BackgroundLoadItem, sendEventOnFailure_)));
 
-    #ifdef REGISTER_MANUAL_PART_BackgroundLoadItem
-        REGISTER_MANUAL_PART_BackgroundLoadItem();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_BackgroundLoadItem
+        REGISTER_MEMBER_MANUAL_PART_BackgroundLoadItem();
     #endif
 }
 
@@ -36,8 +36,8 @@ void CollectMembers_BackgroundLoader(Vector<RegisterObjectMethodArgs>& methods, 
     methods.Push(RegisterObjectMethodArgs("void BackgroundLoader::FinishResources(int maxMs)", "void FinishResources(int)", AS_METHODPR(BackgroundLoader, FinishResources, (int), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned BackgroundLoader::GetNumQueuedResources() const", "uint GetNumQueuedResources() const", AS_METHODPR(BackgroundLoader, GetNumQueuedResources, () const, unsigned), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_BackgroundLoader
-        REGISTER_MANUAL_PART_BackgroundLoader();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_BackgroundLoader
+        REGISTER_MEMBER_MANUAL_PART_BackgroundLoader();
     #endif
 }
 
@@ -59,8 +59,8 @@ void CollectMembers_CompressedLevel(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("unsigned CompressedLevel::rowSize_", "uint rowSize", offsetof(CompressedLevel, rowSize_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned CompressedLevel::rows_", "uint rows", offsetof(CompressedLevel, rows_)));
 
-    #ifdef REGISTER_MANUAL_PART_CompressedLevel
-        REGISTER_MANUAL_PART_CompressedLevel();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_CompressedLevel
+        REGISTER_MEMBER_MANUAL_PART_CompressedLevel();
     #endif
 }
 
@@ -183,8 +183,8 @@ void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     // static void Image::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_Image
-        REGISTER_MANUAL_PART_Image();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Image
+        REGISTER_MEMBER_MANUAL_PART_Image();
     #endif
 }
 
@@ -208,8 +208,8 @@ void CollectMembers_JSONFile(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     // static void JSONFile::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_JSONFile
-        REGISTER_MANUAL_PART_JSONFile();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_JSONFile
+        REGISTER_MEMBER_MANUAL_PART_JSONFile();
     #endif
 }
 
@@ -353,8 +353,8 @@ void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const JSONValue JSONValue::EMPTY", "const JSONValue EMPTY", (void*)&JSONValue::EMPTY));
 
-    #ifdef REGISTER_MANUAL_PART_JSONValue
-        REGISTER_MANUAL_PART_JSONValue();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_JSONValue
+        REGISTER_MEMBER_MANUAL_PART_JSONValue();
     #endif
 }
 
@@ -379,8 +379,8 @@ void CollectMembers_Localization(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("void Localization::LoadMultipleLanguageJSON(const JSONValue& source)", "void LoadMultipleLanguageJSON(const JSONValue&in)", AS_METHODPR(Localization, LoadMultipleLanguageJSON, (const JSONValue&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Localization::LoadSingleLanguageJSON(const JSONValue& source, const String& language=String::EMPTY)", "void LoadSingleLanguageJSON(const JSONValue&in, const String&in = String::EMPTY)", AS_METHODPR(Localization, LoadSingleLanguageJSON, (const JSONValue&, const String&), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Localization
-        REGISTER_MANUAL_PART_Localization();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Localization
+        REGISTER_MEMBER_MANUAL_PART_Localization();
     #endif
 }
 
@@ -411,8 +411,8 @@ void CollectMembers_Resource(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("unsigned Resource::GetUseTimer()", "uint get_useTimer()", AS_METHODPR(Resource, GetUseTimer, (), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("AsyncLoadState Resource::GetAsyncLoadState() const", "AsyncLoadState GetAsyncLoadState() const", AS_METHODPR(Resource, GetAsyncLoadState, () const, AsyncLoadState), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_Resource
-        REGISTER_MANUAL_PART_Resource();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_Resource
+        REGISTER_MEMBER_MANUAL_PART_Resource();
     #endif
 }
 
@@ -526,8 +526,8 @@ void CollectMembers_ResourceCache(Vector<RegisterObjectMethodArgs>& methods, Vec
     methods.Push(RegisterObjectMethodArgs("void ResourceCache::ResetDependencies(Resource* resource)", "void ResetDependencies(Resource@+)", AS_METHODPR(ResourceCache, ResetDependencies, (Resource*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String ResourceCache::PrintMemoryUsage() const", "String PrintMemoryUsage() const", AS_METHODPR(ResourceCache, PrintMemoryUsage, () const, String), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_ResourceCache
-        REGISTER_MANUAL_PART_ResourceCache();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ResourceCache
+        REGISTER_MEMBER_MANUAL_PART_ResourceCache();
     #endif
 }
 
@@ -540,8 +540,8 @@ void CollectMembers_ResourceGroup(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("unsigned long long ResourceGroup::memoryBudget_", "uint64 memoryBudget", offsetof(ResourceGroup, memoryBudget_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned long long ResourceGroup::memoryUse_", "uint64 memoryUse", offsetof(ResourceGroup, memoryUse_)));
 
-    #ifdef REGISTER_MANUAL_PART_ResourceGroup
-        REGISTER_MANUAL_PART_ResourceGroup();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ResourceGroup
+        REGISTER_MEMBER_MANUAL_PART_ResourceGroup();
     #endif
 }
 
@@ -550,8 +550,8 @@ void CollectMembers_ResourceRouter(Vector<RegisterObjectMethodArgs>& methods, Ve
 {
     methods.Push(RegisterObjectMethodArgs("virtual void ResourceRouter::Route(String& name, ResourceRequest requestType)=0", "void Route(String&, ResourceRequest)", AS_METHODPR(ResourceRouter, Route, (String&, ResourceRequest), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_ResourceRouter
-        REGISTER_MANUAL_PART_ResourceRouter();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ResourceRouter
+        REGISTER_MEMBER_MANUAL_PART_ResourceRouter();
     #endif
 }
 
@@ -569,8 +569,8 @@ void CollectMembers_ResourceWithMetadata(Vector<RegisterObjectMethodArgs>& metho
     methods.Push(RegisterObjectMethodArgs("bool ResourceWithMetadata::HasMetadata() const", "bool HasMetadata() const", AS_METHODPR(ResourceWithMetadata, HasMetadata, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ResourceWithMetadata::HasMetadata() const", "bool get_hasMetadata() const", AS_METHODPR(ResourceWithMetadata, HasMetadata, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_ResourceWithMetadata
-        REGISTER_MANUAL_PART_ResourceWithMetadata();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ResourceWithMetadata
+        REGISTER_MEMBER_MANUAL_PART_ResourceWithMetadata();
     #endif
 }
 
@@ -760,8 +760,8 @@ void CollectMembers_XMLElement(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const XMLElement XMLElement::EMPTY", "const XMLElement EMPTY", (void*)&XMLElement::EMPTY));
 
-    #ifdef REGISTER_MANUAL_PART_XMLElement
-        REGISTER_MANUAL_PART_XMLElement();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_XMLElement
+        REGISTER_MEMBER_MANUAL_PART_XMLElement();
     #endif
 }
 
@@ -790,8 +790,8 @@ void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     // static void XMLFile::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MANUAL_PART_XMLFile
-        REGISTER_MANUAL_PART_XMLFile();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_XMLFile
+        REGISTER_MEMBER_MANUAL_PART_XMLFile();
     #endif
 }
 
@@ -819,8 +819,8 @@ void CollectMembers_XPathQuery(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("String XPathQuery::GetQuery() const", "String GetQuery() const", AS_METHODPR(XPathQuery, GetQuery, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String XPathQuery::GetQuery() const", "String get_query() const", AS_METHODPR(XPathQuery, GetQuery, () const, String), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_XPathQuery
-        REGISTER_MANUAL_PART_XPathQuery();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_XPathQuery
+        REGISTER_MEMBER_MANUAL_PART_XPathQuery();
     #endif
 }
 
@@ -839,8 +839,8 @@ void CollectMembers_XPathResultSet(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("bool XPathResultSet::Empty() const", "bool Empty() const", AS_METHODPR(XPathResultSet, Empty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool XPathResultSet::Empty() const", "bool get_empty() const", AS_METHODPR(XPathResultSet, Empty, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_XPathResultSet
-        REGISTER_MANUAL_PART_XPathResultSet();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_XPathResultSet
+        REGISTER_MEMBER_MANUAL_PART_XPathResultSet();
     #endif
 }
 

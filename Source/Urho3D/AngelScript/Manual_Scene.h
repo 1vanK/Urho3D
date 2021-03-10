@@ -39,8 +39,8 @@ namespace Urho3D
 
 const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* ptr);
 
-#define REGISTER_MANUAL_PART_Serializable(T, className) \
-    engine->RegisterObjectMethod(className, "const AttributeInfo& get_attributeInfos(uint) const", AS_FUNCTION_OBJLAST(SerializableGetAttributeInfo), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBER_MANUAL_PART_Serializable() \
+    methods.Push(RegisterObjectMethodArgs("fad125ab-81f8-4980-94c8-cc946d76e69a", "const AttributeInfo& get_attributeInfos(uint) const", AS_FUNCTION_OBJLAST(SerializableGetAttributeInfo), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
@@ -205,12 +205,11 @@ void BoneSetNode(Node* node, Bone* ptr);
 
 // ========================================================================================
 
-#define REGISTER_MANUAL_PART_Component() \
+#define REGISTER_MEMBER_MANUAL_PART_Component() \
     /* Workarounds for Connection that used outside URHO3D_NETWORK define */ \
     if (URHO3D_NETWORK_DEFINED) \
     { \
-        /* void Component::CleanupConnection(Connection* connection) | File: ../Scene/Component.h */ \
-        engine->RegisterObjectMethod(className, "void CleanupConnection(Connection@+)", AS_METHODPR(T, CleanupConnection, (Connection*), void), AS_CALL_THISCALL); \
+        methods.Push(RegisterObjectMethodArgs("void Component::CleanupConnection(Connection* connection)", "void CleanupConnection(Connection@+)", AS_METHODPR(Component, CleanupConnection, (Connection*), void), AS_CALL_THISCALL)); \
     }
 
 }

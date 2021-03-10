@@ -21,8 +21,8 @@ void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("unsigned AllocatorBlock::nodeSize_", "uint nodeSize", offsetof(AllocatorBlock, nodeSize_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned AllocatorBlock::capacity_", "uint capacity", offsetof(AllocatorBlock, capacity_)));
 
-    #ifdef REGISTER_MANUAL_PART_AllocatorBlock
-        REGISTER_MANUAL_PART_AllocatorBlock();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AllocatorBlock
+        REGISTER_MEMBER_MANUAL_PART_AllocatorBlock();
     #endif
 }
 
@@ -32,8 +32,8 @@ void CollectMembers_AllocatorNode(Vector<RegisterObjectMethodArgs>& methods, Vec
     // AllocatorNode* AllocatorNode::next_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_AllocatorNode
-        REGISTER_MANUAL_PART_AllocatorNode();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_AllocatorNode
+        REGISTER_MEMBER_MANUAL_PART_AllocatorNode();
     #endif
 }
 
@@ -48,8 +48,8 @@ void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned HashBase::MIN_BUCKETS", "const uint MIN_BUCKETS", (void*)&HashBase::MIN_BUCKETS));
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned HashBase::MAX_LOAD_FACTOR", "const uint MAX_LOAD_FACTOR", (void*)&HashBase::MAX_LOAD_FACTOR));
 
-    #ifdef REGISTER_MANUAL_PART_HashBase
-        REGISTER_MANUAL_PART_HashBase();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_HashBase
+        REGISTER_MEMBER_MANUAL_PART_HashBase();
     #endif
 }
 
@@ -66,8 +66,8 @@ void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods, 
     // HashNodeBase* HashIteratorBase::ptr_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_HashIteratorBase
-        REGISTER_MANUAL_PART_HashIteratorBase();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_HashIteratorBase
+        REGISTER_MEMBER_MANUAL_PART_HashIteratorBase();
     #endif
 }
 
@@ -81,8 +81,8 @@ void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vect
     // HashNodeBase* HashNodeBase::next_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_HashNodeBase
-        REGISTER_MANUAL_PART_HashNodeBase();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_HashNodeBase
+        REGISTER_MEMBER_MANUAL_PART_HashNodeBase();
     #endif
 }
 
@@ -92,8 +92,8 @@ void CollectMembers_LinkedListNode(Vector<RegisterObjectMethodArgs>& methods, Ve
     // LinkedListNode* LinkedListNode::next_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_LinkedListNode
-        REGISTER_MANUAL_PART_LinkedListNode();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_LinkedListNode
+        REGISTER_MEMBER_MANUAL_PART_LinkedListNode();
     #endif
 }
 
@@ -102,8 +102,8 @@ void CollectMembers_ListBase(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 {
     methods.Push(RegisterObjectMethodArgs("void ListBase::Swap(ListBase& rhs)", "void Swap(ListBase&)", AS_METHODPR(ListBase, Swap, (ListBase&), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_ListBase
-        REGISTER_MANUAL_PART_ListBase();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ListBase
+        REGISTER_MEMBER_MANUAL_PART_ListBase();
     #endif
 }
 
@@ -120,8 +120,8 @@ void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods, 
     // ListNodeBase* ListIteratorBase::ptr_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_ListIteratorBase
-        REGISTER_MANUAL_PART_ListIteratorBase();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ListIteratorBase
+        REGISTER_MEMBER_MANUAL_PART_ListIteratorBase();
     #endif
 }
 
@@ -133,8 +133,8 @@ void CollectMembers_ListNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vect
     // ListNodeBase* ListNodeBase::next_
     // Not registered because pointer
 
-    #ifdef REGISTER_MANUAL_PART_ListNodeBase
-        REGISTER_MANUAL_PART_ListNodeBase();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_ListNodeBase
+        REGISTER_MEMBER_MANUAL_PART_ListNodeBase();
     #endif
 }
 
@@ -144,8 +144,8 @@ void CollectMembers_RefCount(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     fields.Push(RegisterObjectPropertyArgs("int RefCount::refs_", "int refs", offsetof(RefCount, refs_)));
     fields.Push(RegisterObjectPropertyArgs("int RefCount::weakRefs_", "int weakRefs", offsetof(RefCount, weakRefs_)));
 
-    #ifdef REGISTER_MANUAL_PART_RefCount
-        REGISTER_MANUAL_PART_RefCount();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RefCount
+        REGISTER_MEMBER_MANUAL_PART_RefCount();
     #endif
 }
 
@@ -162,8 +162,8 @@ void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int WeakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int get_weakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_RefCounted
-        REGISTER_MANUAL_PART_RefCounted();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_RefCounted
+        REGISTER_MEMBER_MANUAL_PART_RefCounted();
     #endif
 }
 
@@ -336,8 +336,8 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::MIN_CAPACITY", "const uint MIN_CAPACITY", (void*)&String::MIN_CAPACITY));
     staticFields.Push(RegisterGlobalPropertyArgs("static const String String::EMPTY", "const String EMPTY", (void*)&String::EMPTY));
 
-    #ifdef REGISTER_MANUAL_PART_String
-        REGISTER_MANUAL_PART_String();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_String
+        REGISTER_MEMBER_MANUAL_PART_String();
     #endif
 }
 
@@ -346,8 +346,8 @@ void CollectMembers_VectorBase(Vector<RegisterObjectMethodArgs>& methods, Vector
 {
     methods.Push(RegisterObjectMethodArgs("void VectorBase::Swap(VectorBase& rhs)", "void Swap(VectorBase&)", AS_METHODPR(VectorBase, Swap, (VectorBase&), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_VectorBase
-        REGISTER_MANUAL_PART_VectorBase();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_VectorBase
+        REGISTER_MEMBER_MANUAL_PART_VectorBase();
     #endif
 }
 
@@ -369,8 +369,8 @@ void CollectMembers_WString(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("bool WString::Empty() const", "bool Empty() const", AS_METHODPR(WString, Empty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned WString::Length() const", "uint Length() const", AS_METHODPR(WString, Length, () const, unsigned), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MANUAL_PART_WString
-        REGISTER_MANUAL_PART_WString();
+    #ifdef REGISTER_MEMBER_MANUAL_PART_WString
+        REGISTER_MEMBER_MANUAL_PART_WString();
     #endif
 }
 
