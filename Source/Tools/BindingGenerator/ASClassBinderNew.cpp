@@ -131,8 +131,8 @@ static void RegisterConstructor(const MethodAnalyzer& methodAnalyzer, ProcessedC
         return;
     }
 
-    MemberRegistration result;
-    result.name_ = methodAnalyzer.GetName();
+    SpecialMethodRegistration result;
+    //result.name_ = methodAnalyzer.GetName();
     result.comment_ = methodAnalyzer.GetDeclaration();
     
     string asClassName = classAnalyzer.GetClassName();
@@ -147,7 +147,7 @@ static void RegisterConstructor(const MethodAnalyzer& methodAnalyzer, ProcessedC
             result.registration_ = "engine->RegisterObjectBehaviour(\"" + asClassName + "\", asBEHAVE_CONSTRUCT, \"void f()\", asFUNCTION(ASCompatibleConstructor<" + cppClassName + ">), AS_CALL_CDECL_OBJFIRST);";
 
         result.comment_ = methodAnalyzer.GetLocation(); // Rewrite comment
-        processedClass.defaultConstructor_ = make_shared<MemberRegistration>(result);
+        processedClass.defaultConstructor_ = make_shared<SpecialMethodRegistration>(result);
         return;
     }
 }
@@ -163,9 +163,9 @@ static void RegisterDestructor(const ClassAnalyzer& classAnalyzer, ProcessedClas
     string className = classAnalyzer.GetClassName();
     string wrapperName = className + "_Destructor";
 
-    shared_ptr<MemberRegistration> result = make_shared<MemberRegistration>();
+    shared_ptr<SpecialMethodRegistration> result = make_shared<SpecialMethodRegistration>();
 
-    result->name_ = "~" + className;
+    //result->name_ = "~" + className;
 
     result->registration_ = "engine->RegisterObjectBehaviour(\"" + className + "\", asBEHAVE_DESTRUCT, \"void f()\", AS_DESTRUCTOR(" + className + "), AS_CALL_CDECL_OBJFIRST);";
 
@@ -389,21 +389,7 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
         string asFunctionName = staticMethodAnalyzer.GetName();
         string className = staticMethodAnalyzer.GetClassName();
 
-        /*if (needWrapper)
-            result->glue_ << GenerateWrapper(functionAnalyzer, convertedParams, convertedReturn);*/
-
         string decl = convertedReturn.asDeclaration_ + " " + asFunctionName + "(" + JoinASDeclarations(convertedParams) + ")";
-
-        /*result->reg_ << "    engine->SetDefaultNamespace(\"" << className << "\");\n";
-
-        result->reg_ << "    engine->RegisterGlobalFunction(\"" << decl << "\", ";
-
-        if (needWrapper)
-            result->reg_ << "AS_FUNCTION(" << GenerateWrapperName(functionAnalyzer) << "), AS_CALL_CDECL);\n";
-        else
-            result->reg_ << Generate_asFUNCTIONPR(functionAnalyzer) << ", AS_CALL_CDECL);\n";
-
-        result->reg_ << "    engine->SetDefaultNamespace(\"\");\n";*/
 
         StaticMethodRegistration result;
         result.cppDeclaration_ = methodAnalyzer.GetDeclaration();
@@ -774,7 +760,7 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
 
     if (!classAnalyzer.HasThisConstructor() && IsConstructorRequired(classAnalyzer))
     {
-        shared_ptr<MemberRegistration> result = make_shared<MemberRegistration>();
+        shared_ptr<SpecialMethodRegistration> result = make_shared<SpecialMethodRegistration>();
         string cppClassName = classAnalyzer.GetClassName();
         string asClassName = classAnalyzer.GetClassName();
 

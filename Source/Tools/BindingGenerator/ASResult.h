@@ -112,11 +112,10 @@ struct ProcessedGlobalVariable
     bool operator <(const ProcessedGlobalVariable& rhs) const;
 };
 
-struct MemberRegistration // todo rename to special method
+struct SpecialMethodRegistration
 {
-    string name_; // Used for sorting
-    string comment_; // C++ declaration / location
-    string glue_; // Can be empty
+    string comment_; // C++ declaration / location for default constructor
+    string glue_;
     string registration_; // Or warning message
 };
 
@@ -197,12 +196,12 @@ struct ProcessedClass
     // Used for sorting
     bool operator <(const ProcessedClass& rhs) const;
 
-    shared_ptr<MemberRegistration> defaultConstructor_;
-    vector<MemberRegistration> nonDefaultConstructors_;
+    shared_ptr<SpecialMethodRegistration> defaultConstructor_;
+    vector<SpecialMethodRegistration> nonDefaultConstructors_;
 
 
 
-    shared_ptr<MemberRegistration> destructor_;
+    shared_ptr<SpecialMethodRegistration> destructor_;
 
     vector<MemberRegistrationError> unregisteredSpecialMethods_;
 
