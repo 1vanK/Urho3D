@@ -175,9 +175,19 @@ static void Register_Animatable(asIScriptEngine* engine)
     #endif
 }
 
+// explicit AnimatedModel::AnimatedModel(Context* context)
+static void AnimatedModel_AnimatedModel_Context(AnimatedModel* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) AnimatedModel(context);
+}
+
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
 static void Register_AnimatedModel(asIScriptEngine* engine)
 {
+    // explicit AnimatedModel::AnimatedModel(Context* context)
+    engine->RegisterObjectBehaviour("AnimatedModel", asBEHAVE_FACTORY, "AnimatedModel@+ f()", AS_FUNCTION(AnimatedModel_AnimatedModel_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -214,9 +224,19 @@ static void Register_AnimatedModel(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Animation::Animation(Context* context)
+static void Animation_Animation_Context(Animation* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Animation(context);
+}
+
 // class Animation | File: ../Graphics/Animation.h
 static void Register_Animation(asIScriptEngine* engine)
 {
+    // explicit Animation::Animation(Context* context)
+    engine->RegisterObjectBehaviour("Animation", asBEHAVE_FACTORY, "Animation@+ f()", AS_FUNCTION(Animation_Animation_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -292,9 +312,19 @@ static void Register_AnimationControl(asIScriptEngine* engine)
     #endif
 }
 
+// explicit AnimationController::AnimationController(Context* context)
+static void AnimationController_AnimationController_Context(AnimationController* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) AnimationController(context);
+}
+
 // class AnimationController | File: ../Graphics/AnimationController.h
 static void Register_AnimationController(asIScriptEngine* engine)
 {
+    // explicit AnimationController::AnimationController(Context* context)
+    engine->RegisterObjectBehaviour("AnimationController", asBEHAVE_FACTORY, "AnimationController@+ f()", AS_FUNCTION(AnimationController_AnimationController_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -373,9 +403,26 @@ static void Register_AnimationKeyFrame(asIScriptEngine* engine)
     #endif
 }
 
+// AnimationState::AnimationState(AnimatedModel* model, Animation* animation)
+static void AnimationState_AnimationState_AnimatedModel_Animation(AnimationState* ptr, AnimatedModel* model, Animation* animation)
+{
+    new(ptr) AnimationState(model, animation);
+}
+
+// AnimationState::AnimationState(Node* node, Animation* animation)
+static void AnimationState_AnimationState_Node_Animation(AnimationState* ptr, Node* node, Animation* animation)
+{
+    new(ptr) AnimationState(node, animation);
+}
+
 // class AnimationState | File: ../Graphics/AnimationState.h
 static void Register_AnimationState(asIScriptEngine* engine)
 {
+    // AnimationState::AnimationState(AnimatedModel* model, Animation* animation)
+    engine->RegisterObjectBehaviour("AnimationState", asBEHAVE_FACTORY, "AnimationState@+ f(AnimatedModel@+, Animation@+)", AS_FUNCTION(AnimationState_AnimationState_AnimatedModel_Animation) , AS_CALL_CDECL);
+    // AnimationState::AnimationState(Node* node, Animation* animation)
+    engine->RegisterObjectBehaviour("AnimationState", asBEHAVE_FACTORY, "AnimationState@+ f(Node@+, Animation@+)", AS_FUNCTION(AnimationState_AnimationState_Node_Animation) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -535,9 +582,27 @@ static void Register_AnimationTriggerPoint(asIScriptEngine* engine)
     #endif
 }
 
+// AreaAllocator::AreaAllocator(int width, int height, bool fastMode=true)
+static void AreaAllocator_AreaAllocator_int_int_bool(AreaAllocator* ptr, int width, int height, bool fastMode)
+{
+    new(ptr) AreaAllocator(width, height, fastMode);
+}
+
+// AreaAllocator::AreaAllocator(int width, int height, int maxWidth, int maxHeight, bool fastMode=true)
+static void AreaAllocator_AreaAllocator_int_int_int_int_bool(AreaAllocator* ptr, int width, int height, int maxWidth, int maxHeight, bool fastMode)
+{
+    new(ptr) AreaAllocator(width, height, maxWidth, maxHeight, fastMode);
+}
+
 // class AreaAllocator | File: ../Math/AreaAllocator.h
 static void Register_AreaAllocator(asIScriptEngine* engine)
 {
+    // AreaAllocator::AreaAllocator(int width, int height, bool fastMode=true)
+    engine->RegisterObjectBehaviour("AreaAllocator", asBEHAVE_CONSTRUCT, "void f(int, int, bool = true)", AS_FUNCTION_OBJFIRST(AreaAllocator_AreaAllocator_int_int_bool), AS_CALL_CDECL_OBJFIRST);
+    // AreaAllocator::AreaAllocator(int width, int height, int maxWidth, int maxHeight, bool fastMode=true)
+    engine->RegisterObjectBehaviour("AreaAllocator", asBEHAVE_CONSTRUCT, "void f(int, int, int, int, bool = true)", AS_FUNCTION_OBJFIRST(AreaAllocator_AreaAllocator_int_int_int_int_bool), AS_CALL_CDECL_OBJFIRST);
+
+
     // AreaAllocator::~AreaAllocator() | Implicitly-declared
     engine->RegisterObjectBehaviour("AreaAllocator", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AreaAllocator), AS_CALL_CDECL_OBJFIRST);
 
@@ -658,9 +723,26 @@ static void Register_AttributeAccessor(asIScriptEngine* engine)
     #endif
 }
 
+// AttributeAnimationInfo::AttributeAnimationInfo(Animatable* animatable, const AttributeInfo& attributeInfo, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
+static void AttributeAnimationInfo_AttributeAnimationInfo_Animatable_AttributeInfo_ValueAnimation_WrapMode_float(AttributeAnimationInfo* ptr, Animatable* animatable, const AttributeInfo& attributeInfo, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
+{
+    new(ptr) AttributeAnimationInfo(animatable, attributeInfo, attributeAnimation, wrapMode, speed);
+}
+
+// AttributeAnimationInfo::AttributeAnimationInfo(const AttributeAnimationInfo& other)
+static void AttributeAnimationInfo_AttributeAnimationInfo_AttributeAnimationInfo(AttributeAnimationInfo* ptr, const AttributeAnimationInfo& other)
+{
+    new(ptr) AttributeAnimationInfo(other);
+}
+
 // class AttributeAnimationInfo | File: ../Scene/Animatable.h
 static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
 {
+    // AttributeAnimationInfo::AttributeAnimationInfo(Animatable* animatable, const AttributeInfo& attributeInfo, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
+    engine->RegisterObjectBehaviour("AttributeAnimationInfo", asBEHAVE_FACTORY, "AttributeAnimationInfo@+ f(Animatable@+, const AttributeInfo&in, ValueAnimation@+, WrapMode, float)", AS_FUNCTION(AttributeAnimationInfo_AttributeAnimationInfo_Animatable_AttributeInfo_ValueAnimation_WrapMode_float) , AS_CALL_CDECL);
+    // AttributeAnimationInfo::AttributeAnimationInfo(const AttributeAnimationInfo& other)
+    engine->RegisterObjectBehaviour("AttributeAnimationInfo", asBEHAVE_FACTORY, "AttributeAnimationInfo@+ f(const AttributeAnimationInfo&in)", AS_FUNCTION(AttributeAnimationInfo_AttributeAnimationInfo_AttributeAnimationInfo) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -700,6 +782,10 @@ static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
 // struct AttributeInfo | File: ../Core/Attribute.h
 static void Register_AttributeInfo(asIScriptEngine* engine)
 {
+    // AttributeInfo::AttributeInfo(VariantType type, const char* name, const SharedPtr<AttributeAccessor>& accessor, const char** enumNames, const Variant& defaultValue, AttributeModeFlags mode)
+    // Error: type "const char*" can not automatically bind
+
+
     // AttributeInfo::~AttributeInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("AttributeInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AttributeInfo), AS_CALL_CDECL_OBJFIRST);
 
@@ -739,9 +825,19 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Audio::Audio(Context* context)
+static void Audio_Audio_Context(Audio* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Audio(context);
+}
+
 // class Audio | File: ../Audio/Audio.h
 static void Register_Audio(asIScriptEngine* engine)
 {
+    // explicit Audio::Audio(Context* context)
+    engine->RegisterObjectBehaviour("Audio", asBEHAVE_FACTORY, "Audio@+ f()", AS_FUNCTION(Audio_Audio_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -820,9 +916,19 @@ static void Register_BackgroundLoadItem(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Batch::Batch(const SourceBatch& rhs)
+static void Batch_Batch_SourceBatch(Batch* ptr, const SourceBatch& rhs)
+{
+    new(ptr) Batch(rhs);
+}
+
 // struct Batch | File: ../Graphics/Batch.h
 static void Register_Batch(asIScriptEngine* engine)
 {
+    // explicit Batch::Batch(const SourceBatch& rhs)
+    engine->RegisterObjectBehaviour("Batch", asBEHAVE_CONSTRUCT, "void f(const SourceBatch&in)", AS_FUNCTION_OBJFIRST(Batch_Batch_SourceBatch), AS_CALL_CDECL_OBJFIRST);
+
+
     // Batch::~Batch() | Implicitly-declared
     engine->RegisterObjectBehaviour("Batch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Batch), AS_CALL_CDECL_OBJFIRST);
 
@@ -862,9 +968,19 @@ static void Register_Batch(asIScriptEngine* engine)
     #endif
 }
 
+// explicit BatchGroup::BatchGroup(const Batch& batch)
+static void BatchGroup_BatchGroup_Batch(BatchGroup* ptr, const Batch& batch)
+{
+    new(ptr) BatchGroup(batch);
+}
+
 // struct BatchGroup | File: ../Graphics/Batch.h
 static void Register_BatchGroup(asIScriptEngine* engine)
 {
+    // explicit BatchGroup::BatchGroup(const Batch& batch)
+    engine->RegisterObjectBehaviour("BatchGroup", asBEHAVE_CONSTRUCT, "void f(const Batch&in)", AS_FUNCTION_OBJFIRST(BatchGroup_BatchGroup_Batch), AS_CALL_CDECL_OBJFIRST);
+
+
     // BatchGroup::~BatchGroup()=default
     engine->RegisterObjectBehaviour("BatchGroup", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchGroup), AS_CALL_CDECL_OBJFIRST);
 
@@ -904,9 +1020,19 @@ static void Register_BatchGroup(asIScriptEngine* engine)
     #endif
 }
 
+// explicit BatchGroupKey::BatchGroupKey(const Batch& batch)
+static void BatchGroupKey_BatchGroupKey_Batch(BatchGroupKey* ptr, const Batch& batch)
+{
+    new(ptr) BatchGroupKey(batch);
+}
+
 // struct BatchGroupKey | File: ../Graphics/Batch.h
 static void Register_BatchGroupKey(asIScriptEngine* engine)
 {
+    // explicit BatchGroupKey::BatchGroupKey(const Batch& batch)
+    engine->RegisterObjectBehaviour("BatchGroupKey", asBEHAVE_CONSTRUCT, "void f(const Batch&in)", AS_FUNCTION_OBJFIRST(BatchGroupKey_BatchGroupKey_Batch), AS_CALL_CDECL_OBJFIRST);
+
+
     // BatchGroupKey::~BatchGroupKey() | Implicitly-declared
     engine->RegisterObjectBehaviour("BatchGroupKey", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchGroupKey), AS_CALL_CDECL_OBJFIRST);
 
@@ -988,9 +1114,18 @@ static void Register_BatchQueue(asIScriptEngine* engine)
     #endif
 }
 
+// BiasParameters::BiasParameters(float constantBias, float slopeScaledBias, float normalOffset=0.0f)
+static void BiasParameters_BiasParameters_float_float_float(BiasParameters* ptr, float constantBias, float slopeScaledBias, float normalOffset)
+{
+    new(ptr) BiasParameters(constantBias, slopeScaledBias, normalOffset);
+}
+
 // struct BiasParameters | File: ../Graphics/Light.h
 static void Register_BiasParameters(asIScriptEngine* engine)
 {
+    // BiasParameters::BiasParameters(float constantBias, float slopeScaledBias, float normalOffset=0.0f)
+    engine->RegisterObjectBehaviour("BiasParameters", asBEHAVE_CONSTRUCT, "void f(float, float, float = 0.0f)", AS_FUNCTION_OBJFIRST(BiasParameters_BiasParameters_float_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1066,9 +1201,19 @@ static void Register_Billboard(asIScriptEngine* engine)
     #endif
 }
 
+// explicit BillboardSet::BillboardSet(Context* context)
+static void BillboardSet_BillboardSet_Context(BillboardSet* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) BillboardSet(context);
+}
+
 // class BillboardSet | File: ../Graphics/BillboardSet.h
 static void Register_BillboardSet(asIScriptEngine* engine)
 {
+    // explicit BillboardSet::BillboardSet(Context* context)
+    engine->RegisterObjectBehaviour("BillboardSet", asBEHAVE_FACTORY, "BillboardSet@+ f()", AS_FUNCTION(BillboardSet_BillboardSet_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1144,9 +1289,19 @@ static void Register_Bone(asIScriptEngine* engine)
     #endif
 }
 
+// explicit BorderImage::BorderImage(Context* context)
+static void BorderImage_BorderImage_Context(BorderImage* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) BorderImage(context);
+}
+
 // class BorderImage | File: ../UI/BorderImage.h
 static void Register_BorderImage(asIScriptEngine* engine)
 {
+    // explicit BorderImage::BorderImage(Context* context)
+    engine->RegisterObjectBehaviour("BorderImage", asBEHAVE_FACTORY, "BorderImage@+ f()", AS_FUNCTION(BorderImage_BorderImage_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1183,9 +1338,69 @@ static void Register_BorderImage(asIScriptEngine* engine)
     #endif
 }
 
+// BoundingBox::BoundingBox(const BoundingBox& box) noexcept
+static void BoundingBox_BoundingBox_BoundingBox(BoundingBox* ptr, const BoundingBox& box)
+{
+    new(ptr) BoundingBox(box);
+}
+
+// explicit BoundingBox::BoundingBox(const Rect& rect) noexcept
+static void BoundingBox_BoundingBox_Rect(BoundingBox* ptr, const Rect& rect)
+{
+    new(ptr) BoundingBox(rect);
+}
+
+// BoundingBox::BoundingBox(const Vector3& min, const Vector3& max) noexcept
+static void BoundingBox_BoundingBox_Vector3_Vector3(BoundingBox* ptr, const Vector3& min, const Vector3& max)
+{
+    new(ptr) BoundingBox(min, max);
+}
+
+// BoundingBox::BoundingBox(float min, float max) noexcept
+static void BoundingBox_BoundingBox_float_float(BoundingBox* ptr, float min, float max)
+{
+    new(ptr) BoundingBox(min, max);
+}
+
+// explicit BoundingBox::BoundingBox(const Frustum& frustum)
+static void BoundingBox_BoundingBox_Frustum(BoundingBox* ptr, const Frustum& frustum)
+{
+    new(ptr) BoundingBox(frustum);
+}
+
+// explicit BoundingBox::BoundingBox(const Polyhedron& poly)
+static void BoundingBox_BoundingBox_Polyhedron(BoundingBox* ptr, const Polyhedron& poly)
+{
+    new(ptr) BoundingBox(poly);
+}
+
+// explicit BoundingBox::BoundingBox(const Sphere& sphere)
+static void BoundingBox_BoundingBox_Sphere(BoundingBox* ptr, const Sphere& sphere)
+{
+    new(ptr) BoundingBox(sphere);
+}
+
 // class BoundingBox | File: ../Math/BoundingBox.h
 static void Register_BoundingBox(asIScriptEngine* engine)
 {
+    // BoundingBox::BoundingBox(const Vector3* vertices, unsigned count)
+    // Error: type "const Vector3*" can not automatically bind
+
+    // BoundingBox::BoundingBox(const BoundingBox& box) noexcept
+    engine->RegisterObjectBehaviour("BoundingBox", asBEHAVE_CONSTRUCT, "void f(const BoundingBox&in)", AS_FUNCTION_OBJFIRST(BoundingBox_BoundingBox_BoundingBox), AS_CALL_CDECL_OBJFIRST);
+    // explicit BoundingBox::BoundingBox(const Rect& rect) noexcept
+    engine->RegisterObjectBehaviour("BoundingBox", asBEHAVE_CONSTRUCT, "void f(const Rect&in)", AS_FUNCTION_OBJFIRST(BoundingBox_BoundingBox_Rect), AS_CALL_CDECL_OBJFIRST);
+    // BoundingBox::BoundingBox(const Vector3& min, const Vector3& max) noexcept
+    engine->RegisterObjectBehaviour("BoundingBox", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(BoundingBox_BoundingBox_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // BoundingBox::BoundingBox(float min, float max) noexcept
+    engine->RegisterObjectBehaviour("BoundingBox", asBEHAVE_CONSTRUCT, "void f(float, float)", AS_FUNCTION_OBJFIRST(BoundingBox_BoundingBox_float_float), AS_CALL_CDECL_OBJFIRST);
+    // explicit BoundingBox::BoundingBox(const Frustum& frustum)
+    engine->RegisterObjectBehaviour("BoundingBox", asBEHAVE_CONSTRUCT, "void f(const Frustum&in)", AS_FUNCTION_OBJFIRST(BoundingBox_BoundingBox_Frustum), AS_CALL_CDECL_OBJFIRST);
+    // explicit BoundingBox::BoundingBox(const Polyhedron& poly)
+    engine->RegisterObjectBehaviour("BoundingBox", asBEHAVE_CONSTRUCT, "void f(const Polyhedron&in)", AS_FUNCTION_OBJFIRST(BoundingBox_BoundingBox_Polyhedron), AS_CALL_CDECL_OBJFIRST);
+    // explicit BoundingBox::BoundingBox(const Sphere& sphere)
+    engine->RegisterObjectBehaviour("BoundingBox", asBEHAVE_CONSTRUCT, "void f(const Sphere&in)", AS_FUNCTION_OBJFIRST(BoundingBox_BoundingBox_Sphere), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1261,9 +1476,19 @@ static void Register_BufferedSoundStream(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Button::Button(Context* context)
+static void Button_Button_Context(Button* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Button(context);
+}
+
 // class Button | File: ../UI/Button.h
 static void Register_Button(asIScriptEngine* engine)
 {
+    // explicit Button::Button(Context* context)
+    engine->RegisterObjectBehaviour("Button", asBEHAVE_FACTORY, "Button@+ f()", AS_FUNCTION(Button_Button_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1300,9 +1525,19 @@ static void Register_Button(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Camera::Camera(Context* context)
+static void Camera_Camera_Context(Camera* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Camera(context);
+}
+
 // class Camera | File: ../Graphics/Camera.h
 static void Register_Camera(asIScriptEngine* engine)
 {
+    // explicit Camera::Camera(Context* context)
+    engine->RegisterObjectBehaviour("Camera", asBEHAVE_FACTORY, "Camera@+ f()", AS_FUNCTION(Camera_Camera_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1339,9 +1574,18 @@ static void Register_Camera(asIScriptEngine* engine)
     #endif
 }
 
+// CascadeParameters::CascadeParameters(float split1, float split2, float split3, float split4, float fadeStart, float biasAutoAdjust=1.0f)
+static void CascadeParameters_CascadeParameters_float_float_float_float_float_float(CascadeParameters* ptr, float split1, float split2, float split3, float split4, float fadeStart, float biasAutoAdjust)
+{
+    new(ptr) CascadeParameters(split1, split2, split3, split4, fadeStart, biasAutoAdjust);
+}
+
 // struct CascadeParameters | File: ../Graphics/Light.h
 static void Register_CascadeParameters(asIScriptEngine* engine)
 {
+    // CascadeParameters::CascadeParameters(float split1, float split2, float split3, float split4, float fadeStart, float biasAutoAdjust=1.0f)
+    engine->RegisterObjectBehaviour("CascadeParameters", asBEHAVE_CONSTRUCT, "void f(float, float, float, float, float, float = 1.0f)", AS_FUNCTION_OBJFIRST(CascadeParameters_CascadeParameters_float_float_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1420,9 +1664,19 @@ static void Register_CharLocation(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CheckBox::CheckBox(Context* context)
+static void CheckBox_CheckBox_Context(CheckBox* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CheckBox(context);
+}
+
 // class CheckBox | File: ../UI/CheckBox.h
 static void Register_CheckBox(asIScriptEngine* engine)
 {
+    // explicit CheckBox::CheckBox(Context* context)
+    engine->RegisterObjectBehaviour("CheckBox", asBEHAVE_FACTORY, "CheckBox@+ f()", AS_FUNCTION(CheckBox_CheckBox_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1459,9 +1713,63 @@ static void Register_CheckBox(asIScriptEngine* engine)
     #endif
 }
 
+// Color::Color(const Color& color) noexcept=default
+static void Color_Color_Color(Color* ptr, const Color& color)
+{
+    new(ptr) Color(color);
+}
+
+// Color::Color(const Color& color, float a) noexcept
+static void Color_Color_Color_float(Color* ptr, const Color& color, float a)
+{
+    new(ptr) Color(color, a);
+}
+
+// Color::Color(float r, float g, float b) noexcept
+static void Color_Color_float_float_float(Color* ptr, float r, float g, float b)
+{
+    new(ptr) Color(r, g, b);
+}
+
+// Color::Color(float r, float g, float b, float a) noexcept
+static void Color_Color_float_float_float_float(Color* ptr, float r, float g, float b, float a)
+{
+    new(ptr) Color(r, g, b, a);
+}
+
+// explicit Color::Color(const Vector3& color)
+static void Color_Color_Vector3(Color* ptr, const Vector3& color)
+{
+    new(ptr) Color(color);
+}
+
+// explicit Color::Color(const Vector4& color)
+static void Color_Color_Vector4(Color* ptr, const Vector4& color)
+{
+    new(ptr) Color(color);
+}
+
 // class Color | File: ../Math/Color.h
 static void Register_Color(asIScriptEngine* engine)
 {
+    // explicit Color::Color(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+    // explicit Color::Color(unsigned color, const ChannelMask& mask=ABGR)
+    // Error: type "const ChannelMask&" can not automatically bind
+
+    // Color::Color(const Color& color) noexcept=default
+    engine->RegisterObjectBehaviour("Color", asBEHAVE_CONSTRUCT, "void f(const Color&in)", AS_FUNCTION_OBJFIRST(Color_Color_Color), AS_CALL_CDECL_OBJFIRST);
+    // Color::Color(const Color& color, float a) noexcept
+    engine->RegisterObjectBehaviour("Color", asBEHAVE_CONSTRUCT, "void f(const Color&in, float)", AS_FUNCTION_OBJFIRST(Color_Color_Color_float), AS_CALL_CDECL_OBJFIRST);
+    // Color::Color(float r, float g, float b) noexcept
+    engine->RegisterObjectBehaviour("Color", asBEHAVE_CONSTRUCT, "void f(float, float, float)", AS_FUNCTION_OBJFIRST(Color_Color_float_float_float), AS_CALL_CDECL_OBJFIRST);
+    // Color::Color(float r, float g, float b, float a) noexcept
+    engine->RegisterObjectBehaviour("Color", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", AS_FUNCTION_OBJFIRST(Color_Color_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+    // explicit Color::Color(const Vector3& color)
+    engine->RegisterObjectBehaviour("Color", asBEHAVE_CONSTRUCT, "void f(const Vector3&in)", AS_FUNCTION_OBJFIRST(Color_Color_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // explicit Color::Color(const Vector4& color)
+    engine->RegisterObjectBehaviour("Color", asBEHAVE_CONSTRUCT, "void f(const Vector4&in)", AS_FUNCTION_OBJFIRST(Color_Color_Vector4), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1498,9 +1806,26 @@ static void Register_Color(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ColorFrame::ColorFrame(const Color& color)
+static void ColorFrame_ColorFrame_Color(ColorFrame* ptr, const Color& color)
+{
+    new(ptr) ColorFrame(color);
+}
+
+// ColorFrame::ColorFrame(const Color& color, float time)
+static void ColorFrame_ColorFrame_Color_float(ColorFrame* ptr, const Color& color, float time)
+{
+    new(ptr) ColorFrame(color, time);
+}
+
 // struct ColorFrame | File: ../Graphics/ParticleEffect.h
 static void Register_ColorFrame(asIScriptEngine* engine)
 {
+    // explicit ColorFrame::ColorFrame(const Color& color)
+    engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_FACTORY, "ColorFrame@+ f(const Color&in)", AS_FUNCTION(ColorFrame_ColorFrame_Color) , AS_CALL_CDECL);
+    // ColorFrame::ColorFrame(const Color& color, float time)
+    engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_FACTORY, "ColorFrame@+ f(const Color&in, float)", AS_FUNCTION(ColorFrame_ColorFrame_Color_float) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1537,9 +1862,19 @@ static void Register_ColorFrame(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Component::Component(Context* context)
+static void Component_Component_Context(Component* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Component(context);
+}
+
 // class Component | File: ../Scene/Component.h
 static void Register_Component(asIScriptEngine* engine)
 {
+    // explicit Component::Component(Context* context)
+    engine->RegisterObjectBehaviour("Component", asBEHAVE_FACTORY, "Component@+ f()", AS_FUNCTION(Component_Component_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1702,9 +2037,19 @@ static void Register_Condition(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Console::Console(Context* context)
+static void Console_Console_Context(Console* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Console(context);
+}
+
 // class Console | File: ../Engine/Console.h
 static void Register_Console(asIScriptEngine* engine)
 {
+    // explicit Console::Console(Context* context)
+    engine->RegisterObjectBehaviour("Console", asBEHAVE_FACTORY, "Console@+ f()", AS_FUNCTION(Console_Console_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1741,9 +2086,19 @@ static void Register_Console(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstantBuffer::ConstantBuffer(Context* context)
+static void ConstantBuffer_ConstantBuffer_Context(ConstantBuffer* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstantBuffer(context);
+}
+
 // class ConstantBuffer | File: ../Graphics/ConstantBuffer.h
 static void Register_ConstantBuffer(asIScriptEngine* engine)
 {
+    // explicit ConstantBuffer::ConstantBuffer(Context* context)
+    engine->RegisterObjectBehaviour("ConstantBuffer", asBEHAVE_FACTORY, "ConstantBuffer@+ f()", AS_FUNCTION(ConstantBuffer_ConstantBuffer_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1861,9 +2216,19 @@ static void Register_Controls(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Cursor::Cursor(Context* context)
+static void Cursor_Cursor_Context(Cursor* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Cursor(context);
+}
+
 // class Cursor | File: ../UI/Cursor.h
 static void Register_Cursor(asIScriptEngine* engine)
 {
+    // explicit Cursor::Cursor(Context* context)
+    engine->RegisterObjectBehaviour("Cursor", asBEHAVE_FACTORY, "Cursor@+ f()", AS_FUNCTION(Cursor_Cursor_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -1900,9 +2265,19 @@ static void Register_Cursor(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CursorShapeInfo::CursorShapeInfo(int systemCursor)
+static void CursorShapeInfo_CursorShapeInfo_int(CursorShapeInfo* ptr, int systemCursor)
+{
+    new(ptr) CursorShapeInfo(systemCursor);
+}
+
 // struct CursorShapeInfo | File: ../UI/Cursor.h
 static void Register_CursorShapeInfo(asIScriptEngine* engine)
 {
+    // explicit CursorShapeInfo::CursorShapeInfo(int systemCursor)
+    engine->RegisterObjectBehaviour("CursorShapeInfo", asBEHAVE_CONSTRUCT, "void f(int)", AS_FUNCTION_OBJFIRST(CursorShapeInfo_CursorShapeInfo_int), AS_CALL_CDECL_OBJFIRST);
+
+
     // CursorShapeInfo::~CursorShapeInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("CursorShapeInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(CursorShapeInfo), AS_CALL_CDECL_OBJFIRST);
 
@@ -1942,9 +2317,19 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CustomGeometry::CustomGeometry(Context* context)
+static void CustomGeometry_CustomGeometry_Context(CustomGeometry* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CustomGeometry(context);
+}
+
 // class CustomGeometry | File: ../Graphics/CustomGeometry.h
 static void Register_CustomGeometry(asIScriptEngine* engine)
 {
+    // explicit CustomGeometry::CustomGeometry(Context* context)
+    engine->RegisterObjectBehaviour("CustomGeometry", asBEHAVE_FACTORY, "CustomGeometry@+ f()", AS_FUNCTION(CustomGeometry_CustomGeometry_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2020,9 +2405,19 @@ static void Register_CustomGeometryVertex(asIScriptEngine* engine)
     #endif
 }
 
+// explicit DebugHud::DebugHud(Context* context)
+static void DebugHud_DebugHud_Context(DebugHud* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) DebugHud(context);
+}
+
 // class DebugHud | File: ../Engine/DebugHud.h
 static void Register_DebugHud(asIScriptEngine* engine)
 {
+    // explicit DebugHud::DebugHud(Context* context)
+    engine->RegisterObjectBehaviour("DebugHud", asBEHAVE_FACTORY, "DebugHud@+ f()", AS_FUNCTION(DebugHud_DebugHud_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2059,9 +2454,19 @@ static void Register_DebugHud(asIScriptEngine* engine)
     #endif
 }
 
+// DebugLine::DebugLine(const Vector3& start, const Vector3& end, unsigned color)
+static void DebugLine_DebugLine_Vector3_Vector3_unsigned(DebugLine* ptr, const Vector3& start, const Vector3& end, unsigned color)
+{
+    new(ptr) DebugLine(start, end, color);
+}
+
 // struct DebugLine | File: ../Graphics/DebugRenderer.h
 static void Register_DebugLine(asIScriptEngine* engine)
 {
+    // DebugLine::DebugLine(const Vector3& start, const Vector3& end, unsigned color)
+    engine->RegisterObjectBehaviour("DebugLine", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in, uint)", AS_FUNCTION_OBJFIRST(DebugLine_DebugLine_Vector3_Vector3_unsigned), AS_CALL_CDECL_OBJFIRST);
+
+
     // DebugLine::~DebugLine() | Implicitly-declared
     engine->RegisterObjectBehaviour("DebugLine", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DebugLine), AS_CALL_CDECL_OBJFIRST);
 
@@ -2101,9 +2506,19 @@ static void Register_DebugLine(asIScriptEngine* engine)
     #endif
 }
 
+// explicit DebugRenderer::DebugRenderer(Context* context)
+static void DebugRenderer_DebugRenderer_Context(DebugRenderer* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) DebugRenderer(context);
+}
+
 // class DebugRenderer | File: ../Graphics/DebugRenderer.h
 static void Register_DebugRenderer(asIScriptEngine* engine)
 {
+    // explicit DebugRenderer::DebugRenderer(Context* context)
+    engine->RegisterObjectBehaviour("DebugRenderer", asBEHAVE_FACTORY, "DebugRenderer@+ f()", AS_FUNCTION(DebugRenderer_DebugRenderer_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2140,9 +2555,19 @@ static void Register_DebugRenderer(asIScriptEngine* engine)
     #endif
 }
 
+// DebugTriangle::DebugTriangle(const Vector3& v1, const Vector3& v2, const Vector3& v3, unsigned color)
+static void DebugTriangle_DebugTriangle_Vector3_Vector3_Vector3_unsigned(DebugTriangle* ptr, const Vector3& v1, const Vector3& v2, const Vector3& v3, unsigned color)
+{
+    new(ptr) DebugTriangle(v1, v2, v3, color);
+}
+
 // struct DebugTriangle | File: ../Graphics/DebugRenderer.h
 static void Register_DebugTriangle(asIScriptEngine* engine)
 {
+    // DebugTriangle::DebugTriangle(const Vector3& v1, const Vector3& v2, const Vector3& v3, unsigned color)
+    engine->RegisterObjectBehaviour("DebugTriangle", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in, const Vector3&in, uint)", AS_FUNCTION_OBJFIRST(DebugTriangle_DebugTriangle_Vector3_Vector3_Vector3_unsigned), AS_CALL_CDECL_OBJFIRST);
+
+
     // DebugTriangle::~DebugTriangle() | Implicitly-declared
     engine->RegisterObjectBehaviour("DebugTriangle", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DebugTriangle), AS_CALL_CDECL_OBJFIRST);
 
@@ -2224,9 +2649,19 @@ static void Register_Decal(asIScriptEngine* engine)
     #endif
 }
 
+// explicit DecalSet::DecalSet(Context* context)
+static void DecalSet_DecalSet_Context(DecalSet* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) DecalSet(context);
+}
+
 // class DecalSet | File: ../Graphics/DecalSet.h
 static void Register_DecalSet(asIScriptEngine* engine)
 {
+    // explicit DecalSet::DecalSet(Context* context)
+    engine->RegisterObjectBehaviour("DecalSet", asBEHAVE_FACTORY, "DecalSet@+ f()", AS_FUNCTION(DecalSet_DecalSet_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2263,9 +2698,22 @@ static void Register_DecalSet(asIScriptEngine* engine)
     #endif
 }
 
+// DecalVertex::DecalVertex(const Vector3& position, const Vector3& normal)
+static void DecalVertex_DecalVertex_Vector3_Vector3(DecalVertex* ptr, const Vector3& position, const Vector3& normal)
+{
+    new(ptr) DecalVertex(position, normal);
+}
+
 // struct DecalVertex | File: ../Graphics/DecalSet.h
 static void Register_DecalVertex(asIScriptEngine* engine)
 {
+    // DecalVertex::DecalVertex(const Vector3& position, const Vector3& normal, const float* blendWeights, const unsigned char* blendIndices)
+    // Error: type "const float*" can not automatically bind
+
+    // DecalVertex::DecalVertex(const Vector3& position, const Vector3& normal)
+    engine->RegisterObjectBehaviour("DecalVertex", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(DecalVertex_DecalVertex_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+
+
     // DecalVertex::~DecalVertex() | Implicitly-declared
     engine->RegisterObjectBehaviour("DecalVertex", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DecalVertex), AS_CALL_CDECL_OBJFIRST);
 
@@ -2383,9 +2831,19 @@ static void Register_Deserializer(asIScriptEngine* engine)
     #endif
 }
 
+// DirtyBits::DirtyBits(const DirtyBits& bits)
+static void DirtyBits_DirtyBits_DirtyBits(DirtyBits* ptr, const DirtyBits& bits)
+{
+    new(ptr) DirtyBits(bits);
+}
+
 // struct DirtyBits | File: ../Scene/ReplicationState.h
 static void Register_DirtyBits(asIScriptEngine* engine)
 {
+    // DirtyBits::DirtyBits(const DirtyBits& bits)
+    engine->RegisterObjectBehaviour("DirtyBits", asBEHAVE_CONSTRUCT, "void f(const DirtyBits&in)", AS_FUNCTION_OBJFIRST(DirtyBits_DirtyBits_DirtyBits), AS_CALL_CDECL_OBJFIRST);
+
+
     // DirtyBits::~DirtyBits() | Implicitly-declared
     engine->RegisterObjectBehaviour("DirtyBits", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DirtyBits), AS_CALL_CDECL_OBJFIRST);
 
@@ -2464,9 +2922,19 @@ static void Register_Drawable(asIScriptEngine* engine)
     #endif
 }
 
+// explicit DropDownList::DropDownList(Context* context)
+static void DropDownList_DropDownList_Context(DropDownList* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) DropDownList(context);
+}
+
 // class DropDownList | File: ../UI/DropDownList.h
 static void Register_DropDownList(asIScriptEngine* engine)
 {
+    // explicit DropDownList::DropDownList(Context* context)
+    engine->RegisterObjectBehaviour("DropDownList", asBEHAVE_FACTORY, "DropDownList@+ f()", AS_FUNCTION(DropDownList_DropDownList_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2503,9 +2971,19 @@ static void Register_DropDownList(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Engine::Engine(Context* context)
+static void Engine_Engine_Context(Engine* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Engine(context);
+}
+
 // class Engine | File: ../Engine/Engine.h
 static void Register_Engine(asIScriptEngine* engine)
 {
+    // explicit Engine::Engine(Context* context)
+    engine->RegisterObjectBehaviour("Engine", asBEHAVE_FACTORY, "Engine@+ f()", AS_FUNCTION(Engine_Engine_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2542,9 +3020,19 @@ static void Register_Engine(asIScriptEngine* engine)
     #endif
 }
 
+// explicit EventProfiler::EventProfiler(Context* context)
+static void EventProfiler_EventProfiler_Context(EventProfiler* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) EventProfiler(context);
+}
+
 // class EventProfiler | File: ../Core/EventProfiler.h
 static void Register_EventProfiler(asIScriptEngine* engine)
 {
+    // explicit EventProfiler::EventProfiler(Context* context)
+    engine->RegisterObjectBehaviour("EventProfiler", asBEHAVE_FACTORY, "EventProfiler@+ f()", AS_FUNCTION(EventProfiler_EventProfiler_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2620,9 +3108,37 @@ static void Register_EventReceiverGroup(asIScriptEngine* engine)
     #endif
 }
 
+// explicit File::File(Context* context)
+static void File_File_Context(File* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) File(context);
+}
+
+// File::File(Context* context, const String& fileName, FileMode mode=FILE_READ)
+static void File_File_Context_String_FileMode(File* ptr, const String& fileName, FileMode mode)
+{
+    Context* context = GetScriptContext();
+    new(ptr) File(context, fileName, mode);
+}
+
+// File::File(Context* context, PackageFile* package, const String& fileName)
+static void File_File_Context_PackageFile_String(File* ptr, PackageFile* package, const String& fileName)
+{
+    Context* context = GetScriptContext();
+    new(ptr) File(context, package, fileName);
+}
+
 // class File | File: ../IO/File.h
 static void Register_File(asIScriptEngine* engine)
 {
+    // explicit File::File(Context* context)
+    engine->RegisterObjectBehaviour("File", asBEHAVE_FACTORY, "File@+ f()", AS_FUNCTION(File_File_Context) , AS_CALL_CDECL);
+    // File::File(Context* context, const String& fileName, FileMode mode=FILE_READ)
+    engine->RegisterObjectBehaviour("File", asBEHAVE_FACTORY, "File@+ f(const String&in, FileMode = FILE_READ)", AS_FUNCTION(File_File_Context_String_FileMode) , AS_CALL_CDECL);
+    // File::File(Context* context, PackageFile* package, const String& fileName)
+    engine->RegisterObjectBehaviour("File", asBEHAVE_FACTORY, "File@+ f(PackageFile@+, const String&in)", AS_FUNCTION(File_File_Context_PackageFile_String) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2659,9 +3175,19 @@ static void Register_File(asIScriptEngine* engine)
     #endif
 }
 
+// explicit FileSelector::FileSelector(Context* context)
+static void FileSelector_FileSelector_Context(FileSelector* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) FileSelector(context);
+}
+
 // class FileSelector | File: ../UI/FileSelector.h
 static void Register_FileSelector(asIScriptEngine* engine)
 {
+    // explicit FileSelector::FileSelector(Context* context)
+    engine->RegisterObjectBehaviour("FileSelector", asBEHAVE_FACTORY, "FileSelector@+ f()", AS_FUNCTION(FileSelector_FileSelector_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2740,9 +3266,19 @@ static void Register_FileSelectorEntry(asIScriptEngine* engine)
     #endif
 }
 
+// explicit FileSystem::FileSystem(Context* context)
+static void FileSystem_FileSystem_Context(FileSystem* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) FileSystem(context);
+}
+
 // class FileSystem | File: ../IO/FileSystem.h
 static void Register_FileSystem(asIScriptEngine* engine)
 {
+    // explicit FileSystem::FileSystem(Context* context)
+    engine->RegisterObjectBehaviour("FileSystem", asBEHAVE_FACTORY, "FileSystem@+ f()", AS_FUNCTION(FileSystem_FileSystem_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2779,9 +3315,19 @@ static void Register_FileSystem(asIScriptEngine* engine)
     #endif
 }
 
+// explicit FileWatcher::FileWatcher(Context* context)
+static void FileWatcher_FileWatcher_Context(FileWatcher* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) FileWatcher(context);
+}
+
 // class FileWatcher | File: ../IO/FileWatcher.h
 static void Register_FileWatcher(asIScriptEngine* engine)
 {
+    // explicit FileWatcher::FileWatcher(Context* context)
+    engine->RegisterObjectBehaviour("FileWatcher", asBEHAVE_FACTORY, "FileWatcher@+ f()", AS_FUNCTION(FileWatcher_FileWatcher_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2818,9 +3364,18 @@ static void Register_FileWatcher(asIScriptEngine* engine)
     #endif
 }
 
+// FocusParameters::FocusParameters(bool focus, bool nonUniform, bool autoSize, float quantize, float minView)
+static void FocusParameters_FocusParameters_bool_bool_bool_float_float(FocusParameters* ptr, bool focus, bool nonUniform, bool autoSize, float quantize, float minView)
+{
+    new(ptr) FocusParameters(focus, nonUniform, autoSize, quantize, minView);
+}
+
 // struct FocusParameters | File: ../Graphics/Light.h
 static void Register_FocusParameters(asIScriptEngine* engine)
 {
+    // FocusParameters::FocusParameters(bool focus, bool nonUniform, bool autoSize, float quantize, float minView)
+    engine->RegisterObjectBehaviour("FocusParameters", asBEHAVE_CONSTRUCT, "void f(bool, bool, bool, float, float)", AS_FUNCTION_OBJFIRST(FocusParameters_FocusParameters_bool_bool_bool_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2857,9 +3412,19 @@ static void Register_FocusParameters(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Font::Font(Context* context)
+static void Font_Font_Context(Font* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Font(context);
+}
+
 // class Font | File: ../UI/Font.h
 static void Register_Font(asIScriptEngine* engine)
 {
+    // explicit Font::Font(Context* context)
+    engine->RegisterObjectBehaviour("Font", asBEHAVE_FACTORY, "Font@+ f()", AS_FUNCTION(Font_Font_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2935,9 +3500,18 @@ static void Register_FontFace(asIScriptEngine* engine)
     #endif
 }
 
+// explicit FontFaceBitmap::FontFaceBitmap(Font* font)
+static void FontFaceBitmap_FontFaceBitmap_Font(FontFaceBitmap* ptr, Font* font)
+{
+    new(ptr) FontFaceBitmap(font);
+}
+
 // class FontFaceBitmap | File: ../UI/FontFaceBitmap.h
 static void Register_FontFaceBitmap(asIScriptEngine* engine)
 {
+    // explicit FontFaceBitmap::FontFaceBitmap(Font* font)
+    engine->RegisterObjectBehaviour("FontFaceBitmap", asBEHAVE_FACTORY, "FontFaceBitmap@+ f(Font@+)", AS_FUNCTION(FontFaceBitmap_FontFaceBitmap_Font) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -2974,9 +3548,18 @@ static void Register_FontFaceBitmap(asIScriptEngine* engine)
     #endif
 }
 
+// explicit FontFaceFreeType::FontFaceFreeType(Font* font)
+static void FontFaceFreeType_FontFaceFreeType_Font(FontFaceFreeType* ptr, Font* font)
+{
+    new(ptr) FontFaceFreeType(font);
+}
+
 // class FontFaceFreeType | File: ../UI/FontFaceFreeType.h
 static void Register_FontFaceFreeType(asIScriptEngine* engine)
 {
+    // explicit FontFaceFreeType::FontFaceFreeType(Font* font)
+    engine->RegisterObjectBehaviour("FontFaceFreeType", asBEHAVE_FACTORY, "FontFaceFreeType@+ f(Font@+)", AS_FUNCTION(FontFaceFreeType_FontFaceFreeType_Font) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3097,9 +3680,19 @@ static void Register_FrameInfo(asIScriptEngine* engine)
     #endif
 }
 
+// Frustum::Frustum(const Frustum& frustum) noexcept
+static void Frustum_Frustum_Frustum(Frustum* ptr, const Frustum& frustum)
+{
+    new(ptr) Frustum(frustum);
+}
+
 // class Frustum | File: ../Math/Frustum.h
 static void Register_Frustum(asIScriptEngine* engine)
 {
+    // Frustum::Frustum(const Frustum& frustum) noexcept
+    engine->RegisterObjectBehaviour("Frustum", asBEHAVE_CONSTRUCT, "void f(const Frustum&in)", AS_FUNCTION_OBJFIRST(Frustum_Frustum_Frustum), AS_CALL_CDECL_OBJFIRST);
+
+
     // Frustum::~Frustum() | Implicitly-declared
     engine->RegisterObjectBehaviour("Frustum", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Frustum), AS_CALL_CDECL_OBJFIRST);
 
@@ -3139,9 +3732,19 @@ static void Register_Frustum(asIScriptEngine* engine)
     #endif
 }
 
+// explicit GPUObject::GPUObject(Graphics* graphics)
+static void GPUObject_GPUObject_Graphics(GPUObject* ptr, Graphics* graphics)
+{
+    new(ptr) GPUObject(graphics);
+}
+
 // class GPUObject | File: ../Graphics/GPUObject.h
 static void Register_GPUObject(asIScriptEngine* engine)
 {
+    // explicit GPUObject::GPUObject(Graphics* graphics)
+    engine->RegisterObjectBehaviour("GPUObject", asBEHAVE_CONSTRUCT, "void f(Graphics@+)", AS_FUNCTION_OBJFIRST(GPUObject_GPUObject_Graphics), AS_CALL_CDECL_OBJFIRST);
+
+
     // virtual GPUObject::~GPUObject()
     engine->RegisterObjectBehaviour("GPUObject", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(GPUObject), AS_CALL_CDECL_OBJFIRST);
 
@@ -3181,9 +3784,19 @@ static void Register_GPUObject(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Geometry::Geometry(Context* context)
+static void Geometry_Geometry_Context(Geometry* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Geometry(context);
+}
+
 // class Geometry | File: ../Graphics/Geometry.h
 static void Register_Geometry(asIScriptEngine* engine)
 {
+    // explicit Geometry::Geometry(Context* context)
+    engine->RegisterObjectBehaviour("Geometry", asBEHAVE_FACTORY, "Geometry@+ f()", AS_FUNCTION(Geometry_Geometry_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3262,9 +3875,19 @@ static void Register_GeometryDesc(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Graphics::Graphics(Context* context)
+static void Graphics_Graphics_Context(Graphics* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Graphics(context);
+}
+
 // class Graphics | File: ../Graphics/Graphics.h
 static void Register_Graphics(asIScriptEngine* engine)
 {
+    // explicit Graphics::Graphics(Context* context)
+    engine->RegisterObjectBehaviour("Graphics", asBEHAVE_FACTORY, "Graphics@+ f()", AS_FUNCTION(Graphics_Graphics_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3346,6 +3969,10 @@ static void Register_HashBase(asIScriptEngine* engine)
 // struct HashIteratorBase | File: ../Container/HashBase.h
 static void Register_HashIteratorBase(asIScriptEngine* engine)
 {
+    // explicit HashIteratorBase::HashIteratorBase(HashNodeBase* ptr)
+    // Error: type "HashNodeBase*" can not automatically bind
+
+
     // HashIteratorBase::~HashIteratorBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("HashIteratorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HashIteratorBase), AS_CALL_CDECL_OBJFIRST);
 
@@ -3469,9 +4096,19 @@ static void Register_HiresTimer(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Image::Image(Context* context)
+static void Image_Image_Context(Image* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Image(context);
+}
+
 // class Image | File: ../Resource/Image.h
 static void Register_Image(asIScriptEngine* engine)
 {
+    // explicit Image::Image(Context* context)
+    engine->RegisterObjectBehaviour("Image", asBEHAVE_FACTORY, "Image@+ f()", AS_FUNCTION(Image_Image_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3508,9 +4145,19 @@ static void Register_Image(asIScriptEngine* engine)
     #endif
 }
 
+// explicit IndexBuffer::IndexBuffer(Context* context, bool forceHeadless=false)
+static void IndexBuffer_IndexBuffer_Context_bool(IndexBuffer* ptr, bool forceHeadless)
+{
+    Context* context = GetScriptContext();
+    new(ptr) IndexBuffer(context, forceHeadless);
+}
+
 // class IndexBuffer | File: ../Graphics/IndexBuffer.h
 static void Register_IndexBuffer(asIScriptEngine* engine)
 {
+    // explicit IndexBuffer::IndexBuffer(Context* context, bool forceHeadless=false)
+    engine->RegisterObjectBehaviour("IndexBuffer", asBEHAVE_FACTORY, "IndexBuffer@+ f(bool = false)", AS_FUNCTION(IndexBuffer_IndexBuffer_Context_bool) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3589,9 +4236,19 @@ static void Register_IndexBufferDesc(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Input::Input(Context* context)
+static void Input_Input_Context(Input* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Input(context);
+}
+
 // class Input | File: ../Input/Input.h
 static void Register_Input(asIScriptEngine* engine)
 {
+    // explicit Input::Input(Context* context)
+    engine->RegisterObjectBehaviour("Input", asBEHAVE_FACTORY, "Input@+ f()", AS_FUNCTION(Input_Input_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3631,6 +4288,10 @@ static void Register_Input(asIScriptEngine* engine)
 // struct InstanceData | File: ../Graphics/Batch.h
 static void Register_InstanceData(asIScriptEngine* engine)
 {
+    // InstanceData::InstanceData(const Matrix3x4* worldTransform, const void* instancingData, float distance)
+    // Error: type "const Matrix3x4*" can not automatically bind
+
+
     // InstanceData::~InstanceData() | Implicitly-declared
     engine->RegisterObjectBehaviour("InstanceData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(InstanceData), AS_CALL_CDECL_OBJFIRST);
 
@@ -3670,9 +4331,29 @@ static void Register_InstanceData(asIScriptEngine* engine)
     #endif
 }
 
+// IntRect::IntRect(const IntVector2& min, const IntVector2& max) noexcept
+static void IntRect_IntRect_IntVector2_IntVector2(IntRect* ptr, const IntVector2& min, const IntVector2& max)
+{
+    new(ptr) IntRect(min, max);
+}
+
+// IntRect::IntRect(int left, int top, int right, int bottom) noexcept
+static void IntRect_IntRect_int_int_int_int(IntRect* ptr, int left, int top, int right, int bottom)
+{
+    new(ptr) IntRect(left, top, right, bottom);
+}
+
 // class IntRect | File: ../Math/Rect.h
 static void Register_IntRect(asIScriptEngine* engine)
 {
+    // explicit IntRect::IntRect(const int* data) noexcept
+    // Error: type "const int*" can not automatically bind
+
+    // IntRect::IntRect(const IntVector2& min, const IntVector2& max) noexcept
+    engine->RegisterObjectBehaviour("IntRect", asBEHAVE_CONSTRUCT, "void f(const IntVector2&in, const IntVector2&in)", AS_FUNCTION_OBJFIRST(IntRect_IntRect_IntVector2_IntVector2), AS_CALL_CDECL_OBJFIRST);
+    // IntRect::IntRect(int left, int top, int right, int bottom) noexcept
+    engine->RegisterObjectBehaviour("IntRect", asBEHAVE_CONSTRUCT, "void f(int, int, int, int)", AS_FUNCTION_OBJFIRST(IntRect_IntRect_int_int_int_int), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3709,9 +4390,31 @@ static void Register_IntRect(asIScriptEngine* engine)
     #endif
 }
 
+// IntVector2::IntVector2(int x, int y) noexcept
+static void IntVector2_IntVector2_int_int(IntVector2* ptr, int x, int y)
+{
+    new(ptr) IntVector2(x, y);
+}
+
+// IntVector2::IntVector2(const IntVector2& rhs) noexcept=default
+static void IntVector2_IntVector2_IntVector2(IntVector2* ptr, const IntVector2& rhs)
+{
+    new(ptr) IntVector2(rhs);
+}
+
 // class IntVector2 | File: ../Math/Vector2.h
 static void Register_IntVector2(asIScriptEngine* engine)
 {
+    // explicit IntVector2::IntVector2(const float* data)
+    // Error: type "const float*" can not automatically bind
+    // explicit IntVector2::IntVector2(const int* data) noexcept
+    // Error: type "const int*" can not automatically bind
+
+    // IntVector2::IntVector2(int x, int y) noexcept
+    engine->RegisterObjectBehaviour("IntVector2", asBEHAVE_CONSTRUCT, "void f(int, int)", AS_FUNCTION_OBJFIRST(IntVector2_IntVector2_int_int), AS_CALL_CDECL_OBJFIRST);
+    // IntVector2::IntVector2(const IntVector2& rhs) noexcept=default
+    engine->RegisterObjectBehaviour("IntVector2", asBEHAVE_CONSTRUCT, "void f(const IntVector2&in)", AS_FUNCTION_OBJFIRST(IntVector2_IntVector2_IntVector2), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3748,9 +4451,29 @@ static void Register_IntVector2(asIScriptEngine* engine)
     #endif
 }
 
+// IntVector3::IntVector3(int x, int y, int z) noexcept
+static void IntVector3_IntVector3_int_int_int(IntVector3* ptr, int x, int y, int z)
+{
+    new(ptr) IntVector3(x, y, z);
+}
+
+// IntVector3::IntVector3(const IntVector3& rhs) noexcept=default
+static void IntVector3_IntVector3_IntVector3(IntVector3* ptr, const IntVector3& rhs)
+{
+    new(ptr) IntVector3(rhs);
+}
+
 // class IntVector3 | File: ../Math/Vector3.h
 static void Register_IntVector3(asIScriptEngine* engine)
 {
+    // explicit IntVector3::IntVector3(const int* data) noexcept
+    // Error: type "const int*" can not automatically bind
+
+    // IntVector3::IntVector3(int x, int y, int z) noexcept
+    engine->RegisterObjectBehaviour("IntVector3", asBEHAVE_CONSTRUCT, "void f(int, int, int)", AS_FUNCTION_OBJFIRST(IntVector3_IntVector3_int_int_int), AS_CALL_CDECL_OBJFIRST);
+    // IntVector3::IntVector3(const IntVector3& rhs) noexcept=default
+    engine->RegisterObjectBehaviour("IntVector3", asBEHAVE_CONSTRUCT, "void f(const IntVector3&in)", AS_FUNCTION_OBJFIRST(IntVector3_IntVector3_IntVector3), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3787,9 +4510,19 @@ static void Register_IntVector3(asIScriptEngine* engine)
     #endif
 }
 
+// explicit JSONFile::JSONFile(Context* context)
+static void JSONFile_JSONFile_Context(JSONFile* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) JSONFile(context);
+}
+
 // class JSONFile | File: ../Resource/JSONFile.h
 static void Register_JSONFile(asIScriptEngine* engine)
 {
+    // explicit JSONFile::JSONFile(Context* context)
+    engine->RegisterObjectBehaviour("JSONFile", asBEHAVE_FACTORY, "JSONFile@+ f()", AS_FUNCTION(JSONFile_JSONFile_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -3826,9 +4559,74 @@ static void Register_JSONFile(asIScriptEngine* engine)
     #endif
 }
 
+// JSONValue::JSONValue(bool value)
+static void JSONValue_JSONValue_bool(JSONValue* ptr, bool value)
+{
+    new(ptr) JSONValue(value);
+}
+
+// JSONValue::JSONValue(int value)
+static void JSONValue_JSONValue_int(JSONValue* ptr, int value)
+{
+    new(ptr) JSONValue(value);
+}
+
+// JSONValue::JSONValue(unsigned value)
+static void JSONValue_JSONValue_unsigned(JSONValue* ptr, unsigned value)
+{
+    new(ptr) JSONValue(value);
+}
+
+// JSONValue::JSONValue(float value)
+static void JSONValue_JSONValue_float(JSONValue* ptr, float value)
+{
+    new(ptr) JSONValue(value);
+}
+
+// JSONValue::JSONValue(double value)
+static void JSONValue_JSONValue_double(JSONValue* ptr, double value)
+{
+    new(ptr) JSONValue(value);
+}
+
+// JSONValue::JSONValue(const String& value)
+static void JSONValue_JSONValue_String(JSONValue* ptr, const String& value)
+{
+    new(ptr) JSONValue(value);
+}
+
+// JSONValue::JSONValue(const JSONValue& value)
+static void JSONValue_JSONValue_JSONValue(JSONValue* ptr, const JSONValue& value)
+{
+    new(ptr) JSONValue(value);
+}
+
 // class JSONValue | File: ../Resource/JSONValue.h
 static void Register_JSONValue(asIScriptEngine* engine)
 {
+    // JSONValue::JSONValue(const JSONArray& value)
+    // Error: type "const JSONArray&" can not automatically bind
+    // JSONValue::JSONValue(const JSONObject& value)
+    // Error: type "const JSONObject&" can not automatically bind
+    // JSONValue::JSONValue(const char* value)
+    // Error: type "const char*" can not automatically bind
+
+    // JSONValue::JSONValue(bool value)
+    engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void f(bool)", AS_FUNCTION_OBJFIRST(JSONValue_JSONValue_bool), AS_CALL_CDECL_OBJFIRST);
+    // JSONValue::JSONValue(int value)
+    engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void f(int)", AS_FUNCTION_OBJFIRST(JSONValue_JSONValue_int), AS_CALL_CDECL_OBJFIRST);
+    // JSONValue::JSONValue(unsigned value)
+    engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void f(uint)", AS_FUNCTION_OBJFIRST(JSONValue_JSONValue_unsigned), AS_CALL_CDECL_OBJFIRST);
+    // JSONValue::JSONValue(float value)
+    engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void f(float)", AS_FUNCTION_OBJFIRST(JSONValue_JSONValue_float), AS_CALL_CDECL_OBJFIRST);
+    // JSONValue::JSONValue(double value)
+    engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void f(double)", AS_FUNCTION_OBJFIRST(JSONValue_JSONValue_double), AS_CALL_CDECL_OBJFIRST);
+    // JSONValue::JSONValue(const String& value)
+    engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void f(const String&in)", AS_FUNCTION_OBJFIRST(JSONValue_JSONValue_String), AS_CALL_CDECL_OBJFIRST);
+    // JSONValue::JSONValue(const JSONValue& value)
+    engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void f(const JSONValue&in)", AS_FUNCTION_OBJFIRST(JSONValue_JSONValue_JSONValue), AS_CALL_CDECL_OBJFIRST);
+
+
     // JSONValue::~JSONValue()
     engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(JSONValue), AS_CALL_CDECL_OBJFIRST);
 
@@ -3907,9 +4705,19 @@ static void Register_JoystickState(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Light::Light(Context* context)
+static void Light_Light_Context(Light* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Light(context);
+}
+
 // class Light | File: ../Graphics/Light.h
 static void Register_Light(asIScriptEngine* engine)
 {
+    // explicit Light::Light(Context* context)
+    engine->RegisterObjectBehaviour("Light", asBEHAVE_FACTORY, "Light@+ f()", AS_FUNCTION(Light_Light_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4030,9 +4838,19 @@ static void Register_LightQueryResult(asIScriptEngine* engine)
     #endif
 }
 
+// explicit LineEdit::LineEdit(Context* context)
+static void LineEdit_LineEdit_Context(LineEdit* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) LineEdit(context);
+}
+
 // class LineEdit | File: ../UI/LineEdit.h
 static void Register_LineEdit(asIScriptEngine* engine)
 {
+    // explicit LineEdit::LineEdit(Context* context)
+    engine->RegisterObjectBehaviour("LineEdit", asBEHAVE_FACTORY, "LineEdit@+ f()", AS_FUNCTION(LineEdit_LineEdit_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4156,6 +4974,10 @@ static void Register_ListBase(asIScriptEngine* engine)
 // struct ListIteratorBase | File: ../Container/ListBase.h
 static void Register_ListIteratorBase(asIScriptEngine* engine)
 {
+    // explicit ListIteratorBase::ListIteratorBase(ListNodeBase* ptr)
+    // Error: type "ListNodeBase*" can not automatically bind
+
+
     // ListIteratorBase::~ListIteratorBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("ListIteratorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ListIteratorBase), AS_CALL_CDECL_OBJFIRST);
 
@@ -4237,9 +5059,19 @@ static void Register_ListNodeBase(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ListView::ListView(Context* context)
+static void ListView_ListView_Context(ListView* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ListView(context);
+}
+
 // class ListView | File: ../UI/ListView.h
 static void Register_ListView(asIScriptEngine* engine)
 {
+    // explicit ListView::ListView(Context* context)
+    engine->RegisterObjectBehaviour("ListView", asBEHAVE_FACTORY, "ListView@+ f()", AS_FUNCTION(ListView_ListView_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4276,9 +5108,19 @@ static void Register_ListView(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Localization::Localization(Context* context)
+static void Localization_Localization_Context(Localization* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Localization(context);
+}
+
 // class Localization | File: ../Resource/Localization.h
 static void Register_Localization(asIScriptEngine* engine)
 {
+    // explicit Localization::Localization(Context* context)
+    engine->RegisterObjectBehaviour("Localization", asBEHAVE_FACTORY, "Localization@+ f()", AS_FUNCTION(Localization_Localization_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4315,9 +5157,19 @@ static void Register_Localization(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Log::Log(Context* context)
+static void Log_Log_Context(Log* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Log(context);
+}
+
 // class Log | File: ../IO/Log.h
 static void Register_Log(asIScriptEngine* engine)
 {
+    // explicit Log::Log(Context* context)
+    engine->RegisterObjectBehaviour("Log", asBEHAVE_FACTORY, "Log@+ f()", AS_FUNCTION(Log_Log_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4393,9 +5245,19 @@ static void Register_LogicComponent(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Material::Material(Context* context)
+static void Material_Material_Context(Material* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Material(context);
+}
+
 // class Material | File: ../Graphics/Material.h
 static void Register_Material(asIScriptEngine* engine)
 {
+    // explicit Material::Material(Context* context)
+    engine->RegisterObjectBehaviour("Material", asBEHAVE_FACTORY, "Material@+ f()", AS_FUNCTION(Material_Material_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4474,9 +5336,29 @@ static void Register_MaterialShaderParameter(asIScriptEngine* engine)
     #endif
 }
 
+// Matrix2::Matrix2(const Matrix2& matrix) noexcept=default
+static void Matrix2_Matrix2_Matrix2(Matrix2* ptr, const Matrix2& matrix)
+{
+    new(ptr) Matrix2(matrix);
+}
+
+// Matrix2::Matrix2(float v00, float v01, float v10, float v11) noexcept
+static void Matrix2_Matrix2_float_float_float_float(Matrix2* ptr, float v00, float v01, float v10, float v11)
+{
+    new(ptr) Matrix2(v00, v01, v10, v11);
+}
+
 // class Matrix2 | File: ../Math/Matrix2.h
 static void Register_Matrix2(asIScriptEngine* engine)
 {
+    // explicit Matrix2::Matrix2(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Matrix2::Matrix2(const Matrix2& matrix) noexcept=default
+    engine->RegisterObjectBehaviour("Matrix2", asBEHAVE_CONSTRUCT, "void f(const Matrix2&in)", AS_FUNCTION_OBJFIRST(Matrix2_Matrix2_Matrix2), AS_CALL_CDECL_OBJFIRST);
+    // Matrix2::Matrix2(float v00, float v01, float v10, float v11) noexcept
+    engine->RegisterObjectBehaviour("Matrix2", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", AS_FUNCTION_OBJFIRST(Matrix2_Matrix2_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4513,9 +5395,29 @@ static void Register_Matrix2(asIScriptEngine* engine)
     #endif
 }
 
+// Matrix3::Matrix3(const Matrix3& matrix) noexcept=default
+static void Matrix3_Matrix3_Matrix3(Matrix3* ptr, const Matrix3& matrix)
+{
+    new(ptr) Matrix3(matrix);
+}
+
+// Matrix3::Matrix3(float v00, float v01, float v02, float v10, float v11, float v12, float v20, float v21, float v22) noexcept
+static void Matrix3_Matrix3_float_float_float_float_float_float_float_float_float(Matrix3* ptr, float v00, float v01, float v02, float v10, float v11, float v12, float v20, float v21, float v22)
+{
+    new(ptr) Matrix3(v00, v01, v02, v10, v11, v12, v20, v21, v22);
+}
+
 // class Matrix3 | File: ../Math/Matrix3.h
 static void Register_Matrix3(asIScriptEngine* engine)
 {
+    // explicit Matrix3::Matrix3(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Matrix3::Matrix3(const Matrix3& matrix) noexcept=default
+    engine->RegisterObjectBehaviour("Matrix3", asBEHAVE_CONSTRUCT, "void f(const Matrix3&in)", AS_FUNCTION_OBJFIRST(Matrix3_Matrix3_Matrix3), AS_CALL_CDECL_OBJFIRST);
+    // Matrix3::Matrix3(float v00, float v01, float v02, float v10, float v11, float v12, float v20, float v21, float v22) noexcept
+    engine->RegisterObjectBehaviour("Matrix3", asBEHAVE_CONSTRUCT, "void f(float, float, float, float, float, float, float, float, float)", AS_FUNCTION_OBJFIRST(Matrix3_Matrix3_float_float_float_float_float_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4552,9 +5454,61 @@ static void Register_Matrix3(asIScriptEngine* engine)
     #endif
 }
 
+// Matrix3x4::Matrix3x4(const Matrix3x4& matrix) noexcept=default
+static void Matrix3x4_Matrix3x4_Matrix3x4(Matrix3x4* ptr, const Matrix3x4& matrix)
+{
+    new(ptr) Matrix3x4(matrix);
+}
+
+// explicit Matrix3x4::Matrix3x4(const Matrix3& matrix) noexcept
+static void Matrix3x4_Matrix3x4_Matrix3(Matrix3x4* ptr, const Matrix3& matrix)
+{
+    new(ptr) Matrix3x4(matrix);
+}
+
+// explicit Matrix3x4::Matrix3x4(const Matrix4& matrix) noexcept
+static void Matrix3x4_Matrix3x4_Matrix4(Matrix3x4* ptr, const Matrix4& matrix)
+{
+    new(ptr) Matrix3x4(matrix);
+}
+
+// Matrix3x4::Matrix3x4(float v00, float v01, float v02, float v03, float v10, float v11, float v12, float v13, float v20, float v21, float v22, float v23) noexcept
+static void Matrix3x4_Matrix3x4_float_float_float_float_float_float_float_float_float_float_float_float(Matrix3x4* ptr, float v00, float v01, float v02, float v03, float v10, float v11, float v12, float v13, float v20, float v21, float v22, float v23)
+{
+    new(ptr) Matrix3x4(v00, v01, v02, v03, v10, v11, v12, v13, v20, v21, v22, v23);
+}
+
+// Matrix3x4::Matrix3x4(const Vector3& translation, const Quaternion& rotation, float scale) noexcept
+static void Matrix3x4_Matrix3x4_Vector3_Quaternion_float(Matrix3x4* ptr, const Vector3& translation, const Quaternion& rotation, float scale)
+{
+    new(ptr) Matrix3x4(translation, rotation, scale);
+}
+
+// Matrix3x4::Matrix3x4(const Vector3& translation, const Quaternion& rotation, const Vector3& scale) noexcept
+static void Matrix3x4_Matrix3x4_Vector3_Quaternion_Vector3(Matrix3x4* ptr, const Vector3& translation, const Quaternion& rotation, const Vector3& scale)
+{
+    new(ptr) Matrix3x4(translation, rotation, scale);
+}
+
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
 static void Register_Matrix3x4(asIScriptEngine* engine)
 {
+    // explicit Matrix3x4::Matrix3x4(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Matrix3x4::Matrix3x4(const Matrix3x4& matrix) noexcept=default
+    engine->RegisterObjectBehaviour("Matrix3x4", asBEHAVE_CONSTRUCT, "void f(const Matrix3x4&in)", AS_FUNCTION_OBJFIRST(Matrix3x4_Matrix3x4_Matrix3x4), AS_CALL_CDECL_OBJFIRST);
+    // explicit Matrix3x4::Matrix3x4(const Matrix3& matrix) noexcept
+    engine->RegisterObjectBehaviour("Matrix3x4", asBEHAVE_CONSTRUCT, "void f(const Matrix3&in)", AS_FUNCTION_OBJFIRST(Matrix3x4_Matrix3x4_Matrix3), AS_CALL_CDECL_OBJFIRST);
+    // explicit Matrix3x4::Matrix3x4(const Matrix4& matrix) noexcept
+    engine->RegisterObjectBehaviour("Matrix3x4", asBEHAVE_CONSTRUCT, "void f(const Matrix4&in)", AS_FUNCTION_OBJFIRST(Matrix3x4_Matrix3x4_Matrix4), AS_CALL_CDECL_OBJFIRST);
+    // Matrix3x4::Matrix3x4(float v00, float v01, float v02, float v03, float v10, float v11, float v12, float v13, float v20, float v21, float v22, float v23) noexcept
+    engine->RegisterObjectBehaviour("Matrix3x4", asBEHAVE_CONSTRUCT, "void f(float, float, float, float, float, float, float, float, float, float, float, float)", AS_FUNCTION_OBJFIRST(Matrix3x4_Matrix3x4_float_float_float_float_float_float_float_float_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+    // Matrix3x4::Matrix3x4(const Vector3& translation, const Quaternion& rotation, float scale) noexcept
+    engine->RegisterObjectBehaviour("Matrix3x4", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Quaternion&in, float)", AS_FUNCTION_OBJFIRST(Matrix3x4_Matrix3x4_Vector3_Quaternion_float), AS_CALL_CDECL_OBJFIRST);
+    // Matrix3x4::Matrix3x4(const Vector3& translation, const Quaternion& rotation, const Vector3& scale) noexcept
+    engine->RegisterObjectBehaviour("Matrix3x4", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Quaternion&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(Matrix3x4_Matrix3x4_Vector3_Quaternion_Vector3), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4591,9 +5545,37 @@ static void Register_Matrix3x4(asIScriptEngine* engine)
     #endif
 }
 
+// Matrix4::Matrix4(const Matrix4& matrix) noexcept
+static void Matrix4_Matrix4_Matrix4(Matrix4* ptr, const Matrix4& matrix)
+{
+    new(ptr) Matrix4(matrix);
+}
+
+// explicit Matrix4::Matrix4(const Matrix3& matrix) noexcept
+static void Matrix4_Matrix4_Matrix3(Matrix4* ptr, const Matrix3& matrix)
+{
+    new(ptr) Matrix4(matrix);
+}
+
+// Matrix4::Matrix4(float v00, float v01, float v02, float v03, float v10, float v11, float v12, float v13, float v20, float v21, float v22, float v23, float v30, float v31, float v32, float v33) noexcept
+static void Matrix4_Matrix4_float_float_float_float_float_float_float_float_float_float_float_float_float_float_float_float(Matrix4* ptr, float v00, float v01, float v02, float v03, float v10, float v11, float v12, float v13, float v20, float v21, float v22, float v23, float v30, float v31, float v32, float v33)
+{
+    new(ptr) Matrix4(v00, v01, v02, v03, v10, v11, v12, v13, v20, v21, v22, v23, v30, v31, v32, v33);
+}
+
 // class Matrix4 | File: ../Math/Matrix4.h
 static void Register_Matrix4(asIScriptEngine* engine)
 {
+    // explicit Matrix4::Matrix4(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Matrix4::Matrix4(const Matrix4& matrix) noexcept
+    engine->RegisterObjectBehaviour("Matrix4", asBEHAVE_CONSTRUCT, "void f(const Matrix4&in)", AS_FUNCTION_OBJFIRST(Matrix4_Matrix4_Matrix4), AS_CALL_CDECL_OBJFIRST);
+    // explicit Matrix4::Matrix4(const Matrix3& matrix) noexcept
+    engine->RegisterObjectBehaviour("Matrix4", asBEHAVE_CONSTRUCT, "void f(const Matrix3&in)", AS_FUNCTION_OBJFIRST(Matrix4_Matrix4_Matrix3), AS_CALL_CDECL_OBJFIRST);
+    // Matrix4::Matrix4(float v00, float v01, float v02, float v03, float v10, float v11, float v12, float v13, float v20, float v21, float v22, float v23, float v30, float v31, float v32, float v33) noexcept
+    engine->RegisterObjectBehaviour("Matrix4", asBEHAVE_CONSTRUCT, "void f(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float)", AS_FUNCTION_OBJFIRST(Matrix4_Matrix4_float_float_float_float_float_float_float_float_float_float_float_float_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4630,9 +5612,19 @@ static void Register_Matrix4(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Menu::Menu(Context* context)
+static void Menu_Menu_Context(Menu* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Menu(context);
+}
+
 // class Menu | File: ../UI/Menu.h
 static void Register_Menu(asIScriptEngine* engine)
 {
+    // explicit Menu::Menu(Context* context)
+    engine->RegisterObjectBehaviour("Menu", asBEHAVE_FACTORY, "Menu@+ f()", AS_FUNCTION(Menu_Menu_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4669,9 +5661,19 @@ static void Register_Menu(asIScriptEngine* engine)
     #endif
 }
 
+// explicit MessageBox::MessageBox(Context* context, const String& messageString=String::EMPTY, const String& titleString=String::EMPTY, XMLFile* layoutFile=nullptr, XMLFile* styleFile=nullptr)
+static void MessageBox_MessageBox_Context_String_String_XMLFile_XMLFile(MessageBox* ptr, const String& messageString, const String& titleString, XMLFile* layoutFile, XMLFile* styleFile)
+{
+    Context* context = GetScriptContext();
+    new(ptr) MessageBox(context, messageString, titleString, layoutFile, styleFile);
+}
+
 // class MessageBox | File: ../UI/MessageBox.h
 static void Register_MessageBox(asIScriptEngine* engine)
 {
+    // explicit MessageBox::MessageBox(Context* context, const String& messageString=String::EMPTY, const String& titleString=String::EMPTY, XMLFile* layoutFile=nullptr, XMLFile* styleFile=nullptr)
+    engine->RegisterObjectBehaviour("MessageBox", asBEHAVE_FACTORY, "MessageBox@+ f(const String&in = String::EMPTY, const String&in = String::EMPTY, XMLFile@+ = null, XMLFile@+ = null)", AS_FUNCTION(MessageBox_MessageBox_Context_String_String_XMLFile_XMLFile) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4708,9 +5710,19 @@ static void Register_MessageBox(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Model::Model(Context* context)
+static void Model_Model_Context(Model* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Model(context);
+}
+
 // class Model | File: ../Graphics/Model.h
 static void Register_Model(asIScriptEngine* engine)
 {
+    // explicit Model::Model(Context* context)
+    engine->RegisterObjectBehaviour("Model", asBEHAVE_FACTORY, "Model@+ f()", AS_FUNCTION(Model_Model_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4831,9 +5843,27 @@ static void Register_Mutex(asIScriptEngine* engine)
     #endif
 }
 
+// explicit MutexLock::MutexLock(Mutex& mutex)
+static void MutexLock_MutexLock_Mutex(MutexLock* ptr, Mutex& mutex)
+{
+    new(ptr) MutexLock(mutex);
+}
+
+// MutexLock::MutexLock(const MutexLock& rhs)=delete
+static void MutexLock_MutexLock_MutexLock(MutexLock* ptr, const MutexLock& rhs)
+{
+    new(ptr) MutexLock(rhs);
+}
+
 // class MutexLock | File: ../Core/Mutex.h
 static void Register_MutexLock(asIScriptEngine* engine)
 {
+    // explicit MutexLock::MutexLock(Mutex& mutex)
+    engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_CONSTRUCT, "void f(Mutex&)", AS_FUNCTION_OBJFIRST(MutexLock_MutexLock_Mutex), AS_CALL_CDECL_OBJFIRST);
+    // MutexLock::MutexLock(const MutexLock& rhs)=delete
+    engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_CONSTRUCT, "void f(const MutexLock&in)", AS_FUNCTION_OBJFIRST(MutexLock_MutexLock_MutexLock), AS_CALL_CDECL_OBJFIRST);
+
+
     // MutexLock::~MutexLock()
     engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(MutexLock), AS_CALL_CDECL_OBJFIRST);
 
@@ -4873,9 +5903,28 @@ static void Register_MutexLock(asIScriptEngine* engine)
     #endif
 }
 
+// explicit NamedPipe::NamedPipe(Context* context)
+static void NamedPipe_NamedPipe_Context(NamedPipe* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) NamedPipe(context);
+}
+
+// NamedPipe::NamedPipe(Context* context, const String& name, bool isServer)
+static void NamedPipe_NamedPipe_Context_String_bool(NamedPipe* ptr, const String& name, bool isServer)
+{
+    Context* context = GetScriptContext();
+    new(ptr) NamedPipe(context, name, isServer);
+}
+
 // class NamedPipe | File: ../IO/NamedPipe.h
 static void Register_NamedPipe(asIScriptEngine* engine)
 {
+    // explicit NamedPipe::NamedPipe(Context* context)
+    engine->RegisterObjectBehaviour("NamedPipe", asBEHAVE_FACTORY, "NamedPipe@+ f()", AS_FUNCTION(NamedPipe_NamedPipe_Context) , AS_CALL_CDECL);
+    // NamedPipe::NamedPipe(Context* context, const String& name, bool isServer)
+    engine->RegisterObjectBehaviour("NamedPipe", asBEHAVE_FACTORY, "NamedPipe@+ f(const String&in, bool)", AS_FUNCTION(NamedPipe_NamedPipe_Context_String_bool) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -4954,9 +6003,19 @@ static void Register_NetworkState(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Node::Node(Context* context)
+static void Node_Node_Context(Node* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Node(context);
+}
+
 // class Node | File: ../Scene/Node.h
 static void Register_Node(asIScriptEngine* engine)
 {
+    // explicit Node::Node(Context* context)
+    engine->RegisterObjectBehaviour("Node", asBEHAVE_FACTORY, "Node@+ f()", AS_FUNCTION(Node_Node_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5116,9 +6175,19 @@ static void Register_Object(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ObjectAnimation::ObjectAnimation(Context* context)
+static void ObjectAnimation_ObjectAnimation_Context(ObjectAnimation* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ObjectAnimation(context);
+}
+
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
 static void Register_ObjectAnimation(asIScriptEngine* engine)
 {
+    // explicit ObjectAnimation::ObjectAnimation(Context* context)
+    engine->RegisterObjectBehaviour("ObjectAnimation", asBEHAVE_FACTORY, "ObjectAnimation@+ f()", AS_FUNCTION(ObjectAnimation_ObjectAnimation_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5236,9 +6305,19 @@ static void Register_OcclusionBatch(asIScriptEngine* engine)
     #endif
 }
 
+// explicit OcclusionBuffer::OcclusionBuffer(Context* context)
+static void OcclusionBuffer_OcclusionBuffer_Context(OcclusionBuffer* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) OcclusionBuffer(context);
+}
+
 // class OcclusionBuffer | File: ../Graphics/OcclusionBuffer.h
 static void Register_OcclusionBuffer(asIScriptEngine* engine)
 {
+    // explicit OcclusionBuffer::OcclusionBuffer(Context* context)
+    engine->RegisterObjectBehaviour("OcclusionBuffer", asBEHAVE_FACTORY, "OcclusionBuffer@+ f()", AS_FUNCTION(OcclusionBuffer_OcclusionBuffer_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5317,9 +6396,19 @@ static void Register_OcclusionBufferData(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Octree::Octree(Context* context)
+static void Octree_Octree_Context(Octree* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Octree(context);
+}
+
 // class Octree | File: ../Graphics/Octree.h
 static void Register_Octree(asIScriptEngine* engine)
 {
+    // explicit Octree::Octree(Context* context)
+    engine->RegisterObjectBehaviour("Octree", asBEHAVE_FACTORY, "Octree@+ f()", AS_FUNCTION(Octree_Octree_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5398,9 +6487,18 @@ static void Register_OctreeQueryResult(asIScriptEngine* engine)
     #endif
 }
 
+// explicit OggVorbisSoundStream::OggVorbisSoundStream(const Sound* sound)
+static void OggVorbisSoundStream_OggVorbisSoundStream_Sound(OggVorbisSoundStream* ptr, const Sound* sound)
+{
+    new(ptr) OggVorbisSoundStream(sound);
+}
+
 // class OggVorbisSoundStream | File: ../Audio/OggVorbisSoundStream.h
 static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
 {
+    // explicit OggVorbisSoundStream::OggVorbisSoundStream(const Sound* sound)
+    engine->RegisterObjectBehaviour("OggVorbisSoundStream", asBEHAVE_FACTORY, "OggVorbisSoundStream@+ f(Sound@+)", AS_FUNCTION(OggVorbisSoundStream_OggVorbisSoundStream_Sound) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5476,9 +6574,28 @@ static void Register_PackageEntry(asIScriptEngine* engine)
     #endif
 }
 
+// explicit PackageFile::PackageFile(Context* context)
+static void PackageFile_PackageFile_Context(PackageFile* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) PackageFile(context);
+}
+
+// PackageFile::PackageFile(Context* context, const String& fileName, unsigned startOffset=0)
+static void PackageFile_PackageFile_Context_String_unsigned(PackageFile* ptr, const String& fileName, unsigned startOffset)
+{
+    Context* context = GetScriptContext();
+    new(ptr) PackageFile(context, fileName, startOffset);
+}
+
 // class PackageFile | File: ../IO/PackageFile.h
 static void Register_PackageFile(asIScriptEngine* engine)
 {
+    // explicit PackageFile::PackageFile(Context* context)
+    engine->RegisterObjectBehaviour("PackageFile", asBEHAVE_FACTORY, "PackageFile@+ f()", AS_FUNCTION(PackageFile_PackageFile_Context) , AS_CALL_CDECL);
+    // PackageFile::PackageFile(Context* context, const String& fileName, unsigned startOffset=0)
+    engine->RegisterObjectBehaviour("PackageFile", asBEHAVE_FACTORY, "PackageFile@+ f(const String&in, uint = 0)", AS_FUNCTION(PackageFile_PackageFile_Context_String_unsigned) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5557,9 +6674,19 @@ static void Register_Particle(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ParticleEffect::ParticleEffect(Context* context)
+static void ParticleEffect_ParticleEffect_Context(ParticleEffect* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ParticleEffect(context);
+}
+
 // class ParticleEffect | File: ../Graphics/ParticleEffect.h
 static void Register_ParticleEffect(asIScriptEngine* engine)
 {
+    // explicit ParticleEffect::ParticleEffect(Context* context)
+    engine->RegisterObjectBehaviour("ParticleEffect", asBEHAVE_FACTORY, "ParticleEffect@+ f()", AS_FUNCTION(ParticleEffect_ParticleEffect_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5596,9 +6723,19 @@ static void Register_ParticleEffect(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ParticleEmitter::ParticleEmitter(Context* context)
+static void ParticleEmitter_ParticleEmitter_Context(ParticleEmitter* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ParticleEmitter(context);
+}
+
 // class ParticleEmitter | File: ../Graphics/ParticleEmitter.h
 static void Register_ParticleEmitter(asIScriptEngine* engine)
 {
+    // explicit ParticleEmitter::ParticleEmitter(Context* context)
+    engine->RegisterObjectBehaviour("ParticleEmitter", asBEHAVE_FACTORY, "ParticleEmitter@+ f()", AS_FUNCTION(ParticleEmitter_ParticleEmitter_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5635,9 +6772,18 @@ static void Register_ParticleEmitter(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Pass::Pass(const String& name)
+static void Pass_Pass_String(Pass* ptr, const String& name)
+{
+    new(ptr) Pass(name);
+}
+
 // class Pass | File: ../Graphics/Technique.h
 static void Register_Pass(asIScriptEngine* engine)
 {
+    // explicit Pass::Pass(const String& name)
+    engine->RegisterObjectBehaviour("Pass", asBEHAVE_FACTORY, "Pass@+ f(const String&in)", AS_FUNCTION(Pass_Pass_String) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5716,9 +6862,42 @@ static void Register_PerThreadSceneResult(asIScriptEngine* engine)
     #endif
 }
 
+// Plane::Plane(const Plane& plane) noexcept=default
+static void Plane_Plane_Plane(Plane* ptr, const Plane& plane)
+{
+    new(ptr) Plane(plane);
+}
+
+// Plane::Plane(const Vector3& v0, const Vector3& v1, const Vector3& v2) noexcept
+static void Plane_Plane_Vector3_Vector3_Vector3(Plane* ptr, const Vector3& v0, const Vector3& v1, const Vector3& v2)
+{
+    new(ptr) Plane(v0, v1, v2);
+}
+
+// Plane::Plane(const Vector3& normal, const Vector3& point) noexcept
+static void Plane_Plane_Vector3_Vector3(Plane* ptr, const Vector3& normal, const Vector3& point)
+{
+    new(ptr) Plane(normal, point);
+}
+
+// explicit Plane::Plane(const Vector4& plane) noexcept
+static void Plane_Plane_Vector4(Plane* ptr, const Vector4& plane)
+{
+    new(ptr) Plane(plane);
+}
+
 // class Plane | File: ../Math/Plane.h
 static void Register_Plane(asIScriptEngine* engine)
 {
+    // Plane::Plane(const Plane& plane) noexcept=default
+    engine->RegisterObjectBehaviour("Plane", asBEHAVE_CONSTRUCT, "void f(const Plane&in)", AS_FUNCTION_OBJFIRST(Plane_Plane_Plane), AS_CALL_CDECL_OBJFIRST);
+    // Plane::Plane(const Vector3& v0, const Vector3& v1, const Vector3& v2) noexcept
+    engine->RegisterObjectBehaviour("Plane", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(Plane_Plane_Vector3_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // Plane::Plane(const Vector3& normal, const Vector3& point) noexcept
+    engine->RegisterObjectBehaviour("Plane", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(Plane_Plane_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // explicit Plane::Plane(const Vector4& plane) noexcept
+    engine->RegisterObjectBehaviour("Plane", asBEHAVE_CONSTRUCT, "void f(const Vector4&in)", AS_FUNCTION_OBJFIRST(Plane_Plane_Vector4), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5755,9 +6934,38 @@ static void Register_Plane(asIScriptEngine* engine)
     #endif
 }
 
+// Polyhedron::Polyhedron(const Polyhedron& polyhedron)
+static void Polyhedron_Polyhedron_Polyhedron(Polyhedron* ptr, const Polyhedron& polyhedron)
+{
+    new(ptr) Polyhedron(polyhedron);
+}
+
+// explicit Polyhedron::Polyhedron(const BoundingBox& box)
+static void Polyhedron_Polyhedron_BoundingBox(Polyhedron* ptr, const BoundingBox& box)
+{
+    new(ptr) Polyhedron(box);
+}
+
+// explicit Polyhedron::Polyhedron(const Frustum& frustum)
+static void Polyhedron_Polyhedron_Frustum(Polyhedron* ptr, const Frustum& frustum)
+{
+    new(ptr) Polyhedron(frustum);
+}
+
 // class Polyhedron | File: ../Math/Polyhedron.h
 static void Register_Polyhedron(asIScriptEngine* engine)
 {
+    // explicit Polyhedron::Polyhedron(const Vector<PODVector<Vector3>>& faces)
+    // Error: type "const Vector<PODVector<Vector3>>&" can not automatically bind
+
+    // Polyhedron::Polyhedron(const Polyhedron& polyhedron)
+    engine->RegisterObjectBehaviour("Polyhedron", asBEHAVE_CONSTRUCT, "void f(const Polyhedron&in)", AS_FUNCTION_OBJFIRST(Polyhedron_Polyhedron_Polyhedron), AS_CALL_CDECL_OBJFIRST);
+    // explicit Polyhedron::Polyhedron(const BoundingBox& box)
+    engine->RegisterObjectBehaviour("Polyhedron", asBEHAVE_CONSTRUCT, "void f(const BoundingBox&in)", AS_FUNCTION_OBJFIRST(Polyhedron_Polyhedron_BoundingBox), AS_CALL_CDECL_OBJFIRST);
+    // explicit Polyhedron::Polyhedron(const Frustum& frustum)
+    engine->RegisterObjectBehaviour("Polyhedron", asBEHAVE_CONSTRUCT, "void f(const Frustum&in)", AS_FUNCTION_OBJFIRST(Polyhedron_Polyhedron_Frustum), AS_CALL_CDECL_OBJFIRST);
+
+
     // Polyhedron::~Polyhedron() noexcept=default
     engine->RegisterObjectBehaviour("Polyhedron", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Polyhedron), AS_CALL_CDECL_OBJFIRST);
 
@@ -5797,9 +7005,19 @@ static void Register_Polyhedron(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Profiler::Profiler(Context* context)
+static void Profiler_Profiler_Context(Profiler* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Profiler(context);
+}
+
 // class Profiler | File: ../Core/Profiler.h
 static void Register_Profiler(asIScriptEngine* engine)
 {
+    // explicit Profiler::Profiler(Context* context)
+    engine->RegisterObjectBehaviour("Profiler", asBEHAVE_FACTORY, "Profiler@+ f()", AS_FUNCTION(Profiler_Profiler_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5836,9 +7054,19 @@ static void Register_Profiler(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ProgressBar::ProgressBar(Context* context)
+static void ProgressBar_ProgressBar_Context(ProgressBar* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ProgressBar(context);
+}
+
 // class ProgressBar | File: ../UI/ProgressBar.h
 static void Register_ProgressBar(asIScriptEngine* engine)
 {
+    // explicit ProgressBar::ProgressBar(Context* context)
+    engine->RegisterObjectBehaviour("ProgressBar", asBEHAVE_FACTORY, "ProgressBar@+ f()", AS_FUNCTION(ProgressBar_ProgressBar_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5875,9 +7103,85 @@ static void Register_ProgressBar(asIScriptEngine* engine)
     #endif
 }
 
+// Quaternion::Quaternion(const Quaternion& quat) noexcept
+static void Quaternion_Quaternion_Quaternion(Quaternion* ptr, const Quaternion& quat)
+{
+    new(ptr) Quaternion(quat);
+}
+
+// Quaternion::Quaternion(float w, float x, float y, float z) noexcept
+static void Quaternion_Quaternion_float_float_float_float(Quaternion* ptr, float w, float x, float y, float z)
+{
+    new(ptr) Quaternion(w, x, y, z);
+}
+
+// Quaternion::Quaternion(float angle, const Vector3& axis) noexcept
+static void Quaternion_Quaternion_float_Vector3(Quaternion* ptr, float angle, const Vector3& axis)
+{
+    new(ptr) Quaternion(angle, axis);
+}
+
+// explicit Quaternion::Quaternion(float angle) noexcept
+static void Quaternion_Quaternion_float(Quaternion* ptr, float angle)
+{
+    new(ptr) Quaternion(angle);
+}
+
+// Quaternion::Quaternion(float x, float y, float z) noexcept
+static void Quaternion_Quaternion_float_float_float(Quaternion* ptr, float x, float y, float z)
+{
+    new(ptr) Quaternion(x, y, z);
+}
+
+// explicit Quaternion::Quaternion(const Vector3& angles) noexcept
+static void Quaternion_Quaternion_Vector3(Quaternion* ptr, const Vector3& angles)
+{
+    new(ptr) Quaternion(angles);
+}
+
+// Quaternion::Quaternion(const Vector3& start, const Vector3& end) noexcept
+static void Quaternion_Quaternion_Vector3_Vector3(Quaternion* ptr, const Vector3& start, const Vector3& end)
+{
+    new(ptr) Quaternion(start, end);
+}
+
+// Quaternion::Quaternion(const Vector3& xAxis, const Vector3& yAxis, const Vector3& zAxis) noexcept
+static void Quaternion_Quaternion_Vector3_Vector3_Vector3(Quaternion* ptr, const Vector3& xAxis, const Vector3& yAxis, const Vector3& zAxis)
+{
+    new(ptr) Quaternion(xAxis, yAxis, zAxis);
+}
+
+// explicit Quaternion::Quaternion(const Matrix3& matrix) noexcept
+static void Quaternion_Quaternion_Matrix3(Quaternion* ptr, const Matrix3& matrix)
+{
+    new(ptr) Quaternion(matrix);
+}
+
 // class Quaternion | File: ../Math/Quaternion.h
 static void Register_Quaternion(asIScriptEngine* engine)
 {
+    // explicit Quaternion::Quaternion(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Quaternion::Quaternion(const Quaternion& quat) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(const Quaternion&in)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_Quaternion), AS_CALL_CDECL_OBJFIRST);
+    // Quaternion::Quaternion(float w, float x, float y, float z) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+    // Quaternion::Quaternion(float angle, const Vector3& axis) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(float, const Vector3&in)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_float_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // explicit Quaternion::Quaternion(float angle) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(float)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_float), AS_CALL_CDECL_OBJFIRST);
+    // Quaternion::Quaternion(float x, float y, float z) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(float, float, float)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_float_float_float), AS_CALL_CDECL_OBJFIRST);
+    // explicit Quaternion::Quaternion(const Vector3& angles) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(const Vector3&in)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // Quaternion::Quaternion(const Vector3& start, const Vector3& end) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // Quaternion::Quaternion(const Vector3& xAxis, const Vector3& yAxis, const Vector3& zAxis) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_Vector3_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // explicit Quaternion::Quaternion(const Matrix3& matrix) noexcept
+    engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(const Matrix3&in)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_Matrix3), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5914,9 +7218,26 @@ static void Register_Quaternion(asIScriptEngine* engine)
     #endif
 }
 
+// Ray::Ray(const Vector3& origin, const Vector3& direction) noexcept
+static void Ray_Ray_Vector3_Vector3(Ray* ptr, const Vector3& origin, const Vector3& direction)
+{
+    new(ptr) Ray(origin, direction);
+}
+
+// Ray::Ray(const Ray& ray) noexcept=default
+static void Ray_Ray_Ray(Ray* ptr, const Ray& ray)
+{
+    new(ptr) Ray(ray);
+}
+
 // class Ray | File: ../Math/Ray.h
 static void Register_Ray(asIScriptEngine* engine)
 {
+    // Ray::Ray(const Vector3& origin, const Vector3& direction) noexcept
+    engine->RegisterObjectBehaviour("Ray", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(Ray_Ray_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // Ray::Ray(const Ray& ray) noexcept=default
+    engine->RegisterObjectBehaviour("Ray", asBEHAVE_CONSTRUCT, "void f(const Ray&in)", AS_FUNCTION_OBJFIRST(Ray_Ray_Ray), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -5995,9 +7316,45 @@ static void Register_RayQueryResult(asIScriptEngine* engine)
     #endif
 }
 
+// Rect::Rect(const Vector2& min, const Vector2& max) noexcept
+static void Rect_Rect_Vector2_Vector2(Rect* ptr, const Vector2& min, const Vector2& max)
+{
+    new(ptr) Rect(min, max);
+}
+
+// Rect::Rect(float left, float top, float right, float bottom) noexcept
+static void Rect_Rect_float_float_float_float(Rect* ptr, float left, float top, float right, float bottom)
+{
+    new(ptr) Rect(left, top, right, bottom);
+}
+
+// explicit Rect::Rect(const Vector4& vector) noexcept
+static void Rect_Rect_Vector4(Rect* ptr, const Vector4& vector)
+{
+    new(ptr) Rect(vector);
+}
+
+// Rect::Rect(const Rect& rect) noexcept=default
+static void Rect_Rect_Rect(Rect* ptr, const Rect& rect)
+{
+    new(ptr) Rect(rect);
+}
+
 // class Rect | File: ../Math/Rect.h
 static void Register_Rect(asIScriptEngine* engine)
 {
+    // explicit Rect::Rect(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Rect::Rect(const Vector2& min, const Vector2& max) noexcept
+    engine->RegisterObjectBehaviour("Rect", asBEHAVE_CONSTRUCT, "void f(const Vector2&in, const Vector2&in)", AS_FUNCTION_OBJFIRST(Rect_Rect_Vector2_Vector2), AS_CALL_CDECL_OBJFIRST);
+    // Rect::Rect(float left, float top, float right, float bottom) noexcept
+    engine->RegisterObjectBehaviour("Rect", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", AS_FUNCTION_OBJFIRST(Rect_Rect_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+    // explicit Rect::Rect(const Vector4& vector) noexcept
+    engine->RegisterObjectBehaviour("Rect", asBEHAVE_CONSTRUCT, "void f(const Vector4&in)", AS_FUNCTION_OBJFIRST(Rect_Rect_Vector4), AS_CALL_CDECL_OBJFIRST);
+    // Rect::Rect(const Rect& rect) noexcept=default
+    engine->RegisterObjectBehaviour("Rect", asBEHAVE_CONSTRUCT, "void f(const Rect&in)", AS_FUNCTION_OBJFIRST(Rect_Rect_Rect), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6076,9 +7433,18 @@ static void Register_RefCount(asIScriptEngine* engine)
     #endif
 }
 
+// RefCounted::RefCounted(const RefCounted& rhs)=delete
+static void RefCounted_RefCounted_RefCounted(RefCounted* ptr, const RefCounted& rhs)
+{
+    new(ptr) RefCounted(rhs);
+}
+
 // class RefCounted | File: ../Container/RefCounted.h
 static void Register_RefCounted(asIScriptEngine* engine)
 {
+    // RefCounted::RefCounted(const RefCounted& rhs)=delete
+    engine->RegisterObjectBehaviour("RefCounted", asBEHAVE_FACTORY, "RefCounted@+ f(const RefCounted&in)", AS_FUNCTION(RefCounted_RefCounted_RefCounted) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6196,9 +7562,18 @@ static void Register_RenderPathCommand(asIScriptEngine* engine)
     #endif
 }
 
+// explicit RenderSurface::RenderSurface(Texture* parentTexture)
+static void RenderSurface_RenderSurface_Texture(RenderSurface* ptr, Texture* parentTexture)
+{
+    new(ptr) RenderSurface(parentTexture);
+}
+
 // class RenderSurface | File: ../Graphics/RenderSurface.h
 static void Register_RenderSurface(asIScriptEngine* engine)
 {
+    // explicit RenderSurface::RenderSurface(Texture* parentTexture)
+    engine->RegisterObjectBehaviour("RenderSurface", asBEHAVE_FACTORY, "RenderSurface@+ f(Texture@+)", AS_FUNCTION(RenderSurface_RenderSurface_Texture) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6277,9 +7652,19 @@ static void Register_RenderTargetInfo(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Renderer::Renderer(Context* context)
+static void Renderer_Renderer_Context(Renderer* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Renderer(context);
+}
+
 // class Renderer | File: ../Graphics/Renderer.h
 static void Register_Renderer(asIScriptEngine* engine)
 {
+    // explicit Renderer::Renderer(Context* context)
+    engine->RegisterObjectBehaviour("Renderer", asBEHAVE_FACTORY, "Renderer@+ f()", AS_FUNCTION(Renderer_Renderer_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6358,9 +7743,19 @@ static void Register_ReplicationState(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Resource::Resource(Context* context)
+static void Resource_Resource_Context(Resource* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Resource(context);
+}
+
 // class Resource | File: ../Resource/Resource.h
 static void Register_Resource(asIScriptEngine* engine)
 {
+    // explicit Resource::Resource(Context* context)
+    engine->RegisterObjectBehaviour("Resource", asBEHAVE_FACTORY, "Resource@+ f()", AS_FUNCTION(Resource_Resource_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6397,9 +7792,19 @@ static void Register_Resource(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ResourceCache::ResourceCache(Context* context)
+static void ResourceCache_ResourceCache_Context(ResourceCache* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ResourceCache(context);
+}
+
 // class ResourceCache | File: ../Resource/ResourceCache.h
 static void Register_ResourceCache(asIScriptEngine* engine)
 {
+    // explicit ResourceCache::ResourceCache(Context* context)
+    engine->RegisterObjectBehaviour("ResourceCache", asBEHAVE_FACTORY, "ResourceCache@+ f()", AS_FUNCTION(ResourceCache_ResourceCache_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6478,9 +7883,46 @@ static void Register_ResourceGroup(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ResourceRef::ResourceRef(StringHash type)
+static void ResourceRef_ResourceRef_StringHash(ResourceRef* ptr, StringHash type)
+{
+    new(ptr) ResourceRef(type);
+}
+
+// ResourceRef::ResourceRef(StringHash type, const String& name)
+static void ResourceRef_ResourceRef_StringHash_String(ResourceRef* ptr, StringHash type, const String& name)
+{
+    new(ptr) ResourceRef(type, name);
+}
+
+// ResourceRef::ResourceRef(const String& type, const String& name)
+static void ResourceRef_ResourceRef_String_String(ResourceRef* ptr, const String& type, const String& name)
+{
+    new(ptr) ResourceRef(type, name);
+}
+
+// ResourceRef::ResourceRef(const ResourceRef& rhs)=default
+static void ResourceRef_ResourceRef_ResourceRef(ResourceRef* ptr, const ResourceRef& rhs)
+{
+    new(ptr) ResourceRef(rhs);
+}
+
 // struct ResourceRef | File: ../Core/Variant.h
 static void Register_ResourceRef(asIScriptEngine* engine)
 {
+    // ResourceRef::ResourceRef(const char* type, const char* name)
+    // Error: type "const char*" can not automatically bind
+
+    // explicit ResourceRef::ResourceRef(StringHash type)
+    engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_CONSTRUCT, "void f(StringHash)", AS_FUNCTION_OBJFIRST(ResourceRef_ResourceRef_StringHash), AS_CALL_CDECL_OBJFIRST);
+    // ResourceRef::ResourceRef(StringHash type, const String& name)
+    engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_CONSTRUCT, "void f(StringHash, const String&in)", AS_FUNCTION_OBJFIRST(ResourceRef_ResourceRef_StringHash_String), AS_CALL_CDECL_OBJFIRST);
+    // ResourceRef::ResourceRef(const String& type, const String& name)
+    engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_CONSTRUCT, "void f(const String&in, const String&in)", AS_FUNCTION_OBJFIRST(ResourceRef_ResourceRef_String_String), AS_CALL_CDECL_OBJFIRST);
+    // ResourceRef::ResourceRef(const ResourceRef& rhs)=default
+    engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_CONSTRUCT, "void f(const ResourceRef&in)", AS_FUNCTION_OBJFIRST(ResourceRef_ResourceRef_ResourceRef), AS_CALL_CDECL_OBJFIRST);
+
+
     // ResourceRef::~ResourceRef() | Implicitly-declared
     engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceRef), AS_CALL_CDECL_OBJFIRST);
 
@@ -6520,9 +7962,28 @@ static void Register_ResourceRef(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ResourceRefList::ResourceRefList(StringHash type)
+static void ResourceRefList_ResourceRefList_StringHash(ResourceRefList* ptr, StringHash type)
+{
+    new(ptr) ResourceRefList(type);
+}
+
+// ResourceRefList::ResourceRefList(StringHash type, const StringVector& names)
+static void ResourceRefList_ResourceRefList_StringHash_StringVector(ResourceRefList* ptr, StringHash type, CScriptArray* names_conv)
+{
+    StringVector names = ArrayToVector<String>(names_conv);
+    new(ptr) ResourceRefList(type, names);
+}
+
 // struct ResourceRefList | File: ../Core/Variant.h
 static void Register_ResourceRefList(asIScriptEngine* engine)
 {
+    // explicit ResourceRefList::ResourceRefList(StringHash type)
+    engine->RegisterObjectBehaviour("ResourceRefList", asBEHAVE_CONSTRUCT, "void f(StringHash)", AS_FUNCTION_OBJFIRST(ResourceRefList_ResourceRefList_StringHash), AS_CALL_CDECL_OBJFIRST);
+    // ResourceRefList::ResourceRefList(StringHash type, const StringVector& names)
+    engine->RegisterObjectBehaviour("ResourceRefList", asBEHAVE_CONSTRUCT, "void f(StringHash, Array<String>@+)", AS_FUNCTION_OBJFIRST(ResourceRefList_ResourceRefList_StringHash_StringVector), AS_CALL_CDECL_OBJFIRST);
+
+
     // ResourceRefList::~ResourceRefList() | Implicitly-declared
     engine->RegisterObjectBehaviour("ResourceRefList", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceRefList), AS_CALL_CDECL_OBJFIRST);
 
@@ -6562,9 +8023,19 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ResourceWithMetadata::ResourceWithMetadata(Context* context)
+static void ResourceWithMetadata_ResourceWithMetadata_Context(ResourceWithMetadata* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ResourceWithMetadata(context);
+}
+
 // class ResourceWithMetadata | File: ../Resource/Resource.h
 static void Register_ResourceWithMetadata(asIScriptEngine* engine)
 {
+    // explicit ResourceWithMetadata::ResourceWithMetadata(Context* context)
+    engine->RegisterObjectBehaviour("ResourceWithMetadata", asBEHAVE_FACTORY, "ResourceWithMetadata@+ f()", AS_FUNCTION(ResourceWithMetadata_ResourceWithMetadata_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6601,9 +8072,19 @@ static void Register_ResourceWithMetadata(asIScriptEngine* engine)
     #endif
 }
 
+// explicit RibbonTrail::RibbonTrail(Context* context)
+static void RibbonTrail_RibbonTrail_Context(RibbonTrail* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) RibbonTrail(context);
+}
+
 // class RibbonTrail | File: ../Graphics/RibbonTrail.h
 static void Register_RibbonTrail(asIScriptEngine* engine)
 {
+    // explicit RibbonTrail::RibbonTrail(Context* context)
+    engine->RegisterObjectBehaviour("RibbonTrail", asBEHAVE_FACTORY, "RibbonTrail@+ f()", AS_FUNCTION(RibbonTrail_RibbonTrail_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6640,9 +8121,19 @@ static void Register_RibbonTrail(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Scene::Scene(Context* context)
+static void Scene_Scene_Context(Scene* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Scene(context);
+}
+
 // class Scene | File: ../Scene/Scene.h
 static void Register_Scene(asIScriptEngine* engine)
 {
+    // explicit Scene::Scene(Context* context)
+    engine->RegisterObjectBehaviour("Scene", asBEHAVE_FACTORY, "Scene@+ f()", AS_FUNCTION(Scene_Scene_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6889,9 +8380,19 @@ static void Register_ScreenModeParams(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ScrollBar::ScrollBar(Context* context)
+static void ScrollBar_ScrollBar_Context(ScrollBar* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ScrollBar(context);
+}
+
 // class ScrollBar | File: ../UI/ScrollBar.h
 static void Register_ScrollBar(asIScriptEngine* engine)
 {
+    // explicit ScrollBar::ScrollBar(Context* context)
+    engine->RegisterObjectBehaviour("ScrollBar", asBEHAVE_FACTORY, "ScrollBar@+ f()", AS_FUNCTION(ScrollBar_ScrollBar_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6928,9 +8429,19 @@ static void Register_ScrollBar(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ScrollView::ScrollView(Context* context)
+static void ScrollView_ScrollView_Context(ScrollView* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ScrollView(context);
+}
+
 // class ScrollView | File: ../UI/ScrollView.h
 static void Register_ScrollView(asIScriptEngine* engine)
 {
+    // explicit ScrollView::ScrollView(Context* context)
+    engine->RegisterObjectBehaviour("ScrollView", asBEHAVE_FACTORY, "ScrollView@+ f()", AS_FUNCTION(ScrollView_ScrollView_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -6967,9 +8478,19 @@ static void Register_ScrollView(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Serializable::Serializable(Context* context)
+static void Serializable_Serializable_Context(Serializable* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Serializable(context);
+}
+
 // class Serializable | File: ../Scene/Serializable.h
 static void Register_Serializable(asIScriptEngine* engine)
 {
+    // explicit Serializable::Serializable(Context* context)
+    engine->RegisterObjectBehaviour("Serializable", asBEHAVE_FACTORY, "Serializable@+ f()", AS_FUNCTION(Serializable_Serializable_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7045,9 +8566,19 @@ static void Register_Serializer(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Shader::Shader(Context* context)
+static void Shader_Shader_Context(Shader* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Shader(context);
+}
+
 // class Shader | File: ../Graphics/Shader.h
 static void Register_Shader(asIScriptEngine* engine)
 {
+    // explicit Shader::Shader(Context* context)
+    engine->RegisterObjectBehaviour("Shader", asBEHAVE_FACTORY, "Shader@+ f()", AS_FUNCTION(Shader_Shader_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7084,9 +8615,35 @@ static void Register_Shader(asIScriptEngine* engine)
     #endif
 }
 
+// ShaderParameter::ShaderParameter(const String& name, unsigned glType, int location)
+static void ShaderParameter_ShaderParameter_String_unsigned_int(ShaderParameter* ptr, const String& name, unsigned glType, int location)
+{
+    new(ptr) ShaderParameter(name, glType, location);
+}
+
+// ShaderParameter::ShaderParameter(ShaderType type, const String& name, unsigned offset, unsigned size, unsigned buffer)
+static void ShaderParameter_ShaderParameter_ShaderType_String_unsigned_unsigned_unsigned(ShaderParameter* ptr, ShaderType type, const String& name, unsigned offset, unsigned size, unsigned buffer)
+{
+    new(ptr) ShaderParameter(type, name, offset, size, buffer);
+}
+
+// ShaderParameter::ShaderParameter(ShaderType type, const String& name, unsigned reg, unsigned regCount)
+static void ShaderParameter_ShaderParameter_ShaderType_String_unsigned_unsigned(ShaderParameter* ptr, ShaderType type, const String& name, unsigned reg, unsigned regCount)
+{
+    new(ptr) ShaderParameter(type, name, reg, regCount);
+}
+
 // struct ShaderParameter | File: ../Graphics/ShaderVariation.h
 static void Register_ShaderParameter(asIScriptEngine* engine)
 {
+    // ShaderParameter::ShaderParameter(const String& name, unsigned glType, int location)
+    engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_CONSTRUCT, "void f(const String&in, uint, int)", AS_FUNCTION_OBJFIRST(ShaderParameter_ShaderParameter_String_unsigned_int), AS_CALL_CDECL_OBJFIRST);
+    // ShaderParameter::ShaderParameter(ShaderType type, const String& name, unsigned offset, unsigned size, unsigned buffer)
+    engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_CONSTRUCT, "void f(ShaderType, const String&in, uint, uint, uint)", AS_FUNCTION_OBJFIRST(ShaderParameter_ShaderParameter_ShaderType_String_unsigned_unsigned_unsigned), AS_CALL_CDECL_OBJFIRST);
+    // ShaderParameter::ShaderParameter(ShaderType type, const String& name, unsigned reg, unsigned regCount)
+    engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_CONSTRUCT, "void f(ShaderType, const String&in, uint, uint)", AS_FUNCTION_OBJFIRST(ShaderParameter_ShaderParameter_ShaderType_String_unsigned_unsigned), AS_CALL_CDECL_OBJFIRST);
+
+
     // ShaderParameter::~ShaderParameter() | Implicitly-declared
     engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ShaderParameter), AS_CALL_CDECL_OBJFIRST);
 
@@ -7126,9 +8683,26 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
     #endif
 }
 
+// ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(Material* material, const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
+static void ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_Material_String_ValueAnimation_WrapMode_float(ShaderParameterAnimationInfo* ptr, Material* material, const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
+{
+    new(ptr) ShaderParameterAnimationInfo(material, name, attributeAnimation, wrapMode, speed);
+}
+
+// ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(const ShaderParameterAnimationInfo& other)
+static void ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_ShaderParameterAnimationInfo(ShaderParameterAnimationInfo* ptr, const ShaderParameterAnimationInfo& other)
+{
+    new(ptr) ShaderParameterAnimationInfo(other);
+}
+
 // class ShaderParameterAnimationInfo | File: ../Graphics/Material.h
 static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
 {
+    // ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(Material* material, const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
+    engine->RegisterObjectBehaviour("ShaderParameterAnimationInfo", asBEHAVE_FACTORY, "ShaderParameterAnimationInfo@+ f(Material@+, const String&in, ValueAnimation@+, WrapMode, float)", AS_FUNCTION(ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_Material_String_ValueAnimation_WrapMode_float) , AS_CALL_CDECL);
+    // ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(const ShaderParameterAnimationInfo& other)
+    engine->RegisterObjectBehaviour("ShaderParameterAnimationInfo", asBEHAVE_FACTORY, "ShaderParameterAnimationInfo@+ f(const ShaderParameterAnimationInfo&in)", AS_FUNCTION(ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_ShaderParameterAnimationInfo) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7165,9 +8739,19 @@ static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
     #endif
 }
 
+// ShaderPrecache::ShaderPrecache(Context* context, const String& fileName)
+static void ShaderPrecache_ShaderPrecache_Context_String(ShaderPrecache* ptr, const String& fileName)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ShaderPrecache(context, fileName);
+}
+
 // class ShaderPrecache | File: ../Graphics/ShaderPrecache.h
 static void Register_ShaderPrecache(asIScriptEngine* engine)
 {
+    // ShaderPrecache::ShaderPrecache(Context* context, const String& fileName)
+    engine->RegisterObjectBehaviour("ShaderPrecache", asBEHAVE_FACTORY, "ShaderPrecache@+ f(const String&in)", AS_FUNCTION(ShaderPrecache_ShaderPrecache_Context_String) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7204,9 +8788,18 @@ static void Register_ShaderPrecache(asIScriptEngine* engine)
     #endif
 }
 
+// ShaderVariation::ShaderVariation(Shader* owner, ShaderType type)
+static void ShaderVariation_ShaderVariation_Shader_ShaderType(ShaderVariation* ptr, Shader* owner, ShaderType type)
+{
+    new(ptr) ShaderVariation(owner, type);
+}
+
 // class ShaderVariation | File: ../Graphics/ShaderVariation.h
 static void Register_ShaderVariation(asIScriptEngine* engine)
 {
+    // ShaderVariation::ShaderVariation(Shader* owner, ShaderType type)
+    engine->RegisterObjectBehaviour("ShaderVariation", asBEHAVE_FACTORY, "ShaderVariation@+ f(Shader@+, ShaderType)", AS_FUNCTION(ShaderVariation_ShaderVariation_Shader_ShaderType) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7324,9 +8917,19 @@ static void Register_Skeleton(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Skybox::Skybox(Context* context)
+static void Skybox_Skybox_Context(Skybox* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Skybox(context);
+}
+
 // class Skybox | File: ../Graphics/Skybox.h
 static void Register_Skybox(asIScriptEngine* engine)
 {
+    // explicit Skybox::Skybox(Context* context)
+    engine->RegisterObjectBehaviour("Skybox", asBEHAVE_FACTORY, "Skybox@+ f()", AS_FUNCTION(Skybox_Skybox_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7363,9 +8966,19 @@ static void Register_Skybox(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Slider::Slider(Context* context)
+static void Slider_Slider_Context(Slider* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Slider(context);
+}
+
 // class Slider | File: ../UI/Slider.h
 static void Register_Slider(asIScriptEngine* engine)
 {
+    // explicit Slider::Slider(Context* context)
+    engine->RegisterObjectBehaviour("Slider", asBEHAVE_FACTORY, "Slider@+ f()", AS_FUNCTION(Slider_Slider_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7402,9 +9015,19 @@ static void Register_Slider(asIScriptEngine* engine)
     #endif
 }
 
+// explicit SmoothedTransform::SmoothedTransform(Context* context)
+static void SmoothedTransform_SmoothedTransform_Context(SmoothedTransform* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) SmoothedTransform(context);
+}
+
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
 static void Register_SmoothedTransform(asIScriptEngine* engine)
 {
+    // explicit SmoothedTransform::SmoothedTransform(Context* context)
+    engine->RegisterObjectBehaviour("SmoothedTransform", asBEHAVE_FACTORY, "SmoothedTransform@+ f()", AS_FUNCTION(SmoothedTransform_SmoothedTransform_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7441,9 +9064,19 @@ static void Register_SmoothedTransform(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Sound::Sound(Context* context)
+static void Sound_Sound_Context(Sound* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Sound(context);
+}
+
 // class Sound | File: ../Audio/Sound.h
 static void Register_Sound(asIScriptEngine* engine)
 {
+    // explicit Sound::Sound(Context* context)
+    engine->RegisterObjectBehaviour("Sound", asBEHAVE_FACTORY, "Sound@+ f()", AS_FUNCTION(Sound_Sound_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7480,9 +9113,19 @@ static void Register_Sound(asIScriptEngine* engine)
     #endif
 }
 
+// explicit SoundListener::SoundListener(Context* context)
+static void SoundListener_SoundListener_Context(SoundListener* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) SoundListener(context);
+}
+
 // class SoundListener | File: ../Audio/SoundListener.h
 static void Register_SoundListener(asIScriptEngine* engine)
 {
+    // explicit SoundListener::SoundListener(Context* context)
+    engine->RegisterObjectBehaviour("SoundListener", asBEHAVE_FACTORY, "SoundListener@+ f()", AS_FUNCTION(SoundListener_SoundListener_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7519,9 +9162,19 @@ static void Register_SoundListener(asIScriptEngine* engine)
     #endif
 }
 
+// explicit SoundSource::SoundSource(Context* context)
+static void SoundSource_SoundSource_Context(SoundSource* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) SoundSource(context);
+}
+
 // class SoundSource | File: ../Audio/SoundSource.h
 static void Register_SoundSource(asIScriptEngine* engine)
 {
+    // explicit SoundSource::SoundSource(Context* context)
+    engine->RegisterObjectBehaviour("SoundSource", asBEHAVE_FACTORY, "SoundSource@+ f()", AS_FUNCTION(SoundSource_SoundSource_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7558,9 +9211,19 @@ static void Register_SoundSource(asIScriptEngine* engine)
     #endif
 }
 
+// explicit SoundSource3D::SoundSource3D(Context* context)
+static void SoundSource3D_SoundSource3D_Context(SoundSource3D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) SoundSource3D(context);
+}
+
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
 static void Register_SoundSource3D(asIScriptEngine* engine)
 {
+    // explicit SoundSource3D::SoundSource3D(Context* context)
+    engine->RegisterObjectBehaviour("SoundSource3D", asBEHAVE_FACTORY, "SoundSource3D@+ f()", AS_FUNCTION(SoundSource3D_SoundSource3D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7636,9 +9299,19 @@ static void Register_SoundStream(asIScriptEngine* engine)
     #endif
 }
 
+// SourceBatch::SourceBatch(const SourceBatch& batch)
+static void SourceBatch_SourceBatch_SourceBatch(SourceBatch* ptr, const SourceBatch& batch)
+{
+    new(ptr) SourceBatch(batch);
+}
+
 // struct SourceBatch | File: ../Graphics/Drawable.h
 static void Register_SourceBatch(asIScriptEngine* engine)
 {
+    // SourceBatch::SourceBatch(const SourceBatch& batch)
+    engine->RegisterObjectBehaviour("SourceBatch", asBEHAVE_CONSTRUCT, "void f(const SourceBatch&in)", AS_FUNCTION_OBJFIRST(SourceBatch_SourceBatch_SourceBatch), AS_CALL_CDECL_OBJFIRST);
+
+
     // SourceBatch::~SourceBatch()
     engine->RegisterObjectBehaviour("SourceBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SourceBatch), AS_CALL_CDECL_OBJFIRST);
 
@@ -7678,9 +9351,53 @@ static void Register_SourceBatch(asIScriptEngine* engine)
     #endif
 }
 
+// Sphere::Sphere(const Sphere& sphere) noexcept=default
+static void Sphere_Sphere_Sphere(Sphere* ptr, const Sphere& sphere)
+{
+    new(ptr) Sphere(sphere);
+}
+
+// Sphere::Sphere(const Vector3& center, float radius) noexcept
+static void Sphere_Sphere_Vector3_float(Sphere* ptr, const Vector3& center, float radius)
+{
+    new(ptr) Sphere(center, radius);
+}
+
+// explicit Sphere::Sphere(const BoundingBox& box) noexcept
+static void Sphere_Sphere_BoundingBox(Sphere* ptr, const BoundingBox& box)
+{
+    new(ptr) Sphere(box);
+}
+
+// explicit Sphere::Sphere(const Frustum& frustum) noexcept
+static void Sphere_Sphere_Frustum(Sphere* ptr, const Frustum& frustum)
+{
+    new(ptr) Sphere(frustum);
+}
+
+// explicit Sphere::Sphere(const Polyhedron& poly) noexcept
+static void Sphere_Sphere_Polyhedron(Sphere* ptr, const Polyhedron& poly)
+{
+    new(ptr) Sphere(poly);
+}
+
 // class Sphere | File: ../Math/Sphere.h
 static void Register_Sphere(asIScriptEngine* engine)
 {
+    // Sphere::Sphere(const Vector3* vertices, unsigned count) noexcept
+    // Error: type "const Vector3*" can not automatically bind
+
+    // Sphere::Sphere(const Sphere& sphere) noexcept=default
+    engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT, "void f(const Sphere&in)", AS_FUNCTION_OBJFIRST(Sphere_Sphere_Sphere), AS_CALL_CDECL_OBJFIRST);
+    // Sphere::Sphere(const Vector3& center, float radius) noexcept
+    engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, float)", AS_FUNCTION_OBJFIRST(Sphere_Sphere_Vector3_float), AS_CALL_CDECL_OBJFIRST);
+    // explicit Sphere::Sphere(const BoundingBox& box) noexcept
+    engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT, "void f(const BoundingBox&in)", AS_FUNCTION_OBJFIRST(Sphere_Sphere_BoundingBox), AS_CALL_CDECL_OBJFIRST);
+    // explicit Sphere::Sphere(const Frustum& frustum) noexcept
+    engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT, "void f(const Frustum&in)", AS_FUNCTION_OBJFIRST(Sphere_Sphere_Frustum), AS_CALL_CDECL_OBJFIRST);
+    // explicit Sphere::Sphere(const Polyhedron& poly) noexcept
+    engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT, "void f(const Polyhedron&in)", AS_FUNCTION_OBJFIRST(Sphere_Sphere_Polyhedron), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7717,9 +9434,30 @@ static void Register_Sphere(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Spline::Spline(InterpolationMode mode)
+static void Spline_Spline_InterpolationMode(Spline* ptr, InterpolationMode mode)
+{
+    new(ptr) Spline(mode);
+}
+
+// Spline::Spline(const Spline& rhs)=default
+static void Spline_Spline_Spline(Spline* ptr, const Spline& rhs)
+{
+    new(ptr) Spline(rhs);
+}
+
 // class Spline | File: ../Core/Spline.h
 static void Register_Spline(asIScriptEngine* engine)
 {
+    // explicit Spline::Spline(const Vector<Variant>& knots, InterpolationMode mode=BEZIER_CURVE)
+    // Error: type "const Vector<Variant>&" can not automatically bind
+
+    // explicit Spline::Spline(InterpolationMode mode)
+    engine->RegisterObjectBehaviour("Spline", asBEHAVE_CONSTRUCT, "void f(InterpolationMode)", AS_FUNCTION_OBJFIRST(Spline_Spline_InterpolationMode), AS_CALL_CDECL_OBJFIRST);
+    // Spline::Spline(const Spline& rhs)=default
+    engine->RegisterObjectBehaviour("Spline", asBEHAVE_CONSTRUCT, "void f(const Spline&in)", AS_FUNCTION_OBJFIRST(Spline_Spline_Spline), AS_CALL_CDECL_OBJFIRST);
+
+
     // Spline::~Spline() | Implicitly-declared
     engine->RegisterObjectBehaviour("Spline", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Spline), AS_CALL_CDECL_OBJFIRST);
 
@@ -7759,9 +9497,19 @@ static void Register_Spline(asIScriptEngine* engine)
     #endif
 }
 
+// explicit SplinePath::SplinePath(Context* context)
+static void SplinePath_SplinePath_Context(SplinePath* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) SplinePath(context);
+}
+
 // class SplinePath | File: ../Scene/SplinePath.h
 static void Register_SplinePath(asIScriptEngine* engine)
 {
+    // explicit SplinePath::SplinePath(Context* context)
+    engine->RegisterObjectBehaviour("SplinePath", asBEHAVE_FACTORY, "SplinePath@+ f()", AS_FUNCTION(SplinePath_SplinePath_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7798,9 +9546,19 @@ static void Register_SplinePath(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Sprite::Sprite(Context* context)
+static void Sprite_Sprite_Context(Sprite* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Sprite(context);
+}
+
 // class Sprite | File: ../UI/Sprite.h
 static void Register_Sprite(asIScriptEngine* engine)
 {
+    // explicit Sprite::Sprite(Context* context)
+    engine->RegisterObjectBehaviour("Sprite", asBEHAVE_FACTORY, "Sprite@+ f()", AS_FUNCTION(Sprite_Sprite_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7837,9 +9595,19 @@ static void Register_Sprite(asIScriptEngine* engine)
     #endif
 }
 
+// explicit StaticModel::StaticModel(Context* context)
+static void StaticModel_StaticModel_Context(StaticModel* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) StaticModel(context);
+}
+
 // class StaticModel | File: ../Graphics/StaticModel.h
 static void Register_StaticModel(asIScriptEngine* engine)
 {
+    // explicit StaticModel::StaticModel(Context* context)
+    engine->RegisterObjectBehaviour("StaticModel", asBEHAVE_FACTORY, "StaticModel@+ f()", AS_FUNCTION(StaticModel_StaticModel_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7918,9 +9686,19 @@ static void Register_StaticModelGeometryData(asIScriptEngine* engine)
     #endif
 }
 
+// explicit StaticModelGroup::StaticModelGroup(Context* context)
+static void StaticModelGroup_StaticModelGroup_Context(StaticModelGroup* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) StaticModelGroup(context);
+}
+
 // class StaticModelGroup | File: ../Graphics/StaticModelGroup.h
 static void Register_StaticModelGroup(asIScriptEngine* engine)
 {
+    // explicit StaticModelGroup::StaticModelGroup(Context* context)
+    engine->RegisterObjectBehaviour("StaticModelGroup", asBEHAVE_FACTORY, "StaticModelGroup@+ f()", AS_FUNCTION(StaticModelGroup_StaticModelGroup_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -7957,9 +9735,19 @@ static void Register_StaticModelGroup(asIScriptEngine* engine)
     #endif
 }
 
+// StoredLogMessage::StoredLogMessage(const String& message, int level, bool error)
+static void StoredLogMessage_StoredLogMessage_String_int_bool(StoredLogMessage* ptr, const String& message, int level, bool error)
+{
+    new(ptr) StoredLogMessage(message, level, error);
+}
+
 // struct StoredLogMessage | File: ../IO/Log.h
 static void Register_StoredLogMessage(asIScriptEngine* engine)
 {
+    // StoredLogMessage::StoredLogMessage(const String& message, int level, bool error)
+    engine->RegisterObjectBehaviour("StoredLogMessage", asBEHAVE_CONSTRUCT, "void f(const String&in, int, bool)", AS_FUNCTION_OBJFIRST(StoredLogMessage_StoredLogMessage_String_int_bool), AS_CALL_CDECL_OBJFIRST);
+
+
     // StoredLogMessage::~StoredLogMessage() | Implicitly-declared
     engine->RegisterObjectBehaviour("StoredLogMessage", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StoredLogMessage), AS_CALL_CDECL_OBJFIRST);
 
@@ -7999,14 +9787,127 @@ static void Register_StoredLogMessage(asIScriptEngine* engine)
     #endif
 }
 
+// String::String(const String& str)
+static void String_String_String(String* ptr, const String& str)
+{
+    new(ptr) String(str);
+}
+
+// explicit String::String(int value)
+static void String_String_int(String* ptr, int value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(short value)
+static void String_String_short(String* ptr, short value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(long long value)
+static void String_String_longlong(String* ptr, long long value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(unsigned value)
+static void String_String_unsigned(String* ptr, unsigned value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(unsigned short value)
+static void String_String_unsignedshort(String* ptr, unsigned short value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(unsigned long long value)
+static void String_String_unsignedlonglong(String* ptr, unsigned long long value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(float value)
+static void String_String_float(String* ptr, float value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(double value)
+static void String_String_double(String* ptr, double value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(bool value)
+static void String_String_bool(String* ptr, bool value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(char value)
+static void String_String_char(String* ptr, char value)
+{
+    new(ptr) String(value);
+}
+
+// explicit String::String(char value, unsigned length)
+static void String_String_char_unsigned(String* ptr, char value, unsigned length)
+{
+    new(ptr) String(value, length);
+}
+
 // class String | File: ../Container/Str.h
 static void Register_String(asIScriptEngine* engine)
 {
+    // String::String(String&& str) noexcept
+    // Error: type "String&&" can not automatically bind
+    // String::String(char* str)
+    // Error: type "char*" can not automatically bind
+    // String::String(const char* str)
+    // Error: type "const char*" can not automatically bind
+    // String::String(const char* str, unsigned length)
+    // Error: type "const char*" can not automatically bind
+    // explicit String::String(const WString& str)
+    // Error: type "WString" can not automatically bind bacause have @nobind mark
+    // explicit String::String(const wchar_t* str)
+    // Error: type "const wchar_t*" can not automatically bind
     // explicit String::String(long value)
     // Not registered because have @nobind mark
-
     // explicit String::String(unsigned long value)
     // Not registered because have @nobind mark
+    // explicit String::String(wchar_t* str)
+    // Error: type "wchar_t*" can not automatically bind
+    // template<class T> explicit String::String(const T& value)
+    // Error: type "const T&" can not automatically bind
+
+    // String::String(const String& str)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(const String&in)", AS_FUNCTION_OBJFIRST(String_String_String), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(int value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(int)", AS_FUNCTION_OBJFIRST(String_String_int), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(short value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(int16)", AS_FUNCTION_OBJFIRST(String_String_short), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(long long value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(int64)", AS_FUNCTION_OBJFIRST(String_String_longlong), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(unsigned value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(uint)", AS_FUNCTION_OBJFIRST(String_String_unsigned), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(unsigned short value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(uint16)", AS_FUNCTION_OBJFIRST(String_String_unsignedshort), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(unsigned long long value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(uint64)", AS_FUNCTION_OBJFIRST(String_String_unsignedlonglong), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(float value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(float)", AS_FUNCTION_OBJFIRST(String_String_float), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(double value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(double)", AS_FUNCTION_OBJFIRST(String_String_double), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(bool value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(bool)", AS_FUNCTION_OBJFIRST(String_String_bool), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(char value)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(int8)", AS_FUNCTION_OBJFIRST(String_String_char), AS_CALL_CDECL_OBJFIRST);
+    // explicit String::String(char value, unsigned length)
+    engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(int8, uint)", AS_FUNCTION_OBJFIRST(String_String_char_unsigned), AS_CALL_CDECL_OBJFIRST);
+
 
     // String::~String()
     engine->RegisterObjectBehaviour("String", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(String), AS_CALL_CDECL_OBJFIRST);
@@ -8047,9 +9948,37 @@ static void Register_String(asIScriptEngine* engine)
     #endif
 }
 
+// StringHash::StringHash(const StringHash& rhs) noexcept=default
+static void StringHash_StringHash_StringHash(StringHash* ptr, const StringHash& rhs)
+{
+    new(ptr) StringHash(rhs);
+}
+
+// explicit StringHash::StringHash(unsigned value) noexcept
+static void StringHash_StringHash_unsigned(StringHash* ptr, unsigned value)
+{
+    new(ptr) StringHash(value);
+}
+
+// StringHash::StringHash(const String& str) noexcept
+static void StringHash_StringHash_String(StringHash* ptr, const String& str)
+{
+    new(ptr) StringHash(str);
+}
+
 // class StringHash | File: ../Math/StringHash.h
 static void Register_StringHash(asIScriptEngine* engine)
 {
+    // StringHash::StringHash(const char* str) noexcept
+    // Error: type "const char*" can not automatically bind
+
+    // StringHash::StringHash(const StringHash& rhs) noexcept=default
+    engine->RegisterObjectBehaviour("StringHash", asBEHAVE_CONSTRUCT, "void f(const StringHash&in)", AS_FUNCTION_OBJFIRST(StringHash_StringHash_StringHash), AS_CALL_CDECL_OBJFIRST);
+    // explicit StringHash::StringHash(unsigned value) noexcept
+    engine->RegisterObjectBehaviour("StringHash", asBEHAVE_CONSTRUCT, "void f(uint)", AS_FUNCTION_OBJFIRST(StringHash_StringHash_unsigned), AS_CALL_CDECL_OBJFIRST);
+    // StringHash::StringHash(const String& str) noexcept
+    engine->RegisterObjectBehaviour("StringHash", asBEHAVE_CONSTRUCT, "void f(const String&in)", AS_FUNCTION_OBJFIRST(StringHash_StringHash_String), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8086,9 +10015,19 @@ static void Register_StringHash(asIScriptEngine* engine)
     #endif
 }
 
+// StringHashRegister::StringHashRegister(bool threadSafe)
+static void StringHashRegister_StringHashRegister_bool(StringHashRegister* ptr, bool threadSafe)
+{
+    new(ptr) StringHashRegister(threadSafe);
+}
+
 // class StringHashRegister | File: ../Core/StringHashRegister.h
 static void Register_StringHashRegister(asIScriptEngine* engine)
 {
+    // StringHashRegister::StringHashRegister(bool threadSafe)
+    engine->RegisterObjectBehaviour("StringHashRegister", asBEHAVE_CONSTRUCT, "void f(bool)", AS_FUNCTION_OBJFIRST(StringHashRegister_StringHashRegister_bool), AS_CALL_CDECL_OBJFIRST);
+
+
     // StringHashRegister::~StringHashRegister()
     engine->RegisterObjectBehaviour("StringHashRegister", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StringHashRegister), AS_CALL_CDECL_OBJFIRST);
 
@@ -8128,9 +10067,19 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Technique::Technique(Context* context)
+static void Technique_Technique_Context(Technique* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Technique(context);
+}
+
 // class Technique | File: ../Graphics/Technique.h
 static void Register_Technique(asIScriptEngine* engine)
 {
+    // explicit Technique::Technique(Context* context)
+    engine->RegisterObjectBehaviour("Technique", asBEHAVE_FACTORY, "Technique@+ f()", AS_FUNCTION(Technique_Technique_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8167,9 +10116,19 @@ static void Register_Technique(asIScriptEngine* engine)
     #endif
 }
 
+// TechniqueEntry::TechniqueEntry(Technique* tech, MaterialQuality qualityLevel, float lodDistance) noexcept
+static void TechniqueEntry_TechniqueEntry_Technique_MaterialQuality_float(TechniqueEntry* ptr, Technique* tech, MaterialQuality qualityLevel, float lodDistance)
+{
+    new(ptr) TechniqueEntry(tech, qualityLevel, lodDistance);
+}
+
 // struct TechniqueEntry | File: ../Graphics/Material.h
 static void Register_TechniqueEntry(asIScriptEngine* engine)
 {
+    // TechniqueEntry::TechniqueEntry(Technique* tech, MaterialQuality qualityLevel, float lodDistance) noexcept
+    engine->RegisterObjectBehaviour("TechniqueEntry", asBEHAVE_CONSTRUCT, "void f(Technique@+, MaterialQuality, float)", AS_FUNCTION_OBJFIRST(TechniqueEntry_TechniqueEntry_Technique_MaterialQuality_float), AS_CALL_CDECL_OBJFIRST);
+
+
     // TechniqueEntry::~TechniqueEntry() noexcept=default
     engine->RegisterObjectBehaviour("TechniqueEntry", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(TechniqueEntry), AS_CALL_CDECL_OBJFIRST);
 
@@ -8209,9 +10168,19 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Terrain::Terrain(Context* context)
+static void Terrain_Terrain_Context(Terrain* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Terrain(context);
+}
+
 // class Terrain | File: ../Graphics/Terrain.h
 static void Register_Terrain(asIScriptEngine* engine)
 {
+    // explicit Terrain::Terrain(Context* context)
+    engine->RegisterObjectBehaviour("Terrain", asBEHAVE_FACTORY, "Terrain@+ f()", AS_FUNCTION(Terrain_Terrain_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8248,9 +10217,19 @@ static void Register_Terrain(asIScriptEngine* engine)
     #endif
 }
 
+// explicit TerrainPatch::TerrainPatch(Context* context)
+static void TerrainPatch_TerrainPatch_Context(TerrainPatch* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) TerrainPatch(context);
+}
+
 // class TerrainPatch | File: ../Graphics/TerrainPatch.h
 static void Register_TerrainPatch(asIScriptEngine* engine)
 {
+    // explicit TerrainPatch::TerrainPatch(Context* context)
+    engine->RegisterObjectBehaviour("TerrainPatch", asBEHAVE_FACTORY, "TerrainPatch@+ f()", AS_FUNCTION(TerrainPatch_TerrainPatch_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8287,9 +10266,19 @@ static void Register_TerrainPatch(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Text::Text(Context* context)
+static void Text_Text_Context(Text* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Text(context);
+}
+
 // class Text | File: ../UI/Text.h
 static void Register_Text(asIScriptEngine* engine)
 {
+    // explicit Text::Text(Context* context)
+    engine->RegisterObjectBehaviour("Text", asBEHAVE_FACTORY, "Text@+ f()", AS_FUNCTION(Text_Text_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8326,9 +10315,19 @@ static void Register_Text(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Text3D::Text3D(Context* context)
+static void Text3D_Text3D_Context(Text3D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Text3D(context);
+}
+
 // class Text3D | File: ../UI/Text3D.h
 static void Register_Text3D(asIScriptEngine* engine)
 {
+    // explicit Text3D::Text3D(Context* context)
+    engine->RegisterObjectBehaviour("Text3D", asBEHAVE_FACTORY, "Text3D@+ f()", AS_FUNCTION(Text3D_Text3D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8365,9 +10364,19 @@ static void Register_Text3D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Texture::Texture(Context* context)
+static void Texture_Texture_Context(Texture* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Texture(context);
+}
+
 // class Texture | File: ../Graphics/Texture.h
 static void Register_Texture(asIScriptEngine* engine)
 {
+    // explicit Texture::Texture(Context* context)
+    engine->RegisterObjectBehaviour("Texture", asBEHAVE_FACTORY, "Texture@+ f()", AS_FUNCTION(Texture_Texture_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8404,9 +10413,19 @@ static void Register_Texture(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Texture2D::Texture2D(Context* context)
+static void Texture2D_Texture2D_Context(Texture2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Texture2D(context);
+}
+
 // class Texture2D | File: ../Graphics/Texture2D.h
 static void Register_Texture2D(asIScriptEngine* engine)
 {
+    // explicit Texture2D::Texture2D(Context* context)
+    engine->RegisterObjectBehaviour("Texture2D", asBEHAVE_FACTORY, "Texture2D@+ f()", AS_FUNCTION(Texture2D_Texture2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8443,9 +10462,19 @@ static void Register_Texture2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Texture2DArray::Texture2DArray(Context* context)
+static void Texture2DArray_Texture2DArray_Context(Texture2DArray* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Texture2DArray(context);
+}
+
 // class Texture2DArray | File: ../Graphics/Texture2DArray.h
 static void Register_Texture2DArray(asIScriptEngine* engine)
 {
+    // explicit Texture2DArray::Texture2DArray(Context* context)
+    engine->RegisterObjectBehaviour("Texture2DArray", asBEHAVE_FACTORY, "Texture2DArray@+ f()", AS_FUNCTION(Texture2DArray_Texture2DArray_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8482,9 +10511,19 @@ static void Register_Texture2DArray(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Texture3D::Texture3D(Context* context)
+static void Texture3D_Texture3D_Context(Texture3D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Texture3D(context);
+}
+
 // class Texture3D | File: ../Graphics/Texture3D.h
 static void Register_Texture3D(asIScriptEngine* engine)
 {
+    // explicit Texture3D::Texture3D(Context* context)
+    engine->RegisterObjectBehaviour("Texture3D", asBEHAVE_FACTORY, "Texture3D@+ f()", AS_FUNCTION(Texture3D_Texture3D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8521,9 +10560,19 @@ static void Register_Texture3D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit TextureCube::TextureCube(Context* context)
+static void TextureCube_TextureCube_Context(TextureCube* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) TextureCube(context);
+}
+
 // class TextureCube | File: ../Graphics/TextureCube.h
 static void Register_TextureCube(asIScriptEngine* engine)
 {
+    // explicit TextureCube::TextureCube(Context* context)
+    engine->RegisterObjectBehaviour("TextureCube", asBEHAVE_FACTORY, "TextureCube@+ f()", AS_FUNCTION(TextureCube_TextureCube_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8599,9 +10648,19 @@ static void Register_TextureFrame(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Time::Time(Context* context)
+static void Time_Time_Context(Time* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Time(context);
+}
+
 // class Time | File: ../Core/Timer.h
 static void Register_Time(asIScriptEngine* engine)
 {
+    // explicit Time::Time(Context* context)
+    engine->RegisterObjectBehaviour("Time", asBEHAVE_FACTORY, "Time@+ f()", AS_FUNCTION(Time_Time_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8677,9 +10736,19 @@ static void Register_Timer(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ToolTip::ToolTip(Context* context)
+static void ToolTip_ToolTip_Context(ToolTip* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ToolTip(context);
+}
+
 // class ToolTip | File: ../UI/ToolTip.h
 static void Register_ToolTip(asIScriptEngine* engine)
 {
+    // explicit ToolTip::ToolTip(Context* context)
+    engine->RegisterObjectBehaviour("ToolTip", asBEHAVE_FACTORY, "ToolTip@+ f()", AS_FUNCTION(ToolTip_ToolTip_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8755,9 +10824,19 @@ static void Register_TouchState(asIScriptEngine* engine)
     #endif
 }
 
+// TrailPoint::TrailPoint(const Vector3& position, const Vector3& forward)
+static void TrailPoint_TrailPoint_Vector3_Vector3(TrailPoint* ptr, const Vector3& position, const Vector3& forward)
+{
+    new(ptr) TrailPoint(position, forward);
+}
+
 // struct TrailPoint | File: ../Graphics/RibbonTrail.h
 static void Register_TrailPoint(asIScriptEngine* engine)
 {
+    // TrailPoint::TrailPoint(const Vector3& position, const Vector3& forward)
+    engine->RegisterObjectBehaviour("TrailPoint", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(TrailPoint_TrailPoint_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+
+
     // TrailPoint::~TrailPoint() | Implicitly-declared
     engine->RegisterObjectBehaviour("TrailPoint", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(TrailPoint), AS_CALL_CDECL_OBJFIRST);
 
@@ -8797,9 +10876,19 @@ static void Register_TrailPoint(asIScriptEngine* engine)
     #endif
 }
 
+// explicit UI::UI(Context* context)
+static void UI_UI_Context(UI* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) UI(context);
+}
+
 // class UI | File: ../UI/UI.h
 static void Register_UI(asIScriptEngine* engine)
 {
+    // explicit UI::UI(Context* context)
+    engine->RegisterObjectBehaviour("UI", asBEHAVE_FACTORY, "UI@+ f()", AS_FUNCTION(UI_UI_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8839,6 +10928,10 @@ static void Register_UI(asIScriptEngine* engine)
 // class UIBatch | File: ../UI/UIBatch.h
 static void Register_UIBatch(asIScriptEngine* engine)
 {
+    // UIBatch::UIBatch(UIElement* element, BlendMode blendMode, const IntRect& scissor, Texture* texture, PODVector<float>* vertexData)
+    // Error: type "PODVector<float>*" can not automatically bind
+
+
     // UIBatch::~UIBatch() | Implicitly-declared
     engine->RegisterObjectBehaviour("UIBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(UIBatch), AS_CALL_CDECL_OBJFIRST);
 
@@ -8878,9 +10971,19 @@ static void Register_UIBatch(asIScriptEngine* engine)
     #endif
 }
 
+// explicit UIComponent::UIComponent(Context* context)
+static void UIComponent_UIComponent_Context(UIComponent* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) UIComponent(context);
+}
+
 // class UIComponent | File: ../UI/UIComponent.h
 static void Register_UIComponent(asIScriptEngine* engine)
 {
+    // explicit UIComponent::UIComponent(Context* context)
+    engine->RegisterObjectBehaviour("UIComponent", asBEHAVE_FACTORY, "UIComponent@+ f()", AS_FUNCTION(UIComponent_UIComponent_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -8917,9 +11020,19 @@ static void Register_UIComponent(asIScriptEngine* engine)
     #endif
 }
 
+// explicit UIElement::UIElement(Context* context)
+static void UIElement_UIElement_Context(UIElement* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) UIElement(context);
+}
+
 // class UIElement | File: ../UI/UIElement.h
 static void Register_UIElement(asIScriptEngine* engine)
 {
+    // explicit UIElement::UIElement(Context* context)
+    engine->RegisterObjectBehaviour("UIElement", asBEHAVE_FACTORY, "UIElement@+ f()", AS_FUNCTION(UIElement_UIElement_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9118,9 +11231,19 @@ static void Register_VAnimKeyFrame(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ValueAnimation::ValueAnimation(Context* context)
+static void ValueAnimation_ValueAnimation_Context(ValueAnimation* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ValueAnimation(context);
+}
+
 // class ValueAnimation | File: ../Scene/ValueAnimation.h
 static void Register_ValueAnimation(asIScriptEngine* engine)
 {
+    // explicit ValueAnimation::ValueAnimation(Context* context)
+    engine->RegisterObjectBehaviour("ValueAnimation", asBEHAVE_FACTORY, "ValueAnimation@+ f()", AS_FUNCTION(ValueAnimation_ValueAnimation_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9157,9 +11280,34 @@ static void Register_ValueAnimation(asIScriptEngine* engine)
     #endif
 }
 
+// ValueAnimationInfo::ValueAnimationInfo(ValueAnimation* animation, WrapMode wrapMode, float speed)
+static void ValueAnimationInfo_ValueAnimationInfo_ValueAnimation_WrapMode_float(ValueAnimationInfo* ptr, ValueAnimation* animation, WrapMode wrapMode, float speed)
+{
+    new(ptr) ValueAnimationInfo(animation, wrapMode, speed);
+}
+
+// ValueAnimationInfo::ValueAnimationInfo(Object* target, ValueAnimation* animation, WrapMode wrapMode, float speed)
+static void ValueAnimationInfo_ValueAnimationInfo_Object_ValueAnimation_WrapMode_float(ValueAnimationInfo* ptr, Object* target, ValueAnimation* animation, WrapMode wrapMode, float speed)
+{
+    new(ptr) ValueAnimationInfo(target, animation, wrapMode, speed);
+}
+
+// ValueAnimationInfo::ValueAnimationInfo(const ValueAnimationInfo& other)
+static void ValueAnimationInfo_ValueAnimationInfo_ValueAnimationInfo(ValueAnimationInfo* ptr, const ValueAnimationInfo& other)
+{
+    new(ptr) ValueAnimationInfo(other);
+}
+
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h
 static void Register_ValueAnimationInfo(asIScriptEngine* engine)
 {
+    // ValueAnimationInfo::ValueAnimationInfo(ValueAnimation* animation, WrapMode wrapMode, float speed)
+    engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_FACTORY, "ValueAnimationInfo@+ f(ValueAnimation@+, WrapMode, float)", AS_FUNCTION(ValueAnimationInfo_ValueAnimationInfo_ValueAnimation_WrapMode_float) , AS_CALL_CDECL);
+    // ValueAnimationInfo::ValueAnimationInfo(Object* target, ValueAnimation* animation, WrapMode wrapMode, float speed)
+    engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_FACTORY, "ValueAnimationInfo@+ f(Object@+, ValueAnimation@+, WrapMode, float)", AS_FUNCTION(ValueAnimationInfo_ValueAnimationInfo_Object_ValueAnimation_WrapMode_float) , AS_CALL_CDECL);
+    // ValueAnimationInfo::ValueAnimationInfo(const ValueAnimationInfo& other)
+    engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_FACTORY, "ValueAnimationInfo@+ f(const ValueAnimationInfo&in)", AS_FUNCTION(ValueAnimationInfo_ValueAnimationInfo_ValueAnimationInfo) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9196,9 +11344,267 @@ static void Register_ValueAnimationInfo(asIScriptEngine* engine)
     #endif
 }
 
+// Variant::Variant(int value)
+static void Variant_Variant_int(Variant* ptr, int value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(long long value)
+static void Variant_Variant_longlong(Variant* ptr, long long value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(unsigned value)
+static void Variant_Variant_unsigned(Variant* ptr, unsigned value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(unsigned long long value)
+static void Variant_Variant_unsignedlonglong(Variant* ptr, unsigned long long value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const StringHash& value)
+static void Variant_Variant_StringHash(Variant* ptr, const StringHash& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(bool value)
+static void Variant_Variant_bool(Variant* ptr, bool value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(float value)
+static void Variant_Variant_float(Variant* ptr, float value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(double value)
+static void Variant_Variant_double(Variant* ptr, double value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Vector2& value)
+static void Variant_Variant_Vector2(Variant* ptr, const Vector2& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Vector3& value)
+static void Variant_Variant_Vector3(Variant* ptr, const Vector3& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Vector4& value)
+static void Variant_Variant_Vector4(Variant* ptr, const Vector4& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Quaternion& value)
+static void Variant_Variant_Quaternion(Variant* ptr, const Quaternion& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Color& value)
+static void Variant_Variant_Color(Variant* ptr, const Color& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const String& value)
+static void Variant_Variant_String(Variant* ptr, const String& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const VectorBuffer& value)
+static void Variant_Variant_VectorBuffer(Variant* ptr, const VectorBuffer& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const ResourceRef& value)
+static void Variant_Variant_ResourceRef(Variant* ptr, const ResourceRef& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const ResourceRefList& value)
+static void Variant_Variant_ResourceRefList(Variant* ptr, const ResourceRefList& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const VariantMap& value)
+static void Variant_Variant_VariantMap(Variant* ptr, const VariantMap& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const StringVector& value)
+static void Variant_Variant_StringVector(Variant* ptr, CScriptArray* value_conv)
+{
+    StringVector value = ArrayToVector<String>(value_conv);
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Rect& value)
+static void Variant_Variant_Rect(Variant* ptr, const Rect& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const IntRect& value)
+static void Variant_Variant_IntRect(Variant* ptr, const IntRect& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const IntVector2& value)
+static void Variant_Variant_IntVector2(Variant* ptr, const IntVector2& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const IntVector3& value)
+static void Variant_Variant_IntVector3(Variant* ptr, const IntVector3& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(RefCounted* value)
+static void Variant_Variant_RefCounted(Variant* ptr, RefCounted* value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Matrix3& value)
+static void Variant_Variant_Matrix3(Variant* ptr, const Matrix3& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Matrix3x4& value)
+static void Variant_Variant_Matrix3x4(Variant* ptr, const Matrix3x4& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const Matrix4& value)
+static void Variant_Variant_Matrix4(Variant* ptr, const Matrix4& value)
+{
+    new(ptr) Variant(value);
+}
+
+// Variant::Variant(const String& type, const String& value)
+static void Variant_Variant_String_String(Variant* ptr, const String& type, const String& value)
+{
+    new(ptr) Variant(type, value);
+}
+
+// Variant::Variant(VariantType type, const String& value)
+static void Variant_Variant_VariantType_String(Variant* ptr, VariantType type, const String& value)
+{
+    new(ptr) Variant(type, value);
+}
+
+// Variant::Variant(const Variant& value)
+static void Variant_Variant_Variant(Variant* ptr, const Variant& value)
+{
+    new(ptr) Variant(value);
+}
+
 // class Variant | File: ../Core/Variant.h
 static void Register_Variant(asIScriptEngine* engine)
 {
+    // Variant::Variant(VariantType type, const char* value)
+    // Error: type "const char*" can not automatically bind
+    // Variant::Variant(const PODVector<unsigned char>& value)
+    // Error: type "const PODVector<unsigned char>&" can not automatically bind
+    // Variant::Variant(const VariantVector& value)
+    // Error: type "const VariantVector&" can not automatically bind
+    // Variant::Variant(const char* type, const char* value)
+    // Error: type "const char*" can not automatically bind
+    // Variant::Variant(const char* value)
+    // Error: type "const char*" can not automatically bind
+    // Variant::Variant(void* value)
+    // Error: type "void*" can not automatically bind
+    // template<class T> Variant::Variant(const CustomVariantValueImpl<T>& value)
+    // Error: type "const CustomVariantValueImpl<T>&" can not automatically bind
+
+    // Variant::Variant(int value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(int)", AS_FUNCTION_OBJFIRST(Variant_Variant_int), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(long long value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(int64)", AS_FUNCTION_OBJFIRST(Variant_Variant_longlong), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(unsigned value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(uint)", AS_FUNCTION_OBJFIRST(Variant_Variant_unsigned), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(unsigned long long value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(uint64)", AS_FUNCTION_OBJFIRST(Variant_Variant_unsignedlonglong), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const StringHash& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const StringHash&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_StringHash), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(bool value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(bool)", AS_FUNCTION_OBJFIRST(Variant_Variant_bool), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(float value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(float)", AS_FUNCTION_OBJFIRST(Variant_Variant_float), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(double value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(double)", AS_FUNCTION_OBJFIRST(Variant_Variant_double), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Vector2& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Vector2&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Vector2), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Vector3& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Vector3&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Vector4& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Vector4&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Vector4), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Quaternion& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Quaternion&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Quaternion), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Color& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Color&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Color), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const String& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const String&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_String), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const VectorBuffer& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const VectorBuffer&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_VectorBuffer), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const ResourceRef& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const ResourceRef&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_ResourceRef), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const ResourceRefList& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const ResourceRefList&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_ResourceRefList), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const VariantMap& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const VariantMap&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_VariantMap), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const StringVector& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(Array<String>@+)", AS_FUNCTION_OBJFIRST(Variant_Variant_StringVector), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Rect& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Rect&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Rect), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const IntRect& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const IntRect&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_IntRect), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const IntVector2& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const IntVector2&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_IntVector2), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const IntVector3& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const IntVector3&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_IntVector3), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(RefCounted* value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(RefCounted@+)", AS_FUNCTION_OBJFIRST(Variant_Variant_RefCounted), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Matrix3& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Matrix3&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Matrix3), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Matrix3x4& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Matrix3x4&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Matrix3x4), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Matrix4& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Matrix4&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Matrix4), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const String& type, const String& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const String&in, const String&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_String_String), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(VariantType type, const String& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(VariantType, const String&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_VariantType_String), AS_CALL_CDECL_OBJFIRST);
+    // Variant::Variant(const Variant& value)
+    engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Variant&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Variant), AS_CALL_CDECL_OBJFIRST);
+
+
     // Variant::~Variant()
     engine->RegisterObjectBehaviour("Variant", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Variant), AS_CALL_CDECL_OBJFIRST);
 
@@ -9238,9 +11644,37 @@ static void Register_Variant(asIScriptEngine* engine)
     #endif
 }
 
+// Vector2::Vector2(const Vector2& vector) noexcept=default
+static void Vector2_Vector2_Vector2(Vector2* ptr, const Vector2& vector)
+{
+    new(ptr) Vector2(vector);
+}
+
+// explicit Vector2::Vector2(const IntVector2& vector) noexcept
+static void Vector2_Vector2_IntVector2(Vector2* ptr, const IntVector2& vector)
+{
+    new(ptr) Vector2(vector);
+}
+
+// Vector2::Vector2(float x, float y) noexcept
+static void Vector2_Vector2_float_float(Vector2* ptr, float x, float y)
+{
+    new(ptr) Vector2(x, y);
+}
+
 // class Vector2 | File: ../Math/Vector2.h
 static void Register_Vector2(asIScriptEngine* engine)
 {
+    // explicit Vector2::Vector2(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Vector2::Vector2(const Vector2& vector) noexcept=default
+    engine->RegisterObjectBehaviour("Vector2", asBEHAVE_CONSTRUCT, "void f(const Vector2&in)", AS_FUNCTION_OBJFIRST(Vector2_Vector2_Vector2), AS_CALL_CDECL_OBJFIRST);
+    // explicit Vector2::Vector2(const IntVector2& vector) noexcept
+    engine->RegisterObjectBehaviour("Vector2", asBEHAVE_CONSTRUCT, "void f(const IntVector2&in)", AS_FUNCTION_OBJFIRST(Vector2_Vector2_IntVector2), AS_CALL_CDECL_OBJFIRST);
+    // Vector2::Vector2(float x, float y) noexcept
+    engine->RegisterObjectBehaviour("Vector2", asBEHAVE_CONSTRUCT, "void f(float, float)", AS_FUNCTION_OBJFIRST(Vector2_Vector2_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9277,9 +11711,61 @@ static void Register_Vector2(asIScriptEngine* engine)
     #endif
 }
 
+// Vector3::Vector3(const Vector3& vector) noexcept=default
+static void Vector3_Vector3_Vector3(Vector3* ptr, const Vector3& vector)
+{
+    new(ptr) Vector3(vector);
+}
+
+// Vector3::Vector3(const Vector2& vector, float z) noexcept
+static void Vector3_Vector3_Vector2_float(Vector3* ptr, const Vector2& vector, float z)
+{
+    new(ptr) Vector3(vector, z);
+}
+
+// explicit Vector3::Vector3(const Vector2& vector) noexcept
+static void Vector3_Vector3_Vector2(Vector3* ptr, const Vector2& vector)
+{
+    new(ptr) Vector3(vector);
+}
+
+// explicit Vector3::Vector3(const IntVector3& vector) noexcept
+static void Vector3_Vector3_IntVector3(Vector3* ptr, const IntVector3& vector)
+{
+    new(ptr) Vector3(vector);
+}
+
+// Vector3::Vector3(float x, float y, float z) noexcept
+static void Vector3_Vector3_float_float_float(Vector3* ptr, float x, float y, float z)
+{
+    new(ptr) Vector3(x, y, z);
+}
+
+// Vector3::Vector3(float x, float y) noexcept
+static void Vector3_Vector3_float_float(Vector3* ptr, float x, float y)
+{
+    new(ptr) Vector3(x, y);
+}
+
 // class Vector3 | File: ../Math/Vector3.h
 static void Register_Vector3(asIScriptEngine* engine)
 {
+    // explicit Vector3::Vector3(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Vector3::Vector3(const Vector3& vector) noexcept=default
+    engine->RegisterObjectBehaviour("Vector3", asBEHAVE_CONSTRUCT, "void f(const Vector3&in)", AS_FUNCTION_OBJFIRST(Vector3_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
+    // Vector3::Vector3(const Vector2& vector, float z) noexcept
+    engine->RegisterObjectBehaviour("Vector3", asBEHAVE_CONSTRUCT, "void f(const Vector2&in, float)", AS_FUNCTION_OBJFIRST(Vector3_Vector3_Vector2_float), AS_CALL_CDECL_OBJFIRST);
+    // explicit Vector3::Vector3(const Vector2& vector) noexcept
+    engine->RegisterObjectBehaviour("Vector3", asBEHAVE_CONSTRUCT, "void f(const Vector2&in)", AS_FUNCTION_OBJFIRST(Vector3_Vector3_Vector2), AS_CALL_CDECL_OBJFIRST);
+    // explicit Vector3::Vector3(const IntVector3& vector) noexcept
+    engine->RegisterObjectBehaviour("Vector3", asBEHAVE_CONSTRUCT, "void f(const IntVector3&in)", AS_FUNCTION_OBJFIRST(Vector3_Vector3_IntVector3), AS_CALL_CDECL_OBJFIRST);
+    // Vector3::Vector3(float x, float y, float z) noexcept
+    engine->RegisterObjectBehaviour("Vector3", asBEHAVE_CONSTRUCT, "void f(float, float, float)", AS_FUNCTION_OBJFIRST(Vector3_Vector3_float_float_float), AS_CALL_CDECL_OBJFIRST);
+    // Vector3::Vector3(float x, float y) noexcept
+    engine->RegisterObjectBehaviour("Vector3", asBEHAVE_CONSTRUCT, "void f(float, float)", AS_FUNCTION_OBJFIRST(Vector3_Vector3_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9316,9 +11802,37 @@ static void Register_Vector3(asIScriptEngine* engine)
     #endif
 }
 
+// Vector4::Vector4(const Vector4& vector) noexcept=default
+static void Vector4_Vector4_Vector4(Vector4* ptr, const Vector4& vector)
+{
+    new(ptr) Vector4(vector);
+}
+
+// Vector4::Vector4(const Vector3& vector, float w) noexcept
+static void Vector4_Vector4_Vector3_float(Vector4* ptr, const Vector3& vector, float w)
+{
+    new(ptr) Vector4(vector, w);
+}
+
+// Vector4::Vector4(float x, float y, float z, float w) noexcept
+static void Vector4_Vector4_float_float_float_float(Vector4* ptr, float x, float y, float z, float w)
+{
+    new(ptr) Vector4(x, y, z, w);
+}
+
 // class Vector4 | File: ../Math/Vector4.h
 static void Register_Vector4(asIScriptEngine* engine)
 {
+    // explicit Vector4::Vector4(const float* data) noexcept
+    // Error: type "const float*" can not automatically bind
+
+    // Vector4::Vector4(const Vector4& vector) noexcept=default
+    engine->RegisterObjectBehaviour("Vector4", asBEHAVE_CONSTRUCT, "void f(const Vector4&in)", AS_FUNCTION_OBJFIRST(Vector4_Vector4_Vector4), AS_CALL_CDECL_OBJFIRST);
+    // Vector4::Vector4(const Vector3& vector, float w) noexcept
+    engine->RegisterObjectBehaviour("Vector4", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, float)", AS_FUNCTION_OBJFIRST(Vector4_Vector4_Vector3_float), AS_CALL_CDECL_OBJFIRST);
+    // Vector4::Vector4(float x, float y, float z, float w) noexcept
+    engine->RegisterObjectBehaviour("Vector4", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", AS_FUNCTION_OBJFIRST(Vector4_Vector4_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9397,9 +11911,24 @@ static void Register_VectorBase(asIScriptEngine* engine)
     #endif
 }
 
+// VectorBuffer::VectorBuffer(Deserializer& source, unsigned size)
+static void VectorBuffer_VectorBuffer_Deserializer_unsigned(VectorBuffer* ptr, Deserializer& source, unsigned size)
+{
+    new(ptr) VectorBuffer(source, size);
+}
+
 // class VectorBuffer | File: ../IO/VectorBuffer.h
 static void Register_VectorBuffer(asIScriptEngine* engine)
 {
+    // VectorBuffer::VectorBuffer(const void* data, unsigned size)
+    // Error: type "const void*" can not automatically bind
+    // explicit VectorBuffer::VectorBuffer(const PODVector<unsigned char>& data)
+    // Error: type "const PODVector<unsigned char>&" can not automatically bind
+
+    // VectorBuffer::VectorBuffer(Deserializer& source, unsigned size)
+    engine->RegisterObjectBehaviour("VectorBuffer", asBEHAVE_CONSTRUCT, "void f(Deserializer&, uint)", AS_FUNCTION_OBJFIRST(VectorBuffer_VectorBuffer_Deserializer_unsigned), AS_CALL_CDECL_OBJFIRST);
+
+
     // VectorBuffer::~VectorBuffer() | Implicitly-declared
     engine->RegisterObjectBehaviour("VectorBuffer", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VectorBuffer), AS_CALL_CDECL_OBJFIRST);
 
@@ -9439,9 +11968,19 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
     #endif
 }
 
+// explicit VertexBuffer::VertexBuffer(Context* context, bool forceHeadless=false)
+static void VertexBuffer_VertexBuffer_Context_bool(VertexBuffer* ptr, bool forceHeadless)
+{
+    Context* context = GetScriptContext();
+    new(ptr) VertexBuffer(context, forceHeadless);
+}
+
 // class VertexBuffer | File: ../Graphics/VertexBuffer.h
 static void Register_VertexBuffer(asIScriptEngine* engine)
 {
+    // explicit VertexBuffer::VertexBuffer(Context* context, bool forceHeadless=false)
+    engine->RegisterObjectBehaviour("VertexBuffer", asBEHAVE_FACTORY, "VertexBuffer@+ f(bool = false)", AS_FUNCTION(VertexBuffer_VertexBuffer_Context_bool) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9562,9 +12101,19 @@ static void Register_VertexBufferMorph(asIScriptEngine* engine)
     #endif
 }
 
+// VertexElement::VertexElement(VertexElementType type, VertexElementSemantic semantic, unsigned char index=0, bool perInstance=false) noexcept
+static void VertexElement_VertexElement_VertexElementType_VertexElementSemantic_unsignedchar_bool(VertexElement* ptr, VertexElementType type, VertexElementSemantic semantic, unsigned char index, bool perInstance)
+{
+    new(ptr) VertexElement(type, semantic, index, perInstance);
+}
+
 // struct VertexElement | File: ../Graphics/GraphicsDefs.h
 static void Register_VertexElement(asIScriptEngine* engine)
 {
+    // VertexElement::VertexElement(VertexElementType type, VertexElementSemantic semantic, unsigned char index=0, bool perInstance=false) noexcept
+    engine->RegisterObjectBehaviour("VertexElement", asBEHAVE_CONSTRUCT, "void f(VertexElementType, VertexElementSemantic, uint8 = 0, bool = false)", AS_FUNCTION_OBJFIRST(VertexElement_VertexElement_VertexElementType_VertexElementSemantic_unsignedchar_bool), AS_CALL_CDECL_OBJFIRST);
+
+
     // VertexElement::~VertexElement() | Implicitly-declared
     engine->RegisterObjectBehaviour("VertexElement", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VertexElement), AS_CALL_CDECL_OBJFIRST);
 
@@ -9604,9 +12153,19 @@ static void Register_VertexElement(asIScriptEngine* engine)
     #endif
 }
 
+// explicit View::View(Context* context)
+static void View_View_Context(View* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) View(context);
+}
+
 // class View | File: ../Graphics/View.h
 static void Register_View(asIScriptEngine* engine)
 {
+    // explicit View::View(Context* context)
+    engine->RegisterObjectBehaviour("View", asBEHAVE_FACTORY, "View@+ f()", AS_FUNCTION(View_View_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9643,9 +12202,19 @@ static void Register_View(asIScriptEngine* engine)
     #endif
 }
 
+// explicit View3D::View3D(Context* context)
+static void View3D_View3D_Context(View3D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) View3D(context);
+}
+
 // class View3D | File: ../UI/View3D.h
 static void Register_View3D(asIScriptEngine* engine)
 {
+    // explicit View3D::View3D(Context* context)
+    engine->RegisterObjectBehaviour("View3D", asBEHAVE_FACTORY, "View3D@+ f()", AS_FUNCTION(View3D_View3D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9682,9 +12251,37 @@ static void Register_View3D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Viewport::Viewport(Context* context)
+static void Viewport_Viewport_Context(Viewport* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Viewport(context);
+}
+
+// Viewport::Viewport(Context* context, Scene* scene, Camera* camera, RenderPath* renderPath=nullptr)
+static void Viewport_Viewport_Context_Scene_Camera_RenderPath(Viewport* ptr, Scene* scene, Camera* camera, RenderPath* renderPath)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Viewport(context, scene, camera, renderPath);
+}
+
+// Viewport::Viewport(Context* context, Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath=nullptr)
+static void Viewport_Viewport_Context_Scene_Camera_IntRect_RenderPath(Viewport* ptr, Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Viewport(context, scene, camera, rect, renderPath);
+}
+
 // class Viewport | File: ../Graphics/Viewport.h
 static void Register_Viewport(asIScriptEngine* engine)
 {
+    // explicit Viewport::Viewport(Context* context)
+    engine->RegisterObjectBehaviour("Viewport", asBEHAVE_FACTORY, "Viewport@+ f()", AS_FUNCTION(Viewport_Viewport_Context) , AS_CALL_CDECL);
+    // Viewport::Viewport(Context* context, Scene* scene, Camera* camera, RenderPath* renderPath=nullptr)
+    engine->RegisterObjectBehaviour("Viewport", asBEHAVE_FACTORY, "Viewport@+ f(Scene@+, Camera@+, RenderPath@+ = null)", AS_FUNCTION(Viewport_Viewport_Context_Scene_Camera_RenderPath) , AS_CALL_CDECL);
+    // Viewport::Viewport(Context* context, Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath=nullptr)
+    engine->RegisterObjectBehaviour("Viewport", asBEHAVE_FACTORY, "Viewport@+ f(Scene@+, Camera@+, const IntRect&in, RenderPath@+ = null)", AS_FUNCTION(Viewport_Viewport_Context_Scene_Camera_IntRect_RenderPath) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9721,9 +12318,19 @@ static void Register_Viewport(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Window::Window(Context* context)
+static void Window_Window_Context(Window* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Window(context);
+}
+
 // class Window | File: ../UI/Window.h
 static void Register_Window(asIScriptEngine* engine)
 {
+    // explicit Window::Window(Context* context)
+    engine->RegisterObjectBehaviour("Window", asBEHAVE_FACTORY, "Window@+ f()", AS_FUNCTION(Window_Window_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9802,9 +12409,19 @@ static void Register_WindowModeParams(asIScriptEngine* engine)
     #endif
 }
 
+// explicit WorkQueue::WorkQueue(Context* context)
+static void WorkQueue_WorkQueue_Context(WorkQueue* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) WorkQueue(context);
+}
+
 // class WorkQueue | File: ../Core/WorkQueue.h
 static void Register_WorkQueue(asIScriptEngine* engine)
 {
+    // explicit WorkQueue::WorkQueue(Context* context)
+    engine->RegisterObjectBehaviour("WorkQueue", asBEHAVE_FACTORY, "WorkQueue@+ f()", AS_FUNCTION(WorkQueue_WorkQueue_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9841,9 +12458,24 @@ static void Register_WorkQueue(asIScriptEngine* engine)
     #endif
 }
 
+// XMLElement::XMLElement(const XMLElement& rhs)
+static void XMLElement_XMLElement_XMLElement(XMLElement* ptr, const XMLElement& rhs)
+{
+    new(ptr) XMLElement(rhs);
+}
+
 // class XMLElement | File: ../Resource/XMLElement.h
 static void Register_XMLElement(asIScriptEngine* engine)
 {
+    // XMLElement::XMLElement(XMLFile* file, const XPathResultSet* resultSet, const pugi::xpath_node* xpathNode, unsigned xpathResultIndex)
+    // Error: type "const XPathResultSet*" can not automatically bind
+    // XMLElement::XMLElement(XMLFile* file, pugi::xml_node_struct* node)
+    // Error: type "pugi::xml_node_struct*" can not automatically bind
+
+    // XMLElement::XMLElement(const XMLElement& rhs)
+    engine->RegisterObjectBehaviour("XMLElement", asBEHAVE_CONSTRUCT, "void f(const XMLElement&in)", AS_FUNCTION_OBJFIRST(XMLElement_XMLElement_XMLElement), AS_CALL_CDECL_OBJFIRST);
+
+
     // XMLElement::~XMLElement()
     engine->RegisterObjectBehaviour("XMLElement", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XMLElement), AS_CALL_CDECL_OBJFIRST);
 
@@ -9883,9 +12515,19 @@ static void Register_XMLElement(asIScriptEngine* engine)
     #endif
 }
 
+// explicit XMLFile::XMLFile(Context* context)
+static void XMLFile_XMLFile_Context(XMLFile* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) XMLFile(context);
+}
+
 // class XMLFile | File: ../Resource/XMLFile.h
 static void Register_XMLFile(asIScriptEngine* engine)
 {
+    // explicit XMLFile::XMLFile(Context* context)
+    engine->RegisterObjectBehaviour("XMLFile", asBEHAVE_FACTORY, "XMLFile@+ f()", AS_FUNCTION(XMLFile_XMLFile_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -9922,9 +12564,19 @@ static void Register_XMLFile(asIScriptEngine* engine)
     #endif
 }
 
+// explicit XPathQuery::XPathQuery(const String& queryString, const String& variableString=String::EMPTY)
+static void XPathQuery_XPathQuery_String_String(XPathQuery* ptr, const String& queryString, const String& variableString)
+{
+    new(ptr) XPathQuery(queryString, variableString);
+}
+
 // class XPathQuery | File: ../Resource/XMLElement.h
 static void Register_XPathQuery(asIScriptEngine* engine)
 {
+    // explicit XPathQuery::XPathQuery(const String& queryString, const String& variableString=String::EMPTY)
+    engine->RegisterObjectBehaviour("XPathQuery", asBEHAVE_CONSTRUCT, "void f(const String&in, const String&in = String::EMPTY)", AS_FUNCTION_OBJFIRST(XPathQuery_XPathQuery_String_String), AS_CALL_CDECL_OBJFIRST);
+
+
     // XPathQuery::~XPathQuery()
     engine->RegisterObjectBehaviour("XPathQuery", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XPathQuery), AS_CALL_CDECL_OBJFIRST);
 
@@ -9964,9 +12616,22 @@ static void Register_XPathQuery(asIScriptEngine* engine)
     #endif
 }
 
+// XPathResultSet::XPathResultSet(const XPathResultSet& rhs)
+static void XPathResultSet_XPathResultSet_XPathResultSet(XPathResultSet* ptr, const XPathResultSet& rhs)
+{
+    new(ptr) XPathResultSet(rhs);
+}
+
 // class XPathResultSet | File: ../Resource/XMLElement.h
 static void Register_XPathResultSet(asIScriptEngine* engine)
 {
+    // XPathResultSet::XPathResultSet(XMLFile* file, pugi::xpath_node_set* resultSet)
+    // Error: type "pugi::xpath_node_set*" can not automatically bind
+
+    // XPathResultSet::XPathResultSet(const XPathResultSet& rhs)
+    engine->RegisterObjectBehaviour("XPathResultSet", asBEHAVE_CONSTRUCT, "void f(const XPathResultSet&in)", AS_FUNCTION_OBJFIRST(XPathResultSet_XPathResultSet_XPathResultSet), AS_CALL_CDECL_OBJFIRST);
+
+
     // XPathResultSet::~XPathResultSet()
     engine->RegisterObjectBehaviour("XPathResultSet", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XPathResultSet), AS_CALL_CDECL_OBJFIRST);
 
@@ -10006,9 +12671,19 @@ static void Register_XPathResultSet(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Zone::Zone(Context* context)
+static void Zone_Zone_Context(Zone* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Zone(context);
+}
+
 // class Zone | File: ../Graphics/Zone.h
 static void Register_Zone(asIScriptEngine* engine)
 {
+    // explicit Zone::Zone(Context* context)
+    engine->RegisterObjectBehaviour("Zone", asBEHAVE_FACTORY, "Zone@+ f()", AS_FUNCTION(Zone_Zone_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10047,9 +12722,19 @@ static void Register_Zone(asIScriptEngine* engine)
 
 #ifdef URHO3D_DATABASE
 
+// explicit Database::Database(Context* context)
+static void Database_Database_Context(Database* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Database(context);
+}
+
 // class Database | File: ../Database/Database.h
 static void Register_Database(asIScriptEngine* engine)
 {
+    // explicit Database::Database(Context* context)
+    engine->RegisterObjectBehaviour("Database", asBEHAVE_FACTORY, "Database@+ f()", AS_FUNCTION(Database_Database_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10090,9 +12775,19 @@ static void Register_Database(asIScriptEngine* engine)
 
 #ifdef URHO3D_IK
 
+// explicit IKConstraint::IKConstraint(Context* context)
+static void IKConstraint_IKConstraint_Context(IKConstraint* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) IKConstraint(context);
+}
+
 // class IKConstraint | File: ../IK/IKConstraint.h
 static void Register_IKConstraint(asIScriptEngine* engine)
 {
+    // explicit IKConstraint::IKConstraint(Context* context)
+    engine->RegisterObjectBehaviour("IKConstraint", asBEHAVE_FACTORY, "IKConstraint@+ f()", AS_FUNCTION(IKConstraint_IKConstraint_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10129,9 +12824,19 @@ static void Register_IKConstraint(asIScriptEngine* engine)
     #endif
 }
 
+// explicit IKEffector::IKEffector(Context* context)
+static void IKEffector_IKEffector_Context(IKEffector* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) IKEffector(context);
+}
+
 // class IKEffector | File: ../IK/IKEffector.h
 static void Register_IKEffector(asIScriptEngine* engine)
 {
+    // explicit IKEffector::IKEffector(Context* context)
+    engine->RegisterObjectBehaviour("IKEffector", asBEHAVE_FACTORY, "IKEffector@+ f()", AS_FUNCTION(IKEffector_IKEffector_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10168,9 +12873,19 @@ static void Register_IKEffector(asIScriptEngine* engine)
     #endif
 }
 
+// explicit IKSolver::IKSolver(Context* context)
+static void IKSolver_IKSolver_Context(IKSolver* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) IKSolver(context);
+}
+
 // class IKSolver | File: ../IK/IKSolver.h
 static void Register_IKSolver(asIScriptEngine* engine)
 {
+    // explicit IKSolver::IKSolver(Context* context)
+    engine->RegisterObjectBehaviour("IKSolver", asBEHAVE_FACTORY, "IKSolver@+ f()", AS_FUNCTION(IKSolver_IKSolver_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10211,9 +12926,19 @@ static void Register_IKSolver(asIScriptEngine* engine)
 
 #ifdef URHO3D_NAVIGATION
 
+// explicit CrowdAgent::CrowdAgent(Context* context)
+static void CrowdAgent_CrowdAgent_Context(CrowdAgent* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CrowdAgent(context);
+}
+
 // class CrowdAgent | File: ../Navigation/CrowdAgent.h
 static void Register_CrowdAgent(asIScriptEngine* engine)
 {
+    // explicit CrowdAgent::CrowdAgent(Context* context)
+    engine->RegisterObjectBehaviour("CrowdAgent", asBEHAVE_FACTORY, "CrowdAgent@+ f()", AS_FUNCTION(CrowdAgent_CrowdAgent_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10250,9 +12975,19 @@ static void Register_CrowdAgent(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CrowdManager::CrowdManager(Context* context)
+static void CrowdManager_CrowdManager_Context(CrowdManager* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CrowdManager(context);
+}
+
 // class CrowdManager | File: ../Navigation/CrowdManager.h
 static void Register_CrowdManager(asIScriptEngine* engine)
 {
+    // explicit CrowdManager::CrowdManager(Context* context)
+    engine->RegisterObjectBehaviour("CrowdManager", asBEHAVE_FACTORY, "CrowdManager@+ f()", AS_FUNCTION(CrowdManager_CrowdManager_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10328,9 +13063,19 @@ static void Register_CrowdObstacleAvoidanceParams(asIScriptEngine* engine)
     #endif
 }
 
+// explicit DynamicNavigationMesh::DynamicNavigationMesh(Context* context)
+static void DynamicNavigationMesh_DynamicNavigationMesh_Context(DynamicNavigationMesh* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) DynamicNavigationMesh(context);
+}
+
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
 static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
 {
+    // explicit DynamicNavigationMesh::DynamicNavigationMesh(Context* context)
+    engine->RegisterObjectBehaviour("DynamicNavigationMesh", asBEHAVE_FACTORY, "DynamicNavigationMesh@+ f()", AS_FUNCTION(DynamicNavigationMesh_DynamicNavigationMesh_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10367,9 +13112,19 @@ static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
     #endif
 }
 
+// explicit NavArea::NavArea(Context* context)
+static void NavArea_NavArea_Context(NavArea* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) NavArea(context);
+}
+
 // class NavArea | File: ../Navigation/NavArea.h
 static void Register_NavArea(asIScriptEngine* engine)
 {
+    // explicit NavArea::NavArea(Context* context)
+    engine->RegisterObjectBehaviour("NavArea", asBEHAVE_FACTORY, "NavArea@+ f()", AS_FUNCTION(NavArea_NavArea_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10490,9 +13245,19 @@ static void Register_NavBuildData(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Navigable::Navigable(Context* context)
+static void Navigable_Navigable_Context(Navigable* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Navigable(context);
+}
+
 // class Navigable | File: ../Navigation/Navigable.h
 static void Register_Navigable(asIScriptEngine* engine)
 {
+    // explicit Navigable::Navigable(Context* context)
+    engine->RegisterObjectBehaviour("Navigable", asBEHAVE_FACTORY, "Navigable@+ f()", AS_FUNCTION(Navigable_Navigable_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10571,9 +13336,19 @@ static void Register_NavigationGeometryInfo(asIScriptEngine* engine)
     #endif
 }
 
+// explicit NavigationMesh::NavigationMesh(Context* context)
+static void NavigationMesh_NavigationMesh_Context(NavigationMesh* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) NavigationMesh(context);
+}
+
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
 static void Register_NavigationMesh(asIScriptEngine* engine)
 {
+    // explicit NavigationMesh::NavigationMesh(Context* context)
+    engine->RegisterObjectBehaviour("NavigationMesh", asBEHAVE_FACTORY, "NavigationMesh@+ f()", AS_FUNCTION(NavigationMesh_NavigationMesh_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10652,9 +13427,19 @@ static void Register_NavigationPathPoint(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Obstacle::Obstacle(Context* context)
+static void Obstacle_Obstacle_Context(Obstacle* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Obstacle(context);
+}
+
 // class Obstacle | File: ../Navigation/Obstacle.h
 static void Register_Obstacle(asIScriptEngine* engine)
 {
+    // explicit Obstacle::Obstacle(Context* context)
+    engine->RegisterObjectBehaviour("Obstacle", asBEHAVE_FACTORY, "Obstacle@+ f()", AS_FUNCTION(Obstacle_Obstacle_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10691,9 +13476,19 @@ static void Register_Obstacle(asIScriptEngine* engine)
     #endif
 }
 
+// explicit OffMeshConnection::OffMeshConnection(Context* context)
+static void OffMeshConnection_OffMeshConnection_Context(OffMeshConnection* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) OffMeshConnection(context);
+}
+
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
 static void Register_OffMeshConnection(asIScriptEngine* engine)
 {
+    // explicit OffMeshConnection::OffMeshConnection(Context* context)
+    engine->RegisterObjectBehaviour("OffMeshConnection", asBEHAVE_FACTORY, "OffMeshConnection@+ f()", AS_FUNCTION(OffMeshConnection_OffMeshConnection_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10779,6 +13574,9 @@ static void Register_SimpleNavBuildData(asIScriptEngine* engine)
 // class Connection | File: ../Network/Connection.h
 static void Register_Connection(asIScriptEngine* engine)
 {
+    // Connection::Connection(Context* context, bool isClient, const SLNet::AddressOrGUID& address, SLNet::RakPeerInterface* peer)
+    // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10815,9 +13613,19 @@ static void Register_Connection(asIScriptEngine* engine)
     #endif
 }
 
+// HttpRequest::HttpRequest(const String& url, const String& verb, const Vector<String>& headers, const String& postData)
+static void HttpRequest_HttpRequest_String_String_VectorString_String(HttpRequest* ptr, const String& url, const String& verb, CScriptArray* headers_conv, const String& postData)
+{
+    Vector<String> headers = ArrayToVector<String>(headers_conv);
+    new(ptr) HttpRequest(url, verb, headers, postData);
+}
+
 // class HttpRequest | File: ../Network/HttpRequest.h
 static void Register_HttpRequest(asIScriptEngine* engine)
 {
+    // HttpRequest::HttpRequest(const String& url, const String& verb, const Vector<String>& headers, const String& postData)
+    engine->RegisterObjectBehaviour("HttpRequest", asBEHAVE_FACTORY, "HttpRequest@+ f(const String&in, const String&in, Array<String>@+, const String&in)", AS_FUNCTION(HttpRequest_HttpRequest_String_String_VectorString_String) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10854,9 +13662,19 @@ static void Register_HttpRequest(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Network::Network(Context* context)
+static void Network_Network_Context(Network* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Network(context);
+}
+
 // class Network | File: ../Network/Network.h
 static void Register_Network(asIScriptEngine* engine)
 {
+    // explicit Network::Network(Context* context)
+    engine->RegisterObjectBehaviour("Network", asBEHAVE_FACTORY, "Network@+ f()", AS_FUNCTION(Network_Network_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -10893,9 +13711,19 @@ static void Register_Network(asIScriptEngine* engine)
     #endif
 }
 
+// explicit NetworkPriority::NetworkPriority(Context* context)
+static void NetworkPriority_NetworkPriority_Context(NetworkPriority* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) NetworkPriority(context);
+}
+
 // class NetworkPriority | File: ../Network/NetworkPriority.h
 static void Register_NetworkPriority(asIScriptEngine* engine)
 {
+    // explicit NetworkPriority::NetworkPriority(Context* context)
+    engine->RegisterObjectBehaviour("NetworkPriority", asBEHAVE_FACTORY, "NetworkPriority@+ f()", AS_FUNCTION(NetworkPriority_NetworkPriority_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11101,9 +13929,19 @@ static void Register_CollisionGeometryData(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CollisionShape::CollisionShape(Context* context)
+static void CollisionShape_CollisionShape_Context(CollisionShape* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CollisionShape(context);
+}
+
 // class CollisionShape | File: ../Physics/CollisionShape.h
 static void Register_CollisionShape(asIScriptEngine* engine)
 {
+    // explicit CollisionShape::CollisionShape(Context* context)
+    engine->RegisterObjectBehaviour("CollisionShape", asBEHAVE_FACTORY, "CollisionShape@+ f()", AS_FUNCTION(CollisionShape_CollisionShape_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11140,9 +13978,19 @@ static void Register_CollisionShape(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Constraint::Constraint(Context* context)
+static void Constraint_Constraint_Context(Constraint* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Constraint(context);
+}
+
 // class Constraint | File: ../Physics/Constraint.h
 static void Register_Constraint(asIScriptEngine* engine)
 {
+    // explicit Constraint::Constraint(Context* context)
+    engine->RegisterObjectBehaviour("Constraint", asBEHAVE_FACTORY, "Constraint@+ f()", AS_FUNCTION(Constraint_Constraint_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11179,9 +14027,26 @@ static void Register_Constraint(asIScriptEngine* engine)
     #endif
 }
 
+// ConvexData::ConvexData(Model* model, unsigned lodLevel)
+static void ConvexData_ConvexData_Model_unsigned(ConvexData* ptr, Model* model, unsigned lodLevel)
+{
+    new(ptr) ConvexData(model, lodLevel);
+}
+
+// explicit ConvexData::ConvexData(CustomGeometry* custom)
+static void ConvexData_ConvexData_CustomGeometry(ConvexData* ptr, CustomGeometry* custom)
+{
+    new(ptr) ConvexData(custom);
+}
+
 // struct ConvexData | File: ../Physics/CollisionShape.h
 static void Register_ConvexData(asIScriptEngine* engine)
 {
+    // ConvexData::ConvexData(Model* model, unsigned lodLevel)
+    engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_FACTORY, "ConvexData@+ f(Model@+, uint)", AS_FUNCTION(ConvexData_ConvexData_Model_unsigned) , AS_CALL_CDECL);
+    // explicit ConvexData::ConvexData(CustomGeometry* custom)
+    engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_FACTORY, "ConvexData@+ f(CustomGeometry@+)", AS_FUNCTION(ConvexData_ConvexData_CustomGeometry) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11260,9 +14125,26 @@ static void Register_DelayedWorldTransform(asIScriptEngine* engine)
     #endif
 }
 
+// GImpactMeshData::GImpactMeshData(Model* model, unsigned lodLevel)
+static void GImpactMeshData_GImpactMeshData_Model_unsigned(GImpactMeshData* ptr, Model* model, unsigned lodLevel)
+{
+    new(ptr) GImpactMeshData(model, lodLevel);
+}
+
+// explicit GImpactMeshData::GImpactMeshData(CustomGeometry* custom)
+static void GImpactMeshData_GImpactMeshData_CustomGeometry(GImpactMeshData* ptr, CustomGeometry* custom)
+{
+    new(ptr) GImpactMeshData(custom);
+}
+
 // struct GImpactMeshData | File: ../Physics/CollisionShape.h
 static void Register_GImpactMeshData(asIScriptEngine* engine)
 {
+    // GImpactMeshData::GImpactMeshData(Model* model, unsigned lodLevel)
+    engine->RegisterObjectBehaviour("GImpactMeshData", asBEHAVE_FACTORY, "GImpactMeshData@+ f(Model@+, uint)", AS_FUNCTION(GImpactMeshData_GImpactMeshData_Model_unsigned) , AS_CALL_CDECL);
+    // explicit GImpactMeshData::GImpactMeshData(CustomGeometry* custom)
+    engine->RegisterObjectBehaviour("GImpactMeshData", asBEHAVE_FACTORY, "GImpactMeshData@+ f(CustomGeometry@+)", AS_FUNCTION(GImpactMeshData_GImpactMeshData_CustomGeometry) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11299,9 +14181,18 @@ static void Register_GImpactMeshData(asIScriptEngine* engine)
     #endif
 }
 
+// HeightfieldData::HeightfieldData(Terrain* terrain, unsigned lodLevel)
+static void HeightfieldData_HeightfieldData_Terrain_unsigned(HeightfieldData* ptr, Terrain* terrain, unsigned lodLevel)
+{
+    new(ptr) HeightfieldData(terrain, lodLevel);
+}
+
 // struct HeightfieldData | File: ../Physics/CollisionShape.h
 static void Register_HeightfieldData(asIScriptEngine* engine)
 {
+    // HeightfieldData::HeightfieldData(Terrain* terrain, unsigned lodLevel)
+    engine->RegisterObjectBehaviour("HeightfieldData", asBEHAVE_FACTORY, "HeightfieldData@+ f(Terrain@+, uint)", AS_FUNCTION(HeightfieldData_HeightfieldData_Terrain_unsigned) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11422,9 +14313,19 @@ static void Register_PhysicsRaycastResult(asIScriptEngine* engine)
     #endif
 }
 
+// explicit PhysicsWorld::PhysicsWorld(Context* context)
+static void PhysicsWorld_PhysicsWorld_Context(PhysicsWorld* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) PhysicsWorld(context);
+}
+
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
 static void Register_PhysicsWorld(asIScriptEngine* engine)
 {
+    // explicit PhysicsWorld::PhysicsWorld(Context* context)
+    engine->RegisterObjectBehaviour("PhysicsWorld", asBEHAVE_FACTORY, "PhysicsWorld@+ f()", AS_FUNCTION(PhysicsWorld_PhysicsWorld_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11506,6 +14407,9 @@ static void Register_PhysicsWorldConfig(asIScriptEngine* engine)
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h
 static void Register_RaycastVehicle(asIScriptEngine* engine)
 {
+    // explicit RaycastVehicle::RaycastVehicle(Urho3D::Context* context)
+    // Error: type "Urho3D::Context*" can not automatically bind
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11542,9 +14446,19 @@ static void Register_RaycastVehicle(asIScriptEngine* engine)
     #endif
 }
 
+// explicit RigidBody::RigidBody(Context* context)
+static void RigidBody_RigidBody_Context(RigidBody* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) RigidBody(context);
+}
+
 // class RigidBody | File: ../Physics/RigidBody.h
 static void Register_RigidBody(asIScriptEngine* engine)
 {
+    // explicit RigidBody::RigidBody(Context* context)
+    engine->RegisterObjectBehaviour("RigidBody", asBEHAVE_FACTORY, "RigidBody@+ f()", AS_FUNCTION(RigidBody_RigidBody_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11581,9 +14495,26 @@ static void Register_RigidBody(asIScriptEngine* engine)
     #endif
 }
 
+// TriangleMeshData::TriangleMeshData(Model* model, unsigned lodLevel)
+static void TriangleMeshData_TriangleMeshData_Model_unsigned(TriangleMeshData* ptr, Model* model, unsigned lodLevel)
+{
+    new(ptr) TriangleMeshData(model, lodLevel);
+}
+
+// explicit TriangleMeshData::TriangleMeshData(CustomGeometry* custom)
+static void TriangleMeshData_TriangleMeshData_CustomGeometry(TriangleMeshData* ptr, CustomGeometry* custom)
+{
+    new(ptr) TriangleMeshData(custom);
+}
+
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h
 static void Register_TriangleMeshData(asIScriptEngine* engine)
 {
+    // TriangleMeshData::TriangleMeshData(Model* model, unsigned lodLevel)
+    engine->RegisterObjectBehaviour("TriangleMeshData", asBEHAVE_FACTORY, "TriangleMeshData@+ f(Model@+, uint)", AS_FUNCTION(TriangleMeshData_TriangleMeshData_Model_unsigned) , AS_CALL_CDECL);
+    // explicit TriangleMeshData::TriangleMeshData(CustomGeometry* custom)
+    engine->RegisterObjectBehaviour("TriangleMeshData", asBEHAVE_FACTORY, "TriangleMeshData@+ f(CustomGeometry@+)", AS_FUNCTION(TriangleMeshData_TriangleMeshData_CustomGeometry) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11624,9 +14555,19 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
 
 #ifdef URHO3D_URHO2D
 
+// explicit AnimatedSprite2D::AnimatedSprite2D(Context* context)
+static void AnimatedSprite2D_AnimatedSprite2D_Context(AnimatedSprite2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) AnimatedSprite2D(context);
+}
+
 // class AnimatedSprite2D | File: ../Urho2D/AnimatedSprite2D.h
 static void Register_AnimatedSprite2D(asIScriptEngine* engine)
 {
+    // explicit AnimatedSprite2D::AnimatedSprite2D(Context* context)
+    engine->RegisterObjectBehaviour("AnimatedSprite2D", asBEHAVE_FACTORY, "AnimatedSprite2D@+ f()", AS_FUNCTION(AnimatedSprite2D_AnimatedSprite2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11663,9 +14604,19 @@ static void Register_AnimatedSprite2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit AnimationSet2D::AnimationSet2D(Context* context)
+static void AnimationSet2D_AnimationSet2D_Context(AnimationSet2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) AnimationSet2D(context);
+}
+
 // class AnimationSet2D | File: ../Urho2D/AnimationSet2D.h
 static void Register_AnimationSet2D(asIScriptEngine* engine)
 {
+    // explicit AnimationSet2D::AnimationSet2D(Context* context)
+    engine->RegisterObjectBehaviour("AnimationSet2D", asBEHAVE_FACTORY, "AnimationSet2D@+ f()", AS_FUNCTION(AnimationSet2D_AnimationSet2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11702,9 +14653,19 @@ static void Register_AnimationSet2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CollisionBox2D::CollisionBox2D(Context* context)
+static void CollisionBox2D_CollisionBox2D_Context(CollisionBox2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CollisionBox2D(context);
+}
+
 // class CollisionBox2D | File: ../Urho2D/CollisionBox2D.h
 static void Register_CollisionBox2D(asIScriptEngine* engine)
 {
+    // explicit CollisionBox2D::CollisionBox2D(Context* context)
+    engine->RegisterObjectBehaviour("CollisionBox2D", asBEHAVE_FACTORY, "CollisionBox2D@+ f()", AS_FUNCTION(CollisionBox2D_CollisionBox2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11741,9 +14702,19 @@ static void Register_CollisionBox2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CollisionChain2D::CollisionChain2D(Context* context)
+static void CollisionChain2D_CollisionChain2D_Context(CollisionChain2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CollisionChain2D(context);
+}
+
 // class CollisionChain2D | File: ../Urho2D/CollisionChain2D.h
 static void Register_CollisionChain2D(asIScriptEngine* engine)
 {
+    // explicit CollisionChain2D::CollisionChain2D(Context* context)
+    engine->RegisterObjectBehaviour("CollisionChain2D", asBEHAVE_FACTORY, "CollisionChain2D@+ f()", AS_FUNCTION(CollisionChain2D_CollisionChain2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11780,9 +14751,19 @@ static void Register_CollisionChain2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CollisionCircle2D::CollisionCircle2D(Context* context)
+static void CollisionCircle2D_CollisionCircle2D_Context(CollisionCircle2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CollisionCircle2D(context);
+}
+
 // class CollisionCircle2D | File: ../Urho2D/CollisionCircle2D.h
 static void Register_CollisionCircle2D(asIScriptEngine* engine)
 {
+    // explicit CollisionCircle2D::CollisionCircle2D(Context* context)
+    engine->RegisterObjectBehaviour("CollisionCircle2D", asBEHAVE_FACTORY, "CollisionCircle2D@+ f()", AS_FUNCTION(CollisionCircle2D_CollisionCircle2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11819,9 +14800,19 @@ static void Register_CollisionCircle2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CollisionEdge2D::CollisionEdge2D(Context* context)
+static void CollisionEdge2D_CollisionEdge2D_Context(CollisionEdge2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CollisionEdge2D(context);
+}
+
 // class CollisionEdge2D | File: ../Urho2D/CollisionEdge2D.h
 static void Register_CollisionEdge2D(asIScriptEngine* engine)
 {
+    // explicit CollisionEdge2D::CollisionEdge2D(Context* context)
+    engine->RegisterObjectBehaviour("CollisionEdge2D", asBEHAVE_FACTORY, "CollisionEdge2D@+ f()", AS_FUNCTION(CollisionEdge2D_CollisionEdge2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11858,9 +14849,19 @@ static void Register_CollisionEdge2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit CollisionPolygon2D::CollisionPolygon2D(Context* context)
+static void CollisionPolygon2D_CollisionPolygon2D_Context(CollisionPolygon2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) CollisionPolygon2D(context);
+}
+
 // class CollisionPolygon2D | File: ../Urho2D/CollisionPolygon2D.h
 static void Register_CollisionPolygon2D(asIScriptEngine* engine)
 {
+    // explicit CollisionPolygon2D::CollisionPolygon2D(Context* context)
+    engine->RegisterObjectBehaviour("CollisionPolygon2D", asBEHAVE_FACTORY, "CollisionPolygon2D@+ f()", AS_FUNCTION(CollisionPolygon2D_CollisionPolygon2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11936,9 +14937,19 @@ static void Register_CollisionShape2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Constraint2D::Constraint2D(Context* context)
+static void Constraint2D_Constraint2D_Context(Constraint2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Constraint2D(context);
+}
+
 // class Constraint2D | File: ../Urho2D/Constraint2D.h
 static void Register_Constraint2D(asIScriptEngine* engine)
 {
+    // explicit Constraint2D::Constraint2D(Context* context)
+    engine->RegisterObjectBehaviour("Constraint2D", asBEHAVE_FACTORY, "Constraint2D@+ f()", AS_FUNCTION(Constraint2D_Constraint2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -11975,9 +14986,19 @@ static void Register_Constraint2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintDistance2D::ConstraintDistance2D(Context* context)
+static void ConstraintDistance2D_ConstraintDistance2D_Context(ConstraintDistance2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintDistance2D(context);
+}
+
 // class ConstraintDistance2D | File: ../Urho2D/ConstraintDistance2D.h
 static void Register_ConstraintDistance2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintDistance2D::ConstraintDistance2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintDistance2D", asBEHAVE_FACTORY, "ConstraintDistance2D@+ f()", AS_FUNCTION(ConstraintDistance2D_ConstraintDistance2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12014,9 +15035,19 @@ static void Register_ConstraintDistance2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintFriction2D::ConstraintFriction2D(Context* context)
+static void ConstraintFriction2D_ConstraintFriction2D_Context(ConstraintFriction2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintFriction2D(context);
+}
+
 // class ConstraintFriction2D | File: ../Urho2D/ConstraintFriction2D.h
 static void Register_ConstraintFriction2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintFriction2D::ConstraintFriction2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintFriction2D", asBEHAVE_FACTORY, "ConstraintFriction2D@+ f()", AS_FUNCTION(ConstraintFriction2D_ConstraintFriction2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12053,9 +15084,19 @@ static void Register_ConstraintFriction2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintGear2D::ConstraintGear2D(Context* context)
+static void ConstraintGear2D_ConstraintGear2D_Context(ConstraintGear2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintGear2D(context);
+}
+
 // class ConstraintGear2D | File: ../Urho2D/ConstraintGear2D.h
 static void Register_ConstraintGear2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintGear2D::ConstraintGear2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintGear2D", asBEHAVE_FACTORY, "ConstraintGear2D@+ f()", AS_FUNCTION(ConstraintGear2D_ConstraintGear2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12092,9 +15133,19 @@ static void Register_ConstraintGear2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintMotor2D::ConstraintMotor2D(Context* context)
+static void ConstraintMotor2D_ConstraintMotor2D_Context(ConstraintMotor2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintMotor2D(context);
+}
+
 // class ConstraintMotor2D | File: ../Urho2D/ConstraintMotor2D.h
 static void Register_ConstraintMotor2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintMotor2D::ConstraintMotor2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintMotor2D", asBEHAVE_FACTORY, "ConstraintMotor2D@+ f()", AS_FUNCTION(ConstraintMotor2D_ConstraintMotor2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12131,9 +15182,19 @@ static void Register_ConstraintMotor2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintMouse2D::ConstraintMouse2D(Context* context)
+static void ConstraintMouse2D_ConstraintMouse2D_Context(ConstraintMouse2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintMouse2D(context);
+}
+
 // class ConstraintMouse2D | File: ../Urho2D/ConstraintMouse2D.h
 static void Register_ConstraintMouse2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintMouse2D::ConstraintMouse2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintMouse2D", asBEHAVE_FACTORY, "ConstraintMouse2D@+ f()", AS_FUNCTION(ConstraintMouse2D_ConstraintMouse2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12170,9 +15231,19 @@ static void Register_ConstraintMouse2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintPrismatic2D::ConstraintPrismatic2D(Context* context)
+static void ConstraintPrismatic2D_ConstraintPrismatic2D_Context(ConstraintPrismatic2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintPrismatic2D(context);
+}
+
 // class ConstraintPrismatic2D | File: ../Urho2D/ConstraintPrismatic2D.h
 static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintPrismatic2D::ConstraintPrismatic2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintPrismatic2D", asBEHAVE_FACTORY, "ConstraintPrismatic2D@+ f()", AS_FUNCTION(ConstraintPrismatic2D_ConstraintPrismatic2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12209,9 +15280,19 @@ static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintPulley2D::ConstraintPulley2D(Context* context)
+static void ConstraintPulley2D_ConstraintPulley2D_Context(ConstraintPulley2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintPulley2D(context);
+}
+
 // class ConstraintPulley2D | File: ../Urho2D/ConstraintPulley2D.h
 static void Register_ConstraintPulley2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintPulley2D::ConstraintPulley2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintPulley2D", asBEHAVE_FACTORY, "ConstraintPulley2D@+ f()", AS_FUNCTION(ConstraintPulley2D_ConstraintPulley2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12248,9 +15329,19 @@ static void Register_ConstraintPulley2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintRevolute2D::ConstraintRevolute2D(Context* context)
+static void ConstraintRevolute2D_ConstraintRevolute2D_Context(ConstraintRevolute2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintRevolute2D(context);
+}
+
 // class ConstraintRevolute2D | File: ../Urho2D/ConstraintRevolute2D.h
 static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintRevolute2D::ConstraintRevolute2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintRevolute2D", asBEHAVE_FACTORY, "ConstraintRevolute2D@+ f()", AS_FUNCTION(ConstraintRevolute2D_ConstraintRevolute2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12287,9 +15378,19 @@ static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintRope2D::ConstraintRope2D(Context* context)
+static void ConstraintRope2D_ConstraintRope2D_Context(ConstraintRope2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintRope2D(context);
+}
+
 // class ConstraintRope2D | File: ../Urho2D/ConstraintRope2D.h
 static void Register_ConstraintRope2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintRope2D::ConstraintRope2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintRope2D", asBEHAVE_FACTORY, "ConstraintRope2D@+ f()", AS_FUNCTION(ConstraintRope2D_ConstraintRope2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12326,9 +15427,19 @@ static void Register_ConstraintRope2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintWeld2D::ConstraintWeld2D(Context* context)
+static void ConstraintWeld2D_ConstraintWeld2D_Context(ConstraintWeld2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintWeld2D(context);
+}
+
 // class ConstraintWeld2D | File: ../Urho2D/ConstraintWeld2D.h
 static void Register_ConstraintWeld2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintWeld2D::ConstraintWeld2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintWeld2D", asBEHAVE_FACTORY, "ConstraintWeld2D@+ f()", AS_FUNCTION(ConstraintWeld2D_ConstraintWeld2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12365,9 +15476,19 @@ static void Register_ConstraintWeld2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ConstraintWheel2D::ConstraintWheel2D(Context* context)
+static void ConstraintWheel2D_ConstraintWheel2D_Context(ConstraintWheel2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ConstraintWheel2D(context);
+}
+
 // class ConstraintWheel2D | File: ../Urho2D/ConstraintWheel2D.h
 static void Register_ConstraintWheel2D(asIScriptEngine* engine)
 {
+    // explicit ConstraintWheel2D::ConstraintWheel2D(Context* context)
+    engine->RegisterObjectBehaviour("ConstraintWheel2D", asBEHAVE_FACTORY, "ConstraintWheel2D@+ f()", AS_FUNCTION(ConstraintWheel2D_ConstraintWheel2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12527,9 +15648,19 @@ static void Register_Particle2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ParticleEffect2D::ParticleEffect2D(Context* context)
+static void ParticleEffect2D_ParticleEffect2D_Context(ParticleEffect2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ParticleEffect2D(context);
+}
+
 // class ParticleEffect2D | File: ../Urho2D/ParticleEffect2D.h
 static void Register_ParticleEffect2D(asIScriptEngine* engine)
 {
+    // explicit ParticleEffect2D::ParticleEffect2D(Context* context)
+    engine->RegisterObjectBehaviour("ParticleEffect2D", asBEHAVE_FACTORY, "ParticleEffect2D@+ f()", AS_FUNCTION(ParticleEffect2D_ParticleEffect2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12566,9 +15697,19 @@ static void Register_ParticleEffect2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit ParticleEmitter2D::ParticleEmitter2D(Context* context)
+static void ParticleEmitter2D_ParticleEmitter2D_Context(ParticleEmitter2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) ParticleEmitter2D(context);
+}
+
 // class ParticleEmitter2D | File: ../Urho2D/ParticleEmitter2D.h
 static void Register_ParticleEmitter2D(asIScriptEngine* engine)
 {
+    // explicit ParticleEmitter2D::ParticleEmitter2D(Context* context)
+    engine->RegisterObjectBehaviour("ParticleEmitter2D", asBEHAVE_FACTORY, "ParticleEmitter2D@+ f()", AS_FUNCTION(ParticleEmitter2D_ParticleEmitter2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12647,9 +15788,19 @@ static void Register_PhysicsRaycastResult2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit PhysicsWorld2D::PhysicsWorld2D(Context* context)
+static void PhysicsWorld2D_PhysicsWorld2D_Context(PhysicsWorld2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) PhysicsWorld2D(context);
+}
+
 // class PhysicsWorld2D | File: ../Urho2D/PhysicsWorld2D.h
 static void Register_PhysicsWorld2D(asIScriptEngine* engine)
 {
+    // explicit PhysicsWorld2D::PhysicsWorld2D(Context* context)
+    engine->RegisterObjectBehaviour("PhysicsWorld2D", asBEHAVE_FACTORY, "PhysicsWorld2D@+ f()", AS_FUNCTION(PhysicsWorld2D_PhysicsWorld2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12725,9 +15876,19 @@ static void Register_PropertySet2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Renderer2D::Renderer2D(Context* context)
+static void Renderer2D_Renderer2D_Context(Renderer2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Renderer2D(context);
+}
+
 // class Renderer2D | File: ../Urho2D/Renderer2D.h
 static void Register_Renderer2D(asIScriptEngine* engine)
 {
+    // explicit Renderer2D::Renderer2D(Context* context)
+    engine->RegisterObjectBehaviour("Renderer2D", asBEHAVE_FACTORY, "Renderer2D@+ f()", AS_FUNCTION(Renderer2D_Renderer2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12764,9 +15925,19 @@ static void Register_Renderer2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit RigidBody2D::RigidBody2D(Context* context)
+static void RigidBody2D_RigidBody2D_Context(RigidBody2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) RigidBody2D(context);
+}
+
 // class RigidBody2D | File: ../Urho2D/RigidBody2D.h
 static void Register_RigidBody2D(asIScriptEngine* engine)
 {
+    // explicit RigidBody2D::RigidBody2D(Context* context)
+    engine->RegisterObjectBehaviour("RigidBody2D", asBEHAVE_FACTORY, "RigidBody2D@+ f()", AS_FUNCTION(RigidBody2D_RigidBody2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12845,9 +16016,19 @@ static void Register_SourceBatch2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit Sprite2D::Sprite2D(Context* context)
+static void Sprite2D_Sprite2D_Context(Sprite2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) Sprite2D(context);
+}
+
 // class Sprite2D | File: ../Urho2D/Sprite2D.h
 static void Register_Sprite2D(asIScriptEngine* engine)
 {
+    // explicit Sprite2D::Sprite2D(Context* context)
+    engine->RegisterObjectBehaviour("Sprite2D", asBEHAVE_FACTORY, "Sprite2D@+ f()", AS_FUNCTION(Sprite2D_Sprite2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12884,9 +16065,19 @@ static void Register_Sprite2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit SpriteSheet2D::SpriteSheet2D(Context* context)
+static void SpriteSheet2D_SpriteSheet2D_Context(SpriteSheet2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) SpriteSheet2D(context);
+}
+
 // class SpriteSheet2D | File: ../Urho2D/SpriteSheet2D.h
 static void Register_SpriteSheet2D(asIScriptEngine* engine)
 {
+    // explicit SpriteSheet2D::SpriteSheet2D(Context* context)
+    engine->RegisterObjectBehaviour("SpriteSheet2D", asBEHAVE_FACTORY, "SpriteSheet2D@+ f()", AS_FUNCTION(SpriteSheet2D_SpriteSheet2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12923,9 +16114,19 @@ static void Register_SpriteSheet2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit StaticSprite2D::StaticSprite2D(Context* context)
+static void StaticSprite2D_StaticSprite2D_Context(StaticSprite2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) StaticSprite2D(context);
+}
+
 // class StaticSprite2D | File: ../Urho2D/StaticSprite2D.h
 static void Register_StaticSprite2D(asIScriptEngine* engine)
 {
+    // explicit StaticSprite2D::StaticSprite2D(Context* context)
+    engine->RegisterObjectBehaviour("StaticSprite2D", asBEHAVE_FACTORY, "StaticSprite2D@+ f()", AS_FUNCTION(StaticSprite2D_StaticSprite2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -12962,9 +16163,19 @@ static void Register_StaticSprite2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit StretchableSprite2D::StretchableSprite2D(Context* context)
+static void StretchableSprite2D_StretchableSprite2D_Context(StretchableSprite2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) StretchableSprite2D(context);
+}
+
 // class StretchableSprite2D | File: ../Urho2D/StretchableSprite2D.h
 static void Register_StretchableSprite2D(asIScriptEngine* engine)
 {
+    // explicit StretchableSprite2D::StretchableSprite2D(Context* context)
+    engine->RegisterObjectBehaviour("StretchableSprite2D", asBEHAVE_FACTORY, "StretchableSprite2D@+ f()", AS_FUNCTION(StretchableSprite2D_StretchableSprite2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -13040,9 +16251,19 @@ static void Register_Tile2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit TileMap2D::TileMap2D(Context* context)
+static void TileMap2D_TileMap2D_Context(TileMap2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) TileMap2D(context);
+}
+
 // class TileMap2D | File: ../Urho2D/TileMap2D.h
 static void Register_TileMap2D(asIScriptEngine* engine)
 {
+    // explicit TileMap2D::TileMap2D(Context* context)
+    engine->RegisterObjectBehaviour("TileMap2D", asBEHAVE_FACTORY, "TileMap2D@+ f()", AS_FUNCTION(TileMap2D_TileMap2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -13118,9 +16339,19 @@ static void Register_TileMapInfo2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit TileMapLayer2D::TileMapLayer2D(Context* context)
+static void TileMapLayer2D_TileMapLayer2D_Context(TileMapLayer2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) TileMapLayer2D(context);
+}
+
 // class TileMapLayer2D | File: ../Urho2D/TileMapLayer2D.h
 static void Register_TileMapLayer2D(asIScriptEngine* engine)
 {
+    // explicit TileMapLayer2D::TileMapLayer2D(Context* context)
+    engine->RegisterObjectBehaviour("TileMapLayer2D", asBEHAVE_FACTORY, "TileMapLayer2D@+ f()", AS_FUNCTION(TileMapLayer2D_TileMapLayer2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -13196,9 +16427,19 @@ static void Register_TileMapObject2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit TmxFile2D::TmxFile2D(Context* context)
+static void TmxFile2D_TmxFile2D_Context(TmxFile2D* ptr)
+{
+    Context* context = GetScriptContext();
+    new(ptr) TmxFile2D(context);
+}
+
 // class TmxFile2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxFile2D(asIScriptEngine* engine)
 {
+    // explicit TmxFile2D::TmxFile2D(Context* context)
+    engine->RegisterObjectBehaviour("TmxFile2D", asBEHAVE_FACTORY, "TmxFile2D@+ f()", AS_FUNCTION(TmxFile2D_TmxFile2D_Context) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -13235,9 +16476,18 @@ static void Register_TmxFile2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit TmxImageLayer2D::TmxImageLayer2D(TmxFile2D* tmxFile)
+static void TmxImageLayer2D_TmxImageLayer2D_TmxFile2D(TmxImageLayer2D* ptr, TmxFile2D* tmxFile)
+{
+    new(ptr) TmxImageLayer2D(tmxFile);
+}
+
 // class TmxImageLayer2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxImageLayer2D(asIScriptEngine* engine)
 {
+    // explicit TmxImageLayer2D::TmxImageLayer2D(TmxFile2D* tmxFile)
+    engine->RegisterObjectBehaviour("TmxImageLayer2D", asBEHAVE_FACTORY, "TmxImageLayer2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxImageLayer2D_TmxImageLayer2D_TmxFile2D) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -13274,9 +16524,18 @@ static void Register_TmxImageLayer2D(asIScriptEngine* engine)
     #endif
 }
 
+// TmxLayer2D::TmxLayer2D(TmxFile2D* tmxFile, TileMapLayerType2D type)
+static void TmxLayer2D_TmxLayer2D_TmxFile2D_TileMapLayerType2D(TmxLayer2D* ptr, TmxFile2D* tmxFile, TileMapLayerType2D type)
+{
+    new(ptr) TmxLayer2D(tmxFile, type);
+}
+
 // class TmxLayer2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxLayer2D(asIScriptEngine* engine)
 {
+    // TmxLayer2D::TmxLayer2D(TmxFile2D* tmxFile, TileMapLayerType2D type)
+    engine->RegisterObjectBehaviour("TmxLayer2D", asBEHAVE_FACTORY, "TmxLayer2D@+ f(TmxFile2D@+, TileMapLayerType2D)", AS_FUNCTION(TmxLayer2D_TmxLayer2D_TmxFile2D_TileMapLayerType2D) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -13313,9 +16572,18 @@ static void Register_TmxLayer2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit TmxObjectGroup2D::TmxObjectGroup2D(TmxFile2D* tmxFile)
+static void TmxObjectGroup2D_TmxObjectGroup2D_TmxFile2D(TmxObjectGroup2D* ptr, TmxFile2D* tmxFile)
+{
+    new(ptr) TmxObjectGroup2D(tmxFile);
+}
+
 // class TmxObjectGroup2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
 {
+    // explicit TmxObjectGroup2D::TmxObjectGroup2D(TmxFile2D* tmxFile)
+    engine->RegisterObjectBehaviour("TmxObjectGroup2D", asBEHAVE_FACTORY, "TmxObjectGroup2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxObjectGroup2D_TmxObjectGroup2D_TmxFile2D) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;
@@ -13352,9 +16620,18 @@ static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
     #endif
 }
 
+// explicit TmxTileLayer2D::TmxTileLayer2D(TmxFile2D* tmxFile)
+static void TmxTileLayer2D_TmxTileLayer2D_TmxFile2D(TmxTileLayer2D* ptr, TmxFile2D* tmxFile)
+{
+    new(ptr) TmxTileLayer2D(tmxFile);
+}
+
 // class TmxTileLayer2D | File: ../Urho2D/TmxFile2D.h
 static void Register_TmxTileLayer2D(asIScriptEngine* engine)
 {
+    // explicit TmxTileLayer2D::TmxTileLayer2D(TmxFile2D* tmxFile)
+    engine->RegisterObjectBehaviour("TmxTileLayer2D", asBEHAVE_FACTORY, "TmxTileLayer2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxTileLayer2D_TmxTileLayer2D_TmxFile2D) , AS_CALL_CDECL);
+
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
     Vector<RegisterObjectPropertyArgs> fields;

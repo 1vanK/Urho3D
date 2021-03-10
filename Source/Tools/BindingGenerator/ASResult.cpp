@@ -596,6 +596,14 @@ namespace Result
                     "\n";
             }
 
+            for (const SpecialMethodRegistration& nonDefaultConstructor : processedClass.nonDefaultConstructors_)
+            {
+                ofs <<
+                    "// " << nonDefaultConstructor.comment_ << "\n"
+                    << nonDefaultConstructor.glue_ <<
+                    "\n";
+            }
+
             ofs <<
                 "// " << processedClass.comment_ << "\n"
                 "static void Register_" << processedClass.name_ << "(asIScriptEngine* engine)\n"
@@ -607,9 +615,6 @@ namespace Result
 
             for (const MemberRegistrationError& regError : processedClass.unregisteredSpecialMethods_)
             {
-                if (needGap)
-                    ofs << '\n';
-
                 ofs <<
                     "    // " << regError.comment_ << "\n"
                     "    // " << regError.message_ << "\n";
@@ -617,10 +622,20 @@ namespace Result
                 needGap = true;
             }
 
-            /*
-            for (string nonDefaultConstructor : processedClass.nonDefaultConstructors_)
-                ofs << "    // " << nonDefaultConstructor << "\n";
-                */
+            if (needGap && processedClass.nonDefaultConstructors_.size())
+                ofs << '\n';
+
+            for (const SpecialMethodRegistration& nonDefaultConstructor : processedClass.nonDefaultConstructors_)
+            {
+                ofs <<
+                    "    // " << nonDefaultConstructor.comment_ << "\n"
+                    "    " << nonDefaultConstructor.registration_ << "\n";
+
+                needGap = true;
+            }
+
+            if (needGap && processedClass.destructor_)
+                ofs << '\n';
 
             if (processedClass.destructor_)
             {

@@ -374,7 +374,10 @@ public:
     string GetContainsClassName() const; // May this function defined in parent class, so return name o class, real define this function
     bool IsStatic() const { return ::IsStatic(memberdef_); }
     bool IsPublic() const { return ExtractProt(memberdef_) == "public"; }
+
+    // Constructor can have different name https://github.com/doxygen/doxygen/issues/8402
     bool IsThisConstructor() const { return GetName() == GetClassName(); }
+    
     bool IsThisDefaultConstructor() const { return IsThisConstructor() && ExtractCleanedFunctionArgsstring(memberdef_).empty(); }
     bool IsThisNonDefaultConstructor() const { return IsThisConstructor() && !ExtractCleanedFunctionArgsstring(memberdef_).empty(); }
     bool IsConstructor() const;

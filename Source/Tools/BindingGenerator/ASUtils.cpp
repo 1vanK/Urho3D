@@ -784,6 +784,42 @@ string GenerateWrapper(const MethodAnalyzer& methodAnalyzer, bool templateVersio
     return result;
 }
 
+string GenerateConstructorWrapper(const MethodAnalyzer& methodAnalyzer, const vector<ConvertedVariable>& convertedParams)
+{
+    string className = methodAnalyzer.GetClassName();
+
+    string result =
+        "static void " + GenerateWrapperName(methodAnalyzer) + "(" + JoinCppDeclarations(className + "* ptr", convertedParams) + ")\n"
+        "{\n";
+
+    for (size_t i = 0; i < convertedParams.size(); i++)
+        result += convertedParams[i].glue_;
+
+    result +=
+        "    new(ptr) " + className + "(" + methodAnalyzer.JoinParamsNames() + ");\n"
+        "}\n";
+
+    return result;
+}
+
+string GenerateFactoryWrapper(const MethodAnalyzer& methodAnalyzer, const vector<ConvertedVariable>& convertedParams)
+{
+    string className = methodAnalyzer.GetClassName();
+
+    string result =
+        "static " + className + "* " + GenerateWrapperName(methodAnalyzer) + "(" + JoinCppDeclarations(convertedParams) + ")\n"
+        "{\n";
+
+    for (size_t i = 0; i < convertedParams.size(); i++)
+        result += convertedParams[i].glue_;
+
+    result +=
+        "    return " + className + "(" + methodAnalyzer.JoinParamsNames() + ");\n"
+        "}\n";
+
+    return result;
+}
+
 // =================================================================================
 
 string Generate_asFUNCTIONPR(const GlobalFunctionAnalyzer& functionAnalyzer)

@@ -86,6 +86,10 @@ string GenerateWrapper(const GlobalFunctionAnalyzer& functionAnalyzer, const vec
 string GenerateWrapper(const ClassStaticFunctionAnalyzer& functionAnalyzer, const vector<ConvertedVariable>& convertedParams, const ConvertedVariable& convertedReturn);
 string GenerateWrapper(const MethodAnalyzer& methodAnalyzer, bool templateVersion, const vector<ConvertedVariable>& convertedParams, const ConvertedVariable& convertedReturn);
 
+string GenerateConstructorWrapper(const MethodAnalyzer& methodAnalyzer, const vector<ConvertedVariable>& convertedParams);
+string GenerateFactoryWrapper(const MethodAnalyzer& methodAnalyzer, const vector<ConvertedVariable>& convertedParams);
+
+
 string Generate_asFUNCTIONPR(const GlobalFunctionAnalyzer& functionAnalyzer);
 string Generate_asFUNCTIONPR(const ClassStaticFunctionAnalyzer& functionAnalyzer);
 string Generate_asMETHODPR(const MethodAnalyzer& methodAnalyzer, bool templateVersion);

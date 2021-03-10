@@ -150,6 +150,56 @@ static void RegisterConstructor(const MethodAnalyzer& methodAnalyzer, ProcessedC
         processedClass.defaultConstructor_ = make_shared<SpecialMethodRegistration>(result);
         return;
     }
+
+
+    vector<ConvertedVariable> convertedParams;
+    for (const ParamAnalyzer& param : params)
+    {
+        ConvertedVariable convertedParam;
+
+        try
+        {
+            convertedParam = CppVariableToAS(param.GetType(), VariableUsage::FunctionParameter, param.GetDeclname(), param.GetDefval());
+        }
+        catch (const Exception& e)
+        {
+            MemberRegistrationError regError;
+            regError.name_ = methodAnalyzer.GetName();
+            regError.comment_ = methodAnalyzer.GetDeclaration();
+            regError.message_ = e.what();
+            processedClass.unregisteredSpecialMethods_.push_back(regError);
+            return;
+        }
+
+        convertedParams.push_back(convertedParam);
+    }
+
+    bool needWrapper = false;
+    for (const ConvertedVariable& convertedParam : convertedParams)
+    {
+        if (convertedParam.NeedWrapper())
+            needWrapper = true;
+    }
+
+    if (classAnalyzer.IsRefCounted() || Contains(classAnalyzer.GetComment(), "FAKE_REF"))
+    {
+        string asDeclaration = asClassName + "@+ f(" + JoinASDeclarations(convertedParams) + ")";
+        result.registration_ = result.registration_ =
+            "engine->RegisterObjectBehaviour(\"" + asClassName + "\", asBEHAVE_FACTORY, \"" + asDeclaration + "\", AS_FUNCTION("
+            + GenerateWrapperName(methodAnalyzer) + ") , AS_CALL_CDECL);";
+
+        result.glue_ = GenerateFactoryWrapper(methodAnalyzer, convertedParams);
+    }
+    else
+    {
+        string asDeclaration = "void f(" + JoinASDeclarations(convertedParams) + ")";
+        result.registration_ = "engine->RegisterObjectBehaviour(\"" + asClassName + "\", asBEHAVE_CONSTRUCT, \"" + asDeclaration +
+            "\", AS_FUNCTION_OBJFIRST(" + GenerateWrapperName(methodAnalyzer) + "), AS_CALL_CDECL_OBJFIRST);";
+
+        result.glue_ = GenerateConstructorWrapper(methodAnalyzer, convertedParams);
+    }
+
+    processedClass.nonDefaultConstructors_.push_back(result);
 }
 
 static void RegisterDestructor(const ClassAnalyzer& classAnalyzer, ProcessedClass& processedClass)
