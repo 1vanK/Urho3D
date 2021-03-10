@@ -667,7 +667,11 @@ namespace Result
                 "        engine->SetDefaultNamespace(asClassName);\n"
                 "        engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);\n"
                 "        engine->SetDefaultNamespace(\"\");\n"
-                "    }\n";
+                "    }\n"
+                "\n"
+                "    #ifdef REGISTER_CLASS_MANUAL_PART_" << processedClass.name_ << "\n"
+                "        REGISTER_CLASS_MANUAL_PART_" << processedClass.name_ << "();\n"
+                "    #endif\n";
 
             ofs << "}\n";
         }

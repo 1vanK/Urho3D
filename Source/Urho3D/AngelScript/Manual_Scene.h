@@ -44,6 +44,9 @@ const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* 
 
 // ========================================================================================
 
+#define REGISTER_CLASS_MANUAL_PART_Node() \
+    RegisterNamedObjectConstructor<Node>(engine, "Node");
+
 // bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
 bool NodeSaveXML(File* file, const String& indentation, Node* ptr);
 // bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
@@ -74,7 +77,6 @@ VariantMap& NodeGetVars(Node* ptr);
 Component* NodeGetComponent(unsigned index, Node* ptr);
 
 #define REGISTER_MANUAL_PART_Node(T, className) \
-    RegisterNamedObjectConstructor<T>(engine, className); \
     /* bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h */ \
     engine->RegisterObjectMethod(className, "bool SaveXML(File@+, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXML), AS_CALL_CDECL_OBJLAST); \
     /* bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h */ \
@@ -117,6 +119,9 @@ Component* NodeGetComponent(unsigned index, Node* ptr);
     }
 
 // ========================================================================================
+
+#define REGISTER_CLASS_MANUAL_PART_Scene() \
+    RegisterNamedObjectConstructor<Scene>(engine, "Scene");
 
 // bool Scene::LoadXML(Deserializer &source) | File: ../Scene/Scene.h
 bool SceneLoadXML(File* file, Scene* ptr);

@@ -46,6 +46,10 @@ static void Register_AbstractFile(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AbstractFile
+        REGISTER_CLASS_MANUAL_PART_AbstractFile();
+    #endif
 }
 
 // struct AllocatorBlock | File: ../Container/Allocator.h
@@ -84,6 +88,10 @@ static void Register_AllocatorBlock(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AllocatorBlock
+        REGISTER_CLASS_MANUAL_PART_AllocatorBlock();
+    #endif
 }
 
 // struct AllocatorNode | File: ../Container/Allocator.h
@@ -122,6 +130,10 @@ static void Register_AllocatorNode(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AllocatorNode
+        REGISTER_CLASS_MANUAL_PART_AllocatorNode();
+    #endif
 }
 
 // class Animatable | File: ../Scene/Animatable.h
@@ -157,6 +169,10 @@ static void Register_Animatable(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Animatable
+        REGISTER_CLASS_MANUAL_PART_Animatable();
+    #endif
 }
 
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
@@ -192,6 +208,10 @@ static void Register_AnimatedModel(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimatedModel
+        REGISTER_CLASS_MANUAL_PART_AnimatedModel();
+    #endif
 }
 
 // class Animation | File: ../Graphics/Animation.h
@@ -227,6 +247,10 @@ static void Register_Animation(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Animation
+        REGISTER_CLASS_MANUAL_PART_Animation();
+    #endif
 }
 
 // struct AnimationControl | File: ../Graphics/AnimationController.h
@@ -262,6 +286,10 @@ static void Register_AnimationControl(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimationControl
+        REGISTER_CLASS_MANUAL_PART_AnimationControl();
+    #endif
 }
 
 // class AnimationController | File: ../Graphics/AnimationController.h
@@ -297,6 +325,10 @@ static void Register_AnimationController(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimationController
+        REGISTER_CLASS_MANUAL_PART_AnimationController();
+    #endif
 }
 
 // struct AnimationKeyFrame | File: ../Graphics/Animation.h
@@ -335,6 +367,10 @@ static void Register_AnimationKeyFrame(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimationKeyFrame
+        REGISTER_CLASS_MANUAL_PART_AnimationKeyFrame();
+    #endif
 }
 
 // class AnimationState | File: ../Graphics/AnimationState.h
@@ -370,6 +406,10 @@ static void Register_AnimationState(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimationState
+        REGISTER_CLASS_MANUAL_PART_AnimationState();
+    #endif
 }
 
 // struct AnimationStateTrack | File: ../Graphics/AnimationState.h
@@ -408,6 +448,10 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimationStateTrack
+        REGISTER_CLASS_MANUAL_PART_AnimationStateTrack();
+    #endif
 }
 
 // struct AnimationTrack | File: ../Graphics/Animation.h
@@ -443,6 +487,10 @@ static void Register_AnimationTrack(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimationTrack
+        REGISTER_CLASS_MANUAL_PART_AnimationTrack();
+    #endif
 }
 
 // struct AnimationTriggerPoint | File: ../Graphics/Animation.h
@@ -481,6 +529,10 @@ static void Register_AnimationTriggerPoint(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimationTriggerPoint
+        REGISTER_CLASS_MANUAL_PART_AnimationTriggerPoint();
+    #endif
 }
 
 // class AreaAllocator | File: ../Math/AreaAllocator.h
@@ -519,6 +571,10 @@ static void Register_AreaAllocator(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AreaAllocator
+        REGISTER_CLASS_MANUAL_PART_AreaAllocator();
+    #endif
 }
 
 // struct AsyncProgress | File: ../Scene/Scene.h
@@ -557,6 +613,10 @@ static void Register_AsyncProgress(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AsyncProgress
+        REGISTER_CLASS_MANUAL_PART_AsyncProgress();
+    #endif
 }
 
 // class AttributeAccessor | File: ../Core/Attribute.h
@@ -592,6 +652,10 @@ static void Register_AttributeAccessor(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AttributeAccessor
+        REGISTER_CLASS_MANUAL_PART_AttributeAccessor();
+    #endif
 }
 
 // class AttributeAnimationInfo | File: ../Scene/Animatable.h
@@ -627,6 +691,10 @@ static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AttributeAnimationInfo
+        REGISTER_CLASS_MANUAL_PART_AttributeAnimationInfo();
+    #endif
 }
 
 // struct AttributeInfo | File: ../Core/Attribute.h
@@ -665,6 +733,10 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AttributeInfo
+        REGISTER_CLASS_MANUAL_PART_AttributeInfo();
+    #endif
 }
 
 // class Audio | File: ../Audio/Audio.h
@@ -700,6 +772,10 @@ static void Register_Audio(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Audio
+        REGISTER_CLASS_MANUAL_PART_Audio();
+    #endif
 }
 
 // struct BackgroundLoadItem | File: ../Resource/BackgroundLoader.h
@@ -738,6 +814,10 @@ static void Register_BackgroundLoadItem(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BackgroundLoadItem
+        REGISTER_CLASS_MANUAL_PART_BackgroundLoadItem();
+    #endif
 }
 
 // struct Batch | File: ../Graphics/Batch.h
@@ -776,6 +856,10 @@ static void Register_Batch(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Batch
+        REGISTER_CLASS_MANUAL_PART_Batch();
+    #endif
 }
 
 // struct BatchGroup | File: ../Graphics/Batch.h
@@ -814,6 +898,10 @@ static void Register_BatchGroup(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BatchGroup
+        REGISTER_CLASS_MANUAL_PART_BatchGroup();
+    #endif
 }
 
 // struct BatchGroupKey | File: ../Graphics/Batch.h
@@ -852,6 +940,10 @@ static void Register_BatchGroupKey(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BatchGroupKey
+        REGISTER_CLASS_MANUAL_PART_BatchGroupKey();
+    #endif
 }
 
 // struct BatchQueue | File: ../Graphics/Batch.h
@@ -890,6 +982,10 @@ static void Register_BatchQueue(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BatchQueue
+        REGISTER_CLASS_MANUAL_PART_BatchQueue();
+    #endif
 }
 
 // struct BiasParameters | File: ../Graphics/Light.h
@@ -925,6 +1021,10 @@ static void Register_BiasParameters(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BiasParameters
+        REGISTER_CLASS_MANUAL_PART_BiasParameters();
+    #endif
 }
 
 // struct Billboard | File: ../Graphics/BillboardSet.h
@@ -960,6 +1060,10 @@ static void Register_Billboard(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Billboard
+        REGISTER_CLASS_MANUAL_PART_Billboard();
+    #endif
 }
 
 // class BillboardSet | File: ../Graphics/BillboardSet.h
@@ -995,6 +1099,10 @@ static void Register_BillboardSet(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BillboardSet
+        REGISTER_CLASS_MANUAL_PART_BillboardSet();
+    #endif
 }
 
 // struct Bone | File: ../Graphics/Skeleton.h
@@ -1030,6 +1138,10 @@ static void Register_Bone(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Bone
+        REGISTER_CLASS_MANUAL_PART_Bone();
+    #endif
 }
 
 // class BorderImage | File: ../UI/BorderImage.h
@@ -1065,6 +1177,10 @@ static void Register_BorderImage(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BorderImage
+        REGISTER_CLASS_MANUAL_PART_BorderImage();
+    #endif
 }
 
 // class BoundingBox | File: ../Math/BoundingBox.h
@@ -1100,6 +1216,10 @@ static void Register_BoundingBox(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BoundingBox
+        REGISTER_CLASS_MANUAL_PART_BoundingBox();
+    #endif
 }
 
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
@@ -1135,6 +1255,10 @@ static void Register_BufferedSoundStream(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_BufferedSoundStream
+        REGISTER_CLASS_MANUAL_PART_BufferedSoundStream();
+    #endif
 }
 
 // class Button | File: ../UI/Button.h
@@ -1170,6 +1294,10 @@ static void Register_Button(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Button
+        REGISTER_CLASS_MANUAL_PART_Button();
+    #endif
 }
 
 // class Camera | File: ../Graphics/Camera.h
@@ -1205,6 +1333,10 @@ static void Register_Camera(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Camera
+        REGISTER_CLASS_MANUAL_PART_Camera();
+    #endif
 }
 
 // struct CascadeParameters | File: ../Graphics/Light.h
@@ -1240,6 +1372,10 @@ static void Register_CascadeParameters(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CascadeParameters
+        REGISTER_CLASS_MANUAL_PART_CascadeParameters();
+    #endif
 }
 
 // struct CharLocation | File: ../UI/Text.h
@@ -1278,6 +1414,10 @@ static void Register_CharLocation(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CharLocation
+        REGISTER_CLASS_MANUAL_PART_CharLocation();
+    #endif
 }
 
 // class CheckBox | File: ../UI/CheckBox.h
@@ -1313,6 +1453,10 @@ static void Register_CheckBox(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CheckBox
+        REGISTER_CLASS_MANUAL_PART_CheckBox();
+    #endif
 }
 
 // class Color | File: ../Math/Color.h
@@ -1348,6 +1492,10 @@ static void Register_Color(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Color
+        REGISTER_CLASS_MANUAL_PART_Color();
+    #endif
 }
 
 // struct ColorFrame | File: ../Graphics/ParticleEffect.h
@@ -1383,6 +1531,10 @@ static void Register_ColorFrame(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ColorFrame
+        REGISTER_CLASS_MANUAL_PART_ColorFrame();
+    #endif
 }
 
 // class Component | File: ../Scene/Component.h
@@ -1418,6 +1570,10 @@ static void Register_Component(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Component
+        REGISTER_CLASS_MANUAL_PART_Component();
+    #endif
 }
 
 // struct ComponentReplicationState | File: ../Scene/ReplicationState.h
@@ -1456,6 +1612,10 @@ static void Register_ComponentReplicationState(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ComponentReplicationState
+        REGISTER_CLASS_MANUAL_PART_ComponentReplicationState();
+    #endif
 }
 
 // struct CompressedLevel | File: ../Resource/Image.h
@@ -1494,6 +1654,10 @@ static void Register_CompressedLevel(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CompressedLevel
+        REGISTER_CLASS_MANUAL_PART_CompressedLevel();
+    #endif
 }
 
 // class Condition | File: ../Core/Condition.h
@@ -1532,6 +1696,10 @@ static void Register_Condition(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Condition
+        REGISTER_CLASS_MANUAL_PART_Condition();
+    #endif
 }
 
 // class Console | File: ../Engine/Console.h
@@ -1567,6 +1735,10 @@ static void Register_Console(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Console
+        REGISTER_CLASS_MANUAL_PART_Console();
+    #endif
 }
 
 // class ConstantBuffer | File: ../Graphics/ConstantBuffer.h
@@ -1602,6 +1774,10 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstantBuffer
+        REGISTER_CLASS_MANUAL_PART_ConstantBuffer();
+    #endif
 }
 
 // class Context | File: ../Core/Context.h
@@ -1637,6 +1813,10 @@ static void Register_Context(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Context
+        REGISTER_CLASS_MANUAL_PART_Context();
+    #endif
 }
 
 // class Controls | File: ../Input/Controls.h
@@ -1675,6 +1855,10 @@ static void Register_Controls(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Controls
+        REGISTER_CLASS_MANUAL_PART_Controls();
+    #endif
 }
 
 // class Cursor | File: ../UI/Cursor.h
@@ -1710,6 +1894,10 @@ static void Register_Cursor(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Cursor
+        REGISTER_CLASS_MANUAL_PART_Cursor();
+    #endif
 }
 
 // struct CursorShapeInfo | File: ../UI/Cursor.h
@@ -1748,6 +1936,10 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CursorShapeInfo
+        REGISTER_CLASS_MANUAL_PART_CursorShapeInfo();
+    #endif
 }
 
 // class CustomGeometry | File: ../Graphics/CustomGeometry.h
@@ -1783,6 +1975,10 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CustomGeometry
+        REGISTER_CLASS_MANUAL_PART_CustomGeometry();
+    #endif
 }
 
 // struct CustomGeometryVertex | File: ../Graphics/CustomGeometry.h
@@ -1818,6 +2014,10 @@ static void Register_CustomGeometryVertex(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CustomGeometryVertex
+        REGISTER_CLASS_MANUAL_PART_CustomGeometryVertex();
+    #endif
 }
 
 // class DebugHud | File: ../Engine/DebugHud.h
@@ -1853,6 +2053,10 @@ static void Register_DebugHud(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DebugHud
+        REGISTER_CLASS_MANUAL_PART_DebugHud();
+    #endif
 }
 
 // struct DebugLine | File: ../Graphics/DebugRenderer.h
@@ -1891,6 +2095,10 @@ static void Register_DebugLine(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DebugLine
+        REGISTER_CLASS_MANUAL_PART_DebugLine();
+    #endif
 }
 
 // class DebugRenderer | File: ../Graphics/DebugRenderer.h
@@ -1926,6 +2134,10 @@ static void Register_DebugRenderer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DebugRenderer
+        REGISTER_CLASS_MANUAL_PART_DebugRenderer();
+    #endif
 }
 
 // struct DebugTriangle | File: ../Graphics/DebugRenderer.h
@@ -1964,6 +2176,10 @@ static void Register_DebugTriangle(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DebugTriangle
+        REGISTER_CLASS_MANUAL_PART_DebugTriangle();
+    #endif
 }
 
 // struct Decal | File: ../Graphics/DecalSet.h
@@ -2002,6 +2218,10 @@ static void Register_Decal(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Decal
+        REGISTER_CLASS_MANUAL_PART_Decal();
+    #endif
 }
 
 // class DecalSet | File: ../Graphics/DecalSet.h
@@ -2037,6 +2257,10 @@ static void Register_DecalSet(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DecalSet
+        REGISTER_CLASS_MANUAL_PART_DecalSet();
+    #endif
 }
 
 // struct DecalVertex | File: ../Graphics/DecalSet.h
@@ -2075,6 +2299,10 @@ static void Register_DecalVertex(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DecalVertex
+        REGISTER_CLASS_MANUAL_PART_DecalVertex();
+    #endif
 }
 
 // struct DepthValue | File: ../Graphics/OcclusionBuffer.h
@@ -2110,6 +2338,10 @@ static void Register_DepthValue(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DepthValue
+        REGISTER_CLASS_MANUAL_PART_DepthValue();
+    #endif
 }
 
 // class Deserializer | File: ../IO/Deserializer.h
@@ -2145,6 +2377,10 @@ static void Register_Deserializer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Deserializer
+        REGISTER_CLASS_MANUAL_PART_Deserializer();
+    #endif
 }
 
 // struct DirtyBits | File: ../Scene/ReplicationState.h
@@ -2183,6 +2419,10 @@ static void Register_DirtyBits(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DirtyBits
+        REGISTER_CLASS_MANUAL_PART_DirtyBits();
+    #endif
 }
 
 // class Drawable | File: ../Graphics/Drawable.h
@@ -2218,6 +2458,10 @@ static void Register_Drawable(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Drawable
+        REGISTER_CLASS_MANUAL_PART_Drawable();
+    #endif
 }
 
 // class DropDownList | File: ../UI/DropDownList.h
@@ -2253,6 +2497,10 @@ static void Register_DropDownList(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DropDownList
+        REGISTER_CLASS_MANUAL_PART_DropDownList();
+    #endif
 }
 
 // class Engine | File: ../Engine/Engine.h
@@ -2288,6 +2536,10 @@ static void Register_Engine(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Engine
+        REGISTER_CLASS_MANUAL_PART_Engine();
+    #endif
 }
 
 // class EventProfiler | File: ../Core/EventProfiler.h
@@ -2323,6 +2575,10 @@ static void Register_EventProfiler(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_EventProfiler
+        REGISTER_CLASS_MANUAL_PART_EventProfiler();
+    #endif
 }
 
 // class EventReceiverGroup | File: ../Core/Context.h
@@ -2358,6 +2614,10 @@ static void Register_EventReceiverGroup(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_EventReceiverGroup
+        REGISTER_CLASS_MANUAL_PART_EventReceiverGroup();
+    #endif
 }
 
 // class File | File: ../IO/File.h
@@ -2393,6 +2653,10 @@ static void Register_File(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_File
+        REGISTER_CLASS_MANUAL_PART_File();
+    #endif
 }
 
 // class FileSelector | File: ../UI/FileSelector.h
@@ -2428,6 +2692,10 @@ static void Register_FileSelector(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FileSelector
+        REGISTER_CLASS_MANUAL_PART_FileSelector();
+    #endif
 }
 
 // struct FileSelectorEntry | File: ../UI/FileSelector.h
@@ -2466,6 +2734,10 @@ static void Register_FileSelectorEntry(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FileSelectorEntry
+        REGISTER_CLASS_MANUAL_PART_FileSelectorEntry();
+    #endif
 }
 
 // class FileSystem | File: ../IO/FileSystem.h
@@ -2501,6 +2773,10 @@ static void Register_FileSystem(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FileSystem
+        REGISTER_CLASS_MANUAL_PART_FileSystem();
+    #endif
 }
 
 // class FileWatcher | File: ../IO/FileWatcher.h
@@ -2536,6 +2812,10 @@ static void Register_FileWatcher(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FileWatcher
+        REGISTER_CLASS_MANUAL_PART_FileWatcher();
+    #endif
 }
 
 // struct FocusParameters | File: ../Graphics/Light.h
@@ -2571,6 +2851,10 @@ static void Register_FocusParameters(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FocusParameters
+        REGISTER_CLASS_MANUAL_PART_FocusParameters();
+    #endif
 }
 
 // class Font | File: ../UI/Font.h
@@ -2606,6 +2890,10 @@ static void Register_Font(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Font
+        REGISTER_CLASS_MANUAL_PART_Font();
+    #endif
 }
 
 // class FontFace | File: ../UI/FontFace.h
@@ -2641,6 +2929,10 @@ static void Register_FontFace(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FontFace
+        REGISTER_CLASS_MANUAL_PART_FontFace();
+    #endif
 }
 
 // class FontFaceBitmap | File: ../UI/FontFaceBitmap.h
@@ -2676,6 +2968,10 @@ static void Register_FontFaceBitmap(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FontFaceBitmap
+        REGISTER_CLASS_MANUAL_PART_FontFaceBitmap();
+    #endif
 }
 
 // class FontFaceFreeType | File: ../UI/FontFaceFreeType.h
@@ -2711,6 +3007,10 @@ static void Register_FontFaceFreeType(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FontFaceFreeType
+        REGISTER_CLASS_MANUAL_PART_FontFaceFreeType();
+    #endif
 }
 
 // struct FontGlyph | File: ../UI/FontFace.h
@@ -2749,6 +3049,10 @@ static void Register_FontGlyph(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FontGlyph
+        REGISTER_CLASS_MANUAL_PART_FontGlyph();
+    #endif
 }
 
 // struct FrameInfo | File: ../Graphics/Drawable.h
@@ -2787,6 +3091,10 @@ static void Register_FrameInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_FrameInfo
+        REGISTER_CLASS_MANUAL_PART_FrameInfo();
+    #endif
 }
 
 // class Frustum | File: ../Math/Frustum.h
@@ -2825,6 +3133,10 @@ static void Register_Frustum(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Frustum
+        REGISTER_CLASS_MANUAL_PART_Frustum();
+    #endif
 }
 
 // class GPUObject | File: ../Graphics/GPUObject.h
@@ -2863,6 +3175,10 @@ static void Register_GPUObject(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_GPUObject
+        REGISTER_CLASS_MANUAL_PART_GPUObject();
+    #endif
 }
 
 // class Geometry | File: ../Graphics/Geometry.h
@@ -2898,6 +3214,10 @@ static void Register_Geometry(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Geometry
+        REGISTER_CLASS_MANUAL_PART_Geometry();
+    #endif
 }
 
 // struct GeometryDesc | File: ../Graphics/Model.h
@@ -2936,6 +3256,10 @@ static void Register_GeometryDesc(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_GeometryDesc
+        REGISTER_CLASS_MANUAL_PART_GeometryDesc();
+    #endif
 }
 
 // class Graphics | File: ../Graphics/Graphics.h
@@ -2971,6 +3295,10 @@ static void Register_Graphics(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Graphics
+        REGISTER_CLASS_MANUAL_PART_Graphics();
+    #endif
 }
 
 // class HashBase | File: ../Container/HashBase.h
@@ -3009,6 +3337,10 @@ static void Register_HashBase(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_HashBase
+        REGISTER_CLASS_MANUAL_PART_HashBase();
+    #endif
 }
 
 // struct HashIteratorBase | File: ../Container/HashBase.h
@@ -3047,6 +3379,10 @@ static void Register_HashIteratorBase(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_HashIteratorBase
+        REGISTER_CLASS_MANUAL_PART_HashIteratorBase();
+    #endif
 }
 
 // struct HashNodeBase | File: ../Container/HashBase.h
@@ -3085,6 +3421,10 @@ static void Register_HashNodeBase(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_HashNodeBase
+        REGISTER_CLASS_MANUAL_PART_HashNodeBase();
+    #endif
 }
 
 // class HiresTimer | File: ../Core/Timer.h
@@ -3123,6 +3463,10 @@ static void Register_HiresTimer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_HiresTimer
+        REGISTER_CLASS_MANUAL_PART_HiresTimer();
+    #endif
 }
 
 // class Image | File: ../Resource/Image.h
@@ -3158,6 +3502,10 @@ static void Register_Image(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Image
+        REGISTER_CLASS_MANUAL_PART_Image();
+    #endif
 }
 
 // class IndexBuffer | File: ../Graphics/IndexBuffer.h
@@ -3193,6 +3541,10 @@ static void Register_IndexBuffer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_IndexBuffer
+        REGISTER_CLASS_MANUAL_PART_IndexBuffer();
+    #endif
 }
 
 // struct IndexBufferDesc | File: ../Graphics/Model.h
@@ -3231,6 +3583,10 @@ static void Register_IndexBufferDesc(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_IndexBufferDesc
+        REGISTER_CLASS_MANUAL_PART_IndexBufferDesc();
+    #endif
 }
 
 // class Input | File: ../Input/Input.h
@@ -3266,6 +3622,10 @@ static void Register_Input(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Input
+        REGISTER_CLASS_MANUAL_PART_Input();
+    #endif
 }
 
 // struct InstanceData | File: ../Graphics/Batch.h
@@ -3304,6 +3664,10 @@ static void Register_InstanceData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_InstanceData
+        REGISTER_CLASS_MANUAL_PART_InstanceData();
+    #endif
 }
 
 // class IntRect | File: ../Math/Rect.h
@@ -3339,6 +3703,10 @@ static void Register_IntRect(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_IntRect
+        REGISTER_CLASS_MANUAL_PART_IntRect();
+    #endif
 }
 
 // class IntVector2 | File: ../Math/Vector2.h
@@ -3374,6 +3742,10 @@ static void Register_IntVector2(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_IntVector2
+        REGISTER_CLASS_MANUAL_PART_IntVector2();
+    #endif
 }
 
 // class IntVector3 | File: ../Math/Vector3.h
@@ -3409,6 +3781,10 @@ static void Register_IntVector3(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_IntVector3
+        REGISTER_CLASS_MANUAL_PART_IntVector3();
+    #endif
 }
 
 // class JSONFile | File: ../Resource/JSONFile.h
@@ -3444,6 +3820,10 @@ static void Register_JSONFile(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_JSONFile
+        REGISTER_CLASS_MANUAL_PART_JSONFile();
+    #endif
 }
 
 // class JSONValue | File: ../Resource/JSONValue.h
@@ -3482,6 +3862,10 @@ static void Register_JSONValue(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_JSONValue
+        REGISTER_CLASS_MANUAL_PART_JSONValue();
+    #endif
 }
 
 // struct JoystickState | File: ../Input/Input.h
@@ -3517,6 +3901,10 @@ static void Register_JoystickState(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_JoystickState
+        REGISTER_CLASS_MANUAL_PART_JoystickState();
+    #endif
 }
 
 // class Light | File: ../Graphics/Light.h
@@ -3552,6 +3940,10 @@ static void Register_Light(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Light
+        REGISTER_CLASS_MANUAL_PART_Light();
+    #endif
 }
 
 // struct LightBatchQueue | File: ../Graphics/Batch.h
@@ -3590,6 +3982,10 @@ static void Register_LightBatchQueue(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_LightBatchQueue
+        REGISTER_CLASS_MANUAL_PART_LightBatchQueue();
+    #endif
 }
 
 // struct LightQueryResult | File: ../Graphics/View.h
@@ -3628,6 +4024,10 @@ static void Register_LightQueryResult(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_LightQueryResult
+        REGISTER_CLASS_MANUAL_PART_LightQueryResult();
+    #endif
 }
 
 // class LineEdit | File: ../UI/LineEdit.h
@@ -3663,6 +4063,10 @@ static void Register_LineEdit(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_LineEdit
+        REGISTER_CLASS_MANUAL_PART_LineEdit();
+    #endif
 }
 
 // struct LinkedListNode | File: ../Container/LinkedList.h
@@ -3701,6 +4105,10 @@ static void Register_LinkedListNode(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_LinkedListNode
+        REGISTER_CLASS_MANUAL_PART_LinkedListNode();
+    #endif
 }
 
 // class ListBase | File: ../Container/ListBase.h
@@ -3739,6 +4147,10 @@ static void Register_ListBase(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ListBase
+        REGISTER_CLASS_MANUAL_PART_ListBase();
+    #endif
 }
 
 // struct ListIteratorBase | File: ../Container/ListBase.h
@@ -3777,6 +4189,10 @@ static void Register_ListIteratorBase(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ListIteratorBase
+        REGISTER_CLASS_MANUAL_PART_ListIteratorBase();
+    #endif
 }
 
 // struct ListNodeBase | File: ../Container/ListBase.h
@@ -3815,6 +4231,10 @@ static void Register_ListNodeBase(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ListNodeBase
+        REGISTER_CLASS_MANUAL_PART_ListNodeBase();
+    #endif
 }
 
 // class ListView | File: ../UI/ListView.h
@@ -3850,6 +4270,10 @@ static void Register_ListView(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ListView
+        REGISTER_CLASS_MANUAL_PART_ListView();
+    #endif
 }
 
 // class Localization | File: ../Resource/Localization.h
@@ -3885,6 +4309,10 @@ static void Register_Localization(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Localization
+        REGISTER_CLASS_MANUAL_PART_Localization();
+    #endif
 }
 
 // class Log | File: ../IO/Log.h
@@ -3920,6 +4348,10 @@ static void Register_Log(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Log
+        REGISTER_CLASS_MANUAL_PART_Log();
+    #endif
 }
 
 // class LogicComponent | File: ../Scene/LogicComponent.h
@@ -3955,6 +4387,10 @@ static void Register_LogicComponent(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_LogicComponent
+        REGISTER_CLASS_MANUAL_PART_LogicComponent();
+    #endif
 }
 
 // class Material | File: ../Graphics/Material.h
@@ -3990,6 +4426,10 @@ static void Register_Material(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Material
+        REGISTER_CLASS_MANUAL_PART_Material();
+    #endif
 }
 
 // struct MaterialShaderParameter | File: ../Graphics/Material.h
@@ -4028,6 +4468,10 @@ static void Register_MaterialShaderParameter(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_MaterialShaderParameter
+        REGISTER_CLASS_MANUAL_PART_MaterialShaderParameter();
+    #endif
 }
 
 // class Matrix2 | File: ../Math/Matrix2.h
@@ -4063,6 +4507,10 @@ static void Register_Matrix2(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Matrix2
+        REGISTER_CLASS_MANUAL_PART_Matrix2();
+    #endif
 }
 
 // class Matrix3 | File: ../Math/Matrix3.h
@@ -4098,6 +4546,10 @@ static void Register_Matrix3(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Matrix3
+        REGISTER_CLASS_MANUAL_PART_Matrix3();
+    #endif
 }
 
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
@@ -4133,6 +4585,10 @@ static void Register_Matrix3x4(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Matrix3x4
+        REGISTER_CLASS_MANUAL_PART_Matrix3x4();
+    #endif
 }
 
 // class Matrix4 | File: ../Math/Matrix4.h
@@ -4168,6 +4624,10 @@ static void Register_Matrix4(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Matrix4
+        REGISTER_CLASS_MANUAL_PART_Matrix4();
+    #endif
 }
 
 // class Menu | File: ../UI/Menu.h
@@ -4203,6 +4663,10 @@ static void Register_Menu(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Menu
+        REGISTER_CLASS_MANUAL_PART_Menu();
+    #endif
 }
 
 // class MessageBox | File: ../UI/MessageBox.h
@@ -4238,6 +4702,10 @@ static void Register_MessageBox(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_MessageBox
+        REGISTER_CLASS_MANUAL_PART_MessageBox();
+    #endif
 }
 
 // class Model | File: ../Graphics/Model.h
@@ -4273,6 +4741,10 @@ static void Register_Model(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Model
+        REGISTER_CLASS_MANUAL_PART_Model();
+    #endif
 }
 
 // struct ModelMorph | File: ../Graphics/Model.h
@@ -4311,6 +4783,10 @@ static void Register_ModelMorph(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ModelMorph
+        REGISTER_CLASS_MANUAL_PART_ModelMorph();
+    #endif
 }
 
 // class Mutex | File: ../Core/Mutex.h
@@ -4349,6 +4825,10 @@ static void Register_Mutex(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Mutex
+        REGISTER_CLASS_MANUAL_PART_Mutex();
+    #endif
 }
 
 // class MutexLock | File: ../Core/Mutex.h
@@ -4387,6 +4867,10 @@ static void Register_MutexLock(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_MutexLock
+        REGISTER_CLASS_MANUAL_PART_MutexLock();
+    #endif
 }
 
 // class NamedPipe | File: ../IO/NamedPipe.h
@@ -4422,6 +4906,10 @@ static void Register_NamedPipe(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NamedPipe
+        REGISTER_CLASS_MANUAL_PART_NamedPipe();
+    #endif
 }
 
 // struct NetworkState | File: ../Scene/ReplicationState.h
@@ -4460,6 +4948,10 @@ static void Register_NetworkState(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NetworkState
+        REGISTER_CLASS_MANUAL_PART_NetworkState();
+    #endif
 }
 
 // class Node | File: ../Scene/Node.h
@@ -4495,6 +4987,10 @@ static void Register_Node(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Node
+        REGISTER_CLASS_MANUAL_PART_Node();
+    #endif
 }
 
 // struct NodeImpl | File: ../Scene/Node.h
@@ -4533,6 +5029,10 @@ static void Register_NodeImpl(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NodeImpl
+        REGISTER_CLASS_MANUAL_PART_NodeImpl();
+    #endif
 }
 
 // struct NodeReplicationState | File: ../Scene/ReplicationState.h
@@ -4571,6 +5071,10 @@ static void Register_NodeReplicationState(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NodeReplicationState
+        REGISTER_CLASS_MANUAL_PART_NodeReplicationState();
+    #endif
 }
 
 // class Object | File: ../Core/Object.h
@@ -4606,6 +5110,10 @@ static void Register_Object(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Object
+        REGISTER_CLASS_MANUAL_PART_Object();
+    #endif
 }
 
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
@@ -4641,6 +5149,10 @@ static void Register_ObjectAnimation(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ObjectAnimation
+        REGISTER_CLASS_MANUAL_PART_ObjectAnimation();
+    #endif
 }
 
 // class ObjectFactory | File: ../Core/Object.h
@@ -4676,6 +5188,10 @@ static void Register_ObjectFactory(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ObjectFactory
+        REGISTER_CLASS_MANUAL_PART_ObjectFactory();
+    #endif
 }
 
 // struct OcclusionBatch | File: ../Graphics/OcclusionBuffer.h
@@ -4714,6 +5230,10 @@ static void Register_OcclusionBatch(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBatch
+        REGISTER_CLASS_MANUAL_PART_OcclusionBatch();
+    #endif
 }
 
 // class OcclusionBuffer | File: ../Graphics/OcclusionBuffer.h
@@ -4749,6 +5269,10 @@ static void Register_OcclusionBuffer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBuffer
+        REGISTER_CLASS_MANUAL_PART_OcclusionBuffer();
+    #endif
 }
 
 // struct OcclusionBufferData | File: ../Graphics/OcclusionBuffer.h
@@ -4787,6 +5311,10 @@ static void Register_OcclusionBufferData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBufferData
+        REGISTER_CLASS_MANUAL_PART_OcclusionBufferData();
+    #endif
 }
 
 // class Octree | File: ../Graphics/Octree.h
@@ -4822,6 +5350,10 @@ static void Register_Octree(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Octree
+        REGISTER_CLASS_MANUAL_PART_Octree();
+    #endif
 }
 
 // struct OctreeQueryResult | File: ../Graphics/OctreeQuery.h
@@ -4860,6 +5392,10 @@ static void Register_OctreeQueryResult(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_OctreeQueryResult
+        REGISTER_CLASS_MANUAL_PART_OctreeQueryResult();
+    #endif
 }
 
 // class OggVorbisSoundStream | File: ../Audio/OggVorbisSoundStream.h
@@ -4895,6 +5431,10 @@ static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_OggVorbisSoundStream
+        REGISTER_CLASS_MANUAL_PART_OggVorbisSoundStream();
+    #endif
 }
 
 // struct PackageEntry | File: ../IO/PackageFile.h
@@ -4930,6 +5470,10 @@ static void Register_PackageEntry(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PackageEntry
+        REGISTER_CLASS_MANUAL_PART_PackageEntry();
+    #endif
 }
 
 // class PackageFile | File: ../IO/PackageFile.h
@@ -4965,6 +5509,10 @@ static void Register_PackageFile(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PackageFile
+        REGISTER_CLASS_MANUAL_PART_PackageFile();
+    #endif
 }
 
 // struct Particle | File: ../Graphics/ParticleEmitter.h
@@ -5003,6 +5551,10 @@ static void Register_Particle(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Particle
+        REGISTER_CLASS_MANUAL_PART_Particle();
+    #endif
 }
 
 // class ParticleEffect | File: ../Graphics/ParticleEffect.h
@@ -5038,6 +5590,10 @@ static void Register_ParticleEffect(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEffect
+        REGISTER_CLASS_MANUAL_PART_ParticleEffect();
+    #endif
 }
 
 // class ParticleEmitter | File: ../Graphics/ParticleEmitter.h
@@ -5073,6 +5629,10 @@ static void Register_ParticleEmitter(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEmitter
+        REGISTER_CLASS_MANUAL_PART_ParticleEmitter();
+    #endif
 }
 
 // class Pass | File: ../Graphics/Technique.h
@@ -5108,6 +5668,10 @@ static void Register_Pass(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Pass
+        REGISTER_CLASS_MANUAL_PART_Pass();
+    #endif
 }
 
 // struct PerThreadSceneResult | File: ../Graphics/View.h
@@ -5146,6 +5710,10 @@ static void Register_PerThreadSceneResult(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PerThreadSceneResult
+        REGISTER_CLASS_MANUAL_PART_PerThreadSceneResult();
+    #endif
 }
 
 // class Plane | File: ../Math/Plane.h
@@ -5181,6 +5749,10 @@ static void Register_Plane(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Plane
+        REGISTER_CLASS_MANUAL_PART_Plane();
+    #endif
 }
 
 // class Polyhedron | File: ../Math/Polyhedron.h
@@ -5219,6 +5791,10 @@ static void Register_Polyhedron(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Polyhedron
+        REGISTER_CLASS_MANUAL_PART_Polyhedron();
+    #endif
 }
 
 // class Profiler | File: ../Core/Profiler.h
@@ -5254,6 +5830,10 @@ static void Register_Profiler(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Profiler
+        REGISTER_CLASS_MANUAL_PART_Profiler();
+    #endif
 }
 
 // class ProgressBar | File: ../UI/ProgressBar.h
@@ -5289,6 +5869,10 @@ static void Register_ProgressBar(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ProgressBar
+        REGISTER_CLASS_MANUAL_PART_ProgressBar();
+    #endif
 }
 
 // class Quaternion | File: ../Math/Quaternion.h
@@ -5324,6 +5908,10 @@ static void Register_Quaternion(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Quaternion
+        REGISTER_CLASS_MANUAL_PART_Quaternion();
+    #endif
 }
 
 // class Ray | File: ../Math/Ray.h
@@ -5359,6 +5947,10 @@ static void Register_Ray(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Ray
+        REGISTER_CLASS_MANUAL_PART_Ray();
+    #endif
 }
 
 // struct RayQueryResult | File: ../Graphics/OctreeQuery.h
@@ -5397,6 +5989,10 @@ static void Register_RayQueryResult(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RayQueryResult
+        REGISTER_CLASS_MANUAL_PART_RayQueryResult();
+    #endif
 }
 
 // class Rect | File: ../Math/Rect.h
@@ -5432,6 +6028,10 @@ static void Register_Rect(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Rect
+        REGISTER_CLASS_MANUAL_PART_Rect();
+    #endif
 }
 
 // struct RefCount | File: ../Container/RefCounted.h
@@ -5470,6 +6070,10 @@ static void Register_RefCount(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RefCount
+        REGISTER_CLASS_MANUAL_PART_RefCount();
+    #endif
 }
 
 // class RefCounted | File: ../Container/RefCounted.h
@@ -5505,6 +6109,10 @@ static void Register_RefCounted(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RefCounted
+        REGISTER_CLASS_MANUAL_PART_RefCounted();
+    #endif
 }
 
 // class RenderPath | File: ../Graphics/RenderPath.h
@@ -5540,6 +6148,10 @@ static void Register_RenderPath(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RenderPath
+        REGISTER_CLASS_MANUAL_PART_RenderPath();
+    #endif
 }
 
 // struct RenderPathCommand | File: ../Graphics/RenderPath.h
@@ -5578,6 +6190,10 @@ static void Register_RenderPathCommand(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RenderPathCommand
+        REGISTER_CLASS_MANUAL_PART_RenderPathCommand();
+    #endif
 }
 
 // class RenderSurface | File: ../Graphics/RenderSurface.h
@@ -5613,6 +6229,10 @@ static void Register_RenderSurface(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RenderSurface
+        REGISTER_CLASS_MANUAL_PART_RenderSurface();
+    #endif
 }
 
 // struct RenderTargetInfo | File: ../Graphics/RenderPath.h
@@ -5651,6 +6271,10 @@ static void Register_RenderTargetInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RenderTargetInfo
+        REGISTER_CLASS_MANUAL_PART_RenderTargetInfo();
+    #endif
 }
 
 // class Renderer | File: ../Graphics/Renderer.h
@@ -5686,6 +6310,10 @@ static void Register_Renderer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Renderer
+        REGISTER_CLASS_MANUAL_PART_Renderer();
+    #endif
 }
 
 // struct ReplicationState | File: ../Scene/ReplicationState.h
@@ -5724,6 +6352,10 @@ static void Register_ReplicationState(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ReplicationState
+        REGISTER_CLASS_MANUAL_PART_ReplicationState();
+    #endif
 }
 
 // class Resource | File: ../Resource/Resource.h
@@ -5759,6 +6391,10 @@ static void Register_Resource(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Resource
+        REGISTER_CLASS_MANUAL_PART_Resource();
+    #endif
 }
 
 // class ResourceCache | File: ../Resource/ResourceCache.h
@@ -5794,6 +6430,10 @@ static void Register_ResourceCache(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ResourceCache
+        REGISTER_CLASS_MANUAL_PART_ResourceCache();
+    #endif
 }
 
 // struct ResourceGroup | File: ../Resource/ResourceCache.h
@@ -5832,6 +6472,10 @@ static void Register_ResourceGroup(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ResourceGroup
+        REGISTER_CLASS_MANUAL_PART_ResourceGroup();
+    #endif
 }
 
 // struct ResourceRef | File: ../Core/Variant.h
@@ -5870,6 +6514,10 @@ static void Register_ResourceRef(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ResourceRef
+        REGISTER_CLASS_MANUAL_PART_ResourceRef();
+    #endif
 }
 
 // struct ResourceRefList | File: ../Core/Variant.h
@@ -5908,6 +6556,10 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ResourceRefList
+        REGISTER_CLASS_MANUAL_PART_ResourceRefList();
+    #endif
 }
 
 // class ResourceWithMetadata | File: ../Resource/Resource.h
@@ -5943,6 +6595,10 @@ static void Register_ResourceWithMetadata(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ResourceWithMetadata
+        REGISTER_CLASS_MANUAL_PART_ResourceWithMetadata();
+    #endif
 }
 
 // class RibbonTrail | File: ../Graphics/RibbonTrail.h
@@ -5978,6 +6634,10 @@ static void Register_RibbonTrail(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RibbonTrail
+        REGISTER_CLASS_MANUAL_PART_RibbonTrail();
+    #endif
 }
 
 // class Scene | File: ../Scene/Scene.h
@@ -6013,6 +6673,10 @@ static void Register_Scene(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Scene
+        REGISTER_CLASS_MANUAL_PART_Scene();
+    #endif
 }
 
 // struct ScenePassInfo | File: ../Graphics/View.h
@@ -6051,6 +6715,10 @@ static void Register_ScenePassInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ScenePassInfo
+        REGISTER_CLASS_MANUAL_PART_ScenePassInfo();
+    #endif
 }
 
 // struct SceneReplicationState | File: ../Scene/ReplicationState.h
@@ -6089,6 +6757,10 @@ static void Register_SceneReplicationState(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SceneReplicationState
+        REGISTER_CLASS_MANUAL_PART_SceneReplicationState();
+    #endif
 }
 
 // class SceneResolver | File: ../Scene/SceneResolver.h
@@ -6127,6 +6799,10 @@ static void Register_SceneResolver(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SceneResolver
+        REGISTER_CLASS_MANUAL_PART_SceneResolver();
+    #endif
 }
 
 // struct ScratchBuffer | File: ../Graphics/Graphics.h
@@ -6165,6 +6841,10 @@ static void Register_ScratchBuffer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ScratchBuffer
+        REGISTER_CLASS_MANUAL_PART_ScratchBuffer();
+    #endif
 }
 
 // struct ScreenModeParams | File: ../Graphics/Graphics.h
@@ -6203,6 +6883,10 @@ static void Register_ScreenModeParams(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ScreenModeParams
+        REGISTER_CLASS_MANUAL_PART_ScreenModeParams();
+    #endif
 }
 
 // class ScrollBar | File: ../UI/ScrollBar.h
@@ -6238,6 +6922,10 @@ static void Register_ScrollBar(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ScrollBar
+        REGISTER_CLASS_MANUAL_PART_ScrollBar();
+    #endif
 }
 
 // class ScrollView | File: ../UI/ScrollView.h
@@ -6273,6 +6961,10 @@ static void Register_ScrollView(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ScrollView
+        REGISTER_CLASS_MANUAL_PART_ScrollView();
+    #endif
 }
 
 // class Serializable | File: ../Scene/Serializable.h
@@ -6308,6 +7000,10 @@ static void Register_Serializable(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Serializable
+        REGISTER_CLASS_MANUAL_PART_Serializable();
+    #endif
 }
 
 // class Serializer | File: ../IO/Serializer.h
@@ -6343,6 +7039,10 @@ static void Register_Serializer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Serializer
+        REGISTER_CLASS_MANUAL_PART_Serializer();
+    #endif
 }
 
 // class Shader | File: ../Graphics/Shader.h
@@ -6378,6 +7078,10 @@ static void Register_Shader(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Shader
+        REGISTER_CLASS_MANUAL_PART_Shader();
+    #endif
 }
 
 // struct ShaderParameter | File: ../Graphics/ShaderVariation.h
@@ -6416,6 +7120,10 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ShaderParameter
+        REGISTER_CLASS_MANUAL_PART_ShaderParameter();
+    #endif
 }
 
 // class ShaderParameterAnimationInfo | File: ../Graphics/Material.h
@@ -6451,6 +7159,10 @@ static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ShaderParameterAnimationInfo
+        REGISTER_CLASS_MANUAL_PART_ShaderParameterAnimationInfo();
+    #endif
 }
 
 // class ShaderPrecache | File: ../Graphics/ShaderPrecache.h
@@ -6486,6 +7198,10 @@ static void Register_ShaderPrecache(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ShaderPrecache
+        REGISTER_CLASS_MANUAL_PART_ShaderPrecache();
+    #endif
 }
 
 // class ShaderVariation | File: ../Graphics/ShaderVariation.h
@@ -6521,6 +7237,10 @@ static void Register_ShaderVariation(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ShaderVariation
+        REGISTER_CLASS_MANUAL_PART_ShaderVariation();
+    #endif
 }
 
 // struct ShadowBatchQueue | File: ../Graphics/Batch.h
@@ -6559,6 +7279,10 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ShadowBatchQueue
+        REGISTER_CLASS_MANUAL_PART_ShadowBatchQueue();
+    #endif
 }
 
 // class Skeleton | File: ../Graphics/Skeleton.h
@@ -6594,6 +7318,10 @@ static void Register_Skeleton(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Skeleton
+        REGISTER_CLASS_MANUAL_PART_Skeleton();
+    #endif
 }
 
 // class Skybox | File: ../Graphics/Skybox.h
@@ -6629,6 +7357,10 @@ static void Register_Skybox(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Skybox
+        REGISTER_CLASS_MANUAL_PART_Skybox();
+    #endif
 }
 
 // class Slider | File: ../UI/Slider.h
@@ -6664,6 +7396,10 @@ static void Register_Slider(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Slider
+        REGISTER_CLASS_MANUAL_PART_Slider();
+    #endif
 }
 
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
@@ -6699,6 +7435,10 @@ static void Register_SmoothedTransform(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SmoothedTransform
+        REGISTER_CLASS_MANUAL_PART_SmoothedTransform();
+    #endif
 }
 
 // class Sound | File: ../Audio/Sound.h
@@ -6734,6 +7474,10 @@ static void Register_Sound(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Sound
+        REGISTER_CLASS_MANUAL_PART_Sound();
+    #endif
 }
 
 // class SoundListener | File: ../Audio/SoundListener.h
@@ -6769,6 +7513,10 @@ static void Register_SoundListener(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SoundListener
+        REGISTER_CLASS_MANUAL_PART_SoundListener();
+    #endif
 }
 
 // class SoundSource | File: ../Audio/SoundSource.h
@@ -6804,6 +7552,10 @@ static void Register_SoundSource(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SoundSource
+        REGISTER_CLASS_MANUAL_PART_SoundSource();
+    #endif
 }
 
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
@@ -6839,6 +7591,10 @@ static void Register_SoundSource3D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SoundSource3D
+        REGISTER_CLASS_MANUAL_PART_SoundSource3D();
+    #endif
 }
 
 // class SoundStream | File: ../Audio/SoundStream.h
@@ -6874,6 +7630,10 @@ static void Register_SoundStream(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SoundStream
+        REGISTER_CLASS_MANUAL_PART_SoundStream();
+    #endif
 }
 
 // struct SourceBatch | File: ../Graphics/Drawable.h
@@ -6912,6 +7672,10 @@ static void Register_SourceBatch(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SourceBatch
+        REGISTER_CLASS_MANUAL_PART_SourceBatch();
+    #endif
 }
 
 // class Sphere | File: ../Math/Sphere.h
@@ -6947,6 +7711,10 @@ static void Register_Sphere(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Sphere
+        REGISTER_CLASS_MANUAL_PART_Sphere();
+    #endif
 }
 
 // class Spline | File: ../Core/Spline.h
@@ -6985,6 +7753,10 @@ static void Register_Spline(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Spline
+        REGISTER_CLASS_MANUAL_PART_Spline();
+    #endif
 }
 
 // class SplinePath | File: ../Scene/SplinePath.h
@@ -7020,6 +7792,10 @@ static void Register_SplinePath(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SplinePath
+        REGISTER_CLASS_MANUAL_PART_SplinePath();
+    #endif
 }
 
 // class Sprite | File: ../UI/Sprite.h
@@ -7055,6 +7831,10 @@ static void Register_Sprite(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Sprite
+        REGISTER_CLASS_MANUAL_PART_Sprite();
+    #endif
 }
 
 // class StaticModel | File: ../Graphics/StaticModel.h
@@ -7090,6 +7870,10 @@ static void Register_StaticModel(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_StaticModel
+        REGISTER_CLASS_MANUAL_PART_StaticModel();
+    #endif
 }
 
 // struct StaticModelGeometryData | File: ../Graphics/StaticModel.h
@@ -7128,6 +7912,10 @@ static void Register_StaticModelGeometryData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_StaticModelGeometryData
+        REGISTER_CLASS_MANUAL_PART_StaticModelGeometryData();
+    #endif
 }
 
 // class StaticModelGroup | File: ../Graphics/StaticModelGroup.h
@@ -7163,6 +7951,10 @@ static void Register_StaticModelGroup(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_StaticModelGroup
+        REGISTER_CLASS_MANUAL_PART_StaticModelGroup();
+    #endif
 }
 
 // struct StoredLogMessage | File: ../IO/Log.h
@@ -7201,6 +7993,10 @@ static void Register_StoredLogMessage(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_StoredLogMessage
+        REGISTER_CLASS_MANUAL_PART_StoredLogMessage();
+    #endif
 }
 
 // class String | File: ../Container/Str.h
@@ -7245,6 +8041,10 @@ static void Register_String(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_String
+        REGISTER_CLASS_MANUAL_PART_String();
+    #endif
 }
 
 // class StringHash | File: ../Math/StringHash.h
@@ -7280,6 +8080,10 @@ static void Register_StringHash(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_StringHash
+        REGISTER_CLASS_MANUAL_PART_StringHash();
+    #endif
 }
 
 // class StringHashRegister | File: ../Core/StringHashRegister.h
@@ -7318,6 +8122,10 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_StringHashRegister
+        REGISTER_CLASS_MANUAL_PART_StringHashRegister();
+    #endif
 }
 
 // class Technique | File: ../Graphics/Technique.h
@@ -7353,6 +8161,10 @@ static void Register_Technique(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Technique
+        REGISTER_CLASS_MANUAL_PART_Technique();
+    #endif
 }
 
 // struct TechniqueEntry | File: ../Graphics/Material.h
@@ -7391,6 +8203,10 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TechniqueEntry
+        REGISTER_CLASS_MANUAL_PART_TechniqueEntry();
+    #endif
 }
 
 // class Terrain | File: ../Graphics/Terrain.h
@@ -7426,6 +8242,10 @@ static void Register_Terrain(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Terrain
+        REGISTER_CLASS_MANUAL_PART_Terrain();
+    #endif
 }
 
 // class TerrainPatch | File: ../Graphics/TerrainPatch.h
@@ -7461,6 +8281,10 @@ static void Register_TerrainPatch(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TerrainPatch
+        REGISTER_CLASS_MANUAL_PART_TerrainPatch();
+    #endif
 }
 
 // class Text | File: ../UI/Text.h
@@ -7496,6 +8320,10 @@ static void Register_Text(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Text
+        REGISTER_CLASS_MANUAL_PART_Text();
+    #endif
 }
 
 // class Text3D | File: ../UI/Text3D.h
@@ -7531,6 +8359,10 @@ static void Register_Text3D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Text3D
+        REGISTER_CLASS_MANUAL_PART_Text3D();
+    #endif
 }
 
 // class Texture | File: ../Graphics/Texture.h
@@ -7566,6 +8398,10 @@ static void Register_Texture(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Texture
+        REGISTER_CLASS_MANUAL_PART_Texture();
+    #endif
 }
 
 // class Texture2D | File: ../Graphics/Texture2D.h
@@ -7601,6 +8437,10 @@ static void Register_Texture2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Texture2D
+        REGISTER_CLASS_MANUAL_PART_Texture2D();
+    #endif
 }
 
 // class Texture2DArray | File: ../Graphics/Texture2DArray.h
@@ -7636,6 +8476,10 @@ static void Register_Texture2DArray(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Texture2DArray
+        REGISTER_CLASS_MANUAL_PART_Texture2DArray();
+    #endif
 }
 
 // class Texture3D | File: ../Graphics/Texture3D.h
@@ -7671,6 +8515,10 @@ static void Register_Texture3D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Texture3D
+        REGISTER_CLASS_MANUAL_PART_Texture3D();
+    #endif
 }
 
 // class TextureCube | File: ../Graphics/TextureCube.h
@@ -7706,6 +8554,10 @@ static void Register_TextureCube(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TextureCube
+        REGISTER_CLASS_MANUAL_PART_TextureCube();
+    #endif
 }
 
 // struct TextureFrame | File: ../Graphics/ParticleEffect.h
@@ -7741,6 +8593,10 @@ static void Register_TextureFrame(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TextureFrame
+        REGISTER_CLASS_MANUAL_PART_TextureFrame();
+    #endif
 }
 
 // class Time | File: ../Core/Timer.h
@@ -7776,6 +8632,10 @@ static void Register_Time(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Time
+        REGISTER_CLASS_MANUAL_PART_Time();
+    #endif
 }
 
 // class Timer | File: ../Core/Timer.h
@@ -7811,6 +8671,10 @@ static void Register_Timer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Timer
+        REGISTER_CLASS_MANUAL_PART_Timer();
+    #endif
 }
 
 // class ToolTip | File: ../UI/ToolTip.h
@@ -7846,6 +8710,10 @@ static void Register_ToolTip(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ToolTip
+        REGISTER_CLASS_MANUAL_PART_ToolTip();
+    #endif
 }
 
 // struct TouchState | File: ../Input/Input.h
@@ -7881,6 +8749,10 @@ static void Register_TouchState(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TouchState
+        REGISTER_CLASS_MANUAL_PART_TouchState();
+    #endif
 }
 
 // struct TrailPoint | File: ../Graphics/RibbonTrail.h
@@ -7919,6 +8791,10 @@ static void Register_TrailPoint(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TrailPoint
+        REGISTER_CLASS_MANUAL_PART_TrailPoint();
+    #endif
 }
 
 // class UI | File: ../UI/UI.h
@@ -7954,6 +8830,10 @@ static void Register_UI(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_UI
+        REGISTER_CLASS_MANUAL_PART_UI();
+    #endif
 }
 
 // class UIBatch | File: ../UI/UIBatch.h
@@ -7992,6 +8872,10 @@ static void Register_UIBatch(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_UIBatch
+        REGISTER_CLASS_MANUAL_PART_UIBatch();
+    #endif
 }
 
 // class UIComponent | File: ../UI/UIComponent.h
@@ -8027,6 +8911,10 @@ static void Register_UIComponent(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_UIComponent
+        REGISTER_CLASS_MANUAL_PART_UIComponent();
+    #endif
 }
 
 // class UIElement | File: ../UI/UIElement.h
@@ -8062,6 +8950,10 @@ static void Register_UIElement(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_UIElement
+        REGISTER_CLASS_MANUAL_PART_UIElement();
+    #endif
 }
 
 // class UISelectable | File: ../UI/UISelectable.h
@@ -8097,6 +8989,10 @@ static void Register_UISelectable(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_UISelectable
+        REGISTER_CLASS_MANUAL_PART_UISelectable();
+    #endif
 }
 
 // class UnknownComponent | File: ../Scene/UnknownComponent.h
@@ -8132,6 +9028,10 @@ static void Register_UnknownComponent(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_UnknownComponent
+        REGISTER_CLASS_MANUAL_PART_UnknownComponent();
+    #endif
 }
 
 // struct VAnimEventFrame | File: ../Scene/ValueAnimation.h
@@ -8170,6 +9070,10 @@ static void Register_VAnimEventFrame(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_VAnimEventFrame
+        REGISTER_CLASS_MANUAL_PART_VAnimEventFrame();
+    #endif
 }
 
 // struct VAnimKeyFrame | File: ../Scene/ValueAnimation.h
@@ -8208,6 +9112,10 @@ static void Register_VAnimKeyFrame(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_VAnimKeyFrame
+        REGISTER_CLASS_MANUAL_PART_VAnimKeyFrame();
+    #endif
 }
 
 // class ValueAnimation | File: ../Scene/ValueAnimation.h
@@ -8243,6 +9151,10 @@ static void Register_ValueAnimation(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ValueAnimation
+        REGISTER_CLASS_MANUAL_PART_ValueAnimation();
+    #endif
 }
 
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h
@@ -8278,6 +9190,10 @@ static void Register_ValueAnimationInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ValueAnimationInfo
+        REGISTER_CLASS_MANUAL_PART_ValueAnimationInfo();
+    #endif
 }
 
 // class Variant | File: ../Core/Variant.h
@@ -8316,6 +9232,10 @@ static void Register_Variant(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Variant
+        REGISTER_CLASS_MANUAL_PART_Variant();
+    #endif
 }
 
 // class Vector2 | File: ../Math/Vector2.h
@@ -8351,6 +9271,10 @@ static void Register_Vector2(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Vector2
+        REGISTER_CLASS_MANUAL_PART_Vector2();
+    #endif
 }
 
 // class Vector3 | File: ../Math/Vector3.h
@@ -8386,6 +9310,10 @@ static void Register_Vector3(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Vector3
+        REGISTER_CLASS_MANUAL_PART_Vector3();
+    #endif
 }
 
 // class Vector4 | File: ../Math/Vector4.h
@@ -8421,6 +9349,10 @@ static void Register_Vector4(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Vector4
+        REGISTER_CLASS_MANUAL_PART_Vector4();
+    #endif
 }
 
 // class VectorBase | File: ../Container/VectorBase.h
@@ -8459,6 +9391,10 @@ static void Register_VectorBase(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_VectorBase
+        REGISTER_CLASS_MANUAL_PART_VectorBase();
+    #endif
 }
 
 // class VectorBuffer | File: ../IO/VectorBuffer.h
@@ -8497,6 +9433,10 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_VectorBuffer
+        REGISTER_CLASS_MANUAL_PART_VectorBuffer();
+    #endif
 }
 
 // class VertexBuffer | File: ../Graphics/VertexBuffer.h
@@ -8532,6 +9472,10 @@ static void Register_VertexBuffer(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_VertexBuffer
+        REGISTER_CLASS_MANUAL_PART_VertexBuffer();
+    #endif
 }
 
 // struct VertexBufferDesc | File: ../Graphics/Model.h
@@ -8570,6 +9514,10 @@ static void Register_VertexBufferDesc(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_VertexBufferDesc
+        REGISTER_CLASS_MANUAL_PART_VertexBufferDesc();
+    #endif
 }
 
 // struct VertexBufferMorph | File: ../Graphics/Model.h
@@ -8608,6 +9556,10 @@ static void Register_VertexBufferMorph(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_VertexBufferMorph
+        REGISTER_CLASS_MANUAL_PART_VertexBufferMorph();
+    #endif
 }
 
 // struct VertexElement | File: ../Graphics/GraphicsDefs.h
@@ -8646,6 +9598,10 @@ static void Register_VertexElement(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_VertexElement
+        REGISTER_CLASS_MANUAL_PART_VertexElement();
+    #endif
 }
 
 // class View | File: ../Graphics/View.h
@@ -8681,6 +9637,10 @@ static void Register_View(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_View
+        REGISTER_CLASS_MANUAL_PART_View();
+    #endif
 }
 
 // class View3D | File: ../UI/View3D.h
@@ -8716,6 +9676,10 @@ static void Register_View3D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_View3D
+        REGISTER_CLASS_MANUAL_PART_View3D();
+    #endif
 }
 
 // class Viewport | File: ../Graphics/Viewport.h
@@ -8751,6 +9715,10 @@ static void Register_Viewport(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Viewport
+        REGISTER_CLASS_MANUAL_PART_Viewport();
+    #endif
 }
 
 // class Window | File: ../UI/Window.h
@@ -8786,6 +9754,10 @@ static void Register_Window(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Window
+        REGISTER_CLASS_MANUAL_PART_Window();
+    #endif
 }
 
 // struct WindowModeParams | File: ../Graphics/Graphics.h
@@ -8824,6 +9796,10 @@ static void Register_WindowModeParams(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_WindowModeParams
+        REGISTER_CLASS_MANUAL_PART_WindowModeParams();
+    #endif
 }
 
 // class WorkQueue | File: ../Core/WorkQueue.h
@@ -8859,6 +9835,10 @@ static void Register_WorkQueue(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_WorkQueue
+        REGISTER_CLASS_MANUAL_PART_WorkQueue();
+    #endif
 }
 
 // class XMLElement | File: ../Resource/XMLElement.h
@@ -8897,6 +9877,10 @@ static void Register_XMLElement(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_XMLElement
+        REGISTER_CLASS_MANUAL_PART_XMLElement();
+    #endif
 }
 
 // class XMLFile | File: ../Resource/XMLFile.h
@@ -8932,6 +9916,10 @@ static void Register_XMLFile(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_XMLFile
+        REGISTER_CLASS_MANUAL_PART_XMLFile();
+    #endif
 }
 
 // class XPathQuery | File: ../Resource/XMLElement.h
@@ -8970,6 +9958,10 @@ static void Register_XPathQuery(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_XPathQuery
+        REGISTER_CLASS_MANUAL_PART_XPathQuery();
+    #endif
 }
 
 // class XPathResultSet | File: ../Resource/XMLElement.h
@@ -9008,6 +10000,10 @@ static void Register_XPathResultSet(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_XPathResultSet
+        REGISTER_CLASS_MANUAL_PART_XPathResultSet();
+    #endif
 }
 
 // class Zone | File: ../Graphics/Zone.h
@@ -9043,6 +10039,10 @@ static void Register_Zone(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Zone
+        REGISTER_CLASS_MANUAL_PART_Zone();
+    #endif
 }
 
 #ifdef URHO3D_DATABASE
@@ -9080,6 +10080,10 @@ static void Register_Database(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Database
+        REGISTER_CLASS_MANUAL_PART_Database();
+    #endif
 }
 
 #endif // def URHO3D_DATABASE
@@ -9119,6 +10123,10 @@ static void Register_IKConstraint(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_IKConstraint
+        REGISTER_CLASS_MANUAL_PART_IKConstraint();
+    #endif
 }
 
 // class IKEffector | File: ../IK/IKEffector.h
@@ -9154,6 +10162,10 @@ static void Register_IKEffector(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_IKEffector
+        REGISTER_CLASS_MANUAL_PART_IKEffector();
+    #endif
 }
 
 // class IKSolver | File: ../IK/IKSolver.h
@@ -9189,6 +10201,10 @@ static void Register_IKSolver(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_IKSolver
+        REGISTER_CLASS_MANUAL_PART_IKSolver();
+    #endif
 }
 
 #endif // def URHO3D_IK
@@ -9228,6 +10244,10 @@ static void Register_CrowdAgent(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CrowdAgent
+        REGISTER_CLASS_MANUAL_PART_CrowdAgent();
+    #endif
 }
 
 // class CrowdManager | File: ../Navigation/CrowdManager.h
@@ -9263,6 +10283,10 @@ static void Register_CrowdManager(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CrowdManager
+        REGISTER_CLASS_MANUAL_PART_CrowdManager();
+    #endif
 }
 
 // struct CrowdObstacleAvoidanceParams | File: ../Navigation/CrowdManager.h
@@ -9298,6 +10322,10 @@ static void Register_CrowdObstacleAvoidanceParams(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CrowdObstacleAvoidanceParams
+        REGISTER_CLASS_MANUAL_PART_CrowdObstacleAvoidanceParams();
+    #endif
 }
 
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
@@ -9333,6 +10361,10 @@ static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DynamicNavigationMesh
+        REGISTER_CLASS_MANUAL_PART_DynamicNavigationMesh();
+    #endif
 }
 
 // class NavArea | File: ../Navigation/NavArea.h
@@ -9368,6 +10400,10 @@ static void Register_NavArea(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NavArea
+        REGISTER_CLASS_MANUAL_PART_NavArea();
+    #endif
 }
 
 // struct NavAreaStub | File: ../Navigation/NavBuildData.h
@@ -9406,6 +10442,10 @@ static void Register_NavAreaStub(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NavAreaStub
+        REGISTER_CLASS_MANUAL_PART_NavAreaStub();
+    #endif
 }
 
 // struct NavBuildData | File: ../Navigation/NavBuildData.h
@@ -9444,6 +10484,10 @@ static void Register_NavBuildData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NavBuildData
+        REGISTER_CLASS_MANUAL_PART_NavBuildData();
+    #endif
 }
 
 // class Navigable | File: ../Navigation/Navigable.h
@@ -9479,6 +10523,10 @@ static void Register_Navigable(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Navigable
+        REGISTER_CLASS_MANUAL_PART_Navigable();
+    #endif
 }
 
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
@@ -9517,6 +10565,10 @@ static void Register_NavigationGeometryInfo(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NavigationGeometryInfo
+        REGISTER_CLASS_MANUAL_PART_NavigationGeometryInfo();
+    #endif
 }
 
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
@@ -9552,6 +10604,10 @@ static void Register_NavigationMesh(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NavigationMesh
+        REGISTER_CLASS_MANUAL_PART_NavigationMesh();
+    #endif
 }
 
 // struct NavigationPathPoint | File: ../Navigation/NavigationMesh.h
@@ -9590,6 +10646,10 @@ static void Register_NavigationPathPoint(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NavigationPathPoint
+        REGISTER_CLASS_MANUAL_PART_NavigationPathPoint();
+    #endif
 }
 
 // class Obstacle | File: ../Navigation/Obstacle.h
@@ -9625,6 +10685,10 @@ static void Register_Obstacle(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Obstacle
+        REGISTER_CLASS_MANUAL_PART_Obstacle();
+    #endif
 }
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
@@ -9660,6 +10724,10 @@ static void Register_OffMeshConnection(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_OffMeshConnection
+        REGISTER_CLASS_MANUAL_PART_OffMeshConnection();
+    #endif
 }
 
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h
@@ -9698,6 +10766,10 @@ static void Register_SimpleNavBuildData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SimpleNavBuildData
+        REGISTER_CLASS_MANUAL_PART_SimpleNavBuildData();
+    #endif
 }
 
 #endif // def URHO3D_NAVIGATION
@@ -9737,6 +10809,10 @@ static void Register_Connection(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Connection
+        REGISTER_CLASS_MANUAL_PART_Connection();
+    #endif
 }
 
 // class HttpRequest | File: ../Network/HttpRequest.h
@@ -9772,6 +10848,10 @@ static void Register_HttpRequest(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_HttpRequest
+        REGISTER_CLASS_MANUAL_PART_HttpRequest();
+    #endif
 }
 
 // class Network | File: ../Network/Network.h
@@ -9807,6 +10887,10 @@ static void Register_Network(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Network
+        REGISTER_CLASS_MANUAL_PART_Network();
+    #endif
 }
 
 // class NetworkPriority | File: ../Network/NetworkPriority.h
@@ -9842,6 +10926,10 @@ static void Register_NetworkPriority(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_NetworkPriority
+        REGISTER_CLASS_MANUAL_PART_NetworkPriority();
+    #endif
 }
 
 // struct PackageDownload | File: ../Network/Connection.h
@@ -9880,6 +10968,10 @@ static void Register_PackageDownload(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PackageDownload
+        REGISTER_CLASS_MANUAL_PART_PackageDownload();
+    #endif
 }
 
 // struct PackageUpload | File: ../Network/Connection.h
@@ -9918,6 +11010,10 @@ static void Register_PackageUpload(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PackageUpload
+        REGISTER_CLASS_MANUAL_PART_PackageUpload();
+    #endif
 }
 
 // struct RemoteEvent | File: ../Network/Connection.h
@@ -9956,6 +11052,10 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RemoteEvent
+        REGISTER_CLASS_MANUAL_PART_RemoteEvent();
+    #endif
 }
 
 #endif // def URHO3D_NETWORK
@@ -9995,6 +11095,10 @@ static void Register_CollisionGeometryData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CollisionGeometryData
+        REGISTER_CLASS_MANUAL_PART_CollisionGeometryData();
+    #endif
 }
 
 // class CollisionShape | File: ../Physics/CollisionShape.h
@@ -10030,6 +11134,10 @@ static void Register_CollisionShape(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CollisionShape
+        REGISTER_CLASS_MANUAL_PART_CollisionShape();
+    #endif
 }
 
 // class Constraint | File: ../Physics/Constraint.h
@@ -10065,6 +11173,10 @@ static void Register_Constraint(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Constraint
+        REGISTER_CLASS_MANUAL_PART_Constraint();
+    #endif
 }
 
 // struct ConvexData | File: ../Physics/CollisionShape.h
@@ -10100,6 +11212,10 @@ static void Register_ConvexData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConvexData
+        REGISTER_CLASS_MANUAL_PART_ConvexData();
+    #endif
 }
 
 // struct DelayedWorldTransform | File: ../Physics/PhysicsWorld.h
@@ -10138,6 +11254,10 @@ static void Register_DelayedWorldTransform(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform
+        REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform();
+    #endif
 }
 
 // struct GImpactMeshData | File: ../Physics/CollisionShape.h
@@ -10173,6 +11293,10 @@ static void Register_GImpactMeshData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_GImpactMeshData
+        REGISTER_CLASS_MANUAL_PART_GImpactMeshData();
+    #endif
 }
 
 // struct HeightfieldData | File: ../Physics/CollisionShape.h
@@ -10208,6 +11332,10 @@ static void Register_HeightfieldData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_HeightfieldData
+        REGISTER_CLASS_MANUAL_PART_HeightfieldData();
+    #endif
 }
 
 // struct ManifoldPair | File: ../Physics/PhysicsWorld.h
@@ -10246,6 +11374,10 @@ static void Register_ManifoldPair(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ManifoldPair
+        REGISTER_CLASS_MANUAL_PART_ManifoldPair();
+    #endif
 }
 
 // struct PhysicsRaycastResult | File: ../Physics/PhysicsWorld.h
@@ -10284,6 +11416,10 @@ static void Register_PhysicsRaycastResult(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult
+        REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult();
+    #endif
 }
 
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
@@ -10319,6 +11455,10 @@ static void Register_PhysicsWorld(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorld
+        REGISTER_CLASS_MANUAL_PART_PhysicsWorld();
+    #endif
 }
 
 // struct PhysicsWorldConfig | File: ../Physics/PhysicsWorld.h
@@ -10357,6 +11497,10 @@ static void Register_PhysicsWorldConfig(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorldConfig
+        REGISTER_CLASS_MANUAL_PART_PhysicsWorldConfig();
+    #endif
 }
 
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h
@@ -10392,6 +11536,10 @@ static void Register_RaycastVehicle(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RaycastVehicle
+        REGISTER_CLASS_MANUAL_PART_RaycastVehicle();
+    #endif
 }
 
 // class RigidBody | File: ../Physics/RigidBody.h
@@ -10427,6 +11575,10 @@ static void Register_RigidBody(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RigidBody
+        REGISTER_CLASS_MANUAL_PART_RigidBody();
+    #endif
 }
 
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h
@@ -10462,6 +11614,10 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TriangleMeshData
+        REGISTER_CLASS_MANUAL_PART_TriangleMeshData();
+    #endif
 }
 
 #endif // def URHO3D_PHYSICS
@@ -10501,6 +11657,10 @@ static void Register_AnimatedSprite2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimatedSprite2D
+        REGISTER_CLASS_MANUAL_PART_AnimatedSprite2D();
+    #endif
 }
 
 // class AnimationSet2D | File: ../Urho2D/AnimationSet2D.h
@@ -10536,6 +11696,10 @@ static void Register_AnimationSet2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_AnimationSet2D
+        REGISTER_CLASS_MANUAL_PART_AnimationSet2D();
+    #endif
 }
 
 // class CollisionBox2D | File: ../Urho2D/CollisionBox2D.h
@@ -10571,6 +11735,10 @@ static void Register_CollisionBox2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CollisionBox2D
+        REGISTER_CLASS_MANUAL_PART_CollisionBox2D();
+    #endif
 }
 
 // class CollisionChain2D | File: ../Urho2D/CollisionChain2D.h
@@ -10606,6 +11774,10 @@ static void Register_CollisionChain2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CollisionChain2D
+        REGISTER_CLASS_MANUAL_PART_CollisionChain2D();
+    #endif
 }
 
 // class CollisionCircle2D | File: ../Urho2D/CollisionCircle2D.h
@@ -10641,6 +11813,10 @@ static void Register_CollisionCircle2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CollisionCircle2D
+        REGISTER_CLASS_MANUAL_PART_CollisionCircle2D();
+    #endif
 }
 
 // class CollisionEdge2D | File: ../Urho2D/CollisionEdge2D.h
@@ -10676,6 +11852,10 @@ static void Register_CollisionEdge2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CollisionEdge2D
+        REGISTER_CLASS_MANUAL_PART_CollisionEdge2D();
+    #endif
 }
 
 // class CollisionPolygon2D | File: ../Urho2D/CollisionPolygon2D.h
@@ -10711,6 +11891,10 @@ static void Register_CollisionPolygon2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CollisionPolygon2D
+        REGISTER_CLASS_MANUAL_PART_CollisionPolygon2D();
+    #endif
 }
 
 // class CollisionShape2D | File: ../Urho2D/CollisionShape2D.h
@@ -10746,6 +11930,10 @@ static void Register_CollisionShape2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_CollisionShape2D
+        REGISTER_CLASS_MANUAL_PART_CollisionShape2D();
+    #endif
 }
 
 // class Constraint2D | File: ../Urho2D/Constraint2D.h
@@ -10781,6 +11969,10 @@ static void Register_Constraint2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Constraint2D
+        REGISTER_CLASS_MANUAL_PART_Constraint2D();
+    #endif
 }
 
 // class ConstraintDistance2D | File: ../Urho2D/ConstraintDistance2D.h
@@ -10816,6 +12008,10 @@ static void Register_ConstraintDistance2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintDistance2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintDistance2D();
+    #endif
 }
 
 // class ConstraintFriction2D | File: ../Urho2D/ConstraintFriction2D.h
@@ -10851,6 +12047,10 @@ static void Register_ConstraintFriction2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintFriction2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintFriction2D();
+    #endif
 }
 
 // class ConstraintGear2D | File: ../Urho2D/ConstraintGear2D.h
@@ -10886,6 +12086,10 @@ static void Register_ConstraintGear2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintGear2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintGear2D();
+    #endif
 }
 
 // class ConstraintMotor2D | File: ../Urho2D/ConstraintMotor2D.h
@@ -10921,6 +12125,10 @@ static void Register_ConstraintMotor2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintMotor2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintMotor2D();
+    #endif
 }
 
 // class ConstraintMouse2D | File: ../Urho2D/ConstraintMouse2D.h
@@ -10956,6 +12164,10 @@ static void Register_ConstraintMouse2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintMouse2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintMouse2D();
+    #endif
 }
 
 // class ConstraintPrismatic2D | File: ../Urho2D/ConstraintPrismatic2D.h
@@ -10991,6 +12203,10 @@ static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintPrismatic2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintPrismatic2D();
+    #endif
 }
 
 // class ConstraintPulley2D | File: ../Urho2D/ConstraintPulley2D.h
@@ -11026,6 +12242,10 @@ static void Register_ConstraintPulley2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintPulley2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintPulley2D();
+    #endif
 }
 
 // class ConstraintRevolute2D | File: ../Urho2D/ConstraintRevolute2D.h
@@ -11061,6 +12281,10 @@ static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintRevolute2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintRevolute2D();
+    #endif
 }
 
 // class ConstraintRope2D | File: ../Urho2D/ConstraintRope2D.h
@@ -11096,6 +12320,10 @@ static void Register_ConstraintRope2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintRope2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintRope2D();
+    #endif
 }
 
 // class ConstraintWeld2D | File: ../Urho2D/ConstraintWeld2D.h
@@ -11131,6 +12359,10 @@ static void Register_ConstraintWeld2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintWeld2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintWeld2D();
+    #endif
 }
 
 // class ConstraintWheel2D | File: ../Urho2D/ConstraintWheel2D.h
@@ -11166,6 +12398,10 @@ static void Register_ConstraintWheel2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintWheel2D
+        REGISTER_CLASS_MANUAL_PART_ConstraintWheel2D();
+    #endif
 }
 
 // struct DelayedWorldTransform2D | File: ../Urho2D/PhysicsWorld2D.h
@@ -11204,6 +12440,10 @@ static void Register_DelayedWorldTransform2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform2D
+        REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform2D();
+    #endif
 }
 
 // class Drawable2D | File: ../Urho2D/Drawable2D.h
@@ -11239,6 +12479,10 @@ static void Register_Drawable2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Drawable2D
+        REGISTER_CLASS_MANUAL_PART_Drawable2D();
+    #endif
 }
 
 // struct Particle2D | File: ../Urho2D/ParticleEmitter2D.h
@@ -11277,6 +12521,10 @@ static void Register_Particle2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Particle2D
+        REGISTER_CLASS_MANUAL_PART_Particle2D();
+    #endif
 }
 
 // class ParticleEffect2D | File: ../Urho2D/ParticleEffect2D.h
@@ -11312,6 +12560,10 @@ static void Register_ParticleEffect2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEffect2D
+        REGISTER_CLASS_MANUAL_PART_ParticleEffect2D();
+    #endif
 }
 
 // class ParticleEmitter2D | File: ../Urho2D/ParticleEmitter2D.h
@@ -11347,6 +12599,10 @@ static void Register_ParticleEmitter2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEmitter2D
+        REGISTER_CLASS_MANUAL_PART_ParticleEmitter2D();
+    #endif
 }
 
 // struct PhysicsRaycastResult2D | File: ../Urho2D/PhysicsWorld2D.h
@@ -11385,6 +12641,10 @@ static void Register_PhysicsRaycastResult2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult2D
+        REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult2D();
+    #endif
 }
 
 // class PhysicsWorld2D | File: ../Urho2D/PhysicsWorld2D.h
@@ -11420,6 +12680,10 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorld2D
+        REGISTER_CLASS_MANUAL_PART_PhysicsWorld2D();
+    #endif
 }
 
 // class PropertySet2D | File: ../Urho2D/TileMapDefs2D.h
@@ -11455,6 +12719,10 @@ static void Register_PropertySet2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_PropertySet2D
+        REGISTER_CLASS_MANUAL_PART_PropertySet2D();
+    #endif
 }
 
 // class Renderer2D | File: ../Urho2D/Renderer2D.h
@@ -11490,6 +12758,10 @@ static void Register_Renderer2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Renderer2D
+        REGISTER_CLASS_MANUAL_PART_Renderer2D();
+    #endif
 }
 
 // class RigidBody2D | File: ../Urho2D/RigidBody2D.h
@@ -11525,6 +12797,10 @@ static void Register_RigidBody2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_RigidBody2D
+        REGISTER_CLASS_MANUAL_PART_RigidBody2D();
+    #endif
 }
 
 // struct SourceBatch2D | File: ../Urho2D/Drawable2D.h
@@ -11563,6 +12839,10 @@ static void Register_SourceBatch2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SourceBatch2D
+        REGISTER_CLASS_MANUAL_PART_SourceBatch2D();
+    #endif
 }
 
 // class Sprite2D | File: ../Urho2D/Sprite2D.h
@@ -11598,6 +12878,10 @@ static void Register_Sprite2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Sprite2D
+        REGISTER_CLASS_MANUAL_PART_Sprite2D();
+    #endif
 }
 
 // class SpriteSheet2D | File: ../Urho2D/SpriteSheet2D.h
@@ -11633,6 +12917,10 @@ static void Register_SpriteSheet2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_SpriteSheet2D
+        REGISTER_CLASS_MANUAL_PART_SpriteSheet2D();
+    #endif
 }
 
 // class StaticSprite2D | File: ../Urho2D/StaticSprite2D.h
@@ -11668,6 +12956,10 @@ static void Register_StaticSprite2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_StaticSprite2D
+        REGISTER_CLASS_MANUAL_PART_StaticSprite2D();
+    #endif
 }
 
 // class StretchableSprite2D | File: ../Urho2D/StretchableSprite2D.h
@@ -11703,6 +12995,10 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_StretchableSprite2D
+        REGISTER_CLASS_MANUAL_PART_StretchableSprite2D();
+    #endif
 }
 
 // class Tile2D | File: ../Urho2D/TileMapDefs2D.h
@@ -11738,6 +13034,10 @@ static void Register_Tile2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Tile2D
+        REGISTER_CLASS_MANUAL_PART_Tile2D();
+    #endif
 }
 
 // class TileMap2D | File: ../Urho2D/TileMap2D.h
@@ -11773,6 +13073,10 @@ static void Register_TileMap2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TileMap2D
+        REGISTER_CLASS_MANUAL_PART_TileMap2D();
+    #endif
 }
 
 // struct TileMapInfo2D | File: ../Urho2D/TileMapDefs2D.h
@@ -11808,6 +13112,10 @@ static void Register_TileMapInfo2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TileMapInfo2D
+        REGISTER_CLASS_MANUAL_PART_TileMapInfo2D();
+    #endif
 }
 
 // class TileMapLayer2D | File: ../Urho2D/TileMapLayer2D.h
@@ -11843,6 +13151,10 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TileMapLayer2D
+        REGISTER_CLASS_MANUAL_PART_TileMapLayer2D();
+    #endif
 }
 
 // class TileMapObject2D | File: ../Urho2D/TileMapDefs2D.h
@@ -11878,6 +13190,10 @@ static void Register_TileMapObject2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TileMapObject2D
+        REGISTER_CLASS_MANUAL_PART_TileMapObject2D();
+    #endif
 }
 
 // class TmxFile2D | File: ../Urho2D/TmxFile2D.h
@@ -11913,6 +13229,10 @@ static void Register_TmxFile2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TmxFile2D
+        REGISTER_CLASS_MANUAL_PART_TmxFile2D();
+    #endif
 }
 
 // class TmxImageLayer2D | File: ../Urho2D/TmxFile2D.h
@@ -11948,6 +13268,10 @@ static void Register_TmxImageLayer2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TmxImageLayer2D
+        REGISTER_CLASS_MANUAL_PART_TmxImageLayer2D();
+    #endif
 }
 
 // class TmxLayer2D | File: ../Urho2D/TmxFile2D.h
@@ -11983,6 +13307,10 @@ static void Register_TmxLayer2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TmxLayer2D
+        REGISTER_CLASS_MANUAL_PART_TmxLayer2D();
+    #endif
 }
 
 // class TmxObjectGroup2D | File: ../Urho2D/TmxFile2D.h
@@ -12018,6 +13346,10 @@ static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TmxObjectGroup2D
+        REGISTER_CLASS_MANUAL_PART_TmxObjectGroup2D();
+    #endif
 }
 
 // class TmxTileLayer2D | File: ../Urho2D/TmxFile2D.h
@@ -12053,6 +13385,10 @@ static void Register_TmxTileLayer2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_TmxTileLayer2D
+        REGISTER_CLASS_MANUAL_PART_TmxTileLayer2D();
+    #endif
 }
 
 // struct Vertex2D | File: ../Urho2D/Drawable2D.h
@@ -12091,6 +13427,10 @@ static void Register_Vertex2D(asIScriptEngine* engine)
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    #ifdef REGISTER_CLASS_MANUAL_PART_Vertex2D
+        REGISTER_CLASS_MANUAL_PART_Vertex2D();
+    #endif
 }
 
 #endif // def URHO3D_URHO2D
