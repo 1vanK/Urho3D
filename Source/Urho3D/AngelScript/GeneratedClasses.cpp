@@ -176,10 +176,10 @@ static void Register_Animatable(asIScriptEngine* engine)
 }
 
 // explicit AnimatedModel::AnimatedModel(Context* context)
-static void AnimatedModel_AnimatedModel_Context(AnimatedModel* ptr)
+static AnimatedModel* AnimatedModel_AnimatedModel_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) AnimatedModel(context);
+    return new AnimatedModel(context);
 }
 
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
@@ -225,10 +225,10 @@ static void Register_AnimatedModel(asIScriptEngine* engine)
 }
 
 // explicit Animation::Animation(Context* context)
-static void Animation_Animation_Context(Animation* ptr)
+static Animation* Animation_Animation_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Animation(context);
+    return new Animation(context);
 }
 
 // class Animation | File: ../Graphics/Animation.h
@@ -313,10 +313,10 @@ static void Register_AnimationControl(asIScriptEngine* engine)
 }
 
 // explicit AnimationController::AnimationController(Context* context)
-static void AnimationController_AnimationController_Context(AnimationController* ptr)
+static AnimationController* AnimationController_AnimationController_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) AnimationController(context);
+    return new AnimationController(context);
 }
 
 // class AnimationController | File: ../Graphics/AnimationController.h
@@ -404,15 +404,15 @@ static void Register_AnimationKeyFrame(asIScriptEngine* engine)
 }
 
 // AnimationState::AnimationState(AnimatedModel* model, Animation* animation)
-static void AnimationState_AnimationState_AnimatedModel_Animation(AnimationState* ptr, AnimatedModel* model, Animation* animation)
+static AnimationState* AnimationState_AnimationState_AnimatedModel_Animation(AnimatedModel* model, Animation* animation)
 {
-    new(ptr) AnimationState(model, animation);
+    return new AnimationState(model, animation);
 }
 
 // AnimationState::AnimationState(Node* node, Animation* animation)
-static void AnimationState_AnimationState_Node_Animation(AnimationState* ptr, Node* node, Animation* animation)
+static AnimationState* AnimationState_AnimationState_Node_Animation(Node* node, Animation* animation)
 {
-    new(ptr) AnimationState(node, animation);
+    return new AnimationState(node, animation);
 }
 
 // class AnimationState | File: ../Graphics/AnimationState.h
@@ -724,15 +724,15 @@ static void Register_AttributeAccessor(asIScriptEngine* engine)
 }
 
 // AttributeAnimationInfo::AttributeAnimationInfo(Animatable* animatable, const AttributeInfo& attributeInfo, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
-static void AttributeAnimationInfo_AttributeAnimationInfo_Animatable_AttributeInfo_ValueAnimation_WrapMode_float(AttributeAnimationInfo* ptr, Animatable* animatable, const AttributeInfo& attributeInfo, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
+static AttributeAnimationInfo* AttributeAnimationInfo_AttributeAnimationInfo_Animatable_AttributeInfo_ValueAnimation_WrapMode_float(Animatable* animatable, const AttributeInfo& attributeInfo, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
 {
-    new(ptr) AttributeAnimationInfo(animatable, attributeInfo, attributeAnimation, wrapMode, speed);
+    return new AttributeAnimationInfo(animatable, attributeInfo, attributeAnimation, wrapMode, speed);
 }
 
 // AttributeAnimationInfo::AttributeAnimationInfo(const AttributeAnimationInfo& other)
-static void AttributeAnimationInfo_AttributeAnimationInfo_AttributeAnimationInfo(AttributeAnimationInfo* ptr, const AttributeAnimationInfo& other)
+static AttributeAnimationInfo* AttributeAnimationInfo_AttributeAnimationInfo_AttributeAnimationInfo(const AttributeAnimationInfo& other)
 {
-    new(ptr) AttributeAnimationInfo(other);
+    return new AttributeAnimationInfo(other);
 }
 
 // class AttributeAnimationInfo | File: ../Scene/Animatable.h
@@ -826,10 +826,10 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
 }
 
 // explicit Audio::Audio(Context* context)
-static void Audio_Audio_Context(Audio* ptr)
+static Audio* Audio_Audio_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Audio(context);
+    return new Audio(context);
 }
 
 // class Audio | File: ../Audio/Audio.h
@@ -1202,10 +1202,10 @@ static void Register_Billboard(asIScriptEngine* engine)
 }
 
 // explicit BillboardSet::BillboardSet(Context* context)
-static void BillboardSet_BillboardSet_Context(BillboardSet* ptr)
+static BillboardSet* BillboardSet_BillboardSet_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) BillboardSet(context);
+    return new BillboardSet(context);
 }
 
 // class BillboardSet | File: ../Graphics/BillboardSet.h
@@ -1290,10 +1290,10 @@ static void Register_Bone(asIScriptEngine* engine)
 }
 
 // explicit BorderImage::BorderImage(Context* context)
-static void BorderImage_BorderImage_Context(BorderImage* ptr)
+static BorderImage* BorderImage_BorderImage_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) BorderImage(context);
+    return new BorderImage(context);
 }
 
 // class BorderImage | File: ../UI/BorderImage.h
@@ -1477,10 +1477,10 @@ static void Register_BufferedSoundStream(asIScriptEngine* engine)
 }
 
 // explicit Button::Button(Context* context)
-static void Button_Button_Context(Button* ptr)
+static Button* Button_Button_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Button(context);
+    return new Button(context);
 }
 
 // class Button | File: ../UI/Button.h
@@ -1526,10 +1526,10 @@ static void Register_Button(asIScriptEngine* engine)
 }
 
 // explicit Camera::Camera(Context* context)
-static void Camera_Camera_Context(Camera* ptr)
+static Camera* Camera_Camera_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Camera(context);
+    return new Camera(context);
 }
 
 // class Camera | File: ../Graphics/Camera.h
@@ -1665,10 +1665,10 @@ static void Register_CharLocation(asIScriptEngine* engine)
 }
 
 // explicit CheckBox::CheckBox(Context* context)
-static void CheckBox_CheckBox_Context(CheckBox* ptr)
+static CheckBox* CheckBox_CheckBox_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CheckBox(context);
+    return new CheckBox(context);
 }
 
 // class CheckBox | File: ../UI/CheckBox.h
@@ -1807,15 +1807,15 @@ static void Register_Color(asIScriptEngine* engine)
 }
 
 // explicit ColorFrame::ColorFrame(const Color& color)
-static void ColorFrame_ColorFrame_Color(ColorFrame* ptr, const Color& color)
+static ColorFrame* ColorFrame_ColorFrame_Color(const Color& color)
 {
-    new(ptr) ColorFrame(color);
+    return new ColorFrame(color);
 }
 
 // ColorFrame::ColorFrame(const Color& color, float time)
-static void ColorFrame_ColorFrame_Color_float(ColorFrame* ptr, const Color& color, float time)
+static ColorFrame* ColorFrame_ColorFrame_Color_float(const Color& color, float time)
 {
-    new(ptr) ColorFrame(color, time);
+    return new ColorFrame(color, time);
 }
 
 // struct ColorFrame | File: ../Graphics/ParticleEffect.h
@@ -1863,10 +1863,10 @@ static void Register_ColorFrame(asIScriptEngine* engine)
 }
 
 // explicit Component::Component(Context* context)
-static void Component_Component_Context(Component* ptr)
+static Component* Component_Component_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Component(context);
+    return new Component(context);
 }
 
 // class Component | File: ../Scene/Component.h
@@ -2038,10 +2038,10 @@ static void Register_Condition(asIScriptEngine* engine)
 }
 
 // explicit Console::Console(Context* context)
-static void Console_Console_Context(Console* ptr)
+static Console* Console_Console_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Console(context);
+    return new Console(context);
 }
 
 // class Console | File: ../Engine/Console.h
@@ -2087,10 +2087,10 @@ static void Register_Console(asIScriptEngine* engine)
 }
 
 // explicit ConstantBuffer::ConstantBuffer(Context* context)
-static void ConstantBuffer_ConstantBuffer_Context(ConstantBuffer* ptr)
+static ConstantBuffer* ConstantBuffer_ConstantBuffer_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstantBuffer(context);
+    return new ConstantBuffer(context);
 }
 
 // class ConstantBuffer | File: ../Graphics/ConstantBuffer.h
@@ -2217,10 +2217,10 @@ static void Register_Controls(asIScriptEngine* engine)
 }
 
 // explicit Cursor::Cursor(Context* context)
-static void Cursor_Cursor_Context(Cursor* ptr)
+static Cursor* Cursor_Cursor_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Cursor(context);
+    return new Cursor(context);
 }
 
 // class Cursor | File: ../UI/Cursor.h
@@ -2318,10 +2318,10 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
 }
 
 // explicit CustomGeometry::CustomGeometry(Context* context)
-static void CustomGeometry_CustomGeometry_Context(CustomGeometry* ptr)
+static CustomGeometry* CustomGeometry_CustomGeometry_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CustomGeometry(context);
+    return new CustomGeometry(context);
 }
 
 // class CustomGeometry | File: ../Graphics/CustomGeometry.h
@@ -2406,10 +2406,10 @@ static void Register_CustomGeometryVertex(asIScriptEngine* engine)
 }
 
 // explicit DebugHud::DebugHud(Context* context)
-static void DebugHud_DebugHud_Context(DebugHud* ptr)
+static DebugHud* DebugHud_DebugHud_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) DebugHud(context);
+    return new DebugHud(context);
 }
 
 // class DebugHud | File: ../Engine/DebugHud.h
@@ -2507,10 +2507,10 @@ static void Register_DebugLine(asIScriptEngine* engine)
 }
 
 // explicit DebugRenderer::DebugRenderer(Context* context)
-static void DebugRenderer_DebugRenderer_Context(DebugRenderer* ptr)
+static DebugRenderer* DebugRenderer_DebugRenderer_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) DebugRenderer(context);
+    return new DebugRenderer(context);
 }
 
 // class DebugRenderer | File: ../Graphics/DebugRenderer.h
@@ -2650,10 +2650,10 @@ static void Register_Decal(asIScriptEngine* engine)
 }
 
 // explicit DecalSet::DecalSet(Context* context)
-static void DecalSet_DecalSet_Context(DecalSet* ptr)
+static DecalSet* DecalSet_DecalSet_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) DecalSet(context);
+    return new DecalSet(context);
 }
 
 // class DecalSet | File: ../Graphics/DecalSet.h
@@ -2923,10 +2923,10 @@ static void Register_Drawable(asIScriptEngine* engine)
 }
 
 // explicit DropDownList::DropDownList(Context* context)
-static void DropDownList_DropDownList_Context(DropDownList* ptr)
+static DropDownList* DropDownList_DropDownList_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) DropDownList(context);
+    return new DropDownList(context);
 }
 
 // class DropDownList | File: ../UI/DropDownList.h
@@ -2972,10 +2972,10 @@ static void Register_DropDownList(asIScriptEngine* engine)
 }
 
 // explicit Engine::Engine(Context* context)
-static void Engine_Engine_Context(Engine* ptr)
+static Engine* Engine_Engine_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Engine(context);
+    return new Engine(context);
 }
 
 // class Engine | File: ../Engine/Engine.h
@@ -3021,10 +3021,10 @@ static void Register_Engine(asIScriptEngine* engine)
 }
 
 // explicit EventProfiler::EventProfiler(Context* context)
-static void EventProfiler_EventProfiler_Context(EventProfiler* ptr)
+static EventProfiler* EventProfiler_EventProfiler_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) EventProfiler(context);
+    return new EventProfiler(context);
 }
 
 // class EventProfiler | File: ../Core/EventProfiler.h
@@ -3109,24 +3109,24 @@ static void Register_EventReceiverGroup(asIScriptEngine* engine)
 }
 
 // explicit File::File(Context* context)
-static void File_File_Context(File* ptr)
+static File* File_File_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) File(context);
+    return new File(context);
 }
 
 // File::File(Context* context, const String& fileName, FileMode mode=FILE_READ)
-static void File_File_Context_String_FileMode(File* ptr, const String& fileName, FileMode mode)
+static File* File_File_Context_String_FileMode(const String& fileName, FileMode mode)
 {
     Context* context = GetScriptContext();
-    new(ptr) File(context, fileName, mode);
+    return new File(context, fileName, mode);
 }
 
 // File::File(Context* context, PackageFile* package, const String& fileName)
-static void File_File_Context_PackageFile_String(File* ptr, PackageFile* package, const String& fileName)
+static File* File_File_Context_PackageFile_String(PackageFile* package, const String& fileName)
 {
     Context* context = GetScriptContext();
-    new(ptr) File(context, package, fileName);
+    return new File(context, package, fileName);
 }
 
 // class File | File: ../IO/File.h
@@ -3176,10 +3176,10 @@ static void Register_File(asIScriptEngine* engine)
 }
 
 // explicit FileSelector::FileSelector(Context* context)
-static void FileSelector_FileSelector_Context(FileSelector* ptr)
+static FileSelector* FileSelector_FileSelector_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) FileSelector(context);
+    return new FileSelector(context);
 }
 
 // class FileSelector | File: ../UI/FileSelector.h
@@ -3267,10 +3267,10 @@ static void Register_FileSelectorEntry(asIScriptEngine* engine)
 }
 
 // explicit FileSystem::FileSystem(Context* context)
-static void FileSystem_FileSystem_Context(FileSystem* ptr)
+static FileSystem* FileSystem_FileSystem_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) FileSystem(context);
+    return new FileSystem(context);
 }
 
 // class FileSystem | File: ../IO/FileSystem.h
@@ -3316,10 +3316,10 @@ static void Register_FileSystem(asIScriptEngine* engine)
 }
 
 // explicit FileWatcher::FileWatcher(Context* context)
-static void FileWatcher_FileWatcher_Context(FileWatcher* ptr)
+static FileWatcher* FileWatcher_FileWatcher_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) FileWatcher(context);
+    return new FileWatcher(context);
 }
 
 // class FileWatcher | File: ../IO/FileWatcher.h
@@ -3413,10 +3413,10 @@ static void Register_FocusParameters(asIScriptEngine* engine)
 }
 
 // explicit Font::Font(Context* context)
-static void Font_Font_Context(Font* ptr)
+static Font* Font_Font_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Font(context);
+    return new Font(context);
 }
 
 // class Font | File: ../UI/Font.h
@@ -3501,9 +3501,9 @@ static void Register_FontFace(asIScriptEngine* engine)
 }
 
 // explicit FontFaceBitmap::FontFaceBitmap(Font* font)
-static void FontFaceBitmap_FontFaceBitmap_Font(FontFaceBitmap* ptr, Font* font)
+static FontFaceBitmap* FontFaceBitmap_FontFaceBitmap_Font(Font* font)
 {
-    new(ptr) FontFaceBitmap(font);
+    return new FontFaceBitmap(font);
 }
 
 // class FontFaceBitmap | File: ../UI/FontFaceBitmap.h
@@ -3549,9 +3549,9 @@ static void Register_FontFaceBitmap(asIScriptEngine* engine)
 }
 
 // explicit FontFaceFreeType::FontFaceFreeType(Font* font)
-static void FontFaceFreeType_FontFaceFreeType_Font(FontFaceFreeType* ptr, Font* font)
+static FontFaceFreeType* FontFaceFreeType_FontFaceFreeType_Font(Font* font)
 {
-    new(ptr) FontFaceFreeType(font);
+    return new FontFaceFreeType(font);
 }
 
 // class FontFaceFreeType | File: ../UI/FontFaceFreeType.h
@@ -3785,10 +3785,10 @@ static void Register_GPUObject(asIScriptEngine* engine)
 }
 
 // explicit Geometry::Geometry(Context* context)
-static void Geometry_Geometry_Context(Geometry* ptr)
+static Geometry* Geometry_Geometry_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Geometry(context);
+    return new Geometry(context);
 }
 
 // class Geometry | File: ../Graphics/Geometry.h
@@ -3876,10 +3876,10 @@ static void Register_GeometryDesc(asIScriptEngine* engine)
 }
 
 // explicit Graphics::Graphics(Context* context)
-static void Graphics_Graphics_Context(Graphics* ptr)
+static Graphics* Graphics_Graphics_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Graphics(context);
+    return new Graphics(context);
 }
 
 // class Graphics | File: ../Graphics/Graphics.h
@@ -4097,10 +4097,10 @@ static void Register_HiresTimer(asIScriptEngine* engine)
 }
 
 // explicit Image::Image(Context* context)
-static void Image_Image_Context(Image* ptr)
+static Image* Image_Image_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Image(context);
+    return new Image(context);
 }
 
 // class Image | File: ../Resource/Image.h
@@ -4146,10 +4146,10 @@ static void Register_Image(asIScriptEngine* engine)
 }
 
 // explicit IndexBuffer::IndexBuffer(Context* context, bool forceHeadless=false)
-static void IndexBuffer_IndexBuffer_Context_bool(IndexBuffer* ptr, bool forceHeadless)
+static IndexBuffer* IndexBuffer_IndexBuffer_Context_bool(bool forceHeadless)
 {
     Context* context = GetScriptContext();
-    new(ptr) IndexBuffer(context, forceHeadless);
+    return new IndexBuffer(context, forceHeadless);
 }
 
 // class IndexBuffer | File: ../Graphics/IndexBuffer.h
@@ -4237,10 +4237,10 @@ static void Register_IndexBufferDesc(asIScriptEngine* engine)
 }
 
 // explicit Input::Input(Context* context)
-static void Input_Input_Context(Input* ptr)
+static Input* Input_Input_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Input(context);
+    return new Input(context);
 }
 
 // class Input | File: ../Input/Input.h
@@ -4511,10 +4511,10 @@ static void Register_IntVector3(asIScriptEngine* engine)
 }
 
 // explicit JSONFile::JSONFile(Context* context)
-static void JSONFile_JSONFile_Context(JSONFile* ptr)
+static JSONFile* JSONFile_JSONFile_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) JSONFile(context);
+    return new JSONFile(context);
 }
 
 // class JSONFile | File: ../Resource/JSONFile.h
@@ -4706,10 +4706,10 @@ static void Register_JoystickState(asIScriptEngine* engine)
 }
 
 // explicit Light::Light(Context* context)
-static void Light_Light_Context(Light* ptr)
+static Light* Light_Light_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Light(context);
+    return new Light(context);
 }
 
 // class Light | File: ../Graphics/Light.h
@@ -4839,10 +4839,10 @@ static void Register_LightQueryResult(asIScriptEngine* engine)
 }
 
 // explicit LineEdit::LineEdit(Context* context)
-static void LineEdit_LineEdit_Context(LineEdit* ptr)
+static LineEdit* LineEdit_LineEdit_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) LineEdit(context);
+    return new LineEdit(context);
 }
 
 // class LineEdit | File: ../UI/LineEdit.h
@@ -5060,10 +5060,10 @@ static void Register_ListNodeBase(asIScriptEngine* engine)
 }
 
 // explicit ListView::ListView(Context* context)
-static void ListView_ListView_Context(ListView* ptr)
+static ListView* ListView_ListView_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ListView(context);
+    return new ListView(context);
 }
 
 // class ListView | File: ../UI/ListView.h
@@ -5109,10 +5109,10 @@ static void Register_ListView(asIScriptEngine* engine)
 }
 
 // explicit Localization::Localization(Context* context)
-static void Localization_Localization_Context(Localization* ptr)
+static Localization* Localization_Localization_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Localization(context);
+    return new Localization(context);
 }
 
 // class Localization | File: ../Resource/Localization.h
@@ -5158,10 +5158,10 @@ static void Register_Localization(asIScriptEngine* engine)
 }
 
 // explicit Log::Log(Context* context)
-static void Log_Log_Context(Log* ptr)
+static Log* Log_Log_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Log(context);
+    return new Log(context);
 }
 
 // class Log | File: ../IO/Log.h
@@ -5246,10 +5246,10 @@ static void Register_LogicComponent(asIScriptEngine* engine)
 }
 
 // explicit Material::Material(Context* context)
-static void Material_Material_Context(Material* ptr)
+static Material* Material_Material_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Material(context);
+    return new Material(context);
 }
 
 // class Material | File: ../Graphics/Material.h
@@ -5613,10 +5613,10 @@ static void Register_Matrix4(asIScriptEngine* engine)
 }
 
 // explicit Menu::Menu(Context* context)
-static void Menu_Menu_Context(Menu* ptr)
+static Menu* Menu_Menu_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Menu(context);
+    return new Menu(context);
 }
 
 // class Menu | File: ../UI/Menu.h
@@ -5662,10 +5662,10 @@ static void Register_Menu(asIScriptEngine* engine)
 }
 
 // explicit MessageBox::MessageBox(Context* context, const String& messageString=String::EMPTY, const String& titleString=String::EMPTY, XMLFile* layoutFile=nullptr, XMLFile* styleFile=nullptr)
-static void MessageBox_MessageBox_Context_String_String_XMLFile_XMLFile(MessageBox* ptr, const String& messageString, const String& titleString, XMLFile* layoutFile, XMLFile* styleFile)
+static MessageBox* MessageBox_MessageBox_Context_String_String_XMLFile_XMLFile(const String& messageString, const String& titleString, XMLFile* layoutFile, XMLFile* styleFile)
 {
     Context* context = GetScriptContext();
-    new(ptr) MessageBox(context, messageString, titleString, layoutFile, styleFile);
+    return new MessageBox(context, messageString, titleString, layoutFile, styleFile);
 }
 
 // class MessageBox | File: ../UI/MessageBox.h
@@ -5711,10 +5711,10 @@ static void Register_MessageBox(asIScriptEngine* engine)
 }
 
 // explicit Model::Model(Context* context)
-static void Model_Model_Context(Model* ptr)
+static Model* Model_Model_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Model(context);
+    return new Model(context);
 }
 
 // class Model | File: ../Graphics/Model.h
@@ -5904,17 +5904,17 @@ static void Register_MutexLock(asIScriptEngine* engine)
 }
 
 // explicit NamedPipe::NamedPipe(Context* context)
-static void NamedPipe_NamedPipe_Context(NamedPipe* ptr)
+static NamedPipe* NamedPipe_NamedPipe_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) NamedPipe(context);
+    return new NamedPipe(context);
 }
 
 // NamedPipe::NamedPipe(Context* context, const String& name, bool isServer)
-static void NamedPipe_NamedPipe_Context_String_bool(NamedPipe* ptr, const String& name, bool isServer)
+static NamedPipe* NamedPipe_NamedPipe_Context_String_bool(const String& name, bool isServer)
 {
     Context* context = GetScriptContext();
-    new(ptr) NamedPipe(context, name, isServer);
+    return new NamedPipe(context, name, isServer);
 }
 
 // class NamedPipe | File: ../IO/NamedPipe.h
@@ -6004,10 +6004,10 @@ static void Register_NetworkState(asIScriptEngine* engine)
 }
 
 // explicit Node::Node(Context* context)
-static void Node_Node_Context(Node* ptr)
+static Node* Node_Node_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Node(context);
+    return new Node(context);
 }
 
 // class Node | File: ../Scene/Node.h
@@ -6176,10 +6176,10 @@ static void Register_Object(asIScriptEngine* engine)
 }
 
 // explicit ObjectAnimation::ObjectAnimation(Context* context)
-static void ObjectAnimation_ObjectAnimation_Context(ObjectAnimation* ptr)
+static ObjectAnimation* ObjectAnimation_ObjectAnimation_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ObjectAnimation(context);
+    return new ObjectAnimation(context);
 }
 
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
@@ -6306,10 +6306,10 @@ static void Register_OcclusionBatch(asIScriptEngine* engine)
 }
 
 // explicit OcclusionBuffer::OcclusionBuffer(Context* context)
-static void OcclusionBuffer_OcclusionBuffer_Context(OcclusionBuffer* ptr)
+static OcclusionBuffer* OcclusionBuffer_OcclusionBuffer_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) OcclusionBuffer(context);
+    return new OcclusionBuffer(context);
 }
 
 // class OcclusionBuffer | File: ../Graphics/OcclusionBuffer.h
@@ -6397,10 +6397,10 @@ static void Register_OcclusionBufferData(asIScriptEngine* engine)
 }
 
 // explicit Octree::Octree(Context* context)
-static void Octree_Octree_Context(Octree* ptr)
+static Octree* Octree_Octree_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Octree(context);
+    return new Octree(context);
 }
 
 // class Octree | File: ../Graphics/Octree.h
@@ -6488,9 +6488,9 @@ static void Register_OctreeQueryResult(asIScriptEngine* engine)
 }
 
 // explicit OggVorbisSoundStream::OggVorbisSoundStream(const Sound* sound)
-static void OggVorbisSoundStream_OggVorbisSoundStream_Sound(OggVorbisSoundStream* ptr, const Sound* sound)
+static OggVorbisSoundStream* OggVorbisSoundStream_OggVorbisSoundStream_Sound(const Sound* sound)
 {
-    new(ptr) OggVorbisSoundStream(sound);
+    return new OggVorbisSoundStream(sound);
 }
 
 // class OggVorbisSoundStream | File: ../Audio/OggVorbisSoundStream.h
@@ -6575,17 +6575,17 @@ static void Register_PackageEntry(asIScriptEngine* engine)
 }
 
 // explicit PackageFile::PackageFile(Context* context)
-static void PackageFile_PackageFile_Context(PackageFile* ptr)
+static PackageFile* PackageFile_PackageFile_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) PackageFile(context);
+    return new PackageFile(context);
 }
 
 // PackageFile::PackageFile(Context* context, const String& fileName, unsigned startOffset=0)
-static void PackageFile_PackageFile_Context_String_unsigned(PackageFile* ptr, const String& fileName, unsigned startOffset)
+static PackageFile* PackageFile_PackageFile_Context_String_unsigned(const String& fileName, unsigned startOffset)
 {
     Context* context = GetScriptContext();
-    new(ptr) PackageFile(context, fileName, startOffset);
+    return new PackageFile(context, fileName, startOffset);
 }
 
 // class PackageFile | File: ../IO/PackageFile.h
@@ -6675,10 +6675,10 @@ static void Register_Particle(asIScriptEngine* engine)
 }
 
 // explicit ParticleEffect::ParticleEffect(Context* context)
-static void ParticleEffect_ParticleEffect_Context(ParticleEffect* ptr)
+static ParticleEffect* ParticleEffect_ParticleEffect_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ParticleEffect(context);
+    return new ParticleEffect(context);
 }
 
 // class ParticleEffect | File: ../Graphics/ParticleEffect.h
@@ -6724,10 +6724,10 @@ static void Register_ParticleEffect(asIScriptEngine* engine)
 }
 
 // explicit ParticleEmitter::ParticleEmitter(Context* context)
-static void ParticleEmitter_ParticleEmitter_Context(ParticleEmitter* ptr)
+static ParticleEmitter* ParticleEmitter_ParticleEmitter_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ParticleEmitter(context);
+    return new ParticleEmitter(context);
 }
 
 // class ParticleEmitter | File: ../Graphics/ParticleEmitter.h
@@ -6773,9 +6773,9 @@ static void Register_ParticleEmitter(asIScriptEngine* engine)
 }
 
 // explicit Pass::Pass(const String& name)
-static void Pass_Pass_String(Pass* ptr, const String& name)
+static Pass* Pass_Pass_String(const String& name)
 {
-    new(ptr) Pass(name);
+    return new Pass(name);
 }
 
 // class Pass | File: ../Graphics/Technique.h
@@ -7006,10 +7006,10 @@ static void Register_Polyhedron(asIScriptEngine* engine)
 }
 
 // explicit Profiler::Profiler(Context* context)
-static void Profiler_Profiler_Context(Profiler* ptr)
+static Profiler* Profiler_Profiler_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Profiler(context);
+    return new Profiler(context);
 }
 
 // class Profiler | File: ../Core/Profiler.h
@@ -7055,10 +7055,10 @@ static void Register_Profiler(asIScriptEngine* engine)
 }
 
 // explicit ProgressBar::ProgressBar(Context* context)
-static void ProgressBar_ProgressBar_Context(ProgressBar* ptr)
+static ProgressBar* ProgressBar_ProgressBar_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ProgressBar(context);
+    return new ProgressBar(context);
 }
 
 // class ProgressBar | File: ../UI/ProgressBar.h
@@ -7434,9 +7434,9 @@ static void Register_RefCount(asIScriptEngine* engine)
 }
 
 // RefCounted::RefCounted(const RefCounted& rhs)=delete
-static void RefCounted_RefCounted_RefCounted(RefCounted* ptr, const RefCounted& rhs)
+static RefCounted* RefCounted_RefCounted_RefCounted(const RefCounted& rhs)
 {
-    new(ptr) RefCounted(rhs);
+    return new RefCounted(rhs);
 }
 
 // class RefCounted | File: ../Container/RefCounted.h
@@ -7563,9 +7563,9 @@ static void Register_RenderPathCommand(asIScriptEngine* engine)
 }
 
 // explicit RenderSurface::RenderSurface(Texture* parentTexture)
-static void RenderSurface_RenderSurface_Texture(RenderSurface* ptr, Texture* parentTexture)
+static RenderSurface* RenderSurface_RenderSurface_Texture(Texture* parentTexture)
 {
-    new(ptr) RenderSurface(parentTexture);
+    return new RenderSurface(parentTexture);
 }
 
 // class RenderSurface | File: ../Graphics/RenderSurface.h
@@ -7653,10 +7653,10 @@ static void Register_RenderTargetInfo(asIScriptEngine* engine)
 }
 
 // explicit Renderer::Renderer(Context* context)
-static void Renderer_Renderer_Context(Renderer* ptr)
+static Renderer* Renderer_Renderer_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Renderer(context);
+    return new Renderer(context);
 }
 
 // class Renderer | File: ../Graphics/Renderer.h
@@ -7744,10 +7744,10 @@ static void Register_ReplicationState(asIScriptEngine* engine)
 }
 
 // explicit Resource::Resource(Context* context)
-static void Resource_Resource_Context(Resource* ptr)
+static Resource* Resource_Resource_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Resource(context);
+    return new Resource(context);
 }
 
 // class Resource | File: ../Resource/Resource.h
@@ -7793,10 +7793,10 @@ static void Register_Resource(asIScriptEngine* engine)
 }
 
 // explicit ResourceCache::ResourceCache(Context* context)
-static void ResourceCache_ResourceCache_Context(ResourceCache* ptr)
+static ResourceCache* ResourceCache_ResourceCache_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ResourceCache(context);
+    return new ResourceCache(context);
 }
 
 // class ResourceCache | File: ../Resource/ResourceCache.h
@@ -8024,10 +8024,10 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
 }
 
 // explicit ResourceWithMetadata::ResourceWithMetadata(Context* context)
-static void ResourceWithMetadata_ResourceWithMetadata_Context(ResourceWithMetadata* ptr)
+static ResourceWithMetadata* ResourceWithMetadata_ResourceWithMetadata_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ResourceWithMetadata(context);
+    return new ResourceWithMetadata(context);
 }
 
 // class ResourceWithMetadata | File: ../Resource/Resource.h
@@ -8073,10 +8073,10 @@ static void Register_ResourceWithMetadata(asIScriptEngine* engine)
 }
 
 // explicit RibbonTrail::RibbonTrail(Context* context)
-static void RibbonTrail_RibbonTrail_Context(RibbonTrail* ptr)
+static RibbonTrail* RibbonTrail_RibbonTrail_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) RibbonTrail(context);
+    return new RibbonTrail(context);
 }
 
 // class RibbonTrail | File: ../Graphics/RibbonTrail.h
@@ -8122,10 +8122,10 @@ static void Register_RibbonTrail(asIScriptEngine* engine)
 }
 
 // explicit Scene::Scene(Context* context)
-static void Scene_Scene_Context(Scene* ptr)
+static Scene* Scene_Scene_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Scene(context);
+    return new Scene(context);
 }
 
 // class Scene | File: ../Scene/Scene.h
@@ -8381,10 +8381,10 @@ static void Register_ScreenModeParams(asIScriptEngine* engine)
 }
 
 // explicit ScrollBar::ScrollBar(Context* context)
-static void ScrollBar_ScrollBar_Context(ScrollBar* ptr)
+static ScrollBar* ScrollBar_ScrollBar_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ScrollBar(context);
+    return new ScrollBar(context);
 }
 
 // class ScrollBar | File: ../UI/ScrollBar.h
@@ -8430,10 +8430,10 @@ static void Register_ScrollBar(asIScriptEngine* engine)
 }
 
 // explicit ScrollView::ScrollView(Context* context)
-static void ScrollView_ScrollView_Context(ScrollView* ptr)
+static ScrollView* ScrollView_ScrollView_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ScrollView(context);
+    return new ScrollView(context);
 }
 
 // class ScrollView | File: ../UI/ScrollView.h
@@ -8479,10 +8479,10 @@ static void Register_ScrollView(asIScriptEngine* engine)
 }
 
 // explicit Serializable::Serializable(Context* context)
-static void Serializable_Serializable_Context(Serializable* ptr)
+static Serializable* Serializable_Serializable_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Serializable(context);
+    return new Serializable(context);
 }
 
 // class Serializable | File: ../Scene/Serializable.h
@@ -8567,10 +8567,10 @@ static void Register_Serializer(asIScriptEngine* engine)
 }
 
 // explicit Shader::Shader(Context* context)
-static void Shader_Shader_Context(Shader* ptr)
+static Shader* Shader_Shader_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Shader(context);
+    return new Shader(context);
 }
 
 // class Shader | File: ../Graphics/Shader.h
@@ -8684,15 +8684,15 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
 }
 
 // ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(Material* material, const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
-static void ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_Material_String_ValueAnimation_WrapMode_float(ShaderParameterAnimationInfo* ptr, Material* material, const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
+static ShaderParameterAnimationInfo* ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_Material_String_ValueAnimation_WrapMode_float(Material* material, const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
 {
-    new(ptr) ShaderParameterAnimationInfo(material, name, attributeAnimation, wrapMode, speed);
+    return new ShaderParameterAnimationInfo(material, name, attributeAnimation, wrapMode, speed);
 }
 
 // ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(const ShaderParameterAnimationInfo& other)
-static void ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_ShaderParameterAnimationInfo(ShaderParameterAnimationInfo* ptr, const ShaderParameterAnimationInfo& other)
+static ShaderParameterAnimationInfo* ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_ShaderParameterAnimationInfo(const ShaderParameterAnimationInfo& other)
 {
-    new(ptr) ShaderParameterAnimationInfo(other);
+    return new ShaderParameterAnimationInfo(other);
 }
 
 // class ShaderParameterAnimationInfo | File: ../Graphics/Material.h
@@ -8740,10 +8740,10 @@ static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
 }
 
 // ShaderPrecache::ShaderPrecache(Context* context, const String& fileName)
-static void ShaderPrecache_ShaderPrecache_Context_String(ShaderPrecache* ptr, const String& fileName)
+static ShaderPrecache* ShaderPrecache_ShaderPrecache_Context_String(const String& fileName)
 {
     Context* context = GetScriptContext();
-    new(ptr) ShaderPrecache(context, fileName);
+    return new ShaderPrecache(context, fileName);
 }
 
 // class ShaderPrecache | File: ../Graphics/ShaderPrecache.h
@@ -8789,9 +8789,9 @@ static void Register_ShaderPrecache(asIScriptEngine* engine)
 }
 
 // ShaderVariation::ShaderVariation(Shader* owner, ShaderType type)
-static void ShaderVariation_ShaderVariation_Shader_ShaderType(ShaderVariation* ptr, Shader* owner, ShaderType type)
+static ShaderVariation* ShaderVariation_ShaderVariation_Shader_ShaderType(Shader* owner, ShaderType type)
 {
-    new(ptr) ShaderVariation(owner, type);
+    return new ShaderVariation(owner, type);
 }
 
 // class ShaderVariation | File: ../Graphics/ShaderVariation.h
@@ -8918,10 +8918,10 @@ static void Register_Skeleton(asIScriptEngine* engine)
 }
 
 // explicit Skybox::Skybox(Context* context)
-static void Skybox_Skybox_Context(Skybox* ptr)
+static Skybox* Skybox_Skybox_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Skybox(context);
+    return new Skybox(context);
 }
 
 // class Skybox | File: ../Graphics/Skybox.h
@@ -8967,10 +8967,10 @@ static void Register_Skybox(asIScriptEngine* engine)
 }
 
 // explicit Slider::Slider(Context* context)
-static void Slider_Slider_Context(Slider* ptr)
+static Slider* Slider_Slider_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Slider(context);
+    return new Slider(context);
 }
 
 // class Slider | File: ../UI/Slider.h
@@ -9016,10 +9016,10 @@ static void Register_Slider(asIScriptEngine* engine)
 }
 
 // explicit SmoothedTransform::SmoothedTransform(Context* context)
-static void SmoothedTransform_SmoothedTransform_Context(SmoothedTransform* ptr)
+static SmoothedTransform* SmoothedTransform_SmoothedTransform_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) SmoothedTransform(context);
+    return new SmoothedTransform(context);
 }
 
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
@@ -9065,10 +9065,10 @@ static void Register_SmoothedTransform(asIScriptEngine* engine)
 }
 
 // explicit Sound::Sound(Context* context)
-static void Sound_Sound_Context(Sound* ptr)
+static Sound* Sound_Sound_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Sound(context);
+    return new Sound(context);
 }
 
 // class Sound | File: ../Audio/Sound.h
@@ -9114,10 +9114,10 @@ static void Register_Sound(asIScriptEngine* engine)
 }
 
 // explicit SoundListener::SoundListener(Context* context)
-static void SoundListener_SoundListener_Context(SoundListener* ptr)
+static SoundListener* SoundListener_SoundListener_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) SoundListener(context);
+    return new SoundListener(context);
 }
 
 // class SoundListener | File: ../Audio/SoundListener.h
@@ -9163,10 +9163,10 @@ static void Register_SoundListener(asIScriptEngine* engine)
 }
 
 // explicit SoundSource::SoundSource(Context* context)
-static void SoundSource_SoundSource_Context(SoundSource* ptr)
+static SoundSource* SoundSource_SoundSource_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) SoundSource(context);
+    return new SoundSource(context);
 }
 
 // class SoundSource | File: ../Audio/SoundSource.h
@@ -9212,10 +9212,10 @@ static void Register_SoundSource(asIScriptEngine* engine)
 }
 
 // explicit SoundSource3D::SoundSource3D(Context* context)
-static void SoundSource3D_SoundSource3D_Context(SoundSource3D* ptr)
+static SoundSource3D* SoundSource3D_SoundSource3D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) SoundSource3D(context);
+    return new SoundSource3D(context);
 }
 
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
@@ -9498,10 +9498,10 @@ static void Register_Spline(asIScriptEngine* engine)
 }
 
 // explicit SplinePath::SplinePath(Context* context)
-static void SplinePath_SplinePath_Context(SplinePath* ptr)
+static SplinePath* SplinePath_SplinePath_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) SplinePath(context);
+    return new SplinePath(context);
 }
 
 // class SplinePath | File: ../Scene/SplinePath.h
@@ -9547,10 +9547,10 @@ static void Register_SplinePath(asIScriptEngine* engine)
 }
 
 // explicit Sprite::Sprite(Context* context)
-static void Sprite_Sprite_Context(Sprite* ptr)
+static Sprite* Sprite_Sprite_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Sprite(context);
+    return new Sprite(context);
 }
 
 // class Sprite | File: ../UI/Sprite.h
@@ -9596,10 +9596,10 @@ static void Register_Sprite(asIScriptEngine* engine)
 }
 
 // explicit StaticModel::StaticModel(Context* context)
-static void StaticModel_StaticModel_Context(StaticModel* ptr)
+static StaticModel* StaticModel_StaticModel_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) StaticModel(context);
+    return new StaticModel(context);
 }
 
 // class StaticModel | File: ../Graphics/StaticModel.h
@@ -9687,10 +9687,10 @@ static void Register_StaticModelGeometryData(asIScriptEngine* engine)
 }
 
 // explicit StaticModelGroup::StaticModelGroup(Context* context)
-static void StaticModelGroup_StaticModelGroup_Context(StaticModelGroup* ptr)
+static StaticModelGroup* StaticModelGroup_StaticModelGroup_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) StaticModelGroup(context);
+    return new StaticModelGroup(context);
 }
 
 // class StaticModelGroup | File: ../Graphics/StaticModelGroup.h
@@ -10068,10 +10068,10 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
 }
 
 // explicit Technique::Technique(Context* context)
-static void Technique_Technique_Context(Technique* ptr)
+static Technique* Technique_Technique_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Technique(context);
+    return new Technique(context);
 }
 
 // class Technique | File: ../Graphics/Technique.h
@@ -10169,10 +10169,10 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
 }
 
 // explicit Terrain::Terrain(Context* context)
-static void Terrain_Terrain_Context(Terrain* ptr)
+static Terrain* Terrain_Terrain_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Terrain(context);
+    return new Terrain(context);
 }
 
 // class Terrain | File: ../Graphics/Terrain.h
@@ -10218,10 +10218,10 @@ static void Register_Terrain(asIScriptEngine* engine)
 }
 
 // explicit TerrainPatch::TerrainPatch(Context* context)
-static void TerrainPatch_TerrainPatch_Context(TerrainPatch* ptr)
+static TerrainPatch* TerrainPatch_TerrainPatch_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) TerrainPatch(context);
+    return new TerrainPatch(context);
 }
 
 // class TerrainPatch | File: ../Graphics/TerrainPatch.h
@@ -10267,10 +10267,10 @@ static void Register_TerrainPatch(asIScriptEngine* engine)
 }
 
 // explicit Text::Text(Context* context)
-static void Text_Text_Context(Text* ptr)
+static Text* Text_Text_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Text(context);
+    return new Text(context);
 }
 
 // class Text | File: ../UI/Text.h
@@ -10316,10 +10316,10 @@ static void Register_Text(asIScriptEngine* engine)
 }
 
 // explicit Text3D::Text3D(Context* context)
-static void Text3D_Text3D_Context(Text3D* ptr)
+static Text3D* Text3D_Text3D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Text3D(context);
+    return new Text3D(context);
 }
 
 // class Text3D | File: ../UI/Text3D.h
@@ -10365,10 +10365,10 @@ static void Register_Text3D(asIScriptEngine* engine)
 }
 
 // explicit Texture::Texture(Context* context)
-static void Texture_Texture_Context(Texture* ptr)
+static Texture* Texture_Texture_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Texture(context);
+    return new Texture(context);
 }
 
 // class Texture | File: ../Graphics/Texture.h
@@ -10414,10 +10414,10 @@ static void Register_Texture(asIScriptEngine* engine)
 }
 
 // explicit Texture2D::Texture2D(Context* context)
-static void Texture2D_Texture2D_Context(Texture2D* ptr)
+static Texture2D* Texture2D_Texture2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Texture2D(context);
+    return new Texture2D(context);
 }
 
 // class Texture2D | File: ../Graphics/Texture2D.h
@@ -10463,10 +10463,10 @@ static void Register_Texture2D(asIScriptEngine* engine)
 }
 
 // explicit Texture2DArray::Texture2DArray(Context* context)
-static void Texture2DArray_Texture2DArray_Context(Texture2DArray* ptr)
+static Texture2DArray* Texture2DArray_Texture2DArray_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Texture2DArray(context);
+    return new Texture2DArray(context);
 }
 
 // class Texture2DArray | File: ../Graphics/Texture2DArray.h
@@ -10512,10 +10512,10 @@ static void Register_Texture2DArray(asIScriptEngine* engine)
 }
 
 // explicit Texture3D::Texture3D(Context* context)
-static void Texture3D_Texture3D_Context(Texture3D* ptr)
+static Texture3D* Texture3D_Texture3D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Texture3D(context);
+    return new Texture3D(context);
 }
 
 // class Texture3D | File: ../Graphics/Texture3D.h
@@ -10561,10 +10561,10 @@ static void Register_Texture3D(asIScriptEngine* engine)
 }
 
 // explicit TextureCube::TextureCube(Context* context)
-static void TextureCube_TextureCube_Context(TextureCube* ptr)
+static TextureCube* TextureCube_TextureCube_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) TextureCube(context);
+    return new TextureCube(context);
 }
 
 // class TextureCube | File: ../Graphics/TextureCube.h
@@ -10649,10 +10649,10 @@ static void Register_TextureFrame(asIScriptEngine* engine)
 }
 
 // explicit Time::Time(Context* context)
-static void Time_Time_Context(Time* ptr)
+static Time* Time_Time_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Time(context);
+    return new Time(context);
 }
 
 // class Time | File: ../Core/Timer.h
@@ -10737,10 +10737,10 @@ static void Register_Timer(asIScriptEngine* engine)
 }
 
 // explicit ToolTip::ToolTip(Context* context)
-static void ToolTip_ToolTip_Context(ToolTip* ptr)
+static ToolTip* ToolTip_ToolTip_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ToolTip(context);
+    return new ToolTip(context);
 }
 
 // class ToolTip | File: ../UI/ToolTip.h
@@ -10877,10 +10877,10 @@ static void Register_TrailPoint(asIScriptEngine* engine)
 }
 
 // explicit UI::UI(Context* context)
-static void UI_UI_Context(UI* ptr)
+static UI* UI_UI_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) UI(context);
+    return new UI(context);
 }
 
 // class UI | File: ../UI/UI.h
@@ -10972,10 +10972,10 @@ static void Register_UIBatch(asIScriptEngine* engine)
 }
 
 // explicit UIComponent::UIComponent(Context* context)
-static void UIComponent_UIComponent_Context(UIComponent* ptr)
+static UIComponent* UIComponent_UIComponent_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) UIComponent(context);
+    return new UIComponent(context);
 }
 
 // class UIComponent | File: ../UI/UIComponent.h
@@ -11021,10 +11021,10 @@ static void Register_UIComponent(asIScriptEngine* engine)
 }
 
 // explicit UIElement::UIElement(Context* context)
-static void UIElement_UIElement_Context(UIElement* ptr)
+static UIElement* UIElement_UIElement_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) UIElement(context);
+    return new UIElement(context);
 }
 
 // class UIElement | File: ../UI/UIElement.h
@@ -11232,10 +11232,10 @@ static void Register_VAnimKeyFrame(asIScriptEngine* engine)
 }
 
 // explicit ValueAnimation::ValueAnimation(Context* context)
-static void ValueAnimation_ValueAnimation_Context(ValueAnimation* ptr)
+static ValueAnimation* ValueAnimation_ValueAnimation_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ValueAnimation(context);
+    return new ValueAnimation(context);
 }
 
 // class ValueAnimation | File: ../Scene/ValueAnimation.h
@@ -11281,21 +11281,21 @@ static void Register_ValueAnimation(asIScriptEngine* engine)
 }
 
 // ValueAnimationInfo::ValueAnimationInfo(ValueAnimation* animation, WrapMode wrapMode, float speed)
-static void ValueAnimationInfo_ValueAnimationInfo_ValueAnimation_WrapMode_float(ValueAnimationInfo* ptr, ValueAnimation* animation, WrapMode wrapMode, float speed)
+static ValueAnimationInfo* ValueAnimationInfo_ValueAnimationInfo_ValueAnimation_WrapMode_float(ValueAnimation* animation, WrapMode wrapMode, float speed)
 {
-    new(ptr) ValueAnimationInfo(animation, wrapMode, speed);
+    return new ValueAnimationInfo(animation, wrapMode, speed);
 }
 
 // ValueAnimationInfo::ValueAnimationInfo(Object* target, ValueAnimation* animation, WrapMode wrapMode, float speed)
-static void ValueAnimationInfo_ValueAnimationInfo_Object_ValueAnimation_WrapMode_float(ValueAnimationInfo* ptr, Object* target, ValueAnimation* animation, WrapMode wrapMode, float speed)
+static ValueAnimationInfo* ValueAnimationInfo_ValueAnimationInfo_Object_ValueAnimation_WrapMode_float(Object* target, ValueAnimation* animation, WrapMode wrapMode, float speed)
 {
-    new(ptr) ValueAnimationInfo(target, animation, wrapMode, speed);
+    return new ValueAnimationInfo(target, animation, wrapMode, speed);
 }
 
 // ValueAnimationInfo::ValueAnimationInfo(const ValueAnimationInfo& other)
-static void ValueAnimationInfo_ValueAnimationInfo_ValueAnimationInfo(ValueAnimationInfo* ptr, const ValueAnimationInfo& other)
+static ValueAnimationInfo* ValueAnimationInfo_ValueAnimationInfo_ValueAnimationInfo(const ValueAnimationInfo& other)
 {
-    new(ptr) ValueAnimationInfo(other);
+    return new ValueAnimationInfo(other);
 }
 
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h
@@ -11969,10 +11969,10 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
 }
 
 // explicit VertexBuffer::VertexBuffer(Context* context, bool forceHeadless=false)
-static void VertexBuffer_VertexBuffer_Context_bool(VertexBuffer* ptr, bool forceHeadless)
+static VertexBuffer* VertexBuffer_VertexBuffer_Context_bool(bool forceHeadless)
 {
     Context* context = GetScriptContext();
-    new(ptr) VertexBuffer(context, forceHeadless);
+    return new VertexBuffer(context, forceHeadless);
 }
 
 // class VertexBuffer | File: ../Graphics/VertexBuffer.h
@@ -12154,10 +12154,10 @@ static void Register_VertexElement(asIScriptEngine* engine)
 }
 
 // explicit View::View(Context* context)
-static void View_View_Context(View* ptr)
+static View* View_View_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) View(context);
+    return new View(context);
 }
 
 // class View | File: ../Graphics/View.h
@@ -12203,10 +12203,10 @@ static void Register_View(asIScriptEngine* engine)
 }
 
 // explicit View3D::View3D(Context* context)
-static void View3D_View3D_Context(View3D* ptr)
+static View3D* View3D_View3D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) View3D(context);
+    return new View3D(context);
 }
 
 // class View3D | File: ../UI/View3D.h
@@ -12252,24 +12252,24 @@ static void Register_View3D(asIScriptEngine* engine)
 }
 
 // explicit Viewport::Viewport(Context* context)
-static void Viewport_Viewport_Context(Viewport* ptr)
+static Viewport* Viewport_Viewport_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Viewport(context);
+    return new Viewport(context);
 }
 
 // Viewport::Viewport(Context* context, Scene* scene, Camera* camera, RenderPath* renderPath=nullptr)
-static void Viewport_Viewport_Context_Scene_Camera_RenderPath(Viewport* ptr, Scene* scene, Camera* camera, RenderPath* renderPath)
+static Viewport* Viewport_Viewport_Context_Scene_Camera_RenderPath(Scene* scene, Camera* camera, RenderPath* renderPath)
 {
     Context* context = GetScriptContext();
-    new(ptr) Viewport(context, scene, camera, renderPath);
+    return new Viewport(context, scene, camera, renderPath);
 }
 
 // Viewport::Viewport(Context* context, Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath=nullptr)
-static void Viewport_Viewport_Context_Scene_Camera_IntRect_RenderPath(Viewport* ptr, Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath)
+static Viewport* Viewport_Viewport_Context_Scene_Camera_IntRect_RenderPath(Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath)
 {
     Context* context = GetScriptContext();
-    new(ptr) Viewport(context, scene, camera, rect, renderPath);
+    return new Viewport(context, scene, camera, rect, renderPath);
 }
 
 // class Viewport | File: ../Graphics/Viewport.h
@@ -12319,10 +12319,10 @@ static void Register_Viewport(asIScriptEngine* engine)
 }
 
 // explicit Window::Window(Context* context)
-static void Window_Window_Context(Window* ptr)
+static Window* Window_Window_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Window(context);
+    return new Window(context);
 }
 
 // class Window | File: ../UI/Window.h
@@ -12410,10 +12410,10 @@ static void Register_WindowModeParams(asIScriptEngine* engine)
 }
 
 // explicit WorkQueue::WorkQueue(Context* context)
-static void WorkQueue_WorkQueue_Context(WorkQueue* ptr)
+static WorkQueue* WorkQueue_WorkQueue_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) WorkQueue(context);
+    return new WorkQueue(context);
 }
 
 // class WorkQueue | File: ../Core/WorkQueue.h
@@ -12516,10 +12516,10 @@ static void Register_XMLElement(asIScriptEngine* engine)
 }
 
 // explicit XMLFile::XMLFile(Context* context)
-static void XMLFile_XMLFile_Context(XMLFile* ptr)
+static XMLFile* XMLFile_XMLFile_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) XMLFile(context);
+    return new XMLFile(context);
 }
 
 // class XMLFile | File: ../Resource/XMLFile.h
@@ -12672,10 +12672,10 @@ static void Register_XPathResultSet(asIScriptEngine* engine)
 }
 
 // explicit Zone::Zone(Context* context)
-static void Zone_Zone_Context(Zone* ptr)
+static Zone* Zone_Zone_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Zone(context);
+    return new Zone(context);
 }
 
 // class Zone | File: ../Graphics/Zone.h
@@ -12723,10 +12723,10 @@ static void Register_Zone(asIScriptEngine* engine)
 #ifdef URHO3D_DATABASE
 
 // explicit Database::Database(Context* context)
-static void Database_Database_Context(Database* ptr)
+static Database* Database_Database_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Database(context);
+    return new Database(context);
 }
 
 // class Database | File: ../Database/Database.h
@@ -12776,10 +12776,10 @@ static void Register_Database(asIScriptEngine* engine)
 #ifdef URHO3D_IK
 
 // explicit IKConstraint::IKConstraint(Context* context)
-static void IKConstraint_IKConstraint_Context(IKConstraint* ptr)
+static IKConstraint* IKConstraint_IKConstraint_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) IKConstraint(context);
+    return new IKConstraint(context);
 }
 
 // class IKConstraint | File: ../IK/IKConstraint.h
@@ -12825,10 +12825,10 @@ static void Register_IKConstraint(asIScriptEngine* engine)
 }
 
 // explicit IKEffector::IKEffector(Context* context)
-static void IKEffector_IKEffector_Context(IKEffector* ptr)
+static IKEffector* IKEffector_IKEffector_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) IKEffector(context);
+    return new IKEffector(context);
 }
 
 // class IKEffector | File: ../IK/IKEffector.h
@@ -12874,10 +12874,10 @@ static void Register_IKEffector(asIScriptEngine* engine)
 }
 
 // explicit IKSolver::IKSolver(Context* context)
-static void IKSolver_IKSolver_Context(IKSolver* ptr)
+static IKSolver* IKSolver_IKSolver_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) IKSolver(context);
+    return new IKSolver(context);
 }
 
 // class IKSolver | File: ../IK/IKSolver.h
@@ -12927,10 +12927,10 @@ static void Register_IKSolver(asIScriptEngine* engine)
 #ifdef URHO3D_NAVIGATION
 
 // explicit CrowdAgent::CrowdAgent(Context* context)
-static void CrowdAgent_CrowdAgent_Context(CrowdAgent* ptr)
+static CrowdAgent* CrowdAgent_CrowdAgent_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CrowdAgent(context);
+    return new CrowdAgent(context);
 }
 
 // class CrowdAgent | File: ../Navigation/CrowdAgent.h
@@ -12976,10 +12976,10 @@ static void Register_CrowdAgent(asIScriptEngine* engine)
 }
 
 // explicit CrowdManager::CrowdManager(Context* context)
-static void CrowdManager_CrowdManager_Context(CrowdManager* ptr)
+static CrowdManager* CrowdManager_CrowdManager_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CrowdManager(context);
+    return new CrowdManager(context);
 }
 
 // class CrowdManager | File: ../Navigation/CrowdManager.h
@@ -13064,10 +13064,10 @@ static void Register_CrowdObstacleAvoidanceParams(asIScriptEngine* engine)
 }
 
 // explicit DynamicNavigationMesh::DynamicNavigationMesh(Context* context)
-static void DynamicNavigationMesh_DynamicNavigationMesh_Context(DynamicNavigationMesh* ptr)
+static DynamicNavigationMesh* DynamicNavigationMesh_DynamicNavigationMesh_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) DynamicNavigationMesh(context);
+    return new DynamicNavigationMesh(context);
 }
 
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
@@ -13113,10 +13113,10 @@ static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
 }
 
 // explicit NavArea::NavArea(Context* context)
-static void NavArea_NavArea_Context(NavArea* ptr)
+static NavArea* NavArea_NavArea_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) NavArea(context);
+    return new NavArea(context);
 }
 
 // class NavArea | File: ../Navigation/NavArea.h
@@ -13246,10 +13246,10 @@ static void Register_NavBuildData(asIScriptEngine* engine)
 }
 
 // explicit Navigable::Navigable(Context* context)
-static void Navigable_Navigable_Context(Navigable* ptr)
+static Navigable* Navigable_Navigable_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Navigable(context);
+    return new Navigable(context);
 }
 
 // class Navigable | File: ../Navigation/Navigable.h
@@ -13337,10 +13337,10 @@ static void Register_NavigationGeometryInfo(asIScriptEngine* engine)
 }
 
 // explicit NavigationMesh::NavigationMesh(Context* context)
-static void NavigationMesh_NavigationMesh_Context(NavigationMesh* ptr)
+static NavigationMesh* NavigationMesh_NavigationMesh_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) NavigationMesh(context);
+    return new NavigationMesh(context);
 }
 
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
@@ -13428,10 +13428,10 @@ static void Register_NavigationPathPoint(asIScriptEngine* engine)
 }
 
 // explicit Obstacle::Obstacle(Context* context)
-static void Obstacle_Obstacle_Context(Obstacle* ptr)
+static Obstacle* Obstacle_Obstacle_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Obstacle(context);
+    return new Obstacle(context);
 }
 
 // class Obstacle | File: ../Navigation/Obstacle.h
@@ -13477,10 +13477,10 @@ static void Register_Obstacle(asIScriptEngine* engine)
 }
 
 // explicit OffMeshConnection::OffMeshConnection(Context* context)
-static void OffMeshConnection_OffMeshConnection_Context(OffMeshConnection* ptr)
+static OffMeshConnection* OffMeshConnection_OffMeshConnection_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) OffMeshConnection(context);
+    return new OffMeshConnection(context);
 }
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
@@ -13614,10 +13614,10 @@ static void Register_Connection(asIScriptEngine* engine)
 }
 
 // HttpRequest::HttpRequest(const String& url, const String& verb, const Vector<String>& headers, const String& postData)
-static void HttpRequest_HttpRequest_String_String_VectorString_String(HttpRequest* ptr, const String& url, const String& verb, CScriptArray* headers_conv, const String& postData)
+static HttpRequest* HttpRequest_HttpRequest_String_String_VectorString_String(const String& url, const String& verb, CScriptArray* headers_conv, const String& postData)
 {
     Vector<String> headers = ArrayToVector<String>(headers_conv);
-    new(ptr) HttpRequest(url, verb, headers, postData);
+    return new HttpRequest(url, verb, headers, postData);
 }
 
 // class HttpRequest | File: ../Network/HttpRequest.h
@@ -13663,10 +13663,10 @@ static void Register_HttpRequest(asIScriptEngine* engine)
 }
 
 // explicit Network::Network(Context* context)
-static void Network_Network_Context(Network* ptr)
+static Network* Network_Network_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Network(context);
+    return new Network(context);
 }
 
 // class Network | File: ../Network/Network.h
@@ -13712,10 +13712,10 @@ static void Register_Network(asIScriptEngine* engine)
 }
 
 // explicit NetworkPriority::NetworkPriority(Context* context)
-static void NetworkPriority_NetworkPriority_Context(NetworkPriority* ptr)
+static NetworkPriority* NetworkPriority_NetworkPriority_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) NetworkPriority(context);
+    return new NetworkPriority(context);
 }
 
 // class NetworkPriority | File: ../Network/NetworkPriority.h
@@ -13930,10 +13930,10 @@ static void Register_CollisionGeometryData(asIScriptEngine* engine)
 }
 
 // explicit CollisionShape::CollisionShape(Context* context)
-static void CollisionShape_CollisionShape_Context(CollisionShape* ptr)
+static CollisionShape* CollisionShape_CollisionShape_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CollisionShape(context);
+    return new CollisionShape(context);
 }
 
 // class CollisionShape | File: ../Physics/CollisionShape.h
@@ -13979,10 +13979,10 @@ static void Register_CollisionShape(asIScriptEngine* engine)
 }
 
 // explicit Constraint::Constraint(Context* context)
-static void Constraint_Constraint_Context(Constraint* ptr)
+static Constraint* Constraint_Constraint_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Constraint(context);
+    return new Constraint(context);
 }
 
 // class Constraint | File: ../Physics/Constraint.h
@@ -14028,15 +14028,15 @@ static void Register_Constraint(asIScriptEngine* engine)
 }
 
 // ConvexData::ConvexData(Model* model, unsigned lodLevel)
-static void ConvexData_ConvexData_Model_unsigned(ConvexData* ptr, Model* model, unsigned lodLevel)
+static ConvexData* ConvexData_ConvexData_Model_unsigned(Model* model, unsigned lodLevel)
 {
-    new(ptr) ConvexData(model, lodLevel);
+    return new ConvexData(model, lodLevel);
 }
 
 // explicit ConvexData::ConvexData(CustomGeometry* custom)
-static void ConvexData_ConvexData_CustomGeometry(ConvexData* ptr, CustomGeometry* custom)
+static ConvexData* ConvexData_ConvexData_CustomGeometry(CustomGeometry* custom)
 {
-    new(ptr) ConvexData(custom);
+    return new ConvexData(custom);
 }
 
 // struct ConvexData | File: ../Physics/CollisionShape.h
@@ -14126,15 +14126,15 @@ static void Register_DelayedWorldTransform(asIScriptEngine* engine)
 }
 
 // GImpactMeshData::GImpactMeshData(Model* model, unsigned lodLevel)
-static void GImpactMeshData_GImpactMeshData_Model_unsigned(GImpactMeshData* ptr, Model* model, unsigned lodLevel)
+static GImpactMeshData* GImpactMeshData_GImpactMeshData_Model_unsigned(Model* model, unsigned lodLevel)
 {
-    new(ptr) GImpactMeshData(model, lodLevel);
+    return new GImpactMeshData(model, lodLevel);
 }
 
 // explicit GImpactMeshData::GImpactMeshData(CustomGeometry* custom)
-static void GImpactMeshData_GImpactMeshData_CustomGeometry(GImpactMeshData* ptr, CustomGeometry* custom)
+static GImpactMeshData* GImpactMeshData_GImpactMeshData_CustomGeometry(CustomGeometry* custom)
 {
-    new(ptr) GImpactMeshData(custom);
+    return new GImpactMeshData(custom);
 }
 
 // struct GImpactMeshData | File: ../Physics/CollisionShape.h
@@ -14182,9 +14182,9 @@ static void Register_GImpactMeshData(asIScriptEngine* engine)
 }
 
 // HeightfieldData::HeightfieldData(Terrain* terrain, unsigned lodLevel)
-static void HeightfieldData_HeightfieldData_Terrain_unsigned(HeightfieldData* ptr, Terrain* terrain, unsigned lodLevel)
+static HeightfieldData* HeightfieldData_HeightfieldData_Terrain_unsigned(Terrain* terrain, unsigned lodLevel)
 {
-    new(ptr) HeightfieldData(terrain, lodLevel);
+    return new HeightfieldData(terrain, lodLevel);
 }
 
 // struct HeightfieldData | File: ../Physics/CollisionShape.h
@@ -14314,10 +14314,10 @@ static void Register_PhysicsRaycastResult(asIScriptEngine* engine)
 }
 
 // explicit PhysicsWorld::PhysicsWorld(Context* context)
-static void PhysicsWorld_PhysicsWorld_Context(PhysicsWorld* ptr)
+static PhysicsWorld* PhysicsWorld_PhysicsWorld_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) PhysicsWorld(context);
+    return new PhysicsWorld(context);
 }
 
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
@@ -14447,10 +14447,10 @@ static void Register_RaycastVehicle(asIScriptEngine* engine)
 }
 
 // explicit RigidBody::RigidBody(Context* context)
-static void RigidBody_RigidBody_Context(RigidBody* ptr)
+static RigidBody* RigidBody_RigidBody_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) RigidBody(context);
+    return new RigidBody(context);
 }
 
 // class RigidBody | File: ../Physics/RigidBody.h
@@ -14496,15 +14496,15 @@ static void Register_RigidBody(asIScriptEngine* engine)
 }
 
 // TriangleMeshData::TriangleMeshData(Model* model, unsigned lodLevel)
-static void TriangleMeshData_TriangleMeshData_Model_unsigned(TriangleMeshData* ptr, Model* model, unsigned lodLevel)
+static TriangleMeshData* TriangleMeshData_TriangleMeshData_Model_unsigned(Model* model, unsigned lodLevel)
 {
-    new(ptr) TriangleMeshData(model, lodLevel);
+    return new TriangleMeshData(model, lodLevel);
 }
 
 // explicit TriangleMeshData::TriangleMeshData(CustomGeometry* custom)
-static void TriangleMeshData_TriangleMeshData_CustomGeometry(TriangleMeshData* ptr, CustomGeometry* custom)
+static TriangleMeshData* TriangleMeshData_TriangleMeshData_CustomGeometry(CustomGeometry* custom)
 {
-    new(ptr) TriangleMeshData(custom);
+    return new TriangleMeshData(custom);
 }
 
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h
@@ -14556,10 +14556,10 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
 #ifdef URHO3D_URHO2D
 
 // explicit AnimatedSprite2D::AnimatedSprite2D(Context* context)
-static void AnimatedSprite2D_AnimatedSprite2D_Context(AnimatedSprite2D* ptr)
+static AnimatedSprite2D* AnimatedSprite2D_AnimatedSprite2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) AnimatedSprite2D(context);
+    return new AnimatedSprite2D(context);
 }
 
 // class AnimatedSprite2D | File: ../Urho2D/AnimatedSprite2D.h
@@ -14605,10 +14605,10 @@ static void Register_AnimatedSprite2D(asIScriptEngine* engine)
 }
 
 // explicit AnimationSet2D::AnimationSet2D(Context* context)
-static void AnimationSet2D_AnimationSet2D_Context(AnimationSet2D* ptr)
+static AnimationSet2D* AnimationSet2D_AnimationSet2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) AnimationSet2D(context);
+    return new AnimationSet2D(context);
 }
 
 // class AnimationSet2D | File: ../Urho2D/AnimationSet2D.h
@@ -14654,10 +14654,10 @@ static void Register_AnimationSet2D(asIScriptEngine* engine)
 }
 
 // explicit CollisionBox2D::CollisionBox2D(Context* context)
-static void CollisionBox2D_CollisionBox2D_Context(CollisionBox2D* ptr)
+static CollisionBox2D* CollisionBox2D_CollisionBox2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CollisionBox2D(context);
+    return new CollisionBox2D(context);
 }
 
 // class CollisionBox2D | File: ../Urho2D/CollisionBox2D.h
@@ -14703,10 +14703,10 @@ static void Register_CollisionBox2D(asIScriptEngine* engine)
 }
 
 // explicit CollisionChain2D::CollisionChain2D(Context* context)
-static void CollisionChain2D_CollisionChain2D_Context(CollisionChain2D* ptr)
+static CollisionChain2D* CollisionChain2D_CollisionChain2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CollisionChain2D(context);
+    return new CollisionChain2D(context);
 }
 
 // class CollisionChain2D | File: ../Urho2D/CollisionChain2D.h
@@ -14752,10 +14752,10 @@ static void Register_CollisionChain2D(asIScriptEngine* engine)
 }
 
 // explicit CollisionCircle2D::CollisionCircle2D(Context* context)
-static void CollisionCircle2D_CollisionCircle2D_Context(CollisionCircle2D* ptr)
+static CollisionCircle2D* CollisionCircle2D_CollisionCircle2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CollisionCircle2D(context);
+    return new CollisionCircle2D(context);
 }
 
 // class CollisionCircle2D | File: ../Urho2D/CollisionCircle2D.h
@@ -14801,10 +14801,10 @@ static void Register_CollisionCircle2D(asIScriptEngine* engine)
 }
 
 // explicit CollisionEdge2D::CollisionEdge2D(Context* context)
-static void CollisionEdge2D_CollisionEdge2D_Context(CollisionEdge2D* ptr)
+static CollisionEdge2D* CollisionEdge2D_CollisionEdge2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CollisionEdge2D(context);
+    return new CollisionEdge2D(context);
 }
 
 // class CollisionEdge2D | File: ../Urho2D/CollisionEdge2D.h
@@ -14850,10 +14850,10 @@ static void Register_CollisionEdge2D(asIScriptEngine* engine)
 }
 
 // explicit CollisionPolygon2D::CollisionPolygon2D(Context* context)
-static void CollisionPolygon2D_CollisionPolygon2D_Context(CollisionPolygon2D* ptr)
+static CollisionPolygon2D* CollisionPolygon2D_CollisionPolygon2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) CollisionPolygon2D(context);
+    return new CollisionPolygon2D(context);
 }
 
 // class CollisionPolygon2D | File: ../Urho2D/CollisionPolygon2D.h
@@ -14938,10 +14938,10 @@ static void Register_CollisionShape2D(asIScriptEngine* engine)
 }
 
 // explicit Constraint2D::Constraint2D(Context* context)
-static void Constraint2D_Constraint2D_Context(Constraint2D* ptr)
+static Constraint2D* Constraint2D_Constraint2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Constraint2D(context);
+    return new Constraint2D(context);
 }
 
 // class Constraint2D | File: ../Urho2D/Constraint2D.h
@@ -14987,10 +14987,10 @@ static void Register_Constraint2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintDistance2D::ConstraintDistance2D(Context* context)
-static void ConstraintDistance2D_ConstraintDistance2D_Context(ConstraintDistance2D* ptr)
+static ConstraintDistance2D* ConstraintDistance2D_ConstraintDistance2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintDistance2D(context);
+    return new ConstraintDistance2D(context);
 }
 
 // class ConstraintDistance2D | File: ../Urho2D/ConstraintDistance2D.h
@@ -15036,10 +15036,10 @@ static void Register_ConstraintDistance2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintFriction2D::ConstraintFriction2D(Context* context)
-static void ConstraintFriction2D_ConstraintFriction2D_Context(ConstraintFriction2D* ptr)
+static ConstraintFriction2D* ConstraintFriction2D_ConstraintFriction2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintFriction2D(context);
+    return new ConstraintFriction2D(context);
 }
 
 // class ConstraintFriction2D | File: ../Urho2D/ConstraintFriction2D.h
@@ -15085,10 +15085,10 @@ static void Register_ConstraintFriction2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintGear2D::ConstraintGear2D(Context* context)
-static void ConstraintGear2D_ConstraintGear2D_Context(ConstraintGear2D* ptr)
+static ConstraintGear2D* ConstraintGear2D_ConstraintGear2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintGear2D(context);
+    return new ConstraintGear2D(context);
 }
 
 // class ConstraintGear2D | File: ../Urho2D/ConstraintGear2D.h
@@ -15134,10 +15134,10 @@ static void Register_ConstraintGear2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintMotor2D::ConstraintMotor2D(Context* context)
-static void ConstraintMotor2D_ConstraintMotor2D_Context(ConstraintMotor2D* ptr)
+static ConstraintMotor2D* ConstraintMotor2D_ConstraintMotor2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintMotor2D(context);
+    return new ConstraintMotor2D(context);
 }
 
 // class ConstraintMotor2D | File: ../Urho2D/ConstraintMotor2D.h
@@ -15183,10 +15183,10 @@ static void Register_ConstraintMotor2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintMouse2D::ConstraintMouse2D(Context* context)
-static void ConstraintMouse2D_ConstraintMouse2D_Context(ConstraintMouse2D* ptr)
+static ConstraintMouse2D* ConstraintMouse2D_ConstraintMouse2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintMouse2D(context);
+    return new ConstraintMouse2D(context);
 }
 
 // class ConstraintMouse2D | File: ../Urho2D/ConstraintMouse2D.h
@@ -15232,10 +15232,10 @@ static void Register_ConstraintMouse2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintPrismatic2D::ConstraintPrismatic2D(Context* context)
-static void ConstraintPrismatic2D_ConstraintPrismatic2D_Context(ConstraintPrismatic2D* ptr)
+static ConstraintPrismatic2D* ConstraintPrismatic2D_ConstraintPrismatic2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintPrismatic2D(context);
+    return new ConstraintPrismatic2D(context);
 }
 
 // class ConstraintPrismatic2D | File: ../Urho2D/ConstraintPrismatic2D.h
@@ -15281,10 +15281,10 @@ static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintPulley2D::ConstraintPulley2D(Context* context)
-static void ConstraintPulley2D_ConstraintPulley2D_Context(ConstraintPulley2D* ptr)
+static ConstraintPulley2D* ConstraintPulley2D_ConstraintPulley2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintPulley2D(context);
+    return new ConstraintPulley2D(context);
 }
 
 // class ConstraintPulley2D | File: ../Urho2D/ConstraintPulley2D.h
@@ -15330,10 +15330,10 @@ static void Register_ConstraintPulley2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintRevolute2D::ConstraintRevolute2D(Context* context)
-static void ConstraintRevolute2D_ConstraintRevolute2D_Context(ConstraintRevolute2D* ptr)
+static ConstraintRevolute2D* ConstraintRevolute2D_ConstraintRevolute2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintRevolute2D(context);
+    return new ConstraintRevolute2D(context);
 }
 
 // class ConstraintRevolute2D | File: ../Urho2D/ConstraintRevolute2D.h
@@ -15379,10 +15379,10 @@ static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintRope2D::ConstraintRope2D(Context* context)
-static void ConstraintRope2D_ConstraintRope2D_Context(ConstraintRope2D* ptr)
+static ConstraintRope2D* ConstraintRope2D_ConstraintRope2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintRope2D(context);
+    return new ConstraintRope2D(context);
 }
 
 // class ConstraintRope2D | File: ../Urho2D/ConstraintRope2D.h
@@ -15428,10 +15428,10 @@ static void Register_ConstraintRope2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintWeld2D::ConstraintWeld2D(Context* context)
-static void ConstraintWeld2D_ConstraintWeld2D_Context(ConstraintWeld2D* ptr)
+static ConstraintWeld2D* ConstraintWeld2D_ConstraintWeld2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintWeld2D(context);
+    return new ConstraintWeld2D(context);
 }
 
 // class ConstraintWeld2D | File: ../Urho2D/ConstraintWeld2D.h
@@ -15477,10 +15477,10 @@ static void Register_ConstraintWeld2D(asIScriptEngine* engine)
 }
 
 // explicit ConstraintWheel2D::ConstraintWheel2D(Context* context)
-static void ConstraintWheel2D_ConstraintWheel2D_Context(ConstraintWheel2D* ptr)
+static ConstraintWheel2D* ConstraintWheel2D_ConstraintWheel2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ConstraintWheel2D(context);
+    return new ConstraintWheel2D(context);
 }
 
 // class ConstraintWheel2D | File: ../Urho2D/ConstraintWheel2D.h
@@ -15649,10 +15649,10 @@ static void Register_Particle2D(asIScriptEngine* engine)
 }
 
 // explicit ParticleEffect2D::ParticleEffect2D(Context* context)
-static void ParticleEffect2D_ParticleEffect2D_Context(ParticleEffect2D* ptr)
+static ParticleEffect2D* ParticleEffect2D_ParticleEffect2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ParticleEffect2D(context);
+    return new ParticleEffect2D(context);
 }
 
 // class ParticleEffect2D | File: ../Urho2D/ParticleEffect2D.h
@@ -15698,10 +15698,10 @@ static void Register_ParticleEffect2D(asIScriptEngine* engine)
 }
 
 // explicit ParticleEmitter2D::ParticleEmitter2D(Context* context)
-static void ParticleEmitter2D_ParticleEmitter2D_Context(ParticleEmitter2D* ptr)
+static ParticleEmitter2D* ParticleEmitter2D_ParticleEmitter2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) ParticleEmitter2D(context);
+    return new ParticleEmitter2D(context);
 }
 
 // class ParticleEmitter2D | File: ../Urho2D/ParticleEmitter2D.h
@@ -15789,10 +15789,10 @@ static void Register_PhysicsRaycastResult2D(asIScriptEngine* engine)
 }
 
 // explicit PhysicsWorld2D::PhysicsWorld2D(Context* context)
-static void PhysicsWorld2D_PhysicsWorld2D_Context(PhysicsWorld2D* ptr)
+static PhysicsWorld2D* PhysicsWorld2D_PhysicsWorld2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) PhysicsWorld2D(context);
+    return new PhysicsWorld2D(context);
 }
 
 // class PhysicsWorld2D | File: ../Urho2D/PhysicsWorld2D.h
@@ -15877,10 +15877,10 @@ static void Register_PropertySet2D(asIScriptEngine* engine)
 }
 
 // explicit Renderer2D::Renderer2D(Context* context)
-static void Renderer2D_Renderer2D_Context(Renderer2D* ptr)
+static Renderer2D* Renderer2D_Renderer2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Renderer2D(context);
+    return new Renderer2D(context);
 }
 
 // class Renderer2D | File: ../Urho2D/Renderer2D.h
@@ -15926,10 +15926,10 @@ static void Register_Renderer2D(asIScriptEngine* engine)
 }
 
 // explicit RigidBody2D::RigidBody2D(Context* context)
-static void RigidBody2D_RigidBody2D_Context(RigidBody2D* ptr)
+static RigidBody2D* RigidBody2D_RigidBody2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) RigidBody2D(context);
+    return new RigidBody2D(context);
 }
 
 // class RigidBody2D | File: ../Urho2D/RigidBody2D.h
@@ -16017,10 +16017,10 @@ static void Register_SourceBatch2D(asIScriptEngine* engine)
 }
 
 // explicit Sprite2D::Sprite2D(Context* context)
-static void Sprite2D_Sprite2D_Context(Sprite2D* ptr)
+static Sprite2D* Sprite2D_Sprite2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) Sprite2D(context);
+    return new Sprite2D(context);
 }
 
 // class Sprite2D | File: ../Urho2D/Sprite2D.h
@@ -16066,10 +16066,10 @@ static void Register_Sprite2D(asIScriptEngine* engine)
 }
 
 // explicit SpriteSheet2D::SpriteSheet2D(Context* context)
-static void SpriteSheet2D_SpriteSheet2D_Context(SpriteSheet2D* ptr)
+static SpriteSheet2D* SpriteSheet2D_SpriteSheet2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) SpriteSheet2D(context);
+    return new SpriteSheet2D(context);
 }
 
 // class SpriteSheet2D | File: ../Urho2D/SpriteSheet2D.h
@@ -16115,10 +16115,10 @@ static void Register_SpriteSheet2D(asIScriptEngine* engine)
 }
 
 // explicit StaticSprite2D::StaticSprite2D(Context* context)
-static void StaticSprite2D_StaticSprite2D_Context(StaticSprite2D* ptr)
+static StaticSprite2D* StaticSprite2D_StaticSprite2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) StaticSprite2D(context);
+    return new StaticSprite2D(context);
 }
 
 // class StaticSprite2D | File: ../Urho2D/StaticSprite2D.h
@@ -16164,10 +16164,10 @@ static void Register_StaticSprite2D(asIScriptEngine* engine)
 }
 
 // explicit StretchableSprite2D::StretchableSprite2D(Context* context)
-static void StretchableSprite2D_StretchableSprite2D_Context(StretchableSprite2D* ptr)
+static StretchableSprite2D* StretchableSprite2D_StretchableSprite2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) StretchableSprite2D(context);
+    return new StretchableSprite2D(context);
 }
 
 // class StretchableSprite2D | File: ../Urho2D/StretchableSprite2D.h
@@ -16252,10 +16252,10 @@ static void Register_Tile2D(asIScriptEngine* engine)
 }
 
 // explicit TileMap2D::TileMap2D(Context* context)
-static void TileMap2D_TileMap2D_Context(TileMap2D* ptr)
+static TileMap2D* TileMap2D_TileMap2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) TileMap2D(context);
+    return new TileMap2D(context);
 }
 
 // class TileMap2D | File: ../Urho2D/TileMap2D.h
@@ -16340,10 +16340,10 @@ static void Register_TileMapInfo2D(asIScriptEngine* engine)
 }
 
 // explicit TileMapLayer2D::TileMapLayer2D(Context* context)
-static void TileMapLayer2D_TileMapLayer2D_Context(TileMapLayer2D* ptr)
+static TileMapLayer2D* TileMapLayer2D_TileMapLayer2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) TileMapLayer2D(context);
+    return new TileMapLayer2D(context);
 }
 
 // class TileMapLayer2D | File: ../Urho2D/TileMapLayer2D.h
@@ -16428,10 +16428,10 @@ static void Register_TileMapObject2D(asIScriptEngine* engine)
 }
 
 // explicit TmxFile2D::TmxFile2D(Context* context)
-static void TmxFile2D_TmxFile2D_Context(TmxFile2D* ptr)
+static TmxFile2D* TmxFile2D_TmxFile2D_Context()
 {
     Context* context = GetScriptContext();
-    new(ptr) TmxFile2D(context);
+    return new TmxFile2D(context);
 }
 
 // class TmxFile2D | File: ../Urho2D/TmxFile2D.h
@@ -16477,9 +16477,9 @@ static void Register_TmxFile2D(asIScriptEngine* engine)
 }
 
 // explicit TmxImageLayer2D::TmxImageLayer2D(TmxFile2D* tmxFile)
-static void TmxImageLayer2D_TmxImageLayer2D_TmxFile2D(TmxImageLayer2D* ptr, TmxFile2D* tmxFile)
+static TmxImageLayer2D* TmxImageLayer2D_TmxImageLayer2D_TmxFile2D(TmxFile2D* tmxFile)
 {
-    new(ptr) TmxImageLayer2D(tmxFile);
+    return new TmxImageLayer2D(tmxFile);
 }
 
 // class TmxImageLayer2D | File: ../Urho2D/TmxFile2D.h
@@ -16525,9 +16525,9 @@ static void Register_TmxImageLayer2D(asIScriptEngine* engine)
 }
 
 // TmxLayer2D::TmxLayer2D(TmxFile2D* tmxFile, TileMapLayerType2D type)
-static void TmxLayer2D_TmxLayer2D_TmxFile2D_TileMapLayerType2D(TmxLayer2D* ptr, TmxFile2D* tmxFile, TileMapLayerType2D type)
+static TmxLayer2D* TmxLayer2D_TmxLayer2D_TmxFile2D_TileMapLayerType2D(TmxFile2D* tmxFile, TileMapLayerType2D type)
 {
-    new(ptr) TmxLayer2D(tmxFile, type);
+    return new TmxLayer2D(tmxFile, type);
 }
 
 // class TmxLayer2D | File: ../Urho2D/TmxFile2D.h
@@ -16573,9 +16573,9 @@ static void Register_TmxLayer2D(asIScriptEngine* engine)
 }
 
 // explicit TmxObjectGroup2D::TmxObjectGroup2D(TmxFile2D* tmxFile)
-static void TmxObjectGroup2D_TmxObjectGroup2D_TmxFile2D(TmxObjectGroup2D* ptr, TmxFile2D* tmxFile)
+static TmxObjectGroup2D* TmxObjectGroup2D_TmxObjectGroup2D_TmxFile2D(TmxFile2D* tmxFile)
 {
-    new(ptr) TmxObjectGroup2D(tmxFile);
+    return new TmxObjectGroup2D(tmxFile);
 }
 
 // class TmxObjectGroup2D | File: ../Urho2D/TmxFile2D.h
@@ -16621,9 +16621,9 @@ static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
 }
 
 // explicit TmxTileLayer2D::TmxTileLayer2D(TmxFile2D* tmxFile)
-static void TmxTileLayer2D_TmxTileLayer2D_TmxFile2D(TmxTileLayer2D* ptr, TmxFile2D* tmxFile)
+static TmxTileLayer2D* TmxTileLayer2D_TmxTileLayer2D_TmxFile2D(TmxFile2D* tmxFile)
 {
-    new(ptr) TmxTileLayer2D(tmxFile);
+    return new TmxTileLayer2D(tmxFile);
 }
 
 // class TmxTileLayer2D | File: ../Urho2D/TmxFile2D.h

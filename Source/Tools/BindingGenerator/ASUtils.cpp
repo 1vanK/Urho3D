@@ -814,7 +814,7 @@ string GenerateFactoryWrapper(const MethodAnalyzer& methodAnalyzer, const vector
         result += convertedParams[i].glue_;
 
     result +=
-        "    return " + className + "(" + methodAnalyzer.JoinParamsNames() + ");\n"
+        "    return new " + className + "(" + methodAnalyzer.JoinParamsNames() + ");\n"
         "}\n";
 
     return result;

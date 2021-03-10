@@ -111,6 +111,16 @@ static void RegisterConstructor(const MethodAnalyzer& methodAnalyzer, ProcessedC
     if (classAnalyzer.IsAbstract())
         return;
 
+    if (methodAnalyzer.IsDeleted())
+    {
+        MemberRegistrationError regError;
+        regError.name_ = methodAnalyzer.GetName();
+        regError.comment_ = methodAnalyzer.GetDeclaration();
+        regError.message_ = "Not registered because deleted";
+        processedClass.unregisteredSpecialMethods_.push_back(regError);
+        return;
+    }
+
     if (HaveMark(methodAnalyzer, "NO_BIND"))
     {
         MemberRegistrationError regError;
