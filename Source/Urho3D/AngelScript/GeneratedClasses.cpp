@@ -5849,19 +5849,14 @@ static void MutexLock_MutexLock_Mutex(MutexLock* ptr, Mutex& mutex)
     new(ptr) MutexLock(mutex);
 }
 
-// MutexLock::MutexLock(const MutexLock& rhs)=delete
-static void MutexLock_MutexLock_MutexLock(MutexLock* ptr, const MutexLock& rhs)
-{
-    new(ptr) MutexLock(rhs);
-}
-
 // class MutexLock | File: ../Core/Mutex.h
 static void Register_MutexLock(asIScriptEngine* engine)
 {
+    // MutexLock::MutexLock(const MutexLock& rhs)=delete
+    // Not registered because deleted
+
     // explicit MutexLock::MutexLock(Mutex& mutex)
     engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_CONSTRUCT, "void f(Mutex&)", AS_FUNCTION_OBJFIRST(MutexLock_MutexLock_Mutex), AS_CALL_CDECL_OBJFIRST);
-    // MutexLock::MutexLock(const MutexLock& rhs)=delete
-    engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_CONSTRUCT, "void f(const MutexLock&in)", AS_FUNCTION_OBJFIRST(MutexLock_MutexLock_MutexLock), AS_CALL_CDECL_OBJFIRST);
 
 
     // MutexLock::~MutexLock()
@@ -7433,17 +7428,11 @@ static void Register_RefCount(asIScriptEngine* engine)
     #endif
 }
 
-// RefCounted::RefCounted(const RefCounted& rhs)=delete
-static RefCounted* RefCounted_RefCounted_RefCounted(const RefCounted& rhs)
-{
-    return new RefCounted(rhs);
-}
-
 // class RefCounted | File: ../Container/RefCounted.h
 static void Register_RefCounted(asIScriptEngine* engine)
 {
     // RefCounted::RefCounted(const RefCounted& rhs)=delete
-    engine->RegisterObjectBehaviour("RefCounted", asBEHAVE_FACTORY, "RefCounted@+ f(const RefCounted&in)", AS_FUNCTION(RefCounted_RefCounted_RefCounted) , AS_CALL_CDECL);
+    // Not registered because deleted
 
     Vector<RegisterObjectMethodArgs> methods;
     Vector<RegisterGlobalFunctionArgs> staticMethods;
