@@ -26,7 +26,7 @@ void CollectMembers_Database(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void Database::SetPoolSize(unsigned poolSize)", "void SetPoolSize(uint)", AS_METHODPR(Database, SetPoolSize, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Database::SetPoolSize(unsigned poolSize)", "void set_poolSize(uint)", AS_METHODPR(Database, SetPoolSize, (unsigned), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static DBAPI Database::GetAPI()", "DBAPI GetAPI()", AS_FUNCTIONPR(Database::GetAPI, (), DBAPI), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static DBAPI Database::GetAPI()", "DBAPI GetAPI()", AS_FUNCTIONPR(Database::GetAPI, (), DBAPI), AS_CALL_CDECL));
 }
 
 #endif // def URHO3D_DATABASE

@@ -12,6 +12,17 @@ namespace Urho3D
 
 #ifdef URHO3D_IK
 
+// static void IKConstraint::RegisterObject(Context* context)
+#ifdef URHO3D_IK
+// static void IKConstraint::RegisterObject(Context* context) | File: ../IK/IKConstraint.h
+static void IKConstraint_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    IKConstraint::RegisterObject(context);
+}
+#endif
+
+
 // class IKConstraint | File: ../IK/IKConstraint.h
 void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -26,8 +37,19 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("const Vector2& IKConstraint::GetLengthConstraints() const", "const Vector2& GetLengthConstraints() const", AS_METHODPR(IKConstraint, GetLengthConstraints, () const, const Vector2&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKConstraint::SetLengthConstraints(const Vector2& lengthConstraints)", "void SetLengthConstraints(const Vector2&in)", AS_METHODPR(IKConstraint, SetLengthConstraints, (const Vector2&), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void IKConstraint::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(IKConstraint_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void IKConstraint::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(IKConstraint_RegisterObject_Context), AS_CALL_CDECL));
 }
+
+// static void IKEffector::RegisterObject(Context* context)
+#ifdef URHO3D_IK
+// static void IKEffector::RegisterObject(Context* context) | File: ../IK/IKEffector.h
+static void IKEffector_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    IKEffector::RegisterObject(context);
+}
+#endif
+
 
 // class IKEffector | File: ../IK/IKEffector.h
 void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -79,8 +101,19 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("void IKEffector::SetWEIGHT_NLERP(bool enable)", "void SetWEIGHT_NLERP(bool)", AS_METHODPR(IKEffector, SetWEIGHT_NLERP, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKEffector::SetINHERIT_PARENT_ROTATION(bool enable)", "void SetINHERIT_PARENT_ROTATION(bool)", AS_METHODPR(IKEffector, SetINHERIT_PARENT_ROTATION, (bool), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void IKEffector::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(IKEffector_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void IKEffector::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(IKEffector_RegisterObject_Context), AS_CALL_CDECL));
 }
+
+// static void IKSolver::RegisterObject(Context* context)
+#ifdef URHO3D_IK
+// static void IKSolver::RegisterObject(Context* context) | File: ../IK/IKSolver.h
+static void IKSolver_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    IKSolver::RegisterObject(context);
+}
+#endif
+
 
 // class IKSolver | File: ../IK/IKSolver.h
 void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -139,7 +172,7 @@ void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void IKSolver::SetAUTO_SOLVE(bool enable)", "void SetAUTO_SOLVE(bool)", AS_METHODPR(IKSolver, SetAUTO_SOLVE, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKSolver::SetAUTO_SOLVE(bool enable)", "void set_AUTO_SOLVE(bool)", AS_METHODPR(IKSolver, SetAUTO_SOLVE, (bool), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void IKSolver::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(IKSolver_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void IKSolver::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(IKSolver_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 #endif // def URHO3D_IK

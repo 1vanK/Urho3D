@@ -12,6 +12,17 @@ namespace Urho3D
 
 #ifdef URHO3D_NAVIGATION
 
+// static void CrowdAgent::RegisterObject(Context* context)
+#ifdef URHO3D_NAVIGATION
+// static void CrowdAgent::RegisterObject(Context* context) | File: ../Navigation/CrowdAgent.h
+static void CrowdAgent_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    CrowdAgent::RegisterObject(context);
+}
+#endif
+
+
 // class CrowdAgent | File: ../Navigation/CrowdAgent.h
 void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -92,7 +103,7 @@ void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("bool CrowdAgent::IsInCrowd() const", "bool IsInCrowd() const", AS_METHODPR(CrowdAgent, IsInCrowd, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool CrowdAgent::IsInCrowd() const", "bool get_inCrowd() const", AS_METHODPR(CrowdAgent, IsInCrowd, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void CrowdAgent::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CrowdAgent_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void CrowdAgent::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CrowdAgent_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node=nullptr, bool inCrowdFilter=true) const
@@ -102,6 +113,17 @@ static CScriptArray* CrowdManager_GetAgents_Node_bool(CrowdManager* ptr, Node* n
 {
     PODVector<CrowdAgent*> result = ptr->GetAgents(node, inCrowdFilter);
     return VectorToHandleArray(result, "Array<CrowdAgent@>");
+}
+#endif
+
+
+// static void CrowdManager::RegisterObject(Context* context)
+#ifdef URHO3D_NAVIGATION
+// static void CrowdManager::RegisterObject(Context* context) | File: ../Navigation/CrowdManager.h
+static void CrowdManager_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    CrowdManager::RegisterObject(context);
 }
 #endif
 
@@ -172,7 +194,7 @@ void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("unsigned CrowdManager::GetNumObstacleAvoidanceTypes() const", "uint get_numObstacleAvoidanceTypes() const", AS_METHODPR(CrowdManager, GetNumObstacleAvoidanceTypes, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const CrowdObstacleAvoidanceParams& CrowdManager::GetObstacleAvoidanceParams(unsigned obstacleAvoidanceType) const", "const CrowdObstacleAvoidanceParams& GetObstacleAvoidanceParams(uint) const", AS_METHODPR(CrowdManager, GetObstacleAvoidanceParams, (unsigned) const, const CrowdObstacleAvoidanceParams&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void CrowdManager::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CrowdManager_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void CrowdManager::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CrowdManager_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct CrowdObstacleAvoidanceParams | File: ../Navigation/CrowdManager.h
@@ -202,6 +224,17 @@ void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& method
     // dtTileCacheAlloc* DynamicNavBuildData::alloc_
     // Not registered because pointer
 }
+
+// static void DynamicNavigationMesh::RegisterObject(Context* context)
+#ifdef URHO3D_NAVIGATION
+// static void DynamicNavigationMesh::RegisterObject(Context* context) | File: ../Navigation/DynamicNavigationMesh.h
+static void DynamicNavigationMesh_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    DynamicNavigationMesh::RegisterObject(context);
+}
+#endif
+
 
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
 void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -254,8 +287,19 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
     methods.Push(RegisterObjectMethodArgs("bool DynamicNavigationMesh::GetDrawObstacles() const", "bool GetDrawObstacles() const", AS_METHODPR(DynamicNavigationMesh, GetDrawObstacles, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool DynamicNavigationMesh::GetDrawObstacles() const", "bool get_drawObstacles() const", AS_METHODPR(DynamicNavigationMesh, GetDrawObstacles, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void DynamicNavigationMesh::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(DynamicNavigationMesh_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void DynamicNavigationMesh::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(DynamicNavigationMesh_RegisterObject_Context), AS_CALL_CDECL));
 }
+
+// static void NavArea::RegisterObject(Context* context)
+#ifdef URHO3D_NAVIGATION
+// static void NavArea::RegisterObject(Context* context) | File: ../Navigation/NavArea.h
+static void NavArea_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    NavArea::RegisterObject(context);
+}
+#endif
+
 
 // class NavArea | File: ../Navigation/NavArea.h
 void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -278,7 +322,7 @@ void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("BoundingBox NavArea::GetWorldBoundingBox() const", "BoundingBox GetWorldBoundingBox() const", AS_METHODPR(NavArea, GetWorldBoundingBox, () const, BoundingBox), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("BoundingBox NavArea::GetWorldBoundingBox() const", "BoundingBox get_worldBoundingBox() const", AS_METHODPR(NavArea, GetWorldBoundingBox, () const, BoundingBox), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void NavArea::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(NavArea_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void NavArea::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(NavArea_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct NavAreaStub | File: ../Navigation/NavBuildData.h
@@ -317,6 +361,17 @@ void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vect
     fields.Push(RegisterObjectPropertyArgs("BoundingBox NavBuildData::worldBoundingBox_", "BoundingBox worldBoundingBox", offsetof(NavBuildData, worldBoundingBox_)));
 }
 
+// static void Navigable::RegisterObject(Context* context)
+#ifdef URHO3D_NAVIGATION
+// static void Navigable::RegisterObject(Context* context) | File: ../Navigation/Navigable.h
+static void Navigable_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Navigable::RegisterObject(context);
+}
+#endif
+
+
 // class Navigable | File: ../Navigation/Navigable.h
 void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -329,7 +384,7 @@ void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("bool Navigable::IsRecursive() const", "bool IsRecursive() const", AS_METHODPR(Navigable, IsRecursive, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Navigable::IsRecursive() const", "bool get_recursive() const", AS_METHODPR(Navigable, IsRecursive, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Navigable::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Navigable_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Navigable::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Navigable_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
@@ -342,6 +397,17 @@ void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& met
     fields.Push(RegisterObjectPropertyArgs("Matrix3x4 NavigationGeometryInfo::transform_", "Matrix3x4 transform", offsetof(NavigationGeometryInfo, transform_)));
     fields.Push(RegisterObjectPropertyArgs("BoundingBox NavigationGeometryInfo::boundingBox_", "BoundingBox boundingBox", offsetof(NavigationGeometryInfo, boundingBox_)));
 }
+
+// static void NavigationMesh::RegisterObject(Context* context)
+#ifdef URHO3D_NAVIGATION
+// static void NavigationMesh::RegisterObject(Context* context) | File: ../Navigation/NavigationMesh.h
+static void NavigationMesh_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    NavigationMesh::RegisterObject(context);
+}
+#endif
+
 
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
 void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -469,7 +535,7 @@ void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("bool NavigationMesh::GetDrawNavAreas() const", "bool GetDrawNavAreas() const", AS_METHODPR(NavigationMesh, GetDrawNavAreas, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool NavigationMesh::GetDrawNavAreas() const", "bool get_drawNavAreas() const", AS_METHODPR(NavigationMesh, GetDrawNavAreas, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void NavigationMesh::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(NavigationMesh_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void NavigationMesh::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(NavigationMesh_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct NavigationPathPoint | File: ../Navigation/NavigationMesh.h
@@ -479,6 +545,17 @@ void CollectMembers_NavigationPathPoint(Vector<RegisterObjectMethodArgs>& method
     fields.Push(RegisterObjectPropertyArgs("NavigationPathPointFlag NavigationPathPoint::flag_", "NavigationPathPointFlag flag", offsetof(NavigationPathPoint, flag_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char NavigationPathPoint::areaID_", "uint8 areaID", offsetof(NavigationPathPoint, areaID_)));
 }
+
+// static void Obstacle::RegisterObject(Context* context)
+#ifdef URHO3D_NAVIGATION
+// static void Obstacle::RegisterObject(Context* context) | File: ../Navigation/Obstacle.h
+static void Obstacle_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Obstacle::RegisterObject(context);
+}
+#endif
+
 
 // class Obstacle | File: ../Navigation/Obstacle.h
 void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -504,8 +581,19 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void Obstacle::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(Obstacle, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Obstacle::DrawDebugGeometry(bool depthTest)", "void DrawDebugGeometry(bool)", AS_METHODPR(Obstacle, DrawDebugGeometry, (bool), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Obstacle::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Obstacle_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Obstacle::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Obstacle_RegisterObject_Context), AS_CALL_CDECL));
 }
+
+// static void OffMeshConnection::RegisterObject(Context* context)
+#ifdef URHO3D_NAVIGATION
+// static void OffMeshConnection::RegisterObject(Context* context) | File: ../Navigation/OffMeshConnection.h
+static void OffMeshConnection_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    OffMeshConnection::RegisterObject(context);
+}
+#endif
+
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
 void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -540,7 +628,7 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods,
     methods.Push(RegisterObjectMethodArgs("unsigned OffMeshConnection::GetAreaID() const", "uint GetAreaID() const", AS_METHODPR(OffMeshConnection, GetAreaID, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned OffMeshConnection::GetAreaID() const", "uint get_areaID() const", AS_METHODPR(OffMeshConnection, GetAreaID, () const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void OffMeshConnection::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(OffMeshConnection_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void OffMeshConnection::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(OffMeshConnection_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h

@@ -128,8 +128,8 @@ void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("unsigned Color::ToUIntArgb() const", "uint ToUIntArgb() const", AS_METHODPR(Color, ToUIntArgb, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Color::ToHash() const", "uint ToHash() const", AS_METHODPR(Color, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static float Color::ConvertGammaToLinear(float value)", "float ConvertGammaToLinear(float)", AS_FUNCTIONPR(Color::ConvertGammaToLinear, (float), float), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static float Color::ConvertLinearToGamma(float value)", "float ConvertLinearToGamma(float)", AS_FUNCTIONPR(Color::ConvertLinearToGamma, (float), float), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static float Color::ConvertGammaToLinear(float value)", "float ConvertGammaToLinear(float)", AS_FUNCTIONPR(Color::ConvertGammaToLinear, (float), float), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static float Color::ConvertLinearToGamma(float value)", "float ConvertLinearToGamma(float)", AS_FUNCTIONPR(Color::ConvertLinearToGamma, (float), float), AS_CALL_CDECL));
 
     fields.Push(RegisterObjectPropertyArgs("float Color::r_", "float r", offsetof(Color, r_)));
     fields.Push(RegisterObjectPropertyArgs("float Color::g_", "float g", offsetof(Color, g_)));

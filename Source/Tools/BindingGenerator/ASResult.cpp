@@ -792,6 +792,17 @@ namespace Result
                 }
             }
 
+            for (const StaticMethodRegistration& staticMethod : processedClass.staticMethods_)
+            {
+                if (!staticMethod.glue_.empty())
+                {
+                    file->ofs_ <<
+                        "\n"
+                        "// " << staticMethod.cppDeclaration_ << "\n"
+                        << staticMethod.glue_;
+                }
+            }
+
             file->ofs_ <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
@@ -905,7 +916,7 @@ namespace Result
                 assert(args.asDeclarations_.size());
 
                 for (const string& asDeclaration : args.asDeclarations_)
-                    file->ofs_ << "    methods.Push(RegisterGlobalFunctionArgs(\"" << staticMethod.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
+                    file->ofs_ << "    staticMethods.Push(RegisterGlobalFunctionArgs(\"" << staticMethod.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
 
                 file->needGap_ = true;
             }

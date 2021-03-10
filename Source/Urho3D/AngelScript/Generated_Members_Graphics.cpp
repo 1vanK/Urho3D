@@ -37,6 +37,15 @@ static CScriptArray* AnimatedModel_GetMorphVertexBuffers_void(AnimatedModel* ptr
 }
 
 
+// static void AnimatedModel::RegisterObject(Context* context)
+// static void AnimatedModel::RegisterObject(Context* context) | File: ../Graphics/AnimatedModel.h
+static void AnimatedModel_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    AnimatedModel::RegisterObject(context);
+}
+
+
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
 void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -132,7 +141,7 @@ void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods, Vec
     methods.Push(RegisterObjectMethodArgs("ResourceRef AnimatedModel::GetModelAttr() const", "ResourceRef GetModelAttr() const", AS_METHODPR(AnimatedModel, GetModelAttr, () const, ResourceRef), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void AnimatedModel::UpdateBoneBoundingBox()", "void UpdateBoneBoundingBox()", AS_METHODPR(AnimatedModel, UpdateBoneBoundingBox, (), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void AnimatedModel::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(AnimatedModel_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void AnimatedModel::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(AnimatedModel_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // SharedPtr<Animation> Animation::Clone(const String& cloneName=String::EMPTY) const
@@ -141,6 +150,15 @@ static Animation* Animation_Clone_String(Animation* ptr, const String& cloneName
 {
     SharedPtr<Animation> result = ptr->Clone(cloneName);
     return result.Detach();
+}
+
+
+// static void Animation::RegisterObject(Context* context)
+// static void Animation::RegisterObject(Context* context) | File: ../Graphics/Animation.h
+static void Animation_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Animation::RegisterObject(context);
 }
 
 
@@ -191,7 +209,7 @@ void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("unsigned Animation::GetNumTriggers() const", "uint GetNumTriggers() const", AS_METHODPR(Animation, GetNumTriggers, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Animation::GetNumTriggers() const", "uint get_numTriggers() const", AS_METHODPR(Animation, GetNumTriggers, () const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Animation::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Animation_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Animation::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Animation_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct AnimationControl | File: ../Graphics/AnimationController.h
@@ -211,6 +229,15 @@ void CollectMembers_AnimationControl(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("unsigned char AnimationControl::setWeightRev_", "uint8 setWeightRev", offsetof(AnimationControl, setWeightRev_)));
     fields.Push(RegisterObjectPropertyArgs("bool AnimationControl::removeOnCompletion_", "bool removeOnCompletion", offsetof(AnimationControl, removeOnCompletion_)));
 }
+
+// static void AnimationController::RegisterObject(Context* context)
+// static void AnimationController::RegisterObject(Context* context) | File: ../Graphics/AnimationController.h
+static void AnimationController_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    AnimationController::RegisterObject(context);
+}
+
 
 // class AnimationController | File: ../Graphics/AnimationController.h
 void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -275,7 +302,7 @@ void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& method
     methods.Push(RegisterObjectMethodArgs("AnimationState* AnimationController::GetAnimationState(const String& name) const", "AnimationState@+ GetAnimationState(const String&in) const", AS_METHODPR(AnimationController, GetAnimationState, (const String&) const, AnimationState*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("AnimationState* AnimationController::GetAnimationState(StringHash nameHash) const", "AnimationState@+ GetAnimationState(StringHash) const", AS_METHODPR(AnimationController, GetAnimationState, (StringHash) const, AnimationState*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void AnimationController::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(AnimationController_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void AnimationController::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(AnimationController_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct AnimationKeyFrame | File: ../Graphics/Animation.h
@@ -525,6 +552,15 @@ void CollectMembers_Billboard(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("float Billboard::screenScaleFactor_", "float screenScaleFactor", offsetof(Billboard, screenScaleFactor_)));
 }
 
+// static void BillboardSet::RegisterObject(Context* context)
+// static void BillboardSet::RegisterObject(Context* context) | File: ../Graphics/BillboardSet.h
+static void BillboardSet_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    BillboardSet::RegisterObject(context);
+}
+
+
 // class BillboardSet | File: ../Graphics/BillboardSet.h
 void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -595,7 +631,7 @@ void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("void BillboardSet::SetMaterialAttr(const ResourceRef& value)", "void SetMaterialAttr(const ResourceRef&in)", AS_METHODPR(BillboardSet, SetMaterialAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef BillboardSet::GetMaterialAttr() const", "ResourceRef GetMaterialAttr() const", AS_METHODPR(BillboardSet, GetMaterialAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void BillboardSet::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(BillboardSet_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void BillboardSet::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(BillboardSet_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct Bone | File: ../Graphics/Skeleton.h
@@ -627,6 +663,15 @@ void CollectMembers_BoxOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     fields.Push(RegisterObjectPropertyArgs("BoundingBox BoxOctreeQuery::box_", "BoundingBox box", offsetof(BoxOctreeQuery, box_)));
 }
+
+// static void Camera::RegisterObject(Context* context)
+// static void Camera::RegisterObject(Context* context) | File: ../Graphics/Camera.h
+static void Camera_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Camera::RegisterObject(context);
+}
+
 
 // class Camera | File: ../Graphics/Camera.h
 void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -744,7 +789,7 @@ void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("void Camera::SetClipPlaneAttr(const Vector4& value)", "void SetClipPlaneAttr(const Vector4&in)", AS_METHODPR(Camera, SetClipPlaneAttr, (const Vector4&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Vector4 Camera::GetClipPlaneAttr() const", "Vector4 GetClipPlaneAttr() const", AS_METHODPR(Camera, GetClipPlaneAttr, () const, Vector4), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Camera::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Camera_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Camera::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Camera_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct CascadeParameters | File: ../Graphics/Light.h
@@ -788,6 +833,15 @@ void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("unsigned ConstantBuffer::GetSize() const", "uint GetSize() const", AS_METHODPR(ConstantBuffer, GetSize, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ConstantBuffer::IsDirty() const", "bool IsDirty() const", AS_METHODPR(ConstantBuffer, IsDirty, () const, bool), AS_CALL_THISCALL));
 }
+
+// static void CustomGeometry::RegisterObject(Context* context)
+// static void CustomGeometry::RegisterObject(Context* context) | File: ../Graphics/CustomGeometry.h
+static void CustomGeometry_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    CustomGeometry::RegisterObject(context);
+}
+
 
 // class CustomGeometry | File: ../Graphics/CustomGeometry.h
 void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -842,7 +896,7 @@ void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("void CustomGeometry::SetMaterialsAttr(const ResourceRefList& value)", "void SetMaterialsAttr(const ResourceRefList&in)", AS_METHODPR(CustomGeometry, SetMaterialsAttr, (const ResourceRefList&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const ResourceRefList& CustomGeometry::GetMaterialsAttr() const", "const ResourceRefList& GetMaterialsAttr() const", AS_METHODPR(CustomGeometry, GetMaterialsAttr, () const, const ResourceRefList&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void CustomGeometry::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CustomGeometry_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void CustomGeometry::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CustomGeometry_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct CustomGeometryVertex | File: ../Graphics/CustomGeometry.h
@@ -862,6 +916,15 @@ void CollectMembers_DebugLine(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("Vector3 DebugLine::end_", "Vector3 end", offsetof(DebugLine, end_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned DebugLine::color_", "uint color", offsetof(DebugLine, color_)));
 }
+
+// static void DebugRenderer::RegisterObject(Context* context)
+// static void DebugRenderer::RegisterObject(Context* context) | File: ../Graphics/DebugRenderer.h
+static void DebugRenderer_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    DebugRenderer::RegisterObject(context);
+}
+
 
 // class DebugRenderer | File: ../Graphics/DebugRenderer.h
 void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -905,7 +968,7 @@ void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods, Vec
     methods.Push(RegisterObjectMethodArgs("bool DebugRenderer::IsInside(const BoundingBox& box) const", "bool IsInside(const BoundingBox&in) const", AS_METHODPR(DebugRenderer, IsInside, (const BoundingBox&) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool DebugRenderer::HasContent() const", "bool HasContent() const", AS_METHODPR(DebugRenderer, HasContent, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void DebugRenderer::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(DebugRenderer_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void DebugRenderer::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(DebugRenderer_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct DebugTriangle | File: ../Graphics/DebugRenderer.h
@@ -932,6 +995,15 @@ void CollectMembers_Decal(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     fields.Push(RegisterObjectPropertyArgs("float Decal::timeToLive_", "float timeToLive", offsetof(Decal, timeToLive_)));
     fields.Push(RegisterObjectPropertyArgs("BoundingBox Decal::boundingBox_", "BoundingBox boundingBox", offsetof(Decal, boundingBox_)));
 }
+
+// static void DecalSet::RegisterObject(Context* context)
+// static void DecalSet::RegisterObject(Context* context) | File: ../Graphics/DecalSet.h
+static void DecalSet_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    DecalSet::RegisterObject(context);
+}
+
 
 // class DecalSet | File: ../Graphics/DecalSet.h
 void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -987,7 +1059,7 @@ void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void DecalSet::SetMaterialAttr(const ResourceRef& value)", "void SetMaterialAttr(const ResourceRef&in)", AS_METHODPR(DecalSet, SetMaterialAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef DecalSet::GetMaterialAttr() const", "ResourceRef GetMaterialAttr() const", AS_METHODPR(DecalSet, GetMaterialAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void DecalSet::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(DecalSet_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void DecalSet::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(DecalSet_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct DecalVertex | File: ../Graphics/DecalSet.h
@@ -1026,6 +1098,15 @@ static CScriptArray* Drawable_GetVertexLights_void(Drawable* ptr)
 {
     const PODVector<Light*>& result = ptr->GetVertexLights();
     return VectorToHandleArray(result, "Array<Light@>");
+}
+
+
+// static void Drawable::RegisterObject(Context* context)
+// static void Drawable::RegisterObject(Context* context) | File: ../Graphics/Drawable.h
+static void Drawable_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Drawable::RegisterObject(context);
 }
 
 
@@ -1132,7 +1213,7 @@ void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void Drawable::AddLight(Light* light)", "void AddLight(Light@+)", AS_METHODPR(Drawable, AddLight, (Light*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Drawable::AddVertexLight(Light* light)", "void AddVertexLight(Light@+)", AS_METHODPR(Drawable, AddVertexLight, (Light*), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Drawable::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Drawable_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Drawable::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Drawable_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct FocusParameters | File: ../Graphics/Light.h
@@ -1522,26 +1603,26 @@ void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void Graphics::CleanupScratchBuffers()", "void CleanupScratchBuffers()", AS_METHODPR(Graphics, CleanupScratchBuffers, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Graphics::CleanupShaderPrograms(ShaderVariation* variation)", "void CleanupShaderPrograms(ShaderVariation@+)", AS_METHODPR(Graphics, CleanupShaderPrograms, (ShaderVariation*), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetAlphaFormat()", "uint GetAlphaFormat()", AS_FUNCTIONPR(Graphics::GetAlphaFormat, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetLuminanceFormat()", "uint GetLuminanceFormat()", AS_FUNCTIONPR(Graphics::GetLuminanceFormat, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetLuminanceAlphaFormat()", "uint GetLuminanceAlphaFormat()", AS_FUNCTIONPR(Graphics::GetLuminanceAlphaFormat, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBFormat()", "uint GetRGBFormat()", AS_FUNCTIONPR(Graphics::GetRGBFormat, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBAFormat()", "uint GetRGBAFormat()", AS_FUNCTIONPR(Graphics::GetRGBAFormat, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBA16Format()", "uint GetRGBA16Format()", AS_FUNCTIONPR(Graphics::GetRGBA16Format, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBAFloat16Format()", "uint GetRGBAFloat16Format()", AS_FUNCTIONPR(Graphics::GetRGBAFloat16Format, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBAFloat32Format()", "uint GetRGBAFloat32Format()", AS_FUNCTIONPR(Graphics::GetRGBAFloat32Format, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRG16Format()", "uint GetRG16Format()", AS_FUNCTIONPR(Graphics::GetRG16Format, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGFloat16Format()", "uint GetRGFloat16Format()", AS_FUNCTIONPR(Graphics::GetRGFloat16Format, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGFloat32Format()", "uint GetRGFloat32Format()", AS_FUNCTIONPR(Graphics::GetRGFloat32Format, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetFloat16Format()", "uint GetFloat16Format()", AS_FUNCTIONPR(Graphics::GetFloat16Format, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetFloat32Format()", "uint GetFloat32Format()", AS_FUNCTIONPR(Graphics::GetFloat32Format, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetLinearDepthFormat()", "uint GetLinearDepthFormat()", AS_FUNCTIONPR(Graphics::GetLinearDepthFormat, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetDepthStencilFormat()", "uint GetDepthStencilFormat()", AS_FUNCTIONPR(Graphics::GetDepthStencilFormat, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetReadableDepthFormat()", "uint GetReadableDepthFormat()", AS_FUNCTIONPR(Graphics::GetReadableDepthFormat, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetFormat(const String& formatName)", "uint GetFormat(const String&in)", AS_FUNCTIONPR(Graphics::GetFormat, (const String&), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static const Vector2& Graphics::GetPixelUVOffset()", "const Vector2& GetPixelUVOffset()", AS_FUNCTIONPR(Graphics::GetPixelUVOffset, (), const Vector2&), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetMaxBones()", "uint GetMaxBones()", AS_FUNCTIONPR(Graphics::GetMaxBones, (), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static bool Graphics::GetGL3Support()", "bool GetGL3Support()", AS_FUNCTIONPR(Graphics::GetGL3Support, (), bool), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetAlphaFormat()", "uint GetAlphaFormat()", AS_FUNCTIONPR(Graphics::GetAlphaFormat, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetLuminanceFormat()", "uint GetLuminanceFormat()", AS_FUNCTIONPR(Graphics::GetLuminanceFormat, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetLuminanceAlphaFormat()", "uint GetLuminanceAlphaFormat()", AS_FUNCTIONPR(Graphics::GetLuminanceAlphaFormat, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBFormat()", "uint GetRGBFormat()", AS_FUNCTIONPR(Graphics::GetRGBFormat, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBAFormat()", "uint GetRGBAFormat()", AS_FUNCTIONPR(Graphics::GetRGBAFormat, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBA16Format()", "uint GetRGBA16Format()", AS_FUNCTIONPR(Graphics::GetRGBA16Format, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBAFloat16Format()", "uint GetRGBAFloat16Format()", AS_FUNCTIONPR(Graphics::GetRGBAFloat16Format, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGBAFloat32Format()", "uint GetRGBAFloat32Format()", AS_FUNCTIONPR(Graphics::GetRGBAFloat32Format, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRG16Format()", "uint GetRG16Format()", AS_FUNCTIONPR(Graphics::GetRG16Format, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGFloat16Format()", "uint GetRGFloat16Format()", AS_FUNCTIONPR(Graphics::GetRGFloat16Format, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetRGFloat32Format()", "uint GetRGFloat32Format()", AS_FUNCTIONPR(Graphics::GetRGFloat32Format, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetFloat16Format()", "uint GetFloat16Format()", AS_FUNCTIONPR(Graphics::GetFloat16Format, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetFloat32Format()", "uint GetFloat32Format()", AS_FUNCTIONPR(Graphics::GetFloat32Format, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetLinearDepthFormat()", "uint GetLinearDepthFormat()", AS_FUNCTIONPR(Graphics::GetLinearDepthFormat, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetDepthStencilFormat()", "uint GetDepthStencilFormat()", AS_FUNCTIONPR(Graphics::GetDepthStencilFormat, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetReadableDepthFormat()", "uint GetReadableDepthFormat()", AS_FUNCTIONPR(Graphics::GetReadableDepthFormat, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetFormat(const String& formatName)", "uint GetFormat(const String&in)", AS_FUNCTIONPR(Graphics::GetFormat, (const String&), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static const Vector2& Graphics::GetPixelUVOffset()", "const Vector2& GetPixelUVOffset()", AS_FUNCTIONPR(Graphics::GetPixelUVOffset, (), const Vector2&), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetMaxBones()", "uint GetMaxBones()", AS_FUNCTIONPR(Graphics::GetMaxBones, (), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static bool Graphics::GetGL3Support()", "bool GetGL3Support()", AS_FUNCTIONPR(Graphics::GetGL3Support, (), bool), AS_CALL_CDECL));
 }
 
 // class IndexBuffer | File: ../Graphics/IndexBuffer.h
@@ -1605,6 +1686,15 @@ void CollectMembers_InstanceData(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     fields.Push(RegisterObjectPropertyArgs("float InstanceData::distance_", "float distance", offsetof(InstanceData, distance_)));
 }
+
+// static void Light::RegisterObject(Context* context)
+// static void Light::RegisterObject(Context* context) | File: ../Graphics/Light.h
+static void Light_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Light::RegisterObject(context);
+}
+
 
 // class Light | File: ../Graphics/Light.h
 void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -1740,8 +1830,8 @@ void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("ResourceRef Light::GetRampTextureAttr() const", "ResourceRef GetRampTextureAttr() const", AS_METHODPR(Light, GetRampTextureAttr, () const, ResourceRef), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef Light::GetShapeTextureAttr() const", "ResourceRef GetShapeTextureAttr() const", AS_METHODPR(Light, GetShapeTextureAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Light::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Light_RegisterObject_Context), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static Matrix3x4 Light::GetFullscreenQuadTransform(Camera* camera)", "Matrix3x4 GetFullscreenQuadTransform(Camera@+)", AS_FUNCTIONPR(Light::GetFullscreenQuadTransform, (Camera*), Matrix3x4), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Light::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Light_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static Matrix3x4 Light::GetFullscreenQuadTransform(Camera* camera)", "Matrix3x4 GetFullscreenQuadTransform(Camera@+)", AS_FUNCTIONPR(Light::GetFullscreenQuadTransform, (Camera*), Matrix3x4), AS_CALL_CDECL));
 }
 
 // struct LightBatchQueue | File: ../Graphics/Batch.h
@@ -1794,6 +1884,15 @@ static Material* Material_Clone_String(Material* ptr, const String& cloneName)
 {
     SharedPtr<Material> result = ptr->Clone(cloneName);
     return result.Detach();
+}
+
+
+// static void Material::RegisterObject(Context* context)
+// static void Material::RegisterObject(Context* context) | File: ../Graphics/Material.h
+static void Material_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Material::RegisterObject(context);
 }
 
 
@@ -1899,9 +1998,9 @@ void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("Scene* Material::GetScene() const", "Scene@+ get_scene() const", AS_METHODPR(Material, GetScene, () const, Scene*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Material::GetShaderParameterHash() const", "uint GetShaderParameterHash() const", AS_METHODPR(Material, GetShaderParameterHash, () const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Material::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Material_RegisterObject_Context), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static String Material::GetTextureUnitName(TextureUnit unit)", "String GetTextureUnitName(TextureUnit)", AS_FUNCTIONPR(Material::GetTextureUnitName, (TextureUnit), String), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static Variant Material::ParseShaderParameterValue(const String& value)", "Variant ParseShaderParameterValue(const String&in)", AS_FUNCTIONPR(Material::ParseShaderParameterValue, (const String&), Variant), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Material::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Material_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static String Material::GetTextureUnitName(TextureUnit unit)", "String GetTextureUnitName(TextureUnit)", AS_FUNCTIONPR(Material::GetTextureUnitName, (TextureUnit), String), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static Variant Material::ParseShaderParameterValue(const String& value)", "Variant ParseShaderParameterValue(const String&in)", AS_FUNCTIONPR(Material::ParseShaderParameterValue, (const String&), Variant), AS_CALL_CDECL));
 }
 
 // struct MaterialShaderParameter | File: ../Graphics/Material.h
@@ -1969,6 +2068,15 @@ static CScriptArray* Model_GetGeometryCenters_void(Model* ptr)
 }
 
 
+// static void Model::RegisterObject(Context* context)
+// static void Model::RegisterObject(Context* context) | File: ../Graphics/Model.h
+static void Model_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Model::RegisterObject(context);
+}
+
+
 // class Model | File: ../Graphics/Model.h
 void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -2030,7 +2138,7 @@ void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("unsigned Model::GetMorphRangeStart(unsigned bufferIndex) const", "uint GetMorphRangeStart(uint) const", AS_METHODPR(Model, GetMorphRangeStart, (unsigned) const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Model::GetMorphRangeCount(unsigned bufferIndex) const", "uint GetMorphRangeCount(uint) const", AS_METHODPR(Model, GetMorphRangeCount, (unsigned) const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Model::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Model_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Model::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Model_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct ModelMorph | File: ../Graphics/Model.h
@@ -2128,6 +2236,15 @@ void CollectMembers_Octant(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(Octant, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
 }
 
+// static void Octree::RegisterObject(Context* context)
+// static void Octree::RegisterObject(Context* context) | File: ../Graphics/Octree.h
+static void Octree_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Octree::RegisterObject(context);
+}
+
+
 // class Octree | File: ../Graphics/Octree.h
 void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -2155,7 +2272,7 @@ void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("void Octree::CancelUpdate(Drawable* drawable)", "void CancelUpdate(Drawable@+)", AS_METHODPR(Octree, CancelUpdate, (Drawable*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Octree::DrawDebugGeometry(bool depthTest)", "void DrawDebugGeometry(bool)", AS_METHODPR(Octree, DrawDebugGeometry, (bool), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Octree::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Octree_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Octree::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Octree_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class OctreeQuery | File: ../Graphics/OctreeQuery.h
@@ -2204,6 +2321,15 @@ static ParticleEffect* ParticleEffect_Clone_String(ParticleEffect* ptr, const St
 {
     SharedPtr<ParticleEffect> result = ptr->Clone(cloneName);
     return result.Detach();
+}
+
+
+// static void ParticleEffect::RegisterObject(Context* context)
+// static void ParticleEffect::RegisterObject(Context* context) | File: ../Graphics/ParticleEffect.h
+static void ParticleEffect_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    ParticleEffect::RegisterObject(context);
 }
 
 
@@ -2383,8 +2509,17 @@ void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("float ParticleEffect::GetRandomRotationSpeed() const", "float GetRandomRotationSpeed() const", AS_METHODPR(ParticleEffect, GetRandomRotationSpeed, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float ParticleEffect::GetRandomRotation() const", "float GetRandomRotation() const", AS_METHODPR(ParticleEffect, GetRandomRotation, () const, float), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ParticleEffect::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ParticleEffect_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void ParticleEffect::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ParticleEffect_RegisterObject_Context), AS_CALL_CDECL));
 }
+
+// static void ParticleEmitter::RegisterObject(Context* context)
+// static void ParticleEmitter::RegisterObject(Context* context) | File: ../Graphics/ParticleEmitter.h
+static void ParticleEmitter_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    ParticleEmitter::RegisterObject(context);
+}
+
 
 // class ParticleEmitter | File: ../Graphics/ParticleEmitter.h
 void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -2432,7 +2567,7 @@ void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods, V
     methods.Push(RegisterObjectMethodArgs("void ParticleEmitter::SetEffectAttr(const ResourceRef& value)", "void SetEffectAttr(const ResourceRef&in)", AS_METHODPR(ParticleEmitter, SetEffectAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef ParticleEmitter::GetEffectAttr() const", "ResourceRef GetEffectAttr() const", AS_METHODPR(ParticleEmitter, GetEffectAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ParticleEmitter::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ParticleEmitter_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void ParticleEmitter::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ParticleEmitter_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // Vector<SharedPtr<ShaderVariation>>& Pass::GetVertexShaders()
@@ -2967,8 +3102,17 @@ void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void Renderer::OptimizeLightByStencil(Light* light, Camera* camera)", "void OptimizeLightByStencil(Light@+, Camera@+)", AS_METHODPR(Renderer, OptimizeLightByStencil, (Light*, Camera*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Rect& Renderer::GetLightScissor(Light* light, Camera* camera)", "const Rect& GetLightScissor(Light@+, Camera@+)", AS_METHODPR(Renderer, GetLightScissor, (Light*, Camera*), const Rect&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static View* Renderer::GetActualView(View* view)", "View@+ GetActualView(View@+)", AS_FUNCTIONPR(Renderer::GetActualView, (View*), View*), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static View* Renderer::GetActualView(View* view)", "View@+ GetActualView(View@+)", AS_FUNCTIONPR(Renderer::GetActualView, (View*), View*), AS_CALL_CDECL));
 }
+
+// static void RibbonTrail::RegisterObject(Context* context)
+// static void RibbonTrail::RegisterObject(Context* context) | File: ../Graphics/RibbonTrail.h
+static void RibbonTrail_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    RibbonTrail::RegisterObject(context);
+}
+
 
 // class RibbonTrail | File: ../Graphics/RibbonTrail.h
 void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -3056,7 +3200,7 @@ void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("bool RibbonTrail::GetUpdateInvisible() const", "bool GetUpdateInvisible() const", AS_METHODPR(RibbonTrail, GetUpdateInvisible, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool RibbonTrail::GetUpdateInvisible() const", "bool get_updateInvisible() const", AS_METHODPR(RibbonTrail, GetUpdateInvisible, () const, bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void RibbonTrail::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(RibbonTrail_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void RibbonTrail::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(RibbonTrail_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct ScenePassInfo | File: ../Graphics/View.h
@@ -3101,6 +3245,15 @@ void CollectMembers_ScreenModeParams(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("int ScreenModeParams::refreshRate_", "int refreshRate", offsetof(ScreenModeParams, refreshRate_)));
 }
 
+// static void Shader::RegisterObject(Context* context)
+// static void Shader::RegisterObject(Context* context) | File: ../Graphics/Shader.h
+static void Shader_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Shader::RegisterObject(context);
+}
+
+
 // class Shader | File: ../Graphics/Shader.h
 void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -3118,7 +3271,7 @@ void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("const String& Shader::GetSourceCode(ShaderType type) const", "const String& GetSourceCode(ShaderType) const", AS_METHODPR(Shader, GetSourceCode, (ShaderType) const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Shader::GetTimeStamp() const", "uint GetTimeStamp() const", AS_METHODPR(Shader, GetTimeStamp, () const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Shader::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Shader_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Shader::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Shader_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct ShaderParameter | File: ../Graphics/ShaderVariation.h
@@ -3157,7 +3310,7 @@ void CollectMembers_ShaderPrecache(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     methods.Push(RegisterObjectMethodArgs("void ShaderPrecache::StoreShaders(ShaderVariation* vs, ShaderVariation* ps)", "void StoreShaders(ShaderVariation@+, ShaderVariation@+)", AS_METHODPR(ShaderPrecache, StoreShaders, (ShaderVariation*, ShaderVariation*), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void ShaderPrecache::LoadShaders(Graphics* graphics, Deserializer& source)", "void LoadShaders(Graphics@+, Deserializer&)", AS_FUNCTIONPR(ShaderPrecache::LoadShaders, (Graphics*, Deserializer&), void), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void ShaderPrecache::LoadShaders(Graphics* graphics, Deserializer& source)", "void LoadShaders(Graphics@+, Deserializer&)", AS_FUNCTIONPR(ShaderPrecache::LoadShaders, (Graphics*, Deserializer&), void), AS_CALL_CDECL));
 }
 
 // class ShaderVariation | File: ../Graphics/ShaderVariation.h
@@ -3239,6 +3392,15 @@ void CollectMembers_Skeleton(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void Skeleton::ResetSilent()", "void ResetSilent()", AS_METHODPR(Skeleton, ResetSilent, (), void), AS_CALL_THISCALL));
 }
 
+// static void Skybox::RegisterObject(Context* context)
+// static void Skybox::RegisterObject(Context* context) | File: ../Graphics/Skybox.h
+static void Skybox_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Skybox::RegisterObject(context);
+}
+
+
 // class Skybox | File: ../Graphics/Skybox.h
 void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -3254,7 +3416,7 @@ void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     methods.Push(RegisterObjectMethodArgs("void Skybox::UpdateBatches(const FrameInfo& frame) override", "void UpdateBatches(const FrameInfo&in)", AS_METHODPR(Skybox, UpdateBatches, (const FrameInfo&), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Skybox::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Skybox_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Skybox::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Skybox_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct SourceBatch | File: ../Graphics/Drawable.h
@@ -3286,6 +3448,15 @@ void CollectMembers_SphereOctreeQuery(Vector<RegisterObjectMethodArgs>& methods,
 
     fields.Push(RegisterObjectPropertyArgs("Sphere SphereOctreeQuery::sphere_", "Sphere sphere", offsetof(SphereOctreeQuery, sphere_)));
 }
+
+// static void StaticModel::RegisterObject(Context* context)
+// static void StaticModel::RegisterObject(Context* context) | File: ../Graphics/StaticModel.h
+static void StaticModel_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    StaticModel::RegisterObject(context);
+}
+
 
 // class StaticModel | File: ../Graphics/StaticModel.h
 void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -3331,7 +3502,7 @@ void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("ResourceRef StaticModel::GetModelAttr() const", "ResourceRef GetModelAttr() const", AS_METHODPR(StaticModel, GetModelAttr, () const, ResourceRef), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const ResourceRefList& StaticModel::GetMaterialsAttr() const", "const ResourceRefList& GetMaterialsAttr() const", AS_METHODPR(StaticModel, GetMaterialsAttr, () const, const ResourceRefList&), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void StaticModel::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(StaticModel_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void StaticModel::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(StaticModel_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct StaticModelGeometryData | File: ../Graphics/StaticModel.h
@@ -3340,6 +3511,15 @@ void CollectMembers_StaticModelGeometryData(Vector<RegisterObjectMethodArgs>& me
     fields.Push(RegisterObjectPropertyArgs("Vector3 StaticModelGeometryData::center_", "Vector3 center", offsetof(StaticModelGeometryData, center_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned StaticModelGeometryData::lodLevel_", "uint lodLevel", offsetof(StaticModelGeometryData, lodLevel_)));
 }
+
+// static void StaticModelGroup::RegisterObject(Context* context)
+// static void StaticModelGroup::RegisterObject(Context* context) | File: ../Graphics/StaticModelGroup.h
+static void StaticModelGroup_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    StaticModelGroup::RegisterObject(context);
+}
+
 
 // class StaticModelGroup | File: ../Graphics/StaticModelGroup.h
 void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -3373,7 +3553,7 @@ void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods, 
     methods.Push(RegisterObjectMethodArgs("Node* StaticModelGroup::GetInstanceNode(unsigned index) const", "Node@+ GetInstanceNode(uint) const", AS_METHODPR(StaticModelGroup, GetInstanceNode, (unsigned) const, Node*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Node* StaticModelGroup::GetInstanceNode(unsigned index) const", "Node@+ get_instanceNodes(uint) const", AS_METHODPR(StaticModelGroup, GetInstanceNode, (unsigned) const, Node*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void StaticModelGroup::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(StaticModelGroup_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void StaticModelGroup::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(StaticModelGroup_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // SharedPtr<Technique> Technique::Clone(const String& cloneName=String::EMPTY) const
@@ -3412,6 +3592,15 @@ static Technique* Technique_CloneWithDefines_String_String(Technique* ptr, const
 }
 
 
+// static void Technique::RegisterObject(Context* context)
+// static void Technique::RegisterObject(Context* context) | File: ../Graphics/Technique.h
+static void Technique_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Technique::RegisterObject(context);
+}
+
+
 // class Technique | File: ../Graphics/Technique.h
 void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -3444,8 +3633,8 @@ void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("PODVector<Pass*> Technique::GetPasses() const", "Array<Pass@>@ get_passes() const", AS_FUNCTION_OBJFIRST(Technique_GetPasses_void), AS_CALL_CDECL_OBJFIRST));
     methods.Push(RegisterObjectMethodArgs("SharedPtr<Technique> Technique::CloneWithDefines(const String& vsDefines, const String& psDefines)", "Technique@+ CloneWithDefines(const String&in, const String&in)", AS_FUNCTION_OBJFIRST(Technique_CloneWithDefines_String_String), AS_CALL_CDECL_OBJFIRST));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Technique::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Technique_RegisterObject_Context), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Technique::GetPassIndex(const String& passName)", "uint GetPassIndex(const String&in)", AS_FUNCTIONPR(Technique::GetPassIndex, (const String&), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Technique::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Technique_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Technique::GetPassIndex(const String& passName)", "uint GetPassIndex(const String&in)", AS_FUNCTIONPR(Technique::GetPassIndex, (const String&), unsigned), AS_CALL_CDECL));
 
     staticFields.Push(RegisterGlobalPropertyArgs("static unsigned Technique::basePassIndex", "uint basePassIndex", (void*)&Technique::basePassIndex));
     staticFields.Push(RegisterGlobalPropertyArgs("static unsigned Technique::alphaPassIndex", "uint alphaPassIndex", (void*)&Technique::alphaPassIndex));
@@ -3468,6 +3657,15 @@ void CollectMembers_TechniqueEntry(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("MaterialQuality TechniqueEntry::qualityLevel_", "MaterialQuality qualityLevel", offsetof(TechniqueEntry, qualityLevel_)));
     fields.Push(RegisterObjectPropertyArgs("float TechniqueEntry::lodDistance_", "float lodDistance", offsetof(TechniqueEntry, lodDistance_)));
 }
+
+// static void Terrain::RegisterObject(Context* context)
+// static void Terrain::RegisterObject(Context* context) | File: ../Graphics/Terrain.h
+static void Terrain_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Terrain::RegisterObject(context);
+}
+
 
 // class Terrain | File: ../Graphics/Terrain.h
 void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -3597,8 +3795,17 @@ void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("ResourceRef Terrain::GetHeightMapAttr() const", "ResourceRef GetHeightMapAttr() const", AS_METHODPR(Terrain, GetHeightMapAttr, () const, ResourceRef), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef Terrain::GetMaterialAttr() const", "ResourceRef GetMaterialAttr() const", AS_METHODPR(Terrain, GetMaterialAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Terrain::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Terrain_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Terrain::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Terrain_RegisterObject_Context), AS_CALL_CDECL));
 }
+
+// static void TerrainPatch::RegisterObject(Context* context)
+// static void TerrainPatch::RegisterObject(Context* context) | File: ../Graphics/TerrainPatch.h
+static void TerrainPatch_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    TerrainPatch::RegisterObject(context);
+}
+
 
 // class TerrainPatch | File: ../Graphics/TerrainPatch.h
 void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -3646,7 +3853,7 @@ void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("const IntVector2& TerrainPatch::GetCoordinates() const", "const IntVector2& GetCoordinates() const", AS_METHODPR(TerrainPatch, GetCoordinates, () const, const IntVector2&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned TerrainPatch::GetLodLevel() const", "uint GetLodLevel() const", AS_METHODPR(TerrainPatch, GetLodLevel, () const, unsigned), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void TerrainPatch::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(TerrainPatch_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void TerrainPatch::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(TerrainPatch_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // class Texture | File: ../Graphics/Texture.h
@@ -3734,12 +3941,12 @@ void CollectMembers_Texture(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("void Texture::SetLevelsDirty()", "void SetLevelsDirty()", AS_METHODPR(Texture, SetLevelsDirty, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Texture::RegenerateLevels()", "void RegenerateLevels()", AS_METHODPR(Texture, RegenerateLevels, (), void), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::CheckMaxLevels(int width, int height, unsigned requestedLevels)", "uint CheckMaxLevels(int, int, uint)", AS_FUNCTIONPR(Texture::CheckMaxLevels, (int, int, unsigned), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::CheckMaxLevels(int width, int height, int depth, unsigned requestedLevels)", "uint CheckMaxLevels(int, int, int, uint)", AS_FUNCTIONPR(Texture::CheckMaxLevels, (int, int, int, unsigned), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::GetSRVFormat(unsigned format)", "uint GetSRVFormat(uint)", AS_FUNCTIONPR(Texture::GetSRVFormat, (unsigned), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::GetDSVFormat(unsigned format)", "uint GetDSVFormat(uint)", AS_FUNCTIONPR(Texture::GetDSVFormat, (unsigned), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::GetExternalFormat(unsigned format)", "uint GetExternalFormat(uint)", AS_FUNCTIONPR(Texture::GetExternalFormat, (unsigned), unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::GetDataType(unsigned format)", "uint GetDataType(uint)", AS_FUNCTIONPR(Texture::GetDataType, (unsigned), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::CheckMaxLevels(int width, int height, unsigned requestedLevels)", "uint CheckMaxLevels(int, int, uint)", AS_FUNCTIONPR(Texture::CheckMaxLevels, (int, int, unsigned), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::CheckMaxLevels(int width, int height, int depth, unsigned requestedLevels)", "uint CheckMaxLevels(int, int, int, uint)", AS_FUNCTIONPR(Texture::CheckMaxLevels, (int, int, int, unsigned), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::GetSRVFormat(unsigned format)", "uint GetSRVFormat(uint)", AS_FUNCTIONPR(Texture::GetSRVFormat, (unsigned), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::GetDSVFormat(unsigned format)", "uint GetDSVFormat(uint)", AS_FUNCTIONPR(Texture::GetDSVFormat, (unsigned), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::GetExternalFormat(unsigned format)", "uint GetExternalFormat(uint)", AS_FUNCTIONPR(Texture::GetExternalFormat, (unsigned), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::GetDataType(unsigned format)", "uint GetDataType(uint)", AS_FUNCTIONPR(Texture::GetDataType, (unsigned), unsigned), AS_CALL_CDECL));
 }
 
 // SharedPtr<Image> Texture2D::GetImage() const
@@ -3748,6 +3955,15 @@ static Image* Texture2D_GetImage_void(Texture2D* ptr)
 {
     SharedPtr<Image> result = ptr->GetImage();
     return result.Detach();
+}
+
+
+// static void Texture2D::RegisterObject(Context* context)
+// static void Texture2D::RegisterObject(Context* context) | File: ../Graphics/Texture2D.h
+static void Texture2D_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Texture2D::RegisterObject(context);
 }
 
 
@@ -3779,8 +3995,17 @@ void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("RenderSurface* Texture2D::GetRenderSurface() const", "RenderSurface@+ GetRenderSurface() const", AS_METHODPR(Texture2D, GetRenderSurface, () const, RenderSurface*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("RenderSurface* Texture2D::GetRenderSurface() const", "RenderSurface@+ get_renderSurface() const", AS_METHODPR(Texture2D, GetRenderSurface, () const, RenderSurface*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Texture2D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Texture2D_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Texture2D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Texture2D_RegisterObject_Context), AS_CALL_CDECL));
 }
+
+// static void Texture2DArray::RegisterObject(Context* context)
+// static void Texture2DArray::RegisterObject(Context* context) | File: ../Graphics/Texture2DArray.h
+static void Texture2DArray_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Texture2DArray::RegisterObject(context);
+}
+
 
 // class Texture2DArray | File: ../Graphics/Texture2DArray.h
 void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -3813,8 +4038,17 @@ void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("RenderSurface* Texture2DArray::GetRenderSurface() const", "RenderSurface@+ GetRenderSurface() const", AS_METHODPR(Texture2DArray, GetRenderSurface, () const, RenderSurface*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("RenderSurface* Texture2DArray::GetRenderSurface() const", "RenderSurface@+ get_renderSurface() const", AS_METHODPR(Texture2DArray, GetRenderSurface, () const, RenderSurface*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Texture2DArray::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Texture2DArray_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Texture2DArray::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Texture2DArray_RegisterObject_Context), AS_CALL_CDECL));
 }
+
+// static void Texture3D::RegisterObject(Context* context)
+// static void Texture3D::RegisterObject(Context* context) | File: ../Graphics/Texture3D.h
+static void Texture3D_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Texture3D::RegisterObject(context);
+}
+
 
 // class Texture3D | File: ../Graphics/Texture3D.h
 void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -3840,7 +4074,7 @@ void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("bool Texture3D::SetSize(int width, int height, int depth, unsigned format, TextureUsage usage=TEXTURE_STATIC)", "bool SetSize(int, int, int, uint, TextureUsage = TEXTURE_STATIC)", AS_METHODPR(Texture3D, SetSize, (int, int, int, unsigned, TextureUsage), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Texture3D::SetData(Image* image, bool useAlpha=false)", "bool SetData(Image@+, bool = false)", AS_METHODPR(Texture3D, SetData, (Image*, bool), bool), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Texture3D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Texture3D_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Texture3D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Texture3D_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // SharedPtr<Image> TextureCube::GetImage(CubeMapFace face) const
@@ -3849,6 +4083,15 @@ static Image* TextureCube_GetImage_CubeMapFace(TextureCube* ptr, CubeMapFace fac
 {
     SharedPtr<Image> result = ptr->GetImage(face);
     return result.Detach();
+}
+
+
+// static void TextureCube::RegisterObject(Context* context)
+// static void TextureCube::RegisterObject(Context* context) | File: ../Graphics/TextureCube.h
+static void TextureCube_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    TextureCube::RegisterObject(context);
 }
 
 
@@ -3880,7 +4123,7 @@ void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("RenderSurface* TextureCube::GetRenderSurface(CubeMapFace face) const", "RenderSurface@+ GetRenderSurface(CubeMapFace) const", AS_METHODPR(TextureCube, GetRenderSurface, (CubeMapFace) const, RenderSurface*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("RenderSurface* TextureCube::GetRenderSurface(CubeMapFace face) const", "RenderSurface@+ get_renderSurfaces(CubeMapFace) const", AS_METHODPR(TextureCube, GetRenderSurface, (CubeMapFace) const, RenderSurface*), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void TextureCube::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(TextureCube_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void TextureCube::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(TextureCube_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 // struct TextureFrame | File: ../Graphics/ParticleEffect.h
@@ -3920,6 +4163,45 @@ static CScriptArray* VertexBuffer_GetElements_void(VertexBuffer* ptr)
 {
     const PODVector<VertexElement>& result = ptr->GetElements();
     return VectorToArray(result, "Array<VertexElement>");
+}
+
+
+// static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)
+// static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0) | File: ../Graphics/VertexBuffer.h
+static bool VertexBuffer_HasElement_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar(CScriptArray* elements_conv, VertexElementType type, VertexElementSemantic semantic, unsigned char index)
+{
+    PODVector<VertexElement> elements = ArrayToPODVector<VertexElement>(elements_conv);
+    bool result = VertexBuffer::HasElement(elements, type, semantic, index);
+    return result;
+}
+
+
+// static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)
+// static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0) | File: ../Graphics/VertexBuffer.h
+static unsigned VertexBuffer_GetElementOffset_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar(CScriptArray* elements_conv, VertexElementType type, VertexElementSemantic semantic, unsigned char index)
+{
+    PODVector<VertexElement> elements = ArrayToPODVector<VertexElement>(elements_conv);
+    unsigned result = VertexBuffer::GetElementOffset(elements, type, semantic, index);
+    return result;
+}
+
+
+// static PODVector<VertexElement> VertexBuffer::GetElements(unsigned elementMask)
+// static PODVector<VertexElement> VertexBuffer::GetElements(unsigned elementMask) | File: ../Graphics/VertexBuffer.h
+static CScriptArray* VertexBuffer_GetElements_unsigned(unsigned elementMask)
+{
+    PODVector<VertexElement> result = VertexBuffer::GetElements(elementMask);
+    return VectorToArray(result, "Array<VertexElement>");
+}
+
+
+// static unsigned VertexBuffer::GetVertexSize(const PODVector<VertexElement>& elements)
+// static unsigned VertexBuffer::GetVertexSize(const PODVector<VertexElement>& elements) | File: ../Graphics/VertexBuffer.h
+static unsigned VertexBuffer_GetVertexSize_PODVectorVertexElement(CScriptArray* elements_conv)
+{
+    PODVector<VertexElement> elements = ArrayToPODVector<VertexElement>(elements_conv);
+    unsigned result = VertexBuffer::GetVertexSize(elements);
+    return result;
 }
 
 
@@ -3980,11 +4262,11 @@ void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
     // static void VertexBuffer::UpdateOffsets(PODVector<VertexElement>& elements)
     // Error: type "PODVector<VertexElement>&" can not automatically bind
 
-    methods.Push(RegisterGlobalFunctionArgs("static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)", "bool HasElement(Array<VertexElement>@+, VertexElementType, VertexElementSemantic, uint8 = 0)", AS_FUNCTION(VertexBuffer_HasElement_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)", "uint GetElementOffset(Array<VertexElement>@+, VertexElementType, VertexElementSemantic, uint8 = 0)", AS_FUNCTION(VertexBuffer_GetElementOffset_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static PODVector<VertexElement> VertexBuffer::GetElements(unsigned elementMask)", "Array<VertexElement>@ GetElements(uint)", AS_FUNCTION(VertexBuffer_GetElements_unsigned), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(const PODVector<VertexElement>& elements)", "uint GetVertexSize(Array<VertexElement>@+)", AS_FUNCTION(VertexBuffer_GetVertexSize_PODVectorVertexElement), AS_CALL_CDECL));
-    methods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(unsigned elementMask)", "uint GetVertexSize(uint)", AS_FUNCTIONPR(VertexBuffer::GetVertexSize, (unsigned), unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)", "bool HasElement(Array<VertexElement>@+, VertexElementType, VertexElementSemantic, uint8 = 0)", AS_FUNCTION(VertexBuffer_HasElement_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)", "uint GetElementOffset(Array<VertexElement>@+, VertexElementType, VertexElementSemantic, uint8 = 0)", AS_FUNCTION(VertexBuffer_GetElementOffset_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static PODVector<VertexElement> VertexBuffer::GetElements(unsigned elementMask)", "Array<VertexElement>@ GetElements(uint)", AS_FUNCTION(VertexBuffer_GetElements_unsigned), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(const PODVector<VertexElement>& elements)", "uint GetVertexSize(Array<VertexElement>@+)", AS_FUNCTION(VertexBuffer_GetVertexSize_PODVectorVertexElement), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(unsigned elementMask)", "uint GetVertexSize(uint)", AS_FUNCTIONPR(VertexBuffer::GetVertexSize, (unsigned), unsigned), AS_CALL_CDECL));
 }
 
 // struct VertexBufferDesc | File: ../Graphics/Model.h
@@ -4133,6 +4415,15 @@ void CollectMembers_WindowModeParams(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("ScreenModeParams WindowModeParams::screenParams_", "ScreenModeParams screenParams", offsetof(WindowModeParams, screenParams_)));
 }
 
+// static void Zone::RegisterObject(Context* context)
+// static void Zone::RegisterObject(Context* context) | File: ../Graphics/Zone.h
+static void Zone_RegisterObject_Context()
+{
+    Context* context = GetScriptContext();
+    Zone::RegisterObject(context);
+}
+
+
 // class Zone | File: ../Graphics/Zone.h
 void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -4199,7 +4490,7 @@ void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("void Zone::SetZoneTextureAttr(const ResourceRef& value)", "void SetZoneTextureAttr(const ResourceRef&in)", AS_METHODPR(Zone, SetZoneTextureAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef Zone::GetZoneTextureAttr() const", "ResourceRef GetZoneTextureAttr() const", AS_METHODPR(Zone, GetZoneTextureAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    methods.Push(RegisterGlobalFunctionArgs("static void Zone::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Zone_RegisterObject_Context), AS_CALL_CDECL));
+    staticMethods.Push(RegisterGlobalFunctionArgs("static void Zone::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Zone_RegisterObject_Context), AS_CALL_CDECL));
 }
 
 } // namespace Urho3D
