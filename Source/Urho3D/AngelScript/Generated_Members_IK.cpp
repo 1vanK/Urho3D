@@ -43,6 +43,11 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
+    // bool IKEffector::GetFeature(Feature feature) const
+    // Not registered because have @nobind mark
+    // void IKEffector::SetFeature(Feature feature, bool enable)
+    // Not registered because have @nobind mark
+
     methods.Push(RegisterObjectMethodArgs("Node* IKEffector::GetTargetNode() const", "Node@+ GetTargetNode() const", AS_METHODPR(IKEffector, GetTargetNode, () const, Node*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Node* IKEffector::GetTargetNode() const", "Node@+ get_targetNode() const", AS_METHODPR(IKEffector, GetTargetNode, () const, Node*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void IKEffector::SetTargetNode(Node* targetNode)", "void SetTargetNode(Node@+)", AS_METHODPR(IKEffector, SetTargetNode, (Node*), void), AS_CALL_THISCALL));
@@ -100,6 +105,15 @@ void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
+
+    // Algorithm IKSolver::GetAlgorithm() const
+    // Not registered because have @manualbind mark
+    // bool IKSolver::GetFeature(Feature feature) const
+    // Not registered because have @nobind mark
+    // void IKSolver::SetAlgorithm(Algorithm algorithm)
+    // Not registered because have @manualbind mark
+    // void IKSolver::SetFeature(Feature feature, bool enable)
+    // Not registered because have @nobind mark
 
     methods.Push(RegisterObjectMethodArgs("unsigned IKSolver::GetMaximumIterations() const", "uint GetMaximumIterations() const", AS_METHODPR(IKSolver, GetMaximumIterations, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned IKSolver::GetMaximumIterations() const", "uint get_maximumIterations() const", AS_METHODPR(IKSolver, GetMaximumIterations, () const, unsigned), AS_CALL_THISCALL));

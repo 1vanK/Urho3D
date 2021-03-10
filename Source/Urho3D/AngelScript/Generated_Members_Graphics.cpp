@@ -1458,26 +1458,46 @@ void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     // void Graphics::AddGPUObject(GPUObject* object)
     // Error: type "GPUObject*" can not automatically bind
+    // void Graphics::CleanupRenderSurface(RenderSurface* surface)
+    // Not registered because have @nobind mark
     // void Graphics::FreeScratchBuffer(void* buffer)
     // Error: type "void*" can not automatically bind
     // void* Graphics::GetExternalWindow() const
     // Error: type "void*" can not automatically bind
     // GraphicsImpl* Graphics::GetImpl() const
     // Error: type "GraphicsImpl*" can not automatically bind
+    // ConstantBuffer* Graphics::GetOrCreateConstantBuffer(ShaderType type, unsigned index, unsigned size)
+    // Not registered because have @nobind mark
     // ShaderVariation* Graphics::GetShader(ShaderType type, const char* name, const char* defines) const
     // Error: type "const char*" can not automatically bind
+    // ShaderProgram* Graphics::GetShaderProgram() const
+    // Not registered because have @nobind mark
     // SDL_Window* Graphics::GetWindow() const
     // Error: type "SDL_Window*" can not automatically bind
+    // void Graphics::MarkFBODirty()
+    // Not registered because have @nobind mark
     // bool Graphics::NeedParameterUpdate(ShaderParameterGroup group, const void* source)
     // Error: type "const void*" can not automatically bind
     // void Graphics::RemoveGPUObject(GPUObject* object)
     // Error: type "GPUObject*" can not automatically bind
     // void* Graphics::ReserveScratchBuffer(unsigned size)
     // Error: type "void*" can not automatically bind
+    // void Graphics::Restore()
+    // Not registered because have @nobind mark
     // void Graphics::SetExternalWindow(void* window)
     // Error: type "void*" can not automatically bind
     // void Graphics::SetShaderParameter(StringHash param, const float* data, unsigned count)
     // Error: type "const float*" can not automatically bind
+    // void Graphics::SetTextureForUpdate(Texture* texture)
+    // Not registered because have @nobind mark
+    // void Graphics::SetTextureParametersDirty()
+    // Not registered because have @nobind mark
+    // void Graphics::SetUBO(unsigned object)
+    // Not registered because have @nobind mark
+    // void Graphics::SetVBO(unsigned object)
+    // Not registered because have @nobind mark
+    // bool Graphics::SetVertexBuffers(const PODVector<VertexBuffer*>& buffers, unsigned instanceOffset=0)
+    // Not registered because have @nobind mark
 
     methods.Push(RegisterObjectMethodArgs("void Graphics::SetWindowTitle(const String& windowTitle)", "void SetWindowTitle(const String&in)", AS_METHODPR(Graphics, SetWindowTitle, (const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Graphics::SetWindowTitle(const String& windowTitle)", "void set_windowTitle(const String&in)", AS_METHODPR(Graphics, SetWindowTitle, (const String&), void), AS_CALL_THISCALL));
@@ -2369,6 +2389,8 @@ void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
+    // void Octree::GetDrawables(OctreeQuery& query) const
+    // Not registered because have @nobind mark
     // void Octree::Raycast(RayOctreeQuery& query) const
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
     // void Octree::RaycastSingle(RayOctreeQuery& query) const
@@ -3093,6 +3115,9 @@ void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 {
     CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
+    // void Renderer::SetShadowMapFilter(Object* instance, ShadowMapFilter functionPtr)
+    // Not registered because have @nobind mark
+
     methods.Push(RegisterObjectMethodArgs("void Renderer::SetNumViewports(unsigned num)", "void SetNumViewports(uint)", AS_METHODPR(Renderer, SetNumViewports, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Renderer::SetNumViewports(unsigned num)", "void set_numViewports(uint)", AS_METHODPR(Renderer, SetNumViewports, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Renderer::SetViewport(unsigned index, Viewport* viewport)", "void SetViewport(uint, Viewport@+)", AS_METHODPR(Renderer, SetViewport, (unsigned, Viewport*), void), AS_CALL_THISCALL));
@@ -3658,6 +3683,8 @@ void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     // void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override
     // Error: type "RayOctreeQuery" can not automatically bind bacause have @nobind mark
+    // virtual void StaticModel::SetModel(Model* model)
+    // Not registered because have @manualbind mark
 
     methods.Push(RegisterObjectMethodArgs("void StaticModel::UpdateBatches(const FrameInfo& frame) override", "void UpdateBatches(const FrameInfo&in)", AS_METHODPR(StaticModel, UpdateBatches, (const FrameInfo&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Geometry* StaticModel::GetLodGeometry(unsigned batchIndex, unsigned level) override", "Geometry@+ GetLodGeometry(uint, uint)", AS_METHODPR(StaticModel, GetLodGeometry, (unsigned, unsigned), Geometry*), AS_CALL_THISCALL));
@@ -4047,6 +4074,8 @@ void CollectMembers_Texture(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     // void* Texture::GetResolveTexture() const
     // Error: type "void*" can not automatically bind
+    // unsigned Texture::GetSRGBFormat(unsigned format)
+    // Not registered because have @nobind mark
     // void* Texture::GetSampler() const
     // Error: type "void*" can not automatically bind
     // void* Texture::GetShaderResourceView() const

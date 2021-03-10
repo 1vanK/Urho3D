@@ -426,15 +426,21 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
 
     if (HaveMark(methodAnalyzer, "NO_BIND"))
     {
-        //result->reg_ << "    // " << methodAnalyzer.GetLocation() << "\n";
-        //result->reg_ << "    // Not registered because have @nobind mark\n";
+        MemberRegistrationError regError;
+        regError.name_ = methodAnalyzer.GetName();
+        regError.comment_ = methodAnalyzer.GetDeclaration();
+        regError.message_ = "Not registered because have @nobind mark";
+        processedClass.unregisteredMethods_.push_back(regError);
         return;
     }
 
     if (HaveMark(methodAnalyzer, "MANUAL_BIND"))
     {
-        //result->reg_ << "    // " << methodAnalyzer.GetLocation() << "\n";
-        //result->reg_ << "    // Not registered because have @manualbind mark\n";
+        MemberRegistrationError regError;
+        regError.name_ = methodAnalyzer.GetName();
+        regError.comment_ = methodAnalyzer.GetDeclaration();
+        regError.message_ = "Not registered because have @manualbind mark";
+        processedClass.unregisteredMethods_.push_back(regError);
         return;
     }
 

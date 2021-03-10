@@ -531,6 +531,10 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
     // void RigidBody::SetNetAngularVelocityAttr(const PODVector<unsigned char>& value)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
+    // void RigidBody::getWorldTransform(btTransform& worldTrans) const override
+    // Not registered because have @nobind mark
+    // void RigidBody::setWorldTransform(const btTransform& worldTrans) override
+    // Not registered because have @nobind mark
 
     methods.Push(RegisterObjectMethodArgs("void RigidBody::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(RigidBody, ApplyAttributes, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void RigidBody::OnSetEnabled() override", "void OnSetEnabled()", AS_METHODPR(RigidBody, OnSetEnabled, (), void), AS_CALL_THISCALL));

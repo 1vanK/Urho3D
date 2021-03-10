@@ -234,6 +234,10 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     // Error: type "const char*" can not automatically bind
     // String& String::operator+=(const char* rhs)
     // Error: type "const char*" can not automatically bind
+    // String& String::operator+=(long rhs)
+    // Not registered because have @nobind mark
+    // String& String::operator+=(unsigned long rhs)
+    // Not registered because have @nobind mark
     // bool String::operator<(const String& rhs) const
     // Registerd as opCmp separately
     // bool String::operator<(const char* rhs) const

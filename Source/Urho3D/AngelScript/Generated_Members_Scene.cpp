@@ -103,6 +103,8 @@ void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     // void Component::AddReplicationState(ComponentReplicationState* state)
     // Error: type "ComponentReplicationState*" can not automatically bind
+    // void Component::CleanupConnection(Connection* connection)
+    // Not registered because have @manualbind mark
     // void Component::GetComponents(PODVector<Component*>& dest, StringHash type) const
     // Error: type "PODVector<Component*>&" can not automatically bind
     // virtual void Component::GetDependencyNodes(PODVector<Node*>& dest)
@@ -304,6 +306,8 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
 
     // virtual void Node::AddReplicationState(NodeReplicationState* state)
     // Error: type "NodeReplicationState*" can not automatically bind
+    // void Node::CleanupConnection(Connection* connection)
+    // Not registered because have @manualbind mark
     // Node* Node::GetChild(const char* name, bool recursive=false) const
     // Error: type "const char*" can not automatically bind
     // void Node::GetChildren(PODVector<Node*>& dest, bool recursive=false) const
@@ -320,10 +324,14 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
     // const PODVector<unsigned char>& Node::GetNetRotationAttr() const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
+    // Connection* Node::GetOwner() const
+    // Not registered because have @manualbind mark
     // void Node::SetNetParentAttr(const PODVector<unsigned char>& value)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
     // void Node::SetNetRotationAttr(const PODVector<unsigned char>& value)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
+    // void Node::SetOwner(Connection* owner)
+    // Not registered because have @manualbind mark
 
     methods.Push(RegisterObjectMethodArgs("bool Node::Load(Deserializer& source) override", "bool Load(Deserializer&)", AS_METHODPR(Node, Load, (Deserializer&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Node::LoadXML(const XMLElement& source) override", "bool LoadXML(const XMLElement&in)", AS_METHODPR(Node, LoadXML, (const XMLElement&), bool), AS_CALL_THISCALL));
@@ -674,8 +682,20 @@ void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 
     // void Scene::AddReplicationState(NodeReplicationState* state) override
     // Error: type "NodeReplicationState*" can not automatically bind
+    // void Scene::CleanupConnection(Connection* connection)
+    // Not registered because have @manualbind mark
+    // Component* Node::GetComponent(StringHash type, bool recursive=false) const
+    // Not registered because have @manualbind mark
     // bool Scene::GetNodesWithTag(PODVector<Node*>& dest, const String& tag) const
     // Error: type "PODVector<Node*>&" can not automatically bind
+    // bool Node::SaveJSON(JSONValue& dest) const override
+    // Not registered because have @manualbind mark
+    // bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const
+    // Not registered because have @manualbind mark
+    // bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const
+    // Not registered because have @manualbind mark
+    // bool Node::SaveXML(XMLElement& dest) const override
+    // Not registered because have @manualbind mark
 
     methods.Push(RegisterObjectMethodArgs("bool Scene::Load(Deserializer& source) override", "bool Load(Deserializer&)", AS_METHODPR(Scene, Load, (Deserializer&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Scene::Save(Serializer& dest) const override", "bool Save(Serializer&) const", AS_METHODPR(Scene, Save, (Serializer&) const, bool), AS_CALL_THISCALL));
