@@ -216,6 +216,8 @@ struct ProcessedClass
     vector<FieldRegistration> fields_;
     vector<MemberRegistrationError> unregisteredFields_;
 
+    vector<MethodRegistration> wrappedFields_;
+
     vector<StaticFieldRegistration> staticFields_;
     vector<MemberRegistrationError> unregisteredStaticFields_;
 

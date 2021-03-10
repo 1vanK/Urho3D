@@ -13,9 +13,9 @@ namespace Urho3D
 #ifdef URHO3D_IK
 
 // class IKConstraint | File: ../IK/IKConstraint.h
-void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -28,12 +28,16 @@ void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     // static void IKConstraint::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_IKConstraint
+        REGISTER_MANUAL_PART_IKConstraint();
+    #endif
 }
 
 // class IKEffector | File: ../IK/IKEffector.h
-void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
@@ -82,12 +86,16 @@ void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     // static void IKEffector::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_IKEffector
+        REGISTER_MANUAL_PART_IKEffector();
+    #endif
 }
 
 // class IKSolver | File: ../IK/IKSolver.h
-void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
@@ -143,6 +151,10 @@ void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     // static void IKSolver::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_IKSolver
+        REGISTER_MANUAL_PART_IKSolver();
+    #endif
 }
 
 #endif // def URHO3D_IK

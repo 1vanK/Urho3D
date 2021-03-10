@@ -13,15 +13,19 @@ namespace Urho3D
 #ifdef URHO3D_PHYSICS
 
 // struct CollisionGeometryData | File: ../Physics/CollisionShape.h
-void CollectMembers_CollisionGeometryData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CollisionGeometryData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
+
+    #ifdef REGISTER_MANUAL_PART_CollisionGeometryData
+        REGISTER_MANUAL_PART_CollisionGeometryData();
+    #endif
 }
 
 // class CollisionShape | File: ../Physics/CollisionShape.h
-void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
@@ -88,12 +92,16 @@ void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     // static void CollisionShape::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_CollisionShape
+        REGISTER_MANUAL_PART_CollisionShape();
+    #endif
 }
 
 // class Constraint | File: ../Physics/Constraint.h
-void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::GetDependencyNodes(PODVector<Node*>& dest)");
@@ -170,6 +178,10 @@ void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     // static void Constraint::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Constraint
+        REGISTER_MANUAL_PART_Constraint();
+    #endif
 }
 
 // void ConvexData::BuildHull(const PODVector<Vector3>& vertices)
@@ -184,9 +196,9 @@ static void ConvexData_BuildHull_PODVectorVector3(ConvexData* ptr, CScriptArray*
 
 
 // struct ConvexData | File: ../Physics/CollisionShape.h
-void CollectMembers_ConvexData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ConvexData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, staticFields);
+    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void ConvexData::BuildHull(const PODVector<Vector3>& vertices)", "void BuildHull(Array<Vector3>@+)", AS_FUNCTION_OBJFIRST(ConvexData_BuildHull_PODVectorVector3), AS_CALL_CDECL_OBJFIRST));
 
@@ -197,10 +209,14 @@ void CollectMembers_ConvexData(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     fields.Push(RegisterObjectPropertyArgs("unsigned ConvexData::vertexCount_", "uint vertexCount", offsetof(ConvexData, vertexCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned ConvexData::indexCount_", "uint indexCount", offsetof(ConvexData, indexCount_)));
+
+    #ifdef REGISTER_MANUAL_PART_ConvexData
+        REGISTER_MANUAL_PART_ConvexData();
+    #endif
 }
 
 // struct DelayedWorldTransform | File: ../Physics/PhysicsWorld.h
-void CollectMembers_DelayedWorldTransform(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DelayedWorldTransform(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // RigidBody* DelayedWorldTransform::rigidBody_
     // Not registered because pointer
@@ -209,21 +225,29 @@ void CollectMembers_DelayedWorldTransform(Vector<RegisterObjectMethodArgs>& meth
 
     fields.Push(RegisterObjectPropertyArgs("Vector3 DelayedWorldTransform::worldPosition_", "Vector3 worldPosition", offsetof(DelayedWorldTransform, worldPosition_)));
     fields.Push(RegisterObjectPropertyArgs("Quaternion DelayedWorldTransform::worldRotation_", "Quaternion worldRotation", offsetof(DelayedWorldTransform, worldRotation_)));
+
+    #ifdef REGISTER_MANUAL_PART_DelayedWorldTransform
+        REGISTER_MANUAL_PART_DelayedWorldTransform();
+    #endif
 }
 
 // struct GImpactMeshData | File: ../Physics/CollisionShape.h
-void CollectMembers_GImpactMeshData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_GImpactMeshData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, staticFields);
+    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // UniquePtr<TriangleMeshInterface> GImpactMeshData::meshInterface_
     // Error: type "UniquePtr<TriangleMeshInterface>" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_GImpactMeshData
+        REGISTER_MANUAL_PART_GImpactMeshData();
+    #endif
 }
 
 // struct HeightfieldData | File: ../Physics/CollisionShape.h
-void CollectMembers_HeightfieldData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_HeightfieldData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, staticFields);
+    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // SharedArrayPtr<float> HeightfieldData::heightData_
     // Error: type "SharedArrayPtr<float>" can not automatically bind
@@ -232,19 +256,27 @@ void CollectMembers_HeightfieldData(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("IntVector2 HeightfieldData::size_", "IntVector2 size", offsetof(HeightfieldData, size_)));
     fields.Push(RegisterObjectPropertyArgs("float HeightfieldData::minHeight_", "float minHeight", offsetof(HeightfieldData, minHeight_)));
     fields.Push(RegisterObjectPropertyArgs("float HeightfieldData::maxHeight_", "float maxHeight", offsetof(HeightfieldData, maxHeight_)));
+
+    #ifdef REGISTER_MANUAL_PART_HeightfieldData
+        REGISTER_MANUAL_PART_HeightfieldData();
+    #endif
 }
 
 // struct ManifoldPair | File: ../Physics/PhysicsWorld.h
-void CollectMembers_ManifoldPair(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ManifoldPair(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // btPersistentManifold* ManifoldPair::manifold_
     // Not registered because pointer
     // btPersistentManifold* ManifoldPair::flippedManifold_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_ManifoldPair
+        REGISTER_MANUAL_PART_ManifoldPair();
+    #endif
 }
 
 // struct PhysicsRaycastResult | File: ../Physics/PhysicsWorld.h
-void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool PhysicsRaycastResult::operator!=(const PhysicsRaycastResult& rhs) const
     // Only operator== is needed
@@ -256,12 +288,16 @@ void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& metho
     fields.Push(RegisterObjectPropertyArgs("Vector3 PhysicsRaycastResult::normal_", "Vector3 normal", offsetof(PhysicsRaycastResult, normal_)));
     fields.Push(RegisterObjectPropertyArgs("float PhysicsRaycastResult::distance_", "float distance", offsetof(PhysicsRaycastResult, distance_)));
     fields.Push(RegisterObjectPropertyArgs("float PhysicsRaycastResult::hitFraction_", "float hitFraction", offsetof(PhysicsRaycastResult, hitFraction_)));
+
+    #ifdef REGISTER_MANUAL_PART_PhysicsRaycastResult
+        REGISTER_MANUAL_PART_PhysicsRaycastResult();
+    #endif
 }
 
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
-void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
@@ -362,19 +398,27 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     // static struct PhysicsWorldConfig PhysicsWorld::config
     // Error: type "struct PhysicsWorldConfig" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_PhysicsWorld
+        REGISTER_MANUAL_PART_PhysicsWorld();
+    #endif
 }
 
 // struct PhysicsWorldConfig | File: ../Physics/PhysicsWorld.h
-void CollectMembers_PhysicsWorldConfig(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PhysicsWorldConfig(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // btCollisionConfiguration* PhysicsWorldConfig::collisionConfig_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_PhysicsWorldConfig
+        REGISTER_MANUAL_PART_PhysicsWorldConfig();
+    #endif
 }
 
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h
-void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_LogicComponent(methods, staticMethods, fields, staticFields);
+    CollectMembers_LogicComponent(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
 
@@ -460,12 +504,16 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Ve
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::UP_RIGHT_FORWARD", "const IntVector3 UP_RIGHT_FORWARD", (void*)&RaycastVehicle::UP_RIGHT_FORWARD));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::FORWARD_RIGHT_UP", "const IntVector3 FORWARD_RIGHT_UP", (void*)&RaycastVehicle::FORWARD_RIGHT_UP));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::FORWARD_UP_RIGHT", "const IntVector3 FORWARD_UP_RIGHT", (void*)&RaycastVehicle::FORWARD_UP_RIGHT));
+
+    #ifdef REGISTER_MANUAL_PART_RaycastVehicle
+        REGISTER_MANUAL_PART_RaycastVehicle();
+    #endif
 }
 
 // class RigidBody | File: ../Physics/RigidBody.h
-void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
@@ -615,12 +663,16 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     // static void RigidBody::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_RigidBody
+        REGISTER_MANUAL_PART_RigidBody();
+    #endif
 }
 
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h
-void CollectMembers_TriangleMeshData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_TriangleMeshData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, staticFields);
+    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // UniquePtr<TriangleMeshInterface> TriangleMeshData::meshInterface_
     // Error: type "UniquePtr<TriangleMeshInterface>" can not automatically bind
@@ -628,6 +680,10 @@ void CollectMembers_TriangleMeshData(Vector<RegisterObjectMethodArgs>& methods, 
     // Error: type "UniquePtr<btBvhTriangleMeshShape>" can not automatically bind
     // UniquePtr<btTriangleInfoMap> TriangleMeshData::infoMap_
     // Error: type "UniquePtr<btTriangleInfoMap>" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_TriangleMeshData
+        REGISTER_MANUAL_PART_TriangleMeshData();
+    #endif
 }
 
 #endif // def URHO3D_PHYSICS

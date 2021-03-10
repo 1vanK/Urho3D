@@ -11,9 +11,9 @@ namespace Urho3D
 {
 
 // class Console | File: ../Engine/Console.h
-void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void Console::SetDefaultStyle(XMLFile* style)", "void SetDefaultStyle(XMLFile@+)", AS_METHODPR(Console, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Console::SetDefaultStyle(XMLFile* style)", "void set_defaultStyle(XMLFile@+)", AS_METHODPR(Console, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
@@ -62,12 +62,16 @@ void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("const String& Console::GetHistoryRow(unsigned index) const", "const String& get_historyRow(uint) const", AS_METHODPR(Console, GetHistoryRow, (unsigned) const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Console::GetFocusOnShow() const", "bool GetFocusOnShow() const", AS_METHODPR(Console, GetFocusOnShow, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Console::GetFocusOnShow() const", "bool get_focusOnShow() const", AS_METHODPR(Console, GetFocusOnShow, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Console
+        REGISTER_MANUAL_PART_Console();
+    #endif
 }
 
 // class DebugHud | File: ../Engine/DebugHud.h
-void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void DebugHud::Update()", "void Update()", AS_METHODPR(DebugHud, Update, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DebugHud::SetDefaultStyle(XMLFile* style)", "void SetDefaultStyle(XMLFile@+)", AS_METHODPR(DebugHud, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
@@ -104,6 +108,10 @@ void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void DebugHud::SetAppStats(const String& label, const String& stats)", "void SetAppStats(const String&in, const String&in)", AS_METHODPR(DebugHud, SetAppStats, (const String&, const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool DebugHud::ResetAppStats(const String& label)", "bool ResetAppStats(const String&in)", AS_METHODPR(DebugHud, ResetAppStats, (const String&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DebugHud::ClearAppStats()", "void ClearAppStats()", AS_METHODPR(DebugHud, ClearAppStats, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_DebugHud
+        REGISTER_MANUAL_PART_DebugHud();
+    #endif
 }
 
 // static VariantMap Engine::ParseParameters(const Vector<String>& arguments)
@@ -117,9 +125,9 @@ static VariantMap Engine_ParseParameters_VectorString(CScriptArray* arguments_co
 
 
 // class Engine | File: ../Engine/Engine.h
-void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("bool Engine::Initialize(const VariantMap& parameters)", "bool Initialize(const VariantMap&in)", AS_METHODPR(Engine, Initialize, (const VariantMap&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Engine::InitializeResourceCache(const VariantMap& parameters, bool removeOld=true)", "bool InitializeResourceCache(const VariantMap&in, bool = true)", AS_METHODPR(Engine, InitializeResourceCache, (const VariantMap&, bool), bool), AS_CALL_THISCALL));
@@ -169,6 +177,10 @@ void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     staticMethods.Push(RegisterGlobalFunctionArgs("static VariantMap Engine::ParseParameters(const Vector<String>& arguments)", "VariantMap ParseParameters(Array<String>@+)", AS_FUNCTION(Engine_ParseParameters_VectorString), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool Engine::HasParameter(const VariantMap& parameters, const String& parameter)", "bool HasParameter(const VariantMap&in, const String&in)", AS_FUNCTIONPR(Engine::HasParameter, (const VariantMap&, const String&), bool), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static const Variant& Engine::GetParameter(const VariantMap& parameters, const String& parameter, const Variant& defaultValue=Variant::EMPTY)", "const Variant& GetParameter(const VariantMap&in, const String&in, const Variant&in = Variant::EMPTY)", AS_FUNCTIONPR(Engine::GetParameter, (const VariantMap&, const String&, const Variant&), const Variant&), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Engine
+        REGISTER_MANUAL_PART_Engine();
+    #endif
 }
 
 } // namespace Urho3D

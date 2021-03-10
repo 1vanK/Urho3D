@@ -13,9 +13,9 @@ namespace Urho3D
 #ifdef URHO3D_NAVIGATION
 
 // class CrowdAgent | File: ../Navigation/CrowdAgent.h
-void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
@@ -94,6 +94,10 @@ void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     // static void CrowdAgent::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_CrowdAgent
+        REGISTER_MANUAL_PART_CrowdAgent();
+    #endif
 }
 
 // PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node=nullptr, bool inCrowdFilter=true) const
@@ -108,9 +112,9 @@ static CScriptArray* CrowdManager_GetAgents_Node_bool(CrowdManager* ptr, Node* n
 
 
 // class CrowdManager | File: ../Navigation/CrowdManager.h
-void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
@@ -175,10 +179,14 @@ void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     // static void CrowdManager::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_CrowdManager
+        REGISTER_MANUAL_PART_CrowdManager();
+    #endif
 }
 
 // struct CrowdObstacleAvoidanceParams | File: ../Navigation/CrowdManager.h
-void CollectMembers_CrowdObstacleAvoidanceParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CrowdObstacleAvoidanceParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("float CrowdObstacleAvoidanceParams::velBias", "float velBias", offsetof(CrowdObstacleAvoidanceParams, velBias)));
     fields.Push(RegisterObjectPropertyArgs("float CrowdObstacleAvoidanceParams::weightDesVel", "float weightDesVel", offsetof(CrowdObstacleAvoidanceParams, weightDesVel)));
@@ -190,10 +198,14 @@ void CollectMembers_CrowdObstacleAvoidanceParams(Vector<RegisterObjectMethodArgs
     fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::adaptiveDivs", "uint8 adaptiveDivs", offsetof(CrowdObstacleAvoidanceParams, adaptiveDivs)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::adaptiveRings", "uint8 adaptiveRings", offsetof(CrowdObstacleAvoidanceParams, adaptiveRings)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char CrowdObstacleAvoidanceParams::adaptiveDepth", "uint8 adaptiveDepth", offsetof(CrowdObstacleAvoidanceParams, adaptiveDepth)));
+
+    #ifdef REGISTER_MANUAL_PART_CrowdObstacleAvoidanceParams
+        REGISTER_MANUAL_PART_CrowdObstacleAvoidanceParams();
+    #endif
 }
 
 // struct DynamicNavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // dtTileCacheContourSet* DynamicNavBuildData::contourSet_
     // Not registered because pointer
@@ -203,12 +215,16 @@ void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& method
     // Not registered because pointer
     // dtTileCacheAlloc* DynamicNavBuildData::alloc_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_DynamicNavBuildData
+        REGISTER_MANUAL_PART_DynamicNavBuildData();
+    #endif
 }
 
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
-void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_NavigationMesh(methods, staticMethods, fields, staticFields);
+    CollectMembers_NavigationMesh(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const");
     Remove(methods, "virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const");
@@ -258,12 +274,16 @@ void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& meth
 
     // static void DynamicNavigationMesh::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_DynamicNavigationMesh
+        REGISTER_MANUAL_PART_DynamicNavigationMesh();
+    #endif
 }
 
 // class NavArea | File: ../Navigation/NavArea.h
-void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
@@ -283,17 +303,25 @@ void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     // static void NavArea::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_NavArea
+        REGISTER_MANUAL_PART_NavArea();
+    #endif
 }
 
 // struct NavAreaStub | File: ../Navigation/NavBuildData.h
-void CollectMembers_NavAreaStub(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NavAreaStub(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("BoundingBox NavAreaStub::bounds_", "BoundingBox bounds", offsetof(NavAreaStub, bounds_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char NavAreaStub::areaID_", "uint8 areaID", offsetof(NavAreaStub, areaID_)));
+
+    #ifdef REGISTER_MANUAL_PART_NavAreaStub
+        REGISTER_MANUAL_PART_NavAreaStub();
+    #endif
 }
 
 // struct NavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // PODVector<Vector3> NavBuildData::vertices_
     // Error: type "PODVector<Vector3>" can not automatically bind
@@ -319,12 +347,16 @@ void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vect
     // Error: type "PODVector<NavAreaStub>" can not automatically bind
 
     fields.Push(RegisterObjectPropertyArgs("BoundingBox NavBuildData::worldBoundingBox_", "BoundingBox worldBoundingBox", offsetof(NavBuildData, worldBoundingBox_)));
+
+    #ifdef REGISTER_MANUAL_PART_NavBuildData
+        REGISTER_MANUAL_PART_NavBuildData();
+    #endif
 }
 
 // class Navigable | File: ../Navigation/Navigable.h
-void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -335,10 +367,14 @@ void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     // static void Navigable::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Navigable
+        REGISTER_MANUAL_PART_Navigable();
+    #endif
 }
 
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // Component* NavigationGeometryInfo::component_
     // Not registered because pointer
@@ -346,12 +382,16 @@ void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& met
     fields.Push(RegisterObjectPropertyArgs("unsigned NavigationGeometryInfo::lodLevel_", "uint lodLevel", offsetof(NavigationGeometryInfo, lodLevel_)));
     fields.Push(RegisterObjectPropertyArgs("Matrix3x4 NavigationGeometryInfo::transform_", "Matrix3x4 transform", offsetof(NavigationGeometryInfo, transform_)));
     fields.Push(RegisterObjectPropertyArgs("BoundingBox NavigationGeometryInfo::boundingBox_", "BoundingBox boundingBox", offsetof(NavigationGeometryInfo, boundingBox_)));
+
+    #ifdef REGISTER_MANUAL_PART_NavigationGeometryInfo
+        REGISTER_MANUAL_PART_NavigationGeometryInfo();
+    #endif
 }
 
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
@@ -476,20 +516,28 @@ void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     // static void NavigationMesh::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_NavigationMesh
+        REGISTER_MANUAL_PART_NavigationMesh();
+    #endif
 }
 
 // struct NavigationPathPoint | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationPathPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NavigationPathPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Vector3 NavigationPathPoint::position_", "Vector3 position", offsetof(NavigationPathPoint, position_)));
     fields.Push(RegisterObjectPropertyArgs("NavigationPathPointFlag NavigationPathPoint::flag_", "NavigationPathPointFlag flag", offsetof(NavigationPathPoint, flag_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char NavigationPathPoint::areaID_", "uint8 areaID", offsetof(NavigationPathPoint, areaID_)));
+
+    #ifdef REGISTER_MANUAL_PART_NavigationPathPoint
+        REGISTER_MANUAL_PART_NavigationPathPoint();
+    #endif
 }
 
 // class Obstacle | File: ../Navigation/Obstacle.h
-void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
@@ -512,12 +560,16 @@ void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     // static void Obstacle::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Obstacle
+        REGISTER_MANUAL_PART_Obstacle();
+    #endif
 }
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
-void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
@@ -549,12 +601,16 @@ void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods,
 
     // static void OffMeshConnection::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_OffMeshConnection
+        REGISTER_MANUAL_PART_OffMeshConnection();
+    #endif
 }
 
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_NavBuildData(methods, staticMethods, fields, staticFields);
+    CollectMembers_NavBuildData(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // rcContourSet* SimpleNavBuildData::contourSet_
     // Not registered because pointer
@@ -562,6 +618,10 @@ void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods
     // Not registered because pointer
     // rcPolyMeshDetail* SimpleNavBuildData::polyMeshDetail_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_SimpleNavBuildData
+        REGISTER_MANUAL_PART_SimpleNavBuildData();
+    #endif
 }
 
 #endif // def URHO3D_NAVIGATION

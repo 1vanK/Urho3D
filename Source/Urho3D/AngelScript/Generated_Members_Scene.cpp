@@ -11,9 +11,9 @@ namespace Urho3D
 {
 
 // class Animatable | File: ../Scene/Animatable.h
-void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Serializable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Serializable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Serializable::LoadJSON(const JSONValue& source)");
     Remove(methods, "virtual bool Serializable::LoadXML(const XMLElement& source)");
@@ -48,10 +48,14 @@ void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     // static void Animatable::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Animatable
+        REGISTER_MANUAL_PART_Animatable();
+    #endif
 }
 
 // struct AsyncProgress | File: ../Scene/Scene.h
-void CollectMembers_AsyncProgress(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AsyncProgress(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedPtr<File> AsyncProgress::file_
     // Error: type "SharedPtr<File>" can not automatically bind
@@ -69,20 +73,28 @@ void CollectMembers_AsyncProgress(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::totalResources_", "uint totalResources", offsetof(AsyncProgress, totalResources_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::loadedNodes_", "uint loadedNodes", offsetof(AsyncProgress, loadedNodes_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::totalNodes_", "uint totalNodes", offsetof(AsyncProgress, totalNodes_)));
+
+    #ifdef REGISTER_MANUAL_PART_AsyncProgress
+        REGISTER_MANUAL_PART_AsyncProgress();
+    #endif
 }
 
 // class AttributeAnimationInfo | File: ../Scene/Animatable.h
-void CollectMembers_AttributeAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AttributeAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ValueAnimationInfo(methods, staticMethods, fields, staticFields);
+    CollectMembers_ValueAnimationInfo(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("const AttributeInfo& AttributeAnimationInfo::GetAttributeInfo() const", "const AttributeInfo& GetAttributeInfo() const", AS_METHODPR(AttributeAnimationInfo, GetAttributeInfo, () const, const AttributeInfo&), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_AttributeAnimationInfo
+        REGISTER_MANUAL_PART_AttributeAnimationInfo();
+    #endif
 }
 
 // class Component | File: ../Scene/Component.h
-void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Animatable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Animatable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool Animatable::SaveJSON(JSONValue& dest) const override");
     Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
@@ -118,12 +130,16 @@ void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("bool Component::IsEnabledEffective() const", "bool get_enabledEffective() const", AS_METHODPR(Component, IsEnabledEffective, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Component* Component::GetComponent(StringHash type) const", "Component@+ GetComponent(StringHash) const", AS_METHODPR(Component, GetComponent, (StringHash) const, Component*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Component::PrepareNetworkUpdate()", "void PrepareNetworkUpdate()", AS_METHODPR(Component, PrepareNetworkUpdate, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Component
+        REGISTER_MANUAL_PART_Component();
+    #endif
 }
 
 // struct ComponentReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ReplicationState(methods, staticMethods, fields, staticFields);
+    CollectMembers_ReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // NodeReplicationState* ComponentReplicationState::nodeState_
     // Not registered because pointer
@@ -131,10 +147,14 @@ void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& 
     // Error: type "WeakPtr<Component>" can not automatically bind
 
     fields.Push(RegisterObjectPropertyArgs("DirtyBits ComponentReplicationState::dirtyAttributes_", "DirtyBits dirtyAttributes", offsetof(ComponentReplicationState, dirtyAttributes_)));
+
+    #ifdef REGISTER_MANUAL_PART_ComponentReplicationState
+        REGISTER_MANUAL_PART_ComponentReplicationState();
+    #endif
 }
 
 // struct DirtyBits | File: ../Scene/ReplicationState.h
-void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void DirtyBits::Set(unsigned index)", "void Set(uint)", AS_METHODPR(DirtyBits, Set, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DirtyBits::Clear(unsigned index)", "void Clear(uint)", AS_METHODPR(DirtyBits, Clear, (unsigned), void), AS_CALL_THISCALL));
@@ -146,18 +166,26 @@ void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods, Vector<
     // Not registered because array
 
     fields.Push(RegisterObjectPropertyArgs("unsigned char DirtyBits::count_", "uint8 count", offsetof(DirtyBits, count_)));
+
+    #ifdef REGISTER_MANUAL_PART_DirtyBits
+        REGISTER_MANUAL_PART_DirtyBits();
+    #endif
 }
 
 // class LogicComponent | File: ../Scene/LogicComponent.h
-void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
+
+    #ifdef REGISTER_MANUAL_PART_LogicComponent
+        REGISTER_MANUAL_PART_LogicComponent();
+    #endif
 }
 
 // struct NetworkState | File: ../Scene/ReplicationState.h
-void CollectMembers_NetworkState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NetworkState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const Vector<AttributeInfo>* NetworkState::attributes_
     // Not registered because pointer
@@ -170,6 +198,10 @@ void CollectMembers_NetworkState(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     fields.Push(RegisterObjectPropertyArgs("VariantMap NetworkState::previousVars_", "VariantMap previousVars", offsetof(NetworkState, previousVars_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned long long NetworkState::interceptMask_", "uint64 interceptMask", offsetof(NetworkState, interceptMask_)));
+
+    #ifdef REGISTER_MANUAL_PART_NetworkState
+        REGISTER_MANUAL_PART_NetworkState();
+    #endif
 }
 
 // void Node::SetTags(const StringVector& tags)
@@ -254,9 +286,9 @@ static CScriptArray* Node_GetDependencyNodes_void(Node* ptr)
 
 
 // class Node | File: ../Scene/Node.h
-void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Animatable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Animatable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
@@ -510,10 +542,14 @@ void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
 
     // static void Node::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Node
+        REGISTER_MANUAL_PART_Node();
+    #endif
 }
 
 // struct NodeImpl | File: ../Scene/Node.h
-void CollectMembers_NodeImpl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NodeImpl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // PODVector<Node*> NodeImpl::dependencyNodes_
     // Error: type "PODVector<Node*>" can not automatically bind
@@ -525,12 +561,16 @@ void CollectMembers_NodeImpl(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     fields.Push(RegisterObjectPropertyArgs("String NodeImpl::name_", "String name", offsetof(NodeImpl, name_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash NodeImpl::nameHash_", "StringHash nameHash", offsetof(NodeImpl, nameHash_)));
     fields.Push(RegisterObjectPropertyArgs("VectorBuffer NodeImpl::attrBuffer_", "VectorBuffer attrBuffer", offsetof(NodeImpl, attrBuffer_)));
+
+    #ifdef REGISTER_MANUAL_PART_NodeImpl
+        REGISTER_MANUAL_PART_NodeImpl();
+    #endif
 }
 
 // struct NodeReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_NodeReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NodeReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ReplicationState(methods, staticMethods, fields, staticFields);
+    CollectMembers_ReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // SceneReplicationState* NodeReplicationState::sceneState_
     // Not registered because pointer
@@ -544,12 +584,16 @@ void CollectMembers_NodeReplicationState(Vector<RegisterObjectMethodArgs>& metho
     fields.Push(RegisterObjectPropertyArgs("DirtyBits NodeReplicationState::dirtyAttributes_", "DirtyBits dirtyAttributes", offsetof(NodeReplicationState, dirtyAttributes_)));
     fields.Push(RegisterObjectPropertyArgs("float NodeReplicationState::priorityAcc_", "float priorityAcc", offsetof(NodeReplicationState, priorityAcc_)));
     fields.Push(RegisterObjectPropertyArgs("bool NodeReplicationState::markedDirty_", "bool markedDirty", offsetof(NodeReplicationState, markedDirty_)));
+
+    #ifdef REGISTER_MANUAL_PART_NodeReplicationState
+        REGISTER_MANUAL_PART_NodeReplicationState();
+    #endif
 }
 
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
-void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Resource(methods, staticMethods, fields, staticFields);
+    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
@@ -576,13 +620,21 @@ void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods, V
 
     // static void ObjectAnimation::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ObjectAnimation
+        REGISTER_MANUAL_PART_ObjectAnimation();
+    #endif
 }
 
 // struct ReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_ReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // Connection* ReplicationState::connection_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_ReplicationState
+        REGISTER_MANUAL_PART_ReplicationState();
+    #endif
 }
 
 // const Vector<SharedPtr<PackageFile>>& Scene::GetRequiredPackageFiles() const
@@ -595,9 +647,9 @@ static CScriptArray* Scene_GetRequiredPackageFiles_void(Scene* ptr)
 
 
 // class Scene | File: ../Scene/Scene.h
-void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Node(methods, staticMethods, fields, staticFields);
+    CollectMembers_Node(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "Component* Node::GetComponent(StringHash type, bool recursive=false) const");
     Remove(methods, "bool Node::Load(Deserializer& source) override");
@@ -712,12 +764,16 @@ void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     // Not registered because have @nobind mark
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool Scene::IsReplicatedID(unsigned id)", "bool IsReplicatedID(uint)", AS_FUNCTIONPR(Scene::IsReplicatedID, (unsigned), bool), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Scene
+        REGISTER_MANUAL_PART_Scene();
+    #endif
 }
 
 // struct SceneReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_SceneReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SceneReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ReplicationState(methods, staticMethods, fields, staticFields);
+    CollectMembers_ReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void SceneReplicationState::Clear()", "void Clear()", AS_METHODPR(SceneReplicationState, Clear, (), void), AS_CALL_THISCALL));
 
@@ -725,21 +781,29 @@ void CollectMembers_SceneReplicationState(Vector<RegisterObjectMethodArgs>& meth
     // Error: type "HashMap<unsigned, NodeReplicationState>" can not automatically bind
     // HashSet<unsigned> SceneReplicationState::dirtyNodes_
     // Error: type "HashSet<unsigned>" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_SceneReplicationState
+        REGISTER_MANUAL_PART_SceneReplicationState();
+    #endif
 }
 
 // class SceneResolver | File: ../Scene/SceneResolver.h
-void CollectMembers_SceneResolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SceneResolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::Reset()", "void Reset()", AS_METHODPR(SceneResolver, Reset, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::AddNode(unsigned oldID, Node* node)", "void AddNode(uint, Node@+)", AS_METHODPR(SceneResolver, AddNode, (unsigned, Node*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::AddComponent(unsigned oldID, Component* component)", "void AddComponent(uint, Component@+)", AS_METHODPR(SceneResolver, AddComponent, (unsigned, Component*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void SceneResolver::Resolve()", "void Resolve()", AS_METHODPR(SceneResolver, Resolve, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_SceneResolver
+        REGISTER_MANUAL_PART_SceneResolver();
+    #endif
 }
 
 // class Serializable | File: ../Scene/Serializable.h
-void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const
     // Error: type "const Vector<AttributeInfo>*" can not automatically bind
@@ -786,12 +850,16 @@ void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("bool Serializable::IsTemporary() const", "bool IsTemporary() const", AS_METHODPR(Serializable, IsTemporary, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Serializable::IsTemporary() const", "bool get_temporary() const", AS_METHODPR(Serializable, IsTemporary, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Serializable::GetInterceptNetworkUpdate(const String& attributeName) const", "bool GetInterceptNetworkUpdate(const String&in) const", AS_METHODPR(Serializable, GetInterceptNetworkUpdate, (const String&) const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Serializable
+        REGISTER_MANUAL_PART_Serializable();
+    #endif
 }
 
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
-void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -817,12 +885,16 @@ void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods,
 
     // static void SmoothedTransform::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_SmoothedTransform
+        REGISTER_MANUAL_PART_SmoothedTransform();
+    #endif
 }
 
 // class SplinePath | File: ../Scene/SplinePath.h
-void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
@@ -865,6 +937,10 @@ void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     // static void SplinePath::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_SplinePath
+        REGISTER_MANUAL_PART_SplinePath();
+    #endif
 }
 
 // const Vector<String>& UnknownComponent::GetXMLAttributes() const
@@ -877,9 +953,9 @@ static CScriptArray* UnknownComponent_GetXMLAttributes_void(UnknownComponent* pt
 
 
 // class UnknownComponent | File: ../Scene/UnknownComponent.h
-void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
@@ -919,27 +995,39 @@ void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods, 
     // Error: type "Urho3D::StringHash" can not automatically bind
     // static const Urho3D::String& UnknownComponent::GetTypeNameStatic()
     // Error: type "const Urho3D::String&" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_UnknownComponent
+        REGISTER_MANUAL_PART_UnknownComponent();
+    #endif
 }
 
 // struct VAnimEventFrame | File: ../Scene/ValueAnimation.h
-void CollectMembers_VAnimEventFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_VAnimEventFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("float VAnimEventFrame::time_", "float time", offsetof(VAnimEventFrame, time_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash VAnimEventFrame::eventType_", "StringHash eventType", offsetof(VAnimEventFrame, eventType_)));
     fields.Push(RegisterObjectPropertyArgs("VariantMap VAnimEventFrame::eventData_", "VariantMap eventData", offsetof(VAnimEventFrame, eventData_)));
+
+    #ifdef REGISTER_MANUAL_PART_VAnimEventFrame
+        REGISTER_MANUAL_PART_VAnimEventFrame();
+    #endif
 }
 
 // struct VAnimKeyFrame | File: ../Scene/ValueAnimation.h
-void CollectMembers_VAnimKeyFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_VAnimKeyFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("float VAnimKeyFrame::time_", "float time", offsetof(VAnimKeyFrame, time_)));
     fields.Push(RegisterObjectPropertyArgs("Variant VAnimKeyFrame::value_", "Variant value", offsetof(VAnimKeyFrame, value_)));
+
+    #ifdef REGISTER_MANUAL_PART_VAnimKeyFrame
+        REGISTER_MANUAL_PART_VAnimKeyFrame();
+    #endif
 }
 
 // class ValueAnimation | File: ../Scene/ValueAnimation.h
-void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Resource(methods, staticMethods, fields, staticFields);
+    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
@@ -981,12 +1069,16 @@ void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     // static void ValueAnimation::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ValueAnimation
+        REGISTER_MANUAL_PART_ValueAnimation();
+    #endif
 }
 
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h
-void CollectMembers_ValueAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ValueAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("bool ValueAnimationInfo::Update(float timeStep)", "bool Update(float)", AS_METHODPR(ValueAnimationInfo, Update, (float), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ValueAnimationInfo::SetTime(float time)", "bool SetTime(float)", AS_METHODPR(ValueAnimationInfo, SetTime, (float), bool), AS_CALL_THISCALL));
@@ -997,6 +1089,10 @@ void CollectMembers_ValueAnimationInfo(Vector<RegisterObjectMethodArgs>& methods
     methods.Push(RegisterObjectMethodArgs("WrapMode ValueAnimationInfo::GetWrapMode() const", "WrapMode GetWrapMode() const", AS_METHODPR(ValueAnimationInfo, GetWrapMode, () const, WrapMode), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float ValueAnimationInfo::GetTime() const", "float GetTime() const", AS_METHODPR(ValueAnimationInfo, GetTime, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float ValueAnimationInfo::GetSpeed() const", "float GetSpeed() const", AS_METHODPR(ValueAnimationInfo, GetSpeed, () const, float), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_ValueAnimationInfo
+        REGISTER_MANUAL_PART_ValueAnimationInfo();
+    #endif
 }
 
 } // namespace Urho3D

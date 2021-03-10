@@ -11,9 +11,9 @@ namespace Urho3D
 {
 
 // class BorderImage | File: ../UI/BorderImage.h
-void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_UIElement(methods, staticMethods, fields, staticFields);
+    CollectMembers_UIElement(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
 
@@ -68,12 +68,16 @@ void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     // static void BorderImage::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_BorderImage
+        REGISTER_MANUAL_PART_BorderImage();
+    #endif
 }
 
 // class Button | File: ../UI/Button.h
-void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BorderImage(methods, staticMethods, fields, staticFields);
+    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
@@ -116,19 +120,27 @@ void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Button::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Button
+        REGISTER_MANUAL_PART_Button();
+    #endif
 }
 
 // struct CharLocation | File: ../UI/Text.h
-void CollectMembers_CharLocation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CharLocation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Vector2 CharLocation::position_", "Vector2 position", offsetof(CharLocation, position_)));
     fields.Push(RegisterObjectPropertyArgs("Vector2 CharLocation::size_", "Vector2 size", offsetof(CharLocation, size_)));
+
+    #ifdef REGISTER_MANUAL_PART_CharLocation
+        REGISTER_MANUAL_PART_CharLocation();
+    #endif
 }
 
 // class CheckBox | File: ../UI/CheckBox.h
-void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BorderImage(methods, staticMethods, fields, staticFields);
+    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
@@ -153,12 +165,16 @@ void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     // static void CheckBox::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_CheckBox
+        REGISTER_MANUAL_PART_CheckBox();
+    #endif
 }
 
 // class Cursor | File: ../UI/Cursor.h
-void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BorderImage(methods, staticMethods, fields, staticFields);
+    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "void BorderImage::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor) override");
 
@@ -186,10 +202,14 @@ void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Cursor::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Cursor
+        REGISTER_MANUAL_PART_Cursor();
+    #endif
 }
 
 // struct CursorShapeInfo | File: ../UI/Cursor.h
-void CollectMembers_CursorShapeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CursorShapeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedPtr<Image> CursorShapeInfo::image_
     // Error: type "SharedPtr<Image>" can not automatically bind
@@ -202,6 +222,10 @@ void CollectMembers_CursorShapeInfo(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("IntVector2 CursorShapeInfo::hotSpot_", "IntVector2 hotSpot", offsetof(CursorShapeInfo, hotSpot_)));
     fields.Push(RegisterObjectPropertyArgs("bool CursorShapeInfo::systemDefined_", "bool systemDefined", offsetof(CursorShapeInfo, systemDefined_)));
     fields.Push(RegisterObjectPropertyArgs("int CursorShapeInfo::systemCursor_", "int systemCursor", offsetof(CursorShapeInfo, systemCursor_)));
+
+    #ifdef REGISTER_MANUAL_PART_CursorShapeInfo
+        REGISTER_MANUAL_PART_CursorShapeInfo();
+    #endif
 }
 
 // PODVector<UIElement*> DropDownList::GetItems() const
@@ -214,9 +238,9 @@ static CScriptArray* DropDownList_GetItems_void(DropDownList* ptr)
 
 
 // class DropDownList | File: ../UI/DropDownList.h
-void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Menu(methods, staticMethods, fields, staticFields);
+    CollectMembers_Menu(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Menu::OnHidePopup()");
     Remove(methods, "virtual void Menu::OnShowPopup()");
@@ -265,6 +289,10 @@ void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     // static void DropDownList::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_DropDownList
+        REGISTER_MANUAL_PART_DropDownList();
+    #endif
 }
 
 // void FileSelector::SetFilters(const Vector<String>& filters, unsigned defaultIndex)
@@ -277,9 +305,9 @@ static void FileSelector_SetFilters_VectorString_unsigned(FileSelector* ptr, CSc
 
 
 // class FileSelector | File: ../UI/FileSelector.h
-void CollectMembers_FileSelector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FileSelector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void FileSelector::SetDefaultStyle(XMLFile* style)", "void SetDefaultStyle(XMLFile@+)", AS_METHODPR(FileSelector, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void FileSelector::SetDefaultStyle(XMLFile* style)", "void set_defaultStyle(XMLFile@+)", AS_METHODPR(FileSelector, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
@@ -328,19 +356,27 @@ void CollectMembers_FileSelector(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     // static void FileSelector::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_FileSelector
+        REGISTER_MANUAL_PART_FileSelector();
+    #endif
 }
 
 // struct FileSelectorEntry | File: ../UI/FileSelector.h
-void CollectMembers_FileSelectorEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FileSelectorEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("String FileSelectorEntry::name_", "String name", offsetof(FileSelectorEntry, name_)));
     fields.Push(RegisterObjectPropertyArgs("bool FileSelectorEntry::directory_", "bool directory", offsetof(FileSelectorEntry, directory_)));
+
+    #ifdef REGISTER_MANUAL_PART_FileSelectorEntry
+        REGISTER_MANUAL_PART_FileSelectorEntry();
+    #endif
 }
 
 // class Font | File: ../UI/Font.h
-void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Resource(methods, staticMethods, fields, staticFields);
+    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
@@ -363,6 +399,10 @@ void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
 
     // static void Font::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Font
+        REGISTER_MANUAL_PART_Font();
+    #endif
 }
 
 // const Vector<SharedPtr<Texture2D>>& FontFace::GetTextures() const
@@ -375,9 +415,9 @@ static CScriptArray* FontFace_GetTextures_void(FontFace* ptr)
 
 
 // class FontFace | File: ../UI/FontFace.h
-void CollectMembers_FontFace(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FontFace(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // virtual const FontGlyph* FontFace::GetGlyph(unsigned c)
     // Error: type "const FontGlyph*" can not automatically bind
@@ -390,12 +430,16 @@ void CollectMembers_FontFace(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("float FontFace::GetPointSize() const", "float GetPointSize() const", AS_METHODPR(FontFace, GetPointSize, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float FontFace::GetRowHeight() const", "float GetRowHeight() const", AS_METHODPR(FontFace, GetRowHeight, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Vector<SharedPtr<Texture2D>>& FontFace::GetTextures() const", "Array<Texture2D@>@ GetTextures() const", AS_FUNCTION_OBJFIRST(FontFace_GetTextures_void), AS_CALL_CDECL_OBJFIRST));
+
+    #ifdef REGISTER_MANUAL_PART_FontFace
+        REGISTER_MANUAL_PART_FontFace();
+    #endif
 }
 
 // class FontFaceBitmap | File: ../UI/FontFaceBitmap.h
-void CollectMembers_FontFaceBitmap(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FontFaceBitmap(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_FontFace(methods, staticMethods, fields, staticFields);
+    CollectMembers_FontFace(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
 
@@ -404,12 +448,16 @@ void CollectMembers_FontFaceBitmap(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     methods.Push(RegisterObjectMethodArgs("bool FontFaceBitmap::Load(FontFace* fontFace, bool usedGlyphs)", "bool Load(FontFace@+, bool)", AS_METHODPR(FontFaceBitmap, Load, (FontFace*, bool), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool FontFaceBitmap::Save(Serializer& dest, int pointSize, const String& indentation=\"\t\")", "bool Save(Serializer&, int, const String&in = \"\t\")", AS_METHODPR(FontFaceBitmap, Save, (Serializer&, int, const String&), bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_FontFaceBitmap
+        REGISTER_MANUAL_PART_FontFaceBitmap();
+    #endif
 }
 
 // class FontFaceFreeType | File: ../UI/FontFaceFreeType.h
-void CollectMembers_FontFaceFreeType(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FontFaceFreeType(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_FontFace(methods, staticMethods, fields, staticFields);
+    CollectMembers_FontFace(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool FontFace::HasMutableGlyphs() const");
     Remove(methods, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
@@ -421,10 +469,14 @@ void CollectMembers_FontFaceFreeType(Vector<RegisterObjectMethodArgs>& methods, 
     // Error: type "const unsigned char*" can not automatically bind
 
     methods.Push(RegisterObjectMethodArgs("bool FontFaceFreeType::HasMutableGlyphs() const override", "bool HasMutableGlyphs() const", AS_METHODPR(FontFaceFreeType, HasMutableGlyphs, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_FontFaceFreeType
+        REGISTER_MANUAL_PART_FontFaceFreeType();
+    #endif
 }
 
 // struct FontGlyph | File: ../UI/FontFace.h
-void CollectMembers_FontGlyph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FontGlyph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("short FontGlyph::x_", "int16 x", offsetof(FontGlyph, x_)));
     fields.Push(RegisterObjectPropertyArgs("short FontGlyph::y_", "int16 y", offsetof(FontGlyph, y_)));
@@ -437,22 +489,30 @@ void CollectMembers_FontGlyph(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("float FontGlyph::advanceX_", "float advanceX", offsetof(FontGlyph, advanceX_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned FontGlyph::page_", "uint page", offsetof(FontGlyph, page_)));
     fields.Push(RegisterObjectPropertyArgs("bool FontGlyph::used_", "bool used", offsetof(FontGlyph, used_)));
+
+    #ifdef REGISTER_MANUAL_PART_FontGlyph
+        REGISTER_MANUAL_PART_FontGlyph();
+    #endif
 }
 
 // struct GlyphLocation | File: ../UI/Text.h
-void CollectMembers_GlyphLocation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_GlyphLocation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const FontGlyph* GlyphLocation::glyph_
     // Not registered because pointer
 
     fields.Push(RegisterObjectPropertyArgs("float GlyphLocation::x_", "float x", offsetof(GlyphLocation, x_)));
     fields.Push(RegisterObjectPropertyArgs("float GlyphLocation::y_", "float y", offsetof(GlyphLocation, y_)));
+
+    #ifdef REGISTER_MANUAL_PART_GlyphLocation
+        REGISTER_MANUAL_PART_GlyphLocation();
+    #endif
 }
 
 // class LineEdit | File: ../UI/LineEdit.h
-void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BorderImage(methods, staticMethods, fields, staticFields);
+    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool UIElement::OnDragDropFinish(UIElement* source)");
     Remove(methods, "virtual bool UIElement::OnDragDropTest(UIElement* source)");
@@ -516,6 +576,10 @@ void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     // static void LineEdit::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_LineEdit
+        REGISTER_MANUAL_PART_LineEdit();
+    #endif
 }
 
 // void ListView::SetSelections(const PODVector<unsigned>& indices)
@@ -555,9 +619,9 @@ static CScriptArray* ListView_GetSelectedItems_void(ListView* ptr)
 
 
 // class ListView | File: ../UI/ListView.h
-void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ScrollView(methods, staticMethods, fields, staticFields);
+    CollectMembers_ScrollView(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool UIElement::IsSelected() const");
     Remove(methods, "void ScrollView::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers) override");
@@ -631,12 +695,16 @@ void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     // static void ListView::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ListView
+        REGISTER_MANUAL_PART_ListView();
+    #endif
 }
 
 // class Menu | File: ../UI/Menu.h
-void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Button(methods, staticMethods, fields, staticFields);
+    CollectMembers_Button(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool UIElement::LoadXML(Deserializer& source)");
     Remove(methods, "bool UIElement::LoadXML(const XMLElement& source) override");
@@ -675,12 +743,16 @@ void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
 
     // static void Menu::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Menu
+        REGISTER_MANUAL_PART_Menu();
+    #endif
 }
 
 // class MessageBox | File: ../UI/MessageBox.h
-void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void MessageBox::SetTitle(const String& text)", "void SetTitle(const String&in)", AS_METHODPR(MessageBox, SetTitle, (const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void MessageBox::SetTitle(const String& text)", "void set_title(const String&in)", AS_METHODPR(MessageBox, SetTitle, (const String&), void), AS_CALL_THISCALL));
@@ -695,12 +767,16 @@ void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     // static void MessageBox::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_MessageBox
+        REGISTER_MANUAL_PART_MessageBox();
+    #endif
 }
 
 // class ProgressBar | File: ../UI/ProgressBar.h
-void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BorderImage(methods, staticMethods, fields, staticFields);
+    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
 
@@ -731,12 +807,16 @@ void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     // static void ProgressBar::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ProgressBar
+        REGISTER_MANUAL_PART_ProgressBar();
+    #endif
 }
 
 // class ScrollBar | File: ../UI/ScrollBar.h
-void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BorderImage(methods, staticMethods, fields, staticFields);
+    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
     Remove(methods, "virtual void UIElement::OnSetEditable()");
@@ -781,12 +861,16 @@ void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     // static void ScrollBar::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ScrollBar
+        REGISTER_MANUAL_PART_ScrollBar();
+    #endif
 }
 
 // class ScrollView | File: ../UI/ScrollView.h
-void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_UIElement(methods, staticMethods, fields, staticFields);
+    CollectMembers_UIElement(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool UIElement::IsWheelHandler() const");
     Remove(methods, "virtual void UIElement::OnKey(Key key, MouseButtonFlags buttons, QualifierFlags qualifiers)");
@@ -859,12 +943,16 @@ void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     // static void ScrollView::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ScrollView
+        REGISTER_MANUAL_PART_ScrollView();
+    #endif
 }
 
 // class Slider | File: ../UI/Slider.h
-void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BorderImage(methods, staticMethods, fields, staticFields);
+    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnClickBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnClickEnd(const IntVector2& position, const IntVector2& screenPosition, MouseButton button, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor, UIElement* beginElement)");
@@ -907,12 +995,16 @@ void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Slider::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Slider
+        REGISTER_MANUAL_PART_Slider();
+    #endif
 }
 
 // class Sprite | File: ../UI/Sprite.h
-void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_UIElement(methods, staticMethods, fields, staticFields);
+    CollectMembers_UIElement(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "const IntVector2& UIElement::GetPosition() const");
     Remove(methods, "virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)");
@@ -974,12 +1066,16 @@ void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Sprite::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Sprite
+        REGISTER_MANUAL_PART_Sprite();
+    #endif
 }
 
 // class Text | File: ../UI/Text.h
-void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_UISelectable(methods, staticMethods, fields, staticFields);
+    CollectMembers_UISelectable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "UISelectable::URHO3D_OBJECT(UISelectable, UIElement)");
     Remove(methods, "virtual void UIElement::OnIndentSet()");
@@ -1070,12 +1166,16 @@ void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
 
     // static void Text::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Text
+        REGISTER_MANUAL_PART_Text();
+    #endif
 }
 
 // class Text3D | File: ../UI/Text3D.h
-void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
@@ -1195,12 +1295,16 @@ void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Text3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Text3D
+        REGISTER_MANUAL_PART_Text3D();
+    #endif
 }
 
 // class ToolTip | File: ../UI/ToolTip.h
-void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_UIElement(methods, staticMethods, fields, staticFields);
+    CollectMembers_UIElement(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::Update(float timeStep)");
 
@@ -1216,6 +1320,10 @@ void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     // static void ToolTip::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ToolTip
+        REGISTER_MANUAL_PART_ToolTip();
+    #endif
 }
 
 // SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr)
@@ -1237,9 +1345,9 @@ static UIElement* UI_LoadLayout_XMLFile_XMLFile(UI* ptr, XMLFile* file, XMLFile*
 
 
 // class UI | File: ../UI/UI.h
-void CollectMembers_UI(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_UI(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // const Vector<UIElement*> UI::GetDragElements()
     // Error: type "const Vector<UIElement*>" can not automatically bind
@@ -1349,10 +1457,14 @@ void CollectMembers_UI(Vector<RegisterObjectMethodArgs>& methods, Vector<Registe
     methods.Push(RegisterObjectMethodArgs("const IntVector2& UI::GetCustomSize() const", "const IntVector2& GetCustomSize() const", AS_METHODPR(UI, GetCustomSize, () const, const IntVector2&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const IntVector2& UI::GetCustomSize() const", "const IntVector2& get_customSize() const", AS_METHODPR(UI, GetCustomSize, () const, const IntVector2&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void UI::SetElementRenderTexture(UIElement* element, Texture2D* texture)", "void SetElementRenderTexture(UIElement@+, Texture2D@+)", AS_METHODPR(UI, SetElementRenderTexture, (UIElement*, Texture2D*), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_UI
+        REGISTER_MANUAL_PART_UI();
+    #endif
 }
 
 // class UIBatch | File: ../UI/UIBatch.h
-void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void UIBatch::SetColor(const Color& color, bool overrideAlpha=false)", "void SetColor(const Color&in, bool = false)", AS_METHODPR(UIBatch, SetColor, (const Color&, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void UIBatch::SetDefaultColor()", "void SetDefaultColor()", AS_METHODPR(UIBatch, SetDefaultColor, (), void), AS_CALL_THISCALL));
@@ -1385,12 +1497,16 @@ void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("bool UIBatch::useGradient_", "bool useGradient", offsetof(UIBatch, useGradient_)));
 
     staticFields.Push(RegisterGlobalPropertyArgs("static Vector3 UIBatch::posAdjust", "Vector3 posAdjust", (void*)&UIBatch::posAdjust));
+
+    #ifdef REGISTER_MANUAL_PART_UIBatch
+        REGISTER_MANUAL_PART_UIBatch();
+    #endif
 }
 
 // class UIComponent | File: ../UI/UIComponent.h
-void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -1404,6 +1520,10 @@ void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     // static void UIComponent::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_UIComponent
+        REGISTER_MANUAL_PART_UIComponent();
+    #endif
 }
 
 // void UIElement::SetTags(const StringVector& tags)
@@ -1461,9 +1581,9 @@ static CScriptArray* UIElement_GetChildrenWithTag_String_bool(UIElement* ptr, co
 
 
 // class UIElement | File: ../UI/UIElement.h
-void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Animatable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Animatable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool Animatable::LoadXML(const XMLElement& source) override");
     Remove(methods, "bool Animatable::SaveXML(XMLElement& dest) const override");
@@ -1796,12 +1916,16 @@ void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     // static void UIElement::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_UIElement
+        REGISTER_MANUAL_PART_UIElement();
+    #endif
 }
 
 // class UISelectable | File: ../UI/UISelectable.h
-void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_UIElement(methods, staticMethods, fields, staticFields);
+    CollectMembers_UIElement(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "explicit UIElement::UIElement(Context* context)");
     Remove(methods, "virtual void UIElement::GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)");
@@ -1824,12 +1948,16 @@ void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     // static void UISelectable::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_UISelectable
+        REGISTER_MANUAL_PART_UISelectable();
+    #endif
 }
 
 // class View3D | File: ../UI/View3D.h
-void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Window(methods, staticMethods, fields, staticFields);
+    CollectMembers_Window(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnResize(const IntVector2& newSize, const IntVector2& delta)");
 
@@ -1859,12 +1987,16 @@ void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void View3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_View3D
+        REGISTER_MANUAL_PART_View3D();
+    #endif
 }
 
 // class Window | File: ../UI/Window.h
-void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BorderImage(methods, staticMethods, fields, staticFields);
+    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void UIElement::OnDragBegin(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
     Remove(methods, "virtual void UIElement::OnDragCancel(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags dragButtons, MouseButtonFlags cancelButtons, Cursor* cursor)");
@@ -1926,6 +2058,10 @@ void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Window::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Window
+        REGISTER_MANUAL_PART_Window();
+    #endif
 }
 
 } // namespace Urho3D

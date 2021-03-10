@@ -11,12 +11,16 @@ namespace Urho3D
 {
 
 // class AllContentOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_AllContentOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AllContentOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void AllContentOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
 
     methods.Push(RegisterObjectMethodArgs("Intersection AllContentOctreeQuery::TestOctant(const BoundingBox& box, bool inside) override", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(AllContentOctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_AllContentOctreeQuery
+        REGISTER_MANUAL_PART_AllContentOctreeQuery();
+    #endif
 }
 
 // const Vector<SharedPtr<AnimationState>>& AnimatedModel::GetAnimationStates() const
@@ -38,9 +42,9 @@ static CScriptArray* AnimatedModel_GetMorphVertexBuffers_void(AnimatedModel* ptr
 
 
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
-void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_StaticModel(methods, staticMethods, fields, staticFields);
+    CollectMembers_StaticModel(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "ResourceRef StaticModel::GetModelAttr() const");
     Remove(methods, "bool Animatable::LoadJSON(const JSONValue& source) override");
@@ -134,6 +138,10 @@ void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods, Vec
 
     // static void AnimatedModel::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_AnimatedModel
+        REGISTER_MANUAL_PART_AnimatedModel();
+    #endif
 }
 
 // SharedPtr<Animation> Animation::Clone(const String& cloneName=String::EMPTY) const
@@ -146,9 +154,9 @@ static Animation* Animation_Clone_String(Animation* ptr, const String& cloneName
 
 
 // class Animation | File: ../Graphics/Animation.h
-void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, staticFields);
+    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::Save(Serializer& dest) const");
@@ -194,10 +202,14 @@ void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     // static void Animation::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Animation
+        REGISTER_MANUAL_PART_Animation();
+    #endif
 }
 
 // struct AnimationControl | File: ../Graphics/AnimationController.h
-void CollectMembers_AnimationControl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AnimationControl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("String AnimationControl::name_", "String name", offsetof(AnimationControl, name_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash AnimationControl::hash_", "StringHash hash", offsetof(AnimationControl, hash_)));
@@ -212,12 +224,16 @@ void CollectMembers_AnimationControl(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("unsigned char AnimationControl::setTimeRev_", "uint8 setTimeRev", offsetof(AnimationControl, setTimeRev_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned char AnimationControl::setWeightRev_", "uint8 setWeightRev", offsetof(AnimationControl, setWeightRev_)));
     fields.Push(RegisterObjectPropertyArgs("bool AnimationControl::removeOnCompletion_", "bool removeOnCompletion", offsetof(AnimationControl, removeOnCompletion_)));
+
+    #ifdef REGISTER_MANUAL_PART_AnimationControl
+        REGISTER_MANUAL_PART_AnimationControl();
+    #endif
 }
 
 // class AnimationController | File: ../Graphics/AnimationController.h
-void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
 
@@ -279,21 +295,29 @@ void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& method
 
     // static void AnimationController::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_AnimationController
+        REGISTER_MANUAL_PART_AnimationController();
+    #endif
 }
 
 // struct AnimationKeyFrame | File: ../Graphics/Animation.h
-void CollectMembers_AnimationKeyFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AnimationKeyFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("float AnimationKeyFrame::time_", "float time", offsetof(AnimationKeyFrame, time_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 AnimationKeyFrame::position_", "Vector3 position", offsetof(AnimationKeyFrame, position_)));
     fields.Push(RegisterObjectPropertyArgs("Quaternion AnimationKeyFrame::rotation_", "Quaternion rotation", offsetof(AnimationKeyFrame, rotation_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 AnimationKeyFrame::scale_", "Vector3 scale", offsetof(AnimationKeyFrame, scale_)));
+
+    #ifdef REGISTER_MANUAL_PART_AnimationKeyFrame
+        REGISTER_MANUAL_PART_AnimationKeyFrame();
+    #endif
 }
 
 // class AnimationState | File: ../Graphics/AnimationState.h
-void CollectMembers_AnimationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AnimationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void AnimationState::SetStartBone(Bone* startBone)", "void SetStartBone(Bone@+)", AS_METHODPR(AnimationState, SetStartBone, (Bone*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void AnimationState::SetStartBone(Bone* startBone)", "void set_startBone(Bone@+)", AS_METHODPR(AnimationState, SetStartBone, (Bone*), void), AS_CALL_THISCALL));
@@ -342,10 +366,14 @@ void CollectMembers_AnimationState(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("unsigned char AnimationState::GetLayer() const", "uint8 GetLayer() const", AS_METHODPR(AnimationState, GetLayer, () const, unsigned char), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned char AnimationState::GetLayer() const", "uint8 get_layer() const", AS_METHODPR(AnimationState, GetLayer, () const, unsigned char), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void AnimationState::Apply()", "void Apply()", AS_METHODPR(AnimationState, Apply, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_AnimationState
+        REGISTER_MANUAL_PART_AnimationState();
+    #endif
 }
 
 // struct AnimationStateTrack | File: ../Graphics/AnimationState.h
-void CollectMembers_AnimationStateTrack(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AnimationStateTrack(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const AnimationTrack* AnimationStateTrack::track_
     // Not registered because pointer
@@ -356,10 +384,14 @@ void CollectMembers_AnimationStateTrack(Vector<RegisterObjectMethodArgs>& method
 
     fields.Push(RegisterObjectPropertyArgs("float AnimationStateTrack::weight_", "float weight", offsetof(AnimationStateTrack, weight_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned AnimationStateTrack::keyFrame_", "uint keyFrame", offsetof(AnimationStateTrack, keyFrame_)));
+
+    #ifdef REGISTER_MANUAL_PART_AnimationStateTrack
+        REGISTER_MANUAL_PART_AnimationStateTrack();
+    #endif
 }
 
 // struct AnimationTrack | File: ../Graphics/Animation.h
-void CollectMembers_AnimationTrack(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AnimationTrack(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // AnimationKeyFrame* AnimationTrack::GetKeyFrame(unsigned index)
     // Error: type "AnimationKeyFrame*" can not automatically bind
@@ -380,17 +412,25 @@ void CollectMembers_AnimationTrack(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("String AnimationTrack::name_", "String name", offsetof(AnimationTrack, name_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash AnimationTrack::nameHash_", "StringHash nameHash", offsetof(AnimationTrack, nameHash_)));
     fields.Push(RegisterObjectPropertyArgs("AnimationChannelFlags AnimationTrack::channelMask_", "AnimationChannelFlags channelMask", offsetof(AnimationTrack, channelMask_)));
+
+    #ifdef REGISTER_MANUAL_PART_AnimationTrack
+        REGISTER_MANUAL_PART_AnimationTrack();
+    #endif
 }
 
 // struct AnimationTriggerPoint | File: ../Graphics/Animation.h
-void CollectMembers_AnimationTriggerPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AnimationTriggerPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("float AnimationTriggerPoint::time_", "float time", offsetof(AnimationTriggerPoint, time_)));
     fields.Push(RegisterObjectPropertyArgs("Variant AnimationTriggerPoint::data_", "Variant data", offsetof(AnimationTriggerPoint, data_)));
+
+    #ifdef REGISTER_MANUAL_PART_AnimationTriggerPoint
+        REGISTER_MANUAL_PART_AnimationTriggerPoint();
+    #endif
 }
 
 // struct Batch | File: ../Graphics/Batch.h
-void CollectMembers_Batch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Batch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void Batch::CalculateSortKey()", "void CalculateSortKey()", AS_METHODPR(Batch, CalculateSortKey, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool allowDepthWrite) const", "void Prepare(View@+, Camera@+, bool, bool) const", AS_METHODPR(Batch, Prepare, (View*, Camera*, bool, bool) const, void), AS_CALL_THISCALL));
@@ -422,12 +462,16 @@ void CollectMembers_Batch(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     fields.Push(RegisterObjectPropertyArgs("bool Batch::isBase_", "bool isBase", offsetof(Batch, isBase_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned Batch::numWorldTransforms_", "uint numWorldTransforms", offsetof(Batch, numWorldTransforms_)));
     fields.Push(RegisterObjectPropertyArgs("GeometryType Batch::geometryType_", "GeometryType geometryType", offsetof(Batch, geometryType_)));
+
+    #ifdef REGISTER_MANUAL_PART_Batch
+        REGISTER_MANUAL_PART_Batch();
+    #endif
 }
 
 // struct BatchGroup | File: ../Graphics/Batch.h
-void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Batch(methods, staticMethods, fields, staticFields);
+    CollectMembers_Batch(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "void Batch::Draw(View* view, Camera* camera, bool allowDepthWrite) const");
 
@@ -441,10 +485,14 @@ void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods, Vector
     // Error: type "PODVector<InstanceData>" can not automatically bind
 
     fields.Push(RegisterObjectPropertyArgs("unsigned BatchGroup::startIndex_", "uint startIndex", offsetof(BatchGroup, startIndex_)));
+
+    #ifdef REGISTER_MANUAL_PART_BatchGroup
+        REGISTER_MANUAL_PART_BatchGroup();
+    #endif
 }
 
 // struct BatchGroupKey | File: ../Graphics/Batch.h
-void CollectMembers_BatchGroupKey(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BatchGroupKey(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool BatchGroupKey::operator!=(const BatchGroupKey& rhs) const
     // Only operator== is needed
@@ -464,10 +512,14 @@ void CollectMembers_BatchGroupKey(Vector<RegisterObjectMethodArgs>& methods, Vec
     // Not registered because pointer
 
     fields.Push(RegisterObjectPropertyArgs("unsigned char BatchGroupKey::renderOrder_", "uint8 renderOrder", offsetof(BatchGroupKey, renderOrder_)));
+
+    #ifdef REGISTER_MANUAL_PART_BatchGroupKey
+        REGISTER_MANUAL_PART_BatchGroupKey();
+    #endif
 }
 
 // struct BatchQueue | File: ../Graphics/Batch.h
-void CollectMembers_BatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void BatchQueue::SetInstancingData(void* lockedData, unsigned stride, unsigned& freeIndex)
     // Error: type "void*" can not automatically bind
@@ -502,20 +554,28 @@ void CollectMembers_BatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("String BatchQueue::psExtraDefines_", "String psExtraDefines", offsetof(BatchQueue, psExtraDefines_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash BatchQueue::vsExtraDefinesHash_", "StringHash vsExtraDefinesHash", offsetof(BatchQueue, vsExtraDefinesHash_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash BatchQueue::psExtraDefinesHash_", "StringHash psExtraDefinesHash", offsetof(BatchQueue, psExtraDefinesHash_)));
+
+    #ifdef REGISTER_MANUAL_PART_BatchQueue
+        REGISTER_MANUAL_PART_BatchQueue();
+    #endif
 }
 
 // struct BiasParameters | File: ../Graphics/Light.h
-void CollectMembers_BiasParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BiasParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void BiasParameters::Validate()", "void Validate()", AS_METHODPR(BiasParameters, Validate, (), void), AS_CALL_THISCALL));
 
     fields.Push(RegisterObjectPropertyArgs("float BiasParameters::constantBias_", "float constantBias", offsetof(BiasParameters, constantBias_)));
     fields.Push(RegisterObjectPropertyArgs("float BiasParameters::slopeScaledBias_", "float slopeScaledBias", offsetof(BiasParameters, slopeScaledBias_)));
     fields.Push(RegisterObjectPropertyArgs("float BiasParameters::normalOffset_", "float normalOffset", offsetof(BiasParameters, normalOffset_)));
+
+    #ifdef REGISTER_MANUAL_PART_BiasParameters
+        REGISTER_MANUAL_PART_BiasParameters();
+    #endif
 }
 
 // struct Billboard | File: ../Graphics/BillboardSet.h
-void CollectMembers_Billboard(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Billboard(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Vector3 Billboard::position_", "Vector3 position", offsetof(Billboard, position_)));
     fields.Push(RegisterObjectPropertyArgs("Vector2 Billboard::size_", "Vector2 size", offsetof(Billboard, size_)));
@@ -526,12 +586,16 @@ void CollectMembers_Billboard(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("bool Billboard::enabled_", "bool enabled", offsetof(Billboard, enabled_)));
     fields.Push(RegisterObjectPropertyArgs("float Billboard::sortDistance_", "float sortDistance", offsetof(Billboard, sortDistance_)));
     fields.Push(RegisterObjectPropertyArgs("float Billboard::screenScaleFactor_", "float screenScaleFactor", offsetof(Billboard, screenScaleFactor_)));
+
+    #ifdef REGISTER_MANUAL_PART_Billboard
+        REGISTER_MANUAL_PART_Billboard();
+    #endif
 }
 
 // class BillboardSet | File: ../Graphics/BillboardSet.h
-void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
@@ -600,10 +664,14 @@ void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     // static void BillboardSet::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_BillboardSet
+        REGISTER_MANUAL_PART_BillboardSet();
+    #endif
 }
 
 // struct Bone | File: ../Graphics/Skeleton.h
-void CollectMembers_Bone(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Bone(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // WeakPtr<Node> Bone::node_
     // Error: type "WeakPtr<Node>" can not automatically bind
@@ -619,10 +687,14 @@ void CollectMembers_Bone(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     fields.Push(RegisterObjectPropertyArgs("BoneCollisionShapeFlags Bone::collisionMask_", "BoneCollisionShapeFlags collisionMask", offsetof(Bone, collisionMask_)));
     fields.Push(RegisterObjectPropertyArgs("float Bone::radius_", "float radius", offsetof(Bone, radius_)));
     fields.Push(RegisterObjectPropertyArgs("BoundingBox Bone::boundingBox_", "BoundingBox boundingBox", offsetof(Bone, boundingBox_)));
+
+    #ifdef REGISTER_MANUAL_PART_Bone
+        REGISTER_MANUAL_PART_Bone();
+    #endif
 }
 
 // class BoxOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_BoxOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BoxOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void BoxOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
@@ -630,12 +702,16 @@ void CollectMembers_BoxOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("Intersection BoxOctreeQuery::TestOctant(const BoundingBox& box, bool inside) override", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(BoxOctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
 
     fields.Push(RegisterObjectPropertyArgs("BoundingBox BoxOctreeQuery::box_", "BoundingBox box", offsetof(BoxOctreeQuery, box_)));
+
+    #ifdef REGISTER_MANUAL_PART_BoxOctreeQuery
+        REGISTER_MANUAL_PART_BoxOctreeQuery();
+    #endif
 }
 
 // class Camera | File: ../Graphics/Camera.h
-void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
 
@@ -750,10 +826,14 @@ void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Camera::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Camera
+        REGISTER_MANUAL_PART_Camera();
+    #endif
 }
 
 // struct CascadeParameters | File: ../Graphics/Light.h
-void CollectMembers_CascadeParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CascadeParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void CascadeParameters::Validate()", "void Validate()", AS_METHODPR(CascadeParameters, Validate, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float CascadeParameters::GetShadowRange() const", "float GetShadowRange() const", AS_METHODPR(CascadeParameters, GetShadowRange, () const, float), AS_CALL_THISCALL));
@@ -761,22 +841,30 @@ void CollectMembers_CascadeParameters(Vector<RegisterObjectMethodArgs>& methods,
     fields.Push(RegisterObjectPropertyArgs("Vector4 CascadeParameters::splits_", "Vector4 splits", offsetof(CascadeParameters, splits_)));
     fields.Push(RegisterObjectPropertyArgs("float CascadeParameters::fadeStart_", "float fadeStart", offsetof(CascadeParameters, fadeStart_)));
     fields.Push(RegisterObjectPropertyArgs("float CascadeParameters::biasAutoAdjust_", "float biasAutoAdjust", offsetof(CascadeParameters, biasAutoAdjust_)));
+
+    #ifdef REGISTER_MANUAL_PART_CascadeParameters
+        REGISTER_MANUAL_PART_CascadeParameters();
+    #endif
 }
 
 // struct ColorFrame | File: ../Graphics/ParticleEffect.h
-void CollectMembers_ColorFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ColorFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("Color ColorFrame::Interpolate(const ColorFrame& next, float time) const", "Color Interpolate(const ColorFrame&in, float) const", AS_METHODPR(ColorFrame, Interpolate, (const ColorFrame&, float) const, Color), AS_CALL_THISCALL));
 
     fields.Push(RegisterObjectPropertyArgs("Color ColorFrame::color_", "Color color", offsetof(ColorFrame, color_)));
     fields.Push(RegisterObjectPropertyArgs("float ColorFrame::time_", "float time", offsetof(ColorFrame, time_)));
+
+    #ifdef REGISTER_MANUAL_PART_ColorFrame
+        REGISTER_MANUAL_PART_ColorFrame();
+    #endif
 }
 
 // class ConstantBuffer | File: ../Graphics/ConstantBuffer.h
-void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
-    CollectMembers_GPUObject(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_GPUObject(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
     Remove(methods, "virtual void GPUObject::Release()");
@@ -792,12 +880,16 @@ void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("void ConstantBuffer::Apply()", "void Apply()", AS_METHODPR(ConstantBuffer, Apply, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned ConstantBuffer::GetSize() const", "uint GetSize() const", AS_METHODPR(ConstantBuffer, GetSize, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ConstantBuffer::IsDirty() const", "bool IsDirty() const", AS_METHODPR(ConstantBuffer, IsDirty, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_ConstantBuffer
+        REGISTER_MANUAL_PART_ConstantBuffer();
+    #endif
 }
 
 // class CustomGeometry | File: ../Graphics/CustomGeometry.h
-void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
     Remove(methods, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
@@ -849,30 +941,42 @@ void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     // static void CustomGeometry::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_CustomGeometry
+        REGISTER_MANUAL_PART_CustomGeometry();
+    #endif
 }
 
 // struct CustomGeometryVertex | File: ../Graphics/CustomGeometry.h
-void CollectMembers_CustomGeometryVertex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CustomGeometryVertex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Vector3 CustomGeometryVertex::position_", "Vector3 position", offsetof(CustomGeometryVertex, position_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 CustomGeometryVertex::normal_", "Vector3 normal", offsetof(CustomGeometryVertex, normal_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned CustomGeometryVertex::color_", "uint color", offsetof(CustomGeometryVertex, color_)));
     fields.Push(RegisterObjectPropertyArgs("Vector2 CustomGeometryVertex::texCoord_", "Vector2 texCoord", offsetof(CustomGeometryVertex, texCoord_)));
     fields.Push(RegisterObjectPropertyArgs("Vector4 CustomGeometryVertex::tangent_", "Vector4 tangent", offsetof(CustomGeometryVertex, tangent_)));
+
+    #ifdef REGISTER_MANUAL_PART_CustomGeometryVertex
+        REGISTER_MANUAL_PART_CustomGeometryVertex();
+    #endif
 }
 
 // struct DebugLine | File: ../Graphics/DebugRenderer.h
-void CollectMembers_DebugLine(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DebugLine(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Vector3 DebugLine::start_", "Vector3 start", offsetof(DebugLine, start_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 DebugLine::end_", "Vector3 end", offsetof(DebugLine, end_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned DebugLine::color_", "uint color", offsetof(DebugLine, color_)));
+
+    #ifdef REGISTER_MANUAL_PART_DebugLine
+        REGISTER_MANUAL_PART_DebugLine();
+    #endif
 }
 
 // class DebugRenderer | File: ../Graphics/DebugRenderer.h
-void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -913,19 +1017,27 @@ void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods, Vec
 
     // static void DebugRenderer::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_DebugRenderer
+        REGISTER_MANUAL_PART_DebugRenderer();
+    #endif
 }
 
 // struct DebugTriangle | File: ../Graphics/DebugRenderer.h
-void CollectMembers_DebugTriangle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DebugTriangle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Vector3 DebugTriangle::v1_", "Vector3 v1", offsetof(DebugTriangle, v1_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 DebugTriangle::v2_", "Vector3 v2", offsetof(DebugTriangle, v2_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 DebugTriangle::v3_", "Vector3 v3", offsetof(DebugTriangle, v3_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned DebugTriangle::color_", "uint color", offsetof(DebugTriangle, color_)));
+
+    #ifdef REGISTER_MANUAL_PART_DebugTriangle
+        REGISTER_MANUAL_PART_DebugTriangle();
+    #endif
 }
 
 // struct Decal | File: ../Graphics/DecalSet.h
-void CollectMembers_Decal(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Decal(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void Decal::AddVertex(const DecalVertex& vertex)", "void AddVertex(const DecalVertex&in)", AS_METHODPR(Decal, AddVertex, (const DecalVertex&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Decal::CalculateBoundingBox()", "void CalculateBoundingBox()", AS_METHODPR(Decal, CalculateBoundingBox, (), void), AS_CALL_THISCALL));
@@ -938,12 +1050,16 @@ void CollectMembers_Decal(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     fields.Push(RegisterObjectPropertyArgs("float Decal::timer_", "float timer", offsetof(Decal, timer_)));
     fields.Push(RegisterObjectPropertyArgs("float Decal::timeToLive_", "float timeToLive", offsetof(Decal, timeToLive_)));
     fields.Push(RegisterObjectPropertyArgs("BoundingBox Decal::boundingBox_", "BoundingBox boundingBox", offsetof(Decal, boundingBox_)));
+
+    #ifdef REGISTER_MANUAL_PART_Decal
+        REGISTER_MANUAL_PART_Decal();
+    #endif
 }
 
 // class DecalSet | File: ../Graphics/DecalSet.h
-void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
@@ -996,10 +1112,14 @@ void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     // static void DecalSet::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_DecalSet
+        REGISTER_MANUAL_PART_DecalSet();
+    #endif
 }
 
 // struct DecalVertex | File: ../Graphics/DecalSet.h
-void CollectMembers_DecalVertex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DecalVertex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // float DecalVertex::blendWeights_[4]
     // Not registered because array
@@ -1010,13 +1130,21 @@ void CollectMembers_DecalVertex(Vector<RegisterObjectMethodArgs>& methods, Vecto
     fields.Push(RegisterObjectPropertyArgs("Vector3 DecalVertex::normal_", "Vector3 normal", offsetof(DecalVertex, normal_)));
     fields.Push(RegisterObjectPropertyArgs("Vector2 DecalVertex::texCoord_", "Vector2 texCoord", offsetof(DecalVertex, texCoord_)));
     fields.Push(RegisterObjectPropertyArgs("Vector4 DecalVertex::tangent_", "Vector4 tangent", offsetof(DecalVertex, tangent_)));
+
+    #ifdef REGISTER_MANUAL_PART_DecalVertex
+        REGISTER_MANUAL_PART_DecalVertex();
+    #endif
 }
 
 // struct DepthValue | File: ../Graphics/OcclusionBuffer.h
-void CollectMembers_DepthValue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_DepthValue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("int DepthValue::min_", "int min", offsetof(DepthValue, min_)));
     fields.Push(RegisterObjectPropertyArgs("int DepthValue::max_", "int max", offsetof(DepthValue, max_)));
+
+    #ifdef REGISTER_MANUAL_PART_DepthValue
+        REGISTER_MANUAL_PART_DepthValue();
+    #endif
 }
 
 // const PODVector<Light*>& Drawable::GetLights() const
@@ -1038,9 +1166,9 @@ static CScriptArray* Drawable_GetVertexLights_void(Drawable* ptr)
 
 
 // class Drawable | File: ../Graphics/Drawable.h
-void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void Component::OnSetEnabled()");
@@ -1142,10 +1270,14 @@ void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     // static void Drawable::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Drawable
+        REGISTER_MANUAL_PART_Drawable();
+    #endif
 }
 
 // struct FocusParameters | File: ../Graphics/Light.h
-void CollectMembers_FocusParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FocusParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void FocusParameters::Validate()", "void Validate()", AS_METHODPR(FocusParameters, Validate, (), void), AS_CALL_THISCALL));
 
@@ -1154,10 +1286,14 @@ void CollectMembers_FocusParameters(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("bool FocusParameters::autoSize_", "bool autoSize", offsetof(FocusParameters, autoSize_)));
     fields.Push(RegisterObjectPropertyArgs("float FocusParameters::quantize_", "float quantize", offsetof(FocusParameters, quantize_)));
     fields.Push(RegisterObjectPropertyArgs("float FocusParameters::minView_", "float minView", offsetof(FocusParameters, minView_)));
+
+    #ifdef REGISTER_MANUAL_PART_FocusParameters
+        REGISTER_MANUAL_PART_FocusParameters();
+    #endif
 }
 
 // struct FrameInfo | File: ../Graphics/Drawable.h
-void CollectMembers_FrameInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FrameInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // Camera* FrameInfo::camera_
     // Not registered because pointer
@@ -1165,10 +1301,14 @@ void CollectMembers_FrameInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<
     fields.Push(RegisterObjectPropertyArgs("unsigned FrameInfo::frameNumber_", "uint frameNumber", offsetof(FrameInfo, frameNumber_)));
     fields.Push(RegisterObjectPropertyArgs("float FrameInfo::timeStep_", "float timeStep", offsetof(FrameInfo, timeStep_)));
     fields.Push(RegisterObjectPropertyArgs("IntVector2 FrameInfo::viewSize_", "IntVector2 viewSize", offsetof(FrameInfo, viewSize_)));
+
+    #ifdef REGISTER_MANUAL_PART_FrameInfo
+        REGISTER_MANUAL_PART_FrameInfo();
+    #endif
 }
 
 // class FrustumOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_FrustumOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FrustumOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void FrustumOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
@@ -1176,10 +1316,14 @@ void CollectMembers_FrustumOctreeQuery(Vector<RegisterObjectMethodArgs>& methods
     methods.Push(RegisterObjectMethodArgs("Intersection FrustumOctreeQuery::TestOctant(const BoundingBox& box, bool inside) override", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(FrustumOctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
 
     fields.Push(RegisterObjectPropertyArgs("Frustum FrustumOctreeQuery::frustum_", "Frustum frustum", offsetof(FrustumOctreeQuery, frustum_)));
+
+    #ifdef REGISTER_MANUAL_PART_FrustumOctreeQuery
+        REGISTER_MANUAL_PART_FrustumOctreeQuery();
+    #endif
 }
 
 // class GPUObject | File: ../Graphics/GPUObject.h
-void CollectMembers_GPUObject(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_GPUObject(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void* GPUObject::GetGPUObject() const
     // Error: type "void*" can not automatically bind
@@ -1193,6 +1337,10 @@ void CollectMembers_GPUObject(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("bool GPUObject::IsDataLost() const", "bool IsDataLost() const", AS_METHODPR(GPUObject, IsDataLost, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool GPUObject::IsDataLost() const", "bool get_dataLost() const", AS_METHODPR(GPUObject, IsDataLost, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool GPUObject::HasPendingData() const", "bool HasPendingData() const", AS_METHODPR(GPUObject, HasPendingData, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_GPUObject
+        REGISTER_MANUAL_PART_GPUObject();
+    #endif
 }
 
 // const Vector<SharedPtr<VertexBuffer>>& Geometry::GetVertexBuffers() const
@@ -1205,9 +1353,9 @@ static CScriptArray* Geometry_GetVertexBuffers_void(Geometry* ptr)
 
 
 // class Geometry | File: ../Graphics/Geometry.h
-void CollectMembers_Geometry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Geometry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // float Geometry::GetHitDistance(const Ray& ray, Vector3* outNormal=nullptr, Vector2* outUV=nullptr) const
     // Error: type "Vector3*" can not automatically bind
@@ -1255,16 +1403,24 @@ void CollectMembers_Geometry(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("bool Geometry::IsInside(const Ray& ray) const", "bool IsInside(const Ray&in) const", AS_METHODPR(Geometry, IsInside, (const Ray&) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Geometry::IsEmpty() const", "bool IsEmpty() const", AS_METHODPR(Geometry, IsEmpty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Geometry::IsEmpty() const", "bool get_empty() const", AS_METHODPR(Geometry, IsEmpty, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Geometry
+        REGISTER_MANUAL_PART_Geometry();
+    #endif
 }
 
 // struct GeometryDesc | File: ../Graphics/Model.h
-void CollectMembers_GeometryDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_GeometryDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("PrimitiveType GeometryDesc::type_", "PrimitiveType type", offsetof(GeometryDesc, type_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned GeometryDesc::vbRef_", "uint vbRef", offsetof(GeometryDesc, vbRef_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned GeometryDesc::ibRef_", "uint ibRef", offsetof(GeometryDesc, ibRef_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned GeometryDesc::indexStart_", "uint indexStart", offsetof(GeometryDesc, indexStart_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned GeometryDesc::indexCount_", "uint indexCount", offsetof(GeometryDesc, indexCount_)));
+
+    #ifdef REGISTER_MANUAL_PART_GeometryDesc
+        REGISTER_MANUAL_PART_GeometryDesc();
+    #endif
 }
 
 // bool Graphics::SetVertexBuffers(const Vector<SharedPtr<VertexBuffer>>& buffers, unsigned instanceOffset=0)
@@ -1296,9 +1452,9 @@ static CScriptArray* Graphics_GetMultiSampleLevels_void(Graphics* ptr)
 
 
 // class Graphics | File: ../Graphics/Graphics.h
-void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // void Graphics::AddGPUObject(GPUObject* object)
     // Error: type "GPUObject*" can not automatically bind
@@ -1551,13 +1707,17 @@ void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     staticMethods.Push(RegisterGlobalFunctionArgs("static const Vector2& Graphics::GetPixelUVOffset()", "const Vector2& GetPixelUVOffset()", AS_FUNCTIONPR(Graphics::GetPixelUVOffset, (), const Vector2&), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Graphics::GetMaxBones()", "uint GetMaxBones()", AS_FUNCTIONPR(Graphics::GetMaxBones, (), unsigned), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool Graphics::GetGL3Support()", "bool GetGL3Support()", AS_FUNCTIONPR(Graphics::GetGL3Support, (), bool), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Graphics
+        REGISTER_MANUAL_PART_Graphics();
+    #endif
 }
 
 // class IndexBuffer | File: ../Graphics/IndexBuffer.h
-void CollectMembers_IndexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IndexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
-    CollectMembers_GPUObject(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_GPUObject(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
@@ -1591,10 +1751,14 @@ void CollectMembers_IndexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("unsigned IndexBuffer::GetIndexSize() const", "uint GetIndexSize() const", AS_METHODPR(IndexBuffer, GetIndexSize, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned IndexBuffer::GetIndexSize() const", "uint get_indexSize() const", AS_METHODPR(IndexBuffer, GetIndexSize, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool IndexBuffer::GetUsedVertexRange(unsigned start, unsigned count, unsigned& minVertex, unsigned& vertexCount)", "bool GetUsedVertexRange(uint, uint, uint&, uint&)", AS_METHODPR(IndexBuffer, GetUsedVertexRange, (unsigned, unsigned, unsigned&, unsigned&), bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_IndexBuffer
+        REGISTER_MANUAL_PART_IndexBuffer();
+    #endif
 }
 
 // struct IndexBufferDesc | File: ../Graphics/Model.h
-void CollectMembers_IndexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IndexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedArrayPtr<unsigned char> IndexBufferDesc::data_
     // Error: type "SharedArrayPtr<unsigned char>" can not automatically bind
@@ -1602,10 +1766,14 @@ void CollectMembers_IndexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("unsigned IndexBufferDesc::indexCount_", "uint indexCount", offsetof(IndexBufferDesc, indexCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned IndexBufferDesc::indexSize_", "uint indexSize", offsetof(IndexBufferDesc, indexSize_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned IndexBufferDesc::dataSize_", "uint dataSize", offsetof(IndexBufferDesc, dataSize_)));
+
+    #ifdef REGISTER_MANUAL_PART_IndexBufferDesc
+        REGISTER_MANUAL_PART_IndexBufferDesc();
+    #endif
 }
 
 // struct InstanceData | File: ../Graphics/Batch.h
-void CollectMembers_InstanceData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_InstanceData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const Matrix3x4* InstanceData::worldTransform_
     // Not registered because pointer
@@ -1613,12 +1781,16 @@ void CollectMembers_InstanceData(Vector<RegisterObjectMethodArgs>& methods, Vect
     // Not registered because pointer
 
     fields.Push(RegisterObjectPropertyArgs("float InstanceData::distance_", "float distance", offsetof(InstanceData, distance_)));
+
+    #ifdef REGISTER_MANUAL_PART_InstanceData
+        REGISTER_MANUAL_PART_InstanceData();
+    #endif
 }
 
 // class Light | File: ../Graphics/Light.h
-void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
     Remove(methods, "virtual void Drawable::UpdateBatches(const FrameInfo& frame)");
@@ -1753,10 +1925,14 @@ void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     // Not registered because have @nobind mark
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static Matrix3x4 Light::GetFullscreenQuadTransform(Camera* camera)", "Matrix3x4 GetFullscreenQuadTransform(Camera@+)", AS_FUNCTIONPR(Light::GetFullscreenQuadTransform, (Camera*), Matrix3x4), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Light
+        REGISTER_MANUAL_PART_Light();
+    #endif
 }
 
 // struct LightBatchQueue | File: ../Graphics/Batch.h
-void CollectMembers_LightBatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_LightBatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // Light* LightBatchQueue::light_
     // Not registered because pointer
@@ -1772,10 +1948,14 @@ void CollectMembers_LightBatchQueue(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("bool LightBatchQueue::negative_", "bool negative", offsetof(LightBatchQueue, negative_)));
     fields.Push(RegisterObjectPropertyArgs("BatchQueue LightBatchQueue::litBaseBatches_", "BatchQueue litBaseBatches", offsetof(LightBatchQueue, litBaseBatches_)));
     fields.Push(RegisterObjectPropertyArgs("BatchQueue LightBatchQueue::litBatches_", "BatchQueue litBatches", offsetof(LightBatchQueue, litBatches_)));
+
+    #ifdef REGISTER_MANUAL_PART_LightBatchQueue
+        REGISTER_MANUAL_PART_LightBatchQueue();
+    #endif
 }
 
 // struct LightQueryResult | File: ../Graphics/View.h
-void CollectMembers_LightQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_LightQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // Light* LightQueryResult::light_
     // Not registered because pointer
@@ -1797,6 +1977,10 @@ void CollectMembers_LightQueryResult(Vector<RegisterObjectMethodArgs>& methods, 
     // Not registered because array
 
     fields.Push(RegisterObjectPropertyArgs("unsigned LightQueryResult::numSplits_", "uint numSplits", offsetof(LightQueryResult, numSplits_)));
+
+    #ifdef REGISTER_MANUAL_PART_LightQueryResult
+        REGISTER_MANUAL_PART_LightQueryResult();
+    #endif
 }
 
 // SharedPtr<Material> Material::Clone(const String& cloneName=String::EMPTY) const
@@ -1809,9 +1993,9 @@ static Material* Material_Clone_String(Material* ptr, const String& cloneName)
 
 
 // class Material | File: ../Graphics/Material.h
-void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Resource(methods, staticMethods, fields, staticFields);
+    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool Resource::Load(Deserializer& source)");
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -1915,13 +2099,21 @@ void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static String Material::GetTextureUnitName(TextureUnit unit)", "String GetTextureUnitName(TextureUnit)", AS_FUNCTIONPR(Material::GetTextureUnitName, (TextureUnit), String), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static Variant Material::ParseShaderParameterValue(const String& value)", "Variant ParseShaderParameterValue(const String&in)", AS_FUNCTIONPR(Material::ParseShaderParameterValue, (const String&), Variant), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Material
+        REGISTER_MANUAL_PART_Material();
+    #endif
 }
 
 // struct MaterialShaderParameter | File: ../Graphics/Material.h
-void CollectMembers_MaterialShaderParameter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_MaterialShaderParameter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("String MaterialShaderParameter::name_", "String name", offsetof(MaterialShaderParameter, name_)));
     fields.Push(RegisterObjectPropertyArgs("Variant MaterialShaderParameter::value_", "Variant value", offsetof(MaterialShaderParameter, value_)));
+
+    #ifdef REGISTER_MANUAL_PART_MaterialShaderParameter
+        REGISTER_MANUAL_PART_MaterialShaderParameter();
+    #endif
 }
 
 // bool Model::SetVertexBuffers(const Vector<SharedPtr<VertexBuffer>>& buffers, const PODVector<unsigned>& morphRangeStarts, const PODVector<unsigned>& morphRangeCounts)
@@ -1983,9 +2175,9 @@ static CScriptArray* Model_GetGeometryCenters_void(Model* ptr)
 
 
 // class Model | File: ../Graphics/Model.h
-void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, staticFields);
+    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
@@ -2045,10 +2237,14 @@ void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 
     // static void Model::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Model
+        REGISTER_MANUAL_PART_Model();
+    #endif
 }
 
 // struct ModelMorph | File: ../Graphics/Model.h
-void CollectMembers_ModelMorph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ModelMorph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // HashMap<unsigned, VertexBufferMorph> ModelMorph::buffers_
     // Error: type "HashMap<unsigned, VertexBufferMorph>" can not automatically bind
@@ -2056,10 +2252,14 @@ void CollectMembers_ModelMorph(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("String ModelMorph::name_", "String name", offsetof(ModelMorph, name_)));
     fields.Push(RegisterObjectPropertyArgs("StringHash ModelMorph::nameHash_", "StringHash nameHash", offsetof(ModelMorph, nameHash_)));
     fields.Push(RegisterObjectPropertyArgs("float ModelMorph::weight_", "float weight", offsetof(ModelMorph, weight_)));
+
+    #ifdef REGISTER_MANUAL_PART_ModelMorph
+        REGISTER_MANUAL_PART_ModelMorph();
+    #endif
 }
 
 // struct OcclusionBatch | File: ../Graphics/OcclusionBuffer.h
-void CollectMembers_OcclusionBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_OcclusionBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const void* OcclusionBatch::vertexData_
     // Not registered because pointer
@@ -2071,12 +2271,16 @@ void CollectMembers_OcclusionBatch(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("unsigned OcclusionBatch::indexSize_", "uint indexSize", offsetof(OcclusionBatch, indexSize_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned OcclusionBatch::drawStart_", "uint drawStart", offsetof(OcclusionBatch, drawStart_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned OcclusionBatch::drawCount_", "uint drawCount", offsetof(OcclusionBatch, drawCount_)));
+
+    #ifdef REGISTER_MANUAL_PART_OcclusionBatch
+        REGISTER_MANUAL_PART_OcclusionBatch();
+    #endif
 }
 
 // class OcclusionBuffer | File: ../Graphics/OcclusionBuffer.h
-void CollectMembers_OcclusionBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_OcclusionBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // bool OcclusionBuffer::AddTriangles(const Matrix3x4& model, const void* vertexData, unsigned vertexSize, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount)
     // Error: type "const void*" can not automatically bind
@@ -2105,10 +2309,14 @@ void CollectMembers_OcclusionBuffer(Vector<RegisterObjectMethodArgs>& methods, V
     methods.Push(RegisterObjectMethodArgs("bool OcclusionBuffer::IsVisible(const BoundingBox& worldSpaceBox) const", "bool IsVisible(const BoundingBox&in) const", AS_METHODPR(OcclusionBuffer, IsVisible, (const BoundingBox&) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned OcclusionBuffer::GetUseTimer()", "uint GetUseTimer()", AS_METHODPR(OcclusionBuffer, GetUseTimer, (), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void OcclusionBuffer::DrawBatch(const OcclusionBatch& batch, unsigned threadIndex)", "void DrawBatch(const OcclusionBatch&in, uint)", AS_METHODPR(OcclusionBuffer, DrawBatch, (const OcclusionBatch&, unsigned), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_OcclusionBuffer
+        REGISTER_MANUAL_PART_OcclusionBuffer();
+    #endif
 }
 
 // struct OcclusionBufferData | File: ../Graphics/OcclusionBuffer.h
-void CollectMembers_OcclusionBufferData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_OcclusionBufferData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedArrayPtr<int> OcclusionBufferData::dataWithSafety_
     // Error: type "SharedArrayPtr<int>" can not automatically bind
@@ -2116,10 +2324,14 @@ void CollectMembers_OcclusionBufferData(Vector<RegisterObjectMethodArgs>& method
     // Not registered because pointer
 
     fields.Push(RegisterObjectPropertyArgs("bool OcclusionBufferData::used_", "bool used", offsetof(OcclusionBufferData, used_)));
+
+    #ifdef REGISTER_MANUAL_PART_OcclusionBufferData
+        REGISTER_MANUAL_PART_OcclusionBufferData();
+    #endif
 }
 
 // class Octant | File: ../Graphics/Octree.h
-void CollectMembers_Octant(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Octant(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // Octant* Octant::GetOrCreateChild(unsigned index)
     // Error: type "Octant" can not automatically bind bacause have @nobind mark
@@ -2140,13 +2352,17 @@ void CollectMembers_Octant(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("bool Octant::IsEmpty()", "bool IsEmpty()", AS_METHODPR(Octant, IsEmpty, (), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Octant::ResetRoot()", "void ResetRoot()", AS_METHODPR(Octant, ResetRoot, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(Octant, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Octant
+        REGISTER_MANUAL_PART_Octant();
+    #endif
 }
 
 // class Octree | File: ../Graphics/Octree.h
-void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
-    CollectMembers_Octant(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_Octant(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "void Octant::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
@@ -2171,10 +2387,14 @@ void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Octree::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Octree
+        REGISTER_MANUAL_PART_Octree();
+    #endif
 }
 
 // class OctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_OctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_OctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // virtual void OctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside)=0
     // Error: type "Drawable**" can not automatically bind
@@ -2186,10 +2406,14 @@ void CollectMembers_OctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     fields.Push(RegisterObjectPropertyArgs("unsigned char OctreeQuery::drawableFlags_", "uint8 drawableFlags", offsetof(OctreeQuery, drawableFlags_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned OctreeQuery::viewMask_", "uint viewMask", offsetof(OctreeQuery, viewMask_)));
+
+    #ifdef REGISTER_MANUAL_PART_OctreeQuery
+        REGISTER_MANUAL_PART_OctreeQuery();
+    #endif
 }
 
 // struct OctreeQueryResult | File: ../Graphics/OctreeQuery.h
-void CollectMembers_OctreeQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_OctreeQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool OctreeQueryResult::operator!=(const OctreeQueryResult& rhs) const
     // Only operator== is needed
@@ -2198,10 +2422,14 @@ void CollectMembers_OctreeQueryResult(Vector<RegisterObjectMethodArgs>& methods,
     // Not registered because pointer
     // Node* OctreeQueryResult::node_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_OctreeQueryResult
+        REGISTER_MANUAL_PART_OctreeQueryResult();
+    #endif
 }
 
 // struct Particle | File: ../Graphics/ParticleEmitter.h
-void CollectMembers_Particle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Particle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Vector3 Particle::velocity_", "Vector3 velocity", offsetof(Particle, velocity_)));
     fields.Push(RegisterObjectPropertyArgs("Vector2 Particle::size_", "Vector2 size", offsetof(Particle, size_)));
@@ -2211,6 +2439,10 @@ void CollectMembers_Particle(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     fields.Push(RegisterObjectPropertyArgs("float Particle::rotationSpeed_", "float rotationSpeed", offsetof(Particle, rotationSpeed_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned Particle::colorIndex_", "uint colorIndex", offsetof(Particle, colorIndex_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned Particle::texIndex_", "uint texIndex", offsetof(Particle, texIndex_)));
+
+    #ifdef REGISTER_MANUAL_PART_Particle
+        REGISTER_MANUAL_PART_Particle();
+    #endif
 }
 
 // SharedPtr<ParticleEffect> ParticleEffect::Clone(const String& cloneName=String::EMPTY) const
@@ -2223,9 +2455,9 @@ static ParticleEffect* ParticleEffect_Clone_String(ParticleEffect* ptr, const St
 
 
 // class ParticleEffect | File: ../Graphics/ParticleEffect.h
-void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Resource(methods, staticMethods, fields, staticFields);
+    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool Resource::Load(Deserializer& source)");
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
@@ -2400,12 +2632,16 @@ void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     // static void ParticleEffect::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ParticleEffect
+        REGISTER_MANUAL_PART_ParticleEffect();
+    #endif
 }
 
 // class ParticleEmitter | File: ../Graphics/ParticleEmitter.h
-void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_BillboardSet(methods, staticMethods, fields, staticFields);
+    CollectMembers_BillboardSet(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Drawable::Update(const FrameInfo& frame)");
     Remove(methods, "void Drawable::OnSetEnabled() override");
@@ -2450,6 +2686,10 @@ void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods, V
 
     // static void ParticleEmitter::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_ParticleEmitter
+        REGISTER_MANUAL_PART_ParticleEmitter();
+    #endif
 }
 
 // Vector<SharedPtr<ShaderVariation>>& Pass::GetVertexShaders()
@@ -2489,9 +2729,9 @@ static CScriptArray* Pass_GetPixelShaders_StringHash(Pass* ptr, const StringHash
 
 
 // class Pass | File: ../Graphics/Technique.h
-void CollectMembers_Pass(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Pass(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void Pass::SetBlendMode(BlendMode mode)", "void SetBlendMode(BlendMode)", AS_METHODPR(Pass, SetBlendMode, (BlendMode), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Pass::SetBlendMode(BlendMode mode)", "void set_blendMode(BlendMode)", AS_METHODPR(Pass, SetBlendMode, (BlendMode), void), AS_CALL_THISCALL));
@@ -2556,10 +2796,14 @@ void CollectMembers_Pass(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("Vector<SharedPtr<ShaderVariation>>& Pass::GetPixelShaders(const StringHash& extraDefinesHash)", "Array<ShaderVariation@>@ GetPixelShaders(const StringHash&in)", AS_FUNCTION_OBJFIRST(Pass_GetPixelShaders_StringHash), AS_CALL_CDECL_OBJFIRST));
     methods.Push(RegisterObjectMethodArgs("String Pass::GetEffectiveVertexShaderDefines() const", "String GetEffectiveVertexShaderDefines() const", AS_METHODPR(Pass, GetEffectiveVertexShaderDefines, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Pass::GetEffectivePixelShaderDefines() const", "String GetEffectivePixelShaderDefines() const", AS_METHODPR(Pass, GetEffectivePixelShaderDefines, () const, String), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Pass
+        REGISTER_MANUAL_PART_Pass();
+    #endif
 }
 
 // struct PerThreadSceneResult | File: ../Graphics/View.h
-void CollectMembers_PerThreadSceneResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PerThreadSceneResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // PODVector<Drawable*> PerThreadSceneResult::geometries_
     // Error: type "PODVector<Drawable*>" can not automatically bind
@@ -2568,10 +2812,14 @@ void CollectMembers_PerThreadSceneResult(Vector<RegisterObjectMethodArgs>& metho
 
     fields.Push(RegisterObjectPropertyArgs("float PerThreadSceneResult::minZ_", "float minZ", offsetof(PerThreadSceneResult, minZ_)));
     fields.Push(RegisterObjectPropertyArgs("float PerThreadSceneResult::maxZ_", "float maxZ", offsetof(PerThreadSceneResult, maxZ_)));
+
+    #ifdef REGISTER_MANUAL_PART_PerThreadSceneResult
+        REGISTER_MANUAL_PART_PerThreadSceneResult();
+    #endif
 }
 
 // class PointOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_PointOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PointOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void PointOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
@@ -2579,10 +2827,14 @@ void CollectMembers_PointOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, 
     methods.Push(RegisterObjectMethodArgs("Intersection PointOctreeQuery::TestOctant(const BoundingBox& box, bool inside) override", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(PointOctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
 
     fields.Push(RegisterObjectPropertyArgs("Vector3 PointOctreeQuery::point_", "Vector3 point", offsetof(PointOctreeQuery, point_)));
+
+    #ifdef REGISTER_MANUAL_PART_PointOctreeQuery
+        REGISTER_MANUAL_PART_PointOctreeQuery();
+    #endif
 }
 
 // class RayOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_RayOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RayOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // PODVector<RayQueryResult>& RayOctreeQuery::result_
     // Error: type "PODVector<RayQueryResult>&" can not automatically bind
@@ -2592,10 +2844,14 @@ void CollectMembers_RayOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("unsigned RayOctreeQuery::viewMask_", "uint viewMask", offsetof(RayOctreeQuery, viewMask_)));
     fields.Push(RegisterObjectPropertyArgs("float RayOctreeQuery::maxDistance_", "float maxDistance", offsetof(RayOctreeQuery, maxDistance_)));
     fields.Push(RegisterObjectPropertyArgs("RayQueryLevel RayOctreeQuery::level_", "RayQueryLevel level", offsetof(RayOctreeQuery, level_)));
+
+    #ifdef REGISTER_MANUAL_PART_RayOctreeQuery
+        REGISTER_MANUAL_PART_RayOctreeQuery();
+    #endif
 }
 
 // struct RayQueryResult | File: ../Graphics/OctreeQuery.h
-void CollectMembers_RayQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RayQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool RayQueryResult::operator!=(const RayQueryResult& rhs) const
     // Only operator== is needed
@@ -2610,6 +2866,10 @@ void CollectMembers_RayQueryResult(Vector<RegisterObjectMethodArgs>& methods, Ve
     fields.Push(RegisterObjectPropertyArgs("Vector2 RayQueryResult::textureUV_", "Vector2 textureUV", offsetof(RayQueryResult, textureUV_)));
     fields.Push(RegisterObjectPropertyArgs("float RayQueryResult::distance_", "float distance", offsetof(RayQueryResult, distance_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned RayQueryResult::subObject_", "uint subObject", offsetof(RayQueryResult, subObject_)));
+
+    #ifdef REGISTER_MANUAL_PART_RayQueryResult
+        REGISTER_MANUAL_PART_RayQueryResult();
+    #endif
 }
 
 // SharedPtr<RenderPath> RenderPath::Clone()
@@ -2622,9 +2882,9 @@ static RenderPath* RenderPath_Clone_void(RenderPath* ptr)
 
 
 // class RenderPath | File: ../Graphics/RenderPath.h
-void CollectMembers_RenderPath(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RenderPath(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // RenderPathCommand* RenderPath::GetCommand(unsigned index)
     // Error: type "RenderPathCommand*" can not automatically bind
@@ -2663,10 +2923,14 @@ void CollectMembers_RenderPath(Vector<RegisterObjectMethodArgs>& methods, Vector
     // Error: type "Vector<RenderTargetInfo>" can not automatically bind
     // Vector<RenderPathCommand> RenderPath::commands_
     // Error: type "Vector<RenderPathCommand>" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_RenderPath
+        REGISTER_MANUAL_PART_RenderPath();
+    #endif
 }
 
 // struct RenderPathCommand | File: ../Graphics/RenderPath.h
-void CollectMembers_RenderPathCommand(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RenderPathCommand(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void RenderPathCommand::Load(const XMLElement& element)", "void Load(const XMLElement&in)", AS_METHODPR(RenderPathCommand, Load, (const XMLElement&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetTextureName(TextureUnit unit, const String& name)", "void SetTextureName(TextureUnit, const String&in)", AS_METHODPR(RenderPathCommand, SetTextureName, (TextureUnit, const String&), void), AS_CALL_THISCALL));
@@ -2725,12 +2989,16 @@ void CollectMembers_RenderPathCommand(Vector<RegisterObjectMethodArgs>& methods,
     fields.Push(RegisterObjectPropertyArgs("bool RenderPathCommand::useLitBase_", "bool useLitBase", offsetof(RenderPathCommand, useLitBase_)));
     fields.Push(RegisterObjectPropertyArgs("bool RenderPathCommand::vertexLights_", "bool vertexLights", offsetof(RenderPathCommand, vertexLights_)));
     fields.Push(RegisterObjectPropertyArgs("String RenderPathCommand::eventName_", "String eventName", offsetof(RenderPathCommand, eventName_)));
+
+    #ifdef REGISTER_MANUAL_PART_RenderPathCommand
+        REGISTER_MANUAL_PART_RenderPathCommand();
+    #endif
 }
 
 // class RenderSurface | File: ../Graphics/RenderSurface.h
-void CollectMembers_RenderSurface(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RenderSurface(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // void* RenderSurface::GetReadOnlyView() const
     // Error: type "void*" can not automatically bind
@@ -2791,10 +3059,14 @@ void CollectMembers_RenderSurface(Vector<RegisterObjectMethodArgs>& methods, Vec
     // Not registered because have @nobind mark
     // unsigned RenderSurface::target_
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_RenderSurface
+        REGISTER_MANUAL_PART_RenderSurface();
+    #endif
 }
 
 // struct RenderTargetInfo | File: ../Graphics/RenderPath.h
-void CollectMembers_RenderTargetInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RenderTargetInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void RenderTargetInfo::Load(const XMLElement& element)", "void Load(const XMLElement&in)", AS_METHODPR(RenderTargetInfo, Load, (const XMLElement&), void), AS_CALL_THISCALL));
 
@@ -2810,12 +3082,16 @@ void CollectMembers_RenderTargetInfo(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("bool RenderTargetInfo::filtered_", "bool filtered", offsetof(RenderTargetInfo, filtered_)));
     fields.Push(RegisterObjectPropertyArgs("bool RenderTargetInfo::sRGB_", "bool sRGB", offsetof(RenderTargetInfo, sRGB_)));
     fields.Push(RegisterObjectPropertyArgs("bool RenderTargetInfo::persistent_", "bool persistent", offsetof(RenderTargetInfo, persistent_)));
+
+    #ifdef REGISTER_MANUAL_PART_RenderTargetInfo
+        REGISTER_MANUAL_PART_RenderTargetInfo();
+    #endif
 }
 
 // class Renderer | File: ../Graphics/Renderer.h
-void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void Renderer::SetNumViewports(unsigned num)", "void SetNumViewports(uint)", AS_METHODPR(Renderer, SetNumViewports, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Renderer::SetNumViewports(unsigned num)", "void set_numViewports(uint)", AS_METHODPR(Renderer, SetNumViewports, (unsigned), void), AS_CALL_THISCALL));
@@ -2985,12 +3261,16 @@ void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("const Rect& Renderer::GetLightScissor(Light* light, Camera* camera)", "const Rect& GetLightScissor(Light@+, Camera@+)", AS_METHODPR(Renderer, GetLightScissor, (Light*, Camera*), const Rect&), AS_CALL_THISCALL));
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static View* Renderer::GetActualView(View* view)", "View@+ GetActualView(View@+)", AS_FUNCTIONPR(Renderer::GetActualView, (View*), View*), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Renderer
+        REGISTER_MANUAL_PART_Renderer();
+    #endif
 }
 
 // class RibbonTrail | File: ../Graphics/RibbonTrail.h
-void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
     Remove(methods, "virtual void Drawable::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)");
@@ -3075,10 +3355,14 @@ void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     // static void RibbonTrail::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_RibbonTrail
+        REGISTER_MANUAL_PART_RibbonTrail();
+    #endif
 }
 
 // struct ScenePassInfo | File: ../Graphics/View.h
-void CollectMembers_ScenePassInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ScenePassInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // BatchQueue* ScenePassInfo::batchQueue_
     // Not registered because pointer
@@ -3087,20 +3371,28 @@ void CollectMembers_ScenePassInfo(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("bool ScenePassInfo::allowInstancing_", "bool allowInstancing", offsetof(ScenePassInfo, allowInstancing_)));
     fields.Push(RegisterObjectPropertyArgs("bool ScenePassInfo::markToStencil_", "bool markToStencil", offsetof(ScenePassInfo, markToStencil_)));
     fields.Push(RegisterObjectPropertyArgs("bool ScenePassInfo::vertexLights_", "bool vertexLights", offsetof(ScenePassInfo, vertexLights_)));
+
+    #ifdef REGISTER_MANUAL_PART_ScenePassInfo
+        REGISTER_MANUAL_PART_ScenePassInfo();
+    #endif
 }
 
 // struct ScratchBuffer | File: ../Graphics/Graphics.h
-void CollectMembers_ScratchBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ScratchBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedArrayPtr<unsigned char> ScratchBuffer::data_
     // Error: type "SharedArrayPtr<unsigned char>" can not automatically bind
 
     fields.Push(RegisterObjectPropertyArgs("unsigned ScratchBuffer::size_", "uint size", offsetof(ScratchBuffer, size_)));
     fields.Push(RegisterObjectPropertyArgs("bool ScratchBuffer::reserved_", "bool reserved", offsetof(ScratchBuffer, reserved_)));
+
+    #ifdef REGISTER_MANUAL_PART_ScratchBuffer
+        REGISTER_MANUAL_PART_ScratchBuffer();
+    #endif
 }
 
 // struct ScreenModeParams | File: ../Graphics/Graphics.h
-void CollectMembers_ScreenModeParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ScreenModeParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool ScreenModeParams::operator!=(const ScreenModeParams& rhs) const
     // Only operator== is needed
@@ -3117,12 +3409,16 @@ void CollectMembers_ScreenModeParams(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("int ScreenModeParams::multiSample_", "int multiSample", offsetof(ScreenModeParams, multiSample_)));
     fields.Push(RegisterObjectPropertyArgs("int ScreenModeParams::monitor_", "int monitor", offsetof(ScreenModeParams, monitor_)));
     fields.Push(RegisterObjectPropertyArgs("int ScreenModeParams::refreshRate_", "int refreshRate", offsetof(ScreenModeParams, refreshRate_)));
+
+    #ifdef REGISTER_MANUAL_PART_ScreenModeParams
+        REGISTER_MANUAL_PART_ScreenModeParams();
+    #endif
 }
 
 // class Shader | File: ../Graphics/Shader.h
-void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Resource(methods, staticMethods, fields, staticFields);
+    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
@@ -3138,10 +3434,14 @@ void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Shader::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Shader
+        REGISTER_MANUAL_PART_Shader();
+    #endif
 }
 
 // struct ShaderParameter | File: ../Graphics/ShaderVariation.h
-void CollectMembers_ShaderParameter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ShaderParameter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // union ShaderParameter::@4 Urho3D::ShaderParameter::@5
     // Error: type "union Urho3D::ShaderParameter::@4" can not automatically bind
@@ -3159,31 +3459,43 @@ void CollectMembers_ShaderParameter(Vector<RegisterObjectMethodArgs>& methods, V
     fields.Push(RegisterObjectPropertyArgs("unsigned ShaderParameter::glType_", "uint glType", offsetof(ShaderParameter, glType_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned ShaderParameter::regCount_", "uint regCount", offsetof(ShaderParameter, regCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned ShaderParameter::buffer_", "uint buffer", offsetof(ShaderParameter, buffer_)));
+
+    #ifdef REGISTER_MANUAL_PART_ShaderParameter
+        REGISTER_MANUAL_PART_ShaderParameter();
+    #endif
 }
 
 // class ShaderParameterAnimationInfo | File: ../Graphics/Material.h
-void CollectMembers_ShaderParameterAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ShaderParameterAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ValueAnimationInfo(methods, staticMethods, fields, staticFields);
+    CollectMembers_ValueAnimationInfo(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("const String& ShaderParameterAnimationInfo::GetName() const", "const String& GetName() const", AS_METHODPR(ShaderParameterAnimationInfo, GetName, () const, const String&), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_ShaderParameterAnimationInfo
+        REGISTER_MANUAL_PART_ShaderParameterAnimationInfo();
+    #endif
 }
 
 // class ShaderPrecache | File: ../Graphics/ShaderPrecache.h
-void CollectMembers_ShaderPrecache(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ShaderPrecache(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void ShaderPrecache::StoreShaders(ShaderVariation* vs, ShaderVariation* ps)", "void StoreShaders(ShaderVariation@+, ShaderVariation@+)", AS_METHODPR(ShaderPrecache, StoreShaders, (ShaderVariation*, ShaderVariation*), void), AS_CALL_THISCALL));
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static void ShaderPrecache::LoadShaders(Graphics* graphics, Deserializer& source)", "void LoadShaders(Graphics@+, Deserializer&)", AS_FUNCTIONPR(ShaderPrecache::LoadShaders, (Graphics*, Deserializer&), void), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_ShaderPrecache
+        REGISTER_MANUAL_PART_ShaderPrecache();
+    #endif
 }
 
 // class ShaderVariation | File: ../Graphics/ShaderVariation.h
-void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
-    CollectMembers_GPUObject(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_GPUObject(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::Release()");
@@ -3213,10 +3525,14 @@ void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods, V
 
     // static const char* ShaderVariation::elementSemanticNames[]
     // Error: type "const char*" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_ShaderVariation
+        REGISTER_MANUAL_PART_ShaderVariation();
+    #endif
 }
 
 // struct ShadowBatchQueue | File: ../Graphics/Batch.h
-void CollectMembers_ShadowBatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ShadowBatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // Camera* ShadowBatchQueue::shadowCamera_
     // Not registered because pointer
@@ -3225,10 +3541,14 @@ void CollectMembers_ShadowBatchQueue(Vector<RegisterObjectMethodArgs>& methods, 
     fields.Push(RegisterObjectPropertyArgs("BatchQueue ShadowBatchQueue::shadowBatches_", "BatchQueue shadowBatches", offsetof(ShadowBatchQueue, shadowBatches_)));
     fields.Push(RegisterObjectPropertyArgs("float ShadowBatchQueue::nearSplit_", "float nearSplit", offsetof(ShadowBatchQueue, nearSplit_)));
     fields.Push(RegisterObjectPropertyArgs("float ShadowBatchQueue::farSplit_", "float farSplit", offsetof(ShadowBatchQueue, farSplit_)));
+
+    #ifdef REGISTER_MANUAL_PART_ShadowBatchQueue
+        REGISTER_MANUAL_PART_ShadowBatchQueue();
+    #endif
 }
 
 // class Skeleton | File: ../Graphics/Skeleton.h
-void CollectMembers_Skeleton(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Skeleton(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // Bone* Skeleton::GetBone(const char* name)
     // Error: type "const char*" can not automatically bind
@@ -3256,12 +3576,16 @@ void CollectMembers_Skeleton(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("Bone* Skeleton::GetBone(const String& name)", "Bone@+ GetBone(const String&in)", AS_METHODPR(Skeleton, GetBone, (const String&), Bone*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Bone* Skeleton::GetBone(const StringHash& boneNameHash)", "Bone@+ GetBone(const StringHash&in)", AS_METHODPR(Skeleton, GetBone, (const StringHash&), Bone*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Skeleton::ResetSilent()", "void ResetSilent()", AS_METHODPR(Skeleton, ResetSilent, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Skeleton
+        REGISTER_MANUAL_PART_Skeleton();
+    #endif
 }
 
 // class Skybox | File: ../Graphics/Skybox.h
-void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_StaticModel(methods, staticMethods, fields, staticFields);
+    CollectMembers_StaticModel(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "void StaticModel::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results) override");
     Remove(methods, "void StaticModel::UpdateBatches(const FrameInfo& frame) override");
@@ -3275,10 +3599,14 @@ void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static void Skybox::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Skybox
+        REGISTER_MANUAL_PART_Skybox();
+    #endif
 }
 
 // struct SourceBatch | File: ../Graphics/Drawable.h
-void CollectMembers_SourceBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SourceBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("SourceBatch& SourceBatch::operator=(const SourceBatch& rhs)", "SourceBatch& opAssign(const SourceBatch&in)", AS_METHODPR(SourceBatch, operator=, (const SourceBatch&), SourceBatch&), AS_CALL_THISCALL));
 
@@ -3294,10 +3622,14 @@ void CollectMembers_SourceBatch(Vector<RegisterObjectMethodArgs>& methods, Vecto
     fields.Push(RegisterObjectPropertyArgs("float SourceBatch::distance_", "float distance", offsetof(SourceBatch, distance_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned SourceBatch::numWorldTransforms_", "uint numWorldTransforms", offsetof(SourceBatch, numWorldTransforms_)));
     fields.Push(RegisterObjectPropertyArgs("GeometryType SourceBatch::geometryType_", "GeometryType geometryType", offsetof(SourceBatch, geometryType_)));
+
+    #ifdef REGISTER_MANUAL_PART_SourceBatch
+        REGISTER_MANUAL_PART_SourceBatch();
+    #endif
 }
 
 // class SphereOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_SphereOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SphereOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void SphereOctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) override
     // Error: type "Drawable**" can not automatically bind
@@ -3305,12 +3637,16 @@ void CollectMembers_SphereOctreeQuery(Vector<RegisterObjectMethodArgs>& methods,
     methods.Push(RegisterObjectMethodArgs("Intersection SphereOctreeQuery::TestOctant(const BoundingBox& box, bool inside) override", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(SphereOctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
 
     fields.Push(RegisterObjectPropertyArgs("Sphere SphereOctreeQuery::sphere_", "Sphere sphere", offsetof(SphereOctreeQuery, sphere_)));
+
+    #ifdef REGISTER_MANUAL_PART_SphereOctreeQuery
+        REGISTER_MANUAL_PART_SphereOctreeQuery();
+    #endif
 }
 
 // class StaticModel | File: ../Graphics/StaticModel.h
-void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
     Remove(methods, "virtual bool Drawable::DrawOcclusion(OcclusionBuffer* buffer)");
@@ -3353,19 +3689,27 @@ void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     // static void StaticModel::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_StaticModel
+        REGISTER_MANUAL_PART_StaticModel();
+    #endif
 }
 
 // struct StaticModelGeometryData | File: ../Graphics/StaticModel.h
-void CollectMembers_StaticModelGeometryData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_StaticModelGeometryData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Vector3 StaticModelGeometryData::center_", "Vector3 center", offsetof(StaticModelGeometryData, center_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned StaticModelGeometryData::lodLevel_", "uint lodLevel", offsetof(StaticModelGeometryData, lodLevel_)));
+
+    #ifdef REGISTER_MANUAL_PART_StaticModelGeometryData
+        REGISTER_MANUAL_PART_StaticModelGeometryData();
+    #endif
 }
 
 // class StaticModelGroup | File: ../Graphics/StaticModelGroup.h
-void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_StaticModel(methods, staticMethods, fields, staticFields);
+    CollectMembers_StaticModel(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "bool StaticModel::DrawOcclusion(OcclusionBuffer* buffer) override");
     Remove(methods, "unsigned StaticModel::GetNumOccluderTriangles() override");
@@ -3396,6 +3740,10 @@ void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods, 
 
     // static void StaticModelGroup::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_StaticModelGroup
+        REGISTER_MANUAL_PART_StaticModelGroup();
+    #endif
 }
 
 // SharedPtr<Technique> Technique::Clone(const String& cloneName=String::EMPTY) const
@@ -3435,9 +3783,9 @@ static Technique* Technique_CloneWithDefines_String_String(Technique* ptr, const
 
 
 // class Technique | File: ../Graphics/Technique.h
-void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Resource(methods, staticMethods, fields, staticFields);
+    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
@@ -3479,10 +3827,14 @@ void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<
     staticFields.Push(RegisterGlobalPropertyArgs("static unsigned Technique::litBasePassIndex", "uint litBasePassIndex", (void*)&Technique::litBasePassIndex));
     staticFields.Push(RegisterGlobalPropertyArgs("static unsigned Technique::litAlphaPassIndex", "uint litAlphaPassIndex", (void*)&Technique::litAlphaPassIndex));
     staticFields.Push(RegisterGlobalPropertyArgs("static unsigned Technique::shadowPassIndex", "uint shadowPassIndex", (void*)&Technique::shadowPassIndex));
+
+    #ifdef REGISTER_MANUAL_PART_Technique
+        REGISTER_MANUAL_PART_Technique();
+    #endif
 }
 
 // struct TechniqueEntry | File: ../Graphics/Material.h
-void CollectMembers_TechniqueEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_TechniqueEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedPtr<Technique> TechniqueEntry::technique_
     // Error: type "SharedPtr<Technique>" can not automatically bind
@@ -3491,12 +3843,16 @@ void CollectMembers_TechniqueEntry(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     fields.Push(RegisterObjectPropertyArgs("MaterialQuality TechniqueEntry::qualityLevel_", "MaterialQuality qualityLevel", offsetof(TechniqueEntry, qualityLevel_)));
     fields.Push(RegisterObjectPropertyArgs("float TechniqueEntry::lodDistance_", "float lodDistance", offsetof(TechniqueEntry, lodDistance_)));
+
+    #ifdef REGISTER_MANUAL_PART_TechniqueEntry
+        REGISTER_MANUAL_PART_TechniqueEntry();
+    #endif
 }
 
 // class Terrain | File: ../Graphics/Terrain.h
-void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::OnSetEnabled()");
     Remove(methods, "virtual void Serializable::ApplyAttributes()");
@@ -3623,12 +3979,16 @@ void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     // static void Terrain::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Terrain
+        REGISTER_MANUAL_PART_Terrain();
+    #endif
 }
 
 // class TerrainPatch | File: ../Graphics/TerrainPatch.h
-void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual Geometry* Drawable::GetLodGeometry(unsigned batchIndex, unsigned level)");
     Remove(methods, "virtual UpdateGeometryType Drawable::GetUpdateGeometryType()");
@@ -3673,13 +4033,17 @@ void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     // static void TerrainPatch::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_TerrainPatch
+        REGISTER_MANUAL_PART_TerrainPatch();
+    #endif
 }
 
 // class Texture | File: ../Graphics/Texture.h
-void CollectMembers_Texture(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Texture(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, staticFields);
-    CollectMembers_GPUObject(methods, staticMethods, fields, staticFields);
+    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_GPUObject(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // void* Texture::GetResolveTexture() const
     // Error: type "void*" can not automatically bind
@@ -3771,6 +4135,10 @@ void CollectMembers_Texture(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::CheckMaxLevels(int width, int height, unsigned requestedLevels)", "uint CheckMaxLevels(int, int, uint)", AS_FUNCTIONPR(Texture::CheckMaxLevels, (int, int, unsigned), unsigned), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Texture::CheckMaxLevels(int width, int height, int depth, unsigned requestedLevels)", "uint CheckMaxLevels(int, int, int, uint)", AS_FUNCTIONPR(Texture::CheckMaxLevels, (int, int, int, unsigned), unsigned), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Texture
+        REGISTER_MANUAL_PART_Texture();
+    #endif
 }
 
 // SharedPtr<Image> Texture2D::GetImage() const
@@ -3783,9 +4151,9 @@ static Image* Texture2D_GetImage_void(Texture2D* ptr)
 
 
 // class Texture2D | File: ../Graphics/Texture2D.h
-void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Texture(methods, staticMethods, fields, staticFields);
+    CollectMembers_Texture(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
@@ -3812,12 +4180,16 @@ void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     // static void Texture2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Texture2D
+        REGISTER_MANUAL_PART_Texture2D();
+    #endif
 }
 
 // class Texture2DArray | File: ../Graphics/Texture2DArray.h
-void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Texture(methods, staticMethods, fields, staticFields);
+    CollectMembers_Texture(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
@@ -3847,12 +4219,16 @@ void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     // static void Texture2DArray::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Texture2DArray
+        REGISTER_MANUAL_PART_Texture2DArray();
+    #endif
 }
 
 // class Texture3D | File: ../Graphics/Texture3D.h
-void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Texture(methods, staticMethods, fields, staticFields);
+    CollectMembers_Texture(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
@@ -3875,6 +4251,10 @@ void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     // static void Texture3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Texture3D
+        REGISTER_MANUAL_PART_Texture3D();
+    #endif
 }
 
 // SharedPtr<Image> TextureCube::GetImage(CubeMapFace face) const
@@ -3887,9 +4267,9 @@ static Image* TextureCube_GetImage_CubeMapFace(TextureCube* ptr, CubeMapFace fac
 
 
 // class TextureCube | File: ../Graphics/TextureCube.h
-void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Texture(methods, staticMethods, fields, staticFields);
+    CollectMembers_Texture(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
     Remove(methods, "virtual bool Resource::EndLoad()");
@@ -3916,17 +4296,25 @@ void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     // static void TextureCube::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_TextureCube
+        REGISTER_MANUAL_PART_TextureCube();
+    #endif
 }
 
 // struct TextureFrame | File: ../Graphics/ParticleEffect.h
-void CollectMembers_TextureFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_TextureFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("Rect TextureFrame::uv_", "Rect uv", offsetof(TextureFrame, uv_)));
     fields.Push(RegisterObjectPropertyArgs("float TextureFrame::time_", "float time", offsetof(TextureFrame, time_)));
+
+    #ifdef REGISTER_MANUAL_PART_TextureFrame
+        REGISTER_MANUAL_PART_TextureFrame();
+    #endif
 }
 
 // struct TrailPoint | File: ../Graphics/RibbonTrail.h
-void CollectMembers_TrailPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_TrailPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // TrailPoint* TrailPoint::next_
     // Not registered because pointer
@@ -3937,6 +4325,10 @@ void CollectMembers_TrailPoint(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("float TrailPoint::elapsedLength_", "float elapsedLength", offsetof(TrailPoint, elapsedLength_)));
     fields.Push(RegisterObjectPropertyArgs("float TrailPoint::lifetime_", "float lifetime", offsetof(TrailPoint, lifetime_)));
     fields.Push(RegisterObjectPropertyArgs("float TrailPoint::sortDistance_", "float sortDistance", offsetof(TrailPoint, sortDistance_)));
+
+    #ifdef REGISTER_MANUAL_PART_TrailPoint
+        REGISTER_MANUAL_PART_TrailPoint();
+    #endif
 }
 
 // bool VertexBuffer::SetSize(unsigned vertexCount, const PODVector<VertexElement>& elements, bool dynamic=false)
@@ -3998,10 +4390,10 @@ static unsigned VertexBuffer_GetVertexSize_PODVectorVertexElement(CScriptArray* 
 
 
 // class VertexBuffer | File: ../Graphics/VertexBuffer.h
-void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
-    CollectMembers_GPUObject(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_GPUObject(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void GPUObject::OnDeviceLost()");
     Remove(methods, "virtual void GPUObject::OnDeviceReset()");
@@ -4059,10 +4451,14 @@ void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
     staticMethods.Push(RegisterGlobalFunctionArgs("static PODVector<VertexElement> VertexBuffer::GetElements(unsigned elementMask)", "Array<VertexElement>@ GetElements(uint)", AS_FUNCTION(VertexBuffer_GetElements_unsigned), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(const PODVector<VertexElement>& elements)", "uint GetVertexSize(Array<VertexElement>@+)", AS_FUNCTION(VertexBuffer_GetVertexSize_PODVectorVertexElement), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(unsigned elementMask)", "uint GetVertexSize(uint)", AS_FUNCTIONPR(VertexBuffer::GetVertexSize, (unsigned), unsigned), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_VertexBuffer
+        REGISTER_MANUAL_PART_VertexBuffer();
+    #endif
 }
 
 // struct VertexBufferDesc | File: ../Graphics/Model.h
-void CollectMembers_VertexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_VertexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // PODVector<VertexElement> VertexBufferDesc::vertexElements_
     // Error: type "PODVector<VertexElement>" can not automatically bind
@@ -4071,10 +4467,14 @@ void CollectMembers_VertexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, 
 
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexBufferDesc::vertexCount_", "uint vertexCount", offsetof(VertexBufferDesc, vertexCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexBufferDesc::dataSize_", "uint dataSize", offsetof(VertexBufferDesc, dataSize_)));
+
+    #ifdef REGISTER_MANUAL_PART_VertexBufferDesc
+        REGISTER_MANUAL_PART_VertexBufferDesc();
+    #endif
 }
 
 // struct VertexBufferMorph | File: ../Graphics/Model.h
-void CollectMembers_VertexBufferMorph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_VertexBufferMorph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // SharedArrayPtr<unsigned char> VertexBufferMorph::morphData_
     // Error: type "SharedArrayPtr<unsigned char>" can not automatically bind
@@ -4082,10 +4482,14 @@ void CollectMembers_VertexBufferMorph(Vector<RegisterObjectMethodArgs>& methods,
     fields.Push(RegisterObjectPropertyArgs("VertexMaskFlags VertexBufferMorph::elementMask_", "VertexMaskFlags elementMask", offsetof(VertexBufferMorph, elementMask_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexBufferMorph::vertexCount_", "uint vertexCount", offsetof(VertexBufferMorph, vertexCount_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexBufferMorph::dataSize_", "uint dataSize", offsetof(VertexBufferMorph, dataSize_)));
+
+    #ifdef REGISTER_MANUAL_PART_VertexBufferMorph
+        REGISTER_MANUAL_PART_VertexBufferMorph();
+    #endif
 }
 
 // struct VertexElement | File: ../Graphics/GraphicsDefs.h
-void CollectMembers_VertexElement(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_VertexElement(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool VertexElement::operator!=(const VertexElement& rhs) const
     // Only operator== is needed
@@ -4097,6 +4501,10 @@ void CollectMembers_VertexElement(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("unsigned char VertexElement::index_", "uint8 index", offsetof(VertexElement, index_)));
     fields.Push(RegisterObjectPropertyArgs("bool VertexElement::perInstance_", "bool perInstance", offsetof(VertexElement, perInstance_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned VertexElement::offset_", "uint offset", offsetof(VertexElement, offset_)));
+
+    #ifdef REGISTER_MANUAL_PART_VertexElement
+        REGISTER_MANUAL_PART_VertexElement();
+    #endif
 }
 
 // const PODVector<Drawable*>& View::GetGeometries() const
@@ -4127,9 +4535,9 @@ static CScriptArray* View_GetLights_void(View* ptr)
 
 
 // class View | File: ../Graphics/View.h
-void CollectMembers_View(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_View(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // const Vector<LightBatchQueue>& View::GetLightQueues() const
     // Error: type "const Vector<LightBatchQueue>&" can not automatically bind
@@ -4160,12 +4568,16 @@ void CollectMembers_View(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("void View::SetGBufferShaderParameters(const IntVector2& texSize, const IntRect& viewRect)", "void SetGBufferShaderParameters(const IntVector2&in, const IntRect&in)", AS_METHODPR(View, SetGBufferShaderParameters, (const IntVector2&, const IntRect&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void View::DrawFullscreenQuad(bool setIdentityProjection=false)", "void DrawFullscreenQuad(bool = false)", AS_METHODPR(View, DrawFullscreenQuad, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Texture* View::FindNamedTexture(const String& name, bool isRenderTarget, bool isVolumeMap=false)", "Texture@+ FindNamedTexture(const String&in, bool, bool = false)", AS_METHODPR(View, FindNamedTexture, (const String&, bool, bool), Texture*), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_View
+        REGISTER_MANUAL_PART_View();
+    #endif
 }
 
 // class Viewport | File: ../Graphics/Viewport.h
-void CollectMembers_Viewport(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Viewport(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void Viewport::SetScene(Scene* scene)", "void SetScene(Scene@+)", AS_METHODPR(Viewport, SetScene, (Scene*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Viewport::SetScene(Scene* scene)", "void set_scene(Scene@+)", AS_METHODPR(Viewport, SetScene, (Scene*), void), AS_CALL_THISCALL));
@@ -4197,20 +4609,28 @@ void CollectMembers_Viewport(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("IntVector2 Viewport::WorldToScreenPoint(const Vector3& worldPos) const", "IntVector2 WorldToScreenPoint(const Vector3&in) const", AS_METHODPR(Viewport, WorldToScreenPoint, (const Vector3&) const, IntVector2), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Vector3 Viewport::ScreenToWorldPoint(int x, int y, float depth) const", "Vector3 ScreenToWorldPoint(int, int, float) const", AS_METHODPR(Viewport, ScreenToWorldPoint, (int, int, float) const, Vector3), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Viewport::AllocateView()", "void AllocateView()", AS_METHODPR(Viewport, AllocateView, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Viewport
+        REGISTER_MANUAL_PART_Viewport();
+    #endif
 }
 
 // struct WindowModeParams | File: ../Graphics/Graphics.h
-void CollectMembers_WindowModeParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_WindowModeParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("int WindowModeParams::width_", "int width", offsetof(WindowModeParams, width_)));
     fields.Push(RegisterObjectPropertyArgs("int WindowModeParams::height_", "int height", offsetof(WindowModeParams, height_)));
     fields.Push(RegisterObjectPropertyArgs("ScreenModeParams WindowModeParams::screenParams_", "ScreenModeParams screenParams", offsetof(WindowModeParams, screenParams_)));
+
+    #ifdef REGISTER_MANUAL_PART_WindowModeParams
+        REGISTER_MANUAL_PART_WindowModeParams();
+    #endif
 }
 
 // class Zone | File: ../Graphics/Zone.h
-void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Drawable(methods, staticMethods, fields, staticFields);
+    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "void Drawable::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override");
 
@@ -4275,6 +4695,10 @@ void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
 
     // static void Zone::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Zone
+        REGISTER_MANUAL_PART_Zone();
+    #endif
 }
 
 } // namespace Urho3D

@@ -205,7 +205,7 @@ void BoneSetNode(Node* node, Bone* ptr);
 
 // ========================================================================================
 
-#define REGISTER_MANUAL_PART_Component(T, className) \
+#define REGISTER_MANUAL_PART_Component() \
     /* Workarounds for Connection that used outside URHO3D_NETWORK define */ \
     if (URHO3D_NETWORK_DEFINED) \
     { \

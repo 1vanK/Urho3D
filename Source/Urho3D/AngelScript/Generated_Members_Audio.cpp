@@ -20,9 +20,9 @@ static CScriptArray* Audio_GetSoundSources_void(Audio* ptr)
 
 
 // class Audio | File: ../Audio/Audio.h
-void CollectMembers_Audio(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Audio(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // void Audio::MixOutput(void* dest, unsigned samples)
     // Error: type "void*" can not automatically bind
@@ -62,12 +62,16 @@ void CollectMembers_Audio(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("void Audio::RemoveSoundSource(SoundSource* soundSource)", "void RemoveSoundSource(SoundSource@+)", AS_METHODPR(Audio, RemoveSoundSource, (SoundSource*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Mutex& Audio::GetMutex()", "Mutex& GetMutex()", AS_METHODPR(Audio, GetMutex, (), Mutex&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Audio::GetSoundSourceMasterGain(StringHash typeHash) const", "float GetSoundSourceMasterGain(StringHash) const", AS_METHODPR(Audio, GetSoundSourceMasterGain, (StringHash) const, float), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Audio
+        REGISTER_MANUAL_PART_Audio();
+    #endif
 }
 
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
-void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_SoundStream(methods, staticMethods, fields, staticFields);
+    CollectMembers_SoundStream(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
 
@@ -83,12 +87,16 @@ void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& method
     methods.Push(RegisterObjectMethodArgs("void BufferedSoundStream::Clear()", "void Clear()", AS_METHODPR(BufferedSoundStream, Clear, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned BufferedSoundStream::GetBufferNumBytes() const", "uint GetBufferNumBytes() const", AS_METHODPR(BufferedSoundStream, GetBufferNumBytes, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float BufferedSoundStream::GetBufferLength() const", "float GetBufferLength() const", AS_METHODPR(BufferedSoundStream, GetBufferLength, () const, float), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_BufferedSoundStream
+        REGISTER_MANUAL_PART_BufferedSoundStream();
+    #endif
 }
 
 // class OggVorbisSoundStream | File: ../Audio/OggVorbisSoundStream.h
-void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_SoundStream(methods, staticMethods, fields, staticFields);
+    CollectMembers_SoundStream(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool SoundStream::Seek(unsigned sample_number)");
     Remove(methods, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
@@ -97,6 +105,10 @@ void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& metho
     // Error: type "signed char*" can not automatically bind
 
     methods.Push(RegisterObjectMethodArgs("bool OggVorbisSoundStream::Seek(unsigned sample_number) override", "bool Seek(uint)", AS_METHODPR(OggVorbisSoundStream, Seek, (unsigned), bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_OggVorbisSoundStream
+        REGISTER_MANUAL_PART_OggVorbisSoundStream();
+    #endif
 }
 
 // SharedPtr<SoundStream> Sound::GetDecoderStream() const
@@ -109,9 +121,9 @@ static SoundStream* Sound_GetDecoderStream_void(Sound* ptr)
 
 
 // class Sound | File: ../Audio/Sound.h
-void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, staticFields);
+    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
@@ -156,23 +168,31 @@ void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
 
     // static void Sound::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Sound
+        REGISTER_MANUAL_PART_Sound();
+    #endif
 }
 
 // class SoundListener | File: ../Audio/SoundListener.h
-void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
     // static void SoundListener::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_SoundListener
+        REGISTER_MANUAL_PART_SoundListener();
+    #endif
 }
 
 // class SoundSource | File: ../Audio/SoundSource.h
-void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Component(methods, staticMethods, fields, staticFields);
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
@@ -229,12 +249,16 @@ void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     // static void SoundSource::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_SoundSource
+        REGISTER_MANUAL_PART_SoundSource();
+    #endif
 }
 
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
-void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_SoundSource(methods, staticMethods, fields, staticFields);
+    CollectMembers_SoundSource(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Component::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)");
     Remove(methods, "virtual void SoundSource::Update(float timeStep)");
@@ -269,12 +293,16 @@ void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vec
 
     // static void SoundSource3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_SoundSource3D
+        REGISTER_MANUAL_PART_SoundSource3D();
+    #endif
 }
 
 // class SoundStream | File: ../Audio/SoundStream.h
-void CollectMembers_SoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_SoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0
     // Error: type "signed char*" can not automatically bind
@@ -288,6 +316,10 @@ void CollectMembers_SoundStream(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("bool SoundStream::GetStopAtEnd() const", "bool GetStopAtEnd() const", AS_METHODPR(SoundStream, GetStopAtEnd, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool SoundStream::IsSixteenBit() const", "bool IsSixteenBit() const", AS_METHODPR(SoundStream, IsSixteenBit, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool SoundStream::IsStereo() const", "bool IsStereo() const", AS_METHODPR(SoundStream, IsStereo, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_SoundStream
+        REGISTER_MANUAL_PART_SoundStream();
+    #endif
 }
 
 } // namespace Urho3D

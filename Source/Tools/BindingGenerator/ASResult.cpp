@@ -641,8 +641,9 @@ namespace Result
                 "    Vector<RegisterObjectMethodArgs> methods;\n"
                 "    Vector<RegisterGlobalFunctionArgs> staticMethods;\n"
                 "    Vector<RegisterObjectPropertyArgs> fields;\n"
+                "    Vector<RegisterObjectMethodArgs> wrappedFields;\n"
                 "    Vector<RegisterGlobalPropertyArgs> staticFields;\n"
-                "    CollectMembers_" << processedClass.name_ << "(methods, staticMethods, fields, staticFields);\n"
+                "    CollectMembers_" << processedClass.name_ << "(methods, staticMethods, fields, wrappedFields, staticFields);\n"
                 "    const char* asClassName = \"" << processedClass.name_ << "\";\n"
                 "\n"
                 "    for (const RegisterObjectMethodArgs& method : methods)\n"
@@ -657,6 +658,9 @@ namespace Result
                 "\n"
                 "    for (const RegisterObjectPropertyArgs& field : fields)\n"
                 "        engine->RegisterObjectProperty(asClassName, field.asDeclaration_.CString(), field.byteOffset_);\n"
+                "\n"
+                "    for (const RegisterObjectMethodArgs& wrappedField : wrappedFields)\n"
+                "        engine->RegisterObjectMethod(asClassName, wrappedField.asDeclaration_.CString(), wrappedField.funcPointer_, wrappedField.callConv_);\n"
                 "\n"
                 "    for (const RegisterGlobalPropertyArgs& staticField : staticFields)\n"
                 "    {\n"
@@ -806,7 +810,7 @@ namespace Result
             file->ofs_ <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
-                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)\n"
+                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)\n"
                 "{\n";
 
             file->needGap_ = false;
@@ -814,7 +818,7 @@ namespace Result
             if (processedClass.baseClassNames_.size())
             {
                 for (const string& baseClassName : processedClass.baseClassNames_)
-                    file->ofs_ << "    CollectMembers_" << baseClassName << "(methods, staticMethods, fields, staticFields);\n";
+                    file->ofs_ << "    CollectMembers_" << baseClassName << "(methods, staticMethods, fields, wrappedFields, staticFields);\n";
 
                 file->needGap_ = true;
             }
@@ -849,6 +853,7 @@ namespace Result
             {
                 string escaped = ReplaceAll(hiddenField, "\"", "\\\"");
                 file->ofs_ << "    Remove(fields, \"" << escaped << "\");\n";
+                file->ofs_ << "    Remove(wrappedFields, \"" << escaped << "\");\n";
                 file->needGap_ = true;
             }
 
@@ -973,6 +978,14 @@ namespace Result
                 file->needGap_ = true;
             }
 
+            if (file->needGap_)
+                file->ofs_ << '\n';
+
+            file->ofs_ <<
+                "    #ifdef REGISTER_MANUAL_PART_" << processedClass.name_ << "\n"
+                "        REGISTER_MANUAL_PART_" << processedClass.name_ << "();\n"
+                "    #endif\n";
+
             file->ofs_ << "}\n";
         }
 
@@ -1033,7 +1046,7 @@ namespace Result
             ofsH <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
-                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields);\n";
+                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);\n";
         }
 
         if (!openedDefine.empty())

@@ -11,23 +11,31 @@ namespace Urho3D
 {
 
 // class AttributeAccessor | File: ../Core/Attribute.h
-void CollectMembers_AttributeAccessor(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AttributeAccessor(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("virtual void AttributeAccessor::Get(const Serializable* ptr, Variant& dest) const =0", "void Get(Serializable@+, Variant&) const", AS_METHODPR(AttributeAccessor, Get, (const Serializable*, Variant&) const, void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("virtual void AttributeAccessor::Set(Serializable* ptr, const Variant& src)=0", "void Set(Serializable@+, const Variant&in)", AS_METHODPR(AttributeAccessor, Set, (Serializable*, const Variant&), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_AttributeAccessor
+        REGISTER_MANUAL_PART_AttributeAccessor();
+    #endif
 }
 
 // struct AttributeHandle | File: ../Core/Attribute.h
-void CollectMembers_AttributeHandle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AttributeHandle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // AttributeHandle& AttributeHandle::SetMetadata(StringHash key, const Variant& value)
     // Error: type "AttributeHandle" can not automatically bind bacause have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_AttributeHandle
+        REGISTER_MANUAL_PART_AttributeHandle();
+    #endif
 }
 
 // struct AttributeInfo | File: ../Core/Attribute.h
-void CollectMembers_AttributeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AttributeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("const Variant& AttributeInfo::GetMetadata(const StringHash& key) const", "const Variant& GetMetadata(const StringHash&in) const", AS_METHODPR(AttributeInfo, GetMetadata, (const StringHash&) const, const Variant&), AS_CALL_THISCALL));
 
@@ -43,18 +51,29 @@ void CollectMembers_AttributeInfo(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("Variant AttributeInfo::defaultValue_", "Variant defaultValue", offsetof(AttributeInfo, defaultValue_)));
     fields.Push(RegisterObjectPropertyArgs("AttributeModeFlags AttributeInfo::mode_", "AttributeModeFlags mode", offsetof(AttributeInfo, mode_)));
     fields.Push(RegisterObjectPropertyArgs("VariantMap AttributeInfo::metadata_", "VariantMap metadata", offsetof(AttributeInfo, metadata_)));
+
+    #ifdef REGISTER_MANUAL_PART_AttributeInfo
+        REGISTER_MANUAL_PART_AttributeInfo();
+    #endif
 }
 
 // class AutoProfileBlock | File: ../Core/Profiler.h
-void CollectMembers_AutoProfileBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AutoProfileBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
+    #ifdef REGISTER_MANUAL_PART_AutoProfileBlock
+        REGISTER_MANUAL_PART_AutoProfileBlock();
+    #endif
 }
 
 // class Condition | File: ../Core/Condition.h
-void CollectMembers_Condition(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Condition(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void Condition::Set()", "void Set()", AS_METHODPR(Condition, Set, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Condition::Wait()", "void Wait()", AS_METHODPR(Condition, Wait, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Condition
+        REGISTER_MANUAL_PART_Condition();
+    #endif
 }
 
 // SharedPtr<Object> Context::CreateObject(StringHash objectType)
@@ -67,9 +86,9 @@ static Object* Context_CreateObject_StringHash(Context* ptr, StringHash objectTy
 
 
 // class Context | File: ../Core/Context.h
-void CollectMembers_Context(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Context(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // const HashMap<StringHash, Vector<AttributeInfo>>& Context::GetAllAttributes() const
     // Error: type "const HashMap<StringHash, Vector<AttributeInfo>>&" can not automatically bind
@@ -113,10 +132,14 @@ void CollectMembers_Context(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("const String& Context::GetTypeName(StringHash objectType) const", "const String& GetTypeName(StringHash) const", AS_METHODPR(Context, GetTypeName, (StringHash) const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("EventReceiverGroup* Context::GetEventReceivers(Object* sender, StringHash eventType)", "EventReceiverGroup@+ GetEventReceivers(Object@+, StringHash)", AS_METHODPR(Context, GetEventReceivers, (Object*, StringHash), EventReceiverGroup*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("EventReceiverGroup* Context::GetEventReceivers(StringHash eventType)", "EventReceiverGroup@+ GetEventReceivers(StringHash)", AS_METHODPR(Context, GetEventReceivers, (StringHash), EventReceiverGroup*), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Context
+        REGISTER_MANUAL_PART_Context();
+    #endif
 }
 
 // class CustomVariantValue | File: ../Core/Variant.h
-void CollectMembers_CustomVariantValue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_CustomVariantValue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // virtual bool CustomVariantValue::Assign(const CustomVariantValue& rhs)
     // Error: type "CustomVariantValue" can not automatically bind bacause have @nobind mark
@@ -132,10 +155,14 @@ void CollectMembers_CustomVariantValue(Vector<RegisterObjectMethodArgs>& methods
     methods.Push(RegisterObjectMethodArgs("virtual unsigned CustomVariantValue::GetSize() const", "uint GetSize() const", AS_METHODPR(CustomVariantValue, GetSize, () const, unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("virtual bool CustomVariantValue::IsZero() const", "bool IsZero() const", AS_METHODPR(CustomVariantValue, IsZero, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("virtual String CustomVariantValue::ToString() const", "String ToString() const", AS_METHODPR(CustomVariantValue, ToString, () const, String), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_CustomVariantValue
+        REGISTER_MANUAL_PART_CustomVariantValue();
+    #endif
 }
 
 // class EventHandler | File: ../Core/Object.h
-void CollectMembers_EventHandler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_EventHandler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // virtual EventHandler* EventHandler::Clone() const =0
     // Error: type "EventHandler*" can not automatically bind
@@ -147,21 +174,29 @@ void CollectMembers_EventHandler(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("Object* EventHandler::GetReceiver() const", "Object@+ GetReceiver() const", AS_METHODPR(EventHandler, GetReceiver, () const, Object*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Object* EventHandler::GetSender() const", "Object@+ GetSender() const", AS_METHODPR(EventHandler, GetSender, () const, Object*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const StringHash& EventHandler::GetEventType() const", "const StringHash& GetEventType() const", AS_METHODPR(EventHandler, GetEventType, () const, const StringHash&), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_EventHandler
+        REGISTER_MANUAL_PART_EventHandler();
+    #endif
 }
 
 // class EventHandler11Impl | File: ../Core/Object.h
-void CollectMembers_EventHandler11Impl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_EventHandler11Impl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // EventHandler* EventHandler11Impl::Clone() const override
     // Error: type "EventHandler*" can not automatically bind
 
     methods.Push(RegisterObjectMethodArgs("void EventHandler11Impl::Invoke(VariantMap& eventData) override", "void Invoke(VariantMap&)", AS_METHODPR(EventHandler11Impl, Invoke, (VariantMap&), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_EventHandler11Impl
+        REGISTER_MANUAL_PART_EventHandler11Impl();
+    #endif
 }
 
 // class EventProfiler | File: ../Core/EventProfiler.h
-void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Profiler(methods, staticMethods, fields, staticFields);
+    CollectMembers_Profiler(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "void Profiler::BeginBlock(const char* name)");
 
@@ -169,21 +204,29 @@ void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods, Vec
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static void EventProfiler::SetActive(bool newActive)", "void SetActive(bool)", AS_FUNCTIONPR(EventProfiler::SetActive, (bool), void), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool EventProfiler::IsActive()", "bool IsActive()", AS_FUNCTIONPR(EventProfiler::IsActive, (), bool), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_EventProfiler
+        REGISTER_MANUAL_PART_EventProfiler();
+    #endif
 }
 
 // class EventProfilerBlock | File: ../Core/EventProfiler.h
-void CollectMembers_EventProfilerBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_EventProfilerBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // EventProfilerBlock* EventProfilerBlock::GetChild(StringHash eventID)
     // Error: type "EventProfilerBlock" can not automatically bind bacause have @nobind mark
 
     fields.Push(RegisterObjectPropertyArgs("StringHash EventProfilerBlock::eventID_", "StringHash eventID", offsetof(EventProfilerBlock, eventID_)));
+
+    #ifdef REGISTER_MANUAL_PART_EventProfilerBlock
+        REGISTER_MANUAL_PART_EventProfilerBlock();
+    #endif
 }
 
 // class EventReceiverGroup | File: ../Core/Context.h
-void CollectMembers_EventReceiverGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_EventReceiverGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void EventReceiverGroup::BeginSendEvent()", "void BeginSendEvent()", AS_METHODPR(EventReceiverGroup, BeginSendEvent, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void EventReceiverGroup::EndSendEvent()", "void EndSendEvent()", AS_METHODPR(EventReceiverGroup, EndSendEvent, (), void), AS_CALL_THISCALL));
@@ -192,29 +235,44 @@ void CollectMembers_EventReceiverGroup(Vector<RegisterObjectMethodArgs>& methods
 
     // PODVector<Object*> EventReceiverGroup::receivers_
     // Error: type "PODVector<Object*>" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_EventReceiverGroup
+        REGISTER_MANUAL_PART_EventReceiverGroup();
+    #endif
 }
 
 // class HiresTimer | File: ../Core/Timer.h
-void CollectMembers_HiresTimer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_HiresTimer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("long long HiresTimer::GetUSec(bool reset)", "int64 GetUSec(bool)", AS_METHODPR(HiresTimer, GetUSec, (bool), long long), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void HiresTimer::Reset()", "void Reset()", AS_METHODPR(HiresTimer, Reset, (), void), AS_CALL_THISCALL));
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool HiresTimer::IsSupported()", "bool IsSupported()", AS_FUNCTIONPR(HiresTimer::IsSupported, (), bool), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static long long HiresTimer::GetFrequency()", "int64 GetFrequency()", AS_FUNCTIONPR(HiresTimer::GetFrequency, (), long long), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_HiresTimer
+        REGISTER_MANUAL_PART_HiresTimer();
+    #endif
 }
 
 // class Mutex | File: ../Core/Mutex.h
-void CollectMembers_Mutex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Mutex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void Mutex::Acquire()", "void Acquire()", AS_METHODPR(Mutex, Acquire, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Mutex::TryAcquire()", "bool TryAcquire()", AS_METHODPR(Mutex, TryAcquire, (), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Mutex::Release()", "void Release()", AS_METHODPR(Mutex, Release, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Mutex
+        REGISTER_MANUAL_PART_Mutex();
+    #endif
 }
 
 // class MutexLock | File: ../Core/Mutex.h
-void CollectMembers_MutexLock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_MutexLock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
+    #ifdef REGISTER_MANUAL_PART_MutexLock
+        REGISTER_MANUAL_PART_MutexLock();
+    #endif
 }
 
 // void Object::UnsubscribeFromAllEventsExcept(const PODVector<StringHash>& exceptions, bool onlyUserData)
@@ -227,9 +285,9 @@ static void Object_UnsubscribeFromAllEventsExcept_PODVectorStringHash_bool(Objec
 
 
 // class Object | File: ../Core/Object.h
-void CollectMembers_Object(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Object(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // Context* Object::GetContext() const
     // Error: type "Context*" can used only as function parameter
@@ -280,6 +338,10 @@ void CollectMembers_Object(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static const TypeInfo* Object::GetTypeInfoStatic()
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
+
+    #ifdef REGISTER_MANUAL_PART_Object
+        REGISTER_MANUAL_PART_Object();
+    #endif
 }
 
 // virtual SharedPtr<Object> ObjectFactory::CreateObject()=0
@@ -292,9 +354,9 @@ static Object* ObjectFactory_CreateObject_void(ObjectFactory* ptr)
 
 
 // class ObjectFactory | File: ../Core/Object.h
-void CollectMembers_ObjectFactory(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ObjectFactory(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
+    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // Context* ObjectFactory::GetContext() const
     // Error: type "Context*" can used only as function parameter
@@ -304,12 +366,16 @@ void CollectMembers_ObjectFactory(Vector<RegisterObjectMethodArgs>& methods, Vec
     methods.Push(RegisterObjectMethodArgs("virtual SharedPtr<Object> ObjectFactory::CreateObject()=0", "Object@+ CreateObject()", AS_FUNCTION_OBJFIRST(ObjectFactory_CreateObject_void), AS_CALL_CDECL_OBJFIRST));
     methods.Push(RegisterObjectMethodArgs("StringHash ObjectFactory::GetType() const", "StringHash GetType() const", AS_METHODPR(ObjectFactory, GetType, () const, StringHash), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& ObjectFactory::GetTypeName() const", "const String& GetTypeName() const", AS_METHODPR(ObjectFactory, GetTypeName, () const, const String&), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_ObjectFactory
+        REGISTER_MANUAL_PART_ObjectFactory();
+    #endif
 }
 
 // class Profiler | File: ../Core/Profiler.h
-void CollectMembers_Profiler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Profiler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // void Profiler::BeginBlock(const char* name)
     // Error: type "const char*" can not automatically bind
@@ -323,10 +389,14 @@ void CollectMembers_Profiler(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void Profiler::EndFrame()", "void EndFrame()", AS_METHODPR(Profiler, EndFrame, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Profiler::BeginInterval()", "void BeginInterval()", AS_METHODPR(Profiler, BeginInterval, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& Profiler::PrintData(bool showUnused=false, bool showTotal=false, unsigned maxDepth=M_MAX_UNSIGNED) const", "const String& PrintData(bool = false, bool = false, uint = M_MAX_UNSIGNED) const", AS_METHODPR(Profiler, PrintData, (bool, bool, unsigned) const, const String&), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Profiler
+        REGISTER_MANUAL_PART_Profiler();
+    #endif
 }
 
 // class ProfilerBlock | File: ../Core/Profiler.h
-void CollectMembers_ProfilerBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ProfilerBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // ProfilerBlock* ProfilerBlock::GetChild(const char* name)
     // Error: type "const char*" can not automatically bind
@@ -356,10 +426,14 @@ void CollectMembers_ProfilerBlock(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("long long ProfilerBlock::totalTime_", "int64 totalTime", offsetof(ProfilerBlock, totalTime_)));
     fields.Push(RegisterObjectPropertyArgs("long long ProfilerBlock::totalMaxTime_", "int64 totalMaxTime", offsetof(ProfilerBlock, totalMaxTime_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned ProfilerBlock::totalCount_", "uint totalCount", offsetof(ProfilerBlock, totalCount_)));
+
+    #ifdef REGISTER_MANUAL_PART_ProfilerBlock
+        REGISTER_MANUAL_PART_ProfilerBlock();
+    #endif
 }
 
 // struct ResourceRef | File: ../Core/Variant.h
-void CollectMembers_ResourceRef(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ResourceRef(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool ResourceRef::operator!=(const ResourceRef& rhs) const
     // Only operator== is needed
@@ -368,10 +442,14 @@ void CollectMembers_ResourceRef(Vector<RegisterObjectMethodArgs>& methods, Vecto
 
     fields.Push(RegisterObjectPropertyArgs("StringHash ResourceRef::type_", "StringHash type", offsetof(ResourceRef, type_)));
     fields.Push(RegisterObjectPropertyArgs("String ResourceRef::name_", "String name", offsetof(ResourceRef, name_)));
+
+    #ifdef REGISTER_MANUAL_PART_ResourceRef
+        REGISTER_MANUAL_PART_ResourceRef();
+    #endif
 }
 
 // struct ResourceRefList | File: ../Core/Variant.h
-void CollectMembers_ResourceRefList(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ResourceRefList(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool ResourceRefList::operator!=(const ResourceRefList& rhs) const
     // Only operator== is needed
@@ -382,10 +460,14 @@ void CollectMembers_ResourceRefList(Vector<RegisterObjectMethodArgs>& methods, V
     // Error: type "StringVector" can not automatically bind
 
     fields.Push(RegisterObjectPropertyArgs("StringHash ResourceRefList::type_", "StringHash type", offsetof(ResourceRefList, type_)));
+
+    #ifdef REGISTER_MANUAL_PART_ResourceRefList
+        REGISTER_MANUAL_PART_ResourceRefList();
+    #endif
 }
 
 // class Spline | File: ../Core/Spline.h
-void CollectMembers_Spline(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Spline(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const VariantVector& Spline::GetKnots() const
     // Error: type "const VariantVector&" can not automatically bind
@@ -409,10 +491,14 @@ void CollectMembers_Spline(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("void Spline::RemoveKnot()", "void RemoveKnot()", AS_METHODPR(Spline, RemoveKnot, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Spline::RemoveKnot(unsigned index)", "void RemoveKnot(uint)", AS_METHODPR(Spline, RemoveKnot, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Spline::Clear()", "void Clear()", AS_METHODPR(Spline, Clear, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Spline
+        REGISTER_MANUAL_PART_Spline();
+    #endif
 }
 
 // class StringHashRegister | File: ../Core/StringHashRegister.h
-void CollectMembers_StringHashRegister(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_StringHashRegister(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const StringMap& StringHashRegister::GetInternalMap() const
     // Error: type "const StringMap&" can not automatically bind
@@ -424,10 +510,14 @@ void CollectMembers_StringHashRegister(Vector<RegisterObjectMethodArgs>& methods
     methods.Push(RegisterObjectMethodArgs("String StringHashRegister::GetStringCopy(const StringHash& hash) const", "String GetStringCopy(const StringHash&in) const", AS_METHODPR(StringHashRegister, GetStringCopy, (const StringHash&) const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool StringHashRegister::Contains(const StringHash& hash) const", "bool Contains(const StringHash&in) const", AS_METHODPR(StringHashRegister, Contains, (const StringHash&) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& StringHashRegister::GetString(const StringHash& hash) const", "const String& GetString(const StringHash&in) const", AS_METHODPR(StringHashRegister, GetString, (const StringHash&) const, const String&), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_StringHashRegister
+        REGISTER_MANUAL_PART_StringHashRegister();
+    #endif
 }
 
 // class Thread | File: ../Core/Thread.h
-void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("virtual void Thread::ThreadFunction()=0", "void ThreadFunction()", AS_METHODPR(Thread, ThreadFunction, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Thread::Run()", "bool Run()", AS_METHODPR(Thread, Run, (), bool), AS_CALL_THISCALL));
@@ -440,12 +530,16 @@ void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static void Thread::SetMainThread()", "void SetMainThread()", AS_FUNCTIONPR(Thread::SetMainThread, (), void), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool Thread::IsMainThread()", "bool IsMainThread()", AS_FUNCTIONPR(Thread::IsMainThread, (), bool), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Thread
+        REGISTER_MANUAL_PART_Thread();
+    #endif
 }
 
 // class Time | File: ../Core/Timer.h
-void CollectMembers_Time(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Time(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void Time::BeginFrame(float timeStep)", "void BeginFrame(float)", AS_METHODPR(Time, BeginFrame, (float), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Time::EndFrame()", "void EndFrame()", AS_METHODPR(Time, EndFrame, (), void), AS_CALL_THISCALL));
@@ -464,17 +558,25 @@ void CollectMembers_Time(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     staticMethods.Push(RegisterGlobalFunctionArgs("static unsigned Time::GetTimeSinceEpoch()", "uint GetTimeSinceEpoch()", AS_FUNCTIONPR(Time::GetTimeSinceEpoch, (), unsigned), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static String Time::GetTimeStamp()", "String GetTimeStamp()", AS_FUNCTIONPR(Time::GetTimeStamp, (), String), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static void Time::Sleep(unsigned mSec)", "void Sleep(uint)", AS_FUNCTIONPR(Time::Sleep, (unsigned), void), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Time
+        REGISTER_MANUAL_PART_Time();
+    #endif
 }
 
 // class Timer | File: ../Core/Timer.h
-void CollectMembers_Timer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Timer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("unsigned Timer::GetMSec(bool reset)", "uint GetMSec(bool)", AS_METHODPR(Timer, GetMSec, (bool), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Timer::Reset()", "void Reset()", AS_METHODPR(Timer, Reset, (), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Timer
+        REGISTER_MANUAL_PART_Timer();
+    #endif
 }
 
 // class TypeInfo | File: ../Core/Object.h
-void CollectMembers_TypeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_TypeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const TypeInfo* TypeInfo::GetBaseTypeInfo() const
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
@@ -484,6 +586,10 @@ void CollectMembers_TypeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("bool TypeInfo::IsTypeOf(StringHash type) const", "bool IsTypeOf(StringHash) const", AS_METHODPR(TypeInfo, IsTypeOf, (StringHash) const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("StringHash TypeInfo::GetType() const", "StringHash GetType() const", AS_METHODPR(TypeInfo, GetType, () const, StringHash), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& TypeInfo::GetTypeName() const", "const String& GetTypeName() const", AS_METHODPR(TypeInfo, GetTypeName, () const, const String&), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_TypeInfo
+        REGISTER_MANUAL_PART_TypeInfo();
+    #endif
 }
 
 // Variant& Variant::operator=(const StringVector& rhs)
@@ -516,7 +622,7 @@ static CScriptArray* Variant_GetStringVector_void(Variant* ptr)
 
 
 // class Variant | File: ../Core/Variant.h
-void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void Variant::FromString(VariantType type, const char* value)
     // Error: type "const char*" can not automatically bind
@@ -733,10 +839,14 @@ void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     staticFields.Push(RegisterGlobalPropertyArgs("static const ResourceRef Variant::emptyResourceRef", "const ResourceRef emptyResourceRef", (void*)&Variant::emptyResourceRef));
     staticFields.Push(RegisterGlobalPropertyArgs("static const ResourceRefList Variant::emptyResourceRefList", "const ResourceRefList emptyResourceRefList", (void*)&Variant::emptyResourceRefList));
     staticFields.Push(RegisterGlobalPropertyArgs("static const VariantMap Variant::emptyVariantMap", "const VariantMap emptyVariantMap", (void*)&Variant::emptyVariantMap));
+
+    #ifdef REGISTER_MANUAL_PART_Variant
+        REGISTER_MANUAL_PART_Variant();
+    #endif
 }
 
 // struct WorkItem | File: ../Core/WorkQueue.h
-void CollectMembers_WorkItem(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_WorkItem(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void(* WorkItem::workFunction_) (const WorkItem* , unsigned)
     // Not registered because pointer
@@ -751,12 +861,16 @@ void CollectMembers_WorkItem(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     fields.Push(RegisterObjectPropertyArgs("unsigned WorkItem::priority_", "uint priority", offsetof(WorkItem, priority_)));
     fields.Push(RegisterObjectPropertyArgs("bool WorkItem::sendEvent_", "bool sendEvent", offsetof(WorkItem, sendEvent_)));
+
+    #ifdef REGISTER_MANUAL_PART_WorkItem
+        REGISTER_MANUAL_PART_WorkItem();
+    #endif
 }
 
 // class WorkQueue | File: ../Core/WorkQueue.h
-void CollectMembers_WorkQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_WorkQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // void WorkQueue::AddWorkItem(const SharedPtr<WorkItem>& item)
     // Error: type "const SharedPtr<WorkItem>&" can not automatically bind
@@ -778,6 +892,10 @@ void CollectMembers_WorkQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("bool WorkQueue::IsCompleting() const", "bool IsCompleting() const", AS_METHODPR(WorkQueue, IsCompleting, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int WorkQueue::GetTolerance() const", "int GetTolerance() const", AS_METHODPR(WorkQueue, GetTolerance, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int WorkQueue::GetNonThreadedWorkMs() const", "int GetNonThreadedWorkMs() const", AS_METHODPR(WorkQueue, GetNonThreadedWorkMs, () const, int), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_WorkQueue
+        REGISTER_MANUAL_PART_WorkQueue();
+    #endif
 }
 
 } // namespace Urho3D

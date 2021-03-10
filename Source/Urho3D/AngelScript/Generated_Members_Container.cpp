@@ -11,7 +11,7 @@ namespace Urho3D
 {
 
 // struct AllocatorBlock | File: ../Container/Allocator.h
-void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // AllocatorNode* AllocatorBlock::free_
     // Not registered because pointer
@@ -20,17 +20,25 @@ void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods, Ve
 
     fields.Push(RegisterObjectPropertyArgs("unsigned AllocatorBlock::nodeSize_", "uint nodeSize", offsetof(AllocatorBlock, nodeSize_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned AllocatorBlock::capacity_", "uint capacity", offsetof(AllocatorBlock, capacity_)));
+
+    #ifdef REGISTER_MANUAL_PART_AllocatorBlock
+        REGISTER_MANUAL_PART_AllocatorBlock();
+    #endif
 }
 
 // struct AllocatorNode | File: ../Container/Allocator.h
-void CollectMembers_AllocatorNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AllocatorNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // AllocatorNode* AllocatorNode::next_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_AllocatorNode
+        REGISTER_MANUAL_PART_AllocatorNode();
+    #endif
 }
 
 // class HashBase | File: ../Container/HashBase.h
-void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void HashBase::Swap(HashBase& rhs)", "void Swap(HashBase&)", AS_METHODPR(HashBase, Swap, (HashBase&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned HashBase::Size() const", "uint Size() const", AS_METHODPR(HashBase, Size, () const, unsigned), AS_CALL_THISCALL));
@@ -39,10 +47,14 @@ void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned HashBase::MIN_BUCKETS", "const uint MIN_BUCKETS", (void*)&HashBase::MIN_BUCKETS));
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned HashBase::MAX_LOAD_FACTOR", "const uint MAX_LOAD_FACTOR", (void*)&HashBase::MAX_LOAD_FACTOR));
+
+    #ifdef REGISTER_MANUAL_PART_HashBase
+        REGISTER_MANUAL_PART_HashBase();
+    #endif
 }
 
 // struct HashIteratorBase | File: ../Container/HashBase.h
-void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool HashIteratorBase::operator!=(const HashIteratorBase& rhs) const
     // Only operator== is needed
@@ -53,10 +65,14 @@ void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods, 
 
     // HashNodeBase* HashIteratorBase::ptr_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_HashIteratorBase
+        REGISTER_MANUAL_PART_HashIteratorBase();
+    #endif
 }
 
 // struct HashNodeBase | File: ../Container/HashBase.h
-void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // HashNodeBase* HashNodeBase::down_
     // Not registered because pointer
@@ -64,23 +80,35 @@ void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vect
     // Not registered because pointer
     // HashNodeBase* HashNodeBase::next_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_HashNodeBase
+        REGISTER_MANUAL_PART_HashNodeBase();
+    #endif
 }
 
 // struct LinkedListNode | File: ../Container/LinkedList.h
-void CollectMembers_LinkedListNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_LinkedListNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // LinkedListNode* LinkedListNode::next_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_LinkedListNode
+        REGISTER_MANUAL_PART_LinkedListNode();
+    #endif
 }
 
 // class ListBase | File: ../Container/ListBase.h
-void CollectMembers_ListBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ListBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void ListBase::Swap(ListBase& rhs)", "void Swap(ListBase&)", AS_METHODPR(ListBase, Swap, (ListBase&), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_ListBase
+        REGISTER_MANUAL_PART_ListBase();
+    #endif
 }
 
 // struct ListIteratorBase | File: ../Container/ListBase.h
-void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool ListIteratorBase::operator!=(const ListIteratorBase& rhs) const
     // Only operator== is needed
@@ -91,26 +119,38 @@ void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods, 
 
     // ListNodeBase* ListIteratorBase::ptr_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_ListIteratorBase
+        REGISTER_MANUAL_PART_ListIteratorBase();
+    #endif
 }
 
 // struct ListNodeBase | File: ../Container/ListBase.h
-void CollectMembers_ListNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_ListNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // ListNodeBase* ListNodeBase::prev_
     // Not registered because pointer
     // ListNodeBase* ListNodeBase::next_
     // Not registered because pointer
+
+    #ifdef REGISTER_MANUAL_PART_ListNodeBase
+        REGISTER_MANUAL_PART_ListNodeBase();
+    #endif
 }
 
 // struct RefCount | File: ../Container/RefCounted.h
-void CollectMembers_RefCount(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RefCount(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("int RefCount::refs_", "int refs", offsetof(RefCount, refs_)));
     fields.Push(RegisterObjectPropertyArgs("int RefCount::weakRefs_", "int weakRefs", offsetof(RefCount, weakRefs_)));
+
+    #ifdef REGISTER_MANUAL_PART_RefCount
+        REGISTER_MANUAL_PART_RefCount();
+    #endif
 }
 
 // class RefCounted | File: ../Container/RefCounted.h
-void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // RefCount* RefCounted::RefCountPtr()
     // Error: type "RefCount*" can not automatically bind
@@ -121,6 +161,10 @@ void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("int RefCounted::Refs() const", "int get_refs() const", AS_METHODPR(RefCounted, Refs, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int WeakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int get_weakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_RefCounted
+        REGISTER_MANUAL_PART_RefCounted();
+    #endif
 }
 
 // Vector<String> String::Split(char separator, bool keepEmptyStrings=false) const
@@ -142,7 +186,7 @@ static void String_Join_VectorString_String(String* ptr, CScriptArray* subString
 
 
 // class String | File: ../Container/Str.h
-void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // String& String::Append(const char* str)
     // Error: type "const char*" can not automatically bind
@@ -287,16 +331,24 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::NPOS", "const uint NPOS", (void*)&String::NPOS));
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::MIN_CAPACITY", "const uint MIN_CAPACITY", (void*)&String::MIN_CAPACITY));
     staticFields.Push(RegisterGlobalPropertyArgs("static const String String::EMPTY", "const String EMPTY", (void*)&String::EMPTY));
+
+    #ifdef REGISTER_MANUAL_PART_String
+        REGISTER_MANUAL_PART_String();
+    #endif
 }
 
 // class VectorBase | File: ../Container/VectorBase.h
-void CollectMembers_VectorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_VectorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void VectorBase::Swap(VectorBase& rhs)", "void Swap(VectorBase&)", AS_METHODPR(VectorBase, Swap, (VectorBase&), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_VectorBase
+        REGISTER_MANUAL_PART_VectorBase();
+    #endif
 }
 
 // class WString | File: ../Container/Str.h
-void CollectMembers_WString(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_WString(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const wchar_t& WString::At(unsigned index) const
     // Error: type "const wchar_t&" can not automatically bind
@@ -312,6 +364,10 @@ void CollectMembers_WString(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("void WString::Resize(unsigned newLength)", "void Resize(uint)", AS_METHODPR(WString, Resize, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool WString::Empty() const", "bool Empty() const", AS_METHODPR(WString, Empty, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned WString::Length() const", "uint Length() const", AS_METHODPR(WString, Length, () const, unsigned), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_WString
+        REGISTER_MANUAL_PART_WString();
+    #endif
 }
 
 } // namespace Urho3D

@@ -11,10 +11,10 @@ namespace Urho3D
 {
 
 // class AbstractFile | File: ../IO/AbstractFile.h
-void CollectMembers_AbstractFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AbstractFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Deserializer(methods, staticMethods, fields, staticFields);
-    CollectMembers_Serializer(methods, staticMethods, fields, staticFields);
+    CollectMembers_Deserializer(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_Serializer(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual const String& Deserializer::GetName() const");
 
@@ -22,6 +22,10 @@ void CollectMembers_AbstractFile(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("virtual void AbstractFile::SetName(const String& name)", "void set_name(const String&in)", AS_METHODPR(AbstractFile, SetName, (const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& AbstractFile::GetName() const override", "const String& GetName() const", AS_METHODPR(AbstractFile, GetName, () const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& AbstractFile::GetName() const override", "const String& get_name() const", AS_METHODPR(AbstractFile, GetName, () const, const String&), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_AbstractFile
+        REGISTER_MANUAL_PART_AbstractFile();
+    #endif
 }
 
 // StringVector Deserializer::ReadStringVector()
@@ -34,7 +38,7 @@ static CScriptArray* Deserializer_ReadStringVector_void(Deserializer* ptr)
 
 
 // class Deserializer | File: ../IO/Deserializer.h
-void CollectMembers_Deserializer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Deserializer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // virtual unsigned Deserializer::Read(void* dest, unsigned size)=0
     // Error: type "void*" can not automatically bind
@@ -94,13 +98,17 @@ void CollectMembers_Deserializer(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("unsigned Deserializer::ReadVLE()", "uint ReadVLE()", AS_METHODPR(Deserializer, ReadVLE, (), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("unsigned Deserializer::ReadNetID()", "uint ReadNetID()", AS_METHODPR(Deserializer, ReadNetID, (), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Deserializer::ReadLine()", "String ReadLine()", AS_METHODPR(Deserializer, ReadLine, (), String), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Deserializer
+        REGISTER_MANUAL_PART_Deserializer();
+    #endif
 }
 
 // class File | File: ../IO/File.h
-void CollectMembers_File(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_File(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
-    CollectMembers_AbstractFile(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_AbstractFile(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual unsigned Deserializer::GetChecksum()");
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
@@ -127,6 +135,10 @@ void CollectMembers_File(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("bool File::IsOpen() const", "bool get_open() const", AS_METHODPR(File, IsOpen, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool File::IsPackaged() const", "bool IsPackaged() const", AS_METHODPR(File, IsPackaged, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool File::IsPackaged() const", "bool get_packaged() const", AS_METHODPR(File, IsPackaged, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_File
+        REGISTER_MANUAL_PART_File();
+    #endif
 }
 
 // int FileSystem::SystemRun(const String& fileName, const Vector<String>& arguments)
@@ -150,9 +162,9 @@ static unsigned FileSystem_SystemRunAsync_String_VectorString(FileSystem* ptr, c
 
 
 // class FileSystem | File: ../IO/FileSystem.h
-void CollectMembers_FileSystem(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FileSystem(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // void FileSystem::ScanDir(Vector<String>& result, const String& pathName, const String& filter, unsigned flags, bool recursive) const
     // Error: type "Vector<String>&" can not automatically bind
@@ -188,13 +200,17 @@ void CollectMembers_FileSystem(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("String FileSystem::GetAppPreferencesDir(const String& org, const String& app) const", "String GetAppPreferencesDir(const String&in, const String&in) const", AS_METHODPR(FileSystem, GetAppPreferencesDir, (const String&, const String&) const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String FileSystem::GetTemporaryDir() const", "String GetTemporaryDir() const", AS_METHODPR(FileSystem, GetTemporaryDir, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String FileSystem::GetTemporaryDir() const", "String get_temporaryDir() const", AS_METHODPR(FileSystem, GetTemporaryDir, () const, String), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_FileSystem
+        REGISTER_MANUAL_PART_FileSystem();
+    #endif
 }
 
 // class FileWatcher | File: ../IO/FileWatcher.h
-void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
-    CollectMembers_Thread(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_Thread(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual void Thread::ThreadFunction()=0");
 
@@ -206,12 +222,16 @@ void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("bool FileWatcher::GetNextChange(String& dest)", "bool GetNextChange(String&)", AS_METHODPR(FileWatcher, GetNextChange, (String&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const String& FileWatcher::GetPath() const", "const String& GetPath() const", AS_METHODPR(FileWatcher, GetPath, () const, const String&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float FileWatcher::GetDelay() const", "float GetDelay() const", AS_METHODPR(FileWatcher, GetDelay, () const, float), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_FileWatcher
+        REGISTER_MANUAL_PART_FileWatcher();
+    #endif
 }
 
 // class Log | File: ../IO/Log.h
-void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     methods.Push(RegisterObjectMethodArgs("void Log::Open(const String& fileName)", "void Open(const String&in)", AS_METHODPR(Log, Open, (const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Log::Close()", "void Close()", AS_METHODPR(Log, Close, (), void), AS_CALL_THISCALL));
@@ -236,10 +256,14 @@ void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods, Vector<Regist
     // Error: type "const char*" can not automatically bind
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static void Log::WriteRaw(const String& message, bool error=false)", "void WriteRaw(const String&in, bool = false)", AS_FUNCTIONPR(Log::WriteRaw, (const String&, bool), void), AS_CALL_CDECL));
+
+    #ifdef REGISTER_MANUAL_PART_Log
+        REGISTER_MANUAL_PART_Log();
+    #endif
 }
 
 // class MemoryBuffer | File: ../IO/MemoryBuffer.h
-void CollectMembers_MemoryBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_MemoryBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // unsigned char* MemoryBuffer::GetData()
     // Error: type "unsigned char*" can not automatically bind
@@ -250,13 +274,17 @@ void CollectMembers_MemoryBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
 
     methods.Push(RegisterObjectMethodArgs("unsigned MemoryBuffer::Seek(unsigned position) override", "uint Seek(uint)", AS_METHODPR(MemoryBuffer, Seek, (unsigned), unsigned), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool MemoryBuffer::IsReadOnly()", "bool IsReadOnly()", AS_METHODPR(MemoryBuffer, IsReadOnly, (), bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_MemoryBuffer
+        REGISTER_MANUAL_PART_MemoryBuffer();
+    #endif
 }
 
 // class NamedPipe | File: ../IO/NamedPipe.h
-void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
-    CollectMembers_AbstractFile(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_AbstractFile(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual bool Deserializer::IsEof() const");
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
@@ -280,14 +308,22 @@ void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("bool NamedPipe::IsOpen() const", "bool get_open() const", AS_METHODPR(NamedPipe, IsOpen, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool NamedPipe::IsServer() const", "bool IsServer() const", AS_METHODPR(NamedPipe, IsServer, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool NamedPipe::IsServer() const", "bool get_server() const", AS_METHODPR(NamedPipe, IsServer, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_NamedPipe
+        REGISTER_MANUAL_PART_NamedPipe();
+    #endif
 }
 
 // struct PackageEntry | File: ../IO/PackageFile.h
-void CollectMembers_PackageEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PackageEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("unsigned PackageEntry::offset_", "uint offset", offsetof(PackageEntry, offset_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned PackageEntry::size_", "uint size", offsetof(PackageEntry, size_)));
     fields.Push(RegisterObjectPropertyArgs("unsigned PackageEntry::checksum_", "uint checksum", offsetof(PackageEntry, checksum_)));
+
+    #ifdef REGISTER_MANUAL_PART_PackageEntry
+        REGISTER_MANUAL_PART_PackageEntry();
+    #endif
 }
 
 // const Vector<String> PackageFile::GetEntryNames() const
@@ -300,9 +336,9 @@ static CScriptArray* PackageFile_GetEntryNames_void(PackageFile* ptr)
 
 
 // class PackageFile | File: ../IO/PackageFile.h
-void CollectMembers_PackageFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_PackageFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_Object(methods, staticMethods, fields, staticFields);
+    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
 
     // const HashMap<String, PackageEntry>& PackageFile::GetEntries() const
     // Error: type "const HashMap<String, PackageEntry>&" can not automatically bind
@@ -325,6 +361,10 @@ void CollectMembers_PackageFile(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("bool PackageFile::IsCompressed() const", "bool IsCompressed() const", AS_METHODPR(PackageFile, IsCompressed, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool PackageFile::IsCompressed() const", "bool get_compressed() const", AS_METHODPR(PackageFile, IsCompressed, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Vector<String> PackageFile::GetEntryNames() const", "Array<String>@ GetEntryNames() const", AS_FUNCTION_OBJFIRST(PackageFile_GetEntryNames_void), AS_CALL_CDECL_OBJFIRST));
+
+    #ifdef REGISTER_MANUAL_PART_PackageFile
+        REGISTER_MANUAL_PART_PackageFile();
+    #endif
 }
 
 // bool Serializer::WriteStringVector(const StringVector& value)
@@ -338,7 +378,7 @@ static bool Serializer_WriteStringVector_StringVector(Serializer* ptr, CScriptAr
 
 
 // class Serializer | File: ../IO/Serializer.h
-void CollectMembers_Serializer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Serializer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // virtual unsigned Serializer::Write(const void* data, unsigned size)=0
     // Error: type "const void*" can not automatically bind
@@ -385,20 +425,28 @@ void CollectMembers_Serializer(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("bool Serializer::WriteVLE(unsigned value)", "bool WriteVLE(uint)", AS_METHODPR(Serializer, WriteVLE, (unsigned), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Serializer::WriteNetID(unsigned value)", "bool WriteNetID(uint)", AS_METHODPR(Serializer, WriteNetID, (unsigned), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Serializer::WriteLine(const String& value)", "bool WriteLine(const String&in)", AS_METHODPR(Serializer, WriteLine, (const String&), bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_Serializer
+        REGISTER_MANUAL_PART_Serializer();
+    #endif
 }
 
 // struct StoredLogMessage | File: ../IO/Log.h
-void CollectMembers_StoredLogMessage(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_StoredLogMessage(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     fields.Push(RegisterObjectPropertyArgs("String StoredLogMessage::message_", "String message", offsetof(StoredLogMessage, message_)));
     fields.Push(RegisterObjectPropertyArgs("int StoredLogMessage::level_", "int level", offsetof(StoredLogMessage, level_)));
     fields.Push(RegisterObjectPropertyArgs("bool StoredLogMessage::error_", "bool error", offsetof(StoredLogMessage, error_)));
+
+    #ifdef REGISTER_MANUAL_PART_StoredLogMessage
+        REGISTER_MANUAL_PART_StoredLogMessage();
+    #endif
 }
 
 // class VectorBuffer | File: ../IO/VectorBuffer.h
-void CollectMembers_VectorBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_VectorBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
-    CollectMembers_AbstractFile(methods, staticMethods, fields, staticFields);
+    CollectMembers_AbstractFile(methods, staticMethods, fields, wrappedFields, staticFields);
 
     Remove(methods, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
     Remove(methods, "virtual unsigned Deserializer::Seek(unsigned position)=0");
@@ -423,6 +471,10 @@ void CollectMembers_VectorBuffer(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("void VectorBuffer::SetData(Deserializer& source, unsigned size)", "void SetData(Deserializer&, uint)", AS_METHODPR(VectorBuffer, SetData, (Deserializer&, unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void VectorBuffer::Clear()", "void Clear()", AS_METHODPR(VectorBuffer, Clear, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void VectorBuffer::Resize(unsigned size)", "void Resize(uint)", AS_METHODPR(VectorBuffer, Resize, (unsigned), void), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_VectorBuffer
+        REGISTER_MANUAL_PART_VectorBuffer();
+    #endif
 }
 
 } // namespace Urho3D

@@ -11,17 +11,21 @@ namespace Urho3D
 {
 
 // class AreaAllocator | File: ../Math/AreaAllocator.h
-void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("void AreaAllocator::Reset(int width, int height, int maxWidth=0, int maxHeight=0, bool fastMode=true)", "void Reset(int, int, int = 0, int = 0, bool = true)", AS_METHODPR(AreaAllocator, Reset, (int, int, int, int, bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool AreaAllocator::Allocate(int width, int height, int& x, int& y)", "bool Allocate(int, int, int&, int&)", AS_METHODPR(AreaAllocator, Allocate, (int, int, int&, int&), bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int AreaAllocator::GetWidth() const", "int GetWidth() const", AS_METHODPR(AreaAllocator, GetWidth, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int AreaAllocator::GetHeight() const", "int GetHeight() const", AS_METHODPR(AreaAllocator, GetHeight, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool AreaAllocator::GetFastMode() const", "bool GetFastMode() const", AS_METHODPR(AreaAllocator, GetFastMode, () const, bool), AS_CALL_THISCALL));
+
+    #ifdef REGISTER_MANUAL_PART_AreaAllocator
+        REGISTER_MANUAL_PART_AreaAllocator();
+    #endif
 }
 
 // class BoundingBox | File: ../Math/BoundingBox.h
-void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void BoundingBox::Define(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
@@ -72,10 +76,14 @@ void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods, Vecto
     fields.Push(RegisterObjectPropertyArgs("float BoundingBox::dummyMin_", "float dummyMin", offsetof(BoundingBox, dummyMin_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 BoundingBox::max_", "Vector3 max", offsetof(BoundingBox, max_)));
     fields.Push(RegisterObjectPropertyArgs("float BoundingBox::dummyMax_", "float dummyMax", offsetof(BoundingBox, dummyMax_)));
+
+    #ifdef REGISTER_MANUAL_PART_BoundingBox
+        REGISTER_MANUAL_PART_BoundingBox();
+    #endif
 }
 
 // class Color | File: ../Math/Color.h
-void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void Color::Bounds(float* min, float* max, bool clipped=false) const
     // Error: type "float*" can not automatically bind
@@ -151,10 +159,14 @@ void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::MAGENTA", "const Color MAGENTA", (void*)&Color::MAGENTA));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::YELLOW", "const Color YELLOW", (void*)&Color::YELLOW));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Color Color::TRANSPARENT_BLACK", "const Color TRANSPARENT_BLACK", (void*)&Color::TRANSPARENT_BLACK));
+
+    #ifdef REGISTER_MANUAL_PART_Color
+        REGISTER_MANUAL_PART_Color();
+    #endif
 }
 
 // class Frustum | File: ../Math/Frustum.h
-void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("Frustum& Frustum::operator=(const Frustum& rhs) noexcept", "Frustum& opAssign(const Frustum&in)", AS_METHODPR(Frustum, operator=, (const Frustum&), Frustum&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Frustum::Define(float fov, float aspectRatio, float zoom, float nearZ, float farZ, const Matrix3x4& transform=Matrix3x4::IDENTITY)", "void Define(float, float, float, float, float, const Matrix3x4&in = Matrix3x4::IDENTITY)", AS_METHODPR(Frustum, Define, (float, float, float, float, float, const Matrix3x4&), void), AS_CALL_THISCALL));
@@ -180,10 +192,14 @@ void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     // Not registered because array
     // Vector3 Frustum::vertices_[NUM_FRUSTUM_VERTICES]
     // Not registered because array
+
+    #ifdef REGISTER_MANUAL_PART_Frustum
+        REGISTER_MANUAL_PART_Frustum();
+    #endif
 }
 
 // class IntRect | File: ../Math/Rect.h
-void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const int* IntRect::Data() const
     // Error: type "const int*" can not automatically bind
@@ -223,10 +239,14 @@ void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     fields.Push(RegisterObjectPropertyArgs("int IntRect::bottom_", "int bottom", offsetof(IntRect, bottom_)));
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntRect IntRect::ZERO", "const IntRect ZERO", (void*)&IntRect::ZERO));
+
+    #ifdef REGISTER_MANUAL_PART_IntRect
+        REGISTER_MANUAL_PART_IntRect();
+    #endif
 }
 
 // class IntVector2 | File: ../Math/Vector2.h
-void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const int* IntVector2::Data() const
     // Error: type "const int*" can not automatically bind
@@ -261,10 +281,14 @@ void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::UP", "const IntVector2 UP", (void*)&IntVector2::UP));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::DOWN", "const IntVector2 DOWN", (void*)&IntVector2::DOWN));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::ONE", "const IntVector2 ONE", (void*)&IntVector2::ONE));
+
+    #ifdef REGISTER_MANUAL_PART_IntVector2
+        REGISTER_MANUAL_PART_IntVector2();
+    #endif
 }
 
 // class IntVector3 | File: ../Math/Vector3.h
-void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const int* IntVector3::Data() const
     // Error: type "const int*" can not automatically bind
@@ -302,10 +326,14 @@ void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::FORWARD", "const IntVector3 FORWARD", (void*)&IntVector3::FORWARD));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::BACK", "const IntVector3 BACK", (void*)&IntVector3::BACK));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::ONE", "const IntVector3 ONE", (void*)&IntVector3::ONE));
+
+    #ifdef REGISTER_MANUAL_PART_IntVector3
+        REGISTER_MANUAL_PART_IntVector3();
+    #endif
 }
 
 // class Matrix2 | File: ../Math/Matrix2.h
-void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Matrix2::Data() const
     // Error: type "const float*" can not automatically bind
@@ -340,10 +368,14 @@ void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix2 Matrix2::ZERO", "const Matrix2 ZERO", (void*)&Matrix2::ZERO));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix2 Matrix2::IDENTITY", "const Matrix2 IDENTITY", (void*)&Matrix2::IDENTITY));
+
+    #ifdef REGISTER_MANUAL_PART_Matrix2
+        REGISTER_MANUAL_PART_Matrix2();
+    #endif
 }
 
 // class Matrix3 | File: ../Math/Matrix3.h
-void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Matrix3::Data() const
     // Error: type "const float*" can not automatically bind
@@ -387,10 +419,14 @@ void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix3 Matrix3::ZERO", "const Matrix3 ZERO", (void*)&Matrix3::ZERO));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix3 Matrix3::IDENTITY", "const Matrix3 IDENTITY", (void*)&Matrix3::IDENTITY));
+
+    #ifdef REGISTER_MANUAL_PART_Matrix3
+        REGISTER_MANUAL_PART_Matrix3();
+    #endif
 }
 
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
-void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Matrix3x4::Data() const
     // Error: type "const float*" can not automatically bind
@@ -444,10 +480,14 @@ void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix3x4 Matrix3x4::ZERO", "const Matrix3x4 ZERO", (void*)&Matrix3x4::ZERO));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix3x4 Matrix3x4::IDENTITY", "const Matrix3x4 IDENTITY", (void*)&Matrix3x4::IDENTITY));
+
+    #ifdef REGISTER_MANUAL_PART_Matrix3x4
+        REGISTER_MANUAL_PART_Matrix3x4();
+    #endif
 }
 
 // class Matrix4 | File: ../Math/Matrix4.h
-void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Matrix4::Data() const
     // Error: type "const float*" can not automatically bind
@@ -507,10 +547,14 @@ void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix4 Matrix4::ZERO", "const Matrix4 ZERO", (void*)&Matrix4::ZERO));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Matrix4 Matrix4::IDENTITY", "const Matrix4 IDENTITY", (void*)&Matrix4::IDENTITY));
+
+    #ifdef REGISTER_MANUAL_PART_Matrix4
+        REGISTER_MANUAL_PART_Matrix4();
+    #endif
 }
 
 // class Plane | File: ../Math/Plane.h
-void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("Plane& Plane::operator=(const Plane& rhs) noexcept=default", "Plane& opAssign(const Plane&in)", AS_METHODPR(Plane, operator=, (const Plane&), Plane&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Plane::Define(const Vector3& v0, const Vector3& v1, const Vector3& v2)", "void Define(const Vector3&in, const Vector3&in, const Vector3&in)", AS_METHODPR(Plane, Define, (const Vector3&, const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
@@ -534,6 +578,10 @@ void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     fields.Push(RegisterObjectPropertyArgs("float Plane::d_", "float d", offsetof(Plane, d_)));
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const Plane Plane::UP", "const Plane UP", (void*)&Plane::UP));
+
+    #ifdef REGISTER_MANUAL_PART_Plane
+        REGISTER_MANUAL_PART_Plane();
+    #endif
 }
 
 // void Polyhedron::AddFace(const PODVector<Vector3>& face)
@@ -546,7 +594,7 @@ static void Polyhedron_AddFace_PODVectorVector3(Polyhedron* ptr, CScriptArray* f
 
 
 // class Polyhedron | File: ../Math/Polyhedron.h
-void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     methods.Push(RegisterObjectMethodArgs("Polyhedron& Polyhedron::operator=(const Polyhedron& rhs)", "Polyhedron& opAssign(const Polyhedron&in)", AS_METHODPR(Polyhedron, operator=, (const Polyhedron&), Polyhedron&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Polyhedron::Define(const BoundingBox& box)", "void Define(const BoundingBox&in)", AS_METHODPR(Polyhedron, Define, (const BoundingBox&), void), AS_CALL_THISCALL));
@@ -566,10 +614,14 @@ void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods, Vector
 
     // Vector<PODVector<Vector3>> Polyhedron::faces_
     // Error: type "Vector<PODVector<Vector3>>" can not automatically bind
+
+    #ifdef REGISTER_MANUAL_PART_Polyhedron
+        REGISTER_MANUAL_PART_Polyhedron();
+    #endif
 }
 
 // class Quaternion | File: ../Math/Quaternion.h
-void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Quaternion::Data() const
     // Error: type "const float*" can not automatically bind
@@ -625,10 +677,14 @@ void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector
     fields.Push(RegisterObjectPropertyArgs("float Quaternion::z_", "float z", offsetof(Quaternion, z_)));
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const Quaternion Quaternion::IDENTITY", "const Quaternion IDENTITY", (void*)&Quaternion::IDENTITY));
+
+    #ifdef REGISTER_MANUAL_PART_Quaternion
+        REGISTER_MANUAL_PART_Quaternion();
+    #endif
 }
 
 // class Ray | File: ../Math/Ray.h
-void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // float Ray::HitDistance(const Vector3& v0, const Vector3& v1, const Vector3& v2, Vector3* outNormal=nullptr, Vector3* outBary=nullptr) const
     // Error: type "Vector3*" can not automatically bind
@@ -657,10 +713,14 @@ void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods, Vector<Regist
 
     fields.Push(RegisterObjectPropertyArgs("Vector3 Ray::origin_", "Vector3 origin", offsetof(Ray, origin_)));
     fields.Push(RegisterObjectPropertyArgs("Vector3 Ray::direction_", "Vector3 direction", offsetof(Ray, direction_)));
+
+    #ifdef REGISTER_MANUAL_PART_Ray
+        REGISTER_MANUAL_PART_Ray();
+    #endif
 }
 
 // class Rect | File: ../Math/Rect.h
-void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Rect::Data() const
     // Error: type "const float*" can not automatically bind
@@ -713,10 +773,14 @@ void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     staticFields.Push(RegisterGlobalPropertyArgs("static const Rect Rect::FULL", "const Rect FULL", (void*)&Rect::FULL));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Rect Rect::POSITIVE", "const Rect POSITIVE", (void*)&Rect::POSITIVE));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Rect Rect::ZERO", "const Rect ZERO", (void*)&Rect::ZERO));
+
+    #ifdef REGISTER_MANUAL_PART_Rect
+        REGISTER_MANUAL_PART_Rect();
+    #endif
 }
 
 // class Sphere | File: ../Math/Sphere.h
-void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // void Sphere::Define(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
@@ -750,10 +814,14 @@ void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     fields.Push(RegisterObjectPropertyArgs("Vector3 Sphere::center_", "Vector3 center", offsetof(Sphere, center_)));
     fields.Push(RegisterObjectPropertyArgs("float Sphere::radius_", "float radius", offsetof(Sphere, radius_)));
+
+    #ifdef REGISTER_MANUAL_PART_Sphere
+        REGISTER_MANUAL_PART_Sphere();
+    #endif
 }
 
 // class StringHash | File: ../Math/StringHash.h
-void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // bool StringHash::operator!=(const StringHash& rhs) const
     // Only operator== is needed
@@ -779,10 +847,14 @@ void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector
     // Error: type "StringHashRegister*" can not automatically bind
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const StringHash StringHash::ZERO", "const StringHash ZERO", (void*)&StringHash::ZERO));
+
+    #ifdef REGISTER_MANUAL_PART_StringHash
+        REGISTER_MANUAL_PART_StringHash();
+    #endif
 }
 
 // class Vector2 | File: ../Math/Vector2.h
-void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Vector2::Data() const
     // Error: type "const float*" can not automatically bind
@@ -832,10 +904,14 @@ void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::UP", "const Vector2 UP", (void*)&Vector2::UP));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::DOWN", "const Vector2 DOWN", (void*)&Vector2::DOWN));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::ONE", "const Vector2 ONE", (void*)&Vector2::ONE));
+
+    #ifdef REGISTER_MANUAL_PART_Vector2
+        REGISTER_MANUAL_PART_Vector2();
+    #endif
 }
 
 // class Vector3 | File: ../Math/Vector3.h
-void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Vector3::Data() const
     // Error: type "const float*" can not automatically bind
@@ -895,10 +971,14 @@ void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::FORWARD", "const Vector3 FORWARD", (void*)&Vector3::FORWARD));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::BACK", "const Vector3 BACK", (void*)&Vector3::BACK));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::ONE", "const Vector3 ONE", (void*)&Vector3::ONE));
+
+    #ifdef REGISTER_MANUAL_PART_Vector3
+        REGISTER_MANUAL_PART_Vector3();
+    #endif
 }
 
 // class Vector4 | File: ../Math/Vector4.h
-void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
     // const float* Vector4::Data() const
     // Error: type "const float*" can not automatically bind
@@ -942,6 +1022,10 @@ void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const Vector4 Vector4::ZERO", "const Vector4 ZERO", (void*)&Vector4::ZERO));
     staticFields.Push(RegisterGlobalPropertyArgs("static const Vector4 Vector4::ONE", "const Vector4 ONE", (void*)&Vector4::ONE));
+
+    #ifdef REGISTER_MANUAL_PART_Vector4
+        REGISTER_MANUAL_PART_Vector4();
+    #endif
 }
 
 } // namespace Urho3D
