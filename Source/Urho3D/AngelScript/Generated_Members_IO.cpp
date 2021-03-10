@@ -230,10 +230,11 @@ void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods, Vector<Regist
     methods.Push(RegisterObjectMethodArgs("bool Log::IsQuiet() const", "bool IsQuiet() const", AS_METHODPR(Log, IsQuiet, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Log::IsQuiet() const", "bool get_quiet() const", AS_METHODPR(Log, IsQuiet, () const, bool), AS_CALL_THISCALL));
 
+    // static void Log::Write(int level, const String& message)
+    // Not registered because have @nobind mark
     // static void Log::WriteFormat(int level, const char* format,...)
     // Error: type "const char*" can not automatically bind
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Log::Write(int level, const String& message)", "void Write(int, const String&in)", AS_FUNCTIONPR(Log::Write, (int, const String&), void), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static void Log::WriteRaw(const String& message, bool error=false)", "void WriteRaw(const String&in, bool = false)", AS_FUNCTIONPR(Log::WriteRaw, (const String&, bool), void), AS_CALL_CDECL));
 }
 

@@ -18,17 +18,6 @@ void CollectMembers_CollisionGeometryData(Vector<RegisterObjectMethodArgs>& meth
     CollectMembers_RefCounted(methods, staticMethods, fields, staticFields);
 }
 
-// static void CollisionShape::RegisterObject(Context* context)
-#ifdef URHO3D_PHYSICS
-// static void CollisionShape::RegisterObject(Context* context) | File: ../Physics/CollisionShape.h
-static void CollisionShape_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    CollisionShape::RegisterObject(context);
-}
-#endif
-
-
 // class CollisionShape | File: ../Physics/CollisionShape.h
 void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -97,19 +86,9 @@ void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("ResourceRef CollisionShape::GetModelAttr() const", "ResourceRef GetModelAttr() const", AS_METHODPR(CollisionShape, GetModelAttr, () const, ResourceRef), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void CollisionShape::ReleaseShape()", "void ReleaseShape()", AS_METHODPR(CollisionShape, ReleaseShape, (), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void CollisionShape::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CollisionShape_RegisterObject_Context), AS_CALL_CDECL));
+    // static void CollisionShape::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Constraint::RegisterObject(Context* context)
-#ifdef URHO3D_PHYSICS
-// static void Constraint::RegisterObject(Context* context) | File: ../Physics/Constraint.h
-static void Constraint_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Constraint::RegisterObject(context);
-}
-#endif
-
 
 // class Constraint | File: ../Physics/Constraint.h
 void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -189,7 +168,8 @@ void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("void Constraint::ReleaseConstraint()", "void ReleaseConstraint()", AS_METHODPR(Constraint, ReleaseConstraint, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Constraint::ApplyFrames()", "void ApplyFrames()", AS_METHODPR(Constraint, ApplyFrames, (), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Constraint::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Constraint_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Constraint::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // void ConvexData::BuildHull(const PODVector<Vector3>& vertices)
@@ -277,17 +257,6 @@ void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& metho
     fields.Push(RegisterObjectPropertyArgs("float PhysicsRaycastResult::distance_", "float distance", offsetof(PhysicsRaycastResult, distance_)));
     fields.Push(RegisterObjectPropertyArgs("float PhysicsRaycastResult::hitFraction_", "float hitFraction", offsetof(PhysicsRaycastResult, hitFraction_)));
 }
-
-// static void PhysicsWorld::RegisterObject(Context* context)
-#ifdef URHO3D_PHYSICS
-// static void PhysicsWorld::RegisterObject(Context* context) | File: ../Physics/PhysicsWorld.h
-static void PhysicsWorld_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    PhysicsWorld::RegisterObject(context);
-}
-#endif
-
 
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
 void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -388,7 +357,8 @@ void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("bool PhysicsWorld::IsApplyingTransforms() const", "bool IsApplyingTransforms() const", AS_METHODPR(PhysicsWorld, IsApplyingTransforms, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool PhysicsWorld::IsSimulating() const", "bool IsSimulating() const", AS_METHODPR(PhysicsWorld, IsSimulating, () const, bool), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void PhysicsWorld::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(PhysicsWorld_RegisterObject_Context), AS_CALL_CDECL));
+    // static void PhysicsWorld::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 
     // static struct PhysicsWorldConfig PhysicsWorld::config
     // Error: type "struct PhysicsWorldConfig" can not automatically bind
@@ -400,17 +370,6 @@ void CollectMembers_PhysicsWorldConfig(Vector<RegisterObjectMethodArgs>& methods
     // btCollisionConfiguration* PhysicsWorldConfig::collisionConfig_
     // Not registered because pointer
 }
-
-// static void RaycastVehicle::RegisterObject(Context* context)
-#ifdef URHO3D_PHYSICS
-// static void RaycastVehicle::RegisterObject(Context* context) | File: ../Physics/RaycastVehicle.h
-static void RaycastVehicle_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    RaycastVehicle::RegisterObject(context);
-}
-#endif
-
 
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h
 void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -492,7 +451,8 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Ve
     methods.Push(RegisterObjectMethodArgs("IntVector3 RaycastVehicle::GetCoordinateSystem() const", "IntVector3 GetCoordinateSystem() const", AS_METHODPR(RaycastVehicle, GetCoordinateSystem, () const, IntVector3), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("IntVector3 RaycastVehicle::GetCoordinateSystem() const", "IntVector3 get_coordinateSystem() const", AS_METHODPR(RaycastVehicle, GetCoordinateSystem, () const, IntVector3), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void RaycastVehicle::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(RaycastVehicle_RegisterObject_Context), AS_CALL_CDECL));
+    // static void RaycastVehicle::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::RIGHT_UP_FORWARD", "const IntVector3 RIGHT_UP_FORWARD", (void*)&RaycastVehicle::RIGHT_UP_FORWARD));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::RIGHT_FORWARD_UP", "const IntVector3 RIGHT_FORWARD_UP", (void*)&RaycastVehicle::RIGHT_FORWARD_UP));
@@ -501,17 +461,6 @@ void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Ve
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::FORWARD_RIGHT_UP", "const IntVector3 FORWARD_RIGHT_UP", (void*)&RaycastVehicle::FORWARD_RIGHT_UP));
     staticFields.Push(RegisterGlobalPropertyArgs("static const IntVector3 RaycastVehicle::FORWARD_UP_RIGHT", "const IntVector3 FORWARD_UP_RIGHT", (void*)&RaycastVehicle::FORWARD_UP_RIGHT));
 }
-
-// static void RigidBody::RegisterObject(Context* context)
-#ifdef URHO3D_PHYSICS
-// static void RigidBody::RegisterObject(Context* context) | File: ../Physics/RigidBody.h
-static void RigidBody_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    RigidBody::RegisterObject(context);
-}
-#endif
-
 
 // class RigidBody | File: ../Physics/RigidBody.h
 void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -664,7 +613,8 @@ void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("void RigidBody::RemoveConstraint(Constraint* constraint)", "void RemoveConstraint(Constraint@+)", AS_METHODPR(RigidBody, RemoveConstraint, (Constraint*), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void RigidBody::ReleaseBody()", "void ReleaseBody()", AS_METHODPR(RigidBody, ReleaseBody, (), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void RigidBody::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(RigidBody_RegisterObject_Context), AS_CALL_CDECL));
+    // static void RigidBody::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h

@@ -10,15 +10,6 @@
 namespace Urho3D
 {
 
-// static void BorderImage::RegisterObject(Context* context)
-// static void BorderImage::RegisterObject(Context* context) | File: ../UI/BorderImage.h
-static void BorderImage_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    BorderImage::RegisterObject(context);
-}
-
-
 // class BorderImage | File: ../UI/BorderImage.h
 void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -75,17 +66,9 @@ void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("void BorderImage::SetMaterialAttr(const ResourceRef& value)", "void SetMaterialAttr(const ResourceRef&in)", AS_METHODPR(BorderImage, SetMaterialAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("ResourceRef BorderImage::GetMaterialAttr() const", "ResourceRef GetMaterialAttr() const", AS_METHODPR(BorderImage, GetMaterialAttr, () const, ResourceRef), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void BorderImage::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(BorderImage_RegisterObject_Context), AS_CALL_CDECL));
+    // static void BorderImage::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Button::RegisterObject(Context* context)
-// static void Button::RegisterObject(Context* context) | File: ../UI/Button.h
-static void Button_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Button::RegisterObject(context);
-}
-
 
 // class Button | File: ../UI/Button.h
 void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -131,7 +114,8 @@ void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("bool Button::IsPressed() const", "bool IsPressed() const", AS_METHODPR(Button, IsPressed, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Button::IsPressed() const", "bool get_pressed() const", AS_METHODPR(Button, IsPressed, () const, bool), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Button::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Button_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Button::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // struct CharLocation | File: ../UI/Text.h
@@ -140,15 +124,6 @@ void CollectMembers_CharLocation(Vector<RegisterObjectMethodArgs>& methods, Vect
     fields.Push(RegisterObjectPropertyArgs("Vector2 CharLocation::position_", "Vector2 position", offsetof(CharLocation, position_)));
     fields.Push(RegisterObjectPropertyArgs("Vector2 CharLocation::size_", "Vector2 size", offsetof(CharLocation, size_)));
 }
-
-// static void CheckBox::RegisterObject(Context* context)
-// static void CheckBox::RegisterObject(Context* context) | File: ../UI/CheckBox.h
-static void CheckBox_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    CheckBox::RegisterObject(context);
-}
-
 
 // class CheckBox | File: ../UI/CheckBox.h
 void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -176,17 +151,9 @@ void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("const IntVector2& CheckBox::GetCheckedOffset() const", "const IntVector2& GetCheckedOffset() const", AS_METHODPR(CheckBox, GetCheckedOffset, () const, const IntVector2&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const IntVector2& CheckBox::GetCheckedOffset() const", "const IntVector2& get_checkedOffset() const", AS_METHODPR(CheckBox, GetCheckedOffset, () const, const IntVector2&), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void CheckBox::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(CheckBox_RegisterObject_Context), AS_CALL_CDECL));
+    // static void CheckBox::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Cursor::RegisterObject(Context* context)
-// static void Cursor::RegisterObject(Context* context) | File: ../UI/Cursor.h
-static void Cursor_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Cursor::RegisterObject(context);
-}
-
 
 // class Cursor | File: ../UI/Cursor.h
 void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -217,7 +184,8 @@ void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("bool Cursor::GetUseSystemShapes() const", "bool get_useSystemShapes() const", AS_METHODPR(Cursor, GetUseSystemShapes, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Cursor::ApplyOSCursorShape()", "void ApplyOSCursorShape()", AS_METHODPR(Cursor, ApplyOSCursorShape, (), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Cursor::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Cursor_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Cursor::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // struct CursorShapeInfo | File: ../UI/Cursor.h
@@ -242,15 +210,6 @@ static CScriptArray* DropDownList_GetItems_void(DropDownList* ptr)
 {
     PODVector<UIElement*> result = ptr->GetItems();
     return VectorToHandleArray(result, "Array<UIElement@>");
-}
-
-
-// static void DropDownList::RegisterObject(Context* context)
-// static void DropDownList::RegisterObject(Context* context) | File: ../UI/DropDownList.h
-static void DropDownList_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    DropDownList::RegisterObject(context);
 }
 
 
@@ -304,7 +263,8 @@ void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("bool DropDownList::GetResizePopup() const", "bool get_resizePopup() const", AS_METHODPR(DropDownList, GetResizePopup, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void DropDownList::SetSelectionAttr(unsigned index)", "void SetSelectionAttr(uint)", AS_METHODPR(DropDownList, SetSelectionAttr, (unsigned), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void DropDownList::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(DropDownList_RegisterObject_Context), AS_CALL_CDECL));
+    // static void DropDownList::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // void FileSelector::SetFilters(const Vector<String>& filters, unsigned defaultIndex)
@@ -313,15 +273,6 @@ static void FileSelector_SetFilters_VectorString_unsigned(FileSelector* ptr, CSc
 {
     Vector<String> filters = ArrayToVector<String>(filters_conv);
     ptr->SetFilters(filters, defaultIndex);
-}
-
-
-// static void FileSelector::RegisterObject(Context* context)
-// static void FileSelector::RegisterObject(Context* context) | File: ../UI/FileSelector.h
-static void FileSelector_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    FileSelector::RegisterObject(context);
 }
 
 
@@ -375,7 +326,8 @@ void CollectMembers_FileSelector(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("bool FileSelector::GetDirectoryMode() const", "bool GetDirectoryMode() const", AS_METHODPR(FileSelector, GetDirectoryMode, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool FileSelector::GetDirectoryMode() const", "bool get_directoryMode() const", AS_METHODPR(FileSelector, GetDirectoryMode, () const, bool), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void FileSelector::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(FileSelector_RegisterObject_Context), AS_CALL_CDECL));
+    // static void FileSelector::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // struct FileSelectorEntry | File: ../UI/FileSelector.h
@@ -384,15 +336,6 @@ void CollectMembers_FileSelectorEntry(Vector<RegisterObjectMethodArgs>& methods,
     fields.Push(RegisterObjectPropertyArgs("String FileSelectorEntry::name_", "String name", offsetof(FileSelectorEntry, name_)));
     fields.Push(RegisterObjectPropertyArgs("bool FileSelectorEntry::directory_", "bool directory", offsetof(FileSelectorEntry, directory_)));
 }
-
-// static void Font::RegisterObject(Context* context)
-// static void Font::RegisterObject(Context* context) | File: ../UI/Font.h
-static void Font_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Font::RegisterObject(context);
-}
-
 
 // class Font | File: ../UI/Font.h
 void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -418,7 +361,8 @@ void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("IntVector2 Font::GetTotalGlyphOffset(float pointSize) const", "IntVector2 GetTotalGlyphOffset(float) const", AS_METHODPR(Font, GetTotalGlyphOffset, (float) const, IntVector2), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Font::ReleaseFaces()", "void ReleaseFaces()", AS_METHODPR(Font, ReleaseFaces, (), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Font::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Font_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Font::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // const Vector<SharedPtr<Texture2D>>& FontFace::GetTextures() const
@@ -505,15 +449,6 @@ void CollectMembers_GlyphLocation(Vector<RegisterObjectMethodArgs>& methods, Vec
     fields.Push(RegisterObjectPropertyArgs("float GlyphLocation::y_", "float y", offsetof(GlyphLocation, y_)));
 }
 
-// static void LineEdit::RegisterObject(Context* context)
-// static void LineEdit::RegisterObject(Context* context) | File: ../UI/LineEdit.h
-static void LineEdit_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    LineEdit::RegisterObject(context);
-}
-
-
 // class LineEdit | File: ../UI/LineEdit.h
 void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -579,7 +514,8 @@ void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("BorderImage* LineEdit::GetCursor() const", "BorderImage@+ GetCursor() const", AS_METHODPR(LineEdit, GetCursor, () const, BorderImage*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("BorderImage* LineEdit::GetCursor() const", "BorderImage@+ get_cursor() const", AS_METHODPR(LineEdit, GetCursor, () const, BorderImage*), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void LineEdit::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(LineEdit_RegisterObject_Context), AS_CALL_CDECL));
+    // static void LineEdit::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // void ListView::SetSelections(const PODVector<unsigned>& indices)
@@ -615,15 +551,6 @@ static CScriptArray* ListView_GetSelectedItems_void(ListView* ptr)
 {
     PODVector<UIElement*> result = ptr->GetSelectedItems();
     return VectorToHandleArray(result, "Array<UIElement@>");
-}
-
-
-// static void ListView::RegisterObject(Context* context)
-// static void ListView::RegisterObject(Context* context) | File: ../UI/ListView.h
-static void ListView_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    ListView::RegisterObject(context);
 }
 
 
@@ -702,17 +629,9 @@ void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods, Vector<R
     methods.Push(RegisterObjectMethodArgs("void ListView::EnsureItemVisibility(unsigned index)", "void EnsureItemVisibility(uint)", AS_METHODPR(ListView, EnsureItemVisibility, (unsigned), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ListView::EnsureItemVisibility(UIElement* item)", "void EnsureItemVisibility(UIElement@+)", AS_METHODPR(ListView, EnsureItemVisibility, (UIElement*), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void ListView::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ListView_RegisterObject_Context), AS_CALL_CDECL));
+    // static void ListView::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Menu::RegisterObject(Context* context)
-// static void Menu::RegisterObject(Context* context) | File: ../UI/Menu.h
-static void Menu_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Menu::RegisterObject(context);
-}
-
 
 // class Menu | File: ../UI/Menu.h
 void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -754,17 +673,9 @@ void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("int Menu::GetAcceleratorQualifiers() const", "int GetAcceleratorQualifiers() const", AS_METHODPR(Menu, GetAcceleratorQualifiers, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int Menu::GetAcceleratorQualifiers() const", "int get_acceleratorQualifiers() const", AS_METHODPR(Menu, GetAcceleratorQualifiers, () const, int), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Menu::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Menu_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Menu::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void MessageBox::RegisterObject(Context* context)
-// static void MessageBox::RegisterObject(Context* context) | File: ../UI/MessageBox.h
-static void MessageBox_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    MessageBox::RegisterObject(context);
-}
-
 
 // class MessageBox | File: ../UI/MessageBox.h
 void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -782,17 +693,9 @@ void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("UIElement* MessageBox::GetWindow() const", "UIElement@+ GetWindow() const", AS_METHODPR(MessageBox, GetWindow, () const, UIElement*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("UIElement* MessageBox::GetWindow() const", "UIElement@+ get_window() const", AS_METHODPR(MessageBox, GetWindow, () const, UIElement*), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void MessageBox::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(MessageBox_RegisterObject_Context), AS_CALL_CDECL));
+    // static void MessageBox::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void ProgressBar::RegisterObject(Context* context)
-// static void ProgressBar::RegisterObject(Context* context) | File: ../UI/ProgressBar.h
-static void ProgressBar_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    ProgressBar::RegisterObject(context);
-}
-
 
 // class ProgressBar | File: ../UI/ProgressBar.h
 void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -826,17 +729,9 @@ void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("bool ProgressBar::GetShowPercentText() const", "bool GetShowPercentText() const", AS_METHODPR(ProgressBar, GetShowPercentText, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool ProgressBar::GetShowPercentText() const", "bool get_showPercentText() const", AS_METHODPR(ProgressBar, GetShowPercentText, () const, bool), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void ProgressBar::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ProgressBar_RegisterObject_Context), AS_CALL_CDECL));
+    // static void ProgressBar::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void ScrollBar::RegisterObject(Context* context)
-// static void ScrollBar::RegisterObject(Context* context) | File: ../UI/ScrollBar.h
-static void ScrollBar_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    ScrollBar::RegisterObject(context);
-}
-
 
 // class ScrollBar | File: ../UI/ScrollBar.h
 void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -884,17 +779,9 @@ void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("Slider* ScrollBar::GetSlider() const", "Slider@+ GetSlider() const", AS_METHODPR(ScrollBar, GetSlider, () const, Slider*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Slider* ScrollBar::GetSlider() const", "Slider@+ get_slider() const", AS_METHODPR(ScrollBar, GetSlider, () const, Slider*), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void ScrollBar::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ScrollBar_RegisterObject_Context), AS_CALL_CDECL));
+    // static void ScrollBar::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void ScrollView::RegisterObject(Context* context)
-// static void ScrollView::RegisterObject(Context* context) | File: ../UI/ScrollView.h
-static void ScrollView_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    ScrollView::RegisterObject(context);
-}
-
 
 // class ScrollView | File: ../UI/ScrollView.h
 void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -970,17 +857,9 @@ void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods, Vector
     methods.Push(RegisterObjectMethodArgs("float ScrollView::GetAutoDisableThreshold() const", "float get_autoDisableThreshold() const", AS_METHODPR(ScrollView, GetAutoDisableThreshold, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void ScrollView::SetViewPositionAttr(const IntVector2& value)", "void SetViewPositionAttr(const IntVector2&in)", AS_METHODPR(ScrollView, SetViewPositionAttr, (const IntVector2&), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void ScrollView::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ScrollView_RegisterObject_Context), AS_CALL_CDECL));
+    // static void ScrollView::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Slider::RegisterObject(Context* context)
-// static void Slider::RegisterObject(Context* context) | File: ../UI/Slider.h
-static void Slider_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Slider::RegisterObject(context);
-}
-
 
 // class Slider | File: ../UI/Slider.h
 void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -1026,17 +905,9 @@ void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("float Slider::GetRepeatRate() const", "float GetRepeatRate() const", AS_METHODPR(Slider, GetRepeatRate, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float Slider::GetRepeatRate() const", "float get_repeatRate() const", AS_METHODPR(Slider, GetRepeatRate, () const, float), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Slider::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Slider_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Slider::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Sprite::RegisterObject(Context* context)
-// static void Sprite::RegisterObject(Context* context) | File: ../UI/Sprite.h
-static void Sprite_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Sprite::RegisterObject(context);
-}
-
 
 // class Sprite | File: ../UI/Sprite.h
 void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -1101,17 +972,9 @@ void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("ResourceRef Sprite::GetTextureAttr() const", "ResourceRef GetTextureAttr() const", AS_METHODPR(Sprite, GetTextureAttr, () const, ResourceRef), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Matrix3x4& Sprite::GetTransform() const", "const Matrix3x4& GetTransform() const", AS_METHODPR(Sprite, GetTransform, () const, const Matrix3x4&), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Sprite::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Sprite_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Sprite::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Text::RegisterObject(Context* context)
-// static void Text::RegisterObject(Context* context) | File: ../UI/Text.h
-static void Text_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Text::RegisterObject(context);
-}
-
 
 // class Text | File: ../UI/Text.h
 void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -1205,17 +1068,9 @@ void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods, Vector<Regis
     methods.Push(RegisterObjectMethodArgs("void Text::SetTextAttr(const String& value)", "void SetTextAttr(const String&in)", AS_METHODPR(Text, SetTextAttr, (const String&), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("String Text::GetTextAttr() const", "String GetTextAttr() const", AS_METHODPR(Text, GetTextAttr, () const, String), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Text::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Text_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Text::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Text3D::RegisterObject(Context* context)
-// static void Text3D::RegisterObject(Context* context) | File: ../UI/Text3D.h
-static void Text3D_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Text3D::RegisterObject(context);
-}
-
 
 // class Text3D | File: ../UI/Text3D.h
 void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -1338,17 +1193,9 @@ void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("String Text3D::GetTextAttr() const", "String GetTextAttr() const", AS_METHODPR(Text3D, GetTextAttr, () const, String), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Color& Text3D::GetColorAttr() const", "const Color& GetColorAttr() const", AS_METHODPR(Text3D, GetColorAttr, () const, const Color&), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Text3D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Text3D_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Text3D::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void ToolTip::RegisterObject(Context* context)
-// static void ToolTip::RegisterObject(Context* context) | File: ../UI/ToolTip.h
-static void ToolTip_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    ToolTip::RegisterObject(context);
-}
-
 
 // class ToolTip | File: ../UI/ToolTip.h
 void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -1367,7 +1214,8 @@ void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     methods.Push(RegisterObjectMethodArgs("float ToolTip::GetDelay() const", "float GetDelay() const", AS_METHODPR(ToolTip, GetDelay, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float ToolTip::GetDelay() const", "float get_delay() const", AS_METHODPR(ToolTip, GetDelay, () const, float), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void ToolTip::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(ToolTip_RegisterObject_Context), AS_CALL_CDECL));
+    // static void ToolTip::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr)
@@ -1539,15 +1387,6 @@ void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<Re
     staticFields.Push(RegisterGlobalPropertyArgs("static Vector3 UIBatch::posAdjust", "Vector3 posAdjust", (void*)&UIBatch::posAdjust));
 }
 
-// static void UIComponent::RegisterObject(Context* context)
-// static void UIComponent::RegisterObject(Context* context) | File: ../UI/UIComponent.h
-static void UIComponent_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    UIComponent::RegisterObject(context);
-}
-
-
 // class UIComponent | File: ../UI/UIComponent.h
 void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -1563,7 +1402,8 @@ void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("Texture2D* UIComponent::GetTexture() const", "Texture2D@+ get_texture() const", AS_METHODPR(UIComponent, GetTexture, () const, Texture2D*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void UIComponent::SetViewportIndex(unsigned index)", "void SetViewportIndex(uint)", AS_METHODPR(UIComponent, SetViewportIndex, (unsigned), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void UIComponent::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(UIComponent_RegisterObject_Context), AS_CALL_CDECL));
+    // static void UIComponent::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // void UIElement::SetTags(const StringVector& tags)
@@ -1617,15 +1457,6 @@ static CScriptArray* UIElement_GetChildrenWithTag_String_bool(UIElement* ptr, co
 {
     PODVector<UIElement*> result = ptr->GetChildrenWithTag(tag, recursive);
     return VectorToHandleArray(result, "Array<UIElement@>");
-}
-
-
-// static void UIElement::RegisterObject(Context* context)
-// static void UIElement::RegisterObject(Context* context) | File: ../UI/UIElement.h
-static void UIElement_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    UIElement::RegisterObject(context);
 }
 
 
@@ -1963,17 +1794,9 @@ void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods, Vector<
     methods.Push(RegisterObjectMethodArgs("IntVector2 UIElement::GetEffectiveMinSize() const", "IntVector2 GetEffectiveMinSize() const", AS_METHODPR(UIElement, GetEffectiveMinSize, () const, IntVector2), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void UIElement::SetRenderTexture(Texture2D* texture)", "void SetRenderTexture(Texture2D@+)", AS_METHODPR(UIElement, SetRenderTexture, (Texture2D*), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void UIElement::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(UIElement_RegisterObject_Context), AS_CALL_CDECL));
+    // static void UIElement::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void UISelectable::RegisterObject(Context* context)
-// static void UISelectable::RegisterObject(Context* context) | File: ../UI/UISelectable.h
-static void UISelectable_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    UISelectable::RegisterObject(context);
-}
-
 
 // class UISelectable | File: ../UI/UISelectable.h
 void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -1999,17 +1822,9 @@ void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods, Vect
     methods.Push(RegisterObjectMethodArgs("const Color& UISelectable::GetHoverColor() const", "const Color& GetHoverColor() const", AS_METHODPR(UISelectable, GetHoverColor, () const, const Color&), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("const Color& UISelectable::GetHoverColor() const", "const Color& get_hoverColor() const", AS_METHODPR(UISelectable, GetHoverColor, () const, const Color&), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void UISelectable::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(UISelectable_RegisterObject_Context), AS_CALL_CDECL));
+    // static void UISelectable::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void View3D::RegisterObject(Context* context)
-// static void View3D::RegisterObject(Context* context) | File: ../UI/View3D.h
-static void View3D_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    View3D::RegisterObject(context);
-}
-
 
 // class View3D | File: ../UI/View3D.h
 void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -2042,17 +1857,9 @@ void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("Viewport* View3D::GetViewport() const", "Viewport@+ GetViewport() const", AS_METHODPR(View3D, GetViewport, () const, Viewport*), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("Viewport* View3D::GetViewport() const", "Viewport@+ get_viewport() const", AS_METHODPR(View3D, GetViewport, () const, Viewport*), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void View3D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(View3D_RegisterObject_Context), AS_CALL_CDECL));
+    // static void View3D::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void Window::RegisterObject(Context* context)
-// static void Window::RegisterObject(Context* context) | File: ../UI/Window.h
-static void Window_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Window::RegisterObject(context);
-}
-
 
 // class Window | File: ../UI/Window.h
 void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -2117,7 +1924,8 @@ void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("bool Window::GetModalAutoDismiss() const", "bool GetModalAutoDismiss() const", AS_METHODPR(Window, GetModalAutoDismiss, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("bool Window::GetModalAutoDismiss() const", "bool get_modalAutoDismiss() const", AS_METHODPR(Window, GetModalAutoDismiss, () const, bool), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Window::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Window_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Window::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 } // namespace Urho3D

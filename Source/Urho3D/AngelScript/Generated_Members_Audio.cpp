@@ -108,15 +108,6 @@ static SoundStream* Sound_GetDecoderStream_void(Sound* ptr)
 }
 
 
-// static void Sound::RegisterObject(Context* context)
-// static void Sound::RegisterObject(Context* context) | File: ../Audio/Sound.h
-static void Sound_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    Sound::RegisterObject(context);
-}
-
-
 // class Sound | File: ../Audio/Sound.h
 void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -163,17 +154,9 @@ void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<Regi
     methods.Push(RegisterObjectMethodArgs("bool Sound::IsCompressed() const", "bool get_compressed() const", AS_METHODPR(Sound, IsCompressed, () const, bool), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("void Sound::FixInterpolation()", "void FixInterpolation()", AS_METHODPR(Sound, FixInterpolation, (), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void Sound::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(Sound_RegisterObject_Context), AS_CALL_CDECL));
+    // static void Sound::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void SoundListener::RegisterObject(Context* context)
-// static void SoundListener::RegisterObject(Context* context) | File: ../Audio/SoundListener.h
-static void SoundListener_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    SoundListener::RegisterObject(context);
-}
-
 
 // class SoundListener | File: ../Audio/SoundListener.h
 void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -182,17 +165,9 @@ void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods, Vec
 
     Remove(staticMethods, "static void Animatable::RegisterObject(Context* context)");
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void SoundListener::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(SoundListener_RegisterObject_Context), AS_CALL_CDECL));
+    // static void SoundListener::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void SoundSource::RegisterObject(Context* context)
-// static void SoundSource::RegisterObject(Context* context) | File: ../Audio/SoundSource.h
-static void SoundSource_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    SoundSource::RegisterObject(context);
-}
-
 
 // class SoundSource | File: ../Audio/SoundSource.h
 void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -252,17 +227,9 @@ void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vecto
     methods.Push(RegisterObjectMethodArgs("void SoundSource::SetPlayingAttr(bool value)", "void SetPlayingAttr(bool)", AS_METHODPR(SoundSource, SetPlayingAttr, (bool), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int SoundSource::GetPositionAttr() const", "int GetPositionAttr() const", AS_METHODPR(SoundSource, GetPositionAttr, () const, int), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void SoundSource::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(SoundSource_RegisterObject_Context), AS_CALL_CDECL));
+    // static void SoundSource::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
-
-// static void SoundSource3D::RegisterObject(Context* context)
-// static void SoundSource3D::RegisterObject(Context* context) | File: ../Audio/SoundSource3D.h
-static void SoundSource3D_RegisterObject_Context()
-{
-    Context* context = GetScriptContext();
-    SoundSource3D::RegisterObject(context);
-}
-
 
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
 void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
@@ -300,7 +267,8 @@ void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vec
     methods.Push(RegisterObjectMethodArgs("float SoundSource3D::RollAngleoffFactor() const", "float RollAngleoffFactor() const", AS_METHODPR(SoundSource3D, RollAngleoffFactor, () const, float), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("float SoundSource3D::RollAngleoffFactor() const", "float get_rolloffFactor() const", AS_METHODPR(SoundSource3D, RollAngleoffFactor, () const, float), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static void SoundSource3D::RegisterObject(Context* context)", "void RegisterObject()", AS_FUNCTION(SoundSource3D_RegisterObject_Context), AS_CALL_CDECL));
+    // static void SoundSource3D::RegisterObject(Context* context)
+    // Not registered because have @nobind mark
 }
 
 // class SoundStream | File: ../Audio/SoundStream.h

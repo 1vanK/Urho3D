@@ -141,16 +141,6 @@ static void String_Join_VectorString_String(String* ptr, CScriptArray* subString
 }
 
 
-// static String String::Joined(const Vector<String>& subStrings, const String& glue)
-// static String String::Joined(const Vector<String>& subStrings, const String& glue) | File: ../Container/Str.h
-static String String_Joined_VectorString_String(CScriptArray* subStrings_conv, const String& glue)
-{
-    Vector<String> subStrings = ArrayToVector<String>(subStrings_conv);
-    String result = String::Joined(subStrings, glue);
-    return result;
-}
-
-
 // class String | File: ../Container/Str.h
 void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
@@ -283,6 +273,8 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
 
     // static Vector<String> String::Split(const char* str, char separator, bool keepEmptyStrings=false)
     // Error: type "const char*" can not automatically bind
+    // static String String::Joined(const Vector<String>& subStrings, const String& glue)
+    // Not registered because have @manualbind mark
     // static void String::EncodeUTF8(char*& dest, unsigned unicodeChar)
     // Error: type "char*&" can not automatically bind
     // static unsigned String::DecodeUTF8(const char*& src)
@@ -291,8 +283,6 @@ void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     // Error: type "const char*" can not automatically bind
     // static int String::Compare(const char* lhs, const char* rhs, bool caseSensitive)
     // Error: type "const char*" can not automatically bind
-
-    staticMethods.Push(RegisterGlobalFunctionArgs("static String String::Joined(const Vector<String>& subStrings, const String& glue)", "String Joined(Array<String>@+, const String&in)", AS_FUNCTION(String_Joined_VectorString_String), AS_CALL_CDECL));
 
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::NPOS", "const uint NPOS", (void*)&String::NPOS));
     staticFields.Push(RegisterGlobalPropertyArgs("static const unsigned String::MIN_CAPACITY", "const uint MIN_CAPACITY", (void*)&String::MIN_CAPACITY));

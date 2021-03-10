@@ -436,7 +436,7 @@ void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods, Vector<Reg
     methods.Push(RegisterObjectMethodArgs("bool Thread::IsStarted() const", "bool IsStarted() const", AS_METHODPR(Thread, IsStarted, () const, bool), AS_CALL_THISCALL));
 
     // static ThreadID Thread::GetCurrentThreadID()
-    // Error: type "ThreadID" can not automatically bind
+    // Not registered because have @nobind mark
 
     staticMethods.Push(RegisterGlobalFunctionArgs("static void Thread::SetMainThread()", "void SetMainThread()", AS_FUNCTIONPR(Thread::SetMainThread, (), void), AS_CALL_CDECL));
     staticMethods.Push(RegisterGlobalFunctionArgs("static bool Thread::IsMainThread()", "bool IsMainThread()", AS_FUNCTIONPR(Thread::IsMainThread, (), bool), AS_CALL_CDECL));

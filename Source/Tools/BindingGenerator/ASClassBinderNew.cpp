@@ -317,6 +317,26 @@ static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass&
 
     if (methodAnalyzer.IsStatic())
     {
+        if (HaveMark(methodAnalyzer, "NO_BIND"))
+        {
+            MemberRegistrationError regError;
+            regError.name_ = methodAnalyzer.GetName();
+            regError.comment_ = methodAnalyzer.GetDeclaration();
+            regError.message_ = "Not registered because have @nobind mark";
+            processedClass.unregisteredStaticMethods_.push_back(regError);
+            return;
+        }
+
+        if (HaveMark(methodAnalyzer, "MANUAL_BIND"))
+        {
+            MemberRegistrationError regError;
+            regError.name_ = methodAnalyzer.GetName();
+            regError.comment_ = methodAnalyzer.GetDeclaration();
+            regError.message_ = "Not registered because have @manualbind mark";
+            processedClass.unregisteredStaticMethods_.push_back(regError);
+            return;
+        }
+
         ClassStaticFunctionAnalyzer staticMethodAnalyzer(methodAnalyzer.GetClass(), methodAnalyzer.GetMemberdef());
 
         vector<ParamAnalyzer> params = staticMethodAnalyzer.GetParams();
