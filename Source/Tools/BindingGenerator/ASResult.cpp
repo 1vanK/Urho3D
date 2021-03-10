@@ -660,9 +660,6 @@ namespace Result
                 needGap = true;
             }
 
-            if (needGap && processedClass.destructor_)
-                ofs << '\n';
-
             if (processedClass.destructor_)
             {
                 if (needGap)

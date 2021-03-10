@@ -329,7 +329,6 @@ static void Register_AreaAllocator(asIScriptEngine* engine)
     // AreaAllocator::AreaAllocator(int width, int height, int maxWidth, int maxHeight, bool fastMode=true)
     engine->RegisterObjectBehaviour("AreaAllocator", asBEHAVE_CONSTRUCT, "void f(int, int, int, int, bool = true)", AS_FUNCTION_OBJFIRST(AreaAllocator_AreaAllocator_int_int_int_int_bool), AS_CALL_CDECL_OBJFIRST);
 
-
     // AreaAllocator::~AreaAllocator() | Implicitly-declared
     engine->RegisterObjectBehaviour("AreaAllocator", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AreaAllocator), AS_CALL_CDECL_OBJFIRST);
 
@@ -420,7 +419,6 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
     // AttributeInfo::AttributeInfo(VariantType type, const char* name, const SharedPtr<AttributeAccessor>& accessor, const char** enumNames, const Variant& defaultValue, AttributeModeFlags mode)
     // Error: type "const char*" can not automatically bind
 
-
     // AttributeInfo::~AttributeInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("AttributeInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AttributeInfo), AS_CALL_CDECL_OBJFIRST);
 
@@ -494,7 +492,6 @@ static void Register_Batch(asIScriptEngine* engine)
     // explicit Batch::Batch(const SourceBatch& rhs)
     engine->RegisterObjectBehaviour("Batch", asBEHAVE_CONSTRUCT, "void f(const SourceBatch&in)", AS_FUNCTION_OBJFIRST(Batch_Batch_SourceBatch), AS_CALL_CDECL_OBJFIRST);
 
-
     // Batch::~Batch() | Implicitly-declared
     engine->RegisterObjectBehaviour("Batch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Batch), AS_CALL_CDECL_OBJFIRST);
 
@@ -523,7 +520,6 @@ static void Register_BatchGroup(asIScriptEngine* engine)
     // explicit BatchGroup::BatchGroup(const Batch& batch)
     engine->RegisterObjectBehaviour("BatchGroup", asBEHAVE_CONSTRUCT, "void f(const Batch&in)", AS_FUNCTION_OBJFIRST(BatchGroup_BatchGroup_Batch), AS_CALL_CDECL_OBJFIRST);
 
-
     // BatchGroup::~BatchGroup()=default
     engine->RegisterObjectBehaviour("BatchGroup", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchGroup), AS_CALL_CDECL_OBJFIRST);
 
@@ -551,7 +547,6 @@ static void Register_BatchGroupKey(asIScriptEngine* engine)
 {
     // explicit BatchGroupKey::BatchGroupKey(const Batch& batch)
     engine->RegisterObjectBehaviour("BatchGroupKey", asBEHAVE_CONSTRUCT, "void f(const Batch&in)", AS_FUNCTION_OBJFIRST(BatchGroupKey_BatchGroupKey_Batch), AS_CALL_CDECL_OBJFIRST);
-
 
     // BatchGroupKey::~BatchGroupKey() | Implicitly-declared
     engine->RegisterObjectBehaviour("BatchGroupKey", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchGroupKey), AS_CALL_CDECL_OBJFIRST);
@@ -1222,7 +1217,6 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
     // explicit CursorShapeInfo::CursorShapeInfo(int systemCursor)
     engine->RegisterObjectBehaviour("CursorShapeInfo", asBEHAVE_CONSTRUCT, "void f(int)", AS_FUNCTION_OBJFIRST(CursorShapeInfo_CursorShapeInfo_int), AS_CALL_CDECL_OBJFIRST);
 
-
     // CursorShapeInfo::~CursorShapeInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("CursorShapeInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(CursorShapeInfo), AS_CALL_CDECL_OBJFIRST);
 
@@ -1319,7 +1313,6 @@ static void Register_DebugLine(asIScriptEngine* engine)
     // DebugLine::DebugLine(const Vector3& start, const Vector3& end, unsigned color)
     engine->RegisterObjectBehaviour("DebugLine", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in, uint)", AS_FUNCTION_OBJFIRST(DebugLine_DebugLine_Vector3_Vector3_unsigned), AS_CALL_CDECL_OBJFIRST);
 
-
     // DebugLine::~DebugLine() | Implicitly-declared
     engine->RegisterObjectBehaviour("DebugLine", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DebugLine), AS_CALL_CDECL_OBJFIRST);
 
@@ -1373,7 +1366,6 @@ static void Register_DebugTriangle(asIScriptEngine* engine)
 {
     // DebugTriangle::DebugTriangle(const Vector3& v1, const Vector3& v2, const Vector3& v3, unsigned color)
     engine->RegisterObjectBehaviour("DebugTriangle", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in, const Vector3&in, uint)", AS_FUNCTION_OBJFIRST(DebugTriangle_DebugTriangle_Vector3_Vector3_Vector3_unsigned), AS_CALL_CDECL_OBJFIRST);
-
 
     // DebugTriangle::~DebugTriangle() | Implicitly-declared
     engine->RegisterObjectBehaviour("DebugTriangle", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DebugTriangle), AS_CALL_CDECL_OBJFIRST);
@@ -1451,7 +1443,6 @@ static void Register_DecalVertex(asIScriptEngine* engine)
     // DecalVertex::DecalVertex(const Vector3& position, const Vector3& normal)
     engine->RegisterObjectBehaviour("DecalVertex", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(DecalVertex_DecalVertex_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
 
-
     // DecalVertex::~DecalVertex() | Implicitly-declared
     engine->RegisterObjectBehaviour("DecalVertex", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DecalVertex), AS_CALL_CDECL_OBJFIRST);
 
@@ -1511,7 +1502,6 @@ static void Register_DirtyBits(asIScriptEngine* engine)
 {
     // DirtyBits::DirtyBits(const DirtyBits& bits)
     engine->RegisterObjectBehaviour("DirtyBits", asBEHAVE_CONSTRUCT, "void f(const DirtyBits&in)", AS_FUNCTION_OBJFIRST(DirtyBits_DirtyBits_DirtyBits), AS_CALL_CDECL_OBJFIRST);
-
 
     // DirtyBits::~DirtyBits() | Implicitly-declared
     engine->RegisterObjectBehaviour("DirtyBits", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DirtyBits), AS_CALL_CDECL_OBJFIRST);
@@ -1947,7 +1937,6 @@ static void Register_Frustum(asIScriptEngine* engine)
     // Frustum::Frustum(const Frustum& frustum) noexcept
     engine->RegisterObjectBehaviour("Frustum", asBEHAVE_CONSTRUCT, "void f(const Frustum&in)", AS_FUNCTION_OBJFIRST(Frustum_Frustum_Frustum), AS_CALL_CDECL_OBJFIRST);
 
-
     // Frustum::~Frustum() | Implicitly-declared
     engine->RegisterObjectBehaviour("Frustum", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Frustum), AS_CALL_CDECL_OBJFIRST);
 
@@ -1975,7 +1964,6 @@ static void Register_GPUObject(asIScriptEngine* engine)
 {
     // explicit GPUObject::GPUObject(Graphics* graphics)
     engine->RegisterObjectBehaviour("GPUObject", asBEHAVE_CONSTRUCT, "void f(Graphics@+)", AS_FUNCTION_OBJFIRST(GPUObject_GPUObject_Graphics), AS_CALL_CDECL_OBJFIRST);
-
 
     // virtual GPUObject::~GPUObject()
     engine->RegisterObjectBehaviour("GPUObject", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(GPUObject), AS_CALL_CDECL_OBJFIRST);
@@ -2088,7 +2076,6 @@ static void Register_HashIteratorBase(asIScriptEngine* engine)
 {
     // explicit HashIteratorBase::HashIteratorBase(HashNodeBase* ptr)
     // Error: type "HashNodeBase*" can not automatically bind
-
 
     // HashIteratorBase::~HashIteratorBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("HashIteratorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HashIteratorBase), AS_CALL_CDECL_OBJFIRST);
@@ -2246,7 +2233,6 @@ static void Register_InstanceData(asIScriptEngine* engine)
 {
     // InstanceData::InstanceData(const Matrix3x4* worldTransform, const void* instancingData, float distance)
     // Error: type "const Matrix3x4*" can not automatically bind
-
 
     // InstanceData::~InstanceData() | Implicitly-declared
     engine->RegisterObjectBehaviour("InstanceData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(InstanceData), AS_CALL_CDECL_OBJFIRST);
@@ -2467,7 +2453,6 @@ static void Register_JSONValue(asIScriptEngine* engine)
     // JSONValue::JSONValue(const JSONValue& value)
     engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void f(const JSONValue&in)", AS_FUNCTION_OBJFIRST(JSONValue_JSONValue_JSONValue), AS_CALL_CDECL_OBJFIRST);
 
-
     // JSONValue::~JSONValue()
     engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(JSONValue), AS_CALL_CDECL_OBJFIRST);
 
@@ -2633,7 +2618,6 @@ static void Register_ListIteratorBase(asIScriptEngine* engine)
 {
     // explicit ListIteratorBase::ListIteratorBase(ListNodeBase* ptr)
     // Error: type "ListNodeBase*" can not automatically bind
-
 
     // ListIteratorBase::~ListIteratorBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("ListIteratorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ListIteratorBase), AS_CALL_CDECL_OBJFIRST);
@@ -3123,7 +3107,6 @@ static void Register_MutexLock(asIScriptEngine* engine)
 
     // explicit MutexLock::MutexLock(Mutex& mutex)
     engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_CONSTRUCT, "void f(Mutex&)", AS_FUNCTION_OBJFIRST(MutexLock_MutexLock_Mutex), AS_CALL_CDECL_OBJFIRST);
-
 
     // MutexLock::~MutexLock()
     engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(MutexLock), AS_CALL_CDECL_OBJFIRST);
@@ -3697,7 +3680,6 @@ static void Register_Polyhedron(asIScriptEngine* engine)
     // explicit Polyhedron::Polyhedron(const Frustum& frustum)
     engine->RegisterObjectBehaviour("Polyhedron", asBEHAVE_CONSTRUCT, "void f(const Frustum&in)", AS_FUNCTION_OBJFIRST(Polyhedron_Polyhedron_Frustum), AS_CALL_CDECL_OBJFIRST);
 
-
     // Polyhedron::~Polyhedron() noexcept=default
     engine->RegisterObjectBehaviour("Polyhedron", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Polyhedron), AS_CALL_CDECL_OBJFIRST);
 
@@ -4234,7 +4216,6 @@ static void Register_ResourceRef(asIScriptEngine* engine)
     // ResourceRef::ResourceRef(const ResourceRef& rhs)=default
     engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_CONSTRUCT, "void f(const ResourceRef&in)", AS_FUNCTION_OBJFIRST(ResourceRef_ResourceRef_ResourceRef), AS_CALL_CDECL_OBJFIRST);
 
-
     // ResourceRef::~ResourceRef() | Implicitly-declared
     engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceRef), AS_CALL_CDECL_OBJFIRST);
 
@@ -4271,7 +4252,6 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ResourceRefList", asBEHAVE_CONSTRUCT, "void f(StringHash)", AS_FUNCTION_OBJFIRST(ResourceRefList_ResourceRefList_StringHash), AS_CALL_CDECL_OBJFIRST);
     // ResourceRefList::ResourceRefList(StringHash type, const StringVector& names)
     engine->RegisterObjectBehaviour("ResourceRefList", asBEHAVE_CONSTRUCT, "void f(StringHash, Array<String>@+)", AS_FUNCTION_OBJFIRST(ResourceRefList_ResourceRefList_StringHash_StringVector), AS_CALL_CDECL_OBJFIRST);
-
 
     // ResourceRefList::~ResourceRefList() | Implicitly-declared
     engine->RegisterObjectBehaviour("ResourceRefList", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceRefList), AS_CALL_CDECL_OBJFIRST);
@@ -4609,7 +4589,6 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_CONSTRUCT, "void f(ShaderType, const String&in, uint, uint, uint)", AS_FUNCTION_OBJFIRST(ShaderParameter_ShaderParameter_ShaderType_String_unsigned_unsigned_unsigned), AS_CALL_CDECL_OBJFIRST);
     // ShaderParameter::ShaderParameter(ShaderType type, const String& name, unsigned reg, unsigned regCount)
     engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_CONSTRUCT, "void f(ShaderType, const String&in, uint, uint)", AS_FUNCTION_OBJFIRST(ShaderParameter_ShaderParameter_ShaderType_String_unsigned_unsigned), AS_CALL_CDECL_OBJFIRST);
-
 
     // ShaderParameter::~ShaderParameter() | Implicitly-declared
     engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ShaderParameter), AS_CALL_CDECL_OBJFIRST);
@@ -4956,7 +4935,6 @@ static void Register_SourceBatch(asIScriptEngine* engine)
     // SourceBatch::SourceBatch(const SourceBatch& batch)
     engine->RegisterObjectBehaviour("SourceBatch", asBEHAVE_CONSTRUCT, "void f(const SourceBatch&in)", AS_FUNCTION_OBJFIRST(SourceBatch_SourceBatch_SourceBatch), AS_CALL_CDECL_OBJFIRST);
 
-
     // SourceBatch::~SourceBatch()
     engine->RegisterObjectBehaviour("SourceBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SourceBatch), AS_CALL_CDECL_OBJFIRST);
 
@@ -5055,7 +5033,6 @@ static void Register_Spline(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("Spline", asBEHAVE_CONSTRUCT, "void f(InterpolationMode)", AS_FUNCTION_OBJFIRST(Spline_Spline_InterpolationMode), AS_CALL_CDECL_OBJFIRST);
     // Spline::Spline(const Spline& rhs)=default
     engine->RegisterObjectBehaviour("Spline", asBEHAVE_CONSTRUCT, "void f(const Spline&in)", AS_FUNCTION_OBJFIRST(Spline_Spline_Spline), AS_CALL_CDECL_OBJFIRST);
-
 
     // Spline::~Spline() | Implicitly-declared
     engine->RegisterObjectBehaviour("Spline", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Spline), AS_CALL_CDECL_OBJFIRST);
@@ -5208,7 +5185,6 @@ static void Register_StoredLogMessage(asIScriptEngine* engine)
     // StoredLogMessage::StoredLogMessage(const String& message, int level, bool error)
     engine->RegisterObjectBehaviour("StoredLogMessage", asBEHAVE_CONSTRUCT, "void f(const String&in, int, bool)", AS_FUNCTION_OBJFIRST(StoredLogMessage_StoredLogMessage_String_int_bool), AS_CALL_CDECL_OBJFIRST);
 
-
     // StoredLogMessage::~StoredLogMessage() | Implicitly-declared
     engine->RegisterObjectBehaviour("StoredLogMessage", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StoredLogMessage), AS_CALL_CDECL_OBJFIRST);
 
@@ -5346,7 +5322,6 @@ static void Register_String(asIScriptEngine* engine)
     // explicit String::String(char value, unsigned length)
     engine->RegisterObjectBehaviour("String", asBEHAVE_CONSTRUCT, "void f(int8, uint)", AS_FUNCTION_OBJFIRST(String_String_char_unsigned), AS_CALL_CDECL_OBJFIRST);
 
-
     // String::~String()
     engine->RegisterObjectBehaviour("String", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(String), AS_CALL_CDECL_OBJFIRST);
 
@@ -5419,7 +5394,6 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
     // StringHashRegister::StringHashRegister(bool threadSafe)
     engine->RegisterObjectBehaviour("StringHashRegister", asBEHAVE_CONSTRUCT, "void f(bool)", AS_FUNCTION_OBJFIRST(StringHashRegister_StringHashRegister_bool), AS_CALL_CDECL_OBJFIRST);
 
-
     // StringHashRegister::~StringHashRegister()
     engine->RegisterObjectBehaviour("StringHashRegister", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StringHashRegister), AS_CALL_CDECL_OBJFIRST);
 
@@ -5473,7 +5447,6 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
 {
     // TechniqueEntry::TechniqueEntry(Technique* tech, MaterialQuality qualityLevel, float lodDistance) noexcept
     engine->RegisterObjectBehaviour("TechniqueEntry", asBEHAVE_CONSTRUCT, "void f(Technique@+, MaterialQuality, float)", AS_FUNCTION_OBJFIRST(TechniqueEntry_TechniqueEntry_Technique_MaterialQuality_float), AS_CALL_CDECL_OBJFIRST);
-
 
     // TechniqueEntry::~TechniqueEntry() noexcept=default
     engine->RegisterObjectBehaviour("TechniqueEntry", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(TechniqueEntry), AS_CALL_CDECL_OBJFIRST);
@@ -5837,7 +5810,6 @@ static void Register_TrailPoint(asIScriptEngine* engine)
     // TrailPoint::TrailPoint(const Vector3& position, const Vector3& forward)
     engine->RegisterObjectBehaviour("TrailPoint", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(TrailPoint_TrailPoint_Vector3_Vector3), AS_CALL_CDECL_OBJFIRST);
 
-
     // TrailPoint::~TrailPoint() | Implicitly-declared
     engine->RegisterObjectBehaviour("TrailPoint", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(TrailPoint), AS_CALL_CDECL_OBJFIRST);
 
@@ -5885,7 +5857,6 @@ static void Register_UIBatch(asIScriptEngine* engine)
 {
     // UIBatch::UIBatch(UIElement* element, BlendMode blendMode, const IntRect& scissor, Texture* texture, PODVector<float>* vertexData)
     // Error: type "PODVector<float>*" can not automatically bind
-
 
     // UIBatch::~UIBatch() | Implicitly-declared
     engine->RegisterObjectBehaviour("UIBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(UIBatch), AS_CALL_CDECL_OBJFIRST);
@@ -6352,7 +6323,6 @@ static void Register_Variant(asIScriptEngine* engine)
     // Variant::Variant(const Variant& value)
     engine->RegisterObjectBehaviour("Variant", asBEHAVE_CONSTRUCT, "void f(const Variant&in)", AS_FUNCTION_OBJFIRST(Variant_Variant_Variant), AS_CALL_CDECL_OBJFIRST);
 
-
     // Variant::~Variant()
     engine->RegisterObjectBehaviour("Variant", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Variant), AS_CALL_CDECL_OBJFIRST);
 
@@ -6561,7 +6531,6 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
     // VectorBuffer::VectorBuffer(Deserializer& source, unsigned size)
     engine->RegisterObjectBehaviour("VectorBuffer", asBEHAVE_CONSTRUCT, "void f(Deserializer&, uint)", AS_FUNCTION_OBJFIRST(VectorBuffer_VectorBuffer_Deserializer_unsigned), AS_CALL_CDECL_OBJFIRST);
 
-
     // VectorBuffer::~VectorBuffer() | Implicitly-declared
     engine->RegisterObjectBehaviour("VectorBuffer", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VectorBuffer), AS_CALL_CDECL_OBJFIRST);
 
@@ -6653,7 +6622,6 @@ static void Register_VertexElement(asIScriptEngine* engine)
 {
     // VertexElement::VertexElement(VertexElementType type, VertexElementSemantic semantic, unsigned char index=0, bool perInstance=false) noexcept
     engine->RegisterObjectBehaviour("VertexElement", asBEHAVE_CONSTRUCT, "void f(VertexElementType, VertexElementSemantic, uint8 = 0, bool = false)", AS_FUNCTION_OBJFIRST(VertexElement_VertexElement_VertexElementType_VertexElementSemantic_unsignedchar_bool), AS_CALL_CDECL_OBJFIRST);
-
 
     // VertexElement::~VertexElement() | Implicitly-declared
     engine->RegisterObjectBehaviour("VertexElement", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VertexElement), AS_CALL_CDECL_OBJFIRST);
@@ -6855,7 +6823,6 @@ static void Register_XMLElement(asIScriptEngine* engine)
     // XMLElement::XMLElement(const XMLElement& rhs)
     engine->RegisterObjectBehaviour("XMLElement", asBEHAVE_CONSTRUCT, "void f(const XMLElement&in)", AS_FUNCTION_OBJFIRST(XMLElement_XMLElement_XMLElement), AS_CALL_CDECL_OBJFIRST);
 
-
     // XMLElement::~XMLElement()
     engine->RegisterObjectBehaviour("XMLElement", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XMLElement), AS_CALL_CDECL_OBJFIRST);
 
@@ -6910,7 +6877,6 @@ static void Register_XPathQuery(asIScriptEngine* engine)
     // explicit XPathQuery::XPathQuery(const String& queryString, const String& variableString=String::EMPTY)
     engine->RegisterObjectBehaviour("XPathQuery", asBEHAVE_CONSTRUCT, "void f(const String&in, const String&in = String::EMPTY)", AS_FUNCTION_OBJFIRST(XPathQuery_XPathQuery_String_String), AS_CALL_CDECL_OBJFIRST);
 
-
     // XPathQuery::~XPathQuery()
     engine->RegisterObjectBehaviour("XPathQuery", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XPathQuery), AS_CALL_CDECL_OBJFIRST);
 
@@ -6941,7 +6907,6 @@ static void Register_XPathResultSet(asIScriptEngine* engine)
 
     // XPathResultSet::XPathResultSet(const XPathResultSet& rhs)
     engine->RegisterObjectBehaviour("XPathResultSet", asBEHAVE_CONSTRUCT, "void f(const XPathResultSet&in)", AS_FUNCTION_OBJFIRST(XPathResultSet_XPathResultSet_XPathResultSet), AS_CALL_CDECL_OBJFIRST);
-
 
     // XPathResultSet::~XPathResultSet()
     engine->RegisterObjectBehaviour("XPathResultSet", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XPathResultSet), AS_CALL_CDECL_OBJFIRST);
