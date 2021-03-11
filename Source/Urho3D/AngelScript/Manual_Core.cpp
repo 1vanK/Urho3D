@@ -298,6 +298,38 @@ static void RegisterVariant(asIScriptEngine* engine)
 
 // ========================================================================================
 
+// static unsigned Time::GetSystemTime() | File: ../Core/Timer.h
+unsigned TimeGetSystemTime(Time* time)
+{
+    return Time::GetSystemTime();
+}
+
+// static unsigned Time::GetTimeSinceEpoch() | File: ../Core/Timer.h
+unsigned TimeGetTimeSinceEpoch(Time* time)
+{
+    return Time::GetTimeSinceEpoch();
+}
+
+// static String Time::GetTimeStamp() | File: ../Core/Timer.h
+String TimeGetTimeStamp(Time* time)
+{
+    return Time::GetTimeStamp();
+}
+
+static void RegisterTime(asIScriptEngine* engine)
+{
+    // static unsigned Time::GetSystemTime() | File: ../Core/Timer.h
+    engine->RegisterObjectMethod("Time", "uint get_systemTime() const", AS_FUNCTION_OBJLAST(TimeGetSystemTime), AS_CALL_CDECL_OBJLAST);
+
+    // static unsigned Time::GetTimeSinceEpoch() | File: ../Core/Timer.h
+    engine->RegisterObjectMethod("Time", "uint get_timeSinceEpoch() const", AS_FUNCTION_OBJLAST(TimeGetTimeSinceEpoch), AS_CALL_CDECL_OBJLAST);
+
+    // static String Time::GetTimeStamp() | File: ../Core/Timer.h */
+    engine->RegisterObjectMethod("Time", "String get_timeStamp() const", AS_FUNCTION_OBJLAST(TimeGetTimeStamp), AS_CALL_CDECL_OBJLAST);
+}
+
+// ========================================================================================
+
 // template<class T> T * Object::GetSubsystem() const | File: ../Core/Object.h
 static Time* GetTime()
 {
@@ -310,6 +342,7 @@ void ASRegisterManualLast_Core(asIScriptEngine* engine)
     RegisterVariantMap(engine);
     RegisterWeakHandle(engine);
     RegisterVariant(engine);
+    RegisterTime(engine);
 
     // template<class T> T * Object::GetSubsystem() const | File: ../Core/Object.h
     engine->RegisterGlobalFunction("Time@+ get_time()", AS_FUNCTION(GetTime), AS_CALL_CDECL);
@@ -395,26 +428,6 @@ void SetSplineKnots(CScriptArray* arr, Spline* ptr)
 void SetSplineKnot(unsigned index, const Variant& in, Spline* ptr)
 {
     ptr->SetKnot(in, index);
-}
-
-// ========================================================================================
-
-// static unsigned Time::GetSystemTime() | File: ../Core/Timer.h
-unsigned TimeGetSystemTime(Time* time)
-{
-    return Time::GetSystemTime();
-}
-
-// static unsigned Time::GetTimeSinceEpoch() | File: ../Core/Timer.h
-unsigned TimeGetTimeSinceEpoch(Time* time)
-{
-    return Time::GetTimeSinceEpoch();
-}
-
-// static String Time::GetTimeStamp() | File: ../Core/Timer.h
-String TimeGetTimeStamp(Time* time)
-{
-    return Time::GetTimeStamp();
 }
 
 }

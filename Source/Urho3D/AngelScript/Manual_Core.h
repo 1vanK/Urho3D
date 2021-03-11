@@ -80,21 +80,4 @@ void SetSplineKnot(unsigned index, const Variant& in, Spline* ptr);
     /* void Spline::SetKnot(const Variant &knot, unsigned index) | File: ../Core/Spline.h */ \
     engine->RegisterObjectMethod(className, "void set_knot(uint, const Variant&in)", AS_FUNCTION_OBJLAST(SetSplineKnot), AS_CALL_CDECL_OBJLAST);
 
-// ========================================================================================
-
-// static unsigned Time::GetSystemTime() | File: ../Core/Timer.h
-unsigned TimeGetSystemTime(Time* time);
-// static unsigned Time::GetTimeSinceEpoch() | File: ../Core/Timer.h
-unsigned TimeGetTimeSinceEpoch(Time* time);
-// static String Time::GetTimeStamp() | File: ../Core/Timer.h
-String TimeGetTimeStamp(Time* time);
-
-#define REGISTER_MEMBERS_MANUAL_PART_Time() \
-    /* static unsigned Time::GetSystemTime() | File: ../Core/Timer.h */ \
-    members.methods_.Push(RegisterObjectMethodArgs("804297e6-5c4e-4808-bc09-85ec2337f86f", "uint get_systemTime() const", AS_FUNCTION_OBJLAST(TimeGetSystemTime), AS_CALL_CDECL_OBJLAST)); \
-    /* static unsigned Time::GetTimeSinceEpoch() | File: ../Core/Timer.h */ \
-    members.methods_.Push(RegisterObjectMethodArgs("f89b1df1-6e68-4784-9a27-d6455efa736a", "uint get_timeSinceEpoch() const", AS_FUNCTION_OBJLAST(TimeGetTimeSinceEpoch), AS_CALL_CDECL_OBJLAST)); \
-    /* static String Time::GetTimeStamp() | File: ../Core/Timer.h */ \
-    members.methods_.Push(RegisterObjectMethodArgs("44ab1f06-e310-4714-813e-825403d5096b", "String get_timeStamp() const", AS_FUNCTION_OBJLAST(TimeGetTimeStamp), AS_CALL_CDECL_OBJLAST));
-
 }
