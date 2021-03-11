@@ -86,6 +86,12 @@ static asIScriptObject* NodeCreateScriptObjectWithFile(ScriptFile* file, const S
     return instance->GetScriptObject();
 }
 
+static ScriptFile* ScriptFile_ScriptFile_Context()
+{
+    Context* context = GetScriptContext();
+    return new ScriptFile(context);
+}
+
 static void RegisterScriptFile(asIScriptEngine* engine)
 {
     /*
@@ -96,6 +102,26 @@ static void RegisterScriptFile(asIScriptEngine* engine)
     engine->RegisterObjectMethod("ScriptFile", "bool get_compiled() const", AS_METHOD(ScriptFile, IsCompiled), AS_CALL_THISCALL);
     engine->RegisterGlobalFunction("ScriptFile@+ get_scriptFile()", AS_FUNCTION(GetScriptContextFile), AS_CALL_CDECL);
     */
+
+    engine->RegisterObjectType("ScriptFile", 0, asOBJ_REF);
+
+    Vector<RegisterObjectMethodArgs> methods;
+    Vector<RegisterGlobalFunctionArgs> staticMethods;
+    Vector<RegisterObjectPropertyArgs> fields;
+    Vector<RegisterObjectMethodArgs> wrappedFields;
+    Vector<RegisterGlobalPropertyArgs> staticFields;
+    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
+    RegisterMembers(engine, "ScriptFile", methods, staticMethods, fields, wrappedFields, staticFields);
+
+    engine->RegisterObjectBehaviour("ScriptFile", asBEHAVE_FACTORY, "ScriptFile@+ f()", AS_FUNCTION(ScriptFile_ScriptFile_Context), AS_CALL_CDECL);
+
+    engine->RegisterObjectMethod("ScriptFile", "bool Execute(const String&in, const Array<Variant>@+ params = null)", AS_FUNCTION_OBJLAST(ScriptFileExecute), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectMethod("ScriptFile", "void DelayedExecute(float, bool, const String&in, const Array<Variant>@+ params = null)", AS_FUNCTION_OBJLAST(ScriptFileDelayedExecute), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectMethod("ScriptFile", "void ClearDelayedExecute(const String&in declaration = String())", AS_METHOD(ScriptFile, ClearDelayedExecute), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptFile", "bool get_compiled() const", AS_METHOD(ScriptFile, IsCompiled), AS_CALL_THISCALL);
+    engine->RegisterGlobalFunction("ScriptFile@+ get_scriptFile()", AS_FUNCTION(GetScriptContextFile), AS_CALL_CDECL);
+
+    // TODO: named constructor, base classes?
 }
 
 static asIScriptObject* NodeCreateScriptObject(const String& scriptFileName, const String& className, CreateMode mode, Node* ptr)
@@ -224,6 +250,12 @@ static void SelfRemove()
         ptr->Remove();
 }
 
+static ScriptInstance* ScriptInstance_ScriptInstance_Context()
+{
+    Context* context = GetScriptContext();
+    return new ScriptInstance(context);
+}
+
 static void RegisterScriptInstance(asIScriptEngine* engine)
 {
     engine->RegisterObjectMethod("Node", "ScriptObject@+ CreateScriptObject(ScriptFile@+, const String&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(NodeCreateScriptObjectWithFile), AS_CALL_CDECL_OBJLAST);
@@ -237,6 +269,30 @@ static void RegisterScriptInstance(asIScriptEngine* engine)
     engine->RegisterObjectMethod("Scene", "ScriptObject@+ GetScriptObject() const", AS_FUNCTION_OBJLAST(NodeGetScriptObject), AS_CALL_CDECL_OBJLAST);
     engine->RegisterObjectMethod("Scene", "ScriptObject@+ GetScriptObject(const String&in) const", AS_FUNCTION_OBJLAST(NodeGetNamedScriptObject), AS_CALL_CDECL_OBJLAST);
     engine->RegisterObjectMethod("Scene", "ScriptObject@+ get_scriptObject() const", AS_FUNCTION_OBJLAST(NodeGetScriptObject), AS_CALL_CDECL_OBJLAST);
+
+    engine->RegisterObjectType("ScriptInstance", 0, asOBJ_REF);
+    engine->RegisterObjectBehaviour("ScriptInstance", asBEHAVE_FACTORY, "ScriptInstance@+ f()", AS_FUNCTION(ScriptInstance_ScriptInstance_Context), AS_CALL_CDECL);
+
+    Vector<RegisterObjectMethodArgs> methods;
+    Vector<RegisterGlobalFunctionArgs> staticMethods;
+    Vector<RegisterObjectPropertyArgs> fields;
+    Vector<RegisterObjectMethodArgs> wrappedFields;
+    Vector<RegisterGlobalPropertyArgs> staticFields;
+    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
+    RegisterMembers(engine, "ScriptInstance", methods, staticMethods, fields, wrappedFields, staticFields);
+
+    engine->RegisterObjectMethod("ScriptInstance", "bool CreateObject(ScriptFile@+, const String&in)", AS_METHODPR(ScriptInstance, CreateObject, (ScriptFile*, const String&), bool), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptInstance", "bool Execute(const String&in, const Array<Variant>@+ params = null)", AS_FUNCTION_OBJLAST(ScriptInstanceExecute), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectMethod("ScriptInstance", "void DelayedExecute(float, bool, const String&in, const Array<Variant>@+ params = null)", AS_FUNCTION(ScriptInstanceDelayedExecute), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectMethod("ScriptInstance", "void ClearDelayedExecute(const String&in declaration = String())", AS_METHOD(ScriptInstance, ClearDelayedExecute), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptInstance", "bool IsA(const String&in declaration) const", AS_METHOD(ScriptInstance, IsA), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptInstance", "bool HasMethod(const String&in declaration) const", AS_METHOD(ScriptInstance, HasMethod), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptInstance", "void set_scriptFile(ScriptFile@+)", AS_METHOD(ScriptInstance, SetScriptFile), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptInstance", "ScriptFile@+ get_scriptFile() const", AS_METHOD(ScriptInstance, GetScriptFile), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptInstance", "ScriptObject@+ get_scriptObject() const", AS_METHOD(ScriptInstance, GetScriptObject), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptInstance", "void set_className(const String&in)", AS_METHOD(ScriptInstance, SetClassName), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("ScriptInstance", "const String& get_className() const", AS_METHOD(ScriptInstance, GetClassName), AS_CALL_THISCALL);
+    engine->RegisterGlobalFunction("ScriptInstance@+ get_self()", AS_FUNCTION(GetSelf), AS_CALL_CDECL);
 
     /*
     RegisterComponent<ScriptInstance>(engine, "ScriptInstance");

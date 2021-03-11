@@ -152,11 +152,13 @@ void CollectMembers_RefCount(Vector<RegisterObjectMethodArgs>& methods, Vector<R
 // class RefCounted | File: ../Container/RefCounted.h
 void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
 {
+    // void RefCounted::AddRef()
+    // Not registered because have @manualbind mark
     // RefCount* RefCounted::RefCountPtr()
     // Error: type "RefCount*" can not automatically bind
+    // void RefCounted::ReleaseRef()
+    // Not registered because have @manualbind mark
 
-    methods.Push(RegisterObjectMethodArgs("void RefCounted::AddRef()", "void AddRef()", AS_METHODPR(RefCounted, AddRef, (), void), AS_CALL_THISCALL));
-    methods.Push(RegisterObjectMethodArgs("void RefCounted::ReleaseRef()", "void ReleaseRef()", AS_METHODPR(RefCounted, ReleaseRef, (), void), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int RefCounted::Refs() const", "int Refs() const", AS_METHODPR(RefCounted, Refs, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int RefCounted::Refs() const", "int get_refs() const", AS_METHODPR(RefCounted, Refs, () const, int), AS_CALL_THISCALL));
     methods.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int WeakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
