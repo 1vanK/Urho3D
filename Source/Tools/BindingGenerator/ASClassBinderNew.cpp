@@ -835,14 +835,7 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
 
     RegisterDestructor(classAnalyzer, processedClass);
 
-
-    /*
-        engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_ADDREF, "void f()", asFUNCTION(FakeAddRef), asCALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_RELEASE, "void f()", asFUNCTION(FakeReleaseRef), asCALL_CDECL_OBJLAST);
-
-    */
-
-    if (classAnalyzer.IsRefCounted() || Contains(classAnalyzer.GetComment(), "FAKE_REF"))
+    if (Contains(classAnalyzer.GetComment(), "FAKE_REF"))
     {
         string cppClassName = classAnalyzer.GetClassName();
         string asClassName = classAnalyzer.GetClassName();
