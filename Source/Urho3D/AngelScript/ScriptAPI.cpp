@@ -273,6 +273,12 @@ static void RegisterScriptInstance(asIScriptEngine* engine)
     CollectMembers_Component(members);
     RegisterMembers(engine, "ScriptInstance", members);
 
+    RegisterSubclass<Component, ScriptInstance>(engine, "Component", "ScriptInstance");
+    RegisterSubclass<Animatable, ScriptInstance>(engine, "Animatable", "ScriptInstance");
+    RegisterSubclass<Serializable, ScriptInstance>(engine, "Serializable", "ScriptInstance");
+    RegisterSubclass<Object, ScriptInstance>(engine, "Object", "ScriptInstance");
+    RegisterSubclass<RefCounted, ScriptInstance>(engine, "RefCounted", "ScriptInstance");
+
     engine->RegisterObjectMethod("ScriptInstance", "bool CreateObject(ScriptFile@+, const String&in)", AS_METHODPR(ScriptInstance, CreateObject, (ScriptFile*, const String&), bool), AS_CALL_THISCALL);
     engine->RegisterObjectMethod("ScriptInstance", "bool Execute(const String&in, const Array<Variant>@+ params = null)", AS_FUNCTION_OBJLAST(ScriptInstanceExecute), AS_CALL_CDECL_OBJLAST);
     engine->RegisterObjectMethod("ScriptInstance", "void DelayedExecute(float, bool, const String&in, const Array<Variant>@+ params = null)", AS_FUNCTION(ScriptInstanceDelayedExecute), AS_CALL_CDECL_OBJLAST);
@@ -285,6 +291,8 @@ static void RegisterScriptInstance(asIScriptEngine* engine)
     engine->RegisterObjectMethod("ScriptInstance", "void set_className(const String&in)", AS_METHOD(ScriptInstance, SetClassName), AS_CALL_THISCALL);
     engine->RegisterObjectMethod("ScriptInstance", "const String& get_className() const", AS_METHOD(ScriptInstance, GetClassName), AS_CALL_THISCALL);
     engine->RegisterGlobalFunction("ScriptInstance@+ get_self()", AS_FUNCTION(GetSelf), AS_CALL_CDECL);
+
+
 
     /*
     RegisterComponent<ScriptInstance>(engine, "ScriptInstance");
