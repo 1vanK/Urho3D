@@ -19,6 +19,9 @@ static void Register_AbstractFile(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AbstractFile", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
     engine->RegisterObjectBehaviour("AbstractFile", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
+    RegisterSubclass<Deserializer, AbstractFile>(engine, "Deserializer", "AbstractFile");
+    RegisterSubclass<Serializer, AbstractFile>(engine, "Serializer", "AbstractFile");
+
     MemberCollection members;
     CollectMembers_AbstractFile(members);
     RegisterMembers(engine, "AbstractFile", members);
@@ -61,6 +64,10 @@ static void Register_AllocatorNode(asIScriptEngine* engine)
 // class Animatable | File: ../Scene/Animatable.h
 static void Register_Animatable(asIScriptEngine* engine)
 {
+    RegisterSubclass<Serializable, Animatable>(engine, "Serializable", "Animatable");
+    RegisterSubclass<Object, Animatable>(engine, "Object", "Animatable");
+    RegisterSubclass<RefCounted, Animatable>(engine, "RefCounted", "Animatable");
+
     MemberCollection members;
     CollectMembers_Animatable(members);
     RegisterMembers(engine, "Animatable", members);
@@ -83,6 +90,14 @@ static void Register_AnimatedModel(asIScriptEngine* engine)
     // explicit AnimatedModel::AnimatedModel(Context* context)
     engine->RegisterObjectBehaviour("AnimatedModel", asBEHAVE_FACTORY, "AnimatedModel@+ f()", AS_FUNCTION(AnimatedModel_AnimatedModel_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<StaticModel, AnimatedModel>(engine, "StaticModel", "AnimatedModel");
+    RegisterSubclass<Drawable, AnimatedModel>(engine, "Drawable", "AnimatedModel");
+    RegisterSubclass<Component, AnimatedModel>(engine, "Component", "AnimatedModel");
+    RegisterSubclass<Animatable, AnimatedModel>(engine, "Animatable", "AnimatedModel");
+    RegisterSubclass<Serializable, AnimatedModel>(engine, "Serializable", "AnimatedModel");
+    RegisterSubclass<Object, AnimatedModel>(engine, "Object", "AnimatedModel");
+    RegisterSubclass<RefCounted, AnimatedModel>(engine, "RefCounted", "AnimatedModel");
+
     MemberCollection members;
     CollectMembers_AnimatedModel(members);
     RegisterMembers(engine, "AnimatedModel", members);
@@ -104,6 +119,11 @@ static void Register_Animation(asIScriptEngine* engine)
 {
     // explicit Animation::Animation(Context* context)
     engine->RegisterObjectBehaviour("Animation", asBEHAVE_FACTORY, "Animation@+ f()", AS_FUNCTION(Animation_Animation_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<ResourceWithMetadata, Animation>(engine, "ResourceWithMetadata", "Animation");
+    RegisterSubclass<Resource, Animation>(engine, "Resource", "Animation");
+    RegisterSubclass<Object, Animation>(engine, "Object", "Animation");
+    RegisterSubclass<RefCounted, Animation>(engine, "RefCounted", "Animation");
 
     MemberCollection members;
     CollectMembers_Animation(members);
@@ -141,6 +161,12 @@ static void Register_AnimationController(asIScriptEngine* engine)
 {
     // explicit AnimationController::AnimationController(Context* context)
     engine->RegisterObjectBehaviour("AnimationController", asBEHAVE_FACTORY, "AnimationController@+ f()", AS_FUNCTION(AnimationController_AnimationController_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, AnimationController>(engine, "Component", "AnimationController");
+    RegisterSubclass<Animatable, AnimationController>(engine, "Animatable", "AnimationController");
+    RegisterSubclass<Serializable, AnimationController>(engine, "Serializable", "AnimationController");
+    RegisterSubclass<Object, AnimationController>(engine, "Object", "AnimationController");
+    RegisterSubclass<RefCounted, AnimationController>(engine, "RefCounted", "AnimationController");
 
     MemberCollection members;
     CollectMembers_AnimationController(members);
@@ -185,6 +211,8 @@ static void Register_AnimationState(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AnimationState", asBEHAVE_FACTORY, "AnimationState@+ f(AnimatedModel@+, Animation@+)", AS_FUNCTION(AnimationState_AnimationState_AnimatedModel_Animation) , AS_CALL_CDECL);
     // AnimationState::AnimationState(Node* node, Animation* animation)
     engine->RegisterObjectBehaviour("AnimationState", asBEHAVE_FACTORY, "AnimationState@+ f(Node@+, Animation@+)", AS_FUNCTION(AnimationState_AnimationState_Node_Animation) , AS_CALL_CDECL);
+
+    RegisterSubclass<RefCounted, AnimationState>(engine, "RefCounted", "AnimationState");
 
     MemberCollection members;
     CollectMembers_AnimationState(members);
@@ -290,6 +318,8 @@ static void Register_AsyncProgress(asIScriptEngine* engine)
 // class AttributeAccessor | File: ../Core/Attribute.h
 static void Register_AttributeAccessor(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, AttributeAccessor>(engine, "RefCounted", "AttributeAccessor");
+
     MemberCollection members;
     CollectMembers_AttributeAccessor(members);
     RegisterMembers(engine, "AttributeAccessor", members);
@@ -318,6 +348,9 @@ static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("AttributeAnimationInfo", asBEHAVE_FACTORY, "AttributeAnimationInfo@+ f(Animatable@+, const AttributeInfo&in, ValueAnimation@+, WrapMode, float)", AS_FUNCTION(AttributeAnimationInfo_AttributeAnimationInfo_Animatable_AttributeInfo_ValueAnimation_WrapMode_float) , AS_CALL_CDECL);
     // AttributeAnimationInfo::AttributeAnimationInfo(const AttributeAnimationInfo& other)
     engine->RegisterObjectBehaviour("AttributeAnimationInfo", asBEHAVE_FACTORY, "AttributeAnimationInfo@+ f(const AttributeAnimationInfo&in)", AS_FUNCTION(AttributeAnimationInfo_AttributeAnimationInfo_AttributeAnimationInfo) , AS_CALL_CDECL);
+
+    RegisterSubclass<ValueAnimationInfo, AttributeAnimationInfo>(engine, "ValueAnimationInfo", "AttributeAnimationInfo");
+    RegisterSubclass<RefCounted, AttributeAnimationInfo>(engine, "RefCounted", "AttributeAnimationInfo");
 
     MemberCollection members;
     CollectMembers_AttributeAnimationInfo(members);
@@ -358,6 +391,9 @@ static void Register_Audio(asIScriptEngine* engine)
 {
     // explicit Audio::Audio(Context* context)
     engine->RegisterObjectBehaviour("Audio", asBEHAVE_FACTORY, "Audio@+ f()", AS_FUNCTION(Audio_Audio_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, Audio>(engine, "Object", "Audio");
+    RegisterSubclass<RefCounted, Audio>(engine, "RefCounted", "Audio");
 
     MemberCollection members;
     CollectMembers_Audio(members);
@@ -519,6 +555,13 @@ static void Register_BillboardSet(asIScriptEngine* engine)
     // explicit BillboardSet::BillboardSet(Context* context)
     engine->RegisterObjectBehaviour("BillboardSet", asBEHAVE_FACTORY, "BillboardSet@+ f()", AS_FUNCTION(BillboardSet_BillboardSet_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Drawable, BillboardSet>(engine, "Drawable", "BillboardSet");
+    RegisterSubclass<Component, BillboardSet>(engine, "Component", "BillboardSet");
+    RegisterSubclass<Animatable, BillboardSet>(engine, "Animatable", "BillboardSet");
+    RegisterSubclass<Serializable, BillboardSet>(engine, "Serializable", "BillboardSet");
+    RegisterSubclass<Object, BillboardSet>(engine, "Object", "BillboardSet");
+    RegisterSubclass<RefCounted, BillboardSet>(engine, "RefCounted", "BillboardSet");
+
     MemberCollection members;
     CollectMembers_BillboardSet(members);
     RegisterMembers(engine, "BillboardSet", members);
@@ -555,6 +598,12 @@ static void Register_BorderImage(asIScriptEngine* engine)
 {
     // explicit BorderImage::BorderImage(Context* context)
     engine->RegisterObjectBehaviour("BorderImage", asBEHAVE_FACTORY, "BorderImage@+ f()", AS_FUNCTION(BorderImage_BorderImage_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<UIElement, BorderImage>(engine, "UIElement", "BorderImage");
+    RegisterSubclass<Animatable, BorderImage>(engine, "Animatable", "BorderImage");
+    RegisterSubclass<Serializable, BorderImage>(engine, "Serializable", "BorderImage");
+    RegisterSubclass<Object, BorderImage>(engine, "Object", "BorderImage");
+    RegisterSubclass<RefCounted, BorderImage>(engine, "RefCounted", "BorderImage");
 
     MemberCollection members;
     CollectMembers_BorderImage(members);
@@ -640,6 +689,9 @@ static void Register_BoundingBox(asIScriptEngine* engine)
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
 static void Register_BufferedSoundStream(asIScriptEngine* engine)
 {
+    RegisterSubclass<SoundStream, BufferedSoundStream>(engine, "SoundStream", "BufferedSoundStream");
+    RegisterSubclass<RefCounted, BufferedSoundStream>(engine, "RefCounted", "BufferedSoundStream");
+
     MemberCollection members;
     CollectMembers_BufferedSoundStream(members);
     RegisterMembers(engine, "BufferedSoundStream", members);
@@ -662,6 +714,13 @@ static void Register_Button(asIScriptEngine* engine)
     // explicit Button::Button(Context* context)
     engine->RegisterObjectBehaviour("Button", asBEHAVE_FACTORY, "Button@+ f()", AS_FUNCTION(Button_Button_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<BorderImage, Button>(engine, "BorderImage", "Button");
+    RegisterSubclass<UIElement, Button>(engine, "UIElement", "Button");
+    RegisterSubclass<Animatable, Button>(engine, "Animatable", "Button");
+    RegisterSubclass<Serializable, Button>(engine, "Serializable", "Button");
+    RegisterSubclass<Object, Button>(engine, "Object", "Button");
+    RegisterSubclass<RefCounted, Button>(engine, "RefCounted", "Button");
+
     MemberCollection members;
     CollectMembers_Button(members);
     RegisterMembers(engine, "Button", members);
@@ -683,6 +742,12 @@ static void Register_Camera(asIScriptEngine* engine)
 {
     // explicit Camera::Camera(Context* context)
     engine->RegisterObjectBehaviour("Camera", asBEHAVE_FACTORY, "Camera@+ f()", AS_FUNCTION(Camera_Camera_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, Camera>(engine, "Component", "Camera");
+    RegisterSubclass<Animatable, Camera>(engine, "Animatable", "Camera");
+    RegisterSubclass<Serializable, Camera>(engine, "Serializable", "Camera");
+    RegisterSubclass<Object, Camera>(engine, "Object", "Camera");
+    RegisterSubclass<RefCounted, Camera>(engine, "RefCounted", "Camera");
 
     MemberCollection members;
     CollectMembers_Camera(members);
@@ -741,6 +806,13 @@ static void Register_CheckBox(asIScriptEngine* engine)
 {
     // explicit CheckBox::CheckBox(Context* context)
     engine->RegisterObjectBehaviour("CheckBox", asBEHAVE_FACTORY, "CheckBox@+ f()", AS_FUNCTION(CheckBox_CheckBox_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<BorderImage, CheckBox>(engine, "BorderImage", "CheckBox");
+    RegisterSubclass<UIElement, CheckBox>(engine, "UIElement", "CheckBox");
+    RegisterSubclass<Animatable, CheckBox>(engine, "Animatable", "CheckBox");
+    RegisterSubclass<Serializable, CheckBox>(engine, "Serializable", "CheckBox");
+    RegisterSubclass<Object, CheckBox>(engine, "Object", "CheckBox");
+    RegisterSubclass<RefCounted, CheckBox>(engine, "RefCounted", "CheckBox");
 
     MemberCollection members;
     CollectMembers_CheckBox(members);
@@ -862,6 +934,11 @@ static void Register_Component(asIScriptEngine* engine)
     // explicit Component::Component(Context* context)
     engine->RegisterObjectBehaviour("Component", asBEHAVE_FACTORY, "Component@+ f()", AS_FUNCTION(Component_Component_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Animatable, Component>(engine, "Animatable", "Component");
+    RegisterSubclass<Serializable, Component>(engine, "Serializable", "Component");
+    RegisterSubclass<Object, Component>(engine, "Object", "Component");
+    RegisterSubclass<RefCounted, Component>(engine, "RefCounted", "Component");
+
     MemberCollection members;
     CollectMembers_Component(members);
     RegisterMembers(engine, "Component", members);
@@ -929,6 +1006,9 @@ static void Register_Console(asIScriptEngine* engine)
     // explicit Console::Console(Context* context)
     engine->RegisterObjectBehaviour("Console", asBEHAVE_FACTORY, "Console@+ f()", AS_FUNCTION(Console_Console_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Console>(engine, "Object", "Console");
+    RegisterSubclass<RefCounted, Console>(engine, "RefCounted", "Console");
+
     MemberCollection members;
     CollectMembers_Console(members);
     RegisterMembers(engine, "Console", members);
@@ -951,6 +1031,9 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
     // explicit ConstantBuffer::ConstantBuffer(Context* context)
     engine->RegisterObjectBehaviour("ConstantBuffer", asBEHAVE_FACTORY, "ConstantBuffer@+ f()", AS_FUNCTION(ConstantBuffer_ConstantBuffer_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, ConstantBuffer>(engine, "Object", "ConstantBuffer");
+    RegisterSubclass<RefCounted, ConstantBuffer>(engine, "RefCounted", "ConstantBuffer");
+
     MemberCollection members;
     CollectMembers_ConstantBuffer(members);
     RegisterMembers(engine, "ConstantBuffer", members);
@@ -963,6 +1046,8 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
 // class Context | File: ../Core/Context.h
 static void Register_Context(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, Context>(engine, "RefCounted", "Context");
+
     MemberCollection members;
     CollectMembers_Context(members);
     RegisterMembers(engine, "Context", members);
@@ -999,6 +1084,13 @@ static void Register_Cursor(asIScriptEngine* engine)
 {
     // explicit Cursor::Cursor(Context* context)
     engine->RegisterObjectBehaviour("Cursor", asBEHAVE_FACTORY, "Cursor@+ f()", AS_FUNCTION(Cursor_Cursor_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<BorderImage, Cursor>(engine, "BorderImage", "Cursor");
+    RegisterSubclass<UIElement, Cursor>(engine, "UIElement", "Cursor");
+    RegisterSubclass<Animatable, Cursor>(engine, "Animatable", "Cursor");
+    RegisterSubclass<Serializable, Cursor>(engine, "Serializable", "Cursor");
+    RegisterSubclass<Object, Cursor>(engine, "Object", "Cursor");
+    RegisterSubclass<RefCounted, Cursor>(engine, "RefCounted", "Cursor");
 
     MemberCollection members;
     CollectMembers_Cursor(members);
@@ -1046,6 +1138,13 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
     // explicit CustomGeometry::CustomGeometry(Context* context)
     engine->RegisterObjectBehaviour("CustomGeometry", asBEHAVE_FACTORY, "CustomGeometry@+ f()", AS_FUNCTION(CustomGeometry_CustomGeometry_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Drawable, CustomGeometry>(engine, "Drawable", "CustomGeometry");
+    RegisterSubclass<Component, CustomGeometry>(engine, "Component", "CustomGeometry");
+    RegisterSubclass<Animatable, CustomGeometry>(engine, "Animatable", "CustomGeometry");
+    RegisterSubclass<Serializable, CustomGeometry>(engine, "Serializable", "CustomGeometry");
+    RegisterSubclass<Object, CustomGeometry>(engine, "Object", "CustomGeometry");
+    RegisterSubclass<RefCounted, CustomGeometry>(engine, "RefCounted", "CustomGeometry");
+
     MemberCollection members;
     CollectMembers_CustomGeometry(members);
     RegisterMembers(engine, "CustomGeometry", members);
@@ -1082,6 +1181,9 @@ static void Register_DebugHud(asIScriptEngine* engine)
 {
     // explicit DebugHud::DebugHud(Context* context)
     engine->RegisterObjectBehaviour("DebugHud", asBEHAVE_FACTORY, "DebugHud@+ f()", AS_FUNCTION(DebugHud_DebugHud_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, DebugHud>(engine, "Object", "DebugHud");
+    RegisterSubclass<RefCounted, DebugHud>(engine, "RefCounted", "DebugHud");
 
     MemberCollection members;
     CollectMembers_DebugHud(members);
@@ -1128,6 +1230,12 @@ static void Register_DebugRenderer(asIScriptEngine* engine)
 {
     // explicit DebugRenderer::DebugRenderer(Context* context)
     engine->RegisterObjectBehaviour("DebugRenderer", asBEHAVE_FACTORY, "DebugRenderer@+ f()", AS_FUNCTION(DebugRenderer_DebugRenderer_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, DebugRenderer>(engine, "Component", "DebugRenderer");
+    RegisterSubclass<Animatable, DebugRenderer>(engine, "Animatable", "DebugRenderer");
+    RegisterSubclass<Serializable, DebugRenderer>(engine, "Serializable", "DebugRenderer");
+    RegisterSubclass<Object, DebugRenderer>(engine, "Object", "DebugRenderer");
+    RegisterSubclass<RefCounted, DebugRenderer>(engine, "RefCounted", "DebugRenderer");
 
     MemberCollection members;
     CollectMembers_DebugRenderer(members);
@@ -1189,6 +1297,13 @@ static void Register_DecalSet(asIScriptEngine* engine)
 {
     // explicit DecalSet::DecalSet(Context* context)
     engine->RegisterObjectBehaviour("DecalSet", asBEHAVE_FACTORY, "DecalSet@+ f()", AS_FUNCTION(DecalSet_DecalSet_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Drawable, DecalSet>(engine, "Drawable", "DecalSet");
+    RegisterSubclass<Component, DecalSet>(engine, "Component", "DecalSet");
+    RegisterSubclass<Animatable, DecalSet>(engine, "Animatable", "DecalSet");
+    RegisterSubclass<Serializable, DecalSet>(engine, "Serializable", "DecalSet");
+    RegisterSubclass<Object, DecalSet>(engine, "Object", "DecalSet");
+    RegisterSubclass<RefCounted, DecalSet>(engine, "RefCounted", "DecalSet");
 
     MemberCollection members;
     CollectMembers_DecalSet(members);
@@ -1280,6 +1395,12 @@ static void Register_DirtyBits(asIScriptEngine* engine)
 // class Drawable | File: ../Graphics/Drawable.h
 static void Register_Drawable(asIScriptEngine* engine)
 {
+    RegisterSubclass<Component, Drawable>(engine, "Component", "Drawable");
+    RegisterSubclass<Animatable, Drawable>(engine, "Animatable", "Drawable");
+    RegisterSubclass<Serializable, Drawable>(engine, "Serializable", "Drawable");
+    RegisterSubclass<Object, Drawable>(engine, "Object", "Drawable");
+    RegisterSubclass<RefCounted, Drawable>(engine, "RefCounted", "Drawable");
+
     MemberCollection members;
     CollectMembers_Drawable(members);
     RegisterMembers(engine, "Drawable", members);
@@ -1301,6 +1422,15 @@ static void Register_DropDownList(asIScriptEngine* engine)
 {
     // explicit DropDownList::DropDownList(Context* context)
     engine->RegisterObjectBehaviour("DropDownList", asBEHAVE_FACTORY, "DropDownList@+ f()", AS_FUNCTION(DropDownList_DropDownList_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Menu, DropDownList>(engine, "Menu", "DropDownList");
+    RegisterSubclass<Button, DropDownList>(engine, "Button", "DropDownList");
+    RegisterSubclass<BorderImage, DropDownList>(engine, "BorderImage", "DropDownList");
+    RegisterSubclass<UIElement, DropDownList>(engine, "UIElement", "DropDownList");
+    RegisterSubclass<Animatable, DropDownList>(engine, "Animatable", "DropDownList");
+    RegisterSubclass<Serializable, DropDownList>(engine, "Serializable", "DropDownList");
+    RegisterSubclass<Object, DropDownList>(engine, "Object", "DropDownList");
+    RegisterSubclass<RefCounted, DropDownList>(engine, "RefCounted", "DropDownList");
 
     MemberCollection members;
     CollectMembers_DropDownList(members);
@@ -1324,6 +1454,9 @@ static void Register_Engine(asIScriptEngine* engine)
     // explicit Engine::Engine(Context* context)
     engine->RegisterObjectBehaviour("Engine", asBEHAVE_FACTORY, "Engine@+ f()", AS_FUNCTION(Engine_Engine_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Engine>(engine, "Object", "Engine");
+    RegisterSubclass<RefCounted, Engine>(engine, "RefCounted", "Engine");
+
     MemberCollection members;
     CollectMembers_Engine(members);
     RegisterMembers(engine, "Engine", members);
@@ -1346,6 +1479,10 @@ static void Register_EventProfiler(asIScriptEngine* engine)
     // explicit EventProfiler::EventProfiler(Context* context)
     engine->RegisterObjectBehaviour("EventProfiler", asBEHAVE_FACTORY, "EventProfiler@+ f()", AS_FUNCTION(EventProfiler_EventProfiler_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Profiler, EventProfiler>(engine, "Profiler", "EventProfiler");
+    RegisterSubclass<Object, EventProfiler>(engine, "Object", "EventProfiler");
+    RegisterSubclass<RefCounted, EventProfiler>(engine, "RefCounted", "EventProfiler");
+
     MemberCollection members;
     CollectMembers_EventProfiler(members);
     RegisterMembers(engine, "EventProfiler", members);
@@ -1358,6 +1495,8 @@ static void Register_EventProfiler(asIScriptEngine* engine)
 // class EventReceiverGroup | File: ../Core/Context.h
 static void Register_EventReceiverGroup(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, EventReceiverGroup>(engine, "RefCounted", "EventReceiverGroup");
+
     MemberCollection members;
     CollectMembers_EventReceiverGroup(members);
     RegisterMembers(engine, "EventReceiverGroup", members);
@@ -1398,6 +1537,12 @@ static void Register_File(asIScriptEngine* engine)
     // File::File(Context* context, PackageFile* package, const String& fileName)
     engine->RegisterObjectBehaviour("File", asBEHAVE_FACTORY, "File@+ f(PackageFile@+, const String&in)", AS_FUNCTION(File_File_Context_PackageFile_String) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, File>(engine, "Object", "File");
+    RegisterSubclass<RefCounted, File>(engine, "RefCounted", "File");
+    RegisterSubclass<AbstractFile, File>(engine, "AbstractFile", "File");
+    RegisterSubclass<Deserializer, File>(engine, "Deserializer", "File");
+    RegisterSubclass<Serializer, File>(engine, "Serializer", "File");
+
     MemberCollection members;
     CollectMembers_File(members);
     RegisterMembers(engine, "File", members);
@@ -1419,6 +1564,9 @@ static void Register_FileSelector(asIScriptEngine* engine)
 {
     // explicit FileSelector::FileSelector(Context* context)
     engine->RegisterObjectBehaviour("FileSelector", asBEHAVE_FACTORY, "FileSelector@+ f()", AS_FUNCTION(FileSelector_FileSelector_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, FileSelector>(engine, "Object", "FileSelector");
+    RegisterSubclass<RefCounted, FileSelector>(engine, "RefCounted", "FileSelector");
 
     MemberCollection members;
     CollectMembers_FileSelector(members);
@@ -1457,6 +1605,9 @@ static void Register_FileSystem(asIScriptEngine* engine)
     // explicit FileSystem::FileSystem(Context* context)
     engine->RegisterObjectBehaviour("FileSystem", asBEHAVE_FACTORY, "FileSystem@+ f()", AS_FUNCTION(FileSystem_FileSystem_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, FileSystem>(engine, "Object", "FileSystem");
+    RegisterSubclass<RefCounted, FileSystem>(engine, "RefCounted", "FileSystem");
+
     MemberCollection members;
     CollectMembers_FileSystem(members);
     RegisterMembers(engine, "FileSystem", members);
@@ -1478,6 +1629,9 @@ static void Register_FileWatcher(asIScriptEngine* engine)
 {
     // explicit FileWatcher::FileWatcher(Context* context)
     engine->RegisterObjectBehaviour("FileWatcher", asBEHAVE_FACTORY, "FileWatcher@+ f()", AS_FUNCTION(FileWatcher_FileWatcher_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, FileWatcher>(engine, "Object", "FileWatcher");
+    RegisterSubclass<RefCounted, FileWatcher>(engine, "RefCounted", "FileWatcher");
 
     MemberCollection members;
     CollectMembers_FileWatcher(members);
@@ -1522,6 +1676,10 @@ static void Register_Font(asIScriptEngine* engine)
     // explicit Font::Font(Context* context)
     engine->RegisterObjectBehaviour("Font", asBEHAVE_FACTORY, "Font@+ f()", AS_FUNCTION(Font_Font_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, Font>(engine, "Resource", "Font");
+    RegisterSubclass<Object, Font>(engine, "Object", "Font");
+    RegisterSubclass<RefCounted, Font>(engine, "RefCounted", "Font");
+
     MemberCollection members;
     CollectMembers_Font(members);
     RegisterMembers(engine, "Font", members);
@@ -1534,6 +1692,8 @@ static void Register_Font(asIScriptEngine* engine)
 // class FontFace | File: ../UI/FontFace.h
 static void Register_FontFace(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, FontFace>(engine, "RefCounted", "FontFace");
+
     MemberCollection members;
     CollectMembers_FontFace(members);
     RegisterMembers(engine, "FontFace", members);
@@ -1555,6 +1715,9 @@ static void Register_FontFaceBitmap(asIScriptEngine* engine)
     // explicit FontFaceBitmap::FontFaceBitmap(Font* font)
     engine->RegisterObjectBehaviour("FontFaceBitmap", asBEHAVE_FACTORY, "FontFaceBitmap@+ f(Font@+)", AS_FUNCTION(FontFaceBitmap_FontFaceBitmap_Font) , AS_CALL_CDECL);
 
+    RegisterSubclass<FontFace, FontFaceBitmap>(engine, "FontFace", "FontFaceBitmap");
+    RegisterSubclass<RefCounted, FontFaceBitmap>(engine, "RefCounted", "FontFaceBitmap");
+
     MemberCollection members;
     CollectMembers_FontFaceBitmap(members);
     RegisterMembers(engine, "FontFaceBitmap", members);
@@ -1575,6 +1738,9 @@ static void Register_FontFaceFreeType(asIScriptEngine* engine)
 {
     // explicit FontFaceFreeType::FontFaceFreeType(Font* font)
     engine->RegisterObjectBehaviour("FontFaceFreeType", asBEHAVE_FACTORY, "FontFaceFreeType@+ f(Font@+)", AS_FUNCTION(FontFaceFreeType_FontFaceFreeType_Font) , AS_CALL_CDECL);
+
+    RegisterSubclass<FontFace, FontFaceFreeType>(engine, "FontFace", "FontFaceFreeType");
+    RegisterSubclass<RefCounted, FontFaceFreeType>(engine, "RefCounted", "FontFaceFreeType");
 
     MemberCollection members;
     CollectMembers_FontFaceFreeType(members);
@@ -1676,6 +1842,9 @@ static void Register_Geometry(asIScriptEngine* engine)
     // explicit Geometry::Geometry(Context* context)
     engine->RegisterObjectBehaviour("Geometry", asBEHAVE_FACTORY, "Geometry@+ f()", AS_FUNCTION(Geometry_Geometry_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Geometry>(engine, "Object", "Geometry");
+    RegisterSubclass<RefCounted, Geometry>(engine, "RefCounted", "Geometry");
+
     MemberCollection members;
     CollectMembers_Geometry(members);
     RegisterMembers(engine, "Geometry", members);
@@ -1712,6 +1881,9 @@ static void Register_Graphics(asIScriptEngine* engine)
 {
     // explicit Graphics::Graphics(Context* context)
     engine->RegisterObjectBehaviour("Graphics", asBEHAVE_FACTORY, "Graphics@+ f()", AS_FUNCTION(Graphics_Graphics_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, Graphics>(engine, "Object", "Graphics");
+    RegisterSubclass<RefCounted, Graphics>(engine, "RefCounted", "Graphics");
 
     MemberCollection members;
     CollectMembers_Graphics(members);
@@ -1798,6 +1970,10 @@ static void Register_Image(asIScriptEngine* engine)
     // explicit Image::Image(Context* context)
     engine->RegisterObjectBehaviour("Image", asBEHAVE_FACTORY, "Image@+ f()", AS_FUNCTION(Image_Image_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, Image>(engine, "Resource", "Image");
+    RegisterSubclass<Object, Image>(engine, "Object", "Image");
+    RegisterSubclass<RefCounted, Image>(engine, "RefCounted", "Image");
+
     MemberCollection members;
     CollectMembers_Image(members);
     RegisterMembers(engine, "Image", members);
@@ -1819,6 +1995,9 @@ static void Register_IndexBuffer(asIScriptEngine* engine)
 {
     // explicit IndexBuffer::IndexBuffer(Context* context, bool forceHeadless=false)
     engine->RegisterObjectBehaviour("IndexBuffer", asBEHAVE_FACTORY, "IndexBuffer@+ f(bool = false)", AS_FUNCTION(IndexBuffer_IndexBuffer_Context_bool) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, IndexBuffer>(engine, "Object", "IndexBuffer");
+    RegisterSubclass<RefCounted, IndexBuffer>(engine, "RefCounted", "IndexBuffer");
 
     MemberCollection members;
     CollectMembers_IndexBuffer(members);
@@ -1856,6 +2035,9 @@ static void Register_Input(asIScriptEngine* engine)
 {
     // explicit Input::Input(Context* context)
     engine->RegisterObjectBehaviour("Input", asBEHAVE_FACTORY, "Input@+ f()", AS_FUNCTION(Input_Input_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, Input>(engine, "Object", "Input");
+    RegisterSubclass<RefCounted, Input>(engine, "RefCounted", "Input");
 
     MemberCollection members;
     CollectMembers_Input(members);
@@ -1995,6 +2177,10 @@ static void Register_JSONFile(asIScriptEngine* engine)
     // explicit JSONFile::JSONFile(Context* context)
     engine->RegisterObjectBehaviour("JSONFile", asBEHAVE_FACTORY, "JSONFile@+ f()", AS_FUNCTION(JSONFile_JSONFile_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, JSONFile>(engine, "Resource", "JSONFile");
+    RegisterSubclass<Object, JSONFile>(engine, "Object", "JSONFile");
+    RegisterSubclass<RefCounted, JSONFile>(engine, "RefCounted", "JSONFile");
+
     MemberCollection members;
     CollectMembers_JSONFile(members);
     RegisterMembers(engine, "JSONFile", members);
@@ -2111,6 +2297,13 @@ static void Register_Light(asIScriptEngine* engine)
     // explicit Light::Light(Context* context)
     engine->RegisterObjectBehaviour("Light", asBEHAVE_FACTORY, "Light@+ f()", AS_FUNCTION(Light_Light_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Drawable, Light>(engine, "Drawable", "Light");
+    RegisterSubclass<Component, Light>(engine, "Component", "Light");
+    RegisterSubclass<Animatable, Light>(engine, "Animatable", "Light");
+    RegisterSubclass<Serializable, Light>(engine, "Serializable", "Light");
+    RegisterSubclass<Object, Light>(engine, "Object", "Light");
+    RegisterSubclass<RefCounted, Light>(engine, "RefCounted", "Light");
+
     MemberCollection members;
     CollectMembers_Light(members);
     RegisterMembers(engine, "Light", members);
@@ -2162,6 +2355,13 @@ static void Register_LineEdit(asIScriptEngine* engine)
 {
     // explicit LineEdit::LineEdit(Context* context)
     engine->RegisterObjectBehaviour("LineEdit", asBEHAVE_FACTORY, "LineEdit@+ f()", AS_FUNCTION(LineEdit_LineEdit_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<BorderImage, LineEdit>(engine, "BorderImage", "LineEdit");
+    RegisterSubclass<UIElement, LineEdit>(engine, "UIElement", "LineEdit");
+    RegisterSubclass<Animatable, LineEdit>(engine, "Animatable", "LineEdit");
+    RegisterSubclass<Serializable, LineEdit>(engine, "Serializable", "LineEdit");
+    RegisterSubclass<Object, LineEdit>(engine, "Object", "LineEdit");
+    RegisterSubclass<RefCounted, LineEdit>(engine, "RefCounted", "LineEdit");
 
     MemberCollection members;
     CollectMembers_LineEdit(members);
@@ -2248,6 +2448,13 @@ static void Register_ListView(asIScriptEngine* engine)
     // explicit ListView::ListView(Context* context)
     engine->RegisterObjectBehaviour("ListView", asBEHAVE_FACTORY, "ListView@+ f()", AS_FUNCTION(ListView_ListView_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<ScrollView, ListView>(engine, "ScrollView", "ListView");
+    RegisterSubclass<UIElement, ListView>(engine, "UIElement", "ListView");
+    RegisterSubclass<Animatable, ListView>(engine, "Animatable", "ListView");
+    RegisterSubclass<Serializable, ListView>(engine, "Serializable", "ListView");
+    RegisterSubclass<Object, ListView>(engine, "Object", "ListView");
+    RegisterSubclass<RefCounted, ListView>(engine, "RefCounted", "ListView");
+
     MemberCollection members;
     CollectMembers_ListView(members);
     RegisterMembers(engine, "ListView", members);
@@ -2269,6 +2476,9 @@ static void Register_Localization(asIScriptEngine* engine)
 {
     // explicit Localization::Localization(Context* context)
     engine->RegisterObjectBehaviour("Localization", asBEHAVE_FACTORY, "Localization@+ f()", AS_FUNCTION(Localization_Localization_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, Localization>(engine, "Object", "Localization");
+    RegisterSubclass<RefCounted, Localization>(engine, "RefCounted", "Localization");
 
     MemberCollection members;
     CollectMembers_Localization(members);
@@ -2292,6 +2502,9 @@ static void Register_Log(asIScriptEngine* engine)
     // explicit Log::Log(Context* context)
     engine->RegisterObjectBehaviour("Log", asBEHAVE_FACTORY, "Log@+ f()", AS_FUNCTION(Log_Log_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Log>(engine, "Object", "Log");
+    RegisterSubclass<RefCounted, Log>(engine, "RefCounted", "Log");
+
     MemberCollection members;
     CollectMembers_Log(members);
     RegisterMembers(engine, "Log", members);
@@ -2304,6 +2517,12 @@ static void Register_Log(asIScriptEngine* engine)
 // class LogicComponent | File: ../Scene/LogicComponent.h
 static void Register_LogicComponent(asIScriptEngine* engine)
 {
+    RegisterSubclass<Component, LogicComponent>(engine, "Component", "LogicComponent");
+    RegisterSubclass<Animatable, LogicComponent>(engine, "Animatable", "LogicComponent");
+    RegisterSubclass<Serializable, LogicComponent>(engine, "Serializable", "LogicComponent");
+    RegisterSubclass<Object, LogicComponent>(engine, "Object", "LogicComponent");
+    RegisterSubclass<RefCounted, LogicComponent>(engine, "RefCounted", "LogicComponent");
+
     MemberCollection members;
     CollectMembers_LogicComponent(members);
     RegisterMembers(engine, "LogicComponent", members);
@@ -2325,6 +2544,10 @@ static void Register_Material(asIScriptEngine* engine)
 {
     // explicit Material::Material(Context* context)
     engine->RegisterObjectBehaviour("Material", asBEHAVE_FACTORY, "Material@+ f()", AS_FUNCTION(Material_Material_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Resource, Material>(engine, "Resource", "Material");
+    RegisterSubclass<Object, Material>(engine, "Object", "Material");
+    RegisterSubclass<RefCounted, Material>(engine, "RefCounted", "Material");
 
     MemberCollection members;
     CollectMembers_Material(members);
@@ -2531,6 +2754,14 @@ static void Register_Menu(asIScriptEngine* engine)
     // explicit Menu::Menu(Context* context)
     engine->RegisterObjectBehaviour("Menu", asBEHAVE_FACTORY, "Menu@+ f()", AS_FUNCTION(Menu_Menu_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Button, Menu>(engine, "Button", "Menu");
+    RegisterSubclass<BorderImage, Menu>(engine, "BorderImage", "Menu");
+    RegisterSubclass<UIElement, Menu>(engine, "UIElement", "Menu");
+    RegisterSubclass<Animatable, Menu>(engine, "Animatable", "Menu");
+    RegisterSubclass<Serializable, Menu>(engine, "Serializable", "Menu");
+    RegisterSubclass<Object, Menu>(engine, "Object", "Menu");
+    RegisterSubclass<RefCounted, Menu>(engine, "RefCounted", "Menu");
+
     MemberCollection members;
     CollectMembers_Menu(members);
     RegisterMembers(engine, "Menu", members);
@@ -2553,6 +2784,9 @@ static void Register_MessageBox(asIScriptEngine* engine)
     // explicit MessageBox::MessageBox(Context* context, const String& messageString=String::EMPTY, const String& titleString=String::EMPTY, XMLFile* layoutFile=nullptr, XMLFile* styleFile=nullptr)
     engine->RegisterObjectBehaviour("MessageBox", asBEHAVE_FACTORY, "MessageBox@+ f(const String&in = String::EMPTY, const String&in = String::EMPTY, XMLFile@+ = null, XMLFile@+ = null)", AS_FUNCTION(MessageBox_MessageBox_Context_String_String_XMLFile_XMLFile) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, MessageBox>(engine, "Object", "MessageBox");
+    RegisterSubclass<RefCounted, MessageBox>(engine, "RefCounted", "MessageBox");
+
     MemberCollection members;
     CollectMembers_MessageBox(members);
     RegisterMembers(engine, "MessageBox", members);
@@ -2574,6 +2808,11 @@ static void Register_Model(asIScriptEngine* engine)
 {
     // explicit Model::Model(Context* context)
     engine->RegisterObjectBehaviour("Model", asBEHAVE_FACTORY, "Model@+ f()", AS_FUNCTION(Model_Model_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<ResourceWithMetadata, Model>(engine, "ResourceWithMetadata", "Model");
+    RegisterSubclass<Resource, Model>(engine, "Resource", "Model");
+    RegisterSubclass<Object, Model>(engine, "Object", "Model");
+    RegisterSubclass<RefCounted, Model>(engine, "RefCounted", "Model");
 
     MemberCollection members;
     CollectMembers_Model(members);
@@ -2663,6 +2902,12 @@ static void Register_NamedPipe(asIScriptEngine* engine)
     // NamedPipe::NamedPipe(Context* context, const String& name, bool isServer)
     engine->RegisterObjectBehaviour("NamedPipe", asBEHAVE_FACTORY, "NamedPipe@+ f(const String&in, bool)", AS_FUNCTION(NamedPipe_NamedPipe_Context_String_bool) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, NamedPipe>(engine, "Object", "NamedPipe");
+    RegisterSubclass<RefCounted, NamedPipe>(engine, "RefCounted", "NamedPipe");
+    RegisterSubclass<AbstractFile, NamedPipe>(engine, "AbstractFile", "NamedPipe");
+    RegisterSubclass<Deserializer, NamedPipe>(engine, "Deserializer", "NamedPipe");
+    RegisterSubclass<Serializer, NamedPipe>(engine, "Serializer", "NamedPipe");
+
     MemberCollection members;
     CollectMembers_NamedPipe(members);
     RegisterMembers(engine, "NamedPipe", members);
@@ -2699,6 +2944,11 @@ static void Register_Node(asIScriptEngine* engine)
 {
     // explicit Node::Node(Context* context)
     engine->RegisterObjectBehaviour("Node", asBEHAVE_FACTORY, "Node@+ f()", AS_FUNCTION(Node_Node_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Animatable, Node>(engine, "Animatable", "Node");
+    RegisterSubclass<Serializable, Node>(engine, "Serializable", "Node");
+    RegisterSubclass<Object, Node>(engine, "Object", "Node");
+    RegisterSubclass<RefCounted, Node>(engine, "RefCounted", "Node");
 
     MemberCollection members;
     CollectMembers_Node(members);
@@ -2742,6 +2992,8 @@ static void Register_NodeReplicationState(asIScriptEngine* engine)
 // class Object | File: ../Core/Object.h
 static void Register_Object(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, Object>(engine, "RefCounted", "Object");
+
     MemberCollection members;
     CollectMembers_Object(members);
     RegisterMembers(engine, "Object", members);
@@ -2764,6 +3016,10 @@ static void Register_ObjectAnimation(asIScriptEngine* engine)
     // explicit ObjectAnimation::ObjectAnimation(Context* context)
     engine->RegisterObjectBehaviour("ObjectAnimation", asBEHAVE_FACTORY, "ObjectAnimation@+ f()", AS_FUNCTION(ObjectAnimation_ObjectAnimation_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, ObjectAnimation>(engine, "Resource", "ObjectAnimation");
+    RegisterSubclass<Object, ObjectAnimation>(engine, "Object", "ObjectAnimation");
+    RegisterSubclass<RefCounted, ObjectAnimation>(engine, "RefCounted", "ObjectAnimation");
+
     MemberCollection members;
     CollectMembers_ObjectAnimation(members);
     RegisterMembers(engine, "ObjectAnimation", members);
@@ -2776,6 +3032,8 @@ static void Register_ObjectAnimation(asIScriptEngine* engine)
 // class ObjectFactory | File: ../Core/Object.h
 static void Register_ObjectFactory(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, ObjectFactory>(engine, "RefCounted", "ObjectFactory");
+
     MemberCollection members;
     CollectMembers_ObjectFactory(members);
     RegisterMembers(engine, "ObjectFactory", members);
@@ -2812,6 +3070,9 @@ static void Register_OcclusionBuffer(asIScriptEngine* engine)
 {
     // explicit OcclusionBuffer::OcclusionBuffer(Context* context)
     engine->RegisterObjectBehaviour("OcclusionBuffer", asBEHAVE_FACTORY, "OcclusionBuffer@+ f()", AS_FUNCTION(OcclusionBuffer_OcclusionBuffer_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, OcclusionBuffer>(engine, "Object", "OcclusionBuffer");
+    RegisterSubclass<RefCounted, OcclusionBuffer>(engine, "RefCounted", "OcclusionBuffer");
 
     MemberCollection members;
     CollectMembers_OcclusionBuffer(members);
@@ -2850,6 +3111,12 @@ static void Register_Octree(asIScriptEngine* engine)
     // explicit Octree::Octree(Context* context)
     engine->RegisterObjectBehaviour("Octree", asBEHAVE_FACTORY, "Octree@+ f()", AS_FUNCTION(Octree_Octree_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, Octree>(engine, "Component", "Octree");
+    RegisterSubclass<Animatable, Octree>(engine, "Animatable", "Octree");
+    RegisterSubclass<Serializable, Octree>(engine, "Serializable", "Octree");
+    RegisterSubclass<Object, Octree>(engine, "Object", "Octree");
+    RegisterSubclass<RefCounted, Octree>(engine, "RefCounted", "Octree");
+
     MemberCollection members;
     CollectMembers_Octree(members);
     RegisterMembers(engine, "Octree", members);
@@ -2885,6 +3152,9 @@ static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
 {
     // explicit OggVorbisSoundStream::OggVorbisSoundStream(const Sound* sound)
     engine->RegisterObjectBehaviour("OggVorbisSoundStream", asBEHAVE_FACTORY, "OggVorbisSoundStream@+ f(Sound@+)", AS_FUNCTION(OggVorbisSoundStream_OggVorbisSoundStream_Sound) , AS_CALL_CDECL);
+
+    RegisterSubclass<SoundStream, OggVorbisSoundStream>(engine, "SoundStream", "OggVorbisSoundStream");
+    RegisterSubclass<RefCounted, OggVorbisSoundStream>(engine, "RefCounted", "OggVorbisSoundStream");
 
     MemberCollection members;
     CollectMembers_OggVorbisSoundStream(members);
@@ -2929,6 +3199,9 @@ static void Register_PackageFile(asIScriptEngine* engine)
     // PackageFile::PackageFile(Context* context, const String& fileName, unsigned startOffset=0)
     engine->RegisterObjectBehaviour("PackageFile", asBEHAVE_FACTORY, "PackageFile@+ f(const String&in, uint = 0)", AS_FUNCTION(PackageFile_PackageFile_Context_String_unsigned) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, PackageFile>(engine, "Object", "PackageFile");
+    RegisterSubclass<RefCounted, PackageFile>(engine, "RefCounted", "PackageFile");
+
     MemberCollection members;
     CollectMembers_PackageFile(members);
     RegisterMembers(engine, "PackageFile", members);
@@ -2966,6 +3239,10 @@ static void Register_ParticleEffect(asIScriptEngine* engine)
     // explicit ParticleEffect::ParticleEffect(Context* context)
     engine->RegisterObjectBehaviour("ParticleEffect", asBEHAVE_FACTORY, "ParticleEffect@+ f()", AS_FUNCTION(ParticleEffect_ParticleEffect_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, ParticleEffect>(engine, "Resource", "ParticleEffect");
+    RegisterSubclass<Object, ParticleEffect>(engine, "Object", "ParticleEffect");
+    RegisterSubclass<RefCounted, ParticleEffect>(engine, "RefCounted", "ParticleEffect");
+
     MemberCollection members;
     CollectMembers_ParticleEffect(members);
     RegisterMembers(engine, "ParticleEffect", members);
@@ -2988,6 +3265,14 @@ static void Register_ParticleEmitter(asIScriptEngine* engine)
     // explicit ParticleEmitter::ParticleEmitter(Context* context)
     engine->RegisterObjectBehaviour("ParticleEmitter", asBEHAVE_FACTORY, "ParticleEmitter@+ f()", AS_FUNCTION(ParticleEmitter_ParticleEmitter_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<BillboardSet, ParticleEmitter>(engine, "BillboardSet", "ParticleEmitter");
+    RegisterSubclass<Drawable, ParticleEmitter>(engine, "Drawable", "ParticleEmitter");
+    RegisterSubclass<Component, ParticleEmitter>(engine, "Component", "ParticleEmitter");
+    RegisterSubclass<Animatable, ParticleEmitter>(engine, "Animatable", "ParticleEmitter");
+    RegisterSubclass<Serializable, ParticleEmitter>(engine, "Serializable", "ParticleEmitter");
+    RegisterSubclass<Object, ParticleEmitter>(engine, "Object", "ParticleEmitter");
+    RegisterSubclass<RefCounted, ParticleEmitter>(engine, "RefCounted", "ParticleEmitter");
+
     MemberCollection members;
     CollectMembers_ParticleEmitter(members);
     RegisterMembers(engine, "ParticleEmitter", members);
@@ -3008,6 +3293,8 @@ static void Register_Pass(asIScriptEngine* engine)
 {
     // explicit Pass::Pass(const String& name)
     engine->RegisterObjectBehaviour("Pass", asBEHAVE_FACTORY, "Pass@+ f(const String&in)", AS_FUNCTION(Pass_Pass_String) , AS_CALL_CDECL);
+
+    RegisterSubclass<RefCounted, Pass>(engine, "RefCounted", "Pass");
 
     MemberCollection members;
     CollectMembers_Pass(members);
@@ -3134,6 +3421,9 @@ static void Register_Profiler(asIScriptEngine* engine)
     // explicit Profiler::Profiler(Context* context)
     engine->RegisterObjectBehaviour("Profiler", asBEHAVE_FACTORY, "Profiler@+ f()", AS_FUNCTION(Profiler_Profiler_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Profiler>(engine, "Object", "Profiler");
+    RegisterSubclass<RefCounted, Profiler>(engine, "RefCounted", "Profiler");
+
     MemberCollection members;
     CollectMembers_Profiler(members);
     RegisterMembers(engine, "Profiler", members);
@@ -3155,6 +3445,13 @@ static void Register_ProgressBar(asIScriptEngine* engine)
 {
     // explicit ProgressBar::ProgressBar(Context* context)
     engine->RegisterObjectBehaviour("ProgressBar", asBEHAVE_FACTORY, "ProgressBar@+ f()", AS_FUNCTION(ProgressBar_ProgressBar_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<BorderImage, ProgressBar>(engine, "BorderImage", "ProgressBar");
+    RegisterSubclass<UIElement, ProgressBar>(engine, "UIElement", "ProgressBar");
+    RegisterSubclass<Animatable, ProgressBar>(engine, "Animatable", "ProgressBar");
+    RegisterSubclass<Serializable, ProgressBar>(engine, "Serializable", "ProgressBar");
+    RegisterSubclass<Object, ProgressBar>(engine, "Object", "ProgressBar");
+    RegisterSubclass<RefCounted, ProgressBar>(engine, "RefCounted", "ProgressBar");
 
     MemberCollection members;
     CollectMembers_ProgressBar(members);
@@ -3378,6 +3675,8 @@ static void Register_RefCounted(asIScriptEngine* engine)
 // class RenderPath | File: ../Graphics/RenderPath.h
 static void Register_RenderPath(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, RenderPath>(engine, "RefCounted", "RenderPath");
+
     MemberCollection members;
     CollectMembers_RenderPath(members);
     RegisterMembers(engine, "RenderPath", members);
@@ -3413,6 +3712,8 @@ static void Register_RenderSurface(asIScriptEngine* engine)
 {
     // explicit RenderSurface::RenderSurface(Texture* parentTexture)
     engine->RegisterObjectBehaviour("RenderSurface", asBEHAVE_FACTORY, "RenderSurface@+ f(Texture@+)", AS_FUNCTION(RenderSurface_RenderSurface_Texture) , AS_CALL_CDECL);
+
+    RegisterSubclass<RefCounted, RenderSurface>(engine, "RefCounted", "RenderSurface");
 
     MemberCollection members;
     CollectMembers_RenderSurface(members);
@@ -3451,6 +3752,9 @@ static void Register_Renderer(asIScriptEngine* engine)
     // explicit Renderer::Renderer(Context* context)
     engine->RegisterObjectBehaviour("Renderer", asBEHAVE_FACTORY, "Renderer@+ f()", AS_FUNCTION(Renderer_Renderer_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Renderer>(engine, "Object", "Renderer");
+    RegisterSubclass<RefCounted, Renderer>(engine, "RefCounted", "Renderer");
+
     MemberCollection members;
     CollectMembers_Renderer(members);
     RegisterMembers(engine, "Renderer", members);
@@ -3488,6 +3792,9 @@ static void Register_Resource(asIScriptEngine* engine)
     // explicit Resource::Resource(Context* context)
     engine->RegisterObjectBehaviour("Resource", asBEHAVE_FACTORY, "Resource@+ f()", AS_FUNCTION(Resource_Resource_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Resource>(engine, "Object", "Resource");
+    RegisterSubclass<RefCounted, Resource>(engine, "RefCounted", "Resource");
+
     MemberCollection members;
     CollectMembers_Resource(members);
     RegisterMembers(engine, "Resource", members);
@@ -3509,6 +3816,9 @@ static void Register_ResourceCache(asIScriptEngine* engine)
 {
     // explicit ResourceCache::ResourceCache(Context* context)
     engine->RegisterObjectBehaviour("ResourceCache", asBEHAVE_FACTORY, "ResourceCache@+ f()", AS_FUNCTION(ResourceCache_ResourceCache_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, ResourceCache>(engine, "Object", "ResourceCache");
+    RegisterSubclass<RefCounted, ResourceCache>(engine, "RefCounted", "ResourceCache");
 
     MemberCollection members;
     CollectMembers_ResourceCache(members);
@@ -3631,6 +3941,10 @@ static void Register_ResourceWithMetadata(asIScriptEngine* engine)
     // explicit ResourceWithMetadata::ResourceWithMetadata(Context* context)
     engine->RegisterObjectBehaviour("ResourceWithMetadata", asBEHAVE_FACTORY, "ResourceWithMetadata@+ f()", AS_FUNCTION(ResourceWithMetadata_ResourceWithMetadata_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, ResourceWithMetadata>(engine, "Resource", "ResourceWithMetadata");
+    RegisterSubclass<Object, ResourceWithMetadata>(engine, "Object", "ResourceWithMetadata");
+    RegisterSubclass<RefCounted, ResourceWithMetadata>(engine, "RefCounted", "ResourceWithMetadata");
+
     MemberCollection members;
     CollectMembers_ResourceWithMetadata(members);
     RegisterMembers(engine, "ResourceWithMetadata", members);
@@ -3653,6 +3967,13 @@ static void Register_RibbonTrail(asIScriptEngine* engine)
     // explicit RibbonTrail::RibbonTrail(Context* context)
     engine->RegisterObjectBehaviour("RibbonTrail", asBEHAVE_FACTORY, "RibbonTrail@+ f()", AS_FUNCTION(RibbonTrail_RibbonTrail_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Drawable, RibbonTrail>(engine, "Drawable", "RibbonTrail");
+    RegisterSubclass<Component, RibbonTrail>(engine, "Component", "RibbonTrail");
+    RegisterSubclass<Animatable, RibbonTrail>(engine, "Animatable", "RibbonTrail");
+    RegisterSubclass<Serializable, RibbonTrail>(engine, "Serializable", "RibbonTrail");
+    RegisterSubclass<Object, RibbonTrail>(engine, "Object", "RibbonTrail");
+    RegisterSubclass<RefCounted, RibbonTrail>(engine, "RefCounted", "RibbonTrail");
+
     MemberCollection members;
     CollectMembers_RibbonTrail(members);
     RegisterMembers(engine, "RibbonTrail", members);
@@ -3674,6 +3995,12 @@ static void Register_Scene(asIScriptEngine* engine)
 {
     // explicit Scene::Scene(Context* context)
     engine->RegisterObjectBehaviour("Scene", asBEHAVE_FACTORY, "Scene@+ f()", AS_FUNCTION(Scene_Scene_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Node, Scene>(engine, "Node", "Scene");
+    RegisterSubclass<Animatable, Scene>(engine, "Animatable", "Scene");
+    RegisterSubclass<Serializable, Scene>(engine, "Serializable", "Scene");
+    RegisterSubclass<Object, Scene>(engine, "Object", "Scene");
+    RegisterSubclass<RefCounted, Scene>(engine, "RefCounted", "Scene");
 
     MemberCollection members;
     CollectMembers_Scene(members);
@@ -3772,6 +4099,13 @@ static void Register_ScrollBar(asIScriptEngine* engine)
     // explicit ScrollBar::ScrollBar(Context* context)
     engine->RegisterObjectBehaviour("ScrollBar", asBEHAVE_FACTORY, "ScrollBar@+ f()", AS_FUNCTION(ScrollBar_ScrollBar_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<BorderImage, ScrollBar>(engine, "BorderImage", "ScrollBar");
+    RegisterSubclass<UIElement, ScrollBar>(engine, "UIElement", "ScrollBar");
+    RegisterSubclass<Animatable, ScrollBar>(engine, "Animatable", "ScrollBar");
+    RegisterSubclass<Serializable, ScrollBar>(engine, "Serializable", "ScrollBar");
+    RegisterSubclass<Object, ScrollBar>(engine, "Object", "ScrollBar");
+    RegisterSubclass<RefCounted, ScrollBar>(engine, "RefCounted", "ScrollBar");
+
     MemberCollection members;
     CollectMembers_ScrollBar(members);
     RegisterMembers(engine, "ScrollBar", members);
@@ -3794,6 +4128,12 @@ static void Register_ScrollView(asIScriptEngine* engine)
     // explicit ScrollView::ScrollView(Context* context)
     engine->RegisterObjectBehaviour("ScrollView", asBEHAVE_FACTORY, "ScrollView@+ f()", AS_FUNCTION(ScrollView_ScrollView_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<UIElement, ScrollView>(engine, "UIElement", "ScrollView");
+    RegisterSubclass<Animatable, ScrollView>(engine, "Animatable", "ScrollView");
+    RegisterSubclass<Serializable, ScrollView>(engine, "Serializable", "ScrollView");
+    RegisterSubclass<Object, ScrollView>(engine, "Object", "ScrollView");
+    RegisterSubclass<RefCounted, ScrollView>(engine, "RefCounted", "ScrollView");
+
     MemberCollection members;
     CollectMembers_ScrollView(members);
     RegisterMembers(engine, "ScrollView", members);
@@ -3815,6 +4155,9 @@ static void Register_Serializable(asIScriptEngine* engine)
 {
     // explicit Serializable::Serializable(Context* context)
     engine->RegisterObjectBehaviour("Serializable", asBEHAVE_FACTORY, "Serializable@+ f()", AS_FUNCTION(Serializable_Serializable_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, Serializable>(engine, "Object", "Serializable");
+    RegisterSubclass<RefCounted, Serializable>(engine, "RefCounted", "Serializable");
 
     MemberCollection members;
     CollectMembers_Serializable(members);
@@ -3852,6 +4195,10 @@ static void Register_Shader(asIScriptEngine* engine)
 {
     // explicit Shader::Shader(Context* context)
     engine->RegisterObjectBehaviour("Shader", asBEHAVE_FACTORY, "Shader@+ f()", AS_FUNCTION(Shader_Shader_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Resource, Shader>(engine, "Resource", "Shader");
+    RegisterSubclass<Object, Shader>(engine, "Object", "Shader");
+    RegisterSubclass<RefCounted, Shader>(engine, "RefCounted", "Shader");
 
     MemberCollection members;
     CollectMembers_Shader(members);
@@ -3922,6 +4269,9 @@ static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
     // ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(const ShaderParameterAnimationInfo& other)
     engine->RegisterObjectBehaviour("ShaderParameterAnimationInfo", asBEHAVE_FACTORY, "ShaderParameterAnimationInfo@+ f(const ShaderParameterAnimationInfo&in)", AS_FUNCTION(ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_ShaderParameterAnimationInfo) , AS_CALL_CDECL);
 
+    RegisterSubclass<ValueAnimationInfo, ShaderParameterAnimationInfo>(engine, "ValueAnimationInfo", "ShaderParameterAnimationInfo");
+    RegisterSubclass<RefCounted, ShaderParameterAnimationInfo>(engine, "RefCounted", "ShaderParameterAnimationInfo");
+
     MemberCollection members;
     CollectMembers_ShaderParameterAnimationInfo(members);
     RegisterMembers(engine, "ShaderParameterAnimationInfo", members);
@@ -3944,6 +4294,9 @@ static void Register_ShaderPrecache(asIScriptEngine* engine)
     // ShaderPrecache::ShaderPrecache(Context* context, const String& fileName)
     engine->RegisterObjectBehaviour("ShaderPrecache", asBEHAVE_FACTORY, "ShaderPrecache@+ f(const String&in)", AS_FUNCTION(ShaderPrecache_ShaderPrecache_Context_String) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, ShaderPrecache>(engine, "Object", "ShaderPrecache");
+    RegisterSubclass<RefCounted, ShaderPrecache>(engine, "RefCounted", "ShaderPrecache");
+
     MemberCollection members;
     CollectMembers_ShaderPrecache(members);
     RegisterMembers(engine, "ShaderPrecache", members);
@@ -3964,6 +4317,8 @@ static void Register_ShaderVariation(asIScriptEngine* engine)
 {
     // ShaderVariation::ShaderVariation(Shader* owner, ShaderType type)
     engine->RegisterObjectBehaviour("ShaderVariation", asBEHAVE_FACTORY, "ShaderVariation@+ f(Shader@+, ShaderType)", AS_FUNCTION(ShaderVariation_ShaderVariation_Shader_ShaderType) , AS_CALL_CDECL);
+
+    RegisterSubclass<RefCounted, ShaderVariation>(engine, "RefCounted", "ShaderVariation");
 
     MemberCollection members;
     CollectMembers_ShaderVariation(members);
@@ -4017,6 +4372,14 @@ static void Register_Skybox(asIScriptEngine* engine)
     // explicit Skybox::Skybox(Context* context)
     engine->RegisterObjectBehaviour("Skybox", asBEHAVE_FACTORY, "Skybox@+ f()", AS_FUNCTION(Skybox_Skybox_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<StaticModel, Skybox>(engine, "StaticModel", "Skybox");
+    RegisterSubclass<Drawable, Skybox>(engine, "Drawable", "Skybox");
+    RegisterSubclass<Component, Skybox>(engine, "Component", "Skybox");
+    RegisterSubclass<Animatable, Skybox>(engine, "Animatable", "Skybox");
+    RegisterSubclass<Serializable, Skybox>(engine, "Serializable", "Skybox");
+    RegisterSubclass<Object, Skybox>(engine, "Object", "Skybox");
+    RegisterSubclass<RefCounted, Skybox>(engine, "RefCounted", "Skybox");
+
     MemberCollection members;
     CollectMembers_Skybox(members);
     RegisterMembers(engine, "Skybox", members);
@@ -4038,6 +4401,13 @@ static void Register_Slider(asIScriptEngine* engine)
 {
     // explicit Slider::Slider(Context* context)
     engine->RegisterObjectBehaviour("Slider", asBEHAVE_FACTORY, "Slider@+ f()", AS_FUNCTION(Slider_Slider_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<BorderImage, Slider>(engine, "BorderImage", "Slider");
+    RegisterSubclass<UIElement, Slider>(engine, "UIElement", "Slider");
+    RegisterSubclass<Animatable, Slider>(engine, "Animatable", "Slider");
+    RegisterSubclass<Serializable, Slider>(engine, "Serializable", "Slider");
+    RegisterSubclass<Object, Slider>(engine, "Object", "Slider");
+    RegisterSubclass<RefCounted, Slider>(engine, "RefCounted", "Slider");
 
     MemberCollection members;
     CollectMembers_Slider(members);
@@ -4061,6 +4431,12 @@ static void Register_SmoothedTransform(asIScriptEngine* engine)
     // explicit SmoothedTransform::SmoothedTransform(Context* context)
     engine->RegisterObjectBehaviour("SmoothedTransform", asBEHAVE_FACTORY, "SmoothedTransform@+ f()", AS_FUNCTION(SmoothedTransform_SmoothedTransform_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, SmoothedTransform>(engine, "Component", "SmoothedTransform");
+    RegisterSubclass<Animatable, SmoothedTransform>(engine, "Animatable", "SmoothedTransform");
+    RegisterSubclass<Serializable, SmoothedTransform>(engine, "Serializable", "SmoothedTransform");
+    RegisterSubclass<Object, SmoothedTransform>(engine, "Object", "SmoothedTransform");
+    RegisterSubclass<RefCounted, SmoothedTransform>(engine, "RefCounted", "SmoothedTransform");
+
     MemberCollection members;
     CollectMembers_SmoothedTransform(members);
     RegisterMembers(engine, "SmoothedTransform", members);
@@ -4082,6 +4458,11 @@ static void Register_Sound(asIScriptEngine* engine)
 {
     // explicit Sound::Sound(Context* context)
     engine->RegisterObjectBehaviour("Sound", asBEHAVE_FACTORY, "Sound@+ f()", AS_FUNCTION(Sound_Sound_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<ResourceWithMetadata, Sound>(engine, "ResourceWithMetadata", "Sound");
+    RegisterSubclass<Resource, Sound>(engine, "Resource", "Sound");
+    RegisterSubclass<Object, Sound>(engine, "Object", "Sound");
+    RegisterSubclass<RefCounted, Sound>(engine, "RefCounted", "Sound");
 
     MemberCollection members;
     CollectMembers_Sound(members);
@@ -4105,6 +4486,12 @@ static void Register_SoundListener(asIScriptEngine* engine)
     // explicit SoundListener::SoundListener(Context* context)
     engine->RegisterObjectBehaviour("SoundListener", asBEHAVE_FACTORY, "SoundListener@+ f()", AS_FUNCTION(SoundListener_SoundListener_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, SoundListener>(engine, "Component", "SoundListener");
+    RegisterSubclass<Animatable, SoundListener>(engine, "Animatable", "SoundListener");
+    RegisterSubclass<Serializable, SoundListener>(engine, "Serializable", "SoundListener");
+    RegisterSubclass<Object, SoundListener>(engine, "Object", "SoundListener");
+    RegisterSubclass<RefCounted, SoundListener>(engine, "RefCounted", "SoundListener");
+
     MemberCollection members;
     CollectMembers_SoundListener(members);
     RegisterMembers(engine, "SoundListener", members);
@@ -4126,6 +4513,12 @@ static void Register_SoundSource(asIScriptEngine* engine)
 {
     // explicit SoundSource::SoundSource(Context* context)
     engine->RegisterObjectBehaviour("SoundSource", asBEHAVE_FACTORY, "SoundSource@+ f()", AS_FUNCTION(SoundSource_SoundSource_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, SoundSource>(engine, "Component", "SoundSource");
+    RegisterSubclass<Animatable, SoundSource>(engine, "Animatable", "SoundSource");
+    RegisterSubclass<Serializable, SoundSource>(engine, "Serializable", "SoundSource");
+    RegisterSubclass<Object, SoundSource>(engine, "Object", "SoundSource");
+    RegisterSubclass<RefCounted, SoundSource>(engine, "RefCounted", "SoundSource");
 
     MemberCollection members;
     CollectMembers_SoundSource(members);
@@ -4149,6 +4542,13 @@ static void Register_SoundSource3D(asIScriptEngine* engine)
     // explicit SoundSource3D::SoundSource3D(Context* context)
     engine->RegisterObjectBehaviour("SoundSource3D", asBEHAVE_FACTORY, "SoundSource3D@+ f()", AS_FUNCTION(SoundSource3D_SoundSource3D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<SoundSource, SoundSource3D>(engine, "SoundSource", "SoundSource3D");
+    RegisterSubclass<Component, SoundSource3D>(engine, "Component", "SoundSource3D");
+    RegisterSubclass<Animatable, SoundSource3D>(engine, "Animatable", "SoundSource3D");
+    RegisterSubclass<Serializable, SoundSource3D>(engine, "Serializable", "SoundSource3D");
+    RegisterSubclass<Object, SoundSource3D>(engine, "Object", "SoundSource3D");
+    RegisterSubclass<RefCounted, SoundSource3D>(engine, "RefCounted", "SoundSource3D");
+
     MemberCollection members;
     CollectMembers_SoundSource3D(members);
     RegisterMembers(engine, "SoundSource3D", members);
@@ -4161,6 +4561,8 @@ static void Register_SoundSource3D(asIScriptEngine* engine)
 // class SoundStream | File: ../Audio/SoundStream.h
 static void Register_SoundStream(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, SoundStream>(engine, "RefCounted", "SoundStream");
+
     MemberCollection members;
     CollectMembers_SoundStream(members);
     RegisterMembers(engine, "SoundStream", members);
@@ -4298,6 +4700,12 @@ static void Register_SplinePath(asIScriptEngine* engine)
     // explicit SplinePath::SplinePath(Context* context)
     engine->RegisterObjectBehaviour("SplinePath", asBEHAVE_FACTORY, "SplinePath@+ f()", AS_FUNCTION(SplinePath_SplinePath_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, SplinePath>(engine, "Component", "SplinePath");
+    RegisterSubclass<Animatable, SplinePath>(engine, "Animatable", "SplinePath");
+    RegisterSubclass<Serializable, SplinePath>(engine, "Serializable", "SplinePath");
+    RegisterSubclass<Object, SplinePath>(engine, "Object", "SplinePath");
+    RegisterSubclass<RefCounted, SplinePath>(engine, "RefCounted", "SplinePath");
+
     MemberCollection members;
     CollectMembers_SplinePath(members);
     RegisterMembers(engine, "SplinePath", members);
@@ -4320,6 +4728,12 @@ static void Register_Sprite(asIScriptEngine* engine)
     // explicit Sprite::Sprite(Context* context)
     engine->RegisterObjectBehaviour("Sprite", asBEHAVE_FACTORY, "Sprite@+ f()", AS_FUNCTION(Sprite_Sprite_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<UIElement, Sprite>(engine, "UIElement", "Sprite");
+    RegisterSubclass<Animatable, Sprite>(engine, "Animatable", "Sprite");
+    RegisterSubclass<Serializable, Sprite>(engine, "Serializable", "Sprite");
+    RegisterSubclass<Object, Sprite>(engine, "Object", "Sprite");
+    RegisterSubclass<RefCounted, Sprite>(engine, "RefCounted", "Sprite");
+
     MemberCollection members;
     CollectMembers_Sprite(members);
     RegisterMembers(engine, "Sprite", members);
@@ -4341,6 +4755,13 @@ static void Register_StaticModel(asIScriptEngine* engine)
 {
     // explicit StaticModel::StaticModel(Context* context)
     engine->RegisterObjectBehaviour("StaticModel", asBEHAVE_FACTORY, "StaticModel@+ f()", AS_FUNCTION(StaticModel_StaticModel_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Drawable, StaticModel>(engine, "Drawable", "StaticModel");
+    RegisterSubclass<Component, StaticModel>(engine, "Component", "StaticModel");
+    RegisterSubclass<Animatable, StaticModel>(engine, "Animatable", "StaticModel");
+    RegisterSubclass<Serializable, StaticModel>(engine, "Serializable", "StaticModel");
+    RegisterSubclass<Object, StaticModel>(engine, "Object", "StaticModel");
+    RegisterSubclass<RefCounted, StaticModel>(engine, "RefCounted", "StaticModel");
 
     MemberCollection members;
     CollectMembers_StaticModel(members);
@@ -4378,6 +4799,14 @@ static void Register_StaticModelGroup(asIScriptEngine* engine)
 {
     // explicit StaticModelGroup::StaticModelGroup(Context* context)
     engine->RegisterObjectBehaviour("StaticModelGroup", asBEHAVE_FACTORY, "StaticModelGroup@+ f()", AS_FUNCTION(StaticModelGroup_StaticModelGroup_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<StaticModel, StaticModelGroup>(engine, "StaticModel", "StaticModelGroup");
+    RegisterSubclass<Drawable, StaticModelGroup>(engine, "Drawable", "StaticModelGroup");
+    RegisterSubclass<Component, StaticModelGroup>(engine, "Component", "StaticModelGroup");
+    RegisterSubclass<Animatable, StaticModelGroup>(engine, "Animatable", "StaticModelGroup");
+    RegisterSubclass<Serializable, StaticModelGroup>(engine, "Serializable", "StaticModelGroup");
+    RegisterSubclass<Object, StaticModelGroup>(engine, "Object", "StaticModelGroup");
+    RegisterSubclass<RefCounted, StaticModelGroup>(engine, "RefCounted", "StaticModelGroup");
 
     MemberCollection members;
     CollectMembers_StaticModelGroup(members);
@@ -4622,6 +5051,10 @@ static void Register_Technique(asIScriptEngine* engine)
     // explicit Technique::Technique(Context* context)
     engine->RegisterObjectBehaviour("Technique", asBEHAVE_FACTORY, "Technique@+ f()", AS_FUNCTION(Technique_Technique_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, Technique>(engine, "Resource", "Technique");
+    RegisterSubclass<Object, Technique>(engine, "Object", "Technique");
+    RegisterSubclass<RefCounted, Technique>(engine, "RefCounted", "Technique");
+
     MemberCollection members;
     CollectMembers_Technique(members);
     RegisterMembers(engine, "Technique", members);
@@ -4668,6 +5101,12 @@ static void Register_Terrain(asIScriptEngine* engine)
     // explicit Terrain::Terrain(Context* context)
     engine->RegisterObjectBehaviour("Terrain", asBEHAVE_FACTORY, "Terrain@+ f()", AS_FUNCTION(Terrain_Terrain_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, Terrain>(engine, "Component", "Terrain");
+    RegisterSubclass<Animatable, Terrain>(engine, "Animatable", "Terrain");
+    RegisterSubclass<Serializable, Terrain>(engine, "Serializable", "Terrain");
+    RegisterSubclass<Object, Terrain>(engine, "Object", "Terrain");
+    RegisterSubclass<RefCounted, Terrain>(engine, "RefCounted", "Terrain");
+
     MemberCollection members;
     CollectMembers_Terrain(members);
     RegisterMembers(engine, "Terrain", members);
@@ -4689,6 +5128,13 @@ static void Register_TerrainPatch(asIScriptEngine* engine)
 {
     // explicit TerrainPatch::TerrainPatch(Context* context)
     engine->RegisterObjectBehaviour("TerrainPatch", asBEHAVE_FACTORY, "TerrainPatch@+ f()", AS_FUNCTION(TerrainPatch_TerrainPatch_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Drawable, TerrainPatch>(engine, "Drawable", "TerrainPatch");
+    RegisterSubclass<Component, TerrainPatch>(engine, "Component", "TerrainPatch");
+    RegisterSubclass<Animatable, TerrainPatch>(engine, "Animatable", "TerrainPatch");
+    RegisterSubclass<Serializable, TerrainPatch>(engine, "Serializable", "TerrainPatch");
+    RegisterSubclass<Object, TerrainPatch>(engine, "Object", "TerrainPatch");
+    RegisterSubclass<RefCounted, TerrainPatch>(engine, "RefCounted", "TerrainPatch");
 
     MemberCollection members;
     CollectMembers_TerrainPatch(members);
@@ -4712,6 +5158,13 @@ static void Register_Text(asIScriptEngine* engine)
     // explicit Text::Text(Context* context)
     engine->RegisterObjectBehaviour("Text", asBEHAVE_FACTORY, "Text@+ f()", AS_FUNCTION(Text_Text_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<UISelectable, Text>(engine, "UISelectable", "Text");
+    RegisterSubclass<UIElement, Text>(engine, "UIElement", "Text");
+    RegisterSubclass<Animatable, Text>(engine, "Animatable", "Text");
+    RegisterSubclass<Serializable, Text>(engine, "Serializable", "Text");
+    RegisterSubclass<Object, Text>(engine, "Object", "Text");
+    RegisterSubclass<RefCounted, Text>(engine, "RefCounted", "Text");
+
     MemberCollection members;
     CollectMembers_Text(members);
     RegisterMembers(engine, "Text", members);
@@ -4733,6 +5186,13 @@ static void Register_Text3D(asIScriptEngine* engine)
 {
     // explicit Text3D::Text3D(Context* context)
     engine->RegisterObjectBehaviour("Text3D", asBEHAVE_FACTORY, "Text3D@+ f()", AS_FUNCTION(Text3D_Text3D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Drawable, Text3D>(engine, "Drawable", "Text3D");
+    RegisterSubclass<Component, Text3D>(engine, "Component", "Text3D");
+    RegisterSubclass<Animatable, Text3D>(engine, "Animatable", "Text3D");
+    RegisterSubclass<Serializable, Text3D>(engine, "Serializable", "Text3D");
+    RegisterSubclass<Object, Text3D>(engine, "Object", "Text3D");
+    RegisterSubclass<RefCounted, Text3D>(engine, "RefCounted", "Text3D");
 
     MemberCollection members;
     CollectMembers_Text3D(members);
@@ -4756,6 +5216,11 @@ static void Register_Texture(asIScriptEngine* engine)
     // explicit Texture::Texture(Context* context)
     engine->RegisterObjectBehaviour("Texture", asBEHAVE_FACTORY, "Texture@+ f()", AS_FUNCTION(Texture_Texture_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<ResourceWithMetadata, Texture>(engine, "ResourceWithMetadata", "Texture");
+    RegisterSubclass<Resource, Texture>(engine, "Resource", "Texture");
+    RegisterSubclass<Object, Texture>(engine, "Object", "Texture");
+    RegisterSubclass<RefCounted, Texture>(engine, "RefCounted", "Texture");
+
     MemberCollection members;
     CollectMembers_Texture(members);
     RegisterMembers(engine, "Texture", members);
@@ -4777,6 +5242,12 @@ static void Register_Texture2D(asIScriptEngine* engine)
 {
     // explicit Texture2D::Texture2D(Context* context)
     engine->RegisterObjectBehaviour("Texture2D", asBEHAVE_FACTORY, "Texture2D@+ f()", AS_FUNCTION(Texture2D_Texture2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Texture, Texture2D>(engine, "Texture", "Texture2D");
+    RegisterSubclass<ResourceWithMetadata, Texture2D>(engine, "ResourceWithMetadata", "Texture2D");
+    RegisterSubclass<Resource, Texture2D>(engine, "Resource", "Texture2D");
+    RegisterSubclass<Object, Texture2D>(engine, "Object", "Texture2D");
+    RegisterSubclass<RefCounted, Texture2D>(engine, "RefCounted", "Texture2D");
 
     MemberCollection members;
     CollectMembers_Texture2D(members);
@@ -4800,6 +5271,12 @@ static void Register_Texture2DArray(asIScriptEngine* engine)
     // explicit Texture2DArray::Texture2DArray(Context* context)
     engine->RegisterObjectBehaviour("Texture2DArray", asBEHAVE_FACTORY, "Texture2DArray@+ f()", AS_FUNCTION(Texture2DArray_Texture2DArray_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Texture, Texture2DArray>(engine, "Texture", "Texture2DArray");
+    RegisterSubclass<ResourceWithMetadata, Texture2DArray>(engine, "ResourceWithMetadata", "Texture2DArray");
+    RegisterSubclass<Resource, Texture2DArray>(engine, "Resource", "Texture2DArray");
+    RegisterSubclass<Object, Texture2DArray>(engine, "Object", "Texture2DArray");
+    RegisterSubclass<RefCounted, Texture2DArray>(engine, "RefCounted", "Texture2DArray");
+
     MemberCollection members;
     CollectMembers_Texture2DArray(members);
     RegisterMembers(engine, "Texture2DArray", members);
@@ -4822,6 +5299,12 @@ static void Register_Texture3D(asIScriptEngine* engine)
     // explicit Texture3D::Texture3D(Context* context)
     engine->RegisterObjectBehaviour("Texture3D", asBEHAVE_FACTORY, "Texture3D@+ f()", AS_FUNCTION(Texture3D_Texture3D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Texture, Texture3D>(engine, "Texture", "Texture3D");
+    RegisterSubclass<ResourceWithMetadata, Texture3D>(engine, "ResourceWithMetadata", "Texture3D");
+    RegisterSubclass<Resource, Texture3D>(engine, "Resource", "Texture3D");
+    RegisterSubclass<Object, Texture3D>(engine, "Object", "Texture3D");
+    RegisterSubclass<RefCounted, Texture3D>(engine, "RefCounted", "Texture3D");
+
     MemberCollection members;
     CollectMembers_Texture3D(members);
     RegisterMembers(engine, "Texture3D", members);
@@ -4843,6 +5326,12 @@ static void Register_TextureCube(asIScriptEngine* engine)
 {
     // explicit TextureCube::TextureCube(Context* context)
     engine->RegisterObjectBehaviour("TextureCube", asBEHAVE_FACTORY, "TextureCube@+ f()", AS_FUNCTION(TextureCube_TextureCube_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Texture, TextureCube>(engine, "Texture", "TextureCube");
+    RegisterSubclass<ResourceWithMetadata, TextureCube>(engine, "ResourceWithMetadata", "TextureCube");
+    RegisterSubclass<Resource, TextureCube>(engine, "Resource", "TextureCube");
+    RegisterSubclass<Object, TextureCube>(engine, "Object", "TextureCube");
+    RegisterSubclass<RefCounted, TextureCube>(engine, "RefCounted", "TextureCube");
 
     MemberCollection members;
     CollectMembers_TextureCube(members);
@@ -4881,6 +5370,9 @@ static void Register_Time(asIScriptEngine* engine)
     // explicit Time::Time(Context* context)
     engine->RegisterObjectBehaviour("Time", asBEHAVE_FACTORY, "Time@+ f()", AS_FUNCTION(Time_Time_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Time>(engine, "Object", "Time");
+    RegisterSubclass<RefCounted, Time>(engine, "RefCounted", "Time");
+
     MemberCollection members;
     CollectMembers_Time(members);
     RegisterMembers(engine, "Time", members);
@@ -4914,6 +5406,12 @@ static void Register_ToolTip(asIScriptEngine* engine)
 {
     // explicit ToolTip::ToolTip(Context* context)
     engine->RegisterObjectBehaviour("ToolTip", asBEHAVE_FACTORY, "ToolTip@+ f()", AS_FUNCTION(ToolTip_ToolTip_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<UIElement, ToolTip>(engine, "UIElement", "ToolTip");
+    RegisterSubclass<Animatable, ToolTip>(engine, "Animatable", "ToolTip");
+    RegisterSubclass<Serializable, ToolTip>(engine, "Serializable", "ToolTip");
+    RegisterSubclass<Object, ToolTip>(engine, "Object", "ToolTip");
+    RegisterSubclass<RefCounted, ToolTip>(engine, "RefCounted", "ToolTip");
 
     MemberCollection members;
     CollectMembers_ToolTip(members);
@@ -4976,6 +5474,9 @@ static void Register_UI(asIScriptEngine* engine)
     // explicit UI::UI(Context* context)
     engine->RegisterObjectBehaviour("UI", asBEHAVE_FACTORY, "UI@+ f()", AS_FUNCTION(UI_UI_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, UI>(engine, "Object", "UI");
+    RegisterSubclass<RefCounted, UI>(engine, "RefCounted", "UI");
+
     MemberCollection members;
     CollectMembers_UI(members);
     RegisterMembers(engine, "UI", members);
@@ -5016,6 +5517,12 @@ static void Register_UIComponent(asIScriptEngine* engine)
     // explicit UIComponent::UIComponent(Context* context)
     engine->RegisterObjectBehaviour("UIComponent", asBEHAVE_FACTORY, "UIComponent@+ f()", AS_FUNCTION(UIComponent_UIComponent_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, UIComponent>(engine, "Component", "UIComponent");
+    RegisterSubclass<Animatable, UIComponent>(engine, "Animatable", "UIComponent");
+    RegisterSubclass<Serializable, UIComponent>(engine, "Serializable", "UIComponent");
+    RegisterSubclass<Object, UIComponent>(engine, "Object", "UIComponent");
+    RegisterSubclass<RefCounted, UIComponent>(engine, "RefCounted", "UIComponent");
+
     MemberCollection members;
     CollectMembers_UIComponent(members);
     RegisterMembers(engine, "UIComponent", members);
@@ -5038,6 +5545,11 @@ static void Register_UIElement(asIScriptEngine* engine)
     // explicit UIElement::UIElement(Context* context)
     engine->RegisterObjectBehaviour("UIElement", asBEHAVE_FACTORY, "UIElement@+ f()", AS_FUNCTION(UIElement_UIElement_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Animatable, UIElement>(engine, "Animatable", "UIElement");
+    RegisterSubclass<Serializable, UIElement>(engine, "Serializable", "UIElement");
+    RegisterSubclass<Object, UIElement>(engine, "Object", "UIElement");
+    RegisterSubclass<RefCounted, UIElement>(engine, "RefCounted", "UIElement");
+
     MemberCollection members;
     CollectMembers_UIElement(members);
     RegisterMembers(engine, "UIElement", members);
@@ -5050,6 +5562,12 @@ static void Register_UIElement(asIScriptEngine* engine)
 // class UISelectable | File: ../UI/UISelectable.h
 static void Register_UISelectable(asIScriptEngine* engine)
 {
+    RegisterSubclass<UIElement, UISelectable>(engine, "UIElement", "UISelectable");
+    RegisterSubclass<Animatable, UISelectable>(engine, "Animatable", "UISelectable");
+    RegisterSubclass<Serializable, UISelectable>(engine, "Serializable", "UISelectable");
+    RegisterSubclass<Object, UISelectable>(engine, "Object", "UISelectable");
+    RegisterSubclass<RefCounted, UISelectable>(engine, "RefCounted", "UISelectable");
+
     MemberCollection members;
     CollectMembers_UISelectable(members);
     RegisterMembers(engine, "UISelectable", members);
@@ -5062,6 +5580,12 @@ static void Register_UISelectable(asIScriptEngine* engine)
 // class UnknownComponent | File: ../Scene/UnknownComponent.h
 static void Register_UnknownComponent(asIScriptEngine* engine)
 {
+    RegisterSubclass<Component, UnknownComponent>(engine, "Component", "UnknownComponent");
+    RegisterSubclass<Animatable, UnknownComponent>(engine, "Animatable", "UnknownComponent");
+    RegisterSubclass<Serializable, UnknownComponent>(engine, "Serializable", "UnknownComponent");
+    RegisterSubclass<Object, UnknownComponent>(engine, "Object", "UnknownComponent");
+    RegisterSubclass<RefCounted, UnknownComponent>(engine, "RefCounted", "UnknownComponent");
+
     MemberCollection members;
     CollectMembers_UnknownComponent(members);
     RegisterMembers(engine, "UnknownComponent", members);
@@ -5114,6 +5638,10 @@ static void Register_ValueAnimation(asIScriptEngine* engine)
     // explicit ValueAnimation::ValueAnimation(Context* context)
     engine->RegisterObjectBehaviour("ValueAnimation", asBEHAVE_FACTORY, "ValueAnimation@+ f()", AS_FUNCTION(ValueAnimation_ValueAnimation_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, ValueAnimation>(engine, "Resource", "ValueAnimation");
+    RegisterSubclass<Object, ValueAnimation>(engine, "Object", "ValueAnimation");
+    RegisterSubclass<RefCounted, ValueAnimation>(engine, "RefCounted", "ValueAnimation");
+
     MemberCollection members;
     CollectMembers_ValueAnimation(members);
     RegisterMembers(engine, "ValueAnimation", members);
@@ -5150,6 +5678,8 @@ static void Register_ValueAnimationInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_FACTORY, "ValueAnimationInfo@+ f(Object@+, ValueAnimation@+, WrapMode, float)", AS_FUNCTION(ValueAnimationInfo_ValueAnimationInfo_Object_ValueAnimation_WrapMode_float) , AS_CALL_CDECL);
     // ValueAnimationInfo::ValueAnimationInfo(const ValueAnimationInfo& other)
     engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_FACTORY, "ValueAnimationInfo@+ f(const ValueAnimationInfo&in)", AS_FUNCTION(ValueAnimationInfo_ValueAnimationInfo_ValueAnimationInfo) , AS_CALL_CDECL);
+
+    RegisterSubclass<RefCounted, ValueAnimationInfo>(engine, "RefCounted", "ValueAnimationInfo");
 
     MemberCollection members;
     CollectMembers_ValueAnimationInfo(members);
@@ -5633,6 +6163,9 @@ static void Register_VertexBuffer(asIScriptEngine* engine)
     // explicit VertexBuffer::VertexBuffer(Context* context, bool forceHeadless=false)
     engine->RegisterObjectBehaviour("VertexBuffer", asBEHAVE_FACTORY, "VertexBuffer@+ f(bool = false)", AS_FUNCTION(VertexBuffer_VertexBuffer_Context_bool) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, VertexBuffer>(engine, "Object", "VertexBuffer");
+    RegisterSubclass<RefCounted, VertexBuffer>(engine, "RefCounted", "VertexBuffer");
+
     MemberCollection members;
     CollectMembers_VertexBuffer(members);
     RegisterMembers(engine, "VertexBuffer", members);
@@ -5709,6 +6242,9 @@ static void Register_View(asIScriptEngine* engine)
     // explicit View::View(Context* context)
     engine->RegisterObjectBehaviour("View", asBEHAVE_FACTORY, "View@+ f()", AS_FUNCTION(View_View_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, View>(engine, "Object", "View");
+    RegisterSubclass<RefCounted, View>(engine, "RefCounted", "View");
+
     MemberCollection members;
     CollectMembers_View(members);
     RegisterMembers(engine, "View", members);
@@ -5730,6 +6266,14 @@ static void Register_View3D(asIScriptEngine* engine)
 {
     // explicit View3D::View3D(Context* context)
     engine->RegisterObjectBehaviour("View3D", asBEHAVE_FACTORY, "View3D@+ f()", AS_FUNCTION(View3D_View3D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Window, View3D>(engine, "Window", "View3D");
+    RegisterSubclass<BorderImage, View3D>(engine, "BorderImage", "View3D");
+    RegisterSubclass<UIElement, View3D>(engine, "UIElement", "View3D");
+    RegisterSubclass<Animatable, View3D>(engine, "Animatable", "View3D");
+    RegisterSubclass<Serializable, View3D>(engine, "Serializable", "View3D");
+    RegisterSubclass<Object, View3D>(engine, "Object", "View3D");
+    RegisterSubclass<RefCounted, View3D>(engine, "RefCounted", "View3D");
 
     MemberCollection members;
     CollectMembers_View3D(members);
@@ -5771,6 +6315,9 @@ static void Register_Viewport(asIScriptEngine* engine)
     // Viewport::Viewport(Context* context, Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath=nullptr)
     engine->RegisterObjectBehaviour("Viewport", asBEHAVE_FACTORY, "Viewport@+ f(Scene@+, Camera@+, const IntRect&in, RenderPath@+ = null)", AS_FUNCTION(Viewport_Viewport_Context_Scene_Camera_IntRect_RenderPath) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Viewport>(engine, "Object", "Viewport");
+    RegisterSubclass<RefCounted, Viewport>(engine, "RefCounted", "Viewport");
+
     MemberCollection members;
     CollectMembers_Viewport(members);
     RegisterMembers(engine, "Viewport", members);
@@ -5792,6 +6339,13 @@ static void Register_Window(asIScriptEngine* engine)
 {
     // explicit Window::Window(Context* context)
     engine->RegisterObjectBehaviour("Window", asBEHAVE_FACTORY, "Window@+ f()", AS_FUNCTION(Window_Window_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<BorderImage, Window>(engine, "BorderImage", "Window");
+    RegisterSubclass<UIElement, Window>(engine, "UIElement", "Window");
+    RegisterSubclass<Animatable, Window>(engine, "Animatable", "Window");
+    RegisterSubclass<Serializable, Window>(engine, "Serializable", "Window");
+    RegisterSubclass<Object, Window>(engine, "Object", "Window");
+    RegisterSubclass<RefCounted, Window>(engine, "RefCounted", "Window");
 
     MemberCollection members;
     CollectMembers_Window(members);
@@ -5829,6 +6383,9 @@ static void Register_WorkQueue(asIScriptEngine* engine)
 {
     // explicit WorkQueue::WorkQueue(Context* context)
     engine->RegisterObjectBehaviour("WorkQueue", asBEHAVE_FACTORY, "WorkQueue@+ f()", AS_FUNCTION(WorkQueue_WorkQueue_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, WorkQueue>(engine, "Object", "WorkQueue");
+    RegisterSubclass<RefCounted, WorkQueue>(engine, "RefCounted", "WorkQueue");
 
     MemberCollection members;
     CollectMembers_WorkQueue(members);
@@ -5880,6 +6437,10 @@ static void Register_XMLFile(asIScriptEngine* engine)
 {
     // explicit XMLFile::XMLFile(Context* context)
     engine->RegisterObjectBehaviour("XMLFile", asBEHAVE_FACTORY, "XMLFile@+ f()", AS_FUNCTION(XMLFile_XMLFile_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Resource, XMLFile>(engine, "Resource", "XMLFile");
+    RegisterSubclass<Object, XMLFile>(engine, "Object", "XMLFile");
+    RegisterSubclass<RefCounted, XMLFile>(engine, "RefCounted", "XMLFile");
 
     MemberCollection members;
     CollectMembers_XMLFile(members);
@@ -5954,6 +6515,13 @@ static void Register_Zone(asIScriptEngine* engine)
     // explicit Zone::Zone(Context* context)
     engine->RegisterObjectBehaviour("Zone", asBEHAVE_FACTORY, "Zone@+ f()", AS_FUNCTION(Zone_Zone_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Drawable, Zone>(engine, "Drawable", "Zone");
+    RegisterSubclass<Component, Zone>(engine, "Component", "Zone");
+    RegisterSubclass<Animatable, Zone>(engine, "Animatable", "Zone");
+    RegisterSubclass<Serializable, Zone>(engine, "Serializable", "Zone");
+    RegisterSubclass<Object, Zone>(engine, "Object", "Zone");
+    RegisterSubclass<RefCounted, Zone>(engine, "RefCounted", "Zone");
+
     MemberCollection members;
     CollectMembers_Zone(members);
     RegisterMembers(engine, "Zone", members);
@@ -5977,6 +6545,9 @@ static void Register_Database(asIScriptEngine* engine)
 {
     // explicit Database::Database(Context* context)
     engine->RegisterObjectBehaviour("Database", asBEHAVE_FACTORY, "Database@+ f()", AS_FUNCTION(Database_Database_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Object, Database>(engine, "Object", "Database");
+    RegisterSubclass<RefCounted, Database>(engine, "RefCounted", "Database");
 
     MemberCollection members;
     CollectMembers_Database(members);
@@ -6004,6 +6575,12 @@ static void Register_IKConstraint(asIScriptEngine* engine)
     // explicit IKConstraint::IKConstraint(Context* context)
     engine->RegisterObjectBehaviour("IKConstraint", asBEHAVE_FACTORY, "IKConstraint@+ f()", AS_FUNCTION(IKConstraint_IKConstraint_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, IKConstraint>(engine, "Component", "IKConstraint");
+    RegisterSubclass<Animatable, IKConstraint>(engine, "Animatable", "IKConstraint");
+    RegisterSubclass<Serializable, IKConstraint>(engine, "Serializable", "IKConstraint");
+    RegisterSubclass<Object, IKConstraint>(engine, "Object", "IKConstraint");
+    RegisterSubclass<RefCounted, IKConstraint>(engine, "RefCounted", "IKConstraint");
+
     MemberCollection members;
     CollectMembers_IKConstraint(members);
     RegisterMembers(engine, "IKConstraint", members);
@@ -6026,6 +6603,12 @@ static void Register_IKEffector(asIScriptEngine* engine)
     // explicit IKEffector::IKEffector(Context* context)
     engine->RegisterObjectBehaviour("IKEffector", asBEHAVE_FACTORY, "IKEffector@+ f()", AS_FUNCTION(IKEffector_IKEffector_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, IKEffector>(engine, "Component", "IKEffector");
+    RegisterSubclass<Animatable, IKEffector>(engine, "Animatable", "IKEffector");
+    RegisterSubclass<Serializable, IKEffector>(engine, "Serializable", "IKEffector");
+    RegisterSubclass<Object, IKEffector>(engine, "Object", "IKEffector");
+    RegisterSubclass<RefCounted, IKEffector>(engine, "RefCounted", "IKEffector");
+
     MemberCollection members;
     CollectMembers_IKEffector(members);
     RegisterMembers(engine, "IKEffector", members);
@@ -6047,6 +6630,12 @@ static void Register_IKSolver(asIScriptEngine* engine)
 {
     // explicit IKSolver::IKSolver(Context* context)
     engine->RegisterObjectBehaviour("IKSolver", asBEHAVE_FACTORY, "IKSolver@+ f()", AS_FUNCTION(IKSolver_IKSolver_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, IKSolver>(engine, "Component", "IKSolver");
+    RegisterSubclass<Animatable, IKSolver>(engine, "Animatable", "IKSolver");
+    RegisterSubclass<Serializable, IKSolver>(engine, "Serializable", "IKSolver");
+    RegisterSubclass<Object, IKSolver>(engine, "Object", "IKSolver");
+    RegisterSubclass<RefCounted, IKSolver>(engine, "RefCounted", "IKSolver");
 
     MemberCollection members;
     CollectMembers_IKSolver(members);
@@ -6074,6 +6663,12 @@ static void Register_CrowdAgent(asIScriptEngine* engine)
     // explicit CrowdAgent::CrowdAgent(Context* context)
     engine->RegisterObjectBehaviour("CrowdAgent", asBEHAVE_FACTORY, "CrowdAgent@+ f()", AS_FUNCTION(CrowdAgent_CrowdAgent_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, CrowdAgent>(engine, "Component", "CrowdAgent");
+    RegisterSubclass<Animatable, CrowdAgent>(engine, "Animatable", "CrowdAgent");
+    RegisterSubclass<Serializable, CrowdAgent>(engine, "Serializable", "CrowdAgent");
+    RegisterSubclass<Object, CrowdAgent>(engine, "Object", "CrowdAgent");
+    RegisterSubclass<RefCounted, CrowdAgent>(engine, "RefCounted", "CrowdAgent");
+
     MemberCollection members;
     CollectMembers_CrowdAgent(members);
     RegisterMembers(engine, "CrowdAgent", members);
@@ -6095,6 +6690,12 @@ static void Register_CrowdManager(asIScriptEngine* engine)
 {
     // explicit CrowdManager::CrowdManager(Context* context)
     engine->RegisterObjectBehaviour("CrowdManager", asBEHAVE_FACTORY, "CrowdManager@+ f()", AS_FUNCTION(CrowdManager_CrowdManager_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, CrowdManager>(engine, "Component", "CrowdManager");
+    RegisterSubclass<Animatable, CrowdManager>(engine, "Animatable", "CrowdManager");
+    RegisterSubclass<Serializable, CrowdManager>(engine, "Serializable", "CrowdManager");
+    RegisterSubclass<Object, CrowdManager>(engine, "Object", "CrowdManager");
+    RegisterSubclass<RefCounted, CrowdManager>(engine, "RefCounted", "CrowdManager");
 
     MemberCollection members;
     CollectMembers_CrowdManager(members);
@@ -6130,6 +6731,13 @@ static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
     // explicit DynamicNavigationMesh::DynamicNavigationMesh(Context* context)
     engine->RegisterObjectBehaviour("DynamicNavigationMesh", asBEHAVE_FACTORY, "DynamicNavigationMesh@+ f()", AS_FUNCTION(DynamicNavigationMesh_DynamicNavigationMesh_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<NavigationMesh, DynamicNavigationMesh>(engine, "NavigationMesh", "DynamicNavigationMesh");
+    RegisterSubclass<Component, DynamicNavigationMesh>(engine, "Component", "DynamicNavigationMesh");
+    RegisterSubclass<Animatable, DynamicNavigationMesh>(engine, "Animatable", "DynamicNavigationMesh");
+    RegisterSubclass<Serializable, DynamicNavigationMesh>(engine, "Serializable", "DynamicNavigationMesh");
+    RegisterSubclass<Object, DynamicNavigationMesh>(engine, "Object", "DynamicNavigationMesh");
+    RegisterSubclass<RefCounted, DynamicNavigationMesh>(engine, "RefCounted", "DynamicNavigationMesh");
+
     MemberCollection members;
     CollectMembers_DynamicNavigationMesh(members);
     RegisterMembers(engine, "DynamicNavigationMesh", members);
@@ -6151,6 +6759,12 @@ static void Register_NavArea(asIScriptEngine* engine)
 {
     // explicit NavArea::NavArea(Context* context)
     engine->RegisterObjectBehaviour("NavArea", asBEHAVE_FACTORY, "NavArea@+ f()", AS_FUNCTION(NavArea_NavArea_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, NavArea>(engine, "Component", "NavArea");
+    RegisterSubclass<Animatable, NavArea>(engine, "Animatable", "NavArea");
+    RegisterSubclass<Serializable, NavArea>(engine, "Serializable", "NavArea");
+    RegisterSubclass<Object, NavArea>(engine, "Object", "NavArea");
+    RegisterSubclass<RefCounted, NavArea>(engine, "RefCounted", "NavArea");
 
     MemberCollection members;
     CollectMembers_NavArea(members);
@@ -6204,6 +6818,12 @@ static void Register_Navigable(asIScriptEngine* engine)
     // explicit Navigable::Navigable(Context* context)
     engine->RegisterObjectBehaviour("Navigable", asBEHAVE_FACTORY, "Navigable@+ f()", AS_FUNCTION(Navigable_Navigable_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, Navigable>(engine, "Component", "Navigable");
+    RegisterSubclass<Animatable, Navigable>(engine, "Animatable", "Navigable");
+    RegisterSubclass<Serializable, Navigable>(engine, "Serializable", "Navigable");
+    RegisterSubclass<Object, Navigable>(engine, "Object", "Navigable");
+    RegisterSubclass<RefCounted, Navigable>(engine, "RefCounted", "Navigable");
+
     MemberCollection members;
     CollectMembers_Navigable(members);
     RegisterMembers(engine, "Navigable", members);
@@ -6240,6 +6860,12 @@ static void Register_NavigationMesh(asIScriptEngine* engine)
 {
     // explicit NavigationMesh::NavigationMesh(Context* context)
     engine->RegisterObjectBehaviour("NavigationMesh", asBEHAVE_FACTORY, "NavigationMesh@+ f()", AS_FUNCTION(NavigationMesh_NavigationMesh_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, NavigationMesh>(engine, "Component", "NavigationMesh");
+    RegisterSubclass<Animatable, NavigationMesh>(engine, "Animatable", "NavigationMesh");
+    RegisterSubclass<Serializable, NavigationMesh>(engine, "Serializable", "NavigationMesh");
+    RegisterSubclass<Object, NavigationMesh>(engine, "Object", "NavigationMesh");
+    RegisterSubclass<RefCounted, NavigationMesh>(engine, "RefCounted", "NavigationMesh");
 
     MemberCollection members;
     CollectMembers_NavigationMesh(members);
@@ -6278,6 +6904,12 @@ static void Register_Obstacle(asIScriptEngine* engine)
     // explicit Obstacle::Obstacle(Context* context)
     engine->RegisterObjectBehaviour("Obstacle", asBEHAVE_FACTORY, "Obstacle@+ f()", AS_FUNCTION(Obstacle_Obstacle_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, Obstacle>(engine, "Component", "Obstacle");
+    RegisterSubclass<Animatable, Obstacle>(engine, "Animatable", "Obstacle");
+    RegisterSubclass<Serializable, Obstacle>(engine, "Serializable", "Obstacle");
+    RegisterSubclass<Object, Obstacle>(engine, "Object", "Obstacle");
+    RegisterSubclass<RefCounted, Obstacle>(engine, "RefCounted", "Obstacle");
+
     MemberCollection members;
     CollectMembers_Obstacle(members);
     RegisterMembers(engine, "Obstacle", members);
@@ -6299,6 +6931,12 @@ static void Register_OffMeshConnection(asIScriptEngine* engine)
 {
     // explicit OffMeshConnection::OffMeshConnection(Context* context)
     engine->RegisterObjectBehaviour("OffMeshConnection", asBEHAVE_FACTORY, "OffMeshConnection@+ f()", AS_FUNCTION(OffMeshConnection_OffMeshConnection_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, OffMeshConnection>(engine, "Component", "OffMeshConnection");
+    RegisterSubclass<Animatable, OffMeshConnection>(engine, "Animatable", "OffMeshConnection");
+    RegisterSubclass<Serializable, OffMeshConnection>(engine, "Serializable", "OffMeshConnection");
+    RegisterSubclass<Object, OffMeshConnection>(engine, "Object", "OffMeshConnection");
+    RegisterSubclass<RefCounted, OffMeshConnection>(engine, "RefCounted", "OffMeshConnection");
 
     MemberCollection members;
     CollectMembers_OffMeshConnection(members);
@@ -6334,6 +6972,9 @@ static void Register_Connection(asIScriptEngine* engine)
     // Connection::Connection(Context* context, bool isClient, const SLNet::AddressOrGUID& address, SLNet::RakPeerInterface* peer)
     // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
 
+    RegisterSubclass<Object, Connection>(engine, "Object", "Connection");
+    RegisterSubclass<RefCounted, Connection>(engine, "RefCounted", "Connection");
+
     MemberCollection members;
     CollectMembers_Connection(members);
     RegisterMembers(engine, "Connection", members);
@@ -6355,6 +6996,9 @@ static void Register_HttpRequest(asIScriptEngine* engine)
 {
     // HttpRequest::HttpRequest(const String& url, const String& verb, const Vector<String>& headers, const String& postData)
     engine->RegisterObjectBehaviour("HttpRequest", asBEHAVE_FACTORY, "HttpRequest@+ f(const String&in, const String&in, Array<String>@+, const String&in)", AS_FUNCTION(HttpRequest_HttpRequest_String_String_VectorString_String) , AS_CALL_CDECL);
+
+    RegisterSubclass<RefCounted, HttpRequest>(engine, "RefCounted", "HttpRequest");
+    RegisterSubclass<Deserializer, HttpRequest>(engine, "Deserializer", "HttpRequest");
 
     MemberCollection members;
     CollectMembers_HttpRequest(members);
@@ -6378,6 +7022,9 @@ static void Register_Network(asIScriptEngine* engine)
     // explicit Network::Network(Context* context)
     engine->RegisterObjectBehaviour("Network", asBEHAVE_FACTORY, "Network@+ f()", AS_FUNCTION(Network_Network_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Object, Network>(engine, "Object", "Network");
+    RegisterSubclass<RefCounted, Network>(engine, "RefCounted", "Network");
+
     MemberCollection members;
     CollectMembers_Network(members);
     RegisterMembers(engine, "Network", members);
@@ -6399,6 +7046,12 @@ static void Register_NetworkPriority(asIScriptEngine* engine)
 {
     // explicit NetworkPriority::NetworkPriority(Context* context)
     engine->RegisterObjectBehaviour("NetworkPriority", asBEHAVE_FACTORY, "NetworkPriority@+ f()", AS_FUNCTION(NetworkPriority_NetworkPriority_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, NetworkPriority>(engine, "Component", "NetworkPriority");
+    RegisterSubclass<Animatable, NetworkPriority>(engine, "Animatable", "NetworkPriority");
+    RegisterSubclass<Serializable, NetworkPriority>(engine, "Serializable", "NetworkPriority");
+    RegisterSubclass<Object, NetworkPriority>(engine, "Object", "NetworkPriority");
+    RegisterSubclass<RefCounted, NetworkPriority>(engine, "RefCounted", "NetworkPriority");
 
     MemberCollection members;
     CollectMembers_NetworkPriority(members);
@@ -6461,6 +7114,8 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
 // struct CollisionGeometryData | File: ../Physics/CollisionShape.h
 static void Register_CollisionGeometryData(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, CollisionGeometryData>(engine, "RefCounted", "CollisionGeometryData");
+
     MemberCollection members;
     CollectMembers_CollisionGeometryData(members);
     RegisterMembers(engine, "CollisionGeometryData", members);
@@ -6483,6 +7138,12 @@ static void Register_CollisionShape(asIScriptEngine* engine)
     // explicit CollisionShape::CollisionShape(Context* context)
     engine->RegisterObjectBehaviour("CollisionShape", asBEHAVE_FACTORY, "CollisionShape@+ f()", AS_FUNCTION(CollisionShape_CollisionShape_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, CollisionShape>(engine, "Component", "CollisionShape");
+    RegisterSubclass<Animatable, CollisionShape>(engine, "Animatable", "CollisionShape");
+    RegisterSubclass<Serializable, CollisionShape>(engine, "Serializable", "CollisionShape");
+    RegisterSubclass<Object, CollisionShape>(engine, "Object", "CollisionShape");
+    RegisterSubclass<RefCounted, CollisionShape>(engine, "RefCounted", "CollisionShape");
+
     MemberCollection members;
     CollectMembers_CollisionShape(members);
     RegisterMembers(engine, "CollisionShape", members);
@@ -6504,6 +7165,12 @@ static void Register_Constraint(asIScriptEngine* engine)
 {
     // explicit Constraint::Constraint(Context* context)
     engine->RegisterObjectBehaviour("Constraint", asBEHAVE_FACTORY, "Constraint@+ f()", AS_FUNCTION(Constraint_Constraint_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, Constraint>(engine, "Component", "Constraint");
+    RegisterSubclass<Animatable, Constraint>(engine, "Animatable", "Constraint");
+    RegisterSubclass<Serializable, Constraint>(engine, "Serializable", "Constraint");
+    RegisterSubclass<Object, Constraint>(engine, "Object", "Constraint");
+    RegisterSubclass<RefCounted, Constraint>(engine, "RefCounted", "Constraint");
 
     MemberCollection members;
     CollectMembers_Constraint(members);
@@ -6533,6 +7200,9 @@ static void Register_ConvexData(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_FACTORY, "ConvexData@+ f(Model@+, uint)", AS_FUNCTION(ConvexData_ConvexData_Model_unsigned) , AS_CALL_CDECL);
     // explicit ConvexData::ConvexData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_FACTORY, "ConvexData@+ f(CustomGeometry@+)", AS_FUNCTION(ConvexData_ConvexData_CustomGeometry) , AS_CALL_CDECL);
+
+    RegisterSubclass<CollisionGeometryData, ConvexData>(engine, "CollisionGeometryData", "ConvexData");
+    RegisterSubclass<RefCounted, ConvexData>(engine, "RefCounted", "ConvexData");
 
     MemberCollection members;
     CollectMembers_ConvexData(members);
@@ -6578,6 +7248,9 @@ static void Register_GImpactMeshData(asIScriptEngine* engine)
     // explicit GImpactMeshData::GImpactMeshData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("GImpactMeshData", asBEHAVE_FACTORY, "GImpactMeshData@+ f(CustomGeometry@+)", AS_FUNCTION(GImpactMeshData_GImpactMeshData_CustomGeometry) , AS_CALL_CDECL);
 
+    RegisterSubclass<CollisionGeometryData, GImpactMeshData>(engine, "CollisionGeometryData", "GImpactMeshData");
+    RegisterSubclass<RefCounted, GImpactMeshData>(engine, "RefCounted", "GImpactMeshData");
+
     MemberCollection members;
     CollectMembers_GImpactMeshData(members);
     RegisterMembers(engine, "GImpactMeshData", members);
@@ -6598,6 +7271,9 @@ static void Register_HeightfieldData(asIScriptEngine* engine)
 {
     // HeightfieldData::HeightfieldData(Terrain* terrain, unsigned lodLevel)
     engine->RegisterObjectBehaviour("HeightfieldData", asBEHAVE_FACTORY, "HeightfieldData@+ f(Terrain@+, uint)", AS_FUNCTION(HeightfieldData_HeightfieldData_Terrain_unsigned) , AS_CALL_CDECL);
+
+    RegisterSubclass<CollisionGeometryData, HeightfieldData>(engine, "CollisionGeometryData", "HeightfieldData");
+    RegisterSubclass<RefCounted, HeightfieldData>(engine, "RefCounted", "HeightfieldData");
 
     MemberCollection members;
     CollectMembers_HeightfieldData(members);
@@ -6651,6 +7327,12 @@ static void Register_PhysicsWorld(asIScriptEngine* engine)
     // explicit PhysicsWorld::PhysicsWorld(Context* context)
     engine->RegisterObjectBehaviour("PhysicsWorld", asBEHAVE_FACTORY, "PhysicsWorld@+ f()", AS_FUNCTION(PhysicsWorld_PhysicsWorld_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, PhysicsWorld>(engine, "Component", "PhysicsWorld");
+    RegisterSubclass<Animatable, PhysicsWorld>(engine, "Animatable", "PhysicsWorld");
+    RegisterSubclass<Serializable, PhysicsWorld>(engine, "Serializable", "PhysicsWorld");
+    RegisterSubclass<Object, PhysicsWorld>(engine, "Object", "PhysicsWorld");
+    RegisterSubclass<RefCounted, PhysicsWorld>(engine, "RefCounted", "PhysicsWorld");
+
     MemberCollection members;
     CollectMembers_PhysicsWorld(members);
     RegisterMembers(engine, "PhysicsWorld", members);
@@ -6681,6 +7363,13 @@ static void Register_RaycastVehicle(asIScriptEngine* engine)
     // explicit RaycastVehicle::RaycastVehicle(Urho3D::Context* context)
     // Error: type "Urho3D::Context*" can not automatically bind
 
+    RegisterSubclass<LogicComponent, RaycastVehicle>(engine, "LogicComponent", "RaycastVehicle");
+    RegisterSubclass<Component, RaycastVehicle>(engine, "Component", "RaycastVehicle");
+    RegisterSubclass<Animatable, RaycastVehicle>(engine, "Animatable", "RaycastVehicle");
+    RegisterSubclass<Serializable, RaycastVehicle>(engine, "Serializable", "RaycastVehicle");
+    RegisterSubclass<Object, RaycastVehicle>(engine, "Object", "RaycastVehicle");
+    RegisterSubclass<RefCounted, RaycastVehicle>(engine, "RefCounted", "RaycastVehicle");
+
     MemberCollection members;
     CollectMembers_RaycastVehicle(members);
     RegisterMembers(engine, "RaycastVehicle", members);
@@ -6702,6 +7391,12 @@ static void Register_RigidBody(asIScriptEngine* engine)
 {
     // explicit RigidBody::RigidBody(Context* context)
     engine->RegisterObjectBehaviour("RigidBody", asBEHAVE_FACTORY, "RigidBody@+ f()", AS_FUNCTION(RigidBody_RigidBody_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, RigidBody>(engine, "Component", "RigidBody");
+    RegisterSubclass<Animatable, RigidBody>(engine, "Animatable", "RigidBody");
+    RegisterSubclass<Serializable, RigidBody>(engine, "Serializable", "RigidBody");
+    RegisterSubclass<Object, RigidBody>(engine, "Object", "RigidBody");
+    RegisterSubclass<RefCounted, RigidBody>(engine, "RefCounted", "RigidBody");
 
     MemberCollection members;
     CollectMembers_RigidBody(members);
@@ -6732,6 +7427,9 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
     // explicit TriangleMeshData::TriangleMeshData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("TriangleMeshData", asBEHAVE_FACTORY, "TriangleMeshData@+ f(CustomGeometry@+)", AS_FUNCTION(TriangleMeshData_TriangleMeshData_CustomGeometry) , AS_CALL_CDECL);
 
+    RegisterSubclass<CollisionGeometryData, TriangleMeshData>(engine, "CollisionGeometryData", "TriangleMeshData");
+    RegisterSubclass<RefCounted, TriangleMeshData>(engine, "RefCounted", "TriangleMeshData");
+
     MemberCollection members;
     CollectMembers_TriangleMeshData(members);
     RegisterMembers(engine, "TriangleMeshData", members);
@@ -6758,6 +7456,15 @@ static void Register_AnimatedSprite2D(asIScriptEngine* engine)
     // explicit AnimatedSprite2D::AnimatedSprite2D(Context* context)
     engine->RegisterObjectBehaviour("AnimatedSprite2D", asBEHAVE_FACTORY, "AnimatedSprite2D@+ f()", AS_FUNCTION(AnimatedSprite2D_AnimatedSprite2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<StaticSprite2D, AnimatedSprite2D>(engine, "StaticSprite2D", "AnimatedSprite2D");
+    RegisterSubclass<Drawable2D, AnimatedSprite2D>(engine, "Drawable2D", "AnimatedSprite2D");
+    RegisterSubclass<Drawable, AnimatedSprite2D>(engine, "Drawable", "AnimatedSprite2D");
+    RegisterSubclass<Component, AnimatedSprite2D>(engine, "Component", "AnimatedSprite2D");
+    RegisterSubclass<Animatable, AnimatedSprite2D>(engine, "Animatable", "AnimatedSprite2D");
+    RegisterSubclass<Serializable, AnimatedSprite2D>(engine, "Serializable", "AnimatedSprite2D");
+    RegisterSubclass<Object, AnimatedSprite2D>(engine, "Object", "AnimatedSprite2D");
+    RegisterSubclass<RefCounted, AnimatedSprite2D>(engine, "RefCounted", "AnimatedSprite2D");
+
     MemberCollection members;
     CollectMembers_AnimatedSprite2D(members);
     RegisterMembers(engine, "AnimatedSprite2D", members);
@@ -6779,6 +7486,10 @@ static void Register_AnimationSet2D(asIScriptEngine* engine)
 {
     // explicit AnimationSet2D::AnimationSet2D(Context* context)
     engine->RegisterObjectBehaviour("AnimationSet2D", asBEHAVE_FACTORY, "AnimationSet2D@+ f()", AS_FUNCTION(AnimationSet2D_AnimationSet2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Resource, AnimationSet2D>(engine, "Resource", "AnimationSet2D");
+    RegisterSubclass<Object, AnimationSet2D>(engine, "Object", "AnimationSet2D");
+    RegisterSubclass<RefCounted, AnimationSet2D>(engine, "RefCounted", "AnimationSet2D");
 
     MemberCollection members;
     CollectMembers_AnimationSet2D(members);
@@ -6802,6 +7513,13 @@ static void Register_CollisionBox2D(asIScriptEngine* engine)
     // explicit CollisionBox2D::CollisionBox2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionBox2D", asBEHAVE_FACTORY, "CollisionBox2D@+ f()", AS_FUNCTION(CollisionBox2D_CollisionBox2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<CollisionShape2D, CollisionBox2D>(engine, "CollisionShape2D", "CollisionBox2D");
+    RegisterSubclass<Component, CollisionBox2D>(engine, "Component", "CollisionBox2D");
+    RegisterSubclass<Animatable, CollisionBox2D>(engine, "Animatable", "CollisionBox2D");
+    RegisterSubclass<Serializable, CollisionBox2D>(engine, "Serializable", "CollisionBox2D");
+    RegisterSubclass<Object, CollisionBox2D>(engine, "Object", "CollisionBox2D");
+    RegisterSubclass<RefCounted, CollisionBox2D>(engine, "RefCounted", "CollisionBox2D");
+
     MemberCollection members;
     CollectMembers_CollisionBox2D(members);
     RegisterMembers(engine, "CollisionBox2D", members);
@@ -6823,6 +7541,13 @@ static void Register_CollisionChain2D(asIScriptEngine* engine)
 {
     // explicit CollisionChain2D::CollisionChain2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionChain2D", asBEHAVE_FACTORY, "CollisionChain2D@+ f()", AS_FUNCTION(CollisionChain2D_CollisionChain2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<CollisionShape2D, CollisionChain2D>(engine, "CollisionShape2D", "CollisionChain2D");
+    RegisterSubclass<Component, CollisionChain2D>(engine, "Component", "CollisionChain2D");
+    RegisterSubclass<Animatable, CollisionChain2D>(engine, "Animatable", "CollisionChain2D");
+    RegisterSubclass<Serializable, CollisionChain2D>(engine, "Serializable", "CollisionChain2D");
+    RegisterSubclass<Object, CollisionChain2D>(engine, "Object", "CollisionChain2D");
+    RegisterSubclass<RefCounted, CollisionChain2D>(engine, "RefCounted", "CollisionChain2D");
 
     MemberCollection members;
     CollectMembers_CollisionChain2D(members);
@@ -6846,6 +7571,13 @@ static void Register_CollisionCircle2D(asIScriptEngine* engine)
     // explicit CollisionCircle2D::CollisionCircle2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionCircle2D", asBEHAVE_FACTORY, "CollisionCircle2D@+ f()", AS_FUNCTION(CollisionCircle2D_CollisionCircle2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<CollisionShape2D, CollisionCircle2D>(engine, "CollisionShape2D", "CollisionCircle2D");
+    RegisterSubclass<Component, CollisionCircle2D>(engine, "Component", "CollisionCircle2D");
+    RegisterSubclass<Animatable, CollisionCircle2D>(engine, "Animatable", "CollisionCircle2D");
+    RegisterSubclass<Serializable, CollisionCircle2D>(engine, "Serializable", "CollisionCircle2D");
+    RegisterSubclass<Object, CollisionCircle2D>(engine, "Object", "CollisionCircle2D");
+    RegisterSubclass<RefCounted, CollisionCircle2D>(engine, "RefCounted", "CollisionCircle2D");
+
     MemberCollection members;
     CollectMembers_CollisionCircle2D(members);
     RegisterMembers(engine, "CollisionCircle2D", members);
@@ -6867,6 +7599,13 @@ static void Register_CollisionEdge2D(asIScriptEngine* engine)
 {
     // explicit CollisionEdge2D::CollisionEdge2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionEdge2D", asBEHAVE_FACTORY, "CollisionEdge2D@+ f()", AS_FUNCTION(CollisionEdge2D_CollisionEdge2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<CollisionShape2D, CollisionEdge2D>(engine, "CollisionShape2D", "CollisionEdge2D");
+    RegisterSubclass<Component, CollisionEdge2D>(engine, "Component", "CollisionEdge2D");
+    RegisterSubclass<Animatable, CollisionEdge2D>(engine, "Animatable", "CollisionEdge2D");
+    RegisterSubclass<Serializable, CollisionEdge2D>(engine, "Serializable", "CollisionEdge2D");
+    RegisterSubclass<Object, CollisionEdge2D>(engine, "Object", "CollisionEdge2D");
+    RegisterSubclass<RefCounted, CollisionEdge2D>(engine, "RefCounted", "CollisionEdge2D");
 
     MemberCollection members;
     CollectMembers_CollisionEdge2D(members);
@@ -6890,6 +7629,13 @@ static void Register_CollisionPolygon2D(asIScriptEngine* engine)
     // explicit CollisionPolygon2D::CollisionPolygon2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionPolygon2D", asBEHAVE_FACTORY, "CollisionPolygon2D@+ f()", AS_FUNCTION(CollisionPolygon2D_CollisionPolygon2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<CollisionShape2D, CollisionPolygon2D>(engine, "CollisionShape2D", "CollisionPolygon2D");
+    RegisterSubclass<Component, CollisionPolygon2D>(engine, "Component", "CollisionPolygon2D");
+    RegisterSubclass<Animatable, CollisionPolygon2D>(engine, "Animatable", "CollisionPolygon2D");
+    RegisterSubclass<Serializable, CollisionPolygon2D>(engine, "Serializable", "CollisionPolygon2D");
+    RegisterSubclass<Object, CollisionPolygon2D>(engine, "Object", "CollisionPolygon2D");
+    RegisterSubclass<RefCounted, CollisionPolygon2D>(engine, "RefCounted", "CollisionPolygon2D");
+
     MemberCollection members;
     CollectMembers_CollisionPolygon2D(members);
     RegisterMembers(engine, "CollisionPolygon2D", members);
@@ -6902,6 +7648,12 @@ static void Register_CollisionPolygon2D(asIScriptEngine* engine)
 // class CollisionShape2D | File: ../Urho2D/CollisionShape2D.h
 static void Register_CollisionShape2D(asIScriptEngine* engine)
 {
+    RegisterSubclass<Component, CollisionShape2D>(engine, "Component", "CollisionShape2D");
+    RegisterSubclass<Animatable, CollisionShape2D>(engine, "Animatable", "CollisionShape2D");
+    RegisterSubclass<Serializable, CollisionShape2D>(engine, "Serializable", "CollisionShape2D");
+    RegisterSubclass<Object, CollisionShape2D>(engine, "Object", "CollisionShape2D");
+    RegisterSubclass<RefCounted, CollisionShape2D>(engine, "RefCounted", "CollisionShape2D");
+
     MemberCollection members;
     CollectMembers_CollisionShape2D(members);
     RegisterMembers(engine, "CollisionShape2D", members);
@@ -6923,6 +7675,12 @@ static void Register_Constraint2D(asIScriptEngine* engine)
 {
     // explicit Constraint2D::Constraint2D(Context* context)
     engine->RegisterObjectBehaviour("Constraint2D", asBEHAVE_FACTORY, "Constraint2D@+ f()", AS_FUNCTION(Constraint2D_Constraint2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, Constraint2D>(engine, "Component", "Constraint2D");
+    RegisterSubclass<Animatable, Constraint2D>(engine, "Animatable", "Constraint2D");
+    RegisterSubclass<Serializable, Constraint2D>(engine, "Serializable", "Constraint2D");
+    RegisterSubclass<Object, Constraint2D>(engine, "Object", "Constraint2D");
+    RegisterSubclass<RefCounted, Constraint2D>(engine, "RefCounted", "Constraint2D");
 
     MemberCollection members;
     CollectMembers_Constraint2D(members);
@@ -6946,6 +7704,13 @@ static void Register_ConstraintDistance2D(asIScriptEngine* engine)
     // explicit ConstraintDistance2D::ConstraintDistance2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintDistance2D", asBEHAVE_FACTORY, "ConstraintDistance2D@+ f()", AS_FUNCTION(ConstraintDistance2D_ConstraintDistance2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Constraint2D, ConstraintDistance2D>(engine, "Constraint2D", "ConstraintDistance2D");
+    RegisterSubclass<Component, ConstraintDistance2D>(engine, "Component", "ConstraintDistance2D");
+    RegisterSubclass<Animatable, ConstraintDistance2D>(engine, "Animatable", "ConstraintDistance2D");
+    RegisterSubclass<Serializable, ConstraintDistance2D>(engine, "Serializable", "ConstraintDistance2D");
+    RegisterSubclass<Object, ConstraintDistance2D>(engine, "Object", "ConstraintDistance2D");
+    RegisterSubclass<RefCounted, ConstraintDistance2D>(engine, "RefCounted", "ConstraintDistance2D");
+
     MemberCollection members;
     CollectMembers_ConstraintDistance2D(members);
     RegisterMembers(engine, "ConstraintDistance2D", members);
@@ -6967,6 +7732,13 @@ static void Register_ConstraintFriction2D(asIScriptEngine* engine)
 {
     // explicit ConstraintFriction2D::ConstraintFriction2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintFriction2D", asBEHAVE_FACTORY, "ConstraintFriction2D@+ f()", AS_FUNCTION(ConstraintFriction2D_ConstraintFriction2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Constraint2D, ConstraintFriction2D>(engine, "Constraint2D", "ConstraintFriction2D");
+    RegisterSubclass<Component, ConstraintFriction2D>(engine, "Component", "ConstraintFriction2D");
+    RegisterSubclass<Animatable, ConstraintFriction2D>(engine, "Animatable", "ConstraintFriction2D");
+    RegisterSubclass<Serializable, ConstraintFriction2D>(engine, "Serializable", "ConstraintFriction2D");
+    RegisterSubclass<Object, ConstraintFriction2D>(engine, "Object", "ConstraintFriction2D");
+    RegisterSubclass<RefCounted, ConstraintFriction2D>(engine, "RefCounted", "ConstraintFriction2D");
 
     MemberCollection members;
     CollectMembers_ConstraintFriction2D(members);
@@ -6990,6 +7762,13 @@ static void Register_ConstraintGear2D(asIScriptEngine* engine)
     // explicit ConstraintGear2D::ConstraintGear2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintGear2D", asBEHAVE_FACTORY, "ConstraintGear2D@+ f()", AS_FUNCTION(ConstraintGear2D_ConstraintGear2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Constraint2D, ConstraintGear2D>(engine, "Constraint2D", "ConstraintGear2D");
+    RegisterSubclass<Component, ConstraintGear2D>(engine, "Component", "ConstraintGear2D");
+    RegisterSubclass<Animatable, ConstraintGear2D>(engine, "Animatable", "ConstraintGear2D");
+    RegisterSubclass<Serializable, ConstraintGear2D>(engine, "Serializable", "ConstraintGear2D");
+    RegisterSubclass<Object, ConstraintGear2D>(engine, "Object", "ConstraintGear2D");
+    RegisterSubclass<RefCounted, ConstraintGear2D>(engine, "RefCounted", "ConstraintGear2D");
+
     MemberCollection members;
     CollectMembers_ConstraintGear2D(members);
     RegisterMembers(engine, "ConstraintGear2D", members);
@@ -7011,6 +7790,13 @@ static void Register_ConstraintMotor2D(asIScriptEngine* engine)
 {
     // explicit ConstraintMotor2D::ConstraintMotor2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintMotor2D", asBEHAVE_FACTORY, "ConstraintMotor2D@+ f()", AS_FUNCTION(ConstraintMotor2D_ConstraintMotor2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Constraint2D, ConstraintMotor2D>(engine, "Constraint2D", "ConstraintMotor2D");
+    RegisterSubclass<Component, ConstraintMotor2D>(engine, "Component", "ConstraintMotor2D");
+    RegisterSubclass<Animatable, ConstraintMotor2D>(engine, "Animatable", "ConstraintMotor2D");
+    RegisterSubclass<Serializable, ConstraintMotor2D>(engine, "Serializable", "ConstraintMotor2D");
+    RegisterSubclass<Object, ConstraintMotor2D>(engine, "Object", "ConstraintMotor2D");
+    RegisterSubclass<RefCounted, ConstraintMotor2D>(engine, "RefCounted", "ConstraintMotor2D");
 
     MemberCollection members;
     CollectMembers_ConstraintMotor2D(members);
@@ -7034,6 +7820,13 @@ static void Register_ConstraintMouse2D(asIScriptEngine* engine)
     // explicit ConstraintMouse2D::ConstraintMouse2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintMouse2D", asBEHAVE_FACTORY, "ConstraintMouse2D@+ f()", AS_FUNCTION(ConstraintMouse2D_ConstraintMouse2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Constraint2D, ConstraintMouse2D>(engine, "Constraint2D", "ConstraintMouse2D");
+    RegisterSubclass<Component, ConstraintMouse2D>(engine, "Component", "ConstraintMouse2D");
+    RegisterSubclass<Animatable, ConstraintMouse2D>(engine, "Animatable", "ConstraintMouse2D");
+    RegisterSubclass<Serializable, ConstraintMouse2D>(engine, "Serializable", "ConstraintMouse2D");
+    RegisterSubclass<Object, ConstraintMouse2D>(engine, "Object", "ConstraintMouse2D");
+    RegisterSubclass<RefCounted, ConstraintMouse2D>(engine, "RefCounted", "ConstraintMouse2D");
+
     MemberCollection members;
     CollectMembers_ConstraintMouse2D(members);
     RegisterMembers(engine, "ConstraintMouse2D", members);
@@ -7055,6 +7848,13 @@ static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
 {
     // explicit ConstraintPrismatic2D::ConstraintPrismatic2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintPrismatic2D", asBEHAVE_FACTORY, "ConstraintPrismatic2D@+ f()", AS_FUNCTION(ConstraintPrismatic2D_ConstraintPrismatic2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Constraint2D, ConstraintPrismatic2D>(engine, "Constraint2D", "ConstraintPrismatic2D");
+    RegisterSubclass<Component, ConstraintPrismatic2D>(engine, "Component", "ConstraintPrismatic2D");
+    RegisterSubclass<Animatable, ConstraintPrismatic2D>(engine, "Animatable", "ConstraintPrismatic2D");
+    RegisterSubclass<Serializable, ConstraintPrismatic2D>(engine, "Serializable", "ConstraintPrismatic2D");
+    RegisterSubclass<Object, ConstraintPrismatic2D>(engine, "Object", "ConstraintPrismatic2D");
+    RegisterSubclass<RefCounted, ConstraintPrismatic2D>(engine, "RefCounted", "ConstraintPrismatic2D");
 
     MemberCollection members;
     CollectMembers_ConstraintPrismatic2D(members);
@@ -7078,6 +7878,13 @@ static void Register_ConstraintPulley2D(asIScriptEngine* engine)
     // explicit ConstraintPulley2D::ConstraintPulley2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintPulley2D", asBEHAVE_FACTORY, "ConstraintPulley2D@+ f()", AS_FUNCTION(ConstraintPulley2D_ConstraintPulley2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Constraint2D, ConstraintPulley2D>(engine, "Constraint2D", "ConstraintPulley2D");
+    RegisterSubclass<Component, ConstraintPulley2D>(engine, "Component", "ConstraintPulley2D");
+    RegisterSubclass<Animatable, ConstraintPulley2D>(engine, "Animatable", "ConstraintPulley2D");
+    RegisterSubclass<Serializable, ConstraintPulley2D>(engine, "Serializable", "ConstraintPulley2D");
+    RegisterSubclass<Object, ConstraintPulley2D>(engine, "Object", "ConstraintPulley2D");
+    RegisterSubclass<RefCounted, ConstraintPulley2D>(engine, "RefCounted", "ConstraintPulley2D");
+
     MemberCollection members;
     CollectMembers_ConstraintPulley2D(members);
     RegisterMembers(engine, "ConstraintPulley2D", members);
@@ -7099,6 +7906,13 @@ static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
 {
     // explicit ConstraintRevolute2D::ConstraintRevolute2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintRevolute2D", asBEHAVE_FACTORY, "ConstraintRevolute2D@+ f()", AS_FUNCTION(ConstraintRevolute2D_ConstraintRevolute2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Constraint2D, ConstraintRevolute2D>(engine, "Constraint2D", "ConstraintRevolute2D");
+    RegisterSubclass<Component, ConstraintRevolute2D>(engine, "Component", "ConstraintRevolute2D");
+    RegisterSubclass<Animatable, ConstraintRevolute2D>(engine, "Animatable", "ConstraintRevolute2D");
+    RegisterSubclass<Serializable, ConstraintRevolute2D>(engine, "Serializable", "ConstraintRevolute2D");
+    RegisterSubclass<Object, ConstraintRevolute2D>(engine, "Object", "ConstraintRevolute2D");
+    RegisterSubclass<RefCounted, ConstraintRevolute2D>(engine, "RefCounted", "ConstraintRevolute2D");
 
     MemberCollection members;
     CollectMembers_ConstraintRevolute2D(members);
@@ -7122,6 +7936,13 @@ static void Register_ConstraintRope2D(asIScriptEngine* engine)
     // explicit ConstraintRope2D::ConstraintRope2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintRope2D", asBEHAVE_FACTORY, "ConstraintRope2D@+ f()", AS_FUNCTION(ConstraintRope2D_ConstraintRope2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Constraint2D, ConstraintRope2D>(engine, "Constraint2D", "ConstraintRope2D");
+    RegisterSubclass<Component, ConstraintRope2D>(engine, "Component", "ConstraintRope2D");
+    RegisterSubclass<Animatable, ConstraintRope2D>(engine, "Animatable", "ConstraintRope2D");
+    RegisterSubclass<Serializable, ConstraintRope2D>(engine, "Serializable", "ConstraintRope2D");
+    RegisterSubclass<Object, ConstraintRope2D>(engine, "Object", "ConstraintRope2D");
+    RegisterSubclass<RefCounted, ConstraintRope2D>(engine, "RefCounted", "ConstraintRope2D");
+
     MemberCollection members;
     CollectMembers_ConstraintRope2D(members);
     RegisterMembers(engine, "ConstraintRope2D", members);
@@ -7144,6 +7965,13 @@ static void Register_ConstraintWeld2D(asIScriptEngine* engine)
     // explicit ConstraintWeld2D::ConstraintWeld2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintWeld2D", asBEHAVE_FACTORY, "ConstraintWeld2D@+ f()", AS_FUNCTION(ConstraintWeld2D_ConstraintWeld2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Constraint2D, ConstraintWeld2D>(engine, "Constraint2D", "ConstraintWeld2D");
+    RegisterSubclass<Component, ConstraintWeld2D>(engine, "Component", "ConstraintWeld2D");
+    RegisterSubclass<Animatable, ConstraintWeld2D>(engine, "Animatable", "ConstraintWeld2D");
+    RegisterSubclass<Serializable, ConstraintWeld2D>(engine, "Serializable", "ConstraintWeld2D");
+    RegisterSubclass<Object, ConstraintWeld2D>(engine, "Object", "ConstraintWeld2D");
+    RegisterSubclass<RefCounted, ConstraintWeld2D>(engine, "RefCounted", "ConstraintWeld2D");
+
     MemberCollection members;
     CollectMembers_ConstraintWeld2D(members);
     RegisterMembers(engine, "ConstraintWeld2D", members);
@@ -7165,6 +7993,13 @@ static void Register_ConstraintWheel2D(asIScriptEngine* engine)
 {
     // explicit ConstraintWheel2D::ConstraintWheel2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintWheel2D", asBEHAVE_FACTORY, "ConstraintWheel2D@+ f()", AS_FUNCTION(ConstraintWheel2D_ConstraintWheel2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Constraint2D, ConstraintWheel2D>(engine, "Constraint2D", "ConstraintWheel2D");
+    RegisterSubclass<Component, ConstraintWheel2D>(engine, "Component", "ConstraintWheel2D");
+    RegisterSubclass<Animatable, ConstraintWheel2D>(engine, "Animatable", "ConstraintWheel2D");
+    RegisterSubclass<Serializable, ConstraintWheel2D>(engine, "Serializable", "ConstraintWheel2D");
+    RegisterSubclass<Object, ConstraintWheel2D>(engine, "Object", "ConstraintWheel2D");
+    RegisterSubclass<RefCounted, ConstraintWheel2D>(engine, "RefCounted", "ConstraintWheel2D");
 
     MemberCollection members;
     CollectMembers_ConstraintWheel2D(members);
@@ -7193,6 +8028,13 @@ static void Register_DelayedWorldTransform2D(asIScriptEngine* engine)
 // class Drawable2D | File: ../Urho2D/Drawable2D.h
 static void Register_Drawable2D(asIScriptEngine* engine)
 {
+    RegisterSubclass<Drawable, Drawable2D>(engine, "Drawable", "Drawable2D");
+    RegisterSubclass<Component, Drawable2D>(engine, "Component", "Drawable2D");
+    RegisterSubclass<Animatable, Drawable2D>(engine, "Animatable", "Drawable2D");
+    RegisterSubclass<Serializable, Drawable2D>(engine, "Serializable", "Drawable2D");
+    RegisterSubclass<Object, Drawable2D>(engine, "Object", "Drawable2D");
+    RegisterSubclass<RefCounted, Drawable2D>(engine, "RefCounted", "Drawable2D");
+
     MemberCollection members;
     CollectMembers_Drawable2D(members);
     RegisterMembers(engine, "Drawable2D", members);
@@ -7230,6 +8072,10 @@ static void Register_ParticleEffect2D(asIScriptEngine* engine)
     // explicit ParticleEffect2D::ParticleEffect2D(Context* context)
     engine->RegisterObjectBehaviour("ParticleEffect2D", asBEHAVE_FACTORY, "ParticleEffect2D@+ f()", AS_FUNCTION(ParticleEffect2D_ParticleEffect2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, ParticleEffect2D>(engine, "Resource", "ParticleEffect2D");
+    RegisterSubclass<Object, ParticleEffect2D>(engine, "Object", "ParticleEffect2D");
+    RegisterSubclass<RefCounted, ParticleEffect2D>(engine, "RefCounted", "ParticleEffect2D");
+
     MemberCollection members;
     CollectMembers_ParticleEffect2D(members);
     RegisterMembers(engine, "ParticleEffect2D", members);
@@ -7251,6 +8097,14 @@ static void Register_ParticleEmitter2D(asIScriptEngine* engine)
 {
     // explicit ParticleEmitter2D::ParticleEmitter2D(Context* context)
     engine->RegisterObjectBehaviour("ParticleEmitter2D", asBEHAVE_FACTORY, "ParticleEmitter2D@+ f()", AS_FUNCTION(ParticleEmitter2D_ParticleEmitter2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Drawable2D, ParticleEmitter2D>(engine, "Drawable2D", "ParticleEmitter2D");
+    RegisterSubclass<Drawable, ParticleEmitter2D>(engine, "Drawable", "ParticleEmitter2D");
+    RegisterSubclass<Component, ParticleEmitter2D>(engine, "Component", "ParticleEmitter2D");
+    RegisterSubclass<Animatable, ParticleEmitter2D>(engine, "Animatable", "ParticleEmitter2D");
+    RegisterSubclass<Serializable, ParticleEmitter2D>(engine, "Serializable", "ParticleEmitter2D");
+    RegisterSubclass<Object, ParticleEmitter2D>(engine, "Object", "ParticleEmitter2D");
+    RegisterSubclass<RefCounted, ParticleEmitter2D>(engine, "RefCounted", "ParticleEmitter2D");
 
     MemberCollection members;
     CollectMembers_ParticleEmitter2D(members);
@@ -7289,6 +8143,12 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
     // explicit PhysicsWorld2D::PhysicsWorld2D(Context* context)
     engine->RegisterObjectBehaviour("PhysicsWorld2D", asBEHAVE_FACTORY, "PhysicsWorld2D@+ f()", AS_FUNCTION(PhysicsWorld2D_PhysicsWorld2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, PhysicsWorld2D>(engine, "Component", "PhysicsWorld2D");
+    RegisterSubclass<Animatable, PhysicsWorld2D>(engine, "Animatable", "PhysicsWorld2D");
+    RegisterSubclass<Serializable, PhysicsWorld2D>(engine, "Serializable", "PhysicsWorld2D");
+    RegisterSubclass<Object, PhysicsWorld2D>(engine, "Object", "PhysicsWorld2D");
+    RegisterSubclass<RefCounted, PhysicsWorld2D>(engine, "RefCounted", "PhysicsWorld2D");
+
     MemberCollection members;
     CollectMembers_PhysicsWorld2D(members);
     RegisterMembers(engine, "PhysicsWorld2D", members);
@@ -7301,6 +8161,8 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
 // class PropertySet2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_PropertySet2D(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, PropertySet2D>(engine, "RefCounted", "PropertySet2D");
+
     MemberCollection members;
     CollectMembers_PropertySet2D(members);
     RegisterMembers(engine, "PropertySet2D", members);
@@ -7323,6 +8185,13 @@ static void Register_Renderer2D(asIScriptEngine* engine)
     // explicit Renderer2D::Renderer2D(Context* context)
     engine->RegisterObjectBehaviour("Renderer2D", asBEHAVE_FACTORY, "Renderer2D@+ f()", AS_FUNCTION(Renderer2D_Renderer2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Drawable, Renderer2D>(engine, "Drawable", "Renderer2D");
+    RegisterSubclass<Component, Renderer2D>(engine, "Component", "Renderer2D");
+    RegisterSubclass<Animatable, Renderer2D>(engine, "Animatable", "Renderer2D");
+    RegisterSubclass<Serializable, Renderer2D>(engine, "Serializable", "Renderer2D");
+    RegisterSubclass<Object, Renderer2D>(engine, "Object", "Renderer2D");
+    RegisterSubclass<RefCounted, Renderer2D>(engine, "RefCounted", "Renderer2D");
+
     MemberCollection members;
     CollectMembers_Renderer2D(members);
     RegisterMembers(engine, "Renderer2D", members);
@@ -7344,6 +8213,12 @@ static void Register_RigidBody2D(asIScriptEngine* engine)
 {
     // explicit RigidBody2D::RigidBody2D(Context* context)
     engine->RegisterObjectBehaviour("RigidBody2D", asBEHAVE_FACTORY, "RigidBody2D@+ f()", AS_FUNCTION(RigidBody2D_RigidBody2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, RigidBody2D>(engine, "Component", "RigidBody2D");
+    RegisterSubclass<Animatable, RigidBody2D>(engine, "Animatable", "RigidBody2D");
+    RegisterSubclass<Serializable, RigidBody2D>(engine, "Serializable", "RigidBody2D");
+    RegisterSubclass<Object, RigidBody2D>(engine, "Object", "RigidBody2D");
+    RegisterSubclass<RefCounted, RigidBody2D>(engine, "RefCounted", "RigidBody2D");
 
     MemberCollection members;
     CollectMembers_RigidBody2D(members);
@@ -7382,6 +8257,10 @@ static void Register_Sprite2D(asIScriptEngine* engine)
     // explicit Sprite2D::Sprite2D(Context* context)
     engine->RegisterObjectBehaviour("Sprite2D", asBEHAVE_FACTORY, "Sprite2D@+ f()", AS_FUNCTION(Sprite2D_Sprite2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, Sprite2D>(engine, "Resource", "Sprite2D");
+    RegisterSubclass<Object, Sprite2D>(engine, "Object", "Sprite2D");
+    RegisterSubclass<RefCounted, Sprite2D>(engine, "RefCounted", "Sprite2D");
+
     MemberCollection members;
     CollectMembers_Sprite2D(members);
     RegisterMembers(engine, "Sprite2D", members);
@@ -7403,6 +8282,10 @@ static void Register_SpriteSheet2D(asIScriptEngine* engine)
 {
     // explicit SpriteSheet2D::SpriteSheet2D(Context* context)
     engine->RegisterObjectBehaviour("SpriteSheet2D", asBEHAVE_FACTORY, "SpriteSheet2D@+ f()", AS_FUNCTION(SpriteSheet2D_SpriteSheet2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Resource, SpriteSheet2D>(engine, "Resource", "SpriteSheet2D");
+    RegisterSubclass<Object, SpriteSheet2D>(engine, "Object", "SpriteSheet2D");
+    RegisterSubclass<RefCounted, SpriteSheet2D>(engine, "RefCounted", "SpriteSheet2D");
 
     MemberCollection members;
     CollectMembers_SpriteSheet2D(members);
@@ -7426,6 +8309,14 @@ static void Register_StaticSprite2D(asIScriptEngine* engine)
     // explicit StaticSprite2D::StaticSprite2D(Context* context)
     engine->RegisterObjectBehaviour("StaticSprite2D", asBEHAVE_FACTORY, "StaticSprite2D@+ f()", AS_FUNCTION(StaticSprite2D_StaticSprite2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Drawable2D, StaticSprite2D>(engine, "Drawable2D", "StaticSprite2D");
+    RegisterSubclass<Drawable, StaticSprite2D>(engine, "Drawable", "StaticSprite2D");
+    RegisterSubclass<Component, StaticSprite2D>(engine, "Component", "StaticSprite2D");
+    RegisterSubclass<Animatable, StaticSprite2D>(engine, "Animatable", "StaticSprite2D");
+    RegisterSubclass<Serializable, StaticSprite2D>(engine, "Serializable", "StaticSprite2D");
+    RegisterSubclass<Object, StaticSprite2D>(engine, "Object", "StaticSprite2D");
+    RegisterSubclass<RefCounted, StaticSprite2D>(engine, "RefCounted", "StaticSprite2D");
+
     MemberCollection members;
     CollectMembers_StaticSprite2D(members);
     RegisterMembers(engine, "StaticSprite2D", members);
@@ -7448,6 +8339,15 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
     // explicit StretchableSprite2D::StretchableSprite2D(Context* context)
     engine->RegisterObjectBehaviour("StretchableSprite2D", asBEHAVE_FACTORY, "StretchableSprite2D@+ f()", AS_FUNCTION(StretchableSprite2D_StretchableSprite2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<StaticSprite2D, StretchableSprite2D>(engine, "StaticSprite2D", "StretchableSprite2D");
+    RegisterSubclass<Drawable2D, StretchableSprite2D>(engine, "Drawable2D", "StretchableSprite2D");
+    RegisterSubclass<Drawable, StretchableSprite2D>(engine, "Drawable", "StretchableSprite2D");
+    RegisterSubclass<Component, StretchableSprite2D>(engine, "Component", "StretchableSprite2D");
+    RegisterSubclass<Animatable, StretchableSprite2D>(engine, "Animatable", "StretchableSprite2D");
+    RegisterSubclass<Serializable, StretchableSprite2D>(engine, "Serializable", "StretchableSprite2D");
+    RegisterSubclass<Object, StretchableSprite2D>(engine, "Object", "StretchableSprite2D");
+    RegisterSubclass<RefCounted, StretchableSprite2D>(engine, "RefCounted", "StretchableSprite2D");
+
     MemberCollection members;
     CollectMembers_StretchableSprite2D(members);
     RegisterMembers(engine, "StretchableSprite2D", members);
@@ -7460,6 +8360,8 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
 // class Tile2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_Tile2D(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, Tile2D>(engine, "RefCounted", "Tile2D");
+
     MemberCollection members;
     CollectMembers_Tile2D(members);
     RegisterMembers(engine, "Tile2D", members);
@@ -7481,6 +8383,12 @@ static void Register_TileMap2D(asIScriptEngine* engine)
 {
     // explicit TileMap2D::TileMap2D(Context* context)
     engine->RegisterObjectBehaviour("TileMap2D", asBEHAVE_FACTORY, "TileMap2D@+ f()", AS_FUNCTION(TileMap2D_TileMap2D_Context) , AS_CALL_CDECL);
+
+    RegisterSubclass<Component, TileMap2D>(engine, "Component", "TileMap2D");
+    RegisterSubclass<Animatable, TileMap2D>(engine, "Animatable", "TileMap2D");
+    RegisterSubclass<Serializable, TileMap2D>(engine, "Serializable", "TileMap2D");
+    RegisterSubclass<Object, TileMap2D>(engine, "Object", "TileMap2D");
+    RegisterSubclass<RefCounted, TileMap2D>(engine, "RefCounted", "TileMap2D");
 
     MemberCollection members;
     CollectMembers_TileMap2D(members);
@@ -7519,6 +8427,12 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
     // explicit TileMapLayer2D::TileMapLayer2D(Context* context)
     engine->RegisterObjectBehaviour("TileMapLayer2D", asBEHAVE_FACTORY, "TileMapLayer2D@+ f()", AS_FUNCTION(TileMapLayer2D_TileMapLayer2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Component, TileMapLayer2D>(engine, "Component", "TileMapLayer2D");
+    RegisterSubclass<Animatable, TileMapLayer2D>(engine, "Animatable", "TileMapLayer2D");
+    RegisterSubclass<Serializable, TileMapLayer2D>(engine, "Serializable", "TileMapLayer2D");
+    RegisterSubclass<Object, TileMapLayer2D>(engine, "Object", "TileMapLayer2D");
+    RegisterSubclass<RefCounted, TileMapLayer2D>(engine, "RefCounted", "TileMapLayer2D");
+
     MemberCollection members;
     CollectMembers_TileMapLayer2D(members);
     RegisterMembers(engine, "TileMapLayer2D", members);
@@ -7531,6 +8445,8 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
 // class TileMapObject2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_TileMapObject2D(asIScriptEngine* engine)
 {
+    RegisterSubclass<RefCounted, TileMapObject2D>(engine, "RefCounted", "TileMapObject2D");
+
     MemberCollection members;
     CollectMembers_TileMapObject2D(members);
     RegisterMembers(engine, "TileMapObject2D", members);
@@ -7553,6 +8469,10 @@ static void Register_TmxFile2D(asIScriptEngine* engine)
     // explicit TmxFile2D::TmxFile2D(Context* context)
     engine->RegisterObjectBehaviour("TmxFile2D", asBEHAVE_FACTORY, "TmxFile2D@+ f()", AS_FUNCTION(TmxFile2D_TmxFile2D_Context) , AS_CALL_CDECL);
 
+    RegisterSubclass<Resource, TmxFile2D>(engine, "Resource", "TmxFile2D");
+    RegisterSubclass<Object, TmxFile2D>(engine, "Object", "TmxFile2D");
+    RegisterSubclass<RefCounted, TmxFile2D>(engine, "RefCounted", "TmxFile2D");
+
     MemberCollection members;
     CollectMembers_TmxFile2D(members);
     RegisterMembers(engine, "TmxFile2D", members);
@@ -7573,6 +8493,9 @@ static void Register_TmxImageLayer2D(asIScriptEngine* engine)
 {
     // explicit TmxImageLayer2D::TmxImageLayer2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxImageLayer2D", asBEHAVE_FACTORY, "TmxImageLayer2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxImageLayer2D_TmxImageLayer2D_TmxFile2D) , AS_CALL_CDECL);
+
+    RegisterSubclass<TmxLayer2D, TmxImageLayer2D>(engine, "TmxLayer2D", "TmxImageLayer2D");
+    RegisterSubclass<RefCounted, TmxImageLayer2D>(engine, "RefCounted", "TmxImageLayer2D");
 
     MemberCollection members;
     CollectMembers_TmxImageLayer2D(members);
@@ -7595,6 +8518,8 @@ static void Register_TmxLayer2D(asIScriptEngine* engine)
     // TmxLayer2D::TmxLayer2D(TmxFile2D* tmxFile, TileMapLayerType2D type)
     engine->RegisterObjectBehaviour("TmxLayer2D", asBEHAVE_FACTORY, "TmxLayer2D@+ f(TmxFile2D@+, TileMapLayerType2D)", AS_FUNCTION(TmxLayer2D_TmxLayer2D_TmxFile2D_TileMapLayerType2D) , AS_CALL_CDECL);
 
+    RegisterSubclass<RefCounted, TmxLayer2D>(engine, "RefCounted", "TmxLayer2D");
+
     MemberCollection members;
     CollectMembers_TmxLayer2D(members);
     RegisterMembers(engine, "TmxLayer2D", members);
@@ -7616,6 +8541,9 @@ static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
     // explicit TmxObjectGroup2D::TmxObjectGroup2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxObjectGroup2D", asBEHAVE_FACTORY, "TmxObjectGroup2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxObjectGroup2D_TmxObjectGroup2D_TmxFile2D) , AS_CALL_CDECL);
 
+    RegisterSubclass<TmxLayer2D, TmxObjectGroup2D>(engine, "TmxLayer2D", "TmxObjectGroup2D");
+    RegisterSubclass<RefCounted, TmxObjectGroup2D>(engine, "RefCounted", "TmxObjectGroup2D");
+
     MemberCollection members;
     CollectMembers_TmxObjectGroup2D(members);
     RegisterMembers(engine, "TmxObjectGroup2D", members);
@@ -7636,6 +8564,9 @@ static void Register_TmxTileLayer2D(asIScriptEngine* engine)
 {
     // explicit TmxTileLayer2D::TmxTileLayer2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxTileLayer2D", asBEHAVE_FACTORY, "TmxTileLayer2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxTileLayer2D_TmxTileLayer2D_TmxFile2D) , AS_CALL_CDECL);
+
+    RegisterSubclass<TmxLayer2D, TmxTileLayer2D>(engine, "TmxLayer2D", "TmxTileLayer2D");
+    RegisterSubclass<RefCounted, TmxTileLayer2D>(engine, "RefCounted", "TmxTileLayer2D");
 
     MemberCollection members;
     CollectMembers_TmxTileLayer2D(members);

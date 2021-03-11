@@ -240,6 +240,7 @@ struct ProcessedClass
     bool noBind_ = false;
 
     vector<string> baseClassNames_;
+    vector<string> subclassRegistrations_;
 
     // Base class members that were hidden in this class (c++ declarations)
     vector<string> hiddenMethods_;

@@ -659,6 +659,17 @@ namespace Result
                 needGap = true;
             }
 
+
+            if (needGap && processedClass.subclassRegistrations_.size())
+                ofs << '\n';
+
+            for (const string& subclassRegistration : processedClass.subclassRegistrations_)
+            {
+                ofs << "    " << subclassRegistration << '\n';
+
+                needGap = true;
+            }
+
             if (needGap)
                 ofs << '\n';
 

@@ -824,6 +824,25 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
         processedClass.fakeRefBehaviors_.push_back(fakeRef);
     }
 
+    if (classAnalyzer.IsRefCounted() || Contains(classAnalyzer.GetComment(), "FAKE_REF"))
+    {
+        vector<ClassAnalyzer> baseClasses = classAnalyzer.GetAllBaseClasses();
+        for (ClassAnalyzer baseClass : baseClasses)
+        {
+            if (baseClass.IsRefCounted() || Contains(baseClass.GetComment(), "FAKE_REF"))
+            {
+                string cppBaseClassName = baseClass.GetClassName();
+                string asBaseClassName = cppBaseClassName;
+
+                string cppClassName = classAnalyzer.GetClassName();
+                string asClassName = classAnalyzer.GetClassName();
+
+                string reg = "RegisterSubclass<" + cppBaseClassName + ", " + cppClassName + ">(engine, \"" + asBaseClassName + "\", \"" + asClassName + "\");";
+                processedClass.subclassRegistrations_.push_back(reg);
+            }
+        }
+    }
+
     if (classAnalyzer.IsAbstract()) // Abstract refcounted type
     {
         Result::classes_.push_back(processedClass);
