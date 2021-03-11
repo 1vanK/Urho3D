@@ -80,6 +80,9 @@ static void Register_AnimatedModel(asIScriptEngine* engine)
     // explicit AnimatedModel::AnimatedModel(Context* context)
     engine->RegisterObjectBehaviour("AnimatedModel", asBEHAVE_FACTORY, "AnimatedModel@+ f()", AS_FUNCTION(AnimatedModel_AnimatedModel_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("AnimatedModel", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimatedModel", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_AnimatedModel(members);
     RegisterMembers(engine, "AnimatedModel", members);
@@ -102,6 +105,9 @@ static void Register_Animation(asIScriptEngine* engine)
     // explicit Animation::Animation(Context* context)
     engine->RegisterObjectBehaviour("Animation", asBEHAVE_FACTORY, "Animation@+ f()", AS_FUNCTION(Animation_Animation_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Animation", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Animation", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Animation(members);
     RegisterMembers(engine, "Animation", members);
@@ -114,6 +120,9 @@ static void Register_Animation(asIScriptEngine* engine)
 // struct AnimationControl | File: ../Graphics/AnimationController.h
 static void Register_AnimationControl(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("AnimationControl", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationControl", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_AnimationControl(members);
     RegisterMembers(engine, "AnimationControl", members);
@@ -135,6 +144,9 @@ static void Register_AnimationController(asIScriptEngine* engine)
 {
     // explicit AnimationController::AnimationController(Context* context)
     engine->RegisterObjectBehaviour("AnimationController", asBEHAVE_FACTORY, "AnimationController@+ f()", AS_FUNCTION(AnimationController_AnimationController_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("AnimationController", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationController", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_AnimationController(members);
@@ -180,6 +192,9 @@ static void Register_AnimationState(asIScriptEngine* engine)
     // AnimationState::AnimationState(Node* node, Animation* animation)
     engine->RegisterObjectBehaviour("AnimationState", asBEHAVE_FACTORY, "AnimationState@+ f(Node@+, Animation@+)", AS_FUNCTION(AnimationState_AnimationState_Node_Animation) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("AnimationState", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationState", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_AnimationState(members);
     RegisterMembers(engine, "AnimationState", members);
@@ -207,6 +222,9 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
 // struct AnimationTrack | File: ../Graphics/Animation.h
 static void Register_AnimationTrack(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("AnimationTrack", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationTrack", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_AnimationTrack(members);
     RegisterMembers(engine, "AnimationTrack", members);
@@ -310,6 +328,9 @@ static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
     // AttributeAnimationInfo::AttributeAnimationInfo(const AttributeAnimationInfo& other)
     engine->RegisterObjectBehaviour("AttributeAnimationInfo", asBEHAVE_FACTORY, "AttributeAnimationInfo@+ f(const AttributeAnimationInfo&in)", AS_FUNCTION(AttributeAnimationInfo_AttributeAnimationInfo_AttributeAnimationInfo) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("AttributeAnimationInfo", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AttributeAnimationInfo", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_AttributeAnimationInfo(members);
     RegisterMembers(engine, "AttributeAnimationInfo", members);
@@ -349,6 +370,9 @@ static void Register_Audio(asIScriptEngine* engine)
 {
     // explicit Audio::Audio(Context* context)
     engine->RegisterObjectBehaviour("Audio", asBEHAVE_FACTORY, "Audio@+ f()", AS_FUNCTION(Audio_Audio_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Audio", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Audio", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Audio(members);
@@ -485,6 +509,9 @@ static void Register_BiasParameters(asIScriptEngine* engine)
 // struct Billboard | File: ../Graphics/BillboardSet.h
 static void Register_Billboard(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("Billboard", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Billboard", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Billboard(members);
     RegisterMembers(engine, "Billboard", members);
@@ -507,6 +534,9 @@ static void Register_BillboardSet(asIScriptEngine* engine)
     // explicit BillboardSet::BillboardSet(Context* context)
     engine->RegisterObjectBehaviour("BillboardSet", asBEHAVE_FACTORY, "BillboardSet@+ f()", AS_FUNCTION(BillboardSet_BillboardSet_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("BillboardSet", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("BillboardSet", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_BillboardSet(members);
     RegisterMembers(engine, "BillboardSet", members);
@@ -519,6 +549,9 @@ static void Register_BillboardSet(asIScriptEngine* engine)
 // struct Bone | File: ../Graphics/Skeleton.h
 static void Register_Bone(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("Bone", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Bone", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Bone(members);
     RegisterMembers(engine, "Bone", members);
@@ -540,6 +573,9 @@ static void Register_BorderImage(asIScriptEngine* engine)
 {
     // explicit BorderImage::BorderImage(Context* context)
     engine->RegisterObjectBehaviour("BorderImage", asBEHAVE_FACTORY, "BorderImage@+ f()", AS_FUNCTION(BorderImage_BorderImage_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("BorderImage", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("BorderImage", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_BorderImage(members);
@@ -625,6 +661,9 @@ static void Register_BoundingBox(asIScriptEngine* engine)
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
 static void Register_BufferedSoundStream(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("BufferedSoundStream", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("BufferedSoundStream", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_BufferedSoundStream(members);
     RegisterMembers(engine, "BufferedSoundStream", members);
@@ -647,6 +686,9 @@ static void Register_Button(asIScriptEngine* engine)
     // explicit Button::Button(Context* context)
     engine->RegisterObjectBehaviour("Button", asBEHAVE_FACTORY, "Button@+ f()", AS_FUNCTION(Button_Button_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Button", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Button", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Button(members);
     RegisterMembers(engine, "Button", members);
@@ -668,6 +710,9 @@ static void Register_Camera(asIScriptEngine* engine)
 {
     // explicit Camera::Camera(Context* context)
     engine->RegisterObjectBehaviour("Camera", asBEHAVE_FACTORY, "Camera@+ f()", AS_FUNCTION(Camera_Camera_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Camera", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Camera", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Camera(members);
@@ -726,6 +771,9 @@ static void Register_CheckBox(asIScriptEngine* engine)
 {
     // explicit CheckBox::CheckBox(Context* context)
     engine->RegisterObjectBehaviour("CheckBox", asBEHAVE_FACTORY, "CheckBox@+ f()", AS_FUNCTION(CheckBox_CheckBox_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("CheckBox", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CheckBox", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_CheckBox(members);
@@ -822,6 +870,9 @@ static void Register_ColorFrame(asIScriptEngine* engine)
     // ColorFrame::ColorFrame(const Color& color, float time)
     engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_FACTORY, "ColorFrame@+ f(const Color&in, float)", AS_FUNCTION(ColorFrame_ColorFrame_Color_float) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ColorFrame(members);
     RegisterMembers(engine, "ColorFrame", members);
@@ -843,6 +894,9 @@ static void Register_Component(asIScriptEngine* engine)
 {
     // explicit Component::Component(Context* context)
     engine->RegisterObjectBehaviour("Component", asBEHAVE_FACTORY, "Component@+ f()", AS_FUNCTION(Component_Component_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Component", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Component", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Component(members);
@@ -911,6 +965,9 @@ static void Register_Console(asIScriptEngine* engine)
     // explicit Console::Console(Context* context)
     engine->RegisterObjectBehaviour("Console", asBEHAVE_FACTORY, "Console@+ f()", AS_FUNCTION(Console_Console_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Console", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Console", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Console(members);
     RegisterMembers(engine, "Console", members);
@@ -933,6 +990,9 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
     // explicit ConstantBuffer::ConstantBuffer(Context* context)
     engine->RegisterObjectBehaviour("ConstantBuffer", asBEHAVE_FACTORY, "ConstantBuffer@+ f()", AS_FUNCTION(ConstantBuffer_ConstantBuffer_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ConstantBuffer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstantBuffer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ConstantBuffer(members);
     RegisterMembers(engine, "ConstantBuffer", members);
@@ -945,6 +1005,9 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
 // class Context | File: ../Core/Context.h
 static void Register_Context(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("Context", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Context", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Context(members);
     RegisterMembers(engine, "Context", members);
@@ -981,6 +1044,9 @@ static void Register_Cursor(asIScriptEngine* engine)
 {
     // explicit Cursor::Cursor(Context* context)
     engine->RegisterObjectBehaviour("Cursor", asBEHAVE_FACTORY, "Cursor@+ f()", AS_FUNCTION(Cursor_Cursor_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Cursor", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Cursor", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Cursor(members);
@@ -1028,6 +1094,9 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
     // explicit CustomGeometry::CustomGeometry(Context* context)
     engine->RegisterObjectBehaviour("CustomGeometry", asBEHAVE_FACTORY, "CustomGeometry@+ f()", AS_FUNCTION(CustomGeometry_CustomGeometry_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("CustomGeometry", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CustomGeometry", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_CustomGeometry(members);
     RegisterMembers(engine, "CustomGeometry", members);
@@ -1040,6 +1109,9 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
 // struct CustomGeometryVertex | File: ../Graphics/CustomGeometry.h
 static void Register_CustomGeometryVertex(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("CustomGeometryVertex", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CustomGeometryVertex", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_CustomGeometryVertex(members);
     RegisterMembers(engine, "CustomGeometryVertex", members);
@@ -1061,6 +1133,9 @@ static void Register_DebugHud(asIScriptEngine* engine)
 {
     // explicit DebugHud::DebugHud(Context* context)
     engine->RegisterObjectBehaviour("DebugHud", asBEHAVE_FACTORY, "DebugHud@+ f()", AS_FUNCTION(DebugHud_DebugHud_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("DebugHud", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("DebugHud", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_DebugHud(members);
@@ -1107,6 +1182,9 @@ static void Register_DebugRenderer(asIScriptEngine* engine)
 {
     // explicit DebugRenderer::DebugRenderer(Context* context)
     engine->RegisterObjectBehaviour("DebugRenderer", asBEHAVE_FACTORY, "DebugRenderer@+ f()", AS_FUNCTION(DebugRenderer_DebugRenderer_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("DebugRenderer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("DebugRenderer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_DebugRenderer(members);
@@ -1168,6 +1246,9 @@ static void Register_DecalSet(asIScriptEngine* engine)
 {
     // explicit DecalSet::DecalSet(Context* context)
     engine->RegisterObjectBehaviour("DecalSet", asBEHAVE_FACTORY, "DecalSet@+ f()", AS_FUNCTION(DecalSet_DecalSet_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("DecalSet", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("DecalSet", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_DecalSet(members);
@@ -1278,6 +1359,9 @@ static void Register_DropDownList(asIScriptEngine* engine)
     // explicit DropDownList::DropDownList(Context* context)
     engine->RegisterObjectBehaviour("DropDownList", asBEHAVE_FACTORY, "DropDownList@+ f()", AS_FUNCTION(DropDownList_DropDownList_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("DropDownList", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("DropDownList", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_DropDownList(members);
     RegisterMembers(engine, "DropDownList", members);
@@ -1299,6 +1383,9 @@ static void Register_Engine(asIScriptEngine* engine)
 {
     // explicit Engine::Engine(Context* context)
     engine->RegisterObjectBehaviour("Engine", asBEHAVE_FACTORY, "Engine@+ f()", AS_FUNCTION(Engine_Engine_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Engine", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Engine", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Engine(members);
@@ -1322,6 +1409,9 @@ static void Register_EventProfiler(asIScriptEngine* engine)
     // explicit EventProfiler::EventProfiler(Context* context)
     engine->RegisterObjectBehaviour("EventProfiler", asBEHAVE_FACTORY, "EventProfiler@+ f()", AS_FUNCTION(EventProfiler_EventProfiler_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("EventProfiler", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("EventProfiler", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_EventProfiler(members);
     RegisterMembers(engine, "EventProfiler", members);
@@ -1334,6 +1424,9 @@ static void Register_EventProfiler(asIScriptEngine* engine)
 // class EventReceiverGroup | File: ../Core/Context.h
 static void Register_EventReceiverGroup(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("EventReceiverGroup", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("EventReceiverGroup", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_EventReceiverGroup(members);
     RegisterMembers(engine, "EventReceiverGroup", members);
@@ -1374,6 +1467,9 @@ static void Register_File(asIScriptEngine* engine)
     // File::File(Context* context, PackageFile* package, const String& fileName)
     engine->RegisterObjectBehaviour("File", asBEHAVE_FACTORY, "File@+ f(PackageFile@+, const String&in)", AS_FUNCTION(File_File_Context_PackageFile_String) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("File", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("File", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_File(members);
     RegisterMembers(engine, "File", members);
@@ -1395,6 +1491,9 @@ static void Register_FileSelector(asIScriptEngine* engine)
 {
     // explicit FileSelector::FileSelector(Context* context)
     engine->RegisterObjectBehaviour("FileSelector", asBEHAVE_FACTORY, "FileSelector@+ f()", AS_FUNCTION(FileSelector_FileSelector_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("FileSelector", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("FileSelector", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_FileSelector(members);
@@ -1433,6 +1532,9 @@ static void Register_FileSystem(asIScriptEngine* engine)
     // explicit FileSystem::FileSystem(Context* context)
     engine->RegisterObjectBehaviour("FileSystem", asBEHAVE_FACTORY, "FileSystem@+ f()", AS_FUNCTION(FileSystem_FileSystem_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("FileSystem", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("FileSystem", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_FileSystem(members);
     RegisterMembers(engine, "FileSystem", members);
@@ -1454,6 +1556,9 @@ static void Register_FileWatcher(asIScriptEngine* engine)
 {
     // explicit FileWatcher::FileWatcher(Context* context)
     engine->RegisterObjectBehaviour("FileWatcher", asBEHAVE_FACTORY, "FileWatcher@+ f()", AS_FUNCTION(FileWatcher_FileWatcher_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("FileWatcher", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("FileWatcher", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_FileWatcher(members);
@@ -1498,6 +1603,9 @@ static void Register_Font(asIScriptEngine* engine)
     // explicit Font::Font(Context* context)
     engine->RegisterObjectBehaviour("Font", asBEHAVE_FACTORY, "Font@+ f()", AS_FUNCTION(Font_Font_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Font", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Font", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Font(members);
     RegisterMembers(engine, "Font", members);
@@ -1531,6 +1639,9 @@ static void Register_FontFaceBitmap(asIScriptEngine* engine)
     // explicit FontFaceBitmap::FontFaceBitmap(Font* font)
     engine->RegisterObjectBehaviour("FontFaceBitmap", asBEHAVE_FACTORY, "FontFaceBitmap@+ f(Font@+)", AS_FUNCTION(FontFaceBitmap_FontFaceBitmap_Font) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("FontFaceBitmap", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("FontFaceBitmap", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_FontFaceBitmap(members);
     RegisterMembers(engine, "FontFaceBitmap", members);
@@ -1551,6 +1662,9 @@ static void Register_FontFaceFreeType(asIScriptEngine* engine)
 {
     // explicit FontFaceFreeType::FontFaceFreeType(Font* font)
     engine->RegisterObjectBehaviour("FontFaceFreeType", asBEHAVE_FACTORY, "FontFaceFreeType@+ f(Font@+)", AS_FUNCTION(FontFaceFreeType_FontFaceFreeType_Font) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("FontFaceFreeType", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("FontFaceFreeType", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_FontFaceFreeType(members);
@@ -1652,6 +1766,9 @@ static void Register_Geometry(asIScriptEngine* engine)
     // explicit Geometry::Geometry(Context* context)
     engine->RegisterObjectBehaviour("Geometry", asBEHAVE_FACTORY, "Geometry@+ f()", AS_FUNCTION(Geometry_Geometry_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Geometry", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Geometry", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Geometry(members);
     RegisterMembers(engine, "Geometry", members);
@@ -1688,6 +1805,9 @@ static void Register_Graphics(asIScriptEngine* engine)
 {
     // explicit Graphics::Graphics(Context* context)
     engine->RegisterObjectBehaviour("Graphics", asBEHAVE_FACTORY, "Graphics@+ f()", AS_FUNCTION(Graphics_Graphics_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Graphics", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Graphics", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Graphics(members);
@@ -1774,6 +1894,9 @@ static void Register_Image(asIScriptEngine* engine)
     // explicit Image::Image(Context* context)
     engine->RegisterObjectBehaviour("Image", asBEHAVE_FACTORY, "Image@+ f()", AS_FUNCTION(Image_Image_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Image", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Image", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Image(members);
     RegisterMembers(engine, "Image", members);
@@ -1795,6 +1918,9 @@ static void Register_IndexBuffer(asIScriptEngine* engine)
 {
     // explicit IndexBuffer::IndexBuffer(Context* context, bool forceHeadless=false)
     engine->RegisterObjectBehaviour("IndexBuffer", asBEHAVE_FACTORY, "IndexBuffer@+ f(bool = false)", AS_FUNCTION(IndexBuffer_IndexBuffer_Context_bool) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("IndexBuffer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("IndexBuffer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_IndexBuffer(members);
@@ -1832,6 +1958,9 @@ static void Register_Input(asIScriptEngine* engine)
 {
     // explicit Input::Input(Context* context)
     engine->RegisterObjectBehaviour("Input", asBEHAVE_FACTORY, "Input@+ f()", AS_FUNCTION(Input_Input_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Input", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Input", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Input(members);
@@ -1971,6 +2100,9 @@ static void Register_JSONFile(asIScriptEngine* engine)
     // explicit JSONFile::JSONFile(Context* context)
     engine->RegisterObjectBehaviour("JSONFile", asBEHAVE_FACTORY, "JSONFile@+ f()", AS_FUNCTION(JSONFile_JSONFile_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("JSONFile", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("JSONFile", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_JSONFile(members);
     RegisterMembers(engine, "JSONFile", members);
@@ -2062,6 +2194,9 @@ static void Register_JSONValue(asIScriptEngine* engine)
 // struct JoystickState | File: ../Input/Input.h
 static void Register_JoystickState(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("JoystickState", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("JoystickState", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_JoystickState(members);
     RegisterMembers(engine, "JoystickState", members);
@@ -2083,6 +2218,9 @@ static void Register_Light(asIScriptEngine* engine)
 {
     // explicit Light::Light(Context* context)
     engine->RegisterObjectBehaviour("Light", asBEHAVE_FACTORY, "Light@+ f()", AS_FUNCTION(Light_Light_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Light", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Light", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Light(members);
@@ -2135,6 +2273,9 @@ static void Register_LineEdit(asIScriptEngine* engine)
 {
     // explicit LineEdit::LineEdit(Context* context)
     engine->RegisterObjectBehaviour("LineEdit", asBEHAVE_FACTORY, "LineEdit@+ f()", AS_FUNCTION(LineEdit_LineEdit_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("LineEdit", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("LineEdit", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_LineEdit(members);
@@ -2221,6 +2362,9 @@ static void Register_ListView(asIScriptEngine* engine)
     // explicit ListView::ListView(Context* context)
     engine->RegisterObjectBehaviour("ListView", asBEHAVE_FACTORY, "ListView@+ f()", AS_FUNCTION(ListView_ListView_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ListView", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ListView", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ListView(members);
     RegisterMembers(engine, "ListView", members);
@@ -2242,6 +2386,9 @@ static void Register_Localization(asIScriptEngine* engine)
 {
     // explicit Localization::Localization(Context* context)
     engine->RegisterObjectBehaviour("Localization", asBEHAVE_FACTORY, "Localization@+ f()", AS_FUNCTION(Localization_Localization_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Localization", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Localization", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Localization(members);
@@ -2265,6 +2412,9 @@ static void Register_Log(asIScriptEngine* engine)
     // explicit Log::Log(Context* context)
     engine->RegisterObjectBehaviour("Log", asBEHAVE_FACTORY, "Log@+ f()", AS_FUNCTION(Log_Log_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Log", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Log", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Log(members);
     RegisterMembers(engine, "Log", members);
@@ -2277,6 +2427,9 @@ static void Register_Log(asIScriptEngine* engine)
 // class LogicComponent | File: ../Scene/LogicComponent.h
 static void Register_LogicComponent(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("LogicComponent", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("LogicComponent", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_LogicComponent(members);
     RegisterMembers(engine, "LogicComponent", members);
@@ -2298,6 +2451,9 @@ static void Register_Material(asIScriptEngine* engine)
 {
     // explicit Material::Material(Context* context)
     engine->RegisterObjectBehaviour("Material", asBEHAVE_FACTORY, "Material@+ f()", AS_FUNCTION(Material_Material_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Material", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Material", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Material(members);
@@ -2504,6 +2660,9 @@ static void Register_Menu(asIScriptEngine* engine)
     // explicit Menu::Menu(Context* context)
     engine->RegisterObjectBehaviour("Menu", asBEHAVE_FACTORY, "Menu@+ f()", AS_FUNCTION(Menu_Menu_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Menu", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Menu", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Menu(members);
     RegisterMembers(engine, "Menu", members);
@@ -2526,6 +2685,9 @@ static void Register_MessageBox(asIScriptEngine* engine)
     // explicit MessageBox::MessageBox(Context* context, const String& messageString=String::EMPTY, const String& titleString=String::EMPTY, XMLFile* layoutFile=nullptr, XMLFile* styleFile=nullptr)
     engine->RegisterObjectBehaviour("MessageBox", asBEHAVE_FACTORY, "MessageBox@+ f(const String&in = String::EMPTY, const String&in = String::EMPTY, XMLFile@+ = null, XMLFile@+ = null)", AS_FUNCTION(MessageBox_MessageBox_Context_String_String_XMLFile_XMLFile) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("MessageBox", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("MessageBox", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_MessageBox(members);
     RegisterMembers(engine, "MessageBox", members);
@@ -2547,6 +2709,9 @@ static void Register_Model(asIScriptEngine* engine)
 {
     // explicit Model::Model(Context* context)
     engine->RegisterObjectBehaviour("Model", asBEHAVE_FACTORY, "Model@+ f()", AS_FUNCTION(Model_Model_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Model", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Model", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Model(members);
@@ -2636,6 +2801,9 @@ static void Register_NamedPipe(asIScriptEngine* engine)
     // NamedPipe::NamedPipe(Context* context, const String& name, bool isServer)
     engine->RegisterObjectBehaviour("NamedPipe", asBEHAVE_FACTORY, "NamedPipe@+ f(const String&in, bool)", AS_FUNCTION(NamedPipe_NamedPipe_Context_String_bool) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("NamedPipe", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("NamedPipe", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_NamedPipe(members);
     RegisterMembers(engine, "NamedPipe", members);
@@ -2672,6 +2840,9 @@ static void Register_Node(asIScriptEngine* engine)
 {
     // explicit Node::Node(Context* context)
     engine->RegisterObjectBehaviour("Node", asBEHAVE_FACTORY, "Node@+ f()", AS_FUNCTION(Node_Node_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Node", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Node", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Node(members);
@@ -2737,6 +2908,9 @@ static void Register_ObjectAnimation(asIScriptEngine* engine)
     // explicit ObjectAnimation::ObjectAnimation(Context* context)
     engine->RegisterObjectBehaviour("ObjectAnimation", asBEHAVE_FACTORY, "ObjectAnimation@+ f()", AS_FUNCTION(ObjectAnimation_ObjectAnimation_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ObjectAnimation", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ObjectAnimation", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ObjectAnimation(members);
     RegisterMembers(engine, "ObjectAnimation", members);
@@ -2786,6 +2960,9 @@ static void Register_OcclusionBuffer(asIScriptEngine* engine)
     // explicit OcclusionBuffer::OcclusionBuffer(Context* context)
     engine->RegisterObjectBehaviour("OcclusionBuffer", asBEHAVE_FACTORY, "OcclusionBuffer@+ f()", AS_FUNCTION(OcclusionBuffer_OcclusionBuffer_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("OcclusionBuffer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("OcclusionBuffer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_OcclusionBuffer(members);
     RegisterMembers(engine, "OcclusionBuffer", members);
@@ -2823,6 +3000,9 @@ static void Register_Octree(asIScriptEngine* engine)
     // explicit Octree::Octree(Context* context)
     engine->RegisterObjectBehaviour("Octree", asBEHAVE_FACTORY, "Octree@+ f()", AS_FUNCTION(Octree_Octree_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Octree", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Octree", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Octree(members);
     RegisterMembers(engine, "Octree", members);
@@ -2858,6 +3038,9 @@ static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
 {
     // explicit OggVorbisSoundStream::OggVorbisSoundStream(const Sound* sound)
     engine->RegisterObjectBehaviour("OggVorbisSoundStream", asBEHAVE_FACTORY, "OggVorbisSoundStream@+ f(Sound@+)", AS_FUNCTION(OggVorbisSoundStream_OggVorbisSoundStream_Sound) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("OggVorbisSoundStream", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("OggVorbisSoundStream", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_OggVorbisSoundStream(members);
@@ -2902,6 +3085,9 @@ static void Register_PackageFile(asIScriptEngine* engine)
     // PackageFile::PackageFile(Context* context, const String& fileName, unsigned startOffset=0)
     engine->RegisterObjectBehaviour("PackageFile", asBEHAVE_FACTORY, "PackageFile@+ f(const String&in, uint = 0)", AS_FUNCTION(PackageFile_PackageFile_Context_String_unsigned) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("PackageFile", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("PackageFile", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_PackageFile(members);
     RegisterMembers(engine, "PackageFile", members);
@@ -2939,6 +3125,9 @@ static void Register_ParticleEffect(asIScriptEngine* engine)
     // explicit ParticleEffect::ParticleEffect(Context* context)
     engine->RegisterObjectBehaviour("ParticleEffect", asBEHAVE_FACTORY, "ParticleEffect@+ f()", AS_FUNCTION(ParticleEffect_ParticleEffect_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ParticleEffect", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ParticleEffect", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ParticleEffect(members);
     RegisterMembers(engine, "ParticleEffect", members);
@@ -2961,6 +3150,9 @@ static void Register_ParticleEmitter(asIScriptEngine* engine)
     // explicit ParticleEmitter::ParticleEmitter(Context* context)
     engine->RegisterObjectBehaviour("ParticleEmitter", asBEHAVE_FACTORY, "ParticleEmitter@+ f()", AS_FUNCTION(ParticleEmitter_ParticleEmitter_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ParticleEmitter", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ParticleEmitter", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ParticleEmitter(members);
     RegisterMembers(engine, "ParticleEmitter", members);
@@ -2981,6 +3173,9 @@ static void Register_Pass(asIScriptEngine* engine)
 {
     // explicit Pass::Pass(const String& name)
     engine->RegisterObjectBehaviour("Pass", asBEHAVE_FACTORY, "Pass@+ f(const String&in)", AS_FUNCTION(Pass_Pass_String) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Pass", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Pass", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Pass(members);
@@ -3107,6 +3302,9 @@ static void Register_Profiler(asIScriptEngine* engine)
     // explicit Profiler::Profiler(Context* context)
     engine->RegisterObjectBehaviour("Profiler", asBEHAVE_FACTORY, "Profiler@+ f()", AS_FUNCTION(Profiler_Profiler_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Profiler", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Profiler", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Profiler(members);
     RegisterMembers(engine, "Profiler", members);
@@ -3128,6 +3326,9 @@ static void Register_ProgressBar(asIScriptEngine* engine)
 {
     // explicit ProgressBar::ProgressBar(Context* context)
     engine->RegisterObjectBehaviour("ProgressBar", asBEHAVE_FACTORY, "ProgressBar@+ f()", AS_FUNCTION(ProgressBar_ProgressBar_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ProgressBar", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ProgressBar", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ProgressBar(members);
@@ -3339,6 +3540,9 @@ static void Register_RefCounted(asIScriptEngine* engine)
     // RefCounted::RefCounted(const RefCounted& rhs)=delete
     // Not registered because deleted
 
+    engine->RegisterObjectBehaviour("RefCounted", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("RefCounted", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_RefCounted(members);
     RegisterMembers(engine, "RefCounted", members);
@@ -3351,6 +3555,9 @@ static void Register_RefCounted(asIScriptEngine* engine)
 // class RenderPath | File: ../Graphics/RenderPath.h
 static void Register_RenderPath(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("RenderPath", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("RenderPath", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_RenderPath(members);
     RegisterMembers(engine, "RenderPath", members);
@@ -3386,6 +3593,9 @@ static void Register_RenderSurface(asIScriptEngine* engine)
 {
     // explicit RenderSurface::RenderSurface(Texture* parentTexture)
     engine->RegisterObjectBehaviour("RenderSurface", asBEHAVE_FACTORY, "RenderSurface@+ f(Texture@+)", AS_FUNCTION(RenderSurface_RenderSurface_Texture) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("RenderSurface", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("RenderSurface", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_RenderSurface(members);
@@ -3424,6 +3634,9 @@ static void Register_Renderer(asIScriptEngine* engine)
     // explicit Renderer::Renderer(Context* context)
     engine->RegisterObjectBehaviour("Renderer", asBEHAVE_FACTORY, "Renderer@+ f()", AS_FUNCTION(Renderer_Renderer_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Renderer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Renderer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Renderer(members);
     RegisterMembers(engine, "Renderer", members);
@@ -3461,6 +3674,9 @@ static void Register_Resource(asIScriptEngine* engine)
     // explicit Resource::Resource(Context* context)
     engine->RegisterObjectBehaviour("Resource", asBEHAVE_FACTORY, "Resource@+ f()", AS_FUNCTION(Resource_Resource_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Resource", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Resource", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Resource(members);
     RegisterMembers(engine, "Resource", members);
@@ -3482,6 +3698,9 @@ static void Register_ResourceCache(asIScriptEngine* engine)
 {
     // explicit ResourceCache::ResourceCache(Context* context)
     engine->RegisterObjectBehaviour("ResourceCache", asBEHAVE_FACTORY, "ResourceCache@+ f()", AS_FUNCTION(ResourceCache_ResourceCache_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ResourceCache", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ResourceCache", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ResourceCache(members);
@@ -3604,6 +3823,9 @@ static void Register_ResourceWithMetadata(asIScriptEngine* engine)
     // explicit ResourceWithMetadata::ResourceWithMetadata(Context* context)
     engine->RegisterObjectBehaviour("ResourceWithMetadata", asBEHAVE_FACTORY, "ResourceWithMetadata@+ f()", AS_FUNCTION(ResourceWithMetadata_ResourceWithMetadata_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ResourceWithMetadata", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ResourceWithMetadata", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ResourceWithMetadata(members);
     RegisterMembers(engine, "ResourceWithMetadata", members);
@@ -3626,6 +3848,9 @@ static void Register_RibbonTrail(asIScriptEngine* engine)
     // explicit RibbonTrail::RibbonTrail(Context* context)
     engine->RegisterObjectBehaviour("RibbonTrail", asBEHAVE_FACTORY, "RibbonTrail@+ f()", AS_FUNCTION(RibbonTrail_RibbonTrail_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("RibbonTrail", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("RibbonTrail", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_RibbonTrail(members);
     RegisterMembers(engine, "RibbonTrail", members);
@@ -3647,6 +3872,9 @@ static void Register_Scene(asIScriptEngine* engine)
 {
     // explicit Scene::Scene(Context* context)
     engine->RegisterObjectBehaviour("Scene", asBEHAVE_FACTORY, "Scene@+ f()", AS_FUNCTION(Scene_Scene_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Scene", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Scene", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Scene(members);
@@ -3745,6 +3973,9 @@ static void Register_ScrollBar(asIScriptEngine* engine)
     // explicit ScrollBar::ScrollBar(Context* context)
     engine->RegisterObjectBehaviour("ScrollBar", asBEHAVE_FACTORY, "ScrollBar@+ f()", AS_FUNCTION(ScrollBar_ScrollBar_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ScrollBar", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ScrollBar", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ScrollBar(members);
     RegisterMembers(engine, "ScrollBar", members);
@@ -3767,6 +3998,9 @@ static void Register_ScrollView(asIScriptEngine* engine)
     // explicit ScrollView::ScrollView(Context* context)
     engine->RegisterObjectBehaviour("ScrollView", asBEHAVE_FACTORY, "ScrollView@+ f()", AS_FUNCTION(ScrollView_ScrollView_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ScrollView", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ScrollView", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ScrollView(members);
     RegisterMembers(engine, "ScrollView", members);
@@ -3788,6 +4022,9 @@ static void Register_Serializable(asIScriptEngine* engine)
 {
     // explicit Serializable::Serializable(Context* context)
     engine->RegisterObjectBehaviour("Serializable", asBEHAVE_FACTORY, "Serializable@+ f()", AS_FUNCTION(Serializable_Serializable_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Serializable", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Serializable", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Serializable(members);
@@ -3822,6 +4059,9 @@ static void Register_Shader(asIScriptEngine* engine)
 {
     // explicit Shader::Shader(Context* context)
     engine->RegisterObjectBehaviour("Shader", asBEHAVE_FACTORY, "Shader@+ f()", AS_FUNCTION(Shader_Shader_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Shader", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Shader", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Shader(members);
@@ -3892,6 +4132,9 @@ static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
     // ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(const ShaderParameterAnimationInfo& other)
     engine->RegisterObjectBehaviour("ShaderParameterAnimationInfo", asBEHAVE_FACTORY, "ShaderParameterAnimationInfo@+ f(const ShaderParameterAnimationInfo&in)", AS_FUNCTION(ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_ShaderParameterAnimationInfo) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ShaderParameterAnimationInfo", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ShaderParameterAnimationInfo", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ShaderParameterAnimationInfo(members);
     RegisterMembers(engine, "ShaderParameterAnimationInfo", members);
@@ -3914,6 +4157,9 @@ static void Register_ShaderPrecache(asIScriptEngine* engine)
     // ShaderPrecache::ShaderPrecache(Context* context, const String& fileName)
     engine->RegisterObjectBehaviour("ShaderPrecache", asBEHAVE_FACTORY, "ShaderPrecache@+ f(const String&in)", AS_FUNCTION(ShaderPrecache_ShaderPrecache_Context_String) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ShaderPrecache", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ShaderPrecache", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ShaderPrecache(members);
     RegisterMembers(engine, "ShaderPrecache", members);
@@ -3934,6 +4180,9 @@ static void Register_ShaderVariation(asIScriptEngine* engine)
 {
     // ShaderVariation::ShaderVariation(Shader* owner, ShaderType type)
     engine->RegisterObjectBehaviour("ShaderVariation", asBEHAVE_FACTORY, "ShaderVariation@+ f(Shader@+, ShaderType)", AS_FUNCTION(ShaderVariation_ShaderVariation_Shader_ShaderType) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ShaderVariation", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ShaderVariation", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ShaderVariation(members);
@@ -3962,6 +4211,9 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
 // class Skeleton | File: ../Graphics/Skeleton.h
 static void Register_Skeleton(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("Skeleton", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Skeleton", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Skeleton(members);
     RegisterMembers(engine, "Skeleton", members);
@@ -3983,6 +4235,9 @@ static void Register_Skybox(asIScriptEngine* engine)
 {
     // explicit Skybox::Skybox(Context* context)
     engine->RegisterObjectBehaviour("Skybox", asBEHAVE_FACTORY, "Skybox@+ f()", AS_FUNCTION(Skybox_Skybox_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Skybox", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Skybox", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Skybox(members);
@@ -4006,6 +4261,9 @@ static void Register_Slider(asIScriptEngine* engine)
     // explicit Slider::Slider(Context* context)
     engine->RegisterObjectBehaviour("Slider", asBEHAVE_FACTORY, "Slider@+ f()", AS_FUNCTION(Slider_Slider_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Slider", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Slider", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Slider(members);
     RegisterMembers(engine, "Slider", members);
@@ -4027,6 +4285,9 @@ static void Register_SmoothedTransform(asIScriptEngine* engine)
 {
     // explicit SmoothedTransform::SmoothedTransform(Context* context)
     engine->RegisterObjectBehaviour("SmoothedTransform", asBEHAVE_FACTORY, "SmoothedTransform@+ f()", AS_FUNCTION(SmoothedTransform_SmoothedTransform_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("SmoothedTransform", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("SmoothedTransform", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_SmoothedTransform(members);
@@ -4050,6 +4311,9 @@ static void Register_Sound(asIScriptEngine* engine)
     // explicit Sound::Sound(Context* context)
     engine->RegisterObjectBehaviour("Sound", asBEHAVE_FACTORY, "Sound@+ f()", AS_FUNCTION(Sound_Sound_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Sound", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Sound", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Sound(members);
     RegisterMembers(engine, "Sound", members);
@@ -4071,6 +4335,9 @@ static void Register_SoundListener(asIScriptEngine* engine)
 {
     // explicit SoundListener::SoundListener(Context* context)
     engine->RegisterObjectBehaviour("SoundListener", asBEHAVE_FACTORY, "SoundListener@+ f()", AS_FUNCTION(SoundListener_SoundListener_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("SoundListener", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("SoundListener", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_SoundListener(members);
@@ -4094,6 +4361,9 @@ static void Register_SoundSource(asIScriptEngine* engine)
     // explicit SoundSource::SoundSource(Context* context)
     engine->RegisterObjectBehaviour("SoundSource", asBEHAVE_FACTORY, "SoundSource@+ f()", AS_FUNCTION(SoundSource_SoundSource_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("SoundSource", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("SoundSource", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_SoundSource(members);
     RegisterMembers(engine, "SoundSource", members);
@@ -4115,6 +4385,9 @@ static void Register_SoundSource3D(asIScriptEngine* engine)
 {
     // explicit SoundSource3D::SoundSource3D(Context* context)
     engine->RegisterObjectBehaviour("SoundSource3D", asBEHAVE_FACTORY, "SoundSource3D@+ f()", AS_FUNCTION(SoundSource3D_SoundSource3D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("SoundSource3D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("SoundSource3D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_SoundSource3D(members);
@@ -4265,6 +4538,9 @@ static void Register_SplinePath(asIScriptEngine* engine)
     // explicit SplinePath::SplinePath(Context* context)
     engine->RegisterObjectBehaviour("SplinePath", asBEHAVE_FACTORY, "SplinePath@+ f()", AS_FUNCTION(SplinePath_SplinePath_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("SplinePath", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("SplinePath", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_SplinePath(members);
     RegisterMembers(engine, "SplinePath", members);
@@ -4287,6 +4563,9 @@ static void Register_Sprite(asIScriptEngine* engine)
     // explicit Sprite::Sprite(Context* context)
     engine->RegisterObjectBehaviour("Sprite", asBEHAVE_FACTORY, "Sprite@+ f()", AS_FUNCTION(Sprite_Sprite_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Sprite", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Sprite", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Sprite(members);
     RegisterMembers(engine, "Sprite", members);
@@ -4308,6 +4587,9 @@ static void Register_StaticModel(asIScriptEngine* engine)
 {
     // explicit StaticModel::StaticModel(Context* context)
     engine->RegisterObjectBehaviour("StaticModel", asBEHAVE_FACTORY, "StaticModel@+ f()", AS_FUNCTION(StaticModel_StaticModel_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("StaticModel", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("StaticModel", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_StaticModel(members);
@@ -4345,6 +4627,9 @@ static void Register_StaticModelGroup(asIScriptEngine* engine)
 {
     // explicit StaticModelGroup::StaticModelGroup(Context* context)
     engine->RegisterObjectBehaviour("StaticModelGroup", asBEHAVE_FACTORY, "StaticModelGroup@+ f()", AS_FUNCTION(StaticModelGroup_StaticModelGroup_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("StaticModelGroup", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("StaticModelGroup", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_StaticModelGroup(members);
@@ -4589,6 +4874,9 @@ static void Register_Technique(asIScriptEngine* engine)
     // explicit Technique::Technique(Context* context)
     engine->RegisterObjectBehaviour("Technique", asBEHAVE_FACTORY, "Technique@+ f()", AS_FUNCTION(Technique_Technique_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Technique", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Technique", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Technique(members);
     RegisterMembers(engine, "Technique", members);
@@ -4635,6 +4923,9 @@ static void Register_Terrain(asIScriptEngine* engine)
     // explicit Terrain::Terrain(Context* context)
     engine->RegisterObjectBehaviour("Terrain", asBEHAVE_FACTORY, "Terrain@+ f()", AS_FUNCTION(Terrain_Terrain_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Terrain", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Terrain", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Terrain(members);
     RegisterMembers(engine, "Terrain", members);
@@ -4656,6 +4947,9 @@ static void Register_TerrainPatch(asIScriptEngine* engine)
 {
     // explicit TerrainPatch::TerrainPatch(Context* context)
     engine->RegisterObjectBehaviour("TerrainPatch", asBEHAVE_FACTORY, "TerrainPatch@+ f()", AS_FUNCTION(TerrainPatch_TerrainPatch_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("TerrainPatch", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TerrainPatch", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_TerrainPatch(members);
@@ -4679,6 +4973,9 @@ static void Register_Text(asIScriptEngine* engine)
     // explicit Text::Text(Context* context)
     engine->RegisterObjectBehaviour("Text", asBEHAVE_FACTORY, "Text@+ f()", AS_FUNCTION(Text_Text_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Text", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Text", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Text(members);
     RegisterMembers(engine, "Text", members);
@@ -4700,6 +4997,9 @@ static void Register_Text3D(asIScriptEngine* engine)
 {
     // explicit Text3D::Text3D(Context* context)
     engine->RegisterObjectBehaviour("Text3D", asBEHAVE_FACTORY, "Text3D@+ f()", AS_FUNCTION(Text3D_Text3D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Text3D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Text3D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Text3D(members);
@@ -4723,6 +5023,9 @@ static void Register_Texture(asIScriptEngine* engine)
     // explicit Texture::Texture(Context* context)
     engine->RegisterObjectBehaviour("Texture", asBEHAVE_FACTORY, "Texture@+ f()", AS_FUNCTION(Texture_Texture_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Texture", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Texture", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Texture(members);
     RegisterMembers(engine, "Texture", members);
@@ -4744,6 +5047,9 @@ static void Register_Texture2D(asIScriptEngine* engine)
 {
     // explicit Texture2D::Texture2D(Context* context)
     engine->RegisterObjectBehaviour("Texture2D", asBEHAVE_FACTORY, "Texture2D@+ f()", AS_FUNCTION(Texture2D_Texture2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Texture2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Texture2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Texture2D(members);
@@ -4767,6 +5073,9 @@ static void Register_Texture2DArray(asIScriptEngine* engine)
     // explicit Texture2DArray::Texture2DArray(Context* context)
     engine->RegisterObjectBehaviour("Texture2DArray", asBEHAVE_FACTORY, "Texture2DArray@+ f()", AS_FUNCTION(Texture2DArray_Texture2DArray_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Texture2DArray", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Texture2DArray", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Texture2DArray(members);
     RegisterMembers(engine, "Texture2DArray", members);
@@ -4788,6 +5097,9 @@ static void Register_Texture3D(asIScriptEngine* engine)
 {
     // explicit Texture3D::Texture3D(Context* context)
     engine->RegisterObjectBehaviour("Texture3D", asBEHAVE_FACTORY, "Texture3D@+ f()", AS_FUNCTION(Texture3D_Texture3D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Texture3D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Texture3D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Texture3D(members);
@@ -4811,6 +5123,9 @@ static void Register_TextureCube(asIScriptEngine* engine)
     // explicit TextureCube::TextureCube(Context* context)
     engine->RegisterObjectBehaviour("TextureCube", asBEHAVE_FACTORY, "TextureCube@+ f()", AS_FUNCTION(TextureCube_TextureCube_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("TextureCube", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TextureCube", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TextureCube(members);
     RegisterMembers(engine, "TextureCube", members);
@@ -4823,6 +5138,9 @@ static void Register_TextureCube(asIScriptEngine* engine)
 // struct TextureFrame | File: ../Graphics/ParticleEffect.h
 static void Register_TextureFrame(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("TextureFrame", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TextureFrame", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TextureFrame(members);
     RegisterMembers(engine, "TextureFrame", members);
@@ -4844,6 +5162,9 @@ static void Register_Time(asIScriptEngine* engine)
 {
     // explicit Time::Time(Context* context)
     engine->RegisterObjectBehaviour("Time", asBEHAVE_FACTORY, "Time@+ f()", AS_FUNCTION(Time_Time_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Time", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Time", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Time(members);
@@ -4879,6 +5200,9 @@ static void Register_ToolTip(asIScriptEngine* engine)
     // explicit ToolTip::ToolTip(Context* context)
     engine->RegisterObjectBehaviour("ToolTip", asBEHAVE_FACTORY, "ToolTip@+ f()", AS_FUNCTION(ToolTip_ToolTip_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ToolTip", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ToolTip", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ToolTip(members);
     RegisterMembers(engine, "ToolTip", members);
@@ -4891,6 +5215,9 @@ static void Register_ToolTip(asIScriptEngine* engine)
 // struct TouchState | File: ../Input/Input.h
 static void Register_TouchState(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("TouchState", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TouchState", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TouchState(members);
     RegisterMembers(engine, "TouchState", members);
@@ -4937,6 +5264,9 @@ static void Register_UI(asIScriptEngine* engine)
     // explicit UI::UI(Context* context)
     engine->RegisterObjectBehaviour("UI", asBEHAVE_FACTORY, "UI@+ f()", AS_FUNCTION(UI_UI_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("UI", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("UI", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_UI(members);
     RegisterMembers(engine, "UI", members);
@@ -4977,6 +5307,9 @@ static void Register_UIComponent(asIScriptEngine* engine)
     // explicit UIComponent::UIComponent(Context* context)
     engine->RegisterObjectBehaviour("UIComponent", asBEHAVE_FACTORY, "UIComponent@+ f()", AS_FUNCTION(UIComponent_UIComponent_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("UIComponent", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("UIComponent", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_UIComponent(members);
     RegisterMembers(engine, "UIComponent", members);
@@ -4999,6 +5332,9 @@ static void Register_UIElement(asIScriptEngine* engine)
     // explicit UIElement::UIElement(Context* context)
     engine->RegisterObjectBehaviour("UIElement", asBEHAVE_FACTORY, "UIElement@+ f()", AS_FUNCTION(UIElement_UIElement_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("UIElement", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("UIElement", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_UIElement(members);
     RegisterMembers(engine, "UIElement", members);
@@ -5011,6 +5347,9 @@ static void Register_UIElement(asIScriptEngine* engine)
 // class UISelectable | File: ../UI/UISelectable.h
 static void Register_UISelectable(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("UISelectable", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("UISelectable", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_UISelectable(members);
     RegisterMembers(engine, "UISelectable", members);
@@ -5075,6 +5414,9 @@ static void Register_ValueAnimation(asIScriptEngine* engine)
     // explicit ValueAnimation::ValueAnimation(Context* context)
     engine->RegisterObjectBehaviour("ValueAnimation", asBEHAVE_FACTORY, "ValueAnimation@+ f()", AS_FUNCTION(ValueAnimation_ValueAnimation_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ValueAnimation", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ValueAnimation", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ValueAnimation(members);
     RegisterMembers(engine, "ValueAnimation", members);
@@ -5111,6 +5453,9 @@ static void Register_ValueAnimationInfo(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_FACTORY, "ValueAnimationInfo@+ f(Object@+, ValueAnimation@+, WrapMode, float)", AS_FUNCTION(ValueAnimationInfo_ValueAnimationInfo_Object_ValueAnimation_WrapMode_float) , AS_CALL_CDECL);
     // ValueAnimationInfo::ValueAnimationInfo(const ValueAnimationInfo& other)
     engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_FACTORY, "ValueAnimationInfo@+ f(const ValueAnimationInfo&in)", AS_FUNCTION(ValueAnimationInfo_ValueAnimationInfo_ValueAnimationInfo) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ValueAnimationInfo(members);
@@ -5594,6 +5939,9 @@ static void Register_VertexBuffer(asIScriptEngine* engine)
     // explicit VertexBuffer::VertexBuffer(Context* context, bool forceHeadless=false)
     engine->RegisterObjectBehaviour("VertexBuffer", asBEHAVE_FACTORY, "VertexBuffer@+ f(bool = false)", AS_FUNCTION(VertexBuffer_VertexBuffer_Context_bool) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("VertexBuffer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("VertexBuffer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_VertexBuffer(members);
     RegisterMembers(engine, "VertexBuffer", members);
@@ -5670,6 +6018,9 @@ static void Register_View(asIScriptEngine* engine)
     // explicit View::View(Context* context)
     engine->RegisterObjectBehaviour("View", asBEHAVE_FACTORY, "View@+ f()", AS_FUNCTION(View_View_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("View", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("View", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_View(members);
     RegisterMembers(engine, "View", members);
@@ -5691,6 +6042,9 @@ static void Register_View3D(asIScriptEngine* engine)
 {
     // explicit View3D::View3D(Context* context)
     engine->RegisterObjectBehaviour("View3D", asBEHAVE_FACTORY, "View3D@+ f()", AS_FUNCTION(View3D_View3D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("View3D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("View3D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_View3D(members);
@@ -5732,6 +6086,9 @@ static void Register_Viewport(asIScriptEngine* engine)
     // Viewport::Viewport(Context* context, Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath=nullptr)
     engine->RegisterObjectBehaviour("Viewport", asBEHAVE_FACTORY, "Viewport@+ f(Scene@+, Camera@+, const IntRect&in, RenderPath@+ = null)", AS_FUNCTION(Viewport_Viewport_Context_Scene_Camera_IntRect_RenderPath) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Viewport", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Viewport", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Viewport(members);
     RegisterMembers(engine, "Viewport", members);
@@ -5753,6 +6110,9 @@ static void Register_Window(asIScriptEngine* engine)
 {
     // explicit Window::Window(Context* context)
     engine->RegisterObjectBehaviour("Window", asBEHAVE_FACTORY, "Window@+ f()", AS_FUNCTION(Window_Window_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Window", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Window", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Window(members);
@@ -5790,6 +6150,9 @@ static void Register_WorkQueue(asIScriptEngine* engine)
 {
     // explicit WorkQueue::WorkQueue(Context* context)
     engine->RegisterObjectBehaviour("WorkQueue", asBEHAVE_FACTORY, "WorkQueue@+ f()", AS_FUNCTION(WorkQueue_WorkQueue_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("WorkQueue", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("WorkQueue", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_WorkQueue(members);
@@ -5841,6 +6204,9 @@ static void Register_XMLFile(asIScriptEngine* engine)
 {
     // explicit XMLFile::XMLFile(Context* context)
     engine->RegisterObjectBehaviour("XMLFile", asBEHAVE_FACTORY, "XMLFile@+ f()", AS_FUNCTION(XMLFile_XMLFile_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("XMLFile", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("XMLFile", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_XMLFile(members);
@@ -5915,6 +6281,9 @@ static void Register_Zone(asIScriptEngine* engine)
     // explicit Zone::Zone(Context* context)
     engine->RegisterObjectBehaviour("Zone", asBEHAVE_FACTORY, "Zone@+ f()", AS_FUNCTION(Zone_Zone_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Zone", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Zone", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Zone(members);
     RegisterMembers(engine, "Zone", members);
@@ -5938,6 +6307,9 @@ static void Register_Database(asIScriptEngine* engine)
 {
     // explicit Database::Database(Context* context)
     engine->RegisterObjectBehaviour("Database", asBEHAVE_FACTORY, "Database@+ f()", AS_FUNCTION(Database_Database_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Database", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Database", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Database(members);
@@ -5965,6 +6337,9 @@ static void Register_IKConstraint(asIScriptEngine* engine)
     // explicit IKConstraint::IKConstraint(Context* context)
     engine->RegisterObjectBehaviour("IKConstraint", asBEHAVE_FACTORY, "IKConstraint@+ f()", AS_FUNCTION(IKConstraint_IKConstraint_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("IKConstraint", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("IKConstraint", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_IKConstraint(members);
     RegisterMembers(engine, "IKConstraint", members);
@@ -5987,6 +6362,9 @@ static void Register_IKEffector(asIScriptEngine* engine)
     // explicit IKEffector::IKEffector(Context* context)
     engine->RegisterObjectBehaviour("IKEffector", asBEHAVE_FACTORY, "IKEffector@+ f()", AS_FUNCTION(IKEffector_IKEffector_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("IKEffector", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("IKEffector", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_IKEffector(members);
     RegisterMembers(engine, "IKEffector", members);
@@ -6008,6 +6386,9 @@ static void Register_IKSolver(asIScriptEngine* engine)
 {
     // explicit IKSolver::IKSolver(Context* context)
     engine->RegisterObjectBehaviour("IKSolver", asBEHAVE_FACTORY, "IKSolver@+ f()", AS_FUNCTION(IKSolver_IKSolver_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("IKSolver", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("IKSolver", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_IKSolver(members);
@@ -6035,6 +6416,9 @@ static void Register_CrowdAgent(asIScriptEngine* engine)
     // explicit CrowdAgent::CrowdAgent(Context* context)
     engine->RegisterObjectBehaviour("CrowdAgent", asBEHAVE_FACTORY, "CrowdAgent@+ f()", AS_FUNCTION(CrowdAgent_CrowdAgent_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("CrowdAgent", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CrowdAgent", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_CrowdAgent(members);
     RegisterMembers(engine, "CrowdAgent", members);
@@ -6056,6 +6440,9 @@ static void Register_CrowdManager(asIScriptEngine* engine)
 {
     // explicit CrowdManager::CrowdManager(Context* context)
     engine->RegisterObjectBehaviour("CrowdManager", asBEHAVE_FACTORY, "CrowdManager@+ f()", AS_FUNCTION(CrowdManager_CrowdManager_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("CrowdManager", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CrowdManager", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_CrowdManager(members);
@@ -6091,6 +6478,9 @@ static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
     // explicit DynamicNavigationMesh::DynamicNavigationMesh(Context* context)
     engine->RegisterObjectBehaviour("DynamicNavigationMesh", asBEHAVE_FACTORY, "DynamicNavigationMesh@+ f()", AS_FUNCTION(DynamicNavigationMesh_DynamicNavigationMesh_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("DynamicNavigationMesh", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("DynamicNavigationMesh", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_DynamicNavigationMesh(members);
     RegisterMembers(engine, "DynamicNavigationMesh", members);
@@ -6112,6 +6502,9 @@ static void Register_NavArea(asIScriptEngine* engine)
 {
     // explicit NavArea::NavArea(Context* context)
     engine->RegisterObjectBehaviour("NavArea", asBEHAVE_FACTORY, "NavArea@+ f()", AS_FUNCTION(NavArea_NavArea_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("NavArea", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("NavArea", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_NavArea(members);
@@ -6165,6 +6558,9 @@ static void Register_Navigable(asIScriptEngine* engine)
     // explicit Navigable::Navigable(Context* context)
     engine->RegisterObjectBehaviour("Navigable", asBEHAVE_FACTORY, "Navigable@+ f()", AS_FUNCTION(Navigable_Navigable_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Navigable", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Navigable", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Navigable(members);
     RegisterMembers(engine, "Navigable", members);
@@ -6201,6 +6597,9 @@ static void Register_NavigationMesh(asIScriptEngine* engine)
 {
     // explicit NavigationMesh::NavigationMesh(Context* context)
     engine->RegisterObjectBehaviour("NavigationMesh", asBEHAVE_FACTORY, "NavigationMesh@+ f()", AS_FUNCTION(NavigationMesh_NavigationMesh_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("NavigationMesh", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("NavigationMesh", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_NavigationMesh(members);
@@ -6239,6 +6638,9 @@ static void Register_Obstacle(asIScriptEngine* engine)
     // explicit Obstacle::Obstacle(Context* context)
     engine->RegisterObjectBehaviour("Obstacle", asBEHAVE_FACTORY, "Obstacle@+ f()", AS_FUNCTION(Obstacle_Obstacle_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Obstacle", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Obstacle", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Obstacle(members);
     RegisterMembers(engine, "Obstacle", members);
@@ -6260,6 +6662,9 @@ static void Register_OffMeshConnection(asIScriptEngine* engine)
 {
     // explicit OffMeshConnection::OffMeshConnection(Context* context)
     engine->RegisterObjectBehaviour("OffMeshConnection", asBEHAVE_FACTORY, "OffMeshConnection@+ f()", AS_FUNCTION(OffMeshConnection_OffMeshConnection_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("OffMeshConnection", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("OffMeshConnection", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_OffMeshConnection(members);
@@ -6295,6 +6700,9 @@ static void Register_Connection(asIScriptEngine* engine)
     // Connection::Connection(Context* context, bool isClient, const SLNet::AddressOrGUID& address, SLNet::RakPeerInterface* peer)
     // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
 
+    engine->RegisterObjectBehaviour("Connection", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Connection", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Connection(members);
     RegisterMembers(engine, "Connection", members);
@@ -6316,6 +6724,9 @@ static void Register_HttpRequest(asIScriptEngine* engine)
 {
     // HttpRequest::HttpRequest(const String& url, const String& verb, const Vector<String>& headers, const String& postData)
     engine->RegisterObjectBehaviour("HttpRequest", asBEHAVE_FACTORY, "HttpRequest@+ f(const String&in, const String&in, Array<String>@+, const String&in)", AS_FUNCTION(HttpRequest_HttpRequest_String_String_VectorString_String) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("HttpRequest", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("HttpRequest", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_HttpRequest(members);
@@ -6339,6 +6750,9 @@ static void Register_Network(asIScriptEngine* engine)
     // explicit Network::Network(Context* context)
     engine->RegisterObjectBehaviour("Network", asBEHAVE_FACTORY, "Network@+ f()", AS_FUNCTION(Network_Network_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Network", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Network", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Network(members);
     RegisterMembers(engine, "Network", members);
@@ -6360,6 +6774,9 @@ static void Register_NetworkPriority(asIScriptEngine* engine)
 {
     // explicit NetworkPriority::NetworkPriority(Context* context)
     engine->RegisterObjectBehaviour("NetworkPriority", asBEHAVE_FACTORY, "NetworkPriority@+ f()", AS_FUNCTION(NetworkPriority_NetworkPriority_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("NetworkPriority", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("NetworkPriority", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_NetworkPriority(members);
@@ -6422,6 +6839,9 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
 // struct CollisionGeometryData | File: ../Physics/CollisionShape.h
 static void Register_CollisionGeometryData(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("CollisionGeometryData", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CollisionGeometryData", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_CollisionGeometryData(members);
     RegisterMembers(engine, "CollisionGeometryData", members);
@@ -6444,6 +6864,9 @@ static void Register_CollisionShape(asIScriptEngine* engine)
     // explicit CollisionShape::CollisionShape(Context* context)
     engine->RegisterObjectBehaviour("CollisionShape", asBEHAVE_FACTORY, "CollisionShape@+ f()", AS_FUNCTION(CollisionShape_CollisionShape_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("CollisionShape", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CollisionShape", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_CollisionShape(members);
     RegisterMembers(engine, "CollisionShape", members);
@@ -6465,6 +6888,9 @@ static void Register_Constraint(asIScriptEngine* engine)
 {
     // explicit Constraint::Constraint(Context* context)
     engine->RegisterObjectBehaviour("Constraint", asBEHAVE_FACTORY, "Constraint@+ f()", AS_FUNCTION(Constraint_Constraint_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("Constraint", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Constraint", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Constraint(members);
@@ -6494,6 +6920,9 @@ static void Register_ConvexData(asIScriptEngine* engine)
     engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_FACTORY, "ConvexData@+ f(Model@+, uint)", AS_FUNCTION(ConvexData_ConvexData_Model_unsigned) , AS_CALL_CDECL);
     // explicit ConvexData::ConvexData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_FACTORY, "ConvexData@+ f(CustomGeometry@+)", AS_FUNCTION(ConvexData_ConvexData_CustomGeometry) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ConvexData(members);
@@ -6539,6 +6968,9 @@ static void Register_GImpactMeshData(asIScriptEngine* engine)
     // explicit GImpactMeshData::GImpactMeshData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("GImpactMeshData", asBEHAVE_FACTORY, "GImpactMeshData@+ f(CustomGeometry@+)", AS_FUNCTION(GImpactMeshData_GImpactMeshData_CustomGeometry) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("GImpactMeshData", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("GImpactMeshData", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_GImpactMeshData(members);
     RegisterMembers(engine, "GImpactMeshData", members);
@@ -6559,6 +6991,9 @@ static void Register_HeightfieldData(asIScriptEngine* engine)
 {
     // HeightfieldData::HeightfieldData(Terrain* terrain, unsigned lodLevel)
     engine->RegisterObjectBehaviour("HeightfieldData", asBEHAVE_FACTORY, "HeightfieldData@+ f(Terrain@+, uint)", AS_FUNCTION(HeightfieldData_HeightfieldData_Terrain_unsigned) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("HeightfieldData", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("HeightfieldData", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_HeightfieldData(members);
@@ -6612,6 +7047,9 @@ static void Register_PhysicsWorld(asIScriptEngine* engine)
     // explicit PhysicsWorld::PhysicsWorld(Context* context)
     engine->RegisterObjectBehaviour("PhysicsWorld", asBEHAVE_FACTORY, "PhysicsWorld@+ f()", AS_FUNCTION(PhysicsWorld_PhysicsWorld_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("PhysicsWorld", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("PhysicsWorld", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_PhysicsWorld(members);
     RegisterMembers(engine, "PhysicsWorld", members);
@@ -6642,6 +7080,9 @@ static void Register_RaycastVehicle(asIScriptEngine* engine)
     // explicit RaycastVehicle::RaycastVehicle(Urho3D::Context* context)
     // Error: type "Urho3D::Context*" can not automatically bind
 
+    engine->RegisterObjectBehaviour("RaycastVehicle", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("RaycastVehicle", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_RaycastVehicle(members);
     RegisterMembers(engine, "RaycastVehicle", members);
@@ -6663,6 +7104,9 @@ static void Register_RigidBody(asIScriptEngine* engine)
 {
     // explicit RigidBody::RigidBody(Context* context)
     engine->RegisterObjectBehaviour("RigidBody", asBEHAVE_FACTORY, "RigidBody@+ f()", AS_FUNCTION(RigidBody_RigidBody_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("RigidBody", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("RigidBody", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_RigidBody(members);
@@ -6693,6 +7137,9 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
     // explicit TriangleMeshData::TriangleMeshData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("TriangleMeshData", asBEHAVE_FACTORY, "TriangleMeshData@+ f(CustomGeometry@+)", AS_FUNCTION(TriangleMeshData_TriangleMeshData_CustomGeometry) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("TriangleMeshData", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TriangleMeshData", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TriangleMeshData(members);
     RegisterMembers(engine, "TriangleMeshData", members);
@@ -6719,6 +7166,9 @@ static void Register_AnimatedSprite2D(asIScriptEngine* engine)
     // explicit AnimatedSprite2D::AnimatedSprite2D(Context* context)
     engine->RegisterObjectBehaviour("AnimatedSprite2D", asBEHAVE_FACTORY, "AnimatedSprite2D@+ f()", AS_FUNCTION(AnimatedSprite2D_AnimatedSprite2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("AnimatedSprite2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimatedSprite2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_AnimatedSprite2D(members);
     RegisterMembers(engine, "AnimatedSprite2D", members);
@@ -6740,6 +7190,9 @@ static void Register_AnimationSet2D(asIScriptEngine* engine)
 {
     // explicit AnimationSet2D::AnimationSet2D(Context* context)
     engine->RegisterObjectBehaviour("AnimationSet2D", asBEHAVE_FACTORY, "AnimationSet2D@+ f()", AS_FUNCTION(AnimationSet2D_AnimationSet2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("AnimationSet2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationSet2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_AnimationSet2D(members);
@@ -6763,6 +7216,9 @@ static void Register_CollisionBox2D(asIScriptEngine* engine)
     // explicit CollisionBox2D::CollisionBox2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionBox2D", asBEHAVE_FACTORY, "CollisionBox2D@+ f()", AS_FUNCTION(CollisionBox2D_CollisionBox2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("CollisionBox2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CollisionBox2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_CollisionBox2D(members);
     RegisterMembers(engine, "CollisionBox2D", members);
@@ -6784,6 +7240,9 @@ static void Register_CollisionChain2D(asIScriptEngine* engine)
 {
     // explicit CollisionChain2D::CollisionChain2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionChain2D", asBEHAVE_FACTORY, "CollisionChain2D@+ f()", AS_FUNCTION(CollisionChain2D_CollisionChain2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("CollisionChain2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CollisionChain2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_CollisionChain2D(members);
@@ -6807,6 +7266,9 @@ static void Register_CollisionCircle2D(asIScriptEngine* engine)
     // explicit CollisionCircle2D::CollisionCircle2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionCircle2D", asBEHAVE_FACTORY, "CollisionCircle2D@+ f()", AS_FUNCTION(CollisionCircle2D_CollisionCircle2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("CollisionCircle2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CollisionCircle2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_CollisionCircle2D(members);
     RegisterMembers(engine, "CollisionCircle2D", members);
@@ -6829,6 +7291,9 @@ static void Register_CollisionEdge2D(asIScriptEngine* engine)
     // explicit CollisionEdge2D::CollisionEdge2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionEdge2D", asBEHAVE_FACTORY, "CollisionEdge2D@+ f()", AS_FUNCTION(CollisionEdge2D_CollisionEdge2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("CollisionEdge2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CollisionEdge2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_CollisionEdge2D(members);
     RegisterMembers(engine, "CollisionEdge2D", members);
@@ -6850,6 +7315,9 @@ static void Register_CollisionPolygon2D(asIScriptEngine* engine)
 {
     // explicit CollisionPolygon2D::CollisionPolygon2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionPolygon2D", asBEHAVE_FACTORY, "CollisionPolygon2D@+ f()", AS_FUNCTION(CollisionPolygon2D_CollisionPolygon2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("CollisionPolygon2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CollisionPolygon2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_CollisionPolygon2D(members);
@@ -6885,6 +7353,9 @@ static void Register_Constraint2D(asIScriptEngine* engine)
     // explicit Constraint2D::Constraint2D(Context* context)
     engine->RegisterObjectBehaviour("Constraint2D", asBEHAVE_FACTORY, "Constraint2D@+ f()", AS_FUNCTION(Constraint2D_Constraint2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Constraint2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Constraint2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Constraint2D(members);
     RegisterMembers(engine, "Constraint2D", members);
@@ -6906,6 +7377,9 @@ static void Register_ConstraintDistance2D(asIScriptEngine* engine)
 {
     // explicit ConstraintDistance2D::ConstraintDistance2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintDistance2D", asBEHAVE_FACTORY, "ConstraintDistance2D@+ f()", AS_FUNCTION(ConstraintDistance2D_ConstraintDistance2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ConstraintDistance2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintDistance2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ConstraintDistance2D(members);
@@ -6929,6 +7403,9 @@ static void Register_ConstraintFriction2D(asIScriptEngine* engine)
     // explicit ConstraintFriction2D::ConstraintFriction2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintFriction2D", asBEHAVE_FACTORY, "ConstraintFriction2D@+ f()", AS_FUNCTION(ConstraintFriction2D_ConstraintFriction2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ConstraintFriction2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintFriction2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ConstraintFriction2D(members);
     RegisterMembers(engine, "ConstraintFriction2D", members);
@@ -6950,6 +7427,9 @@ static void Register_ConstraintGear2D(asIScriptEngine* engine)
 {
     // explicit ConstraintGear2D::ConstraintGear2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintGear2D", asBEHAVE_FACTORY, "ConstraintGear2D@+ f()", AS_FUNCTION(ConstraintGear2D_ConstraintGear2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ConstraintGear2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintGear2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ConstraintGear2D(members);
@@ -6973,6 +7453,9 @@ static void Register_ConstraintMotor2D(asIScriptEngine* engine)
     // explicit ConstraintMotor2D::ConstraintMotor2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintMotor2D", asBEHAVE_FACTORY, "ConstraintMotor2D@+ f()", AS_FUNCTION(ConstraintMotor2D_ConstraintMotor2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ConstraintMotor2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintMotor2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ConstraintMotor2D(members);
     RegisterMembers(engine, "ConstraintMotor2D", members);
@@ -6994,6 +7477,9 @@ static void Register_ConstraintMouse2D(asIScriptEngine* engine)
 {
     // explicit ConstraintMouse2D::ConstraintMouse2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintMouse2D", asBEHAVE_FACTORY, "ConstraintMouse2D@+ f()", AS_FUNCTION(ConstraintMouse2D_ConstraintMouse2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ConstraintMouse2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintMouse2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ConstraintMouse2D(members);
@@ -7017,6 +7503,9 @@ static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
     // explicit ConstraintPrismatic2D::ConstraintPrismatic2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintPrismatic2D", asBEHAVE_FACTORY, "ConstraintPrismatic2D@+ f()", AS_FUNCTION(ConstraintPrismatic2D_ConstraintPrismatic2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ConstraintPrismatic2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintPrismatic2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ConstraintPrismatic2D(members);
     RegisterMembers(engine, "ConstraintPrismatic2D", members);
@@ -7038,6 +7527,9 @@ static void Register_ConstraintPulley2D(asIScriptEngine* engine)
 {
     // explicit ConstraintPulley2D::ConstraintPulley2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintPulley2D", asBEHAVE_FACTORY, "ConstraintPulley2D@+ f()", AS_FUNCTION(ConstraintPulley2D_ConstraintPulley2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ConstraintPulley2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintPulley2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ConstraintPulley2D(members);
@@ -7061,6 +7553,9 @@ static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
     // explicit ConstraintRevolute2D::ConstraintRevolute2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintRevolute2D", asBEHAVE_FACTORY, "ConstraintRevolute2D@+ f()", AS_FUNCTION(ConstraintRevolute2D_ConstraintRevolute2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ConstraintRevolute2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintRevolute2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ConstraintRevolute2D(members);
     RegisterMembers(engine, "ConstraintRevolute2D", members);
@@ -7082,6 +7577,9 @@ static void Register_ConstraintRope2D(asIScriptEngine* engine)
 {
     // explicit ConstraintRope2D::ConstraintRope2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintRope2D", asBEHAVE_FACTORY, "ConstraintRope2D@+ f()", AS_FUNCTION(ConstraintRope2D_ConstraintRope2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ConstraintRope2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintRope2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ConstraintRope2D(members);
@@ -7105,6 +7603,9 @@ static void Register_ConstraintWeld2D(asIScriptEngine* engine)
     // explicit ConstraintWeld2D::ConstraintWeld2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintWeld2D", asBEHAVE_FACTORY, "ConstraintWeld2D@+ f()", AS_FUNCTION(ConstraintWeld2D_ConstraintWeld2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ConstraintWeld2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintWeld2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ConstraintWeld2D(members);
     RegisterMembers(engine, "ConstraintWeld2D", members);
@@ -7126,6 +7627,9 @@ static void Register_ConstraintWheel2D(asIScriptEngine* engine)
 {
     // explicit ConstraintWheel2D::ConstraintWheel2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintWheel2D", asBEHAVE_FACTORY, "ConstraintWheel2D@+ f()", AS_FUNCTION(ConstraintWheel2D_ConstraintWheel2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ConstraintWheel2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ConstraintWheel2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ConstraintWheel2D(members);
@@ -7191,6 +7695,9 @@ static void Register_ParticleEffect2D(asIScriptEngine* engine)
     // explicit ParticleEffect2D::ParticleEffect2D(Context* context)
     engine->RegisterObjectBehaviour("ParticleEffect2D", asBEHAVE_FACTORY, "ParticleEffect2D@+ f()", AS_FUNCTION(ParticleEffect2D_ParticleEffect2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("ParticleEffect2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ParticleEffect2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_ParticleEffect2D(members);
     RegisterMembers(engine, "ParticleEffect2D", members);
@@ -7212,6 +7719,9 @@ static void Register_ParticleEmitter2D(asIScriptEngine* engine)
 {
     // explicit ParticleEmitter2D::ParticleEmitter2D(Context* context)
     engine->RegisterObjectBehaviour("ParticleEmitter2D", asBEHAVE_FACTORY, "ParticleEmitter2D@+ f()", AS_FUNCTION(ParticleEmitter2D_ParticleEmitter2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("ParticleEmitter2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ParticleEmitter2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ParticleEmitter2D(members);
@@ -7250,6 +7760,9 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
     // explicit PhysicsWorld2D::PhysicsWorld2D(Context* context)
     engine->RegisterObjectBehaviour("PhysicsWorld2D", asBEHAVE_FACTORY, "PhysicsWorld2D@+ f()", AS_FUNCTION(PhysicsWorld2D_PhysicsWorld2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("PhysicsWorld2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("PhysicsWorld2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_PhysicsWorld2D(members);
     RegisterMembers(engine, "PhysicsWorld2D", members);
@@ -7262,6 +7775,9 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
 // class PropertySet2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_PropertySet2D(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("PropertySet2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("PropertySet2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_PropertySet2D(members);
     RegisterMembers(engine, "PropertySet2D", members);
@@ -7284,6 +7800,9 @@ static void Register_Renderer2D(asIScriptEngine* engine)
     // explicit Renderer2D::Renderer2D(Context* context)
     engine->RegisterObjectBehaviour("Renderer2D", asBEHAVE_FACTORY, "Renderer2D@+ f()", AS_FUNCTION(Renderer2D_Renderer2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Renderer2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Renderer2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Renderer2D(members);
     RegisterMembers(engine, "Renderer2D", members);
@@ -7305,6 +7824,9 @@ static void Register_RigidBody2D(asIScriptEngine* engine)
 {
     // explicit RigidBody2D::RigidBody2D(Context* context)
     engine->RegisterObjectBehaviour("RigidBody2D", asBEHAVE_FACTORY, "RigidBody2D@+ f()", AS_FUNCTION(RigidBody2D_RigidBody2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("RigidBody2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("RigidBody2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_RigidBody2D(members);
@@ -7343,6 +7865,9 @@ static void Register_Sprite2D(asIScriptEngine* engine)
     // explicit Sprite2D::Sprite2D(Context* context)
     engine->RegisterObjectBehaviour("Sprite2D", asBEHAVE_FACTORY, "Sprite2D@+ f()", AS_FUNCTION(Sprite2D_Sprite2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("Sprite2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Sprite2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Sprite2D(members);
     RegisterMembers(engine, "Sprite2D", members);
@@ -7364,6 +7889,9 @@ static void Register_SpriteSheet2D(asIScriptEngine* engine)
 {
     // explicit SpriteSheet2D::SpriteSheet2D(Context* context)
     engine->RegisterObjectBehaviour("SpriteSheet2D", asBEHAVE_FACTORY, "SpriteSheet2D@+ f()", AS_FUNCTION(SpriteSheet2D_SpriteSheet2D_Context) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("SpriteSheet2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("SpriteSheet2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_SpriteSheet2D(members);
@@ -7387,6 +7915,9 @@ static void Register_StaticSprite2D(asIScriptEngine* engine)
     // explicit StaticSprite2D::StaticSprite2D(Context* context)
     engine->RegisterObjectBehaviour("StaticSprite2D", asBEHAVE_FACTORY, "StaticSprite2D@+ f()", AS_FUNCTION(StaticSprite2D_StaticSprite2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("StaticSprite2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("StaticSprite2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_StaticSprite2D(members);
     RegisterMembers(engine, "StaticSprite2D", members);
@@ -7409,6 +7940,9 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
     // explicit StretchableSprite2D::StretchableSprite2D(Context* context)
     engine->RegisterObjectBehaviour("StretchableSprite2D", asBEHAVE_FACTORY, "StretchableSprite2D@+ f()", AS_FUNCTION(StretchableSprite2D_StretchableSprite2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("StretchableSprite2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("StretchableSprite2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_StretchableSprite2D(members);
     RegisterMembers(engine, "StretchableSprite2D", members);
@@ -7421,6 +7955,9 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
 // class Tile2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_Tile2D(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("Tile2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Tile2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Tile2D(members);
     RegisterMembers(engine, "Tile2D", members);
@@ -7443,6 +7980,9 @@ static void Register_TileMap2D(asIScriptEngine* engine)
     // explicit TileMap2D::TileMap2D(Context* context)
     engine->RegisterObjectBehaviour("TileMap2D", asBEHAVE_FACTORY, "TileMap2D@+ f()", AS_FUNCTION(TileMap2D_TileMap2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("TileMap2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TileMap2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TileMap2D(members);
     RegisterMembers(engine, "TileMap2D", members);
@@ -7455,6 +7995,9 @@ static void Register_TileMap2D(asIScriptEngine* engine)
 // struct TileMapInfo2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_TileMapInfo2D(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TileMapInfo2D(members);
     RegisterMembers(engine, "TileMapInfo2D", members);
@@ -7477,6 +8020,9 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
     // explicit TileMapLayer2D::TileMapLayer2D(Context* context)
     engine->RegisterObjectBehaviour("TileMapLayer2D", asBEHAVE_FACTORY, "TileMapLayer2D@+ f()", AS_FUNCTION(TileMapLayer2D_TileMapLayer2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("TileMapLayer2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TileMapLayer2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TileMapLayer2D(members);
     RegisterMembers(engine, "TileMapLayer2D", members);
@@ -7489,6 +8035,9 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
 // class TileMapObject2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_TileMapObject2D(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("TileMapObject2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TileMapObject2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TileMapObject2D(members);
     RegisterMembers(engine, "TileMapObject2D", members);
@@ -7511,6 +8060,9 @@ static void Register_TmxFile2D(asIScriptEngine* engine)
     // explicit TmxFile2D::TmxFile2D(Context* context)
     engine->RegisterObjectBehaviour("TmxFile2D", asBEHAVE_FACTORY, "TmxFile2D@+ f()", AS_FUNCTION(TmxFile2D_TmxFile2D_Context) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("TmxFile2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TmxFile2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TmxFile2D(members);
     RegisterMembers(engine, "TmxFile2D", members);
@@ -7531,6 +8083,9 @@ static void Register_TmxImageLayer2D(asIScriptEngine* engine)
 {
     // explicit TmxImageLayer2D::TmxImageLayer2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxImageLayer2D", asBEHAVE_FACTORY, "TmxImageLayer2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxImageLayer2D_TmxImageLayer2D_TmxFile2D) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("TmxImageLayer2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TmxImageLayer2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_TmxImageLayer2D(members);
@@ -7553,6 +8108,9 @@ static void Register_TmxLayer2D(asIScriptEngine* engine)
     // TmxLayer2D::TmxLayer2D(TmxFile2D* tmxFile, TileMapLayerType2D type)
     engine->RegisterObjectBehaviour("TmxLayer2D", asBEHAVE_FACTORY, "TmxLayer2D@+ f(TmxFile2D@+, TileMapLayerType2D)", AS_FUNCTION(TmxLayer2D_TmxLayer2D_TmxFile2D_TileMapLayerType2D) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("TmxLayer2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TmxLayer2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TmxLayer2D(members);
     RegisterMembers(engine, "TmxLayer2D", members);
@@ -7574,6 +8132,9 @@ static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
     // explicit TmxObjectGroup2D::TmxObjectGroup2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxObjectGroup2D", asBEHAVE_FACTORY, "TmxObjectGroup2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxObjectGroup2D_TmxObjectGroup2D_TmxFile2D) , AS_CALL_CDECL);
 
+    engine->RegisterObjectBehaviour("TmxObjectGroup2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TmxObjectGroup2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_TmxObjectGroup2D(members);
     RegisterMembers(engine, "TmxObjectGroup2D", members);
@@ -7594,6 +8155,9 @@ static void Register_TmxTileLayer2D(asIScriptEngine* engine)
 {
     // explicit TmxTileLayer2D::TmxTileLayer2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxTileLayer2D", asBEHAVE_FACTORY, "TmxTileLayer2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxTileLayer2D_TmxTileLayer2D_TmxFile2D) , AS_CALL_CDECL);
+
+    engine->RegisterObjectBehaviour("TmxTileLayer2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TmxTileLayer2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_TmxTileLayer2D(members);
