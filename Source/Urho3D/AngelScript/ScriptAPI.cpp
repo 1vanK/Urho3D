@@ -105,13 +105,9 @@ static void RegisterScriptFile(asIScriptEngine* engine)
 
     engine->RegisterObjectType("ScriptFile", 0, asOBJ_REF);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ScriptFile", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Resource(members);
+    RegisterMembers(engine, "ScriptFile", members);
 
     engine->RegisterObjectBehaviour("ScriptFile", asBEHAVE_FACTORY, "ScriptFile@+ f()", AS_FUNCTION(ScriptFile_ScriptFile_Context), AS_CALL_CDECL);
 
@@ -273,13 +269,9 @@ static void RegisterScriptInstance(asIScriptEngine* engine)
     engine->RegisterObjectType("ScriptInstance", 0, asOBJ_REF);
     engine->RegisterObjectBehaviour("ScriptInstance", asBEHAVE_FACTORY, "ScriptInstance@+ f()", AS_FUNCTION(ScriptInstance_ScriptInstance_Context), AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ScriptInstance", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Component(members);
+    RegisterMembers(engine, "ScriptInstance", members);
 
     engine->RegisterObjectMethod("ScriptInstance", "bool CreateObject(ScriptFile@+, const String&in)", AS_METHODPR(ScriptInstance, CreateObject, (ScriptFile*, const String&), bool), AS_CALL_THISCALL);
     engine->RegisterObjectMethod("ScriptInstance", "bool Execute(const String&in, const Array<Variant>@+ params = null)", AS_FUNCTION_OBJLAST(ScriptInstanceExecute), AS_CALL_CDECL_OBJLAST);

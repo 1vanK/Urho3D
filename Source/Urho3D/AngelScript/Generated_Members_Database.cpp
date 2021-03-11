@@ -13,20 +13,20 @@ namespace Urho3D
 #ifdef URHO3D_DATABASE
 
 // class Database | File: ../Database/Database.h
-void CollectMembers_Database(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)
+void CollectMembers_Database(MemberCollection& members)
 {
-    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
+    CollectMembers_Object(members);
 
-    methods.Push(RegisterObjectMethodArgs("DbConnection* Database::Connect(const String& connectionString)", "DbConnection@+ Connect(const String&in)", AS_METHODPR(Database, Connect, (const String&), DbConnection*), AS_CALL_THISCALL));
-    methods.Push(RegisterObjectMethodArgs("void Database::Disconnect(DbConnection* connection)", "void Disconnect(DbConnection@+)", AS_METHODPR(Database, Disconnect, (DbConnection*), void), AS_CALL_THISCALL));
-    methods.Push(RegisterObjectMethodArgs("bool Database::IsPooling() const", "bool IsPooling() const", AS_METHODPR(Database, IsPooling, () const, bool), AS_CALL_THISCALL));
-    methods.Push(RegisterObjectMethodArgs("bool Database::IsPooling() const", "bool get_pooling() const", AS_METHODPR(Database, IsPooling, () const, bool), AS_CALL_THISCALL));
-    methods.Push(RegisterObjectMethodArgs("unsigned Database::GetPoolSize() const", "uint GetPoolSize() const", AS_METHODPR(Database, GetPoolSize, () const, unsigned), AS_CALL_THISCALL));
-    methods.Push(RegisterObjectMethodArgs("unsigned Database::GetPoolSize() const", "uint get_poolSize() const", AS_METHODPR(Database, GetPoolSize, () const, unsigned), AS_CALL_THISCALL));
-    methods.Push(RegisterObjectMethodArgs("void Database::SetPoolSize(unsigned poolSize)", "void SetPoolSize(uint)", AS_METHODPR(Database, SetPoolSize, (unsigned), void), AS_CALL_THISCALL));
-    methods.Push(RegisterObjectMethodArgs("void Database::SetPoolSize(unsigned poolSize)", "void set_poolSize(uint)", AS_METHODPR(Database, SetPoolSize, (unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("DbConnection* Database::Connect(const String& connectionString)", "DbConnection@+ Connect(const String&in)", AS_METHODPR(Database, Connect, (const String&), DbConnection*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Database::Disconnect(DbConnection* connection)", "void Disconnect(DbConnection@+)", AS_METHODPR(Database, Disconnect, (DbConnection*), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Database::IsPooling() const", "bool IsPooling() const", AS_METHODPR(Database, IsPooling, () const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Database::IsPooling() const", "bool get_pooling() const", AS_METHODPR(Database, IsPooling, () const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Database::GetPoolSize() const", "uint GetPoolSize() const", AS_METHODPR(Database, GetPoolSize, () const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Database::GetPoolSize() const", "uint get_poolSize() const", AS_METHODPR(Database, GetPoolSize, () const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Database::SetPoolSize(unsigned poolSize)", "void SetPoolSize(uint)", AS_METHODPR(Database, SetPoolSize, (unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Database::SetPoolSize(unsigned poolSize)", "void set_poolSize(uint)", AS_METHODPR(Database, SetPoolSize, (unsigned), void), AS_CALL_THISCALL));
 
-    staticMethods.Push(RegisterGlobalFunctionArgs("static DBAPI Database::GetAPI()", "DBAPI GetAPI()", AS_FUNCTIONPR(Database::GetAPI, (), DBAPI), AS_CALL_CDECL));
+    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static DBAPI Database::GetAPI()", "DBAPI GetAPI()", AS_FUNCTIONPR(Database::GetAPI, (), DBAPI), AS_CALL_CDECL));
 
     #ifdef REGISTER_MEMBER_MANUAL_PART_Database
         REGISTER_MEMBER_MANUAL_PART_Database();

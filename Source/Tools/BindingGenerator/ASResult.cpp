@@ -650,13 +650,9 @@ namespace Result
                 ofs << '\n';
 
             ofs <<
-                "    Vector<RegisterObjectMethodArgs> methods;\n"
-                "    Vector<RegisterGlobalFunctionArgs> staticMethods;\n"
-                "    Vector<RegisterObjectPropertyArgs> fields;\n"
-                "    Vector<RegisterObjectMethodArgs> wrappedFields;\n"
-                "    Vector<RegisterGlobalPropertyArgs> staticFields;\n"
-                "    CollectMembers_" << processedClass.name_ << "(methods, staticMethods, fields, wrappedFields, staticFields);\n"
-                "    RegisterMembers(engine, \"" << processedClass.name_ << "\", methods, staticMethods, fields, wrappedFields, staticFields);\n"
+                "    MemberCollection members;\n"
+                "    CollectMembers_" << processedClass.name_ << "(members);\n"
+                "    RegisterMembers(engine, \"" << processedClass.name_ << "\", members);\n"
                 "\n"
                 "    #ifdef REGISTER_CLASS_MANUAL_PART_" << processedClass.name_ << "\n"
                 "        REGISTER_CLASS_MANUAL_PART_" << processedClass.name_ << "();\n"
@@ -803,7 +799,7 @@ namespace Result
             file->ofs_ <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
-                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields)\n"
+                "void CollectMembers_" << processedClass.name_ << "(MemberCollection& members)\n"
                 "{\n";
 
             file->needGap_ = false;
@@ -811,13 +807,10 @@ namespace Result
             if (processedClass.baseClassNames_.size())
             {
                 for (const string& baseClassName : processedClass.baseClassNames_)
-                    file->ofs_ << "    CollectMembers_" << baseClassName << "(methods, staticMethods, fields, wrappedFields, staticFields);\n";
+                    file->ofs_ << "    CollectMembers_" << baseClassName << "(members);\n";
 
                 file->needGap_ = true;
             }
-
-            // TODO поля могут быть обернут в функциями и тогда они не будут в списке свойств
-            // Нужно сделать удалять пропертисы из функций так же или отдельный список для обернутых пропертисов
 
             if (file->needGap_ && processedClass.hiddenMethods_.size())
                 file->ofs_ << '\n';
@@ -825,7 +818,7 @@ namespace Result
             for (const string& hiddenMethod : processedClass.hiddenMethods_)
             {
                 string escaped = ReplaceAll(hiddenMethod, "\"", "\\\"");
-                file->ofs_ << "    Remove(methods, \"" << escaped << "\");\n";
+                file->ofs_ << "    Remove(members.methods_, \"" << escaped << "\");\n";
                 file->needGap_ = true;
             }
 
@@ -835,7 +828,7 @@ namespace Result
             for (const string& hiddenStaticMethod : processedClass.hiddenStaticMethods_)
             {
                 string escaped = ReplaceAll(hiddenStaticMethod, "\"", "\\\"");
-                file->ofs_ << "    Remove(staticMethods, \"" << escaped << "\");\n";
+                file->ofs_ << "    Remove(members.staticMethods_, \"" << escaped << "\");\n";
                 file->needGap_ = true;
             }
 
@@ -845,8 +838,8 @@ namespace Result
             for (const string& hiddenField : processedClass.hiddenFields_)
             {
                 string escaped = ReplaceAll(hiddenField, "\"", "\\\"");
-                file->ofs_ << "    Remove(fields, \"" << escaped << "\");\n";
-                file->ofs_ << "    Remove(wrappedFields, \"" << escaped << "\");\n";
+                file->ofs_ << "    Remove(members.fields_, \"" << escaped << "\");\n";
+                file->ofs_ << "    Remove(members.wrappedFields_, \"" << escaped << "\");\n";
                 file->needGap_ = true;
             }
 
@@ -856,12 +849,9 @@ namespace Result
             for (const string& hiddenStaticField : processedClass.hiddenStaticFields_)
             {
                 string escaped = ReplaceAll(hiddenStaticField, "\"", "\\\"");
-                file->ofs_ << "    Remove(staticFields, \"" << escaped << "\");\n";
+                file->ofs_ << "    Remove(members.staticFields_, \"" << escaped << "\");\n";
                 file->needGap_ = true;
             }
-
-            //if (needGap && processedClass.methods_.size())
-            //    ofsCpp << '\n';
 
             sort(processedClass.unregisteredMethods_.begin(), processedClass.unregisteredMethods_.end());
 
@@ -888,7 +878,7 @@ namespace Result
                 assert(args.asDeclarations_.size());
 
                 for (const string& asDeclaration : args.asDeclarations_)
-                    file->ofs_ << "    methods.Push(RegisterObjectMethodArgs(\"" << method.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
+                    file->ofs_ << "    members.methods_.Push(RegisterObjectMethodArgs(\"" << method.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
 
                 file->needGap_ = true;
             }
@@ -914,7 +904,7 @@ namespace Result
                 assert(args.asDeclarations_.size());
 
                 for (const string& asDeclaration : args.asDeclarations_)
-                    file->ofs_ << "    staticMethods.Push(RegisterGlobalFunctionArgs(\"" << staticMethod.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
+                    file->ofs_ << "    members.staticMethods_.Push(RegisterGlobalFunctionArgs(\"" << staticMethod.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.funcPointer_ << ", " << args.callConv_ << "));\n";
 
                 file->needGap_ = true;
             }
@@ -940,7 +930,7 @@ namespace Result
                 assert(args.asDeclarations_.size());
 
                 for (const string& asDeclaration : args.asDeclarations_)
-                    file->ofs_ << "    fields.Push(RegisterObjectPropertyArgs(\"" << field.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.byteOffset_ << "));\n";
+                    file->ofs_ << "    members.fields_.Push(RegisterObjectPropertyArgs(\"" << field.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.byteOffset_ << "));\n";
 
                 file->needGap_ = true;
             }
@@ -966,7 +956,7 @@ namespace Result
                 assert(args.asDeclarations_.size());
 
                 for (const string& asDeclaration : args.asDeclarations_)
-                    file->ofs_ << "    staticFields.Push(RegisterGlobalPropertyArgs(\"" << staticField.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.pointer_ << "));\n";
+                    file->ofs_ << "    members.staticFields_.Push(RegisterGlobalPropertyArgs(\"" << staticField.cppDeclaration_ << "\", \"" << asDeclaration << "\", " << args.pointer_ << "));\n";
 
                 file->needGap_ = true;
             }
@@ -1039,7 +1029,7 @@ namespace Result
             ofsH <<
                 "\n"
                 "// " << processedClass.comment_ << "\n"
-                "void CollectMembers_" << processedClass.name_ << "(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);\n";
+                "void CollectMembers_" << processedClass.name_ << "(MemberCollection& members);\n";
         }
 
         if (!openedDefine.empty())

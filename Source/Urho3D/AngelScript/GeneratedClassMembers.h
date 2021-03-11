@@ -10,1106 +10,1106 @@ namespace Urho3D
 {
 
 // class AbstractFile | File: ../IO/AbstractFile.h
-void CollectMembers_AbstractFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AbstractFile(MemberCollection& members);
 
 // class AllContentOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_AllContentOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AllContentOctreeQuery(MemberCollection& members);
 
 // struct AllocatorBlock | File: ../Container/Allocator.h
-void CollectMembers_AllocatorBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AllocatorBlock(MemberCollection& members);
 
 // struct AllocatorNode | File: ../Container/Allocator.h
-void CollectMembers_AllocatorNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AllocatorNode(MemberCollection& members);
 
 // class Animatable | File: ../Scene/Animatable.h
-void CollectMembers_Animatable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Animatable(MemberCollection& members);
 
 // class AnimatedModel | File: ../Graphics/AnimatedModel.h
-void CollectMembers_AnimatedModel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimatedModel(MemberCollection& members);
 
 // class Animation | File: ../Graphics/Animation.h
-void CollectMembers_Animation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Animation(MemberCollection& members);
 
 // struct AnimationControl | File: ../Graphics/AnimationController.h
-void CollectMembers_AnimationControl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimationControl(MemberCollection& members);
 
 // class AnimationController | File: ../Graphics/AnimationController.h
-void CollectMembers_AnimationController(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimationController(MemberCollection& members);
 
 // struct AnimationKeyFrame | File: ../Graphics/Animation.h
-void CollectMembers_AnimationKeyFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimationKeyFrame(MemberCollection& members);
 
 // class AnimationState | File: ../Graphics/AnimationState.h
-void CollectMembers_AnimationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimationState(MemberCollection& members);
 
 // struct AnimationStateTrack | File: ../Graphics/AnimationState.h
-void CollectMembers_AnimationStateTrack(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimationStateTrack(MemberCollection& members);
 
 // struct AnimationTrack | File: ../Graphics/Animation.h
-void CollectMembers_AnimationTrack(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimationTrack(MemberCollection& members);
 
 // struct AnimationTriggerPoint | File: ../Graphics/Animation.h
-void CollectMembers_AnimationTriggerPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimationTriggerPoint(MemberCollection& members);
 
 // class AreaAllocator | File: ../Math/AreaAllocator.h
-void CollectMembers_AreaAllocator(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AreaAllocator(MemberCollection& members);
 
 // struct AsyncProgress | File: ../Scene/Scene.h
-void CollectMembers_AsyncProgress(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AsyncProgress(MemberCollection& members);
 
 // class AttributeAccessor | File: ../Core/Attribute.h
-void CollectMembers_AttributeAccessor(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AttributeAccessor(MemberCollection& members);
 
 // class AttributeAnimationInfo | File: ../Scene/Animatable.h
-void CollectMembers_AttributeAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AttributeAnimationInfo(MemberCollection& members);
 
 // struct AttributeHandle | File: ../Core/Attribute.h
-void CollectMembers_AttributeHandle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AttributeHandle(MemberCollection& members);
 
 // struct AttributeInfo | File: ../Core/Attribute.h
-void CollectMembers_AttributeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AttributeInfo(MemberCollection& members);
 
 // class Audio | File: ../Audio/Audio.h
-void CollectMembers_Audio(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Audio(MemberCollection& members);
 
 // class AutoProfileBlock | File: ../Core/Profiler.h
-void CollectMembers_AutoProfileBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AutoProfileBlock(MemberCollection& members);
 
 // struct BackgroundLoadItem | File: ../Resource/BackgroundLoader.h
-void CollectMembers_BackgroundLoadItem(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BackgroundLoadItem(MemberCollection& members);
 
 // class BackgroundLoader | File: ../Resource/BackgroundLoader.h
-void CollectMembers_BackgroundLoader(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BackgroundLoader(MemberCollection& members);
 
 // struct Batch | File: ../Graphics/Batch.h
-void CollectMembers_Batch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Batch(MemberCollection& members);
 
 // struct BatchGroup | File: ../Graphics/Batch.h
-void CollectMembers_BatchGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BatchGroup(MemberCollection& members);
 
 // struct BatchGroupKey | File: ../Graphics/Batch.h
-void CollectMembers_BatchGroupKey(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BatchGroupKey(MemberCollection& members);
 
 // struct BatchQueue | File: ../Graphics/Batch.h
-void CollectMembers_BatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BatchQueue(MemberCollection& members);
 
 // struct BiasParameters | File: ../Graphics/Light.h
-void CollectMembers_BiasParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BiasParameters(MemberCollection& members);
 
 // struct Billboard | File: ../Graphics/BillboardSet.h
-void CollectMembers_Billboard(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Billboard(MemberCollection& members);
 
 // class BillboardSet | File: ../Graphics/BillboardSet.h
-void CollectMembers_BillboardSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BillboardSet(MemberCollection& members);
 
 // struct Bone | File: ../Graphics/Skeleton.h
-void CollectMembers_Bone(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Bone(MemberCollection& members);
 
 // class BorderImage | File: ../UI/BorderImage.h
-void CollectMembers_BorderImage(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BorderImage(MemberCollection& members);
 
 // class BoundingBox | File: ../Math/BoundingBox.h
-void CollectMembers_BoundingBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BoundingBox(MemberCollection& members);
 
 // class BoxOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_BoxOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BoxOctreeQuery(MemberCollection& members);
 
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
-void CollectMembers_BufferedSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_BufferedSoundStream(MemberCollection& members);
 
 // class Button | File: ../UI/Button.h
-void CollectMembers_Button(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Button(MemberCollection& members);
 
 // class Camera | File: ../Graphics/Camera.h
-void CollectMembers_Camera(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Camera(MemberCollection& members);
 
 // struct CascadeParameters | File: ../Graphics/Light.h
-void CollectMembers_CascadeParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CascadeParameters(MemberCollection& members);
 
 // struct CharLocation | File: ../UI/Text.h
-void CollectMembers_CharLocation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CharLocation(MemberCollection& members);
 
 // class CheckBox | File: ../UI/CheckBox.h
-void CollectMembers_CheckBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CheckBox(MemberCollection& members);
 
 // class Color | File: ../Math/Color.h
-void CollectMembers_Color(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Color(MemberCollection& members);
 
 // struct ColorFrame | File: ../Graphics/ParticleEffect.h
-void CollectMembers_ColorFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ColorFrame(MemberCollection& members);
 
 // class Component | File: ../Scene/Component.h
-void CollectMembers_Component(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Component(MemberCollection& members);
 
 // struct ComponentReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_ComponentReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ComponentReplicationState(MemberCollection& members);
 
 // struct CompressedLevel | File: ../Resource/Image.h
-void CollectMembers_CompressedLevel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CompressedLevel(MemberCollection& members);
 
 // class Condition | File: ../Core/Condition.h
-void CollectMembers_Condition(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Condition(MemberCollection& members);
 
 // class Console | File: ../Engine/Console.h
-void CollectMembers_Console(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Console(MemberCollection& members);
 
 // class ConstantBuffer | File: ../Graphics/ConstantBuffer.h
-void CollectMembers_ConstantBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstantBuffer(MemberCollection& members);
 
 // class Context | File: ../Core/Context.h
-void CollectMembers_Context(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Context(MemberCollection& members);
 
 // class Controls | File: ../Input/Controls.h
-void CollectMembers_Controls(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Controls(MemberCollection& members);
 
 // class Cursor | File: ../UI/Cursor.h
-void CollectMembers_Cursor(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Cursor(MemberCollection& members);
 
 // struct CursorShapeInfo | File: ../UI/Cursor.h
-void CollectMembers_CursorShapeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CursorShapeInfo(MemberCollection& members);
 
 // class CustomGeometry | File: ../Graphics/CustomGeometry.h
-void CollectMembers_CustomGeometry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CustomGeometry(MemberCollection& members);
 
 // struct CustomGeometryVertex | File: ../Graphics/CustomGeometry.h
-void CollectMembers_CustomGeometryVertex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CustomGeometryVertex(MemberCollection& members);
 
 // class CustomVariantValue | File: ../Core/Variant.h
-void CollectMembers_CustomVariantValue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CustomVariantValue(MemberCollection& members);
 
 // class DebugHud | File: ../Engine/DebugHud.h
-void CollectMembers_DebugHud(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DebugHud(MemberCollection& members);
 
 // struct DebugLine | File: ../Graphics/DebugRenderer.h
-void CollectMembers_DebugLine(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DebugLine(MemberCollection& members);
 
 // class DebugRenderer | File: ../Graphics/DebugRenderer.h
-void CollectMembers_DebugRenderer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DebugRenderer(MemberCollection& members);
 
 // struct DebugTriangle | File: ../Graphics/DebugRenderer.h
-void CollectMembers_DebugTriangle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DebugTriangle(MemberCollection& members);
 
 // struct Decal | File: ../Graphics/DecalSet.h
-void CollectMembers_Decal(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Decal(MemberCollection& members);
 
 // class DecalSet | File: ../Graphics/DecalSet.h
-void CollectMembers_DecalSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DecalSet(MemberCollection& members);
 
 // struct DecalVertex | File: ../Graphics/DecalSet.h
-void CollectMembers_DecalVertex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DecalVertex(MemberCollection& members);
 
 // struct DepthValue | File: ../Graphics/OcclusionBuffer.h
-void CollectMembers_DepthValue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DepthValue(MemberCollection& members);
 
 // class Deserializer | File: ../IO/Deserializer.h
-void CollectMembers_Deserializer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Deserializer(MemberCollection& members);
 
 // struct DirtyBits | File: ../Scene/ReplicationState.h
-void CollectMembers_DirtyBits(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DirtyBits(MemberCollection& members);
 
 // class Drawable | File: ../Graphics/Drawable.h
-void CollectMembers_Drawable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Drawable(MemberCollection& members);
 
 // class DropDownList | File: ../UI/DropDownList.h
-void CollectMembers_DropDownList(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DropDownList(MemberCollection& members);
 
 // class Engine | File: ../Engine/Engine.h
-void CollectMembers_Engine(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Engine(MemberCollection& members);
 
 // class EventHandler | File: ../Core/Object.h
-void CollectMembers_EventHandler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_EventHandler(MemberCollection& members);
 
 // class EventHandler11Impl | File: ../Core/Object.h
-void CollectMembers_EventHandler11Impl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_EventHandler11Impl(MemberCollection& members);
 
 // class EventProfiler | File: ../Core/EventProfiler.h
-void CollectMembers_EventProfiler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_EventProfiler(MemberCollection& members);
 
 // class EventProfilerBlock | File: ../Core/EventProfiler.h
-void CollectMembers_EventProfilerBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_EventProfilerBlock(MemberCollection& members);
 
 // class EventReceiverGroup | File: ../Core/Context.h
-void CollectMembers_EventReceiverGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_EventReceiverGroup(MemberCollection& members);
 
 // class File | File: ../IO/File.h
-void CollectMembers_File(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_File(MemberCollection& members);
 
 // class FileSelector | File: ../UI/FileSelector.h
-void CollectMembers_FileSelector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FileSelector(MemberCollection& members);
 
 // struct FileSelectorEntry | File: ../UI/FileSelector.h
-void CollectMembers_FileSelectorEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FileSelectorEntry(MemberCollection& members);
 
 // class FileSystem | File: ../IO/FileSystem.h
-void CollectMembers_FileSystem(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FileSystem(MemberCollection& members);
 
 // class FileWatcher | File: ../IO/FileWatcher.h
-void CollectMembers_FileWatcher(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FileWatcher(MemberCollection& members);
 
 // struct FocusParameters | File: ../Graphics/Light.h
-void CollectMembers_FocusParameters(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FocusParameters(MemberCollection& members);
 
 // class Font | File: ../UI/Font.h
-void CollectMembers_Font(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Font(MemberCollection& members);
 
 // class FontFace | File: ../UI/FontFace.h
-void CollectMembers_FontFace(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FontFace(MemberCollection& members);
 
 // class FontFaceBitmap | File: ../UI/FontFaceBitmap.h
-void CollectMembers_FontFaceBitmap(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FontFaceBitmap(MemberCollection& members);
 
 // class FontFaceFreeType | File: ../UI/FontFaceFreeType.h
-void CollectMembers_FontFaceFreeType(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FontFaceFreeType(MemberCollection& members);
 
 // struct FontGlyph | File: ../UI/FontFace.h
-void CollectMembers_FontGlyph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FontGlyph(MemberCollection& members);
 
 // struct FrameInfo | File: ../Graphics/Drawable.h
-void CollectMembers_FrameInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FrameInfo(MemberCollection& members);
 
 // class Frustum | File: ../Math/Frustum.h
-void CollectMembers_Frustum(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Frustum(MemberCollection& members);
 
 // class FrustumOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_FrustumOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_FrustumOctreeQuery(MemberCollection& members);
 
 // class GPUObject | File: ../Graphics/GPUObject.h
-void CollectMembers_GPUObject(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_GPUObject(MemberCollection& members);
 
 // class Geometry | File: ../Graphics/Geometry.h
-void CollectMembers_Geometry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Geometry(MemberCollection& members);
 
 // struct GeometryDesc | File: ../Graphics/Model.h
-void CollectMembers_GeometryDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_GeometryDesc(MemberCollection& members);
 
 // struct GlyphLocation | File: ../UI/Text.h
-void CollectMembers_GlyphLocation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_GlyphLocation(MemberCollection& members);
 
 // class Graphics | File: ../Graphics/Graphics.h
-void CollectMembers_Graphics(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Graphics(MemberCollection& members);
 
 // class HashBase | File: ../Container/HashBase.h
-void CollectMembers_HashBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_HashBase(MemberCollection& members);
 
 // struct HashIteratorBase | File: ../Container/HashBase.h
-void CollectMembers_HashIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_HashIteratorBase(MemberCollection& members);
 
 // struct HashNodeBase | File: ../Container/HashBase.h
-void CollectMembers_HashNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_HashNodeBase(MemberCollection& members);
 
 // class HiresTimer | File: ../Core/Timer.h
-void CollectMembers_HiresTimer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_HiresTimer(MemberCollection& members);
 
 // class Image | File: ../Resource/Image.h
-void CollectMembers_Image(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Image(MemberCollection& members);
 
 // class IndexBuffer | File: ../Graphics/IndexBuffer.h
-void CollectMembers_IndexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_IndexBuffer(MemberCollection& members);
 
 // struct IndexBufferDesc | File: ../Graphics/Model.h
-void CollectMembers_IndexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_IndexBufferDesc(MemberCollection& members);
 
 // class Input | File: ../Input/Input.h
-void CollectMembers_Input(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Input(MemberCollection& members);
 
 // struct InstanceData | File: ../Graphics/Batch.h
-void CollectMembers_InstanceData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_InstanceData(MemberCollection& members);
 
 // class IntRect | File: ../Math/Rect.h
-void CollectMembers_IntRect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_IntRect(MemberCollection& members);
 
 // class IntVector2 | File: ../Math/Vector2.h
-void CollectMembers_IntVector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_IntVector2(MemberCollection& members);
 
 // class IntVector3 | File: ../Math/Vector3.h
-void CollectMembers_IntVector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_IntVector3(MemberCollection& members);
 
 // class JSONFile | File: ../Resource/JSONFile.h
-void CollectMembers_JSONFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_JSONFile(MemberCollection& members);
 
 // class JSONValue | File: ../Resource/JSONValue.h
-void CollectMembers_JSONValue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_JSONValue(MemberCollection& members);
 
 // struct JoystickState | File: ../Input/Input.h
-void CollectMembers_JoystickState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_JoystickState(MemberCollection& members);
 
 // class Light | File: ../Graphics/Light.h
-void CollectMembers_Light(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Light(MemberCollection& members);
 
 // struct LightBatchQueue | File: ../Graphics/Batch.h
-void CollectMembers_LightBatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_LightBatchQueue(MemberCollection& members);
 
 // struct LightQueryResult | File: ../Graphics/View.h
-void CollectMembers_LightQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_LightQueryResult(MemberCollection& members);
 
 // class LineEdit | File: ../UI/LineEdit.h
-void CollectMembers_LineEdit(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_LineEdit(MemberCollection& members);
 
 // struct LinkedListNode | File: ../Container/LinkedList.h
-void CollectMembers_LinkedListNode(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_LinkedListNode(MemberCollection& members);
 
 // class ListBase | File: ../Container/ListBase.h
-void CollectMembers_ListBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ListBase(MemberCollection& members);
 
 // struct ListIteratorBase | File: ../Container/ListBase.h
-void CollectMembers_ListIteratorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ListIteratorBase(MemberCollection& members);
 
 // struct ListNodeBase | File: ../Container/ListBase.h
-void CollectMembers_ListNodeBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ListNodeBase(MemberCollection& members);
 
 // class ListView | File: ../UI/ListView.h
-void CollectMembers_ListView(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ListView(MemberCollection& members);
 
 // class Localization | File: ../Resource/Localization.h
-void CollectMembers_Localization(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Localization(MemberCollection& members);
 
 // class Log | File: ../IO/Log.h
-void CollectMembers_Log(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Log(MemberCollection& members);
 
 // class LogicComponent | File: ../Scene/LogicComponent.h
-void CollectMembers_LogicComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_LogicComponent(MemberCollection& members);
 
 // class Material | File: ../Graphics/Material.h
-void CollectMembers_Material(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Material(MemberCollection& members);
 
 // struct MaterialShaderParameter | File: ../Graphics/Material.h
-void CollectMembers_MaterialShaderParameter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_MaterialShaderParameter(MemberCollection& members);
 
 // class Matrix2 | File: ../Math/Matrix2.h
-void CollectMembers_Matrix2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Matrix2(MemberCollection& members);
 
 // class Matrix3 | File: ../Math/Matrix3.h
-void CollectMembers_Matrix3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Matrix3(MemberCollection& members);
 
 // class Matrix3x4 | File: ../Math/Matrix3x4.h
-void CollectMembers_Matrix3x4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Matrix3x4(MemberCollection& members);
 
 // class Matrix4 | File: ../Math/Matrix4.h
-void CollectMembers_Matrix4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Matrix4(MemberCollection& members);
 
 // class MemoryBuffer | File: ../IO/MemoryBuffer.h
-void CollectMembers_MemoryBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_MemoryBuffer(MemberCollection& members);
 
 // class Menu | File: ../UI/Menu.h
-void CollectMembers_Menu(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Menu(MemberCollection& members);
 
 // class MessageBox | File: ../UI/MessageBox.h
-void CollectMembers_MessageBox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_MessageBox(MemberCollection& members);
 
 // class Model | File: ../Graphics/Model.h
-void CollectMembers_Model(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Model(MemberCollection& members);
 
 // struct ModelMorph | File: ../Graphics/Model.h
-void CollectMembers_ModelMorph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ModelMorph(MemberCollection& members);
 
 // class Mutex | File: ../Core/Mutex.h
-void CollectMembers_Mutex(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Mutex(MemberCollection& members);
 
 // class MutexLock | File: ../Core/Mutex.h
-void CollectMembers_MutexLock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_MutexLock(MemberCollection& members);
 
 // class NamedPipe | File: ../IO/NamedPipe.h
-void CollectMembers_NamedPipe(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NamedPipe(MemberCollection& members);
 
 // struct NetworkState | File: ../Scene/ReplicationState.h
-void CollectMembers_NetworkState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NetworkState(MemberCollection& members);
 
 // class Node | File: ../Scene/Node.h
-void CollectMembers_Node(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Node(MemberCollection& members);
 
 // struct NodeImpl | File: ../Scene/Node.h
-void CollectMembers_NodeImpl(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NodeImpl(MemberCollection& members);
 
 // struct NodeReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_NodeReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NodeReplicationState(MemberCollection& members);
 
 // class Object | File: ../Core/Object.h
-void CollectMembers_Object(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Object(MemberCollection& members);
 
 // class ObjectAnimation | File: ../Scene/ObjectAnimation.h
-void CollectMembers_ObjectAnimation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ObjectAnimation(MemberCollection& members);
 
 // class ObjectFactory | File: ../Core/Object.h
-void CollectMembers_ObjectFactory(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ObjectFactory(MemberCollection& members);
 
 // struct OcclusionBatch | File: ../Graphics/OcclusionBuffer.h
-void CollectMembers_OcclusionBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_OcclusionBatch(MemberCollection& members);
 
 // class OcclusionBuffer | File: ../Graphics/OcclusionBuffer.h
-void CollectMembers_OcclusionBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_OcclusionBuffer(MemberCollection& members);
 
 // struct OcclusionBufferData | File: ../Graphics/OcclusionBuffer.h
-void CollectMembers_OcclusionBufferData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_OcclusionBufferData(MemberCollection& members);
 
 // class Octant | File: ../Graphics/Octree.h
-void CollectMembers_Octant(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Octant(MemberCollection& members);
 
 // class Octree | File: ../Graphics/Octree.h
-void CollectMembers_Octree(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Octree(MemberCollection& members);
 
 // class OctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_OctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_OctreeQuery(MemberCollection& members);
 
 // struct OctreeQueryResult | File: ../Graphics/OctreeQuery.h
-void CollectMembers_OctreeQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_OctreeQueryResult(MemberCollection& members);
 
 // class OggVorbisSoundStream | File: ../Audio/OggVorbisSoundStream.h
-void CollectMembers_OggVorbisSoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_OggVorbisSoundStream(MemberCollection& members);
 
 // struct PackageEntry | File: ../IO/PackageFile.h
-void CollectMembers_PackageEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PackageEntry(MemberCollection& members);
 
 // class PackageFile | File: ../IO/PackageFile.h
-void CollectMembers_PackageFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PackageFile(MemberCollection& members);
 
 // struct Particle | File: ../Graphics/ParticleEmitter.h
-void CollectMembers_Particle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Particle(MemberCollection& members);
 
 // class ParticleEffect | File: ../Graphics/ParticleEffect.h
-void CollectMembers_ParticleEffect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ParticleEffect(MemberCollection& members);
 
 // class ParticleEmitter | File: ../Graphics/ParticleEmitter.h
-void CollectMembers_ParticleEmitter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ParticleEmitter(MemberCollection& members);
 
 // class Pass | File: ../Graphics/Technique.h
-void CollectMembers_Pass(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Pass(MemberCollection& members);
 
 // struct PerThreadSceneResult | File: ../Graphics/View.h
-void CollectMembers_PerThreadSceneResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PerThreadSceneResult(MemberCollection& members);
 
 // class Plane | File: ../Math/Plane.h
-void CollectMembers_Plane(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Plane(MemberCollection& members);
 
 // class PointOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_PointOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PointOctreeQuery(MemberCollection& members);
 
 // class Polyhedron | File: ../Math/Polyhedron.h
-void CollectMembers_Polyhedron(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Polyhedron(MemberCollection& members);
 
 // class Profiler | File: ../Core/Profiler.h
-void CollectMembers_Profiler(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Profiler(MemberCollection& members);
 
 // class ProfilerBlock | File: ../Core/Profiler.h
-void CollectMembers_ProfilerBlock(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ProfilerBlock(MemberCollection& members);
 
 // class ProgressBar | File: ../UI/ProgressBar.h
-void CollectMembers_ProgressBar(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ProgressBar(MemberCollection& members);
 
 // class Quaternion | File: ../Math/Quaternion.h
-void CollectMembers_Quaternion(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Quaternion(MemberCollection& members);
 
 // class Ray | File: ../Math/Ray.h
-void CollectMembers_Ray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Ray(MemberCollection& members);
 
 // class RayOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_RayOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RayOctreeQuery(MemberCollection& members);
 
 // struct RayQueryResult | File: ../Graphics/OctreeQuery.h
-void CollectMembers_RayQueryResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RayQueryResult(MemberCollection& members);
 
 // class Rect | File: ../Math/Rect.h
-void CollectMembers_Rect(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Rect(MemberCollection& members);
 
 // struct RefCount | File: ../Container/RefCounted.h
-void CollectMembers_RefCount(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RefCount(MemberCollection& members);
 
 // class RefCounted | File: ../Container/RefCounted.h
-void CollectMembers_RefCounted(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RefCounted(MemberCollection& members);
 
 // class RenderPath | File: ../Graphics/RenderPath.h
-void CollectMembers_RenderPath(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RenderPath(MemberCollection& members);
 
 // struct RenderPathCommand | File: ../Graphics/RenderPath.h
-void CollectMembers_RenderPathCommand(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RenderPathCommand(MemberCollection& members);
 
 // class RenderSurface | File: ../Graphics/RenderSurface.h
-void CollectMembers_RenderSurface(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RenderSurface(MemberCollection& members);
 
 // struct RenderTargetInfo | File: ../Graphics/RenderPath.h
-void CollectMembers_RenderTargetInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RenderTargetInfo(MemberCollection& members);
 
 // class Renderer | File: ../Graphics/Renderer.h
-void CollectMembers_Renderer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Renderer(MemberCollection& members);
 
 // struct ReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_ReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ReplicationState(MemberCollection& members);
 
 // class Resource | File: ../Resource/Resource.h
-void CollectMembers_Resource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Resource(MemberCollection& members);
 
 // class ResourceCache | File: ../Resource/ResourceCache.h
-void CollectMembers_ResourceCache(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ResourceCache(MemberCollection& members);
 
 // struct ResourceGroup | File: ../Resource/ResourceCache.h
-void CollectMembers_ResourceGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ResourceGroup(MemberCollection& members);
 
 // struct ResourceRef | File: ../Core/Variant.h
-void CollectMembers_ResourceRef(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ResourceRef(MemberCollection& members);
 
 // struct ResourceRefList | File: ../Core/Variant.h
-void CollectMembers_ResourceRefList(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ResourceRefList(MemberCollection& members);
 
 // class ResourceRouter | File: ../Resource/ResourceCache.h
-void CollectMembers_ResourceRouter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ResourceRouter(MemberCollection& members);
 
 // class ResourceWithMetadata | File: ../Resource/Resource.h
-void CollectMembers_ResourceWithMetadata(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ResourceWithMetadata(MemberCollection& members);
 
 // class RibbonTrail | File: ../Graphics/RibbonTrail.h
-void CollectMembers_RibbonTrail(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RibbonTrail(MemberCollection& members);
 
 // class Scene | File: ../Scene/Scene.h
-void CollectMembers_Scene(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Scene(MemberCollection& members);
 
 // struct ScenePassInfo | File: ../Graphics/View.h
-void CollectMembers_ScenePassInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ScenePassInfo(MemberCollection& members);
 
 // struct SceneReplicationState | File: ../Scene/ReplicationState.h
-void CollectMembers_SceneReplicationState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SceneReplicationState(MemberCollection& members);
 
 // class SceneResolver | File: ../Scene/SceneResolver.h
-void CollectMembers_SceneResolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SceneResolver(MemberCollection& members);
 
 // struct ScratchBuffer | File: ../Graphics/Graphics.h
-void CollectMembers_ScratchBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ScratchBuffer(MemberCollection& members);
 
 // struct ScreenModeParams | File: ../Graphics/Graphics.h
-void CollectMembers_ScreenModeParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ScreenModeParams(MemberCollection& members);
 
 // class ScrollBar | File: ../UI/ScrollBar.h
-void CollectMembers_ScrollBar(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ScrollBar(MemberCollection& members);
 
 // class ScrollView | File: ../UI/ScrollView.h
-void CollectMembers_ScrollView(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ScrollView(MemberCollection& members);
 
 // class Serializable | File: ../Scene/Serializable.h
-void CollectMembers_Serializable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Serializable(MemberCollection& members);
 
 // class Serializer | File: ../IO/Serializer.h
-void CollectMembers_Serializer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Serializer(MemberCollection& members);
 
 // class Shader | File: ../Graphics/Shader.h
-void CollectMembers_Shader(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Shader(MemberCollection& members);
 
 // struct ShaderParameter | File: ../Graphics/ShaderVariation.h
-void CollectMembers_ShaderParameter(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ShaderParameter(MemberCollection& members);
 
 // class ShaderParameterAnimationInfo | File: ../Graphics/Material.h
-void CollectMembers_ShaderParameterAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ShaderParameterAnimationInfo(MemberCollection& members);
 
 // class ShaderPrecache | File: ../Graphics/ShaderPrecache.h
-void CollectMembers_ShaderPrecache(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ShaderPrecache(MemberCollection& members);
 
 // class ShaderVariation | File: ../Graphics/ShaderVariation.h
-void CollectMembers_ShaderVariation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ShaderVariation(MemberCollection& members);
 
 // struct ShadowBatchQueue | File: ../Graphics/Batch.h
-void CollectMembers_ShadowBatchQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ShadowBatchQueue(MemberCollection& members);
 
 // class Skeleton | File: ../Graphics/Skeleton.h
-void CollectMembers_Skeleton(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Skeleton(MemberCollection& members);
 
 // class Skybox | File: ../Graphics/Skybox.h
-void CollectMembers_Skybox(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Skybox(MemberCollection& members);
 
 // class Slider | File: ../UI/Slider.h
-void CollectMembers_Slider(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Slider(MemberCollection& members);
 
 // class SmoothedTransform | File: ../Scene/SmoothedTransform.h
-void CollectMembers_SmoothedTransform(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SmoothedTransform(MemberCollection& members);
 
 // class Sound | File: ../Audio/Sound.h
-void CollectMembers_Sound(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Sound(MemberCollection& members);
 
 // class SoundListener | File: ../Audio/SoundListener.h
-void CollectMembers_SoundListener(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SoundListener(MemberCollection& members);
 
 // class SoundSource | File: ../Audio/SoundSource.h
-void CollectMembers_SoundSource(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SoundSource(MemberCollection& members);
 
 // class SoundSource3D | File: ../Audio/SoundSource3D.h
-void CollectMembers_SoundSource3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SoundSource3D(MemberCollection& members);
 
 // class SoundStream | File: ../Audio/SoundStream.h
-void CollectMembers_SoundStream(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SoundStream(MemberCollection& members);
 
 // struct SourceBatch | File: ../Graphics/Drawable.h
-void CollectMembers_SourceBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SourceBatch(MemberCollection& members);
 
 // class Sphere | File: ../Math/Sphere.h
-void CollectMembers_Sphere(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Sphere(MemberCollection& members);
 
 // class SphereOctreeQuery | File: ../Graphics/OctreeQuery.h
-void CollectMembers_SphereOctreeQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SphereOctreeQuery(MemberCollection& members);
 
 // class Spline | File: ../Core/Spline.h
-void CollectMembers_Spline(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Spline(MemberCollection& members);
 
 // class SplinePath | File: ../Scene/SplinePath.h
-void CollectMembers_SplinePath(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SplinePath(MemberCollection& members);
 
 // class Sprite | File: ../UI/Sprite.h
-void CollectMembers_Sprite(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Sprite(MemberCollection& members);
 
 // class StaticModel | File: ../Graphics/StaticModel.h
-void CollectMembers_StaticModel(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_StaticModel(MemberCollection& members);
 
 // struct StaticModelGeometryData | File: ../Graphics/StaticModel.h
-void CollectMembers_StaticModelGeometryData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_StaticModelGeometryData(MemberCollection& members);
 
 // class StaticModelGroup | File: ../Graphics/StaticModelGroup.h
-void CollectMembers_StaticModelGroup(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_StaticModelGroup(MemberCollection& members);
 
 // struct StoredLogMessage | File: ../IO/Log.h
-void CollectMembers_StoredLogMessage(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_StoredLogMessage(MemberCollection& members);
 
 // class String | File: ../Container/Str.h
-void CollectMembers_String(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_String(MemberCollection& members);
 
 // class StringHash | File: ../Math/StringHash.h
-void CollectMembers_StringHash(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_StringHash(MemberCollection& members);
 
 // class StringHashRegister | File: ../Core/StringHashRegister.h
-void CollectMembers_StringHashRegister(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_StringHashRegister(MemberCollection& members);
 
 // class Technique | File: ../Graphics/Technique.h
-void CollectMembers_Technique(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Technique(MemberCollection& members);
 
 // struct TechniqueEntry | File: ../Graphics/Material.h
-void CollectMembers_TechniqueEntry(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TechniqueEntry(MemberCollection& members);
 
 // class Terrain | File: ../Graphics/Terrain.h
-void CollectMembers_Terrain(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Terrain(MemberCollection& members);
 
 // class TerrainPatch | File: ../Graphics/TerrainPatch.h
-void CollectMembers_TerrainPatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TerrainPatch(MemberCollection& members);
 
 // class Text | File: ../UI/Text.h
-void CollectMembers_Text(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Text(MemberCollection& members);
 
 // class Text3D | File: ../UI/Text3D.h
-void CollectMembers_Text3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Text3D(MemberCollection& members);
 
 // class Texture | File: ../Graphics/Texture.h
-void CollectMembers_Texture(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Texture(MemberCollection& members);
 
 // class Texture2D | File: ../Graphics/Texture2D.h
-void CollectMembers_Texture2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Texture2D(MemberCollection& members);
 
 // class Texture2DArray | File: ../Graphics/Texture2DArray.h
-void CollectMembers_Texture2DArray(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Texture2DArray(MemberCollection& members);
 
 // class Texture3D | File: ../Graphics/Texture3D.h
-void CollectMembers_Texture3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Texture3D(MemberCollection& members);
 
 // class TextureCube | File: ../Graphics/TextureCube.h
-void CollectMembers_TextureCube(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TextureCube(MemberCollection& members);
 
 // struct TextureFrame | File: ../Graphics/ParticleEffect.h
-void CollectMembers_TextureFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TextureFrame(MemberCollection& members);
 
 // class Thread | File: ../Core/Thread.h
-void CollectMembers_Thread(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Thread(MemberCollection& members);
 
 // class Time | File: ../Core/Timer.h
-void CollectMembers_Time(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Time(MemberCollection& members);
 
 // class Timer | File: ../Core/Timer.h
-void CollectMembers_Timer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Timer(MemberCollection& members);
 
 // class ToolTip | File: ../UI/ToolTip.h
-void CollectMembers_ToolTip(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ToolTip(MemberCollection& members);
 
 // struct TouchState | File: ../Input/Input.h
-void CollectMembers_TouchState(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TouchState(MemberCollection& members);
 
 // struct TrailPoint | File: ../Graphics/RibbonTrail.h
-void CollectMembers_TrailPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TrailPoint(MemberCollection& members);
 
 // class TypeInfo | File: ../Core/Object.h
-void CollectMembers_TypeInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TypeInfo(MemberCollection& members);
 
 // class UI | File: ../UI/UI.h
-void CollectMembers_UI(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_UI(MemberCollection& members);
 
 // class UIBatch | File: ../UI/UIBatch.h
-void CollectMembers_UIBatch(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_UIBatch(MemberCollection& members);
 
 // class UIComponent | File: ../UI/UIComponent.h
-void CollectMembers_UIComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_UIComponent(MemberCollection& members);
 
 // class UIElement | File: ../UI/UIElement.h
-void CollectMembers_UIElement(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_UIElement(MemberCollection& members);
 
 // class UISelectable | File: ../UI/UISelectable.h
-void CollectMembers_UISelectable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_UISelectable(MemberCollection& members);
 
 // class UnknownComponent | File: ../Scene/UnknownComponent.h
-void CollectMembers_UnknownComponent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_UnknownComponent(MemberCollection& members);
 
 // struct VAnimEventFrame | File: ../Scene/ValueAnimation.h
-void CollectMembers_VAnimEventFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_VAnimEventFrame(MemberCollection& members);
 
 // struct VAnimKeyFrame | File: ../Scene/ValueAnimation.h
-void CollectMembers_VAnimKeyFrame(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_VAnimKeyFrame(MemberCollection& members);
 
 // class ValueAnimation | File: ../Scene/ValueAnimation.h
-void CollectMembers_ValueAnimation(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ValueAnimation(MemberCollection& members);
 
 // class ValueAnimationInfo | File: ../Scene/ValueAnimationInfo.h
-void CollectMembers_ValueAnimationInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ValueAnimationInfo(MemberCollection& members);
 
 // class Variant | File: ../Core/Variant.h
-void CollectMembers_Variant(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Variant(MemberCollection& members);
 
 // class Vector2 | File: ../Math/Vector2.h
-void CollectMembers_Vector2(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Vector2(MemberCollection& members);
 
 // class Vector3 | File: ../Math/Vector3.h
-void CollectMembers_Vector3(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Vector3(MemberCollection& members);
 
 // class Vector4 | File: ../Math/Vector4.h
-void CollectMembers_Vector4(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Vector4(MemberCollection& members);
 
 // class VectorBase | File: ../Container/VectorBase.h
-void CollectMembers_VectorBase(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_VectorBase(MemberCollection& members);
 
 // class VectorBuffer | File: ../IO/VectorBuffer.h
-void CollectMembers_VectorBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_VectorBuffer(MemberCollection& members);
 
 // class VertexBuffer | File: ../Graphics/VertexBuffer.h
-void CollectMembers_VertexBuffer(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_VertexBuffer(MemberCollection& members);
 
 // struct VertexBufferDesc | File: ../Graphics/Model.h
-void CollectMembers_VertexBufferDesc(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_VertexBufferDesc(MemberCollection& members);
 
 // struct VertexBufferMorph | File: ../Graphics/Model.h
-void CollectMembers_VertexBufferMorph(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_VertexBufferMorph(MemberCollection& members);
 
 // struct VertexElement | File: ../Graphics/GraphicsDefs.h
-void CollectMembers_VertexElement(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_VertexElement(MemberCollection& members);
 
 // class View | File: ../Graphics/View.h
-void CollectMembers_View(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_View(MemberCollection& members);
 
 // class View3D | File: ../UI/View3D.h
-void CollectMembers_View3D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_View3D(MemberCollection& members);
 
 // class Viewport | File: ../Graphics/Viewport.h
-void CollectMembers_Viewport(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Viewport(MemberCollection& members);
 
 // class WString | File: ../Container/Str.h
-void CollectMembers_WString(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_WString(MemberCollection& members);
 
 // class Window | File: ../UI/Window.h
-void CollectMembers_Window(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Window(MemberCollection& members);
 
 // struct WindowModeParams | File: ../Graphics/Graphics.h
-void CollectMembers_WindowModeParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_WindowModeParams(MemberCollection& members);
 
 // struct WorkItem | File: ../Core/WorkQueue.h
-void CollectMembers_WorkItem(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_WorkItem(MemberCollection& members);
 
 // class WorkQueue | File: ../Core/WorkQueue.h
-void CollectMembers_WorkQueue(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_WorkQueue(MemberCollection& members);
 
 // class XMLElement | File: ../Resource/XMLElement.h
-void CollectMembers_XMLElement(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_XMLElement(MemberCollection& members);
 
 // class XMLFile | File: ../Resource/XMLFile.h
-void CollectMembers_XMLFile(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_XMLFile(MemberCollection& members);
 
 // class XPathQuery | File: ../Resource/XMLElement.h
-void CollectMembers_XPathQuery(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_XPathQuery(MemberCollection& members);
 
 // class XPathResultSet | File: ../Resource/XMLElement.h
-void CollectMembers_XPathResultSet(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_XPathResultSet(MemberCollection& members);
 
 // class Zone | File: ../Graphics/Zone.h
-void CollectMembers_Zone(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Zone(MemberCollection& members);
 
 #ifdef URHO3D_DATABASE
 
 // class Database | File: ../Database/Database.h
-void CollectMembers_Database(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Database(MemberCollection& members);
 
 #endif // def URHO3D_DATABASE
 
 #ifdef URHO3D_IK
 
 // class IKConstraint | File: ../IK/IKConstraint.h
-void CollectMembers_IKConstraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_IKConstraint(MemberCollection& members);
 
 // class IKEffector | File: ../IK/IKEffector.h
-void CollectMembers_IKEffector(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_IKEffector(MemberCollection& members);
 
 // class IKSolver | File: ../IK/IKSolver.h
-void CollectMembers_IKSolver(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_IKSolver(MemberCollection& members);
 
 #endif // def URHO3D_IK
 
 #ifdef URHO3D_NAVIGATION
 
 // class CrowdAgent | File: ../Navigation/CrowdAgent.h
-void CollectMembers_CrowdAgent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CrowdAgent(MemberCollection& members);
 
 // class CrowdManager | File: ../Navigation/CrowdManager.h
-void CollectMembers_CrowdManager(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CrowdManager(MemberCollection& members);
 
 // struct CrowdObstacleAvoidanceParams | File: ../Navigation/CrowdManager.h
-void CollectMembers_CrowdObstacleAvoidanceParams(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CrowdObstacleAvoidanceParams(MemberCollection& members);
 
 // struct DynamicNavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_DynamicNavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DynamicNavBuildData(MemberCollection& members);
 
 // class DynamicNavigationMesh | File: ../Navigation/DynamicNavigationMesh.h
-void CollectMembers_DynamicNavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DynamicNavigationMesh(MemberCollection& members);
 
 // class NavArea | File: ../Navigation/NavArea.h
-void CollectMembers_NavArea(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NavArea(MemberCollection& members);
 
 // struct NavAreaStub | File: ../Navigation/NavBuildData.h
-void CollectMembers_NavAreaStub(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NavAreaStub(MemberCollection& members);
 
 // struct NavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_NavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NavBuildData(MemberCollection& members);
 
 // class Navigable | File: ../Navigation/Navigable.h
-void CollectMembers_Navigable(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Navigable(MemberCollection& members);
 
 // struct NavigationGeometryInfo | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationGeometryInfo(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NavigationGeometryInfo(MemberCollection& members);
 
 // class NavigationMesh | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationMesh(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NavigationMesh(MemberCollection& members);
 
 // struct NavigationPathPoint | File: ../Navigation/NavigationMesh.h
-void CollectMembers_NavigationPathPoint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NavigationPathPoint(MemberCollection& members);
 
 // class Obstacle | File: ../Navigation/Obstacle.h
-void CollectMembers_Obstacle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Obstacle(MemberCollection& members);
 
 // class OffMeshConnection | File: ../Navigation/OffMeshConnection.h
-void CollectMembers_OffMeshConnection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_OffMeshConnection(MemberCollection& members);
 
 // struct SimpleNavBuildData | File: ../Navigation/NavBuildData.h
-void CollectMembers_SimpleNavBuildData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SimpleNavBuildData(MemberCollection& members);
 
 #endif // def URHO3D_NAVIGATION
 
 #ifdef URHO3D_NETWORK
 
 // class Connection | File: ../Network/Connection.h
-void CollectMembers_Connection(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Connection(MemberCollection& members);
 
 // class HttpRequest | File: ../Network/HttpRequest.h
-void CollectMembers_HttpRequest(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_HttpRequest(MemberCollection& members);
 
 // class Network | File: ../Network/Network.h
-void CollectMembers_Network(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Network(MemberCollection& members);
 
 // class NetworkPriority | File: ../Network/NetworkPriority.h
-void CollectMembers_NetworkPriority(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_NetworkPriority(MemberCollection& members);
 
 // struct PackageDownload | File: ../Network/Connection.h
-void CollectMembers_PackageDownload(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PackageDownload(MemberCollection& members);
 
 // struct PackageUpload | File: ../Network/Connection.h
-void CollectMembers_PackageUpload(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PackageUpload(MemberCollection& members);
 
 // struct RemoteEvent | File: ../Network/Connection.h
-void CollectMembers_RemoteEvent(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RemoteEvent(MemberCollection& members);
 
 #endif // def URHO3D_NETWORK
 
 #ifdef URHO3D_PHYSICS
 
 // struct CollisionGeometryData | File: ../Physics/CollisionShape.h
-void CollectMembers_CollisionGeometryData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CollisionGeometryData(MemberCollection& members);
 
 // class CollisionShape | File: ../Physics/CollisionShape.h
-void CollectMembers_CollisionShape(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CollisionShape(MemberCollection& members);
 
 // class Constraint | File: ../Physics/Constraint.h
-void CollectMembers_Constraint(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Constraint(MemberCollection& members);
 
 // struct ConvexData | File: ../Physics/CollisionShape.h
-void CollectMembers_ConvexData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConvexData(MemberCollection& members);
 
 // struct DelayedWorldTransform | File: ../Physics/PhysicsWorld.h
-void CollectMembers_DelayedWorldTransform(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DelayedWorldTransform(MemberCollection& members);
 
 // struct GImpactMeshData | File: ../Physics/CollisionShape.h
-void CollectMembers_GImpactMeshData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_GImpactMeshData(MemberCollection& members);
 
 // struct HeightfieldData | File: ../Physics/CollisionShape.h
-void CollectMembers_HeightfieldData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_HeightfieldData(MemberCollection& members);
 
 // struct ManifoldPair | File: ../Physics/PhysicsWorld.h
-void CollectMembers_ManifoldPair(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ManifoldPair(MemberCollection& members);
 
 // struct PhysicsRaycastResult | File: ../Physics/PhysicsWorld.h
-void CollectMembers_PhysicsRaycastResult(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PhysicsRaycastResult(MemberCollection& members);
 
 // class PhysicsWorld | File: ../Physics/PhysicsWorld.h
-void CollectMembers_PhysicsWorld(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PhysicsWorld(MemberCollection& members);
 
 // struct PhysicsWorldConfig | File: ../Physics/PhysicsWorld.h
-void CollectMembers_PhysicsWorldConfig(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PhysicsWorldConfig(MemberCollection& members);
 
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h
-void CollectMembers_RaycastVehicle(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RaycastVehicle(MemberCollection& members);
 
 // class RigidBody | File: ../Physics/RigidBody.h
-void CollectMembers_RigidBody(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RigidBody(MemberCollection& members);
 
 // struct TriangleMeshData | File: ../Physics/CollisionShape.h
-void CollectMembers_TriangleMeshData(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TriangleMeshData(MemberCollection& members);
 
 #endif // def URHO3D_PHYSICS
 
 #ifdef URHO3D_URHO2D
 
 // class AnimatedSprite2D | File: ../Urho2D/AnimatedSprite2D.h
-void CollectMembers_AnimatedSprite2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimatedSprite2D(MemberCollection& members);
 
 // class AnimationSet2D | File: ../Urho2D/AnimationSet2D.h
-void CollectMembers_AnimationSet2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_AnimationSet2D(MemberCollection& members);
 
 // class CollisionBox2D | File: ../Urho2D/CollisionBox2D.h
-void CollectMembers_CollisionBox2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CollisionBox2D(MemberCollection& members);
 
 // class CollisionChain2D | File: ../Urho2D/CollisionChain2D.h
-void CollectMembers_CollisionChain2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CollisionChain2D(MemberCollection& members);
 
 // class CollisionCircle2D | File: ../Urho2D/CollisionCircle2D.h
-void CollectMembers_CollisionCircle2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CollisionCircle2D(MemberCollection& members);
 
 // class CollisionEdge2D | File: ../Urho2D/CollisionEdge2D.h
-void CollectMembers_CollisionEdge2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CollisionEdge2D(MemberCollection& members);
 
 // class CollisionPolygon2D | File: ../Urho2D/CollisionPolygon2D.h
-void CollectMembers_CollisionPolygon2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CollisionPolygon2D(MemberCollection& members);
 
 // class CollisionShape2D | File: ../Urho2D/CollisionShape2D.h
-void CollectMembers_CollisionShape2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_CollisionShape2D(MemberCollection& members);
 
 // class Constraint2D | File: ../Urho2D/Constraint2D.h
-void CollectMembers_Constraint2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Constraint2D(MemberCollection& members);
 
 // class ConstraintDistance2D | File: ../Urho2D/ConstraintDistance2D.h
-void CollectMembers_ConstraintDistance2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintDistance2D(MemberCollection& members);
 
 // class ConstraintFriction2D | File: ../Urho2D/ConstraintFriction2D.h
-void CollectMembers_ConstraintFriction2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintFriction2D(MemberCollection& members);
 
 // class ConstraintGear2D | File: ../Urho2D/ConstraintGear2D.h
-void CollectMembers_ConstraintGear2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintGear2D(MemberCollection& members);
 
 // class ConstraintMotor2D | File: ../Urho2D/ConstraintMotor2D.h
-void CollectMembers_ConstraintMotor2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintMotor2D(MemberCollection& members);
 
 // class ConstraintMouse2D | File: ../Urho2D/ConstraintMouse2D.h
-void CollectMembers_ConstraintMouse2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintMouse2D(MemberCollection& members);
 
 // class ConstraintPrismatic2D | File: ../Urho2D/ConstraintPrismatic2D.h
-void CollectMembers_ConstraintPrismatic2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintPrismatic2D(MemberCollection& members);
 
 // class ConstraintPulley2D | File: ../Urho2D/ConstraintPulley2D.h
-void CollectMembers_ConstraintPulley2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintPulley2D(MemberCollection& members);
 
 // class ConstraintRevolute2D | File: ../Urho2D/ConstraintRevolute2D.h
-void CollectMembers_ConstraintRevolute2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintRevolute2D(MemberCollection& members);
 
 // class ConstraintRope2D | File: ../Urho2D/ConstraintRope2D.h
-void CollectMembers_ConstraintRope2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintRope2D(MemberCollection& members);
 
 // class ConstraintWeld2D | File: ../Urho2D/ConstraintWeld2D.h
-void CollectMembers_ConstraintWeld2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintWeld2D(MemberCollection& members);
 
 // class ConstraintWheel2D | File: ../Urho2D/ConstraintWheel2D.h
-void CollectMembers_ConstraintWheel2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ConstraintWheel2D(MemberCollection& members);
 
 // struct DelayedWorldTransform2D | File: ../Urho2D/PhysicsWorld2D.h
-void CollectMembers_DelayedWorldTransform2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_DelayedWorldTransform2D(MemberCollection& members);
 
 // class Drawable2D | File: ../Urho2D/Drawable2D.h
-void CollectMembers_Drawable2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Drawable2D(MemberCollection& members);
 
 // struct Particle2D | File: ../Urho2D/ParticleEmitter2D.h
-void CollectMembers_Particle2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Particle2D(MemberCollection& members);
 
 // class ParticleEffect2D | File: ../Urho2D/ParticleEffect2D.h
-void CollectMembers_ParticleEffect2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ParticleEffect2D(MemberCollection& members);
 
 // class ParticleEmitter2D | File: ../Urho2D/ParticleEmitter2D.h
-void CollectMembers_ParticleEmitter2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ParticleEmitter2D(MemberCollection& members);
 
 // struct PhysicsRaycastResult2D | File: ../Urho2D/PhysicsWorld2D.h
-void CollectMembers_PhysicsRaycastResult2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PhysicsRaycastResult2D(MemberCollection& members);
 
 // class PhysicsWorld2D | File: ../Urho2D/PhysicsWorld2D.h
-void CollectMembers_PhysicsWorld2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PhysicsWorld2D(MemberCollection& members);
 
 // class PropertySet2D | File: ../Urho2D/TileMapDefs2D.h
-void CollectMembers_PropertySet2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_PropertySet2D(MemberCollection& members);
 
 // class Renderer2D | File: ../Urho2D/Renderer2D.h
-void CollectMembers_Renderer2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Renderer2D(MemberCollection& members);
 
 // class RigidBody2D | File: ../Urho2D/RigidBody2D.h
-void CollectMembers_RigidBody2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_RigidBody2D(MemberCollection& members);
 
 // struct SourceBatch2D | File: ../Urho2D/Drawable2D.h
-void CollectMembers_SourceBatch2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SourceBatch2D(MemberCollection& members);
 
 // class Sprite2D | File: ../Urho2D/Sprite2D.h
-void CollectMembers_Sprite2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Sprite2D(MemberCollection& members);
 
 // class SpriteSheet2D | File: ../Urho2D/SpriteSheet2D.h
-void CollectMembers_SpriteSheet2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_SpriteSheet2D(MemberCollection& members);
 
 // class StaticSprite2D | File: ../Urho2D/StaticSprite2D.h
-void CollectMembers_StaticSprite2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_StaticSprite2D(MemberCollection& members);
 
 // class StretchableSprite2D | File: ../Urho2D/StretchableSprite2D.h
-void CollectMembers_StretchableSprite2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_StretchableSprite2D(MemberCollection& members);
 
 // class Tile2D | File: ../Urho2D/TileMapDefs2D.h
-void CollectMembers_Tile2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Tile2D(MemberCollection& members);
 
 // class TileMap2D | File: ../Urho2D/TileMap2D.h
-void CollectMembers_TileMap2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TileMap2D(MemberCollection& members);
 
 // struct TileMapInfo2D | File: ../Urho2D/TileMapDefs2D.h
-void CollectMembers_TileMapInfo2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TileMapInfo2D(MemberCollection& members);
 
 // class TileMapLayer2D | File: ../Urho2D/TileMapLayer2D.h
-void CollectMembers_TileMapLayer2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TileMapLayer2D(MemberCollection& members);
 
 // class TileMapObject2D | File: ../Urho2D/TileMapDefs2D.h
-void CollectMembers_TileMapObject2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TileMapObject2D(MemberCollection& members);
 
 // class TmxFile2D | File: ../Urho2D/TmxFile2D.h
-void CollectMembers_TmxFile2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TmxFile2D(MemberCollection& members);
 
 // class TmxImageLayer2D | File: ../Urho2D/TmxFile2D.h
-void CollectMembers_TmxImageLayer2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TmxImageLayer2D(MemberCollection& members);
 
 // class TmxLayer2D | File: ../Urho2D/TmxFile2D.h
-void CollectMembers_TmxLayer2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TmxLayer2D(MemberCollection& members);
 
 // class TmxObjectGroup2D | File: ../Urho2D/TmxFile2D.h
-void CollectMembers_TmxObjectGroup2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TmxObjectGroup2D(MemberCollection& members);
 
 // class TmxTileLayer2D | File: ../Urho2D/TmxFile2D.h
-void CollectMembers_TmxTileLayer2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_TmxTileLayer2D(MemberCollection& members);
 
 // struct Vertex2D | File: ../Urho2D/Drawable2D.h
-void CollectMembers_Vertex2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_Vertex2D(MemberCollection& members);
 
 // struct ViewBatchInfo2D | File: ../Urho2D/Renderer2D.h
-void CollectMembers_ViewBatchInfo2D(Vector<RegisterObjectMethodArgs>& methods, Vector<RegisterGlobalFunctionArgs>& staticMethods, Vector<RegisterObjectPropertyArgs>& fields, Vector<RegisterObjectMethodArgs>& wrappedFields, Vector<RegisterGlobalPropertyArgs>& staticFields);
+void CollectMembers_ViewBatchInfo2D(MemberCollection& members);
 
 #endif // def URHO3D_URHO2D
 

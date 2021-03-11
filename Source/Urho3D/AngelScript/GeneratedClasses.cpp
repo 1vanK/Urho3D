@@ -16,13 +16,9 @@ void FakeReleaseRef(void* ptr);
 // class AbstractFile | File: ../IO/AbstractFile.h
 static void Register_AbstractFile(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AbstractFile(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AbstractFile", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AbstractFile(members);
+    RegisterMembers(engine, "AbstractFile", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AbstractFile
         REGISTER_CLASS_MANUAL_PART_AbstractFile();
@@ -35,13 +31,9 @@ static void Register_AllocatorBlock(asIScriptEngine* engine)
     // AllocatorBlock::~AllocatorBlock() | Implicitly-declared
     engine->RegisterObjectBehaviour("AllocatorBlock", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AllocatorBlock), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AllocatorBlock(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AllocatorBlock", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AllocatorBlock(members);
+    RegisterMembers(engine, "AllocatorBlock", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AllocatorBlock
         REGISTER_CLASS_MANUAL_PART_AllocatorBlock();
@@ -54,13 +46,9 @@ static void Register_AllocatorNode(asIScriptEngine* engine)
     // AllocatorNode::~AllocatorNode() | Implicitly-declared
     engine->RegisterObjectBehaviour("AllocatorNode", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AllocatorNode), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AllocatorNode(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AllocatorNode", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AllocatorNode(members);
+    RegisterMembers(engine, "AllocatorNode", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AllocatorNode
         REGISTER_CLASS_MANUAL_PART_AllocatorNode();
@@ -70,13 +58,9 @@ static void Register_AllocatorNode(asIScriptEngine* engine)
 // class Animatable | File: ../Scene/Animatable.h
 static void Register_Animatable(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Animatable(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Animatable", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Animatable(members);
+    RegisterMembers(engine, "Animatable", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Animatable
         REGISTER_CLASS_MANUAL_PART_Animatable();
@@ -96,13 +80,9 @@ static void Register_AnimatedModel(asIScriptEngine* engine)
     // explicit AnimatedModel::AnimatedModel(Context* context)
     engine->RegisterObjectBehaviour("AnimatedModel", asBEHAVE_FACTORY, "AnimatedModel@+ f()", AS_FUNCTION(AnimatedModel_AnimatedModel_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimatedModel(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimatedModel", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimatedModel(members);
+    RegisterMembers(engine, "AnimatedModel", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimatedModel
         REGISTER_CLASS_MANUAL_PART_AnimatedModel();
@@ -122,13 +102,9 @@ static void Register_Animation(asIScriptEngine* engine)
     // explicit Animation::Animation(Context* context)
     engine->RegisterObjectBehaviour("Animation", asBEHAVE_FACTORY, "Animation@+ f()", AS_FUNCTION(Animation_Animation_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Animation(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Animation", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Animation(members);
+    RegisterMembers(engine, "Animation", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Animation
         REGISTER_CLASS_MANUAL_PART_Animation();
@@ -138,13 +114,9 @@ static void Register_Animation(asIScriptEngine* engine)
 // struct AnimationControl | File: ../Graphics/AnimationController.h
 static void Register_AnimationControl(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimationControl(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimationControl", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimationControl(members);
+    RegisterMembers(engine, "AnimationControl", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationControl
         REGISTER_CLASS_MANUAL_PART_AnimationControl();
@@ -164,13 +136,9 @@ static void Register_AnimationController(asIScriptEngine* engine)
     // explicit AnimationController::AnimationController(Context* context)
     engine->RegisterObjectBehaviour("AnimationController", asBEHAVE_FACTORY, "AnimationController@+ f()", AS_FUNCTION(AnimationController_AnimationController_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimationController(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimationController", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimationController(members);
+    RegisterMembers(engine, "AnimationController", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationController
         REGISTER_CLASS_MANUAL_PART_AnimationController();
@@ -183,13 +151,9 @@ static void Register_AnimationKeyFrame(asIScriptEngine* engine)
     // AnimationKeyFrame::~AnimationKeyFrame() | Implicitly-declared
     engine->RegisterObjectBehaviour("AnimationKeyFrame", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AnimationKeyFrame), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimationKeyFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimationKeyFrame", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimationKeyFrame(members);
+    RegisterMembers(engine, "AnimationKeyFrame", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationKeyFrame
         REGISTER_CLASS_MANUAL_PART_AnimationKeyFrame();
@@ -216,13 +180,9 @@ static void Register_AnimationState(asIScriptEngine* engine)
     // AnimationState::AnimationState(Node* node, Animation* animation)
     engine->RegisterObjectBehaviour("AnimationState", asBEHAVE_FACTORY, "AnimationState@+ f(Node@+, Animation@+)", AS_FUNCTION(AnimationState_AnimationState_Node_Animation) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimationState", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimationState(members);
+    RegisterMembers(engine, "AnimationState", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationState
         REGISTER_CLASS_MANUAL_PART_AnimationState();
@@ -235,13 +195,9 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
     // AnimationStateTrack::~AnimationStateTrack()
     engine->RegisterObjectBehaviour("AnimationStateTrack", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AnimationStateTrack), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimationStateTrack(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimationStateTrack", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimationStateTrack(members);
+    RegisterMembers(engine, "AnimationStateTrack", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationStateTrack
         REGISTER_CLASS_MANUAL_PART_AnimationStateTrack();
@@ -251,13 +207,9 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
 // struct AnimationTrack | File: ../Graphics/Animation.h
 static void Register_AnimationTrack(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimationTrack(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimationTrack", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimationTrack(members);
+    RegisterMembers(engine, "AnimationTrack", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationTrack
         REGISTER_CLASS_MANUAL_PART_AnimationTrack();
@@ -270,13 +222,9 @@ static void Register_AnimationTriggerPoint(asIScriptEngine* engine)
     // AnimationTriggerPoint::~AnimationTriggerPoint() | Implicitly-declared
     engine->RegisterObjectBehaviour("AnimationTriggerPoint", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AnimationTriggerPoint), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimationTriggerPoint(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimationTriggerPoint", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimationTriggerPoint(members);
+    RegisterMembers(engine, "AnimationTriggerPoint", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationTriggerPoint
         REGISTER_CLASS_MANUAL_PART_AnimationTriggerPoint();
@@ -306,13 +254,9 @@ static void Register_AreaAllocator(asIScriptEngine* engine)
     // AreaAllocator::~AreaAllocator() | Implicitly-declared
     engine->RegisterObjectBehaviour("AreaAllocator", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AreaAllocator), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AreaAllocator(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AreaAllocator", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AreaAllocator(members);
+    RegisterMembers(engine, "AreaAllocator", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AreaAllocator
         REGISTER_CLASS_MANUAL_PART_AreaAllocator();
@@ -325,13 +269,9 @@ static void Register_AsyncProgress(asIScriptEngine* engine)
     // AsyncProgress::~AsyncProgress() | Implicitly-declared
     engine->RegisterObjectBehaviour("AsyncProgress", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AsyncProgress), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AsyncProgress(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AsyncProgress", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AsyncProgress(members);
+    RegisterMembers(engine, "AsyncProgress", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AsyncProgress
         REGISTER_CLASS_MANUAL_PART_AsyncProgress();
@@ -341,13 +281,9 @@ static void Register_AsyncProgress(asIScriptEngine* engine)
 // class AttributeAccessor | File: ../Core/Attribute.h
 static void Register_AttributeAccessor(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AttributeAccessor(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AttributeAccessor", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AttributeAccessor(members);
+    RegisterMembers(engine, "AttributeAccessor", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AttributeAccessor
         REGISTER_CLASS_MANUAL_PART_AttributeAccessor();
@@ -374,13 +310,9 @@ static void Register_AttributeAnimationInfo(asIScriptEngine* engine)
     // AttributeAnimationInfo::AttributeAnimationInfo(const AttributeAnimationInfo& other)
     engine->RegisterObjectBehaviour("AttributeAnimationInfo", asBEHAVE_FACTORY, "AttributeAnimationInfo@+ f(const AttributeAnimationInfo&in)", AS_FUNCTION(AttributeAnimationInfo_AttributeAnimationInfo_AttributeAnimationInfo) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AttributeAnimationInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AttributeAnimationInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AttributeAnimationInfo(members);
+    RegisterMembers(engine, "AttributeAnimationInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AttributeAnimationInfo
         REGISTER_CLASS_MANUAL_PART_AttributeAnimationInfo();
@@ -396,13 +328,9 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
     // AttributeInfo::~AttributeInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("AttributeInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(AttributeInfo), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AttributeInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AttributeInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AttributeInfo(members);
+    RegisterMembers(engine, "AttributeInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AttributeInfo
         REGISTER_CLASS_MANUAL_PART_AttributeInfo();
@@ -422,13 +350,9 @@ static void Register_Audio(asIScriptEngine* engine)
     // explicit Audio::Audio(Context* context)
     engine->RegisterObjectBehaviour("Audio", asBEHAVE_FACTORY, "Audio@+ f()", AS_FUNCTION(Audio_Audio_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Audio(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Audio", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Audio(members);
+    RegisterMembers(engine, "Audio", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Audio
         REGISTER_CLASS_MANUAL_PART_Audio();
@@ -441,13 +365,9 @@ static void Register_BackgroundLoadItem(asIScriptEngine* engine)
     // BackgroundLoadItem::~BackgroundLoadItem() | Implicitly-declared
     engine->RegisterObjectBehaviour("BackgroundLoadItem", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BackgroundLoadItem), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BackgroundLoadItem(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BackgroundLoadItem", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BackgroundLoadItem(members);
+    RegisterMembers(engine, "BackgroundLoadItem", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BackgroundLoadItem
         REGISTER_CLASS_MANUAL_PART_BackgroundLoadItem();
@@ -469,13 +389,9 @@ static void Register_Batch(asIScriptEngine* engine)
     // Batch::~Batch() | Implicitly-declared
     engine->RegisterObjectBehaviour("Batch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Batch), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Batch(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Batch", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Batch(members);
+    RegisterMembers(engine, "Batch", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Batch
         REGISTER_CLASS_MANUAL_PART_Batch();
@@ -497,13 +413,9 @@ static void Register_BatchGroup(asIScriptEngine* engine)
     // BatchGroup::~BatchGroup()=default
     engine->RegisterObjectBehaviour("BatchGroup", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchGroup), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BatchGroup(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BatchGroup", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BatchGroup(members);
+    RegisterMembers(engine, "BatchGroup", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchGroup
         REGISTER_CLASS_MANUAL_PART_BatchGroup();
@@ -525,13 +437,9 @@ static void Register_BatchGroupKey(asIScriptEngine* engine)
     // BatchGroupKey::~BatchGroupKey() | Implicitly-declared
     engine->RegisterObjectBehaviour("BatchGroupKey", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchGroupKey), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BatchGroupKey(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BatchGroupKey", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BatchGroupKey(members);
+    RegisterMembers(engine, "BatchGroupKey", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchGroupKey
         REGISTER_CLASS_MANUAL_PART_BatchGroupKey();
@@ -544,13 +452,9 @@ static void Register_BatchQueue(asIScriptEngine* engine)
     // BatchQueue::~BatchQueue() | Implicitly-declared
     engine->RegisterObjectBehaviour("BatchQueue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(BatchQueue), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BatchQueue(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BatchQueue", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BatchQueue(members);
+    RegisterMembers(engine, "BatchQueue", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchQueue
         REGISTER_CLASS_MANUAL_PART_BatchQueue();
@@ -569,13 +473,9 @@ static void Register_BiasParameters(asIScriptEngine* engine)
     // BiasParameters::BiasParameters(float constantBias, float slopeScaledBias, float normalOffset=0.0f)
     engine->RegisterObjectBehaviour("BiasParameters", asBEHAVE_CONSTRUCT, "void f(float, float, float = 0.0f)", AS_FUNCTION_OBJFIRST(BiasParameters_BiasParameters_float_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BiasParameters(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BiasParameters", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BiasParameters(members);
+    RegisterMembers(engine, "BiasParameters", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BiasParameters
         REGISTER_CLASS_MANUAL_PART_BiasParameters();
@@ -585,13 +485,9 @@ static void Register_BiasParameters(asIScriptEngine* engine)
 // struct Billboard | File: ../Graphics/BillboardSet.h
 static void Register_Billboard(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Billboard(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Billboard", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Billboard(members);
+    RegisterMembers(engine, "Billboard", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Billboard
         REGISTER_CLASS_MANUAL_PART_Billboard();
@@ -611,13 +507,9 @@ static void Register_BillboardSet(asIScriptEngine* engine)
     // explicit BillboardSet::BillboardSet(Context* context)
     engine->RegisterObjectBehaviour("BillboardSet", asBEHAVE_FACTORY, "BillboardSet@+ f()", AS_FUNCTION(BillboardSet_BillboardSet_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BillboardSet(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BillboardSet", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BillboardSet(members);
+    RegisterMembers(engine, "BillboardSet", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BillboardSet
         REGISTER_CLASS_MANUAL_PART_BillboardSet();
@@ -627,13 +519,9 @@ static void Register_BillboardSet(asIScriptEngine* engine)
 // struct Bone | File: ../Graphics/Skeleton.h
 static void Register_Bone(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Bone(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Bone", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Bone(members);
+    RegisterMembers(engine, "Bone", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Bone
         REGISTER_CLASS_MANUAL_PART_Bone();
@@ -653,13 +541,9 @@ static void Register_BorderImage(asIScriptEngine* engine)
     // explicit BorderImage::BorderImage(Context* context)
     engine->RegisterObjectBehaviour("BorderImage", asBEHAVE_FACTORY, "BorderImage@+ f()", AS_FUNCTION(BorderImage_BorderImage_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BorderImage(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BorderImage", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BorderImage(members);
+    RegisterMembers(engine, "BorderImage", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BorderImage
         REGISTER_CLASS_MANUAL_PART_BorderImage();
@@ -729,13 +613,9 @@ static void Register_BoundingBox(asIScriptEngine* engine)
     // explicit BoundingBox::BoundingBox(const Sphere& sphere)
     engine->RegisterObjectBehaviour("BoundingBox", asBEHAVE_CONSTRUCT, "void f(const Sphere&in)", AS_FUNCTION_OBJFIRST(BoundingBox_BoundingBox_Sphere), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BoundingBox(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BoundingBox", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BoundingBox(members);
+    RegisterMembers(engine, "BoundingBox", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BoundingBox
         REGISTER_CLASS_MANUAL_PART_BoundingBox();
@@ -745,13 +625,9 @@ static void Register_BoundingBox(asIScriptEngine* engine)
 // class BufferedSoundStream | File: ../Audio/BufferedSoundStream.h
 static void Register_BufferedSoundStream(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_BufferedSoundStream(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "BufferedSoundStream", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_BufferedSoundStream(members);
+    RegisterMembers(engine, "BufferedSoundStream", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_BufferedSoundStream
         REGISTER_CLASS_MANUAL_PART_BufferedSoundStream();
@@ -771,13 +647,9 @@ static void Register_Button(asIScriptEngine* engine)
     // explicit Button::Button(Context* context)
     engine->RegisterObjectBehaviour("Button", asBEHAVE_FACTORY, "Button@+ f()", AS_FUNCTION(Button_Button_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Button(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Button", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Button(members);
+    RegisterMembers(engine, "Button", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Button
         REGISTER_CLASS_MANUAL_PART_Button();
@@ -797,13 +669,9 @@ static void Register_Camera(asIScriptEngine* engine)
     // explicit Camera::Camera(Context* context)
     engine->RegisterObjectBehaviour("Camera", asBEHAVE_FACTORY, "Camera@+ f()", AS_FUNCTION(Camera_Camera_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Camera(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Camera", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Camera(members);
+    RegisterMembers(engine, "Camera", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Camera
         REGISTER_CLASS_MANUAL_PART_Camera();
@@ -822,13 +690,9 @@ static void Register_CascadeParameters(asIScriptEngine* engine)
     // CascadeParameters::CascadeParameters(float split1, float split2, float split3, float split4, float fadeStart, float biasAutoAdjust=1.0f)
     engine->RegisterObjectBehaviour("CascadeParameters", asBEHAVE_CONSTRUCT, "void f(float, float, float, float, float, float = 1.0f)", AS_FUNCTION_OBJFIRST(CascadeParameters_CascadeParameters_float_float_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CascadeParameters(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CascadeParameters", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CascadeParameters(members);
+    RegisterMembers(engine, "CascadeParameters", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CascadeParameters
         REGISTER_CLASS_MANUAL_PART_CascadeParameters();
@@ -841,13 +705,9 @@ static void Register_CharLocation(asIScriptEngine* engine)
     // CharLocation::~CharLocation() | Implicitly-declared
     engine->RegisterObjectBehaviour("CharLocation", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(CharLocation), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CharLocation(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CharLocation", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CharLocation(members);
+    RegisterMembers(engine, "CharLocation", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CharLocation
         REGISTER_CLASS_MANUAL_PART_CharLocation();
@@ -867,13 +727,9 @@ static void Register_CheckBox(asIScriptEngine* engine)
     // explicit CheckBox::CheckBox(Context* context)
     engine->RegisterObjectBehaviour("CheckBox", asBEHAVE_FACTORY, "CheckBox@+ f()", AS_FUNCTION(CheckBox_CheckBox_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CheckBox(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CheckBox", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CheckBox(members);
+    RegisterMembers(engine, "CheckBox", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CheckBox
         REGISTER_CLASS_MANUAL_PART_CheckBox();
@@ -937,13 +793,9 @@ static void Register_Color(asIScriptEngine* engine)
     // explicit Color::Color(const Vector4& color)
     engine->RegisterObjectBehaviour("Color", asBEHAVE_CONSTRUCT, "void f(const Vector4&in)", AS_FUNCTION_OBJFIRST(Color_Color_Vector4), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Color(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Color", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Color(members);
+    RegisterMembers(engine, "Color", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Color
         REGISTER_CLASS_MANUAL_PART_Color();
@@ -970,13 +822,9 @@ static void Register_ColorFrame(asIScriptEngine* engine)
     // ColorFrame::ColorFrame(const Color& color, float time)
     engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_FACTORY, "ColorFrame@+ f(const Color&in, float)", AS_FUNCTION(ColorFrame_ColorFrame_Color_float) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ColorFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ColorFrame", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ColorFrame(members);
+    RegisterMembers(engine, "ColorFrame", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ColorFrame
         REGISTER_CLASS_MANUAL_PART_ColorFrame();
@@ -996,13 +844,9 @@ static void Register_Component(asIScriptEngine* engine)
     // explicit Component::Component(Context* context)
     engine->RegisterObjectBehaviour("Component", asBEHAVE_FACTORY, "Component@+ f()", AS_FUNCTION(Component_Component_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Component(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Component", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Component(members);
+    RegisterMembers(engine, "Component", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Component
         REGISTER_CLASS_MANUAL_PART_Component();
@@ -1015,13 +859,9 @@ static void Register_ComponentReplicationState(asIScriptEngine* engine)
     // ComponentReplicationState::~ComponentReplicationState() | Implicitly-declared
     engine->RegisterObjectBehaviour("ComponentReplicationState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ComponentReplicationState), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ComponentReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ComponentReplicationState", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ComponentReplicationState(members);
+    RegisterMembers(engine, "ComponentReplicationState", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ComponentReplicationState
         REGISTER_CLASS_MANUAL_PART_ComponentReplicationState();
@@ -1034,13 +874,9 @@ static void Register_CompressedLevel(asIScriptEngine* engine)
     // CompressedLevel::~CompressedLevel() | Implicitly-declared
     engine->RegisterObjectBehaviour("CompressedLevel", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(CompressedLevel), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CompressedLevel(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CompressedLevel", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CompressedLevel(members);
+    RegisterMembers(engine, "CompressedLevel", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CompressedLevel
         REGISTER_CLASS_MANUAL_PART_CompressedLevel();
@@ -1053,13 +889,9 @@ static void Register_Condition(asIScriptEngine* engine)
     // Condition::~Condition()
     engine->RegisterObjectBehaviour("Condition", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Condition), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Condition(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Condition", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Condition(members);
+    RegisterMembers(engine, "Condition", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Condition
         REGISTER_CLASS_MANUAL_PART_Condition();
@@ -1079,13 +911,9 @@ static void Register_Console(asIScriptEngine* engine)
     // explicit Console::Console(Context* context)
     engine->RegisterObjectBehaviour("Console", asBEHAVE_FACTORY, "Console@+ f()", AS_FUNCTION(Console_Console_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Console(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Console", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Console(members);
+    RegisterMembers(engine, "Console", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Console
         REGISTER_CLASS_MANUAL_PART_Console();
@@ -1105,13 +933,9 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
     // explicit ConstantBuffer::ConstantBuffer(Context* context)
     engine->RegisterObjectBehaviour("ConstantBuffer", asBEHAVE_FACTORY, "ConstantBuffer@+ f()", AS_FUNCTION(ConstantBuffer_ConstantBuffer_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstantBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstantBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstantBuffer(members);
+    RegisterMembers(engine, "ConstantBuffer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstantBuffer
         REGISTER_CLASS_MANUAL_PART_ConstantBuffer();
@@ -1121,13 +945,9 @@ static void Register_ConstantBuffer(asIScriptEngine* engine)
 // class Context | File: ../Core/Context.h
 static void Register_Context(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Context(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Context", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Context(members);
+    RegisterMembers(engine, "Context", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Context
         REGISTER_CLASS_MANUAL_PART_Context();
@@ -1140,13 +960,9 @@ static void Register_Controls(asIScriptEngine* engine)
     // Controls::~Controls()
     engine->RegisterObjectBehaviour("Controls", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Controls), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Controls(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Controls", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Controls(members);
+    RegisterMembers(engine, "Controls", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Controls
         REGISTER_CLASS_MANUAL_PART_Controls();
@@ -1166,13 +982,9 @@ static void Register_Cursor(asIScriptEngine* engine)
     // explicit Cursor::Cursor(Context* context)
     engine->RegisterObjectBehaviour("Cursor", asBEHAVE_FACTORY, "Cursor@+ f()", AS_FUNCTION(Cursor_Cursor_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Cursor(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Cursor", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Cursor(members);
+    RegisterMembers(engine, "Cursor", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Cursor
         REGISTER_CLASS_MANUAL_PART_Cursor();
@@ -1194,13 +1006,9 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
     // CursorShapeInfo::~CursorShapeInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("CursorShapeInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(CursorShapeInfo), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CursorShapeInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CursorShapeInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CursorShapeInfo(members);
+    RegisterMembers(engine, "CursorShapeInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CursorShapeInfo
         REGISTER_CLASS_MANUAL_PART_CursorShapeInfo();
@@ -1220,13 +1028,9 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
     // explicit CustomGeometry::CustomGeometry(Context* context)
     engine->RegisterObjectBehaviour("CustomGeometry", asBEHAVE_FACTORY, "CustomGeometry@+ f()", AS_FUNCTION(CustomGeometry_CustomGeometry_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CustomGeometry(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CustomGeometry", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CustomGeometry(members);
+    RegisterMembers(engine, "CustomGeometry", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CustomGeometry
         REGISTER_CLASS_MANUAL_PART_CustomGeometry();
@@ -1236,13 +1040,9 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
 // struct CustomGeometryVertex | File: ../Graphics/CustomGeometry.h
 static void Register_CustomGeometryVertex(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CustomGeometryVertex(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CustomGeometryVertex", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CustomGeometryVertex(members);
+    RegisterMembers(engine, "CustomGeometryVertex", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CustomGeometryVertex
         REGISTER_CLASS_MANUAL_PART_CustomGeometryVertex();
@@ -1262,13 +1062,9 @@ static void Register_DebugHud(asIScriptEngine* engine)
     // explicit DebugHud::DebugHud(Context* context)
     engine->RegisterObjectBehaviour("DebugHud", asBEHAVE_FACTORY, "DebugHud@+ f()", AS_FUNCTION(DebugHud_DebugHud_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DebugHud(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DebugHud", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DebugHud(members);
+    RegisterMembers(engine, "DebugHud", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugHud
         REGISTER_CLASS_MANUAL_PART_DebugHud();
@@ -1290,13 +1086,9 @@ static void Register_DebugLine(asIScriptEngine* engine)
     // DebugLine::~DebugLine() | Implicitly-declared
     engine->RegisterObjectBehaviour("DebugLine", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DebugLine), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DebugLine(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DebugLine", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DebugLine(members);
+    RegisterMembers(engine, "DebugLine", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugLine
         REGISTER_CLASS_MANUAL_PART_DebugLine();
@@ -1316,13 +1108,9 @@ static void Register_DebugRenderer(asIScriptEngine* engine)
     // explicit DebugRenderer::DebugRenderer(Context* context)
     engine->RegisterObjectBehaviour("DebugRenderer", asBEHAVE_FACTORY, "DebugRenderer@+ f()", AS_FUNCTION(DebugRenderer_DebugRenderer_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DebugRenderer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DebugRenderer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DebugRenderer(members);
+    RegisterMembers(engine, "DebugRenderer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugRenderer
         REGISTER_CLASS_MANUAL_PART_DebugRenderer();
@@ -1344,13 +1132,9 @@ static void Register_DebugTriangle(asIScriptEngine* engine)
     // DebugTriangle::~DebugTriangle() | Implicitly-declared
     engine->RegisterObjectBehaviour("DebugTriangle", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DebugTriangle), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DebugTriangle(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DebugTriangle", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DebugTriangle(members);
+    RegisterMembers(engine, "DebugTriangle", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugTriangle
         REGISTER_CLASS_MANUAL_PART_DebugTriangle();
@@ -1363,13 +1147,9 @@ static void Register_Decal(asIScriptEngine* engine)
     // Decal::~Decal() | Implicitly-declared
     engine->RegisterObjectBehaviour("Decal", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Decal), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Decal(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Decal", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Decal(members);
+    RegisterMembers(engine, "Decal", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Decal
         REGISTER_CLASS_MANUAL_PART_Decal();
@@ -1389,13 +1169,9 @@ static void Register_DecalSet(asIScriptEngine* engine)
     // explicit DecalSet::DecalSet(Context* context)
     engine->RegisterObjectBehaviour("DecalSet", asBEHAVE_FACTORY, "DecalSet@+ f()", AS_FUNCTION(DecalSet_DecalSet_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DecalSet(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DecalSet", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DecalSet(members);
+    RegisterMembers(engine, "DecalSet", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DecalSet
         REGISTER_CLASS_MANUAL_PART_DecalSet();
@@ -1420,13 +1196,9 @@ static void Register_DecalVertex(asIScriptEngine* engine)
     // DecalVertex::~DecalVertex() | Implicitly-declared
     engine->RegisterObjectBehaviour("DecalVertex", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DecalVertex), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DecalVertex(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DecalVertex", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DecalVertex(members);
+    RegisterMembers(engine, "DecalVertex", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DecalVertex
         REGISTER_CLASS_MANUAL_PART_DecalVertex();
@@ -1436,13 +1208,9 @@ static void Register_DecalVertex(asIScriptEngine* engine)
 // struct DepthValue | File: ../Graphics/OcclusionBuffer.h
 static void Register_DepthValue(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DepthValue(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DepthValue", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DepthValue(members);
+    RegisterMembers(engine, "DepthValue", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DepthValue
         REGISTER_CLASS_MANUAL_PART_DepthValue();
@@ -1452,13 +1220,9 @@ static void Register_DepthValue(asIScriptEngine* engine)
 // class Deserializer | File: ../IO/Deserializer.h
 static void Register_Deserializer(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Deserializer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Deserializer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Deserializer(members);
+    RegisterMembers(engine, "Deserializer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Deserializer
         REGISTER_CLASS_MANUAL_PART_Deserializer();
@@ -1480,13 +1244,9 @@ static void Register_DirtyBits(asIScriptEngine* engine)
     // DirtyBits::~DirtyBits() | Implicitly-declared
     engine->RegisterObjectBehaviour("DirtyBits", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DirtyBits), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DirtyBits(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DirtyBits", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DirtyBits(members);
+    RegisterMembers(engine, "DirtyBits", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DirtyBits
         REGISTER_CLASS_MANUAL_PART_DirtyBits();
@@ -1496,13 +1256,9 @@ static void Register_DirtyBits(asIScriptEngine* engine)
 // class Drawable | File: ../Graphics/Drawable.h
 static void Register_Drawable(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Drawable(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Drawable", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Drawable(members);
+    RegisterMembers(engine, "Drawable", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Drawable
         REGISTER_CLASS_MANUAL_PART_Drawable();
@@ -1522,13 +1278,9 @@ static void Register_DropDownList(asIScriptEngine* engine)
     // explicit DropDownList::DropDownList(Context* context)
     engine->RegisterObjectBehaviour("DropDownList", asBEHAVE_FACTORY, "DropDownList@+ f()", AS_FUNCTION(DropDownList_DropDownList_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DropDownList(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DropDownList", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DropDownList(members);
+    RegisterMembers(engine, "DropDownList", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DropDownList
         REGISTER_CLASS_MANUAL_PART_DropDownList();
@@ -1548,13 +1300,9 @@ static void Register_Engine(asIScriptEngine* engine)
     // explicit Engine::Engine(Context* context)
     engine->RegisterObjectBehaviour("Engine", asBEHAVE_FACTORY, "Engine@+ f()", AS_FUNCTION(Engine_Engine_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Engine(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Engine", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Engine(members);
+    RegisterMembers(engine, "Engine", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Engine
         REGISTER_CLASS_MANUAL_PART_Engine();
@@ -1574,13 +1322,9 @@ static void Register_EventProfiler(asIScriptEngine* engine)
     // explicit EventProfiler::EventProfiler(Context* context)
     engine->RegisterObjectBehaviour("EventProfiler", asBEHAVE_FACTORY, "EventProfiler@+ f()", AS_FUNCTION(EventProfiler_EventProfiler_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_EventProfiler(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "EventProfiler", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_EventProfiler(members);
+    RegisterMembers(engine, "EventProfiler", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_EventProfiler
         REGISTER_CLASS_MANUAL_PART_EventProfiler();
@@ -1590,13 +1334,9 @@ static void Register_EventProfiler(asIScriptEngine* engine)
 // class EventReceiverGroup | File: ../Core/Context.h
 static void Register_EventReceiverGroup(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_EventReceiverGroup(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "EventReceiverGroup", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_EventReceiverGroup(members);
+    RegisterMembers(engine, "EventReceiverGroup", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_EventReceiverGroup
         REGISTER_CLASS_MANUAL_PART_EventReceiverGroup();
@@ -1634,13 +1374,9 @@ static void Register_File(asIScriptEngine* engine)
     // File::File(Context* context, PackageFile* package, const String& fileName)
     engine->RegisterObjectBehaviour("File", asBEHAVE_FACTORY, "File@+ f(PackageFile@+, const String&in)", AS_FUNCTION(File_File_Context_PackageFile_String) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_File(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "File", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_File(members);
+    RegisterMembers(engine, "File", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_File
         REGISTER_CLASS_MANUAL_PART_File();
@@ -1660,13 +1396,9 @@ static void Register_FileSelector(asIScriptEngine* engine)
     // explicit FileSelector::FileSelector(Context* context)
     engine->RegisterObjectBehaviour("FileSelector", asBEHAVE_FACTORY, "FileSelector@+ f()", AS_FUNCTION(FileSelector_FileSelector_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FileSelector(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FileSelector", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FileSelector(members);
+    RegisterMembers(engine, "FileSelector", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FileSelector
         REGISTER_CLASS_MANUAL_PART_FileSelector();
@@ -1679,13 +1411,9 @@ static void Register_FileSelectorEntry(asIScriptEngine* engine)
     // FileSelectorEntry::~FileSelectorEntry() | Implicitly-declared
     engine->RegisterObjectBehaviour("FileSelectorEntry", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(FileSelectorEntry), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FileSelectorEntry(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FileSelectorEntry", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FileSelectorEntry(members);
+    RegisterMembers(engine, "FileSelectorEntry", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FileSelectorEntry
         REGISTER_CLASS_MANUAL_PART_FileSelectorEntry();
@@ -1705,13 +1433,9 @@ static void Register_FileSystem(asIScriptEngine* engine)
     // explicit FileSystem::FileSystem(Context* context)
     engine->RegisterObjectBehaviour("FileSystem", asBEHAVE_FACTORY, "FileSystem@+ f()", AS_FUNCTION(FileSystem_FileSystem_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FileSystem(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FileSystem", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FileSystem(members);
+    RegisterMembers(engine, "FileSystem", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FileSystem
         REGISTER_CLASS_MANUAL_PART_FileSystem();
@@ -1731,13 +1455,9 @@ static void Register_FileWatcher(asIScriptEngine* engine)
     // explicit FileWatcher::FileWatcher(Context* context)
     engine->RegisterObjectBehaviour("FileWatcher", asBEHAVE_FACTORY, "FileWatcher@+ f()", AS_FUNCTION(FileWatcher_FileWatcher_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FileWatcher(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FileWatcher", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FileWatcher(members);
+    RegisterMembers(engine, "FileWatcher", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FileWatcher
         REGISTER_CLASS_MANUAL_PART_FileWatcher();
@@ -1756,13 +1476,9 @@ static void Register_FocusParameters(asIScriptEngine* engine)
     // FocusParameters::FocusParameters(bool focus, bool nonUniform, bool autoSize, float quantize, float minView)
     engine->RegisterObjectBehaviour("FocusParameters", asBEHAVE_CONSTRUCT, "void f(bool, bool, bool, float, float)", AS_FUNCTION_OBJFIRST(FocusParameters_FocusParameters_bool_bool_bool_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FocusParameters(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FocusParameters", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FocusParameters(members);
+    RegisterMembers(engine, "FocusParameters", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FocusParameters
         REGISTER_CLASS_MANUAL_PART_FocusParameters();
@@ -1782,13 +1498,9 @@ static void Register_Font(asIScriptEngine* engine)
     // explicit Font::Font(Context* context)
     engine->RegisterObjectBehaviour("Font", asBEHAVE_FACTORY, "Font@+ f()", AS_FUNCTION(Font_Font_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Font(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Font", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Font(members);
+    RegisterMembers(engine, "Font", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Font
         REGISTER_CLASS_MANUAL_PART_Font();
@@ -1798,13 +1510,9 @@ static void Register_Font(asIScriptEngine* engine)
 // class FontFace | File: ../UI/FontFace.h
 static void Register_FontFace(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FontFace(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FontFace", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FontFace(members);
+    RegisterMembers(engine, "FontFace", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FontFace
         REGISTER_CLASS_MANUAL_PART_FontFace();
@@ -1823,13 +1531,9 @@ static void Register_FontFaceBitmap(asIScriptEngine* engine)
     // explicit FontFaceBitmap::FontFaceBitmap(Font* font)
     engine->RegisterObjectBehaviour("FontFaceBitmap", asBEHAVE_FACTORY, "FontFaceBitmap@+ f(Font@+)", AS_FUNCTION(FontFaceBitmap_FontFaceBitmap_Font) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FontFaceBitmap(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FontFaceBitmap", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FontFaceBitmap(members);
+    RegisterMembers(engine, "FontFaceBitmap", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FontFaceBitmap
         REGISTER_CLASS_MANUAL_PART_FontFaceBitmap();
@@ -1848,13 +1552,9 @@ static void Register_FontFaceFreeType(asIScriptEngine* engine)
     // explicit FontFaceFreeType::FontFaceFreeType(Font* font)
     engine->RegisterObjectBehaviour("FontFaceFreeType", asBEHAVE_FACTORY, "FontFaceFreeType@+ f(Font@+)", AS_FUNCTION(FontFaceFreeType_FontFaceFreeType_Font) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FontFaceFreeType(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FontFaceFreeType", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FontFaceFreeType(members);
+    RegisterMembers(engine, "FontFaceFreeType", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FontFaceFreeType
         REGISTER_CLASS_MANUAL_PART_FontFaceFreeType();
@@ -1867,13 +1567,9 @@ static void Register_FontGlyph(asIScriptEngine* engine)
     // FontGlyph::~FontGlyph() | Implicitly-declared
     engine->RegisterObjectBehaviour("FontGlyph", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(FontGlyph), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FontGlyph(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FontGlyph", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FontGlyph(members);
+    RegisterMembers(engine, "FontGlyph", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FontGlyph
         REGISTER_CLASS_MANUAL_PART_FontGlyph();
@@ -1886,13 +1582,9 @@ static void Register_FrameInfo(asIScriptEngine* engine)
     // FrameInfo::~FrameInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("FrameInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(FrameInfo), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_FrameInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "FrameInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_FrameInfo(members);
+    RegisterMembers(engine, "FrameInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_FrameInfo
         REGISTER_CLASS_MANUAL_PART_FrameInfo();
@@ -1914,13 +1606,9 @@ static void Register_Frustum(asIScriptEngine* engine)
     // Frustum::~Frustum() | Implicitly-declared
     engine->RegisterObjectBehaviour("Frustum", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Frustum), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Frustum(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Frustum", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Frustum(members);
+    RegisterMembers(engine, "Frustum", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Frustum
         REGISTER_CLASS_MANUAL_PART_Frustum();
@@ -1942,13 +1630,9 @@ static void Register_GPUObject(asIScriptEngine* engine)
     // virtual GPUObject::~GPUObject()
     engine->RegisterObjectBehaviour("GPUObject", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(GPUObject), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_GPUObject(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "GPUObject", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_GPUObject(members);
+    RegisterMembers(engine, "GPUObject", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_GPUObject
         REGISTER_CLASS_MANUAL_PART_GPUObject();
@@ -1968,13 +1652,9 @@ static void Register_Geometry(asIScriptEngine* engine)
     // explicit Geometry::Geometry(Context* context)
     engine->RegisterObjectBehaviour("Geometry", asBEHAVE_FACTORY, "Geometry@+ f()", AS_FUNCTION(Geometry_Geometry_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Geometry(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Geometry", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Geometry(members);
+    RegisterMembers(engine, "Geometry", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Geometry
         REGISTER_CLASS_MANUAL_PART_Geometry();
@@ -1987,13 +1667,9 @@ static void Register_GeometryDesc(asIScriptEngine* engine)
     // GeometryDesc::~GeometryDesc() | Implicitly-declared
     engine->RegisterObjectBehaviour("GeometryDesc", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(GeometryDesc), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_GeometryDesc(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "GeometryDesc", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_GeometryDesc(members);
+    RegisterMembers(engine, "GeometryDesc", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_GeometryDesc
         REGISTER_CLASS_MANUAL_PART_GeometryDesc();
@@ -2013,13 +1689,9 @@ static void Register_Graphics(asIScriptEngine* engine)
     // explicit Graphics::Graphics(Context* context)
     engine->RegisterObjectBehaviour("Graphics", asBEHAVE_FACTORY, "Graphics@+ f()", AS_FUNCTION(Graphics_Graphics_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Graphics(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Graphics", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Graphics(members);
+    RegisterMembers(engine, "Graphics", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Graphics
         REGISTER_CLASS_MANUAL_PART_Graphics();
@@ -2032,13 +1704,9 @@ static void Register_HashBase(asIScriptEngine* engine)
     // HashBase::~HashBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("HashBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HashBase), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_HashBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "HashBase", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_HashBase(members);
+    RegisterMembers(engine, "HashBase", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HashBase
         REGISTER_CLASS_MANUAL_PART_HashBase();
@@ -2054,13 +1722,9 @@ static void Register_HashIteratorBase(asIScriptEngine* engine)
     // HashIteratorBase::~HashIteratorBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("HashIteratorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HashIteratorBase), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_HashIteratorBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "HashIteratorBase", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_HashIteratorBase(members);
+    RegisterMembers(engine, "HashIteratorBase", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HashIteratorBase
         REGISTER_CLASS_MANUAL_PART_HashIteratorBase();
@@ -2073,13 +1737,9 @@ static void Register_HashNodeBase(asIScriptEngine* engine)
     // HashNodeBase::~HashNodeBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("HashNodeBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HashNodeBase), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_HashNodeBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "HashNodeBase", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_HashNodeBase(members);
+    RegisterMembers(engine, "HashNodeBase", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HashNodeBase
         REGISTER_CLASS_MANUAL_PART_HashNodeBase();
@@ -2092,13 +1752,9 @@ static void Register_HiresTimer(asIScriptEngine* engine)
     // HiresTimer::~HiresTimer() | Implicitly-declared
     engine->RegisterObjectBehaviour("HiresTimer", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(HiresTimer), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_HiresTimer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "HiresTimer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_HiresTimer(members);
+    RegisterMembers(engine, "HiresTimer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HiresTimer
         REGISTER_CLASS_MANUAL_PART_HiresTimer();
@@ -2118,13 +1774,9 @@ static void Register_Image(asIScriptEngine* engine)
     // explicit Image::Image(Context* context)
     engine->RegisterObjectBehaviour("Image", asBEHAVE_FACTORY, "Image@+ f()", AS_FUNCTION(Image_Image_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Image(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Image", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Image(members);
+    RegisterMembers(engine, "Image", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Image
         REGISTER_CLASS_MANUAL_PART_Image();
@@ -2144,13 +1796,9 @@ static void Register_IndexBuffer(asIScriptEngine* engine)
     // explicit IndexBuffer::IndexBuffer(Context* context, bool forceHeadless=false)
     engine->RegisterObjectBehaviour("IndexBuffer", asBEHAVE_FACTORY, "IndexBuffer@+ f(bool = false)", AS_FUNCTION(IndexBuffer_IndexBuffer_Context_bool) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_IndexBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "IndexBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_IndexBuffer(members);
+    RegisterMembers(engine, "IndexBuffer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IndexBuffer
         REGISTER_CLASS_MANUAL_PART_IndexBuffer();
@@ -2163,13 +1811,9 @@ static void Register_IndexBufferDesc(asIScriptEngine* engine)
     // IndexBufferDesc::~IndexBufferDesc() | Implicitly-declared
     engine->RegisterObjectBehaviour("IndexBufferDesc", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(IndexBufferDesc), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_IndexBufferDesc(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "IndexBufferDesc", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_IndexBufferDesc(members);
+    RegisterMembers(engine, "IndexBufferDesc", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IndexBufferDesc
         REGISTER_CLASS_MANUAL_PART_IndexBufferDesc();
@@ -2189,13 +1833,9 @@ static void Register_Input(asIScriptEngine* engine)
     // explicit Input::Input(Context* context)
     engine->RegisterObjectBehaviour("Input", asBEHAVE_FACTORY, "Input@+ f()", AS_FUNCTION(Input_Input_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Input(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Input", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Input(members);
+    RegisterMembers(engine, "Input", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Input
         REGISTER_CLASS_MANUAL_PART_Input();
@@ -2211,13 +1851,9 @@ static void Register_InstanceData(asIScriptEngine* engine)
     // InstanceData::~InstanceData() | Implicitly-declared
     engine->RegisterObjectBehaviour("InstanceData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(InstanceData), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_InstanceData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "InstanceData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_InstanceData(members);
+    RegisterMembers(engine, "InstanceData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_InstanceData
         REGISTER_CLASS_MANUAL_PART_InstanceData();
@@ -2247,13 +1883,9 @@ static void Register_IntRect(asIScriptEngine* engine)
     // IntRect::IntRect(int left, int top, int right, int bottom) noexcept
     engine->RegisterObjectBehaviour("IntRect", asBEHAVE_CONSTRUCT, "void f(int, int, int, int)", AS_FUNCTION_OBJFIRST(IntRect_IntRect_int_int_int_int), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_IntRect(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "IntRect", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_IntRect(members);
+    RegisterMembers(engine, "IntRect", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IntRect
         REGISTER_CLASS_MANUAL_PART_IntRect();
@@ -2285,13 +1917,9 @@ static void Register_IntVector2(asIScriptEngine* engine)
     // IntVector2::IntVector2(const IntVector2& rhs) noexcept=default
     engine->RegisterObjectBehaviour("IntVector2", asBEHAVE_CONSTRUCT, "void f(const IntVector2&in)", AS_FUNCTION_OBJFIRST(IntVector2_IntVector2_IntVector2), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_IntVector2(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "IntVector2", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_IntVector2(members);
+    RegisterMembers(engine, "IntVector2", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IntVector2
         REGISTER_CLASS_MANUAL_PART_IntVector2();
@@ -2321,13 +1949,9 @@ static void Register_IntVector3(asIScriptEngine* engine)
     // IntVector3::IntVector3(const IntVector3& rhs) noexcept=default
     engine->RegisterObjectBehaviour("IntVector3", asBEHAVE_CONSTRUCT, "void f(const IntVector3&in)", AS_FUNCTION_OBJFIRST(IntVector3_IntVector3_IntVector3), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_IntVector3(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "IntVector3", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_IntVector3(members);
+    RegisterMembers(engine, "IntVector3", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IntVector3
         REGISTER_CLASS_MANUAL_PART_IntVector3();
@@ -2347,13 +1971,9 @@ static void Register_JSONFile(asIScriptEngine* engine)
     // explicit JSONFile::JSONFile(Context* context)
     engine->RegisterObjectBehaviour("JSONFile", asBEHAVE_FACTORY, "JSONFile@+ f()", AS_FUNCTION(JSONFile_JSONFile_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_JSONFile(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "JSONFile", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_JSONFile(members);
+    RegisterMembers(engine, "JSONFile", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_JSONFile
         REGISTER_CLASS_MANUAL_PART_JSONFile();
@@ -2430,13 +2050,9 @@ static void Register_JSONValue(asIScriptEngine* engine)
     // JSONValue::~JSONValue()
     engine->RegisterObjectBehaviour("JSONValue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(JSONValue), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_JSONValue(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "JSONValue", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_JSONValue(members);
+    RegisterMembers(engine, "JSONValue", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_JSONValue
         REGISTER_CLASS_MANUAL_PART_JSONValue();
@@ -2446,13 +2062,9 @@ static void Register_JSONValue(asIScriptEngine* engine)
 // struct JoystickState | File: ../Input/Input.h
 static void Register_JoystickState(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_JoystickState(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "JoystickState", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_JoystickState(members);
+    RegisterMembers(engine, "JoystickState", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_JoystickState
         REGISTER_CLASS_MANUAL_PART_JoystickState();
@@ -2472,13 +2084,9 @@ static void Register_Light(asIScriptEngine* engine)
     // explicit Light::Light(Context* context)
     engine->RegisterObjectBehaviour("Light", asBEHAVE_FACTORY, "Light@+ f()", AS_FUNCTION(Light_Light_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Light(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Light", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Light(members);
+    RegisterMembers(engine, "Light", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Light
         REGISTER_CLASS_MANUAL_PART_Light();
@@ -2491,13 +2099,9 @@ static void Register_LightBatchQueue(asIScriptEngine* engine)
     // LightBatchQueue::~LightBatchQueue() | Implicitly-declared
     engine->RegisterObjectBehaviour("LightBatchQueue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(LightBatchQueue), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_LightBatchQueue(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "LightBatchQueue", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_LightBatchQueue(members);
+    RegisterMembers(engine, "LightBatchQueue", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LightBatchQueue
         REGISTER_CLASS_MANUAL_PART_LightBatchQueue();
@@ -2510,13 +2114,9 @@ static void Register_LightQueryResult(asIScriptEngine* engine)
     // LightQueryResult::~LightQueryResult() | Implicitly-declared
     engine->RegisterObjectBehaviour("LightQueryResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(LightQueryResult), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_LightQueryResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "LightQueryResult", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_LightQueryResult(members);
+    RegisterMembers(engine, "LightQueryResult", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LightQueryResult
         REGISTER_CLASS_MANUAL_PART_LightQueryResult();
@@ -2536,13 +2136,9 @@ static void Register_LineEdit(asIScriptEngine* engine)
     // explicit LineEdit::LineEdit(Context* context)
     engine->RegisterObjectBehaviour("LineEdit", asBEHAVE_FACTORY, "LineEdit@+ f()", AS_FUNCTION(LineEdit_LineEdit_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_LineEdit(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "LineEdit", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_LineEdit(members);
+    RegisterMembers(engine, "LineEdit", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LineEdit
         REGISTER_CLASS_MANUAL_PART_LineEdit();
@@ -2555,13 +2151,9 @@ static void Register_LinkedListNode(asIScriptEngine* engine)
     // LinkedListNode::~LinkedListNode() | Implicitly-declared
     engine->RegisterObjectBehaviour("LinkedListNode", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(LinkedListNode), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_LinkedListNode(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "LinkedListNode", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_LinkedListNode(members);
+    RegisterMembers(engine, "LinkedListNode", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LinkedListNode
         REGISTER_CLASS_MANUAL_PART_LinkedListNode();
@@ -2574,13 +2166,9 @@ static void Register_ListBase(asIScriptEngine* engine)
     // ListBase::~ListBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("ListBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ListBase), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ListBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ListBase", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ListBase(members);
+    RegisterMembers(engine, "ListBase", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ListBase
         REGISTER_CLASS_MANUAL_PART_ListBase();
@@ -2596,13 +2184,9 @@ static void Register_ListIteratorBase(asIScriptEngine* engine)
     // ListIteratorBase::~ListIteratorBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("ListIteratorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ListIteratorBase), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ListIteratorBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ListIteratorBase", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ListIteratorBase(members);
+    RegisterMembers(engine, "ListIteratorBase", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ListIteratorBase
         REGISTER_CLASS_MANUAL_PART_ListIteratorBase();
@@ -2615,13 +2199,9 @@ static void Register_ListNodeBase(asIScriptEngine* engine)
     // ListNodeBase::~ListNodeBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("ListNodeBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ListNodeBase), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ListNodeBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ListNodeBase", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ListNodeBase(members);
+    RegisterMembers(engine, "ListNodeBase", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ListNodeBase
         REGISTER_CLASS_MANUAL_PART_ListNodeBase();
@@ -2641,13 +2221,9 @@ static void Register_ListView(asIScriptEngine* engine)
     // explicit ListView::ListView(Context* context)
     engine->RegisterObjectBehaviour("ListView", asBEHAVE_FACTORY, "ListView@+ f()", AS_FUNCTION(ListView_ListView_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ListView(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ListView", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ListView(members);
+    RegisterMembers(engine, "ListView", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ListView
         REGISTER_CLASS_MANUAL_PART_ListView();
@@ -2667,13 +2243,9 @@ static void Register_Localization(asIScriptEngine* engine)
     // explicit Localization::Localization(Context* context)
     engine->RegisterObjectBehaviour("Localization", asBEHAVE_FACTORY, "Localization@+ f()", AS_FUNCTION(Localization_Localization_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Localization(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Localization", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Localization(members);
+    RegisterMembers(engine, "Localization", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Localization
         REGISTER_CLASS_MANUAL_PART_Localization();
@@ -2693,13 +2265,9 @@ static void Register_Log(asIScriptEngine* engine)
     // explicit Log::Log(Context* context)
     engine->RegisterObjectBehaviour("Log", asBEHAVE_FACTORY, "Log@+ f()", AS_FUNCTION(Log_Log_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Log(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Log", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Log(members);
+    RegisterMembers(engine, "Log", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Log
         REGISTER_CLASS_MANUAL_PART_Log();
@@ -2709,13 +2277,9 @@ static void Register_Log(asIScriptEngine* engine)
 // class LogicComponent | File: ../Scene/LogicComponent.h
 static void Register_LogicComponent(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_LogicComponent(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "LogicComponent", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_LogicComponent(members);
+    RegisterMembers(engine, "LogicComponent", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_LogicComponent
         REGISTER_CLASS_MANUAL_PART_LogicComponent();
@@ -2735,13 +2299,9 @@ static void Register_Material(asIScriptEngine* engine)
     // explicit Material::Material(Context* context)
     engine->RegisterObjectBehaviour("Material", asBEHAVE_FACTORY, "Material@+ f()", AS_FUNCTION(Material_Material_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Material(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Material", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Material(members);
+    RegisterMembers(engine, "Material", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Material
         REGISTER_CLASS_MANUAL_PART_Material();
@@ -2754,13 +2314,9 @@ static void Register_MaterialShaderParameter(asIScriptEngine* engine)
     // MaterialShaderParameter::~MaterialShaderParameter() | Implicitly-declared
     engine->RegisterObjectBehaviour("MaterialShaderParameter", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(MaterialShaderParameter), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_MaterialShaderParameter(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "MaterialShaderParameter", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_MaterialShaderParameter(members);
+    RegisterMembers(engine, "MaterialShaderParameter", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_MaterialShaderParameter
         REGISTER_CLASS_MANUAL_PART_MaterialShaderParameter();
@@ -2790,13 +2346,9 @@ static void Register_Matrix2(asIScriptEngine* engine)
     // Matrix2::Matrix2(float v00, float v01, float v10, float v11) noexcept
     engine->RegisterObjectBehaviour("Matrix2", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", AS_FUNCTION_OBJFIRST(Matrix2_Matrix2_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Matrix2(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Matrix2", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Matrix2(members);
+    RegisterMembers(engine, "Matrix2", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Matrix2
         REGISTER_CLASS_MANUAL_PART_Matrix2();
@@ -2826,13 +2378,9 @@ static void Register_Matrix3(asIScriptEngine* engine)
     // Matrix3::Matrix3(float v00, float v01, float v02, float v10, float v11, float v12, float v20, float v21, float v22) noexcept
     engine->RegisterObjectBehaviour("Matrix3", asBEHAVE_CONSTRUCT, "void f(float, float, float, float, float, float, float, float, float)", AS_FUNCTION_OBJFIRST(Matrix3_Matrix3_float_float_float_float_float_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Matrix3(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Matrix3", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Matrix3(members);
+    RegisterMembers(engine, "Matrix3", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Matrix3
         REGISTER_CLASS_MANUAL_PART_Matrix3();
@@ -2894,13 +2442,9 @@ static void Register_Matrix3x4(asIScriptEngine* engine)
     // Matrix3x4::Matrix3x4(const Vector3& translation, const Quaternion& rotation, const Vector3& scale) noexcept
     engine->RegisterObjectBehaviour("Matrix3x4", asBEHAVE_CONSTRUCT, "void f(const Vector3&in, const Quaternion&in, const Vector3&in)", AS_FUNCTION_OBJFIRST(Matrix3x4_Matrix3x4_Vector3_Quaternion_Vector3), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Matrix3x4(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Matrix3x4", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Matrix3x4(members);
+    RegisterMembers(engine, "Matrix3x4", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Matrix3x4
         REGISTER_CLASS_MANUAL_PART_Matrix3x4();
@@ -2938,13 +2482,9 @@ static void Register_Matrix4(asIScriptEngine* engine)
     // Matrix4::Matrix4(float v00, float v01, float v02, float v03, float v10, float v11, float v12, float v13, float v20, float v21, float v22, float v23, float v30, float v31, float v32, float v33) noexcept
     engine->RegisterObjectBehaviour("Matrix4", asBEHAVE_CONSTRUCT, "void f(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float)", AS_FUNCTION_OBJFIRST(Matrix4_Matrix4_float_float_float_float_float_float_float_float_float_float_float_float_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Matrix4(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Matrix4", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Matrix4(members);
+    RegisterMembers(engine, "Matrix4", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Matrix4
         REGISTER_CLASS_MANUAL_PART_Matrix4();
@@ -2964,13 +2504,9 @@ static void Register_Menu(asIScriptEngine* engine)
     // explicit Menu::Menu(Context* context)
     engine->RegisterObjectBehaviour("Menu", asBEHAVE_FACTORY, "Menu@+ f()", AS_FUNCTION(Menu_Menu_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Menu(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Menu", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Menu(members);
+    RegisterMembers(engine, "Menu", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Menu
         REGISTER_CLASS_MANUAL_PART_Menu();
@@ -2990,13 +2526,9 @@ static void Register_MessageBox(asIScriptEngine* engine)
     // explicit MessageBox::MessageBox(Context* context, const String& messageString=String::EMPTY, const String& titleString=String::EMPTY, XMLFile* layoutFile=nullptr, XMLFile* styleFile=nullptr)
     engine->RegisterObjectBehaviour("MessageBox", asBEHAVE_FACTORY, "MessageBox@+ f(const String&in = String::EMPTY, const String&in = String::EMPTY, XMLFile@+ = null, XMLFile@+ = null)", AS_FUNCTION(MessageBox_MessageBox_Context_String_String_XMLFile_XMLFile) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_MessageBox(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "MessageBox", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_MessageBox(members);
+    RegisterMembers(engine, "MessageBox", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_MessageBox
         REGISTER_CLASS_MANUAL_PART_MessageBox();
@@ -3016,13 +2548,9 @@ static void Register_Model(asIScriptEngine* engine)
     // explicit Model::Model(Context* context)
     engine->RegisterObjectBehaviour("Model", asBEHAVE_FACTORY, "Model@+ f()", AS_FUNCTION(Model_Model_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Model(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Model", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Model(members);
+    RegisterMembers(engine, "Model", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Model
         REGISTER_CLASS_MANUAL_PART_Model();
@@ -3035,13 +2563,9 @@ static void Register_ModelMorph(asIScriptEngine* engine)
     // ModelMorph::~ModelMorph() | Implicitly-declared
     engine->RegisterObjectBehaviour("ModelMorph", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ModelMorph), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ModelMorph(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ModelMorph", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ModelMorph(members);
+    RegisterMembers(engine, "ModelMorph", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ModelMorph
         REGISTER_CLASS_MANUAL_PART_ModelMorph();
@@ -3054,13 +2578,9 @@ static void Register_Mutex(asIScriptEngine* engine)
     // Mutex::~Mutex()
     engine->RegisterObjectBehaviour("Mutex", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Mutex), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Mutex(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Mutex", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Mutex(members);
+    RegisterMembers(engine, "Mutex", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Mutex
         REGISTER_CLASS_MANUAL_PART_Mutex();
@@ -3085,13 +2605,9 @@ static void Register_MutexLock(asIScriptEngine* engine)
     // MutexLock::~MutexLock()
     engine->RegisterObjectBehaviour("MutexLock", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(MutexLock), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_MutexLock(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "MutexLock", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_MutexLock(members);
+    RegisterMembers(engine, "MutexLock", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_MutexLock
         REGISTER_CLASS_MANUAL_PART_MutexLock();
@@ -3120,13 +2636,9 @@ static void Register_NamedPipe(asIScriptEngine* engine)
     // NamedPipe::NamedPipe(Context* context, const String& name, bool isServer)
     engine->RegisterObjectBehaviour("NamedPipe", asBEHAVE_FACTORY, "NamedPipe@+ f(const String&in, bool)", AS_FUNCTION(NamedPipe_NamedPipe_Context_String_bool) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NamedPipe(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NamedPipe", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NamedPipe(members);
+    RegisterMembers(engine, "NamedPipe", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NamedPipe
         REGISTER_CLASS_MANUAL_PART_NamedPipe();
@@ -3139,13 +2651,9 @@ static void Register_NetworkState(asIScriptEngine* engine)
     // NetworkState::~NetworkState() | Implicitly-declared
     engine->RegisterObjectBehaviour("NetworkState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NetworkState), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NetworkState(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NetworkState", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NetworkState(members);
+    RegisterMembers(engine, "NetworkState", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NetworkState
         REGISTER_CLASS_MANUAL_PART_NetworkState();
@@ -3165,13 +2673,9 @@ static void Register_Node(asIScriptEngine* engine)
     // explicit Node::Node(Context* context)
     engine->RegisterObjectBehaviour("Node", asBEHAVE_FACTORY, "Node@+ f()", AS_FUNCTION(Node_Node_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Node(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Node", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Node(members);
+    RegisterMembers(engine, "Node", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Node
         REGISTER_CLASS_MANUAL_PART_Node();
@@ -3184,13 +2688,9 @@ static void Register_NodeImpl(asIScriptEngine* engine)
     // NodeImpl::~NodeImpl() | Implicitly-declared
     engine->RegisterObjectBehaviour("NodeImpl", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NodeImpl), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NodeImpl(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NodeImpl", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NodeImpl(members);
+    RegisterMembers(engine, "NodeImpl", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NodeImpl
         REGISTER_CLASS_MANUAL_PART_NodeImpl();
@@ -3203,13 +2703,9 @@ static void Register_NodeReplicationState(asIScriptEngine* engine)
     // NodeReplicationState::~NodeReplicationState() | Implicitly-declared
     engine->RegisterObjectBehaviour("NodeReplicationState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NodeReplicationState), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NodeReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NodeReplicationState", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NodeReplicationState(members);
+    RegisterMembers(engine, "NodeReplicationState", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NodeReplicationState
         REGISTER_CLASS_MANUAL_PART_NodeReplicationState();
@@ -3219,13 +2715,9 @@ static void Register_NodeReplicationState(asIScriptEngine* engine)
 // class Object | File: ../Core/Object.h
 static void Register_Object(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Object(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Object", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Object(members);
+    RegisterMembers(engine, "Object", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Object
         REGISTER_CLASS_MANUAL_PART_Object();
@@ -3245,13 +2737,9 @@ static void Register_ObjectAnimation(asIScriptEngine* engine)
     // explicit ObjectAnimation::ObjectAnimation(Context* context)
     engine->RegisterObjectBehaviour("ObjectAnimation", asBEHAVE_FACTORY, "ObjectAnimation@+ f()", AS_FUNCTION(ObjectAnimation_ObjectAnimation_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ObjectAnimation(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ObjectAnimation", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ObjectAnimation(members);
+    RegisterMembers(engine, "ObjectAnimation", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ObjectAnimation
         REGISTER_CLASS_MANUAL_PART_ObjectAnimation();
@@ -3261,13 +2749,9 @@ static void Register_ObjectAnimation(asIScriptEngine* engine)
 // class ObjectFactory | File: ../Core/Object.h
 static void Register_ObjectFactory(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ObjectFactory(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ObjectFactory", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ObjectFactory(members);
+    RegisterMembers(engine, "ObjectFactory", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ObjectFactory
         REGISTER_CLASS_MANUAL_PART_ObjectFactory();
@@ -3280,13 +2764,9 @@ static void Register_OcclusionBatch(asIScriptEngine* engine)
     // OcclusionBatch::~OcclusionBatch() | Implicitly-declared
     engine->RegisterObjectBehaviour("OcclusionBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(OcclusionBatch), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_OcclusionBatch(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "OcclusionBatch", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_OcclusionBatch(members);
+    RegisterMembers(engine, "OcclusionBatch", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBatch
         REGISTER_CLASS_MANUAL_PART_OcclusionBatch();
@@ -3306,13 +2786,9 @@ static void Register_OcclusionBuffer(asIScriptEngine* engine)
     // explicit OcclusionBuffer::OcclusionBuffer(Context* context)
     engine->RegisterObjectBehaviour("OcclusionBuffer", asBEHAVE_FACTORY, "OcclusionBuffer@+ f()", AS_FUNCTION(OcclusionBuffer_OcclusionBuffer_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_OcclusionBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "OcclusionBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_OcclusionBuffer(members);
+    RegisterMembers(engine, "OcclusionBuffer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBuffer
         REGISTER_CLASS_MANUAL_PART_OcclusionBuffer();
@@ -3325,13 +2801,9 @@ static void Register_OcclusionBufferData(asIScriptEngine* engine)
     // OcclusionBufferData::~OcclusionBufferData() | Implicitly-declared
     engine->RegisterObjectBehaviour("OcclusionBufferData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(OcclusionBufferData), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_OcclusionBufferData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "OcclusionBufferData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_OcclusionBufferData(members);
+    RegisterMembers(engine, "OcclusionBufferData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBufferData
         REGISTER_CLASS_MANUAL_PART_OcclusionBufferData();
@@ -3351,13 +2823,9 @@ static void Register_Octree(asIScriptEngine* engine)
     // explicit Octree::Octree(Context* context)
     engine->RegisterObjectBehaviour("Octree", asBEHAVE_FACTORY, "Octree@+ f()", AS_FUNCTION(Octree_Octree_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Octree(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Octree", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Octree(members);
+    RegisterMembers(engine, "Octree", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Octree
         REGISTER_CLASS_MANUAL_PART_Octree();
@@ -3370,13 +2838,9 @@ static void Register_OctreeQueryResult(asIScriptEngine* engine)
     // OctreeQueryResult::~OctreeQueryResult() | Implicitly-declared
     engine->RegisterObjectBehaviour("OctreeQueryResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(OctreeQueryResult), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_OctreeQueryResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "OctreeQueryResult", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_OctreeQueryResult(members);
+    RegisterMembers(engine, "OctreeQueryResult", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OctreeQueryResult
         REGISTER_CLASS_MANUAL_PART_OctreeQueryResult();
@@ -3395,13 +2859,9 @@ static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
     // explicit OggVorbisSoundStream::OggVorbisSoundStream(const Sound* sound)
     engine->RegisterObjectBehaviour("OggVorbisSoundStream", asBEHAVE_FACTORY, "OggVorbisSoundStream@+ f(Sound@+)", AS_FUNCTION(OggVorbisSoundStream_OggVorbisSoundStream_Sound) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_OggVorbisSoundStream(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "OggVorbisSoundStream", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_OggVorbisSoundStream(members);
+    RegisterMembers(engine, "OggVorbisSoundStream", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OggVorbisSoundStream
         REGISTER_CLASS_MANUAL_PART_OggVorbisSoundStream();
@@ -3411,13 +2871,9 @@ static void Register_OggVorbisSoundStream(asIScriptEngine* engine)
 // struct PackageEntry | File: ../IO/PackageFile.h
 static void Register_PackageEntry(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PackageEntry(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PackageEntry", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PackageEntry(members);
+    RegisterMembers(engine, "PackageEntry", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageEntry
         REGISTER_CLASS_MANUAL_PART_PackageEntry();
@@ -3446,13 +2902,9 @@ static void Register_PackageFile(asIScriptEngine* engine)
     // PackageFile::PackageFile(Context* context, const String& fileName, unsigned startOffset=0)
     engine->RegisterObjectBehaviour("PackageFile", asBEHAVE_FACTORY, "PackageFile@+ f(const String&in, uint = 0)", AS_FUNCTION(PackageFile_PackageFile_Context_String_unsigned) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PackageFile(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PackageFile", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PackageFile(members);
+    RegisterMembers(engine, "PackageFile", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageFile
         REGISTER_CLASS_MANUAL_PART_PackageFile();
@@ -3465,13 +2917,9 @@ static void Register_Particle(asIScriptEngine* engine)
     // Particle::~Particle() | Implicitly-declared
     engine->RegisterObjectBehaviour("Particle", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Particle), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Particle(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Particle", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Particle(members);
+    RegisterMembers(engine, "Particle", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Particle
         REGISTER_CLASS_MANUAL_PART_Particle();
@@ -3491,13 +2939,9 @@ static void Register_ParticleEffect(asIScriptEngine* engine)
     // explicit ParticleEffect::ParticleEffect(Context* context)
     engine->RegisterObjectBehaviour("ParticleEffect", asBEHAVE_FACTORY, "ParticleEffect@+ f()", AS_FUNCTION(ParticleEffect_ParticleEffect_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ParticleEffect(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ParticleEffect", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ParticleEffect(members);
+    RegisterMembers(engine, "ParticleEffect", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEffect
         REGISTER_CLASS_MANUAL_PART_ParticleEffect();
@@ -3517,13 +2961,9 @@ static void Register_ParticleEmitter(asIScriptEngine* engine)
     // explicit ParticleEmitter::ParticleEmitter(Context* context)
     engine->RegisterObjectBehaviour("ParticleEmitter", asBEHAVE_FACTORY, "ParticleEmitter@+ f()", AS_FUNCTION(ParticleEmitter_ParticleEmitter_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ParticleEmitter(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ParticleEmitter", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ParticleEmitter(members);
+    RegisterMembers(engine, "ParticleEmitter", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEmitter
         REGISTER_CLASS_MANUAL_PART_ParticleEmitter();
@@ -3542,13 +2982,9 @@ static void Register_Pass(asIScriptEngine* engine)
     // explicit Pass::Pass(const String& name)
     engine->RegisterObjectBehaviour("Pass", asBEHAVE_FACTORY, "Pass@+ f(const String&in)", AS_FUNCTION(Pass_Pass_String) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Pass(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Pass", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Pass(members);
+    RegisterMembers(engine, "Pass", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Pass
         REGISTER_CLASS_MANUAL_PART_Pass();
@@ -3561,13 +2997,9 @@ static void Register_PerThreadSceneResult(asIScriptEngine* engine)
     // PerThreadSceneResult::~PerThreadSceneResult() | Implicitly-declared
     engine->RegisterObjectBehaviour("PerThreadSceneResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PerThreadSceneResult), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PerThreadSceneResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PerThreadSceneResult", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PerThreadSceneResult(members);
+    RegisterMembers(engine, "PerThreadSceneResult", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PerThreadSceneResult
         REGISTER_CLASS_MANUAL_PART_PerThreadSceneResult();
@@ -3610,13 +3042,9 @@ static void Register_Plane(asIScriptEngine* engine)
     // explicit Plane::Plane(const Vector4& plane) noexcept
     engine->RegisterObjectBehaviour("Plane", asBEHAVE_CONSTRUCT, "void f(const Vector4&in)", AS_FUNCTION_OBJFIRST(Plane_Plane_Vector4), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Plane(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Plane", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Plane(members);
+    RegisterMembers(engine, "Plane", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Plane
         REGISTER_CLASS_MANUAL_PART_Plane();
@@ -3657,13 +3085,9 @@ static void Register_Polyhedron(asIScriptEngine* engine)
     // Polyhedron::~Polyhedron() noexcept=default
     engine->RegisterObjectBehaviour("Polyhedron", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Polyhedron), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Polyhedron(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Polyhedron", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Polyhedron(members);
+    RegisterMembers(engine, "Polyhedron", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Polyhedron
         REGISTER_CLASS_MANUAL_PART_Polyhedron();
@@ -3683,13 +3107,9 @@ static void Register_Profiler(asIScriptEngine* engine)
     // explicit Profiler::Profiler(Context* context)
     engine->RegisterObjectBehaviour("Profiler", asBEHAVE_FACTORY, "Profiler@+ f()", AS_FUNCTION(Profiler_Profiler_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Profiler(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Profiler", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Profiler(members);
+    RegisterMembers(engine, "Profiler", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Profiler
         REGISTER_CLASS_MANUAL_PART_Profiler();
@@ -3709,13 +3129,9 @@ static void Register_ProgressBar(asIScriptEngine* engine)
     // explicit ProgressBar::ProgressBar(Context* context)
     engine->RegisterObjectBehaviour("ProgressBar", asBEHAVE_FACTORY, "ProgressBar@+ f()", AS_FUNCTION(ProgressBar_ProgressBar_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ProgressBar(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ProgressBar", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ProgressBar(members);
+    RegisterMembers(engine, "ProgressBar", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ProgressBar
         REGISTER_CLASS_MANUAL_PART_ProgressBar();
@@ -3801,13 +3217,9 @@ static void Register_Quaternion(asIScriptEngine* engine)
     // explicit Quaternion::Quaternion(const Matrix3& matrix) noexcept
     engine->RegisterObjectBehaviour("Quaternion", asBEHAVE_CONSTRUCT, "void f(const Matrix3&in)", AS_FUNCTION_OBJFIRST(Quaternion_Quaternion_Matrix3), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Quaternion(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Quaternion", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Quaternion(members);
+    RegisterMembers(engine, "Quaternion", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Quaternion
         REGISTER_CLASS_MANUAL_PART_Quaternion();
@@ -3834,13 +3246,9 @@ static void Register_Ray(asIScriptEngine* engine)
     // Ray::Ray(const Ray& ray) noexcept=default
     engine->RegisterObjectBehaviour("Ray", asBEHAVE_CONSTRUCT, "void f(const Ray&in)", AS_FUNCTION_OBJFIRST(Ray_Ray_Ray), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Ray(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Ray", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Ray(members);
+    RegisterMembers(engine, "Ray", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Ray
         REGISTER_CLASS_MANUAL_PART_Ray();
@@ -3853,13 +3261,9 @@ static void Register_RayQueryResult(asIScriptEngine* engine)
     // RayQueryResult::~RayQueryResult() | Implicitly-declared
     engine->RegisterObjectBehaviour("RayQueryResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RayQueryResult), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RayQueryResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RayQueryResult", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RayQueryResult(members);
+    RegisterMembers(engine, "RayQueryResult", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RayQueryResult
         REGISTER_CLASS_MANUAL_PART_RayQueryResult();
@@ -3905,13 +3309,9 @@ static void Register_Rect(asIScriptEngine* engine)
     // Rect::Rect(const Rect& rect) noexcept=default
     engine->RegisterObjectBehaviour("Rect", asBEHAVE_CONSTRUCT, "void f(const Rect&in)", AS_FUNCTION_OBJFIRST(Rect_Rect_Rect), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Rect(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Rect", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Rect(members);
+    RegisterMembers(engine, "Rect", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Rect
         REGISTER_CLASS_MANUAL_PART_Rect();
@@ -3924,13 +3324,9 @@ static void Register_RefCount(asIScriptEngine* engine)
     // RefCount::~RefCount()
     engine->RegisterObjectBehaviour("RefCount", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RefCount), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RefCount(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RefCount", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RefCount(members);
+    RegisterMembers(engine, "RefCount", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RefCount
         REGISTER_CLASS_MANUAL_PART_RefCount();
@@ -3943,13 +3339,9 @@ static void Register_RefCounted(asIScriptEngine* engine)
     // RefCounted::RefCounted(const RefCounted& rhs)=delete
     // Not registered because deleted
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RefCounted(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RefCounted", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RefCounted(members);
+    RegisterMembers(engine, "RefCounted", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RefCounted
         REGISTER_CLASS_MANUAL_PART_RefCounted();
@@ -3959,13 +3351,9 @@ static void Register_RefCounted(asIScriptEngine* engine)
 // class RenderPath | File: ../Graphics/RenderPath.h
 static void Register_RenderPath(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RenderPath(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RenderPath", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RenderPath(members);
+    RegisterMembers(engine, "RenderPath", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderPath
         REGISTER_CLASS_MANUAL_PART_RenderPath();
@@ -3978,13 +3366,9 @@ static void Register_RenderPathCommand(asIScriptEngine* engine)
     // RenderPathCommand::~RenderPathCommand() | Implicitly-declared
     engine->RegisterObjectBehaviour("RenderPathCommand", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RenderPathCommand), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RenderPathCommand(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RenderPathCommand", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RenderPathCommand(members);
+    RegisterMembers(engine, "RenderPathCommand", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderPathCommand
         REGISTER_CLASS_MANUAL_PART_RenderPathCommand();
@@ -4003,13 +3387,9 @@ static void Register_RenderSurface(asIScriptEngine* engine)
     // explicit RenderSurface::RenderSurface(Texture* parentTexture)
     engine->RegisterObjectBehaviour("RenderSurface", asBEHAVE_FACTORY, "RenderSurface@+ f(Texture@+)", AS_FUNCTION(RenderSurface_RenderSurface_Texture) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RenderSurface(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RenderSurface", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RenderSurface(members);
+    RegisterMembers(engine, "RenderSurface", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderSurface
         REGISTER_CLASS_MANUAL_PART_RenderSurface();
@@ -4022,13 +3402,9 @@ static void Register_RenderTargetInfo(asIScriptEngine* engine)
     // RenderTargetInfo::~RenderTargetInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("RenderTargetInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RenderTargetInfo), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RenderTargetInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RenderTargetInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RenderTargetInfo(members);
+    RegisterMembers(engine, "RenderTargetInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderTargetInfo
         REGISTER_CLASS_MANUAL_PART_RenderTargetInfo();
@@ -4048,13 +3424,9 @@ static void Register_Renderer(asIScriptEngine* engine)
     // explicit Renderer::Renderer(Context* context)
     engine->RegisterObjectBehaviour("Renderer", asBEHAVE_FACTORY, "Renderer@+ f()", AS_FUNCTION(Renderer_Renderer_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Renderer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Renderer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Renderer(members);
+    RegisterMembers(engine, "Renderer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Renderer
         REGISTER_CLASS_MANUAL_PART_Renderer();
@@ -4067,13 +3439,9 @@ static void Register_ReplicationState(asIScriptEngine* engine)
     // ReplicationState::~ReplicationState() | Implicitly-declared
     engine->RegisterObjectBehaviour("ReplicationState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ReplicationState), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ReplicationState", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ReplicationState(members);
+    RegisterMembers(engine, "ReplicationState", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ReplicationState
         REGISTER_CLASS_MANUAL_PART_ReplicationState();
@@ -4093,13 +3461,9 @@ static void Register_Resource(asIScriptEngine* engine)
     // explicit Resource::Resource(Context* context)
     engine->RegisterObjectBehaviour("Resource", asBEHAVE_FACTORY, "Resource@+ f()", AS_FUNCTION(Resource_Resource_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Resource(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Resource", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Resource(members);
+    RegisterMembers(engine, "Resource", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Resource
         REGISTER_CLASS_MANUAL_PART_Resource();
@@ -4119,13 +3483,9 @@ static void Register_ResourceCache(asIScriptEngine* engine)
     // explicit ResourceCache::ResourceCache(Context* context)
     engine->RegisterObjectBehaviour("ResourceCache", asBEHAVE_FACTORY, "ResourceCache@+ f()", AS_FUNCTION(ResourceCache_ResourceCache_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ResourceCache(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ResourceCache", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ResourceCache(members);
+    RegisterMembers(engine, "ResourceCache", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceCache
         REGISTER_CLASS_MANUAL_PART_ResourceCache();
@@ -4138,13 +3498,9 @@ static void Register_ResourceGroup(asIScriptEngine* engine)
     // ResourceGroup::~ResourceGroup() | Implicitly-declared
     engine->RegisterObjectBehaviour("ResourceGroup", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceGroup), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ResourceGroup(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ResourceGroup", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ResourceGroup(members);
+    RegisterMembers(engine, "ResourceGroup", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceGroup
         REGISTER_CLASS_MANUAL_PART_ResourceGroup();
@@ -4193,13 +3549,9 @@ static void Register_ResourceRef(asIScriptEngine* engine)
     // ResourceRef::~ResourceRef() | Implicitly-declared
     engine->RegisterObjectBehaviour("ResourceRef", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceRef), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ResourceRef(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ResourceRef", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ResourceRef(members);
+    RegisterMembers(engine, "ResourceRef", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceRef
         REGISTER_CLASS_MANUAL_PART_ResourceRef();
@@ -4230,13 +3582,9 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
     // ResourceRefList::~ResourceRefList() | Implicitly-declared
     engine->RegisterObjectBehaviour("ResourceRefList", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ResourceRefList), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ResourceRefList(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ResourceRefList", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ResourceRefList(members);
+    RegisterMembers(engine, "ResourceRefList", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceRefList
         REGISTER_CLASS_MANUAL_PART_ResourceRefList();
@@ -4256,13 +3604,9 @@ static void Register_ResourceWithMetadata(asIScriptEngine* engine)
     // explicit ResourceWithMetadata::ResourceWithMetadata(Context* context)
     engine->RegisterObjectBehaviour("ResourceWithMetadata", asBEHAVE_FACTORY, "ResourceWithMetadata@+ f()", AS_FUNCTION(ResourceWithMetadata_ResourceWithMetadata_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ResourceWithMetadata(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ResourceWithMetadata", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ResourceWithMetadata(members);
+    RegisterMembers(engine, "ResourceWithMetadata", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceWithMetadata
         REGISTER_CLASS_MANUAL_PART_ResourceWithMetadata();
@@ -4282,13 +3626,9 @@ static void Register_RibbonTrail(asIScriptEngine* engine)
     // explicit RibbonTrail::RibbonTrail(Context* context)
     engine->RegisterObjectBehaviour("RibbonTrail", asBEHAVE_FACTORY, "RibbonTrail@+ f()", AS_FUNCTION(RibbonTrail_RibbonTrail_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RibbonTrail(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RibbonTrail", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RibbonTrail(members);
+    RegisterMembers(engine, "RibbonTrail", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RibbonTrail
         REGISTER_CLASS_MANUAL_PART_RibbonTrail();
@@ -4308,13 +3648,9 @@ static void Register_Scene(asIScriptEngine* engine)
     // explicit Scene::Scene(Context* context)
     engine->RegisterObjectBehaviour("Scene", asBEHAVE_FACTORY, "Scene@+ f()", AS_FUNCTION(Scene_Scene_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Scene(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Scene", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Scene(members);
+    RegisterMembers(engine, "Scene", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Scene
         REGISTER_CLASS_MANUAL_PART_Scene();
@@ -4327,13 +3663,9 @@ static void Register_ScenePassInfo(asIScriptEngine* engine)
     // ScenePassInfo::~ScenePassInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("ScenePassInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ScenePassInfo), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ScenePassInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ScenePassInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ScenePassInfo(members);
+    RegisterMembers(engine, "ScenePassInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScenePassInfo
         REGISTER_CLASS_MANUAL_PART_ScenePassInfo();
@@ -4346,13 +3678,9 @@ static void Register_SceneReplicationState(asIScriptEngine* engine)
     // SceneReplicationState::~SceneReplicationState() | Implicitly-declared
     engine->RegisterObjectBehaviour("SceneReplicationState", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SceneReplicationState), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SceneReplicationState(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SceneReplicationState", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SceneReplicationState(members);
+    RegisterMembers(engine, "SceneReplicationState", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SceneReplicationState
         REGISTER_CLASS_MANUAL_PART_SceneReplicationState();
@@ -4365,13 +3693,9 @@ static void Register_SceneResolver(asIScriptEngine* engine)
     // SceneResolver::~SceneResolver()
     engine->RegisterObjectBehaviour("SceneResolver", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SceneResolver), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SceneResolver(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SceneResolver", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SceneResolver(members);
+    RegisterMembers(engine, "SceneResolver", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SceneResolver
         REGISTER_CLASS_MANUAL_PART_SceneResolver();
@@ -4384,13 +3708,9 @@ static void Register_ScratchBuffer(asIScriptEngine* engine)
     // ScratchBuffer::~ScratchBuffer() | Implicitly-declared
     engine->RegisterObjectBehaviour("ScratchBuffer", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ScratchBuffer), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ScratchBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ScratchBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ScratchBuffer(members);
+    RegisterMembers(engine, "ScratchBuffer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScratchBuffer
         REGISTER_CLASS_MANUAL_PART_ScratchBuffer();
@@ -4403,13 +3723,9 @@ static void Register_ScreenModeParams(asIScriptEngine* engine)
     // ScreenModeParams::~ScreenModeParams() | Implicitly-declared
     engine->RegisterObjectBehaviour("ScreenModeParams", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ScreenModeParams), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ScreenModeParams(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ScreenModeParams", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ScreenModeParams(members);
+    RegisterMembers(engine, "ScreenModeParams", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScreenModeParams
         REGISTER_CLASS_MANUAL_PART_ScreenModeParams();
@@ -4429,13 +3745,9 @@ static void Register_ScrollBar(asIScriptEngine* engine)
     // explicit ScrollBar::ScrollBar(Context* context)
     engine->RegisterObjectBehaviour("ScrollBar", asBEHAVE_FACTORY, "ScrollBar@+ f()", AS_FUNCTION(ScrollBar_ScrollBar_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ScrollBar(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ScrollBar", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ScrollBar(members);
+    RegisterMembers(engine, "ScrollBar", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScrollBar
         REGISTER_CLASS_MANUAL_PART_ScrollBar();
@@ -4455,13 +3767,9 @@ static void Register_ScrollView(asIScriptEngine* engine)
     // explicit ScrollView::ScrollView(Context* context)
     engine->RegisterObjectBehaviour("ScrollView", asBEHAVE_FACTORY, "ScrollView@+ f()", AS_FUNCTION(ScrollView_ScrollView_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ScrollView(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ScrollView", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ScrollView(members);
+    RegisterMembers(engine, "ScrollView", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ScrollView
         REGISTER_CLASS_MANUAL_PART_ScrollView();
@@ -4481,13 +3789,9 @@ static void Register_Serializable(asIScriptEngine* engine)
     // explicit Serializable::Serializable(Context* context)
     engine->RegisterObjectBehaviour("Serializable", asBEHAVE_FACTORY, "Serializable@+ f()", AS_FUNCTION(Serializable_Serializable_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Serializable(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Serializable", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Serializable(members);
+    RegisterMembers(engine, "Serializable", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Serializable
         REGISTER_CLASS_MANUAL_PART_Serializable();
@@ -4497,13 +3801,9 @@ static void Register_Serializable(asIScriptEngine* engine)
 // class Serializer | File: ../IO/Serializer.h
 static void Register_Serializer(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Serializer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Serializer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Serializer(members);
+    RegisterMembers(engine, "Serializer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Serializer
         REGISTER_CLASS_MANUAL_PART_Serializer();
@@ -4523,13 +3823,9 @@ static void Register_Shader(asIScriptEngine* engine)
     // explicit Shader::Shader(Context* context)
     engine->RegisterObjectBehaviour("Shader", asBEHAVE_FACTORY, "Shader@+ f()", AS_FUNCTION(Shader_Shader_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Shader(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Shader", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Shader(members);
+    RegisterMembers(engine, "Shader", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Shader
         REGISTER_CLASS_MANUAL_PART_Shader();
@@ -4567,13 +3863,9 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
     // ShaderParameter::~ShaderParameter() | Implicitly-declared
     engine->RegisterObjectBehaviour("ShaderParameter", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ShaderParameter), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ShaderParameter(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ShaderParameter", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ShaderParameter(members);
+    RegisterMembers(engine, "ShaderParameter", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderParameter
         REGISTER_CLASS_MANUAL_PART_ShaderParameter();
@@ -4600,13 +3892,9 @@ static void Register_ShaderParameterAnimationInfo(asIScriptEngine* engine)
     // ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(const ShaderParameterAnimationInfo& other)
     engine->RegisterObjectBehaviour("ShaderParameterAnimationInfo", asBEHAVE_FACTORY, "ShaderParameterAnimationInfo@+ f(const ShaderParameterAnimationInfo&in)", AS_FUNCTION(ShaderParameterAnimationInfo_ShaderParameterAnimationInfo_ShaderParameterAnimationInfo) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ShaderParameterAnimationInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ShaderParameterAnimationInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ShaderParameterAnimationInfo(members);
+    RegisterMembers(engine, "ShaderParameterAnimationInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderParameterAnimationInfo
         REGISTER_CLASS_MANUAL_PART_ShaderParameterAnimationInfo();
@@ -4626,13 +3914,9 @@ static void Register_ShaderPrecache(asIScriptEngine* engine)
     // ShaderPrecache::ShaderPrecache(Context* context, const String& fileName)
     engine->RegisterObjectBehaviour("ShaderPrecache", asBEHAVE_FACTORY, "ShaderPrecache@+ f(const String&in)", AS_FUNCTION(ShaderPrecache_ShaderPrecache_Context_String) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ShaderPrecache(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ShaderPrecache", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ShaderPrecache(members);
+    RegisterMembers(engine, "ShaderPrecache", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderPrecache
         REGISTER_CLASS_MANUAL_PART_ShaderPrecache();
@@ -4651,13 +3935,9 @@ static void Register_ShaderVariation(asIScriptEngine* engine)
     // ShaderVariation::ShaderVariation(Shader* owner, ShaderType type)
     engine->RegisterObjectBehaviour("ShaderVariation", asBEHAVE_FACTORY, "ShaderVariation@+ f(Shader@+, ShaderType)", AS_FUNCTION(ShaderVariation_ShaderVariation_Shader_ShaderType) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ShaderVariation(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ShaderVariation", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ShaderVariation(members);
+    RegisterMembers(engine, "ShaderVariation", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderVariation
         REGISTER_CLASS_MANUAL_PART_ShaderVariation();
@@ -4670,13 +3950,9 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
     // ShadowBatchQueue::~ShadowBatchQueue() | Implicitly-declared
     engine->RegisterObjectBehaviour("ShadowBatchQueue", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ShadowBatchQueue), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ShadowBatchQueue(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ShadowBatchQueue", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ShadowBatchQueue(members);
+    RegisterMembers(engine, "ShadowBatchQueue", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ShadowBatchQueue
         REGISTER_CLASS_MANUAL_PART_ShadowBatchQueue();
@@ -4686,13 +3962,9 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
 // class Skeleton | File: ../Graphics/Skeleton.h
 static void Register_Skeleton(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Skeleton(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Skeleton", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Skeleton(members);
+    RegisterMembers(engine, "Skeleton", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Skeleton
         REGISTER_CLASS_MANUAL_PART_Skeleton();
@@ -4712,13 +3984,9 @@ static void Register_Skybox(asIScriptEngine* engine)
     // explicit Skybox::Skybox(Context* context)
     engine->RegisterObjectBehaviour("Skybox", asBEHAVE_FACTORY, "Skybox@+ f()", AS_FUNCTION(Skybox_Skybox_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Skybox(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Skybox", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Skybox(members);
+    RegisterMembers(engine, "Skybox", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Skybox
         REGISTER_CLASS_MANUAL_PART_Skybox();
@@ -4738,13 +4006,9 @@ static void Register_Slider(asIScriptEngine* engine)
     // explicit Slider::Slider(Context* context)
     engine->RegisterObjectBehaviour("Slider", asBEHAVE_FACTORY, "Slider@+ f()", AS_FUNCTION(Slider_Slider_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Slider(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Slider", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Slider(members);
+    RegisterMembers(engine, "Slider", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Slider
         REGISTER_CLASS_MANUAL_PART_Slider();
@@ -4764,13 +4028,9 @@ static void Register_SmoothedTransform(asIScriptEngine* engine)
     // explicit SmoothedTransform::SmoothedTransform(Context* context)
     engine->RegisterObjectBehaviour("SmoothedTransform", asBEHAVE_FACTORY, "SmoothedTransform@+ f()", AS_FUNCTION(SmoothedTransform_SmoothedTransform_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SmoothedTransform(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SmoothedTransform", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SmoothedTransform(members);
+    RegisterMembers(engine, "SmoothedTransform", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SmoothedTransform
         REGISTER_CLASS_MANUAL_PART_SmoothedTransform();
@@ -4790,13 +4050,9 @@ static void Register_Sound(asIScriptEngine* engine)
     // explicit Sound::Sound(Context* context)
     engine->RegisterObjectBehaviour("Sound", asBEHAVE_FACTORY, "Sound@+ f()", AS_FUNCTION(Sound_Sound_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Sound(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Sound", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Sound(members);
+    RegisterMembers(engine, "Sound", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Sound
         REGISTER_CLASS_MANUAL_PART_Sound();
@@ -4816,13 +4072,9 @@ static void Register_SoundListener(asIScriptEngine* engine)
     // explicit SoundListener::SoundListener(Context* context)
     engine->RegisterObjectBehaviour("SoundListener", asBEHAVE_FACTORY, "SoundListener@+ f()", AS_FUNCTION(SoundListener_SoundListener_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SoundListener(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SoundListener", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SoundListener(members);
+    RegisterMembers(engine, "SoundListener", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SoundListener
         REGISTER_CLASS_MANUAL_PART_SoundListener();
@@ -4842,13 +4094,9 @@ static void Register_SoundSource(asIScriptEngine* engine)
     // explicit SoundSource::SoundSource(Context* context)
     engine->RegisterObjectBehaviour("SoundSource", asBEHAVE_FACTORY, "SoundSource@+ f()", AS_FUNCTION(SoundSource_SoundSource_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SoundSource(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SoundSource", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SoundSource(members);
+    RegisterMembers(engine, "SoundSource", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SoundSource
         REGISTER_CLASS_MANUAL_PART_SoundSource();
@@ -4868,13 +4116,9 @@ static void Register_SoundSource3D(asIScriptEngine* engine)
     // explicit SoundSource3D::SoundSource3D(Context* context)
     engine->RegisterObjectBehaviour("SoundSource3D", asBEHAVE_FACTORY, "SoundSource3D@+ f()", AS_FUNCTION(SoundSource3D_SoundSource3D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SoundSource3D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SoundSource3D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SoundSource3D(members);
+    RegisterMembers(engine, "SoundSource3D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SoundSource3D
         REGISTER_CLASS_MANUAL_PART_SoundSource3D();
@@ -4884,13 +4128,9 @@ static void Register_SoundSource3D(asIScriptEngine* engine)
 // class SoundStream | File: ../Audio/SoundStream.h
 static void Register_SoundStream(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SoundStream(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SoundStream", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SoundStream(members);
+    RegisterMembers(engine, "SoundStream", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SoundStream
         REGISTER_CLASS_MANUAL_PART_SoundStream();
@@ -4912,13 +4152,9 @@ static void Register_SourceBatch(asIScriptEngine* engine)
     // SourceBatch::~SourceBatch()
     engine->RegisterObjectBehaviour("SourceBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SourceBatch), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SourceBatch(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SourceBatch", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SourceBatch(members);
+    RegisterMembers(engine, "SourceBatch", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SourceBatch
         REGISTER_CLASS_MANUAL_PART_SourceBatch();
@@ -4972,13 +4208,9 @@ static void Register_Sphere(asIScriptEngine* engine)
     // explicit Sphere::Sphere(const Polyhedron& poly) noexcept
     engine->RegisterObjectBehaviour("Sphere", asBEHAVE_CONSTRUCT, "void f(const Polyhedron&in)", AS_FUNCTION_OBJFIRST(Sphere_Sphere_Polyhedron), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Sphere(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Sphere", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Sphere(members);
+    RegisterMembers(engine, "Sphere", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Sphere
         REGISTER_CLASS_MANUAL_PART_Sphere();
@@ -5011,13 +4243,9 @@ static void Register_Spline(asIScriptEngine* engine)
     // Spline::~Spline() | Implicitly-declared
     engine->RegisterObjectBehaviour("Spline", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Spline), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Spline(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Spline", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Spline(members);
+    RegisterMembers(engine, "Spline", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Spline
         REGISTER_CLASS_MANUAL_PART_Spline();
@@ -5037,13 +4265,9 @@ static void Register_SplinePath(asIScriptEngine* engine)
     // explicit SplinePath::SplinePath(Context* context)
     engine->RegisterObjectBehaviour("SplinePath", asBEHAVE_FACTORY, "SplinePath@+ f()", AS_FUNCTION(SplinePath_SplinePath_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SplinePath(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SplinePath", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SplinePath(members);
+    RegisterMembers(engine, "SplinePath", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SplinePath
         REGISTER_CLASS_MANUAL_PART_SplinePath();
@@ -5063,13 +4287,9 @@ static void Register_Sprite(asIScriptEngine* engine)
     // explicit Sprite::Sprite(Context* context)
     engine->RegisterObjectBehaviour("Sprite", asBEHAVE_FACTORY, "Sprite@+ f()", AS_FUNCTION(Sprite_Sprite_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Sprite(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Sprite", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Sprite(members);
+    RegisterMembers(engine, "Sprite", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Sprite
         REGISTER_CLASS_MANUAL_PART_Sprite();
@@ -5089,13 +4309,9 @@ static void Register_StaticModel(asIScriptEngine* engine)
     // explicit StaticModel::StaticModel(Context* context)
     engine->RegisterObjectBehaviour("StaticModel", asBEHAVE_FACTORY, "StaticModel@+ f()", AS_FUNCTION(StaticModel_StaticModel_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_StaticModel(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "StaticModel", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_StaticModel(members);
+    RegisterMembers(engine, "StaticModel", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticModel
         REGISTER_CLASS_MANUAL_PART_StaticModel();
@@ -5108,13 +4324,9 @@ static void Register_StaticModelGeometryData(asIScriptEngine* engine)
     // StaticModelGeometryData::~StaticModelGeometryData() | Implicitly-declared
     engine->RegisterObjectBehaviour("StaticModelGeometryData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StaticModelGeometryData), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_StaticModelGeometryData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "StaticModelGeometryData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_StaticModelGeometryData(members);
+    RegisterMembers(engine, "StaticModelGeometryData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticModelGeometryData
         REGISTER_CLASS_MANUAL_PART_StaticModelGeometryData();
@@ -5134,13 +4346,9 @@ static void Register_StaticModelGroup(asIScriptEngine* engine)
     // explicit StaticModelGroup::StaticModelGroup(Context* context)
     engine->RegisterObjectBehaviour("StaticModelGroup", asBEHAVE_FACTORY, "StaticModelGroup@+ f()", AS_FUNCTION(StaticModelGroup_StaticModelGroup_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_StaticModelGroup(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "StaticModelGroup", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_StaticModelGroup(members);
+    RegisterMembers(engine, "StaticModelGroup", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticModelGroup
         REGISTER_CLASS_MANUAL_PART_StaticModelGroup();
@@ -5162,13 +4370,9 @@ static void Register_StoredLogMessage(asIScriptEngine* engine)
     // StoredLogMessage::~StoredLogMessage() | Implicitly-declared
     engine->RegisterObjectBehaviour("StoredLogMessage", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StoredLogMessage), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_StoredLogMessage(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "StoredLogMessage", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_StoredLogMessage(members);
+    RegisterMembers(engine, "StoredLogMessage", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StoredLogMessage
         REGISTER_CLASS_MANUAL_PART_StoredLogMessage();
@@ -5299,13 +4503,9 @@ static void Register_String(asIScriptEngine* engine)
     // String::~String()
     engine->RegisterObjectBehaviour("String", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(String), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_String(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "String", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_String(members);
+    RegisterMembers(engine, "String", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_String
         REGISTER_CLASS_MANUAL_PART_String();
@@ -5343,13 +4543,9 @@ static void Register_StringHash(asIScriptEngine* engine)
     // StringHash::StringHash(const String& str) noexcept
     engine->RegisterObjectBehaviour("StringHash", asBEHAVE_CONSTRUCT, "void f(const String&in)", AS_FUNCTION_OBJFIRST(StringHash_StringHash_String), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_StringHash(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "StringHash", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_StringHash(members);
+    RegisterMembers(engine, "StringHash", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StringHash
         REGISTER_CLASS_MANUAL_PART_StringHash();
@@ -5371,13 +4567,9 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
     // StringHashRegister::~StringHashRegister()
     engine->RegisterObjectBehaviour("StringHashRegister", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(StringHashRegister), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_StringHashRegister(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "StringHashRegister", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_StringHashRegister(members);
+    RegisterMembers(engine, "StringHashRegister", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StringHashRegister
         REGISTER_CLASS_MANUAL_PART_StringHashRegister();
@@ -5397,13 +4589,9 @@ static void Register_Technique(asIScriptEngine* engine)
     // explicit Technique::Technique(Context* context)
     engine->RegisterObjectBehaviour("Technique", asBEHAVE_FACTORY, "Technique@+ f()", AS_FUNCTION(Technique_Technique_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Technique(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Technique", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Technique(members);
+    RegisterMembers(engine, "Technique", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Technique
         REGISTER_CLASS_MANUAL_PART_Technique();
@@ -5425,13 +4613,9 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
     // TechniqueEntry::~TechniqueEntry() noexcept=default
     engine->RegisterObjectBehaviour("TechniqueEntry", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(TechniqueEntry), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TechniqueEntry(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TechniqueEntry", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TechniqueEntry(members);
+    RegisterMembers(engine, "TechniqueEntry", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TechniqueEntry
         REGISTER_CLASS_MANUAL_PART_TechniqueEntry();
@@ -5451,13 +4635,9 @@ static void Register_Terrain(asIScriptEngine* engine)
     // explicit Terrain::Terrain(Context* context)
     engine->RegisterObjectBehaviour("Terrain", asBEHAVE_FACTORY, "Terrain@+ f()", AS_FUNCTION(Terrain_Terrain_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Terrain(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Terrain", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Terrain(members);
+    RegisterMembers(engine, "Terrain", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Terrain
         REGISTER_CLASS_MANUAL_PART_Terrain();
@@ -5477,13 +4657,9 @@ static void Register_TerrainPatch(asIScriptEngine* engine)
     // explicit TerrainPatch::TerrainPatch(Context* context)
     engine->RegisterObjectBehaviour("TerrainPatch", asBEHAVE_FACTORY, "TerrainPatch@+ f()", AS_FUNCTION(TerrainPatch_TerrainPatch_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TerrainPatch(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TerrainPatch", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TerrainPatch(members);
+    RegisterMembers(engine, "TerrainPatch", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TerrainPatch
         REGISTER_CLASS_MANUAL_PART_TerrainPatch();
@@ -5503,13 +4679,9 @@ static void Register_Text(asIScriptEngine* engine)
     // explicit Text::Text(Context* context)
     engine->RegisterObjectBehaviour("Text", asBEHAVE_FACTORY, "Text@+ f()", AS_FUNCTION(Text_Text_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Text(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Text", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Text(members);
+    RegisterMembers(engine, "Text", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Text
         REGISTER_CLASS_MANUAL_PART_Text();
@@ -5529,13 +4701,9 @@ static void Register_Text3D(asIScriptEngine* engine)
     // explicit Text3D::Text3D(Context* context)
     engine->RegisterObjectBehaviour("Text3D", asBEHAVE_FACTORY, "Text3D@+ f()", AS_FUNCTION(Text3D_Text3D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Text3D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Text3D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Text3D(members);
+    RegisterMembers(engine, "Text3D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Text3D
         REGISTER_CLASS_MANUAL_PART_Text3D();
@@ -5555,13 +4723,9 @@ static void Register_Texture(asIScriptEngine* engine)
     // explicit Texture::Texture(Context* context)
     engine->RegisterObjectBehaviour("Texture", asBEHAVE_FACTORY, "Texture@+ f()", AS_FUNCTION(Texture_Texture_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Texture(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Texture", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Texture(members);
+    RegisterMembers(engine, "Texture", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Texture
         REGISTER_CLASS_MANUAL_PART_Texture();
@@ -5581,13 +4745,9 @@ static void Register_Texture2D(asIScriptEngine* engine)
     // explicit Texture2D::Texture2D(Context* context)
     engine->RegisterObjectBehaviour("Texture2D", asBEHAVE_FACTORY, "Texture2D@+ f()", AS_FUNCTION(Texture2D_Texture2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Texture2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Texture2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Texture2D(members);
+    RegisterMembers(engine, "Texture2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Texture2D
         REGISTER_CLASS_MANUAL_PART_Texture2D();
@@ -5607,13 +4767,9 @@ static void Register_Texture2DArray(asIScriptEngine* engine)
     // explicit Texture2DArray::Texture2DArray(Context* context)
     engine->RegisterObjectBehaviour("Texture2DArray", asBEHAVE_FACTORY, "Texture2DArray@+ f()", AS_FUNCTION(Texture2DArray_Texture2DArray_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Texture2DArray(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Texture2DArray", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Texture2DArray(members);
+    RegisterMembers(engine, "Texture2DArray", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Texture2DArray
         REGISTER_CLASS_MANUAL_PART_Texture2DArray();
@@ -5633,13 +4789,9 @@ static void Register_Texture3D(asIScriptEngine* engine)
     // explicit Texture3D::Texture3D(Context* context)
     engine->RegisterObjectBehaviour("Texture3D", asBEHAVE_FACTORY, "Texture3D@+ f()", AS_FUNCTION(Texture3D_Texture3D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Texture3D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Texture3D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Texture3D(members);
+    RegisterMembers(engine, "Texture3D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Texture3D
         REGISTER_CLASS_MANUAL_PART_Texture3D();
@@ -5659,13 +4811,9 @@ static void Register_TextureCube(asIScriptEngine* engine)
     // explicit TextureCube::TextureCube(Context* context)
     engine->RegisterObjectBehaviour("TextureCube", asBEHAVE_FACTORY, "TextureCube@+ f()", AS_FUNCTION(TextureCube_TextureCube_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TextureCube(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TextureCube", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TextureCube(members);
+    RegisterMembers(engine, "TextureCube", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TextureCube
         REGISTER_CLASS_MANUAL_PART_TextureCube();
@@ -5675,13 +4823,9 @@ static void Register_TextureCube(asIScriptEngine* engine)
 // struct TextureFrame | File: ../Graphics/ParticleEffect.h
 static void Register_TextureFrame(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TextureFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TextureFrame", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TextureFrame(members);
+    RegisterMembers(engine, "TextureFrame", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TextureFrame
         REGISTER_CLASS_MANUAL_PART_TextureFrame();
@@ -5701,13 +4845,9 @@ static void Register_Time(asIScriptEngine* engine)
     // explicit Time::Time(Context* context)
     engine->RegisterObjectBehaviour("Time", asBEHAVE_FACTORY, "Time@+ f()", AS_FUNCTION(Time_Time_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Time(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Time", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Time(members);
+    RegisterMembers(engine, "Time", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Time
         REGISTER_CLASS_MANUAL_PART_Time();
@@ -5717,13 +4857,9 @@ static void Register_Time(asIScriptEngine* engine)
 // class Timer | File: ../Core/Timer.h
 static void Register_Timer(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Timer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Timer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Timer(members);
+    RegisterMembers(engine, "Timer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Timer
         REGISTER_CLASS_MANUAL_PART_Timer();
@@ -5743,13 +4879,9 @@ static void Register_ToolTip(asIScriptEngine* engine)
     // explicit ToolTip::ToolTip(Context* context)
     engine->RegisterObjectBehaviour("ToolTip", asBEHAVE_FACTORY, "ToolTip@+ f()", AS_FUNCTION(ToolTip_ToolTip_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ToolTip(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ToolTip", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ToolTip(members);
+    RegisterMembers(engine, "ToolTip", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ToolTip
         REGISTER_CLASS_MANUAL_PART_ToolTip();
@@ -5759,13 +4891,9 @@ static void Register_ToolTip(asIScriptEngine* engine)
 // struct TouchState | File: ../Input/Input.h
 static void Register_TouchState(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TouchState(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TouchState", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TouchState(members);
+    RegisterMembers(engine, "TouchState", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TouchState
         REGISTER_CLASS_MANUAL_PART_TouchState();
@@ -5787,13 +4915,9 @@ static void Register_TrailPoint(asIScriptEngine* engine)
     // TrailPoint::~TrailPoint() | Implicitly-declared
     engine->RegisterObjectBehaviour("TrailPoint", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(TrailPoint), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TrailPoint(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TrailPoint", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TrailPoint(members);
+    RegisterMembers(engine, "TrailPoint", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TrailPoint
         REGISTER_CLASS_MANUAL_PART_TrailPoint();
@@ -5813,13 +4937,9 @@ static void Register_UI(asIScriptEngine* engine)
     // explicit UI::UI(Context* context)
     engine->RegisterObjectBehaviour("UI", asBEHAVE_FACTORY, "UI@+ f()", AS_FUNCTION(UI_UI_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_UI(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "UI", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_UI(members);
+    RegisterMembers(engine, "UI", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UI
         REGISTER_CLASS_MANUAL_PART_UI();
@@ -5835,13 +4955,9 @@ static void Register_UIBatch(asIScriptEngine* engine)
     // UIBatch::~UIBatch() | Implicitly-declared
     engine->RegisterObjectBehaviour("UIBatch", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(UIBatch), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_UIBatch(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "UIBatch", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_UIBatch(members);
+    RegisterMembers(engine, "UIBatch", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UIBatch
         REGISTER_CLASS_MANUAL_PART_UIBatch();
@@ -5861,13 +4977,9 @@ static void Register_UIComponent(asIScriptEngine* engine)
     // explicit UIComponent::UIComponent(Context* context)
     engine->RegisterObjectBehaviour("UIComponent", asBEHAVE_FACTORY, "UIComponent@+ f()", AS_FUNCTION(UIComponent_UIComponent_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_UIComponent(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "UIComponent", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_UIComponent(members);
+    RegisterMembers(engine, "UIComponent", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UIComponent
         REGISTER_CLASS_MANUAL_PART_UIComponent();
@@ -5887,13 +4999,9 @@ static void Register_UIElement(asIScriptEngine* engine)
     // explicit UIElement::UIElement(Context* context)
     engine->RegisterObjectBehaviour("UIElement", asBEHAVE_FACTORY, "UIElement@+ f()", AS_FUNCTION(UIElement_UIElement_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_UIElement(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "UIElement", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_UIElement(members);
+    RegisterMembers(engine, "UIElement", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UIElement
         REGISTER_CLASS_MANUAL_PART_UIElement();
@@ -5903,13 +5011,9 @@ static void Register_UIElement(asIScriptEngine* engine)
 // class UISelectable | File: ../UI/UISelectable.h
 static void Register_UISelectable(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_UISelectable(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "UISelectable", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_UISelectable(members);
+    RegisterMembers(engine, "UISelectable", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UISelectable
         REGISTER_CLASS_MANUAL_PART_UISelectable();
@@ -5919,13 +5023,9 @@ static void Register_UISelectable(asIScriptEngine* engine)
 // class UnknownComponent | File: ../Scene/UnknownComponent.h
 static void Register_UnknownComponent(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_UnknownComponent(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "UnknownComponent", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_UnknownComponent(members);
+    RegisterMembers(engine, "UnknownComponent", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_UnknownComponent
         REGISTER_CLASS_MANUAL_PART_UnknownComponent();
@@ -5938,13 +5038,9 @@ static void Register_VAnimEventFrame(asIScriptEngine* engine)
     // VAnimEventFrame::~VAnimEventFrame() | Implicitly-declared
     engine->RegisterObjectBehaviour("VAnimEventFrame", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VAnimEventFrame), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_VAnimEventFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "VAnimEventFrame", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_VAnimEventFrame(members);
+    RegisterMembers(engine, "VAnimEventFrame", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VAnimEventFrame
         REGISTER_CLASS_MANUAL_PART_VAnimEventFrame();
@@ -5957,13 +5053,9 @@ static void Register_VAnimKeyFrame(asIScriptEngine* engine)
     // VAnimKeyFrame::~VAnimKeyFrame() | Implicitly-declared
     engine->RegisterObjectBehaviour("VAnimKeyFrame", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VAnimKeyFrame), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_VAnimKeyFrame(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "VAnimKeyFrame", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_VAnimKeyFrame(members);
+    RegisterMembers(engine, "VAnimKeyFrame", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VAnimKeyFrame
         REGISTER_CLASS_MANUAL_PART_VAnimKeyFrame();
@@ -5983,13 +5075,9 @@ static void Register_ValueAnimation(asIScriptEngine* engine)
     // explicit ValueAnimation::ValueAnimation(Context* context)
     engine->RegisterObjectBehaviour("ValueAnimation", asBEHAVE_FACTORY, "ValueAnimation@+ f()", AS_FUNCTION(ValueAnimation_ValueAnimation_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ValueAnimation(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ValueAnimation", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ValueAnimation(members);
+    RegisterMembers(engine, "ValueAnimation", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ValueAnimation
         REGISTER_CLASS_MANUAL_PART_ValueAnimation();
@@ -6024,13 +5112,9 @@ static void Register_ValueAnimationInfo(asIScriptEngine* engine)
     // ValueAnimationInfo::ValueAnimationInfo(const ValueAnimationInfo& other)
     engine->RegisterObjectBehaviour("ValueAnimationInfo", asBEHAVE_FACTORY, "ValueAnimationInfo@+ f(const ValueAnimationInfo&in)", AS_FUNCTION(ValueAnimationInfo_ValueAnimationInfo_ValueAnimationInfo) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ValueAnimationInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ValueAnimationInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ValueAnimationInfo(members);
+    RegisterMembers(engine, "ValueAnimationInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ValueAnimationInfo
         REGISTER_CLASS_MANUAL_PART_ValueAnimationInfo();
@@ -6300,13 +5384,9 @@ static void Register_Variant(asIScriptEngine* engine)
     // Variant::~Variant()
     engine->RegisterObjectBehaviour("Variant", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Variant), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Variant(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Variant", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Variant(members);
+    RegisterMembers(engine, "Variant", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Variant
         REGISTER_CLASS_MANUAL_PART_Variant();
@@ -6344,13 +5424,9 @@ static void Register_Vector2(asIScriptEngine* engine)
     // Vector2::Vector2(float x, float y) noexcept
     engine->RegisterObjectBehaviour("Vector2", asBEHAVE_CONSTRUCT, "void f(float, float)", AS_FUNCTION_OBJFIRST(Vector2_Vector2_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Vector2(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Vector2", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Vector2(members);
+    RegisterMembers(engine, "Vector2", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Vector2
         REGISTER_CLASS_MANUAL_PART_Vector2();
@@ -6412,13 +5488,9 @@ static void Register_Vector3(asIScriptEngine* engine)
     // Vector3::Vector3(float x, float y) noexcept
     engine->RegisterObjectBehaviour("Vector3", asBEHAVE_CONSTRUCT, "void f(float, float)", AS_FUNCTION_OBJFIRST(Vector3_Vector3_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Vector3(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Vector3", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Vector3(members);
+    RegisterMembers(engine, "Vector3", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Vector3
         REGISTER_CLASS_MANUAL_PART_Vector3();
@@ -6456,13 +5528,9 @@ static void Register_Vector4(asIScriptEngine* engine)
     // Vector4::Vector4(float x, float y, float z, float w) noexcept
     engine->RegisterObjectBehaviour("Vector4", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", AS_FUNCTION_OBJFIRST(Vector4_Vector4_float_float_float_float), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Vector4(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Vector4", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Vector4(members);
+    RegisterMembers(engine, "Vector4", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Vector4
         REGISTER_CLASS_MANUAL_PART_Vector4();
@@ -6475,13 +5543,9 @@ static void Register_VectorBase(asIScriptEngine* engine)
     // VectorBase::~VectorBase() | Implicitly-declared
     engine->RegisterObjectBehaviour("VectorBase", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VectorBase), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_VectorBase(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "VectorBase", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_VectorBase(members);
+    RegisterMembers(engine, "VectorBase", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VectorBase
         REGISTER_CLASS_MANUAL_PART_VectorBase();
@@ -6508,13 +5572,9 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
     // VectorBuffer::~VectorBuffer() | Implicitly-declared
     engine->RegisterObjectBehaviour("VectorBuffer", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VectorBuffer), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_VectorBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "VectorBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_VectorBuffer(members);
+    RegisterMembers(engine, "VectorBuffer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VectorBuffer
         REGISTER_CLASS_MANUAL_PART_VectorBuffer();
@@ -6534,13 +5594,9 @@ static void Register_VertexBuffer(asIScriptEngine* engine)
     // explicit VertexBuffer::VertexBuffer(Context* context, bool forceHeadless=false)
     engine->RegisterObjectBehaviour("VertexBuffer", asBEHAVE_FACTORY, "VertexBuffer@+ f(bool = false)", AS_FUNCTION(VertexBuffer_VertexBuffer_Context_bool) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_VertexBuffer(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "VertexBuffer", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_VertexBuffer(members);
+    RegisterMembers(engine, "VertexBuffer", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexBuffer
         REGISTER_CLASS_MANUAL_PART_VertexBuffer();
@@ -6553,13 +5609,9 @@ static void Register_VertexBufferDesc(asIScriptEngine* engine)
     // VertexBufferDesc::~VertexBufferDesc() | Implicitly-declared
     engine->RegisterObjectBehaviour("VertexBufferDesc", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VertexBufferDesc), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_VertexBufferDesc(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "VertexBufferDesc", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_VertexBufferDesc(members);
+    RegisterMembers(engine, "VertexBufferDesc", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexBufferDesc
         REGISTER_CLASS_MANUAL_PART_VertexBufferDesc();
@@ -6572,13 +5624,9 @@ static void Register_VertexBufferMorph(asIScriptEngine* engine)
     // VertexBufferMorph::~VertexBufferMorph() | Implicitly-declared
     engine->RegisterObjectBehaviour("VertexBufferMorph", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VertexBufferMorph), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_VertexBufferMorph(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "VertexBufferMorph", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_VertexBufferMorph(members);
+    RegisterMembers(engine, "VertexBufferMorph", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexBufferMorph
         REGISTER_CLASS_MANUAL_PART_VertexBufferMorph();
@@ -6600,13 +5648,9 @@ static void Register_VertexElement(asIScriptEngine* engine)
     // VertexElement::~VertexElement() | Implicitly-declared
     engine->RegisterObjectBehaviour("VertexElement", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(VertexElement), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_VertexElement(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "VertexElement", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_VertexElement(members);
+    RegisterMembers(engine, "VertexElement", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexElement
         REGISTER_CLASS_MANUAL_PART_VertexElement();
@@ -6626,13 +5670,9 @@ static void Register_View(asIScriptEngine* engine)
     // explicit View::View(Context* context)
     engine->RegisterObjectBehaviour("View", asBEHAVE_FACTORY, "View@+ f()", AS_FUNCTION(View_View_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_View(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "View", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_View(members);
+    RegisterMembers(engine, "View", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_View
         REGISTER_CLASS_MANUAL_PART_View();
@@ -6652,13 +5692,9 @@ static void Register_View3D(asIScriptEngine* engine)
     // explicit View3D::View3D(Context* context)
     engine->RegisterObjectBehaviour("View3D", asBEHAVE_FACTORY, "View3D@+ f()", AS_FUNCTION(View3D_View3D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_View3D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "View3D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_View3D(members);
+    RegisterMembers(engine, "View3D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_View3D
         REGISTER_CLASS_MANUAL_PART_View3D();
@@ -6696,13 +5732,9 @@ static void Register_Viewport(asIScriptEngine* engine)
     // Viewport::Viewport(Context* context, Scene* scene, Camera* camera, const IntRect& rect, RenderPath* renderPath=nullptr)
     engine->RegisterObjectBehaviour("Viewport", asBEHAVE_FACTORY, "Viewport@+ f(Scene@+, Camera@+, const IntRect&in, RenderPath@+ = null)", AS_FUNCTION(Viewport_Viewport_Context_Scene_Camera_IntRect_RenderPath) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Viewport(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Viewport", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Viewport(members);
+    RegisterMembers(engine, "Viewport", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Viewport
         REGISTER_CLASS_MANUAL_PART_Viewport();
@@ -6722,13 +5754,9 @@ static void Register_Window(asIScriptEngine* engine)
     // explicit Window::Window(Context* context)
     engine->RegisterObjectBehaviour("Window", asBEHAVE_FACTORY, "Window@+ f()", AS_FUNCTION(Window_Window_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Window(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Window", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Window(members);
+    RegisterMembers(engine, "Window", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Window
         REGISTER_CLASS_MANUAL_PART_Window();
@@ -6741,13 +5769,9 @@ static void Register_WindowModeParams(asIScriptEngine* engine)
     // WindowModeParams::~WindowModeParams() | Implicitly-declared
     engine->RegisterObjectBehaviour("WindowModeParams", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(WindowModeParams), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_WindowModeParams(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "WindowModeParams", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_WindowModeParams(members);
+    RegisterMembers(engine, "WindowModeParams", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_WindowModeParams
         REGISTER_CLASS_MANUAL_PART_WindowModeParams();
@@ -6767,13 +5791,9 @@ static void Register_WorkQueue(asIScriptEngine* engine)
     // explicit WorkQueue::WorkQueue(Context* context)
     engine->RegisterObjectBehaviour("WorkQueue", asBEHAVE_FACTORY, "WorkQueue@+ f()", AS_FUNCTION(WorkQueue_WorkQueue_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_WorkQueue(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "WorkQueue", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_WorkQueue(members);
+    RegisterMembers(engine, "WorkQueue", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_WorkQueue
         REGISTER_CLASS_MANUAL_PART_WorkQueue();
@@ -6800,13 +5820,9 @@ static void Register_XMLElement(asIScriptEngine* engine)
     // XMLElement::~XMLElement()
     engine->RegisterObjectBehaviour("XMLElement", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XMLElement), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_XMLElement(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "XMLElement", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_XMLElement(members);
+    RegisterMembers(engine, "XMLElement", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_XMLElement
         REGISTER_CLASS_MANUAL_PART_XMLElement();
@@ -6826,13 +5842,9 @@ static void Register_XMLFile(asIScriptEngine* engine)
     // explicit XMLFile::XMLFile(Context* context)
     engine->RegisterObjectBehaviour("XMLFile", asBEHAVE_FACTORY, "XMLFile@+ f()", AS_FUNCTION(XMLFile_XMLFile_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_XMLFile(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "XMLFile", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_XMLFile(members);
+    RegisterMembers(engine, "XMLFile", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_XMLFile
         REGISTER_CLASS_MANUAL_PART_XMLFile();
@@ -6854,13 +5866,9 @@ static void Register_XPathQuery(asIScriptEngine* engine)
     // XPathQuery::~XPathQuery()
     engine->RegisterObjectBehaviour("XPathQuery", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XPathQuery), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_XPathQuery(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "XPathQuery", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_XPathQuery(members);
+    RegisterMembers(engine, "XPathQuery", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_XPathQuery
         REGISTER_CLASS_MANUAL_PART_XPathQuery();
@@ -6885,13 +5893,9 @@ static void Register_XPathResultSet(asIScriptEngine* engine)
     // XPathResultSet::~XPathResultSet()
     engine->RegisterObjectBehaviour("XPathResultSet", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(XPathResultSet), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_XPathResultSet(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "XPathResultSet", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_XPathResultSet(members);
+    RegisterMembers(engine, "XPathResultSet", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_XPathResultSet
         REGISTER_CLASS_MANUAL_PART_XPathResultSet();
@@ -6911,13 +5915,9 @@ static void Register_Zone(asIScriptEngine* engine)
     // explicit Zone::Zone(Context* context)
     engine->RegisterObjectBehaviour("Zone", asBEHAVE_FACTORY, "Zone@+ f()", AS_FUNCTION(Zone_Zone_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Zone(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Zone", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Zone(members);
+    RegisterMembers(engine, "Zone", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Zone
         REGISTER_CLASS_MANUAL_PART_Zone();
@@ -6939,13 +5939,9 @@ static void Register_Database(asIScriptEngine* engine)
     // explicit Database::Database(Context* context)
     engine->RegisterObjectBehaviour("Database", asBEHAVE_FACTORY, "Database@+ f()", AS_FUNCTION(Database_Database_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Database(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Database", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Database(members);
+    RegisterMembers(engine, "Database", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Database
         REGISTER_CLASS_MANUAL_PART_Database();
@@ -6969,13 +5965,9 @@ static void Register_IKConstraint(asIScriptEngine* engine)
     // explicit IKConstraint::IKConstraint(Context* context)
     engine->RegisterObjectBehaviour("IKConstraint", asBEHAVE_FACTORY, "IKConstraint@+ f()", AS_FUNCTION(IKConstraint_IKConstraint_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_IKConstraint(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "IKConstraint", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_IKConstraint(members);
+    RegisterMembers(engine, "IKConstraint", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IKConstraint
         REGISTER_CLASS_MANUAL_PART_IKConstraint();
@@ -6995,13 +5987,9 @@ static void Register_IKEffector(asIScriptEngine* engine)
     // explicit IKEffector::IKEffector(Context* context)
     engine->RegisterObjectBehaviour("IKEffector", asBEHAVE_FACTORY, "IKEffector@+ f()", AS_FUNCTION(IKEffector_IKEffector_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_IKEffector(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "IKEffector", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_IKEffector(members);
+    RegisterMembers(engine, "IKEffector", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IKEffector
         REGISTER_CLASS_MANUAL_PART_IKEffector();
@@ -7021,13 +6009,9 @@ static void Register_IKSolver(asIScriptEngine* engine)
     // explicit IKSolver::IKSolver(Context* context)
     engine->RegisterObjectBehaviour("IKSolver", asBEHAVE_FACTORY, "IKSolver@+ f()", AS_FUNCTION(IKSolver_IKSolver_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_IKSolver(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "IKSolver", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_IKSolver(members);
+    RegisterMembers(engine, "IKSolver", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_IKSolver
         REGISTER_CLASS_MANUAL_PART_IKSolver();
@@ -7051,13 +6035,9 @@ static void Register_CrowdAgent(asIScriptEngine* engine)
     // explicit CrowdAgent::CrowdAgent(Context* context)
     engine->RegisterObjectBehaviour("CrowdAgent", asBEHAVE_FACTORY, "CrowdAgent@+ f()", AS_FUNCTION(CrowdAgent_CrowdAgent_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CrowdAgent(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CrowdAgent", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CrowdAgent(members);
+    RegisterMembers(engine, "CrowdAgent", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CrowdAgent
         REGISTER_CLASS_MANUAL_PART_CrowdAgent();
@@ -7077,13 +6057,9 @@ static void Register_CrowdManager(asIScriptEngine* engine)
     // explicit CrowdManager::CrowdManager(Context* context)
     engine->RegisterObjectBehaviour("CrowdManager", asBEHAVE_FACTORY, "CrowdManager@+ f()", AS_FUNCTION(CrowdManager_CrowdManager_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CrowdManager(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CrowdManager", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CrowdManager(members);
+    RegisterMembers(engine, "CrowdManager", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CrowdManager
         REGISTER_CLASS_MANUAL_PART_CrowdManager();
@@ -7093,13 +6069,9 @@ static void Register_CrowdManager(asIScriptEngine* engine)
 // struct CrowdObstacleAvoidanceParams | File: ../Navigation/CrowdManager.h
 static void Register_CrowdObstacleAvoidanceParams(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CrowdObstacleAvoidanceParams(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CrowdObstacleAvoidanceParams", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CrowdObstacleAvoidanceParams(members);
+    RegisterMembers(engine, "CrowdObstacleAvoidanceParams", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CrowdObstacleAvoidanceParams
         REGISTER_CLASS_MANUAL_PART_CrowdObstacleAvoidanceParams();
@@ -7119,13 +6091,9 @@ static void Register_DynamicNavigationMesh(asIScriptEngine* engine)
     // explicit DynamicNavigationMesh::DynamicNavigationMesh(Context* context)
     engine->RegisterObjectBehaviour("DynamicNavigationMesh", asBEHAVE_FACTORY, "DynamicNavigationMesh@+ f()", AS_FUNCTION(DynamicNavigationMesh_DynamicNavigationMesh_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DynamicNavigationMesh(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DynamicNavigationMesh", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DynamicNavigationMesh(members);
+    RegisterMembers(engine, "DynamicNavigationMesh", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DynamicNavigationMesh
         REGISTER_CLASS_MANUAL_PART_DynamicNavigationMesh();
@@ -7145,13 +6113,9 @@ static void Register_NavArea(asIScriptEngine* engine)
     // explicit NavArea::NavArea(Context* context)
     engine->RegisterObjectBehaviour("NavArea", asBEHAVE_FACTORY, "NavArea@+ f()", AS_FUNCTION(NavArea_NavArea_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NavArea(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NavArea", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NavArea(members);
+    RegisterMembers(engine, "NavArea", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavArea
         REGISTER_CLASS_MANUAL_PART_NavArea();
@@ -7164,13 +6128,9 @@ static void Register_NavAreaStub(asIScriptEngine* engine)
     // NavAreaStub::~NavAreaStub() | Implicitly-declared
     engine->RegisterObjectBehaviour("NavAreaStub", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NavAreaStub), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NavAreaStub(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NavAreaStub", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NavAreaStub(members);
+    RegisterMembers(engine, "NavAreaStub", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavAreaStub
         REGISTER_CLASS_MANUAL_PART_NavAreaStub();
@@ -7183,13 +6143,9 @@ static void Register_NavBuildData(asIScriptEngine* engine)
     // virtual NavBuildData::~NavBuildData()
     engine->RegisterObjectBehaviour("NavBuildData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NavBuildData), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NavBuildData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NavBuildData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NavBuildData(members);
+    RegisterMembers(engine, "NavBuildData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavBuildData
         REGISTER_CLASS_MANUAL_PART_NavBuildData();
@@ -7209,13 +6165,9 @@ static void Register_Navigable(asIScriptEngine* engine)
     // explicit Navigable::Navigable(Context* context)
     engine->RegisterObjectBehaviour("Navigable", asBEHAVE_FACTORY, "Navigable@+ f()", AS_FUNCTION(Navigable_Navigable_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Navigable(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Navigable", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Navigable(members);
+    RegisterMembers(engine, "Navigable", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Navigable
         REGISTER_CLASS_MANUAL_PART_Navigable();
@@ -7228,13 +6180,9 @@ static void Register_NavigationGeometryInfo(asIScriptEngine* engine)
     // NavigationGeometryInfo::~NavigationGeometryInfo() | Implicitly-declared
     engine->RegisterObjectBehaviour("NavigationGeometryInfo", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NavigationGeometryInfo), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NavigationGeometryInfo(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NavigationGeometryInfo", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NavigationGeometryInfo(members);
+    RegisterMembers(engine, "NavigationGeometryInfo", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavigationGeometryInfo
         REGISTER_CLASS_MANUAL_PART_NavigationGeometryInfo();
@@ -7254,13 +6202,9 @@ static void Register_NavigationMesh(asIScriptEngine* engine)
     // explicit NavigationMesh::NavigationMesh(Context* context)
     engine->RegisterObjectBehaviour("NavigationMesh", asBEHAVE_FACTORY, "NavigationMesh@+ f()", AS_FUNCTION(NavigationMesh_NavigationMesh_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NavigationMesh(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NavigationMesh", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NavigationMesh(members);
+    RegisterMembers(engine, "NavigationMesh", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavigationMesh
         REGISTER_CLASS_MANUAL_PART_NavigationMesh();
@@ -7273,13 +6217,9 @@ static void Register_NavigationPathPoint(asIScriptEngine* engine)
     // NavigationPathPoint::~NavigationPathPoint() | Implicitly-declared
     engine->RegisterObjectBehaviour("NavigationPathPoint", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(NavigationPathPoint), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NavigationPathPoint(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NavigationPathPoint", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NavigationPathPoint(members);
+    RegisterMembers(engine, "NavigationPathPoint", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NavigationPathPoint
         REGISTER_CLASS_MANUAL_PART_NavigationPathPoint();
@@ -7299,13 +6239,9 @@ static void Register_Obstacle(asIScriptEngine* engine)
     // explicit Obstacle::Obstacle(Context* context)
     engine->RegisterObjectBehaviour("Obstacle", asBEHAVE_FACTORY, "Obstacle@+ f()", AS_FUNCTION(Obstacle_Obstacle_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Obstacle(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Obstacle", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Obstacle(members);
+    RegisterMembers(engine, "Obstacle", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Obstacle
         REGISTER_CLASS_MANUAL_PART_Obstacle();
@@ -7325,13 +6261,9 @@ static void Register_OffMeshConnection(asIScriptEngine* engine)
     // explicit OffMeshConnection::OffMeshConnection(Context* context)
     engine->RegisterObjectBehaviour("OffMeshConnection", asBEHAVE_FACTORY, "OffMeshConnection@+ f()", AS_FUNCTION(OffMeshConnection_OffMeshConnection_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_OffMeshConnection(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "OffMeshConnection", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_OffMeshConnection(members);
+    RegisterMembers(engine, "OffMeshConnection", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_OffMeshConnection
         REGISTER_CLASS_MANUAL_PART_OffMeshConnection();
@@ -7344,13 +6276,9 @@ static void Register_SimpleNavBuildData(asIScriptEngine* engine)
     // SimpleNavBuildData::~SimpleNavBuildData() override
     engine->RegisterObjectBehaviour("SimpleNavBuildData", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SimpleNavBuildData), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SimpleNavBuildData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SimpleNavBuildData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SimpleNavBuildData(members);
+    RegisterMembers(engine, "SimpleNavBuildData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SimpleNavBuildData
         REGISTER_CLASS_MANUAL_PART_SimpleNavBuildData();
@@ -7367,13 +6295,9 @@ static void Register_Connection(asIScriptEngine* engine)
     // Connection::Connection(Context* context, bool isClient, const SLNet::AddressOrGUID& address, SLNet::RakPeerInterface* peer)
     // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Connection(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Connection", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Connection(members);
+    RegisterMembers(engine, "Connection", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Connection
         REGISTER_CLASS_MANUAL_PART_Connection();
@@ -7393,13 +6317,9 @@ static void Register_HttpRequest(asIScriptEngine* engine)
     // HttpRequest::HttpRequest(const String& url, const String& verb, const Vector<String>& headers, const String& postData)
     engine->RegisterObjectBehaviour("HttpRequest", asBEHAVE_FACTORY, "HttpRequest@+ f(const String&in, const String&in, Array<String>@+, const String&in)", AS_FUNCTION(HttpRequest_HttpRequest_String_String_VectorString_String) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_HttpRequest(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "HttpRequest", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_HttpRequest(members);
+    RegisterMembers(engine, "HttpRequest", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HttpRequest
         REGISTER_CLASS_MANUAL_PART_HttpRequest();
@@ -7419,13 +6339,9 @@ static void Register_Network(asIScriptEngine* engine)
     // explicit Network::Network(Context* context)
     engine->RegisterObjectBehaviour("Network", asBEHAVE_FACTORY, "Network@+ f()", AS_FUNCTION(Network_Network_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Network(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Network", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Network(members);
+    RegisterMembers(engine, "Network", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Network
         REGISTER_CLASS_MANUAL_PART_Network();
@@ -7445,13 +6361,9 @@ static void Register_NetworkPriority(asIScriptEngine* engine)
     // explicit NetworkPriority::NetworkPriority(Context* context)
     engine->RegisterObjectBehaviour("NetworkPriority", asBEHAVE_FACTORY, "NetworkPriority@+ f()", AS_FUNCTION(NetworkPriority_NetworkPriority_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_NetworkPriority(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "NetworkPriority", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_NetworkPriority(members);
+    RegisterMembers(engine, "NetworkPriority", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_NetworkPriority
         REGISTER_CLASS_MANUAL_PART_NetworkPriority();
@@ -7464,13 +6376,9 @@ static void Register_PackageDownload(asIScriptEngine* engine)
     // PackageDownload::~PackageDownload() | Implicitly-declared
     engine->RegisterObjectBehaviour("PackageDownload", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PackageDownload), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PackageDownload(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PackageDownload", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PackageDownload(members);
+    RegisterMembers(engine, "PackageDownload", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageDownload
         REGISTER_CLASS_MANUAL_PART_PackageDownload();
@@ -7483,13 +6391,9 @@ static void Register_PackageUpload(asIScriptEngine* engine)
     // PackageUpload::~PackageUpload() | Implicitly-declared
     engine->RegisterObjectBehaviour("PackageUpload", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PackageUpload), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PackageUpload(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PackageUpload", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PackageUpload(members);
+    RegisterMembers(engine, "PackageUpload", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageUpload
         REGISTER_CLASS_MANUAL_PART_PackageUpload();
@@ -7502,13 +6406,9 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
     // RemoteEvent::~RemoteEvent() | Implicitly-declared
     engine->RegisterObjectBehaviour("RemoteEvent", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(RemoteEvent), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RemoteEvent(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RemoteEvent", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RemoteEvent(members);
+    RegisterMembers(engine, "RemoteEvent", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RemoteEvent
         REGISTER_CLASS_MANUAL_PART_RemoteEvent();
@@ -7522,13 +6422,9 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
 // struct CollisionGeometryData | File: ../Physics/CollisionShape.h
 static void Register_CollisionGeometryData(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CollisionGeometryData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CollisionGeometryData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CollisionGeometryData(members);
+    RegisterMembers(engine, "CollisionGeometryData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionGeometryData
         REGISTER_CLASS_MANUAL_PART_CollisionGeometryData();
@@ -7548,13 +6444,9 @@ static void Register_CollisionShape(asIScriptEngine* engine)
     // explicit CollisionShape::CollisionShape(Context* context)
     engine->RegisterObjectBehaviour("CollisionShape", asBEHAVE_FACTORY, "CollisionShape@+ f()", AS_FUNCTION(CollisionShape_CollisionShape_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CollisionShape(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CollisionShape", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CollisionShape(members);
+    RegisterMembers(engine, "CollisionShape", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionShape
         REGISTER_CLASS_MANUAL_PART_CollisionShape();
@@ -7574,13 +6466,9 @@ static void Register_Constraint(asIScriptEngine* engine)
     // explicit Constraint::Constraint(Context* context)
     engine->RegisterObjectBehaviour("Constraint", asBEHAVE_FACTORY, "Constraint@+ f()", AS_FUNCTION(Constraint_Constraint_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Constraint(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Constraint", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Constraint(members);
+    RegisterMembers(engine, "Constraint", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Constraint
         REGISTER_CLASS_MANUAL_PART_Constraint();
@@ -7607,13 +6495,9 @@ static void Register_ConvexData(asIScriptEngine* engine)
     // explicit ConvexData::ConvexData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("ConvexData", asBEHAVE_FACTORY, "ConvexData@+ f(CustomGeometry@+)", AS_FUNCTION(ConvexData_ConvexData_CustomGeometry) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConvexData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConvexData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConvexData(members);
+    RegisterMembers(engine, "ConvexData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConvexData
         REGISTER_CLASS_MANUAL_PART_ConvexData();
@@ -7626,13 +6510,9 @@ static void Register_DelayedWorldTransform(asIScriptEngine* engine)
     // DelayedWorldTransform::~DelayedWorldTransform() | Implicitly-declared
     engine->RegisterObjectBehaviour("DelayedWorldTransform", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DelayedWorldTransform), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DelayedWorldTransform(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DelayedWorldTransform", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DelayedWorldTransform(members);
+    RegisterMembers(engine, "DelayedWorldTransform", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform
         REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform();
@@ -7659,13 +6539,9 @@ static void Register_GImpactMeshData(asIScriptEngine* engine)
     // explicit GImpactMeshData::GImpactMeshData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("GImpactMeshData", asBEHAVE_FACTORY, "GImpactMeshData@+ f(CustomGeometry@+)", AS_FUNCTION(GImpactMeshData_GImpactMeshData_CustomGeometry) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_GImpactMeshData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "GImpactMeshData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_GImpactMeshData(members);
+    RegisterMembers(engine, "GImpactMeshData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_GImpactMeshData
         REGISTER_CLASS_MANUAL_PART_GImpactMeshData();
@@ -7684,13 +6560,9 @@ static void Register_HeightfieldData(asIScriptEngine* engine)
     // HeightfieldData::HeightfieldData(Terrain* terrain, unsigned lodLevel)
     engine->RegisterObjectBehaviour("HeightfieldData", asBEHAVE_FACTORY, "HeightfieldData@+ f(Terrain@+, uint)", AS_FUNCTION(HeightfieldData_HeightfieldData_Terrain_unsigned) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_HeightfieldData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "HeightfieldData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_HeightfieldData(members);
+    RegisterMembers(engine, "HeightfieldData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_HeightfieldData
         REGISTER_CLASS_MANUAL_PART_HeightfieldData();
@@ -7703,13 +6575,9 @@ static void Register_ManifoldPair(asIScriptEngine* engine)
     // ManifoldPair::~ManifoldPair() | Implicitly-declared
     engine->RegisterObjectBehaviour("ManifoldPair", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(ManifoldPair), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ManifoldPair(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ManifoldPair", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ManifoldPair(members);
+    RegisterMembers(engine, "ManifoldPair", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ManifoldPair
         REGISTER_CLASS_MANUAL_PART_ManifoldPair();
@@ -7722,13 +6590,9 @@ static void Register_PhysicsRaycastResult(asIScriptEngine* engine)
     // PhysicsRaycastResult::~PhysicsRaycastResult() | Implicitly-declared
     engine->RegisterObjectBehaviour("PhysicsRaycastResult", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PhysicsRaycastResult), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PhysicsRaycastResult(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PhysicsRaycastResult", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PhysicsRaycastResult(members);
+    RegisterMembers(engine, "PhysicsRaycastResult", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult
         REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult();
@@ -7748,13 +6612,9 @@ static void Register_PhysicsWorld(asIScriptEngine* engine)
     // explicit PhysicsWorld::PhysicsWorld(Context* context)
     engine->RegisterObjectBehaviour("PhysicsWorld", asBEHAVE_FACTORY, "PhysicsWorld@+ f()", AS_FUNCTION(PhysicsWorld_PhysicsWorld_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PhysicsWorld(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PhysicsWorld", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PhysicsWorld(members);
+    RegisterMembers(engine, "PhysicsWorld", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorld
         REGISTER_CLASS_MANUAL_PART_PhysicsWorld();
@@ -7767,13 +6627,9 @@ static void Register_PhysicsWorldConfig(asIScriptEngine* engine)
     // PhysicsWorldConfig::~PhysicsWorldConfig() | Implicitly-declared
     engine->RegisterObjectBehaviour("PhysicsWorldConfig", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PhysicsWorldConfig), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PhysicsWorldConfig(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PhysicsWorldConfig", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PhysicsWorldConfig(members);
+    RegisterMembers(engine, "PhysicsWorldConfig", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorldConfig
         REGISTER_CLASS_MANUAL_PART_PhysicsWorldConfig();
@@ -7786,13 +6642,9 @@ static void Register_RaycastVehicle(asIScriptEngine* engine)
     // explicit RaycastVehicle::RaycastVehicle(Urho3D::Context* context)
     // Error: type "Urho3D::Context*" can not automatically bind
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RaycastVehicle(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RaycastVehicle", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RaycastVehicle(members);
+    RegisterMembers(engine, "RaycastVehicle", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RaycastVehicle
         REGISTER_CLASS_MANUAL_PART_RaycastVehicle();
@@ -7812,13 +6664,9 @@ static void Register_RigidBody(asIScriptEngine* engine)
     // explicit RigidBody::RigidBody(Context* context)
     engine->RegisterObjectBehaviour("RigidBody", asBEHAVE_FACTORY, "RigidBody@+ f()", AS_FUNCTION(RigidBody_RigidBody_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RigidBody(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RigidBody", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RigidBody(members);
+    RegisterMembers(engine, "RigidBody", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RigidBody
         REGISTER_CLASS_MANUAL_PART_RigidBody();
@@ -7845,13 +6693,9 @@ static void Register_TriangleMeshData(asIScriptEngine* engine)
     // explicit TriangleMeshData::TriangleMeshData(CustomGeometry* custom)
     engine->RegisterObjectBehaviour("TriangleMeshData", asBEHAVE_FACTORY, "TriangleMeshData@+ f(CustomGeometry@+)", AS_FUNCTION(TriangleMeshData_TriangleMeshData_CustomGeometry) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TriangleMeshData(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TriangleMeshData", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TriangleMeshData(members);
+    RegisterMembers(engine, "TriangleMeshData", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TriangleMeshData
         REGISTER_CLASS_MANUAL_PART_TriangleMeshData();
@@ -7875,13 +6719,9 @@ static void Register_AnimatedSprite2D(asIScriptEngine* engine)
     // explicit AnimatedSprite2D::AnimatedSprite2D(Context* context)
     engine->RegisterObjectBehaviour("AnimatedSprite2D", asBEHAVE_FACTORY, "AnimatedSprite2D@+ f()", AS_FUNCTION(AnimatedSprite2D_AnimatedSprite2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimatedSprite2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimatedSprite2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimatedSprite2D(members);
+    RegisterMembers(engine, "AnimatedSprite2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimatedSprite2D
         REGISTER_CLASS_MANUAL_PART_AnimatedSprite2D();
@@ -7901,13 +6741,9 @@ static void Register_AnimationSet2D(asIScriptEngine* engine)
     // explicit AnimationSet2D::AnimationSet2D(Context* context)
     engine->RegisterObjectBehaviour("AnimationSet2D", asBEHAVE_FACTORY, "AnimationSet2D@+ f()", AS_FUNCTION(AnimationSet2D_AnimationSet2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_AnimationSet2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "AnimationSet2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_AnimationSet2D(members);
+    RegisterMembers(engine, "AnimationSet2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationSet2D
         REGISTER_CLASS_MANUAL_PART_AnimationSet2D();
@@ -7927,13 +6763,9 @@ static void Register_CollisionBox2D(asIScriptEngine* engine)
     // explicit CollisionBox2D::CollisionBox2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionBox2D", asBEHAVE_FACTORY, "CollisionBox2D@+ f()", AS_FUNCTION(CollisionBox2D_CollisionBox2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CollisionBox2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CollisionBox2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CollisionBox2D(members);
+    RegisterMembers(engine, "CollisionBox2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionBox2D
         REGISTER_CLASS_MANUAL_PART_CollisionBox2D();
@@ -7953,13 +6785,9 @@ static void Register_CollisionChain2D(asIScriptEngine* engine)
     // explicit CollisionChain2D::CollisionChain2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionChain2D", asBEHAVE_FACTORY, "CollisionChain2D@+ f()", AS_FUNCTION(CollisionChain2D_CollisionChain2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CollisionChain2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CollisionChain2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CollisionChain2D(members);
+    RegisterMembers(engine, "CollisionChain2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionChain2D
         REGISTER_CLASS_MANUAL_PART_CollisionChain2D();
@@ -7979,13 +6807,9 @@ static void Register_CollisionCircle2D(asIScriptEngine* engine)
     // explicit CollisionCircle2D::CollisionCircle2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionCircle2D", asBEHAVE_FACTORY, "CollisionCircle2D@+ f()", AS_FUNCTION(CollisionCircle2D_CollisionCircle2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CollisionCircle2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CollisionCircle2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CollisionCircle2D(members);
+    RegisterMembers(engine, "CollisionCircle2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionCircle2D
         REGISTER_CLASS_MANUAL_PART_CollisionCircle2D();
@@ -8005,13 +6829,9 @@ static void Register_CollisionEdge2D(asIScriptEngine* engine)
     // explicit CollisionEdge2D::CollisionEdge2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionEdge2D", asBEHAVE_FACTORY, "CollisionEdge2D@+ f()", AS_FUNCTION(CollisionEdge2D_CollisionEdge2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CollisionEdge2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CollisionEdge2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CollisionEdge2D(members);
+    RegisterMembers(engine, "CollisionEdge2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionEdge2D
         REGISTER_CLASS_MANUAL_PART_CollisionEdge2D();
@@ -8031,13 +6851,9 @@ static void Register_CollisionPolygon2D(asIScriptEngine* engine)
     // explicit CollisionPolygon2D::CollisionPolygon2D(Context* context)
     engine->RegisterObjectBehaviour("CollisionPolygon2D", asBEHAVE_FACTORY, "CollisionPolygon2D@+ f()", AS_FUNCTION(CollisionPolygon2D_CollisionPolygon2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CollisionPolygon2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CollisionPolygon2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CollisionPolygon2D(members);
+    RegisterMembers(engine, "CollisionPolygon2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionPolygon2D
         REGISTER_CLASS_MANUAL_PART_CollisionPolygon2D();
@@ -8047,13 +6863,9 @@ static void Register_CollisionPolygon2D(asIScriptEngine* engine)
 // class CollisionShape2D | File: ../Urho2D/CollisionShape2D.h
 static void Register_CollisionShape2D(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_CollisionShape2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "CollisionShape2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_CollisionShape2D(members);
+    RegisterMembers(engine, "CollisionShape2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_CollisionShape2D
         REGISTER_CLASS_MANUAL_PART_CollisionShape2D();
@@ -8073,13 +6885,9 @@ static void Register_Constraint2D(asIScriptEngine* engine)
     // explicit Constraint2D::Constraint2D(Context* context)
     engine->RegisterObjectBehaviour("Constraint2D", asBEHAVE_FACTORY, "Constraint2D@+ f()", AS_FUNCTION(Constraint2D_Constraint2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Constraint2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Constraint2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Constraint2D(members);
+    RegisterMembers(engine, "Constraint2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Constraint2D
         REGISTER_CLASS_MANUAL_PART_Constraint2D();
@@ -8099,13 +6907,9 @@ static void Register_ConstraintDistance2D(asIScriptEngine* engine)
     // explicit ConstraintDistance2D::ConstraintDistance2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintDistance2D", asBEHAVE_FACTORY, "ConstraintDistance2D@+ f()", AS_FUNCTION(ConstraintDistance2D_ConstraintDistance2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintDistance2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintDistance2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintDistance2D(members);
+    RegisterMembers(engine, "ConstraintDistance2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintDistance2D
         REGISTER_CLASS_MANUAL_PART_ConstraintDistance2D();
@@ -8125,13 +6929,9 @@ static void Register_ConstraintFriction2D(asIScriptEngine* engine)
     // explicit ConstraintFriction2D::ConstraintFriction2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintFriction2D", asBEHAVE_FACTORY, "ConstraintFriction2D@+ f()", AS_FUNCTION(ConstraintFriction2D_ConstraintFriction2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintFriction2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintFriction2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintFriction2D(members);
+    RegisterMembers(engine, "ConstraintFriction2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintFriction2D
         REGISTER_CLASS_MANUAL_PART_ConstraintFriction2D();
@@ -8151,13 +6951,9 @@ static void Register_ConstraintGear2D(asIScriptEngine* engine)
     // explicit ConstraintGear2D::ConstraintGear2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintGear2D", asBEHAVE_FACTORY, "ConstraintGear2D@+ f()", AS_FUNCTION(ConstraintGear2D_ConstraintGear2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintGear2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintGear2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintGear2D(members);
+    RegisterMembers(engine, "ConstraintGear2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintGear2D
         REGISTER_CLASS_MANUAL_PART_ConstraintGear2D();
@@ -8177,13 +6973,9 @@ static void Register_ConstraintMotor2D(asIScriptEngine* engine)
     // explicit ConstraintMotor2D::ConstraintMotor2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintMotor2D", asBEHAVE_FACTORY, "ConstraintMotor2D@+ f()", AS_FUNCTION(ConstraintMotor2D_ConstraintMotor2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintMotor2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintMotor2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintMotor2D(members);
+    RegisterMembers(engine, "ConstraintMotor2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintMotor2D
         REGISTER_CLASS_MANUAL_PART_ConstraintMotor2D();
@@ -8203,13 +6995,9 @@ static void Register_ConstraintMouse2D(asIScriptEngine* engine)
     // explicit ConstraintMouse2D::ConstraintMouse2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintMouse2D", asBEHAVE_FACTORY, "ConstraintMouse2D@+ f()", AS_FUNCTION(ConstraintMouse2D_ConstraintMouse2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintMouse2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintMouse2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintMouse2D(members);
+    RegisterMembers(engine, "ConstraintMouse2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintMouse2D
         REGISTER_CLASS_MANUAL_PART_ConstraintMouse2D();
@@ -8229,13 +7017,9 @@ static void Register_ConstraintPrismatic2D(asIScriptEngine* engine)
     // explicit ConstraintPrismatic2D::ConstraintPrismatic2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintPrismatic2D", asBEHAVE_FACTORY, "ConstraintPrismatic2D@+ f()", AS_FUNCTION(ConstraintPrismatic2D_ConstraintPrismatic2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintPrismatic2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintPrismatic2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintPrismatic2D(members);
+    RegisterMembers(engine, "ConstraintPrismatic2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintPrismatic2D
         REGISTER_CLASS_MANUAL_PART_ConstraintPrismatic2D();
@@ -8255,13 +7039,9 @@ static void Register_ConstraintPulley2D(asIScriptEngine* engine)
     // explicit ConstraintPulley2D::ConstraintPulley2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintPulley2D", asBEHAVE_FACTORY, "ConstraintPulley2D@+ f()", AS_FUNCTION(ConstraintPulley2D_ConstraintPulley2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintPulley2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintPulley2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintPulley2D(members);
+    RegisterMembers(engine, "ConstraintPulley2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintPulley2D
         REGISTER_CLASS_MANUAL_PART_ConstraintPulley2D();
@@ -8281,13 +7061,9 @@ static void Register_ConstraintRevolute2D(asIScriptEngine* engine)
     // explicit ConstraintRevolute2D::ConstraintRevolute2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintRevolute2D", asBEHAVE_FACTORY, "ConstraintRevolute2D@+ f()", AS_FUNCTION(ConstraintRevolute2D_ConstraintRevolute2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintRevolute2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintRevolute2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintRevolute2D(members);
+    RegisterMembers(engine, "ConstraintRevolute2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintRevolute2D
         REGISTER_CLASS_MANUAL_PART_ConstraintRevolute2D();
@@ -8307,13 +7083,9 @@ static void Register_ConstraintRope2D(asIScriptEngine* engine)
     // explicit ConstraintRope2D::ConstraintRope2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintRope2D", asBEHAVE_FACTORY, "ConstraintRope2D@+ f()", AS_FUNCTION(ConstraintRope2D_ConstraintRope2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintRope2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintRope2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintRope2D(members);
+    RegisterMembers(engine, "ConstraintRope2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintRope2D
         REGISTER_CLASS_MANUAL_PART_ConstraintRope2D();
@@ -8333,13 +7105,9 @@ static void Register_ConstraintWeld2D(asIScriptEngine* engine)
     // explicit ConstraintWeld2D::ConstraintWeld2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintWeld2D", asBEHAVE_FACTORY, "ConstraintWeld2D@+ f()", AS_FUNCTION(ConstraintWeld2D_ConstraintWeld2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintWeld2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintWeld2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintWeld2D(members);
+    RegisterMembers(engine, "ConstraintWeld2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintWeld2D
         REGISTER_CLASS_MANUAL_PART_ConstraintWeld2D();
@@ -8359,13 +7127,9 @@ static void Register_ConstraintWheel2D(asIScriptEngine* engine)
     // explicit ConstraintWheel2D::ConstraintWheel2D(Context* context)
     engine->RegisterObjectBehaviour("ConstraintWheel2D", asBEHAVE_FACTORY, "ConstraintWheel2D@+ f()", AS_FUNCTION(ConstraintWheel2D_ConstraintWheel2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ConstraintWheel2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ConstraintWheel2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ConstraintWheel2D(members);
+    RegisterMembers(engine, "ConstraintWheel2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ConstraintWheel2D
         REGISTER_CLASS_MANUAL_PART_ConstraintWheel2D();
@@ -8378,13 +7142,9 @@ static void Register_DelayedWorldTransform2D(asIScriptEngine* engine)
     // DelayedWorldTransform2D::~DelayedWorldTransform2D() | Implicitly-declared
     engine->RegisterObjectBehaviour("DelayedWorldTransform2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(DelayedWorldTransform2D), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_DelayedWorldTransform2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "DelayedWorldTransform2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_DelayedWorldTransform2D(members);
+    RegisterMembers(engine, "DelayedWorldTransform2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform2D
         REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform2D();
@@ -8394,13 +7154,9 @@ static void Register_DelayedWorldTransform2D(asIScriptEngine* engine)
 // class Drawable2D | File: ../Urho2D/Drawable2D.h
 static void Register_Drawable2D(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Drawable2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Drawable2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Drawable2D(members);
+    RegisterMembers(engine, "Drawable2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Drawable2D
         REGISTER_CLASS_MANUAL_PART_Drawable2D();
@@ -8413,13 +7169,9 @@ static void Register_Particle2D(asIScriptEngine* engine)
     // Particle2D::~Particle2D() | Implicitly-declared
     engine->RegisterObjectBehaviour("Particle2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Particle2D), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Particle2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Particle2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Particle2D(members);
+    RegisterMembers(engine, "Particle2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Particle2D
         REGISTER_CLASS_MANUAL_PART_Particle2D();
@@ -8439,13 +7191,9 @@ static void Register_ParticleEffect2D(asIScriptEngine* engine)
     // explicit ParticleEffect2D::ParticleEffect2D(Context* context)
     engine->RegisterObjectBehaviour("ParticleEffect2D", asBEHAVE_FACTORY, "ParticleEffect2D@+ f()", AS_FUNCTION(ParticleEffect2D_ParticleEffect2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ParticleEffect2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ParticleEffect2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ParticleEffect2D(members);
+    RegisterMembers(engine, "ParticleEffect2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEffect2D
         REGISTER_CLASS_MANUAL_PART_ParticleEffect2D();
@@ -8465,13 +7213,9 @@ static void Register_ParticleEmitter2D(asIScriptEngine* engine)
     // explicit ParticleEmitter2D::ParticleEmitter2D(Context* context)
     engine->RegisterObjectBehaviour("ParticleEmitter2D", asBEHAVE_FACTORY, "ParticleEmitter2D@+ f()", AS_FUNCTION(ParticleEmitter2D_ParticleEmitter2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_ParticleEmitter2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "ParticleEmitter2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_ParticleEmitter2D(members);
+    RegisterMembers(engine, "ParticleEmitter2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_ParticleEmitter2D
         REGISTER_CLASS_MANUAL_PART_ParticleEmitter2D();
@@ -8484,13 +7228,9 @@ static void Register_PhysicsRaycastResult2D(asIScriptEngine* engine)
     // PhysicsRaycastResult2D::~PhysicsRaycastResult2D() | Implicitly-declared
     engine->RegisterObjectBehaviour("PhysicsRaycastResult2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(PhysicsRaycastResult2D), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PhysicsRaycastResult2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PhysicsRaycastResult2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PhysicsRaycastResult2D(members);
+    RegisterMembers(engine, "PhysicsRaycastResult2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult2D
         REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult2D();
@@ -8510,13 +7250,9 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
     // explicit PhysicsWorld2D::PhysicsWorld2D(Context* context)
     engine->RegisterObjectBehaviour("PhysicsWorld2D", asBEHAVE_FACTORY, "PhysicsWorld2D@+ f()", AS_FUNCTION(PhysicsWorld2D_PhysicsWorld2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PhysicsWorld2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PhysicsWorld2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PhysicsWorld2D(members);
+    RegisterMembers(engine, "PhysicsWorld2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorld2D
         REGISTER_CLASS_MANUAL_PART_PhysicsWorld2D();
@@ -8526,13 +7262,9 @@ static void Register_PhysicsWorld2D(asIScriptEngine* engine)
 // class PropertySet2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_PropertySet2D(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_PropertySet2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "PropertySet2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_PropertySet2D(members);
+    RegisterMembers(engine, "PropertySet2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_PropertySet2D
         REGISTER_CLASS_MANUAL_PART_PropertySet2D();
@@ -8552,13 +7284,9 @@ static void Register_Renderer2D(asIScriptEngine* engine)
     // explicit Renderer2D::Renderer2D(Context* context)
     engine->RegisterObjectBehaviour("Renderer2D", asBEHAVE_FACTORY, "Renderer2D@+ f()", AS_FUNCTION(Renderer2D_Renderer2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Renderer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Renderer2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Renderer2D(members);
+    RegisterMembers(engine, "Renderer2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Renderer2D
         REGISTER_CLASS_MANUAL_PART_Renderer2D();
@@ -8578,13 +7306,9 @@ static void Register_RigidBody2D(asIScriptEngine* engine)
     // explicit RigidBody2D::RigidBody2D(Context* context)
     engine->RegisterObjectBehaviour("RigidBody2D", asBEHAVE_FACTORY, "RigidBody2D@+ f()", AS_FUNCTION(RigidBody2D_RigidBody2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_RigidBody2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "RigidBody2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_RigidBody2D(members);
+    RegisterMembers(engine, "RigidBody2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_RigidBody2D
         REGISTER_CLASS_MANUAL_PART_RigidBody2D();
@@ -8597,13 +7321,9 @@ static void Register_SourceBatch2D(asIScriptEngine* engine)
     // SourceBatch2D::~SourceBatch2D() | Implicitly-declared
     engine->RegisterObjectBehaviour("SourceBatch2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(SourceBatch2D), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SourceBatch2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SourceBatch2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SourceBatch2D(members);
+    RegisterMembers(engine, "SourceBatch2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SourceBatch2D
         REGISTER_CLASS_MANUAL_PART_SourceBatch2D();
@@ -8623,13 +7343,9 @@ static void Register_Sprite2D(asIScriptEngine* engine)
     // explicit Sprite2D::Sprite2D(Context* context)
     engine->RegisterObjectBehaviour("Sprite2D", asBEHAVE_FACTORY, "Sprite2D@+ f()", AS_FUNCTION(Sprite2D_Sprite2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Sprite2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Sprite2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Sprite2D(members);
+    RegisterMembers(engine, "Sprite2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Sprite2D
         REGISTER_CLASS_MANUAL_PART_Sprite2D();
@@ -8649,13 +7365,9 @@ static void Register_SpriteSheet2D(asIScriptEngine* engine)
     // explicit SpriteSheet2D::SpriteSheet2D(Context* context)
     engine->RegisterObjectBehaviour("SpriteSheet2D", asBEHAVE_FACTORY, "SpriteSheet2D@+ f()", AS_FUNCTION(SpriteSheet2D_SpriteSheet2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_SpriteSheet2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "SpriteSheet2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_SpriteSheet2D(members);
+    RegisterMembers(engine, "SpriteSheet2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_SpriteSheet2D
         REGISTER_CLASS_MANUAL_PART_SpriteSheet2D();
@@ -8675,13 +7387,9 @@ static void Register_StaticSprite2D(asIScriptEngine* engine)
     // explicit StaticSprite2D::StaticSprite2D(Context* context)
     engine->RegisterObjectBehaviour("StaticSprite2D", asBEHAVE_FACTORY, "StaticSprite2D@+ f()", AS_FUNCTION(StaticSprite2D_StaticSprite2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_StaticSprite2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "StaticSprite2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_StaticSprite2D(members);
+    RegisterMembers(engine, "StaticSprite2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticSprite2D
         REGISTER_CLASS_MANUAL_PART_StaticSprite2D();
@@ -8701,13 +7409,9 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
     // explicit StretchableSprite2D::StretchableSprite2D(Context* context)
     engine->RegisterObjectBehaviour("StretchableSprite2D", asBEHAVE_FACTORY, "StretchableSprite2D@+ f()", AS_FUNCTION(StretchableSprite2D_StretchableSprite2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_StretchableSprite2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "StretchableSprite2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_StretchableSprite2D(members);
+    RegisterMembers(engine, "StretchableSprite2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_StretchableSprite2D
         REGISTER_CLASS_MANUAL_PART_StretchableSprite2D();
@@ -8717,13 +7421,9 @@ static void Register_StretchableSprite2D(asIScriptEngine* engine)
 // class Tile2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_Tile2D(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Tile2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Tile2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Tile2D(members);
+    RegisterMembers(engine, "Tile2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Tile2D
         REGISTER_CLASS_MANUAL_PART_Tile2D();
@@ -8743,13 +7443,9 @@ static void Register_TileMap2D(asIScriptEngine* engine)
     // explicit TileMap2D::TileMap2D(Context* context)
     engine->RegisterObjectBehaviour("TileMap2D", asBEHAVE_FACTORY, "TileMap2D@+ f()", AS_FUNCTION(TileMap2D_TileMap2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TileMap2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TileMap2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TileMap2D(members);
+    RegisterMembers(engine, "TileMap2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMap2D
         REGISTER_CLASS_MANUAL_PART_TileMap2D();
@@ -8759,13 +7455,9 @@ static void Register_TileMap2D(asIScriptEngine* engine)
 // struct TileMapInfo2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_TileMapInfo2D(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TileMapInfo2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TileMapInfo2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TileMapInfo2D(members);
+    RegisterMembers(engine, "TileMapInfo2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMapInfo2D
         REGISTER_CLASS_MANUAL_PART_TileMapInfo2D();
@@ -8785,13 +7477,9 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
     // explicit TileMapLayer2D::TileMapLayer2D(Context* context)
     engine->RegisterObjectBehaviour("TileMapLayer2D", asBEHAVE_FACTORY, "TileMapLayer2D@+ f()", AS_FUNCTION(TileMapLayer2D_TileMapLayer2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TileMapLayer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TileMapLayer2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TileMapLayer2D(members);
+    RegisterMembers(engine, "TileMapLayer2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMapLayer2D
         REGISTER_CLASS_MANUAL_PART_TileMapLayer2D();
@@ -8801,13 +7489,9 @@ static void Register_TileMapLayer2D(asIScriptEngine* engine)
 // class TileMapObject2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_TileMapObject2D(asIScriptEngine* engine)
 {
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TileMapObject2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TileMapObject2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TileMapObject2D(members);
+    RegisterMembers(engine, "TileMapObject2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMapObject2D
         REGISTER_CLASS_MANUAL_PART_TileMapObject2D();
@@ -8827,13 +7511,9 @@ static void Register_TmxFile2D(asIScriptEngine* engine)
     // explicit TmxFile2D::TmxFile2D(Context* context)
     engine->RegisterObjectBehaviour("TmxFile2D", asBEHAVE_FACTORY, "TmxFile2D@+ f()", AS_FUNCTION(TmxFile2D_TmxFile2D_Context) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TmxFile2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TmxFile2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TmxFile2D(members);
+    RegisterMembers(engine, "TmxFile2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxFile2D
         REGISTER_CLASS_MANUAL_PART_TmxFile2D();
@@ -8852,13 +7532,9 @@ static void Register_TmxImageLayer2D(asIScriptEngine* engine)
     // explicit TmxImageLayer2D::TmxImageLayer2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxImageLayer2D", asBEHAVE_FACTORY, "TmxImageLayer2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxImageLayer2D_TmxImageLayer2D_TmxFile2D) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TmxImageLayer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TmxImageLayer2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TmxImageLayer2D(members);
+    RegisterMembers(engine, "TmxImageLayer2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxImageLayer2D
         REGISTER_CLASS_MANUAL_PART_TmxImageLayer2D();
@@ -8877,13 +7553,9 @@ static void Register_TmxLayer2D(asIScriptEngine* engine)
     // TmxLayer2D::TmxLayer2D(TmxFile2D* tmxFile, TileMapLayerType2D type)
     engine->RegisterObjectBehaviour("TmxLayer2D", asBEHAVE_FACTORY, "TmxLayer2D@+ f(TmxFile2D@+, TileMapLayerType2D)", AS_FUNCTION(TmxLayer2D_TmxLayer2D_TmxFile2D_TileMapLayerType2D) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TmxLayer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TmxLayer2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TmxLayer2D(members);
+    RegisterMembers(engine, "TmxLayer2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxLayer2D
         REGISTER_CLASS_MANUAL_PART_TmxLayer2D();
@@ -8902,13 +7574,9 @@ static void Register_TmxObjectGroup2D(asIScriptEngine* engine)
     // explicit TmxObjectGroup2D::TmxObjectGroup2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxObjectGroup2D", asBEHAVE_FACTORY, "TmxObjectGroup2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxObjectGroup2D_TmxObjectGroup2D_TmxFile2D) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TmxObjectGroup2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TmxObjectGroup2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TmxObjectGroup2D(members);
+    RegisterMembers(engine, "TmxObjectGroup2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxObjectGroup2D
         REGISTER_CLASS_MANUAL_PART_TmxObjectGroup2D();
@@ -8927,13 +7595,9 @@ static void Register_TmxTileLayer2D(asIScriptEngine* engine)
     // explicit TmxTileLayer2D::TmxTileLayer2D(TmxFile2D* tmxFile)
     engine->RegisterObjectBehaviour("TmxTileLayer2D", asBEHAVE_FACTORY, "TmxTileLayer2D@+ f(TmxFile2D@+)", AS_FUNCTION(TmxTileLayer2D_TmxTileLayer2D_TmxFile2D) , AS_CALL_CDECL);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_TmxTileLayer2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "TmxTileLayer2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_TmxTileLayer2D(members);
+    RegisterMembers(engine, "TmxTileLayer2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_TmxTileLayer2D
         REGISTER_CLASS_MANUAL_PART_TmxTileLayer2D();
@@ -8946,13 +7610,9 @@ static void Register_Vertex2D(asIScriptEngine* engine)
     // Vertex2D::~Vertex2D() | Implicitly-declared
     engine->RegisterObjectBehaviour("Vertex2D", asBEHAVE_DESTRUCT, "void f()", AS_DESTRUCTOR(Vertex2D), AS_CALL_CDECL_OBJFIRST);
 
-    Vector<RegisterObjectMethodArgs> methods;
-    Vector<RegisterGlobalFunctionArgs> staticMethods;
-    Vector<RegisterObjectPropertyArgs> fields;
-    Vector<RegisterObjectMethodArgs> wrappedFields;
-    Vector<RegisterGlobalPropertyArgs> staticFields;
-    CollectMembers_Vertex2D(methods, staticMethods, fields, wrappedFields, staticFields);
-    RegisterMembers(engine, "Vertex2D", methods, staticMethods, fields, wrappedFields, staticFields);
+    MemberCollection members;
+    CollectMembers_Vertex2D(members);
+    RegisterMembers(engine, "Vertex2D", members);
 
     #ifdef REGISTER_CLASS_MANUAL_PART_Vertex2D
         REGISTER_CLASS_MANUAL_PART_Vertex2D();
