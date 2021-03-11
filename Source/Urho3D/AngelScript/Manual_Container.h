@@ -22,16 +22,11 @@
 
 #pragma once
 
-#include "../AngelScript/Manual_Container.h"
-#include "../AngelScript/Manual_Core.h"
-#include "../AngelScript/Manual_IO.h"
-#include "../AngelScript/Manual_Math.h"
-#include "../AngelScript/Manual_Resource.h"
-#include "../AngelScript/Manual_Scene.h"
-#include "../AngelScript/Manual_Graphics.h"
-#include "../AngelScript/Manual_Input.h"
-#include "../AngelScript/Manual_UI.h"
-#include "../AngelScript/Manual_Network.h"
-#include "../AngelScript/Manual_Navigation.h"
-#include "../AngelScript/Manual_Physics.h"
-#include "../AngelScript/Manual_Urho2D.h"
+namespace Urho3D
+{
+
+#define REGISTER_MEMBERS_MANUAL_PART_RefCounted() \
+    members.behaviours_.Push(RegisterObjectBehaviourArgs("void RefCounted::AddRef()", asBEHAVE_ADDREF, "void f()", AS_METHODPR(RefCounted, AddRef, (), void), AS_CALL_THISCALL)); \
+    members.behaviours_.Push(RegisterObjectBehaviourArgs("void RefCounted::ReleaseRef()", asBEHAVE_RELEASE, "void f()", AS_METHODPR(RefCounted, ReleaseRef, (), void), AS_CALL_THISCALL));
+
+}

@@ -69,8 +69,8 @@ void CollectMembers_BorderImage(MemberCollection& members)
     // static void BorderImage::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_BorderImage
-        REGISTER_MEMBER_MANUAL_PART_BorderImage();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_BorderImage
+        REGISTER_MEMBERS_MANUAL_PART_BorderImage();
     #endif
 }
 
@@ -121,8 +121,8 @@ void CollectMembers_Button(MemberCollection& members)
     // static void Button::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Button
-        REGISTER_MEMBER_MANUAL_PART_Button();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Button
+        REGISTER_MEMBERS_MANUAL_PART_Button();
     #endif
 }
 
@@ -132,8 +132,8 @@ void CollectMembers_CharLocation(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("Vector2 CharLocation::position_", "Vector2 position", offsetof(CharLocation, position_)));
     members.fields_.Push(RegisterObjectPropertyArgs("Vector2 CharLocation::size_", "Vector2 size", offsetof(CharLocation, size_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CharLocation
-        REGISTER_MEMBER_MANUAL_PART_CharLocation();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CharLocation
+        REGISTER_MEMBERS_MANUAL_PART_CharLocation();
     #endif
 }
 
@@ -166,8 +166,8 @@ void CollectMembers_CheckBox(MemberCollection& members)
     // static void CheckBox::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CheckBox
-        REGISTER_MEMBER_MANUAL_PART_CheckBox();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CheckBox
+        REGISTER_MEMBERS_MANUAL_PART_CheckBox();
     #endif
 }
 
@@ -203,8 +203,8 @@ void CollectMembers_Cursor(MemberCollection& members)
     // static void Cursor::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Cursor
-        REGISTER_MEMBER_MANUAL_PART_Cursor();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Cursor
+        REGISTER_MEMBERS_MANUAL_PART_Cursor();
     #endif
 }
 
@@ -223,8 +223,8 @@ void CollectMembers_CursorShapeInfo(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("bool CursorShapeInfo::systemDefined_", "bool systemDefined", offsetof(CursorShapeInfo, systemDefined_)));
     members.fields_.Push(RegisterObjectPropertyArgs("int CursorShapeInfo::systemCursor_", "int systemCursor", offsetof(CursorShapeInfo, systemCursor_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CursorShapeInfo
-        REGISTER_MEMBER_MANUAL_PART_CursorShapeInfo();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CursorShapeInfo
+        REGISTER_MEMBERS_MANUAL_PART_CursorShapeInfo();
     #endif
 }
 
@@ -290,8 +290,8 @@ void CollectMembers_DropDownList(MemberCollection& members)
     // static void DropDownList::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_DropDownList
-        REGISTER_MEMBER_MANUAL_PART_DropDownList();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_DropDownList
+        REGISTER_MEMBERS_MANUAL_PART_DropDownList();
     #endif
 }
 
@@ -357,8 +357,8 @@ void CollectMembers_FileSelector(MemberCollection& members)
     // static void FileSelector::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_FileSelector
-        REGISTER_MEMBER_MANUAL_PART_FileSelector();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_FileSelector
+        REGISTER_MEMBERS_MANUAL_PART_FileSelector();
     #endif
 }
 
@@ -368,8 +368,8 @@ void CollectMembers_FileSelectorEntry(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("String FileSelectorEntry::name_", "String name", offsetof(FileSelectorEntry, name_)));
     members.fields_.Push(RegisterObjectPropertyArgs("bool FileSelectorEntry::directory_", "bool directory", offsetof(FileSelectorEntry, directory_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_FileSelectorEntry
-        REGISTER_MEMBER_MANUAL_PART_FileSelectorEntry();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_FileSelectorEntry
+        REGISTER_MEMBERS_MANUAL_PART_FileSelectorEntry();
     #endif
 }
 
@@ -400,8 +400,8 @@ void CollectMembers_Font(MemberCollection& members)
     // static void Font::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Font
-        REGISTER_MEMBER_MANUAL_PART_Font();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Font
+        REGISTER_MEMBERS_MANUAL_PART_Font();
     #endif
 }
 
@@ -431,8 +431,8 @@ void CollectMembers_FontFace(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("float FontFace::GetRowHeight() const", "float GetRowHeight() const", AS_METHODPR(FontFace, GetRowHeight, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Vector<SharedPtr<Texture2D>>& FontFace::GetTextures() const", "Array<Texture2D@>@ GetTextures() const", AS_FUNCTION_OBJFIRST(FontFace_GetTextures_void), AS_CALL_CDECL_OBJFIRST));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_FontFace
-        REGISTER_MEMBER_MANUAL_PART_FontFace();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_FontFace
+        REGISTER_MEMBERS_MANUAL_PART_FontFace();
     #endif
 }
 
@@ -449,8 +449,8 @@ void CollectMembers_FontFaceBitmap(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool FontFaceBitmap::Load(FontFace* fontFace, bool usedGlyphs)", "bool Load(FontFace@+, bool)", AS_METHODPR(FontFaceBitmap, Load, (FontFace*, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool FontFaceBitmap::Save(Serializer& dest, int pointSize, const String& indentation=\"\t\")", "bool Save(Serializer&, int, const String&in = \"\t\")", AS_METHODPR(FontFaceBitmap, Save, (Serializer&, int, const String&), bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_FontFaceBitmap
-        REGISTER_MEMBER_MANUAL_PART_FontFaceBitmap();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_FontFaceBitmap
+        REGISTER_MEMBERS_MANUAL_PART_FontFaceBitmap();
     #endif
 }
 
@@ -470,8 +470,8 @@ void CollectMembers_FontFaceFreeType(MemberCollection& members)
 
     members.methods_.Push(RegisterObjectMethodArgs("bool FontFaceFreeType::HasMutableGlyphs() const override", "bool HasMutableGlyphs() const", AS_METHODPR(FontFaceFreeType, HasMutableGlyphs, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_FontFaceFreeType
-        REGISTER_MEMBER_MANUAL_PART_FontFaceFreeType();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_FontFaceFreeType
+        REGISTER_MEMBERS_MANUAL_PART_FontFaceFreeType();
     #endif
 }
 
@@ -490,8 +490,8 @@ void CollectMembers_FontGlyph(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned FontGlyph::page_", "uint page", offsetof(FontGlyph, page_)));
     members.fields_.Push(RegisterObjectPropertyArgs("bool FontGlyph::used_", "bool used", offsetof(FontGlyph, used_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_FontGlyph
-        REGISTER_MEMBER_MANUAL_PART_FontGlyph();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_FontGlyph
+        REGISTER_MEMBERS_MANUAL_PART_FontGlyph();
     #endif
 }
 
@@ -504,8 +504,8 @@ void CollectMembers_GlyphLocation(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("float GlyphLocation::x_", "float x", offsetof(GlyphLocation, x_)));
     members.fields_.Push(RegisterObjectPropertyArgs("float GlyphLocation::y_", "float y", offsetof(GlyphLocation, y_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_GlyphLocation
-        REGISTER_MEMBER_MANUAL_PART_GlyphLocation();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_GlyphLocation
+        REGISTER_MEMBERS_MANUAL_PART_GlyphLocation();
     #endif
 }
 
@@ -577,8 +577,8 @@ void CollectMembers_LineEdit(MemberCollection& members)
     // static void LineEdit::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_LineEdit
-        REGISTER_MEMBER_MANUAL_PART_LineEdit();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_LineEdit
+        REGISTER_MEMBERS_MANUAL_PART_LineEdit();
     #endif
 }
 
@@ -696,8 +696,8 @@ void CollectMembers_ListView(MemberCollection& members)
     // static void ListView::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ListView
-        REGISTER_MEMBER_MANUAL_PART_ListView();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ListView
+        REGISTER_MEMBERS_MANUAL_PART_ListView();
     #endif
 }
 
@@ -744,8 +744,8 @@ void CollectMembers_Menu(MemberCollection& members)
     // static void Menu::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Menu
-        REGISTER_MEMBER_MANUAL_PART_Menu();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Menu
+        REGISTER_MEMBERS_MANUAL_PART_Menu();
     #endif
 }
 
@@ -768,8 +768,8 @@ void CollectMembers_MessageBox(MemberCollection& members)
     // static void MessageBox::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_MessageBox
-        REGISTER_MEMBER_MANUAL_PART_MessageBox();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_MessageBox
+        REGISTER_MEMBERS_MANUAL_PART_MessageBox();
     #endif
 }
 
@@ -808,8 +808,8 @@ void CollectMembers_ProgressBar(MemberCollection& members)
     // static void ProgressBar::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ProgressBar
-        REGISTER_MEMBER_MANUAL_PART_ProgressBar();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ProgressBar
+        REGISTER_MEMBERS_MANUAL_PART_ProgressBar();
     #endif
 }
 
@@ -862,8 +862,8 @@ void CollectMembers_ScrollBar(MemberCollection& members)
     // static void ScrollBar::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ScrollBar
-        REGISTER_MEMBER_MANUAL_PART_ScrollBar();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ScrollBar
+        REGISTER_MEMBERS_MANUAL_PART_ScrollBar();
     #endif
 }
 
@@ -944,8 +944,8 @@ void CollectMembers_ScrollView(MemberCollection& members)
     // static void ScrollView::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ScrollView
-        REGISTER_MEMBER_MANUAL_PART_ScrollView();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ScrollView
+        REGISTER_MEMBERS_MANUAL_PART_ScrollView();
     #endif
 }
 
@@ -996,8 +996,8 @@ void CollectMembers_Slider(MemberCollection& members)
     // static void Slider::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Slider
-        REGISTER_MEMBER_MANUAL_PART_Slider();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Slider
+        REGISTER_MEMBERS_MANUAL_PART_Slider();
     #endif
 }
 
@@ -1067,8 +1067,8 @@ void CollectMembers_Sprite(MemberCollection& members)
     // static void Sprite::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Sprite
-        REGISTER_MEMBER_MANUAL_PART_Sprite();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Sprite
+        REGISTER_MEMBERS_MANUAL_PART_Sprite();
     #endif
 }
 
@@ -1167,8 +1167,8 @@ void CollectMembers_Text(MemberCollection& members)
     // static void Text::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Text
-        REGISTER_MEMBER_MANUAL_PART_Text();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Text
+        REGISTER_MEMBERS_MANUAL_PART_Text();
     #endif
 }
 
@@ -1296,8 +1296,8 @@ void CollectMembers_Text3D(MemberCollection& members)
     // static void Text3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Text3D
-        REGISTER_MEMBER_MANUAL_PART_Text3D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Text3D
+        REGISTER_MEMBERS_MANUAL_PART_Text3D();
     #endif
 }
 
@@ -1321,8 +1321,8 @@ void CollectMembers_ToolTip(MemberCollection& members)
     // static void ToolTip::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ToolTip
-        REGISTER_MEMBER_MANUAL_PART_ToolTip();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ToolTip
+        REGISTER_MEMBERS_MANUAL_PART_ToolTip();
     #endif
 }
 
@@ -1458,8 +1458,8 @@ void CollectMembers_UI(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("const IntVector2& UI::GetCustomSize() const", "const IntVector2& get_customSize() const", AS_METHODPR(UI, GetCustomSize, () const, const IntVector2&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UI::SetElementRenderTexture(UIElement* element, Texture2D* texture)", "void SetElementRenderTexture(UIElement@+, Texture2D@+)", AS_METHODPR(UI, SetElementRenderTexture, (UIElement*, Texture2D*), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_UI
-        REGISTER_MEMBER_MANUAL_PART_UI();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_UI
+        REGISTER_MEMBERS_MANUAL_PART_UI();
     #endif
 }
 
@@ -1498,8 +1498,8 @@ void CollectMembers_UIBatch(MemberCollection& members)
 
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static Vector3 UIBatch::posAdjust", "Vector3 posAdjust", (void*)&UIBatch::posAdjust));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_UIBatch
-        REGISTER_MEMBER_MANUAL_PART_UIBatch();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_UIBatch
+        REGISTER_MEMBERS_MANUAL_PART_UIBatch();
     #endif
 }
 
@@ -1521,8 +1521,8 @@ void CollectMembers_UIComponent(MemberCollection& members)
     // static void UIComponent::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_UIComponent
-        REGISTER_MEMBER_MANUAL_PART_UIComponent();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_UIComponent
+        REGISTER_MEMBERS_MANUAL_PART_UIComponent();
     #endif
 }
 
@@ -1917,8 +1917,8 @@ void CollectMembers_UIElement(MemberCollection& members)
     // static void UIElement::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_UIElement
-        REGISTER_MEMBER_MANUAL_PART_UIElement();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_UIElement
+        REGISTER_MEMBERS_MANUAL_PART_UIElement();
     #endif
 }
 
@@ -1949,8 +1949,8 @@ void CollectMembers_UISelectable(MemberCollection& members)
     // static void UISelectable::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_UISelectable
-        REGISTER_MEMBER_MANUAL_PART_UISelectable();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_UISelectable
+        REGISTER_MEMBERS_MANUAL_PART_UISelectable();
     #endif
 }
 
@@ -1988,8 +1988,8 @@ void CollectMembers_View3D(MemberCollection& members)
     // static void View3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_View3D
-        REGISTER_MEMBER_MANUAL_PART_View3D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_View3D
+        REGISTER_MEMBERS_MANUAL_PART_View3D();
     #endif
 }
 
@@ -2059,8 +2059,8 @@ void CollectMembers_Window(MemberCollection& members)
     // static void Window::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Window
-        REGISTER_MEMBER_MANUAL_PART_Window();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Window
+        REGISTER_MEMBERS_MANUAL_PART_Window();
     #endif
 }
 

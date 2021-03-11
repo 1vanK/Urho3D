@@ -63,8 +63,8 @@ void CollectMembers_Audio(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("Mutex& Audio::GetMutex()", "Mutex& GetMutex()", AS_METHODPR(Audio, GetMutex, (), Mutex&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Audio::GetSoundSourceMasterGain(StringHash typeHash) const", "float GetSoundSourceMasterGain(StringHash) const", AS_METHODPR(Audio, GetSoundSourceMasterGain, (StringHash) const, float), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Audio
-        REGISTER_MEMBER_MANUAL_PART_Audio();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Audio
+        REGISTER_MEMBERS_MANUAL_PART_Audio();
     #endif
 }
 
@@ -88,8 +88,8 @@ void CollectMembers_BufferedSoundStream(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("unsigned BufferedSoundStream::GetBufferNumBytes() const", "uint GetBufferNumBytes() const", AS_METHODPR(BufferedSoundStream, GetBufferNumBytes, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float BufferedSoundStream::GetBufferLength() const", "float GetBufferLength() const", AS_METHODPR(BufferedSoundStream, GetBufferLength, () const, float), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_BufferedSoundStream
-        REGISTER_MEMBER_MANUAL_PART_BufferedSoundStream();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_BufferedSoundStream
+        REGISTER_MEMBERS_MANUAL_PART_BufferedSoundStream();
     #endif
 }
 
@@ -106,8 +106,8 @@ void CollectMembers_OggVorbisSoundStream(MemberCollection& members)
 
     members.methods_.Push(RegisterObjectMethodArgs("bool OggVorbisSoundStream::Seek(unsigned sample_number) override", "bool Seek(uint)", AS_METHODPR(OggVorbisSoundStream, Seek, (unsigned), bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_OggVorbisSoundStream
-        REGISTER_MEMBER_MANUAL_PART_OggVorbisSoundStream();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_OggVorbisSoundStream
+        REGISTER_MEMBERS_MANUAL_PART_OggVorbisSoundStream();
     #endif
 }
 
@@ -169,8 +169,8 @@ void CollectMembers_Sound(MemberCollection& members)
     // static void Sound::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Sound
-        REGISTER_MEMBER_MANUAL_PART_Sound();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Sound
+        REGISTER_MEMBERS_MANUAL_PART_Sound();
     #endif
 }
 
@@ -184,8 +184,8 @@ void CollectMembers_SoundListener(MemberCollection& members)
     // static void SoundListener::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SoundListener
-        REGISTER_MEMBER_MANUAL_PART_SoundListener();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SoundListener
+        REGISTER_MEMBERS_MANUAL_PART_SoundListener();
     #endif
 }
 
@@ -250,8 +250,8 @@ void CollectMembers_SoundSource(MemberCollection& members)
     // static void SoundSource::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SoundSource
-        REGISTER_MEMBER_MANUAL_PART_SoundSource();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SoundSource
+        REGISTER_MEMBERS_MANUAL_PART_SoundSource();
     #endif
 }
 
@@ -294,8 +294,8 @@ void CollectMembers_SoundSource3D(MemberCollection& members)
     // static void SoundSource3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SoundSource3D
-        REGISTER_MEMBER_MANUAL_PART_SoundSource3D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SoundSource3D
+        REGISTER_MEMBERS_MANUAL_PART_SoundSource3D();
     #endif
 }
 
@@ -317,8 +317,8 @@ void CollectMembers_SoundStream(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool SoundStream::IsSixteenBit() const", "bool IsSixteenBit() const", AS_METHODPR(SoundStream, IsSixteenBit, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool SoundStream::IsStereo() const", "bool IsStereo() const", AS_METHODPR(SoundStream, IsStereo, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SoundStream
-        REGISTER_MEMBER_MANUAL_PART_SoundStream();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SoundStream
+        REGISTER_MEMBERS_MANUAL_PART_SoundStream();
     #endif
 }
 

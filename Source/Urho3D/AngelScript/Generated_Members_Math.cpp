@@ -19,8 +19,8 @@ void CollectMembers_AreaAllocator(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("int AreaAllocator::GetHeight() const", "int GetHeight() const", AS_METHODPR(AreaAllocator, GetHeight, () const, int), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool AreaAllocator::GetFastMode() const", "bool GetFastMode() const", AS_METHODPR(AreaAllocator, GetFastMode, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_AreaAllocator
-        REGISTER_MEMBER_MANUAL_PART_AreaAllocator();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_AreaAllocator
+        REGISTER_MEMBERS_MANUAL_PART_AreaAllocator();
     #endif
 }
 
@@ -77,8 +77,8 @@ void CollectMembers_BoundingBox(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("Vector3 BoundingBox::max_", "Vector3 max", offsetof(BoundingBox, max_)));
     members.fields_.Push(RegisterObjectPropertyArgs("float BoundingBox::dummyMax_", "float dummyMax", offsetof(BoundingBox, dummyMax_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_BoundingBox
-        REGISTER_MEMBER_MANUAL_PART_BoundingBox();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_BoundingBox
+        REGISTER_MEMBERS_MANUAL_PART_BoundingBox();
     #endif
 }
 
@@ -160,8 +160,8 @@ void CollectMembers_Color(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Color Color::YELLOW", "const Color YELLOW", (void*)&Color::YELLOW));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Color Color::TRANSPARENT_BLACK", "const Color TRANSPARENT_BLACK", (void*)&Color::TRANSPARENT_BLACK));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Color
-        REGISTER_MEMBER_MANUAL_PART_Color();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Color
+        REGISTER_MEMBERS_MANUAL_PART_Color();
     #endif
 }
 
@@ -193,8 +193,8 @@ void CollectMembers_Frustum(MemberCollection& members)
     // Vector3 Frustum::vertices_[NUM_FRUSTUM_VERTICES]
     // Not registered because array
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Frustum
-        REGISTER_MEMBER_MANUAL_PART_Frustum();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Frustum
+        REGISTER_MEMBERS_MANUAL_PART_Frustum();
     #endif
 }
 
@@ -240,8 +240,8 @@ void CollectMembers_IntRect(MemberCollection& members)
 
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const IntRect IntRect::ZERO", "const IntRect ZERO", (void*)&IntRect::ZERO));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_IntRect
-        REGISTER_MEMBER_MANUAL_PART_IntRect();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_IntRect
+        REGISTER_MEMBERS_MANUAL_PART_IntRect();
     #endif
 }
 
@@ -282,8 +282,8 @@ void CollectMembers_IntVector2(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::DOWN", "const IntVector2 DOWN", (void*)&IntVector2::DOWN));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const IntVector2 IntVector2::ONE", "const IntVector2 ONE", (void*)&IntVector2::ONE));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_IntVector2
-        REGISTER_MEMBER_MANUAL_PART_IntVector2();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_IntVector2
+        REGISTER_MEMBERS_MANUAL_PART_IntVector2();
     #endif
 }
 
@@ -327,8 +327,8 @@ void CollectMembers_IntVector3(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::BACK", "const IntVector3 BACK", (void*)&IntVector3::BACK));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const IntVector3 IntVector3::ONE", "const IntVector3 ONE", (void*)&IntVector3::ONE));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_IntVector3
-        REGISTER_MEMBER_MANUAL_PART_IntVector3();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_IntVector3
+        REGISTER_MEMBERS_MANUAL_PART_IntVector3();
     #endif
 }
 
@@ -369,8 +369,8 @@ void CollectMembers_Matrix2(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Matrix2 Matrix2::ZERO", "const Matrix2 ZERO", (void*)&Matrix2::ZERO));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Matrix2 Matrix2::IDENTITY", "const Matrix2 IDENTITY", (void*)&Matrix2::IDENTITY));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Matrix2
-        REGISTER_MEMBER_MANUAL_PART_Matrix2();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Matrix2
+        REGISTER_MEMBERS_MANUAL_PART_Matrix2();
     #endif
 }
 
@@ -420,8 +420,8 @@ void CollectMembers_Matrix3(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Matrix3 Matrix3::ZERO", "const Matrix3 ZERO", (void*)&Matrix3::ZERO));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Matrix3 Matrix3::IDENTITY", "const Matrix3 IDENTITY", (void*)&Matrix3::IDENTITY));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Matrix3
-        REGISTER_MEMBER_MANUAL_PART_Matrix3();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Matrix3
+        REGISTER_MEMBERS_MANUAL_PART_Matrix3();
     #endif
 }
 
@@ -481,8 +481,8 @@ void CollectMembers_Matrix3x4(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Matrix3x4 Matrix3x4::ZERO", "const Matrix3x4 ZERO", (void*)&Matrix3x4::ZERO));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Matrix3x4 Matrix3x4::IDENTITY", "const Matrix3x4 IDENTITY", (void*)&Matrix3x4::IDENTITY));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Matrix3x4
-        REGISTER_MEMBER_MANUAL_PART_Matrix3x4();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Matrix3x4
+        REGISTER_MEMBERS_MANUAL_PART_Matrix3x4();
     #endif
 }
 
@@ -548,8 +548,8 @@ void CollectMembers_Matrix4(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Matrix4 Matrix4::ZERO", "const Matrix4 ZERO", (void*)&Matrix4::ZERO));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Matrix4 Matrix4::IDENTITY", "const Matrix4 IDENTITY", (void*)&Matrix4::IDENTITY));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Matrix4
-        REGISTER_MEMBER_MANUAL_PART_Matrix4();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Matrix4
+        REGISTER_MEMBERS_MANUAL_PART_Matrix4();
     #endif
 }
 
@@ -579,8 +579,8 @@ void CollectMembers_Plane(MemberCollection& members)
 
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Plane Plane::UP", "const Plane UP", (void*)&Plane::UP));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Plane
-        REGISTER_MEMBER_MANUAL_PART_Plane();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Plane
+        REGISTER_MEMBERS_MANUAL_PART_Plane();
     #endif
 }
 
@@ -615,8 +615,8 @@ void CollectMembers_Polyhedron(MemberCollection& members)
     // Vector<PODVector<Vector3>> Polyhedron::faces_
     // Error: type "Vector<PODVector<Vector3>>" can not automatically bind
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Polyhedron
-        REGISTER_MEMBER_MANUAL_PART_Polyhedron();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Polyhedron
+        REGISTER_MEMBERS_MANUAL_PART_Polyhedron();
     #endif
 }
 
@@ -678,8 +678,8 @@ void CollectMembers_Quaternion(MemberCollection& members)
 
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Quaternion Quaternion::IDENTITY", "const Quaternion IDENTITY", (void*)&Quaternion::IDENTITY));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Quaternion
-        REGISTER_MEMBER_MANUAL_PART_Quaternion();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Quaternion
+        REGISTER_MEMBERS_MANUAL_PART_Quaternion();
     #endif
 }
 
@@ -714,8 +714,8 @@ void CollectMembers_Ray(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("Vector3 Ray::origin_", "Vector3 origin", offsetof(Ray, origin_)));
     members.fields_.Push(RegisterObjectPropertyArgs("Vector3 Ray::direction_", "Vector3 direction", offsetof(Ray, direction_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Ray
-        REGISTER_MEMBER_MANUAL_PART_Ray();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Ray
+        REGISTER_MEMBERS_MANUAL_PART_Ray();
     #endif
 }
 
@@ -774,8 +774,8 @@ void CollectMembers_Rect(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Rect Rect::POSITIVE", "const Rect POSITIVE", (void*)&Rect::POSITIVE));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Rect Rect::ZERO", "const Rect ZERO", (void*)&Rect::ZERO));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Rect
-        REGISTER_MEMBER_MANUAL_PART_Rect();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Rect
+        REGISTER_MEMBERS_MANUAL_PART_Rect();
     #endif
 }
 
@@ -815,8 +815,8 @@ void CollectMembers_Sphere(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("Vector3 Sphere::center_", "Vector3 center", offsetof(Sphere, center_)));
     members.fields_.Push(RegisterObjectPropertyArgs("float Sphere::radius_", "float radius", offsetof(Sphere, radius_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Sphere
-        REGISTER_MEMBER_MANUAL_PART_Sphere();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Sphere
+        REGISTER_MEMBERS_MANUAL_PART_Sphere();
     #endif
 }
 
@@ -848,8 +848,8 @@ void CollectMembers_StringHash(MemberCollection& members)
 
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const StringHash StringHash::ZERO", "const StringHash ZERO", (void*)&StringHash::ZERO));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_StringHash
-        REGISTER_MEMBER_MANUAL_PART_StringHash();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_StringHash
+        REGISTER_MEMBERS_MANUAL_PART_StringHash();
     #endif
 }
 
@@ -905,8 +905,8 @@ void CollectMembers_Vector2(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::DOWN", "const Vector2 DOWN", (void*)&Vector2::DOWN));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Vector2 Vector2::ONE", "const Vector2 ONE", (void*)&Vector2::ONE));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Vector2
-        REGISTER_MEMBER_MANUAL_PART_Vector2();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Vector2
+        REGISTER_MEMBERS_MANUAL_PART_Vector2();
     #endif
 }
 
@@ -972,8 +972,8 @@ void CollectMembers_Vector3(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::BACK", "const Vector3 BACK", (void*)&Vector3::BACK));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Vector3 Vector3::ONE", "const Vector3 ONE", (void*)&Vector3::ONE));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Vector3
-        REGISTER_MEMBER_MANUAL_PART_Vector3();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Vector3
+        REGISTER_MEMBERS_MANUAL_PART_Vector3();
     #endif
 }
 
@@ -1023,8 +1023,8 @@ void CollectMembers_Vector4(MemberCollection& members)
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Vector4 Vector4::ZERO", "const Vector4 ZERO", (void*)&Vector4::ZERO));
     members.staticFields_.Push(RegisterGlobalPropertyArgs("static const Vector4 Vector4::ONE", "const Vector4 ONE", (void*)&Vector4::ONE));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Vector4
-        REGISTER_MEMBER_MANUAL_PART_Vector4();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Vector4
+        REGISTER_MEMBERS_MANUAL_PART_Vector4();
     #endif
 }
 

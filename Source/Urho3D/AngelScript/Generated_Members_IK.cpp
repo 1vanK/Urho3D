@@ -29,8 +29,8 @@ void CollectMembers_IKConstraint(MemberCollection& members)
     // static void IKConstraint::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_IKConstraint
-        REGISTER_MEMBER_MANUAL_PART_IKConstraint();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_IKConstraint
+        REGISTER_MEMBERS_MANUAL_PART_IKConstraint();
     #endif
 }
 
@@ -92,8 +92,8 @@ void CollectMembers_IKEffector(MemberCollection& members)
     // static void IKEffector::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_IKEffector
-        REGISTER_MEMBER_MANUAL_PART_IKEffector();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_IKEffector
+        REGISTER_MEMBERS_MANUAL_PART_IKEffector();
     #endif
 }
 
@@ -166,8 +166,8 @@ void CollectMembers_IKSolver(MemberCollection& members)
     // static void IKSolver::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_IKSolver
-        REGISTER_MEMBER_MANUAL_PART_IKSolver();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_IKSolver
+        REGISTER_MEMBERS_MANUAL_PART_IKSolver();
     #endif
 }
 

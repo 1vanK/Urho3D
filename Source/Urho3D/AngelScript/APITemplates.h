@@ -127,6 +127,26 @@ struct RegisterGlobalPropertyArgs
     }
 };
 
+struct RegisterObjectBehaviourArgs
+{
+    String cppDeclaration_;
+    asEBehaviours behaviour_;
+    String asDeclaration_;
+    asSFuncPtr funcPointer_;
+    asDWORD callConv_ = 0;
+
+    RegisterObjectBehaviourArgs() = default;
+
+    RegisterObjectBehaviourArgs(const String& cppDeclaration, asEBehaviours behaviour, const String& asDeclaration, const asSFuncPtr& funcPointer, asDWORD callConv)
+        : cppDeclaration_(cppDeclaration)
+        , behaviour_(behaviour)
+        , asDeclaration_(asDeclaration)
+        , funcPointer_(funcPointer)
+        , callConv_(callConv)
+    {
+    }
+};
+
 struct MemberCollection
 {
     Vector<RegisterObjectMethodArgs> methods_;
@@ -134,6 +154,7 @@ struct MemberCollection
     Vector<RegisterObjectPropertyArgs> fields_;
     Vector<RegisterObjectMethodArgs> wrappedFields_;
     Vector<RegisterGlobalPropertyArgs> staticFields_;
+    Vector<RegisterObjectBehaviourArgs> behaviours_;
 };
 
 // Where T is RegisterObjectMethodArgs, RegisterObjectPropertyArgs, RegisterGlobalPropertyArgs
@@ -174,6 +195,9 @@ inline void RegisterMembers(asIScriptEngine* engine, const char* asClassName, co
         engine->RegisterGlobalProperty(staticField.asDeclaration_.CString(), staticField.pointer_);
         engine->SetDefaultNamespace("");
     }
+
+    for (const RegisterObjectBehaviourArgs& behaviour : members.behaviours_)
+        engine->RegisterObjectBehaviour(asClassName, behaviour.behaviour_, behaviour.asDeclaration_.CString(), behaviour.funcPointer_, behaviour.callConv_);
 }
 
 /// Template function for Vector to array conversion.

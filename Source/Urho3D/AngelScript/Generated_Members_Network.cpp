@@ -100,8 +100,8 @@ void CollectMembers_Connection(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned char Connection::timeStamp_", "uint8 timeStamp", offsetof(Connection, timeStamp_)));
     members.fields_.Push(RegisterObjectPropertyArgs("VariantMap Connection::identity_", "VariantMap identity", offsetof(Connection, identity_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Connection
-        REGISTER_MEMBER_MANUAL_PART_Connection();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Connection
+        REGISTER_MEMBERS_MANUAL_PART_Connection();
     #endif
 }
 
@@ -137,8 +137,8 @@ void CollectMembers_HttpRequest(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool HttpRequest::IsOpen() const", "bool IsOpen() const", AS_METHODPR(HttpRequest, IsOpen, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool HttpRequest::IsOpen() const", "bool get_open() const", AS_METHODPR(HttpRequest, IsOpen, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_HttpRequest
-        REGISTER_MEMBER_MANUAL_PART_HttpRequest();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_HttpRequest
+        REGISTER_MEMBERS_MANUAL_PART_HttpRequest();
     #endif
 }
 
@@ -229,8 +229,8 @@ void CollectMembers_Network(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Network::Update(float timeStep)", "void Update(float)", AS_METHODPR(Network, Update, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::PostUpdate(float timeStep)", "void PostUpdate(float)", AS_METHODPR(Network, PostUpdate, (float), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Network
-        REGISTER_MEMBER_MANUAL_PART_Network();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Network
+        REGISTER_MEMBERS_MANUAL_PART_Network();
     #endif
 }
 
@@ -262,8 +262,8 @@ void CollectMembers_NetworkPriority(MemberCollection& members)
     // static void NetworkPriority::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_NetworkPriority
-        REGISTER_MEMBER_MANUAL_PART_NetworkPriority();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_NetworkPriority
+        REGISTER_MEMBERS_MANUAL_PART_NetworkPriority();
     #endif
 }
 
@@ -280,8 +280,8 @@ void CollectMembers_PackageDownload(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned PackageDownload::checksum_", "uint checksum", offsetof(PackageDownload, checksum_)));
     members.fields_.Push(RegisterObjectPropertyArgs("bool PackageDownload::initiated_", "bool initiated", offsetof(PackageDownload, initiated_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_PackageDownload
-        REGISTER_MEMBER_MANUAL_PART_PackageDownload();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_PackageDownload
+        REGISTER_MEMBERS_MANUAL_PART_PackageDownload();
     #endif
 }
 
@@ -294,8 +294,8 @@ void CollectMembers_PackageUpload(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned PackageUpload::fragment_", "uint fragment", offsetof(PackageUpload, fragment_)));
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned PackageUpload::totalFragments_", "uint totalFragments", offsetof(PackageUpload, totalFragments_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_PackageUpload
-        REGISTER_MEMBER_MANUAL_PART_PackageUpload();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_PackageUpload
+        REGISTER_MEMBERS_MANUAL_PART_PackageUpload();
     #endif
 }
 
@@ -307,8 +307,8 @@ void CollectMembers_RemoteEvent(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("VariantMap RemoteEvent::eventData_", "VariantMap eventData", offsetof(RemoteEvent, eventData_)));
     members.fields_.Push(RegisterObjectPropertyArgs("bool RemoteEvent::inOrder_", "bool inOrder", offsetof(RemoteEvent, inOrder_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_RemoteEvent
-        REGISTER_MEMBER_MANUAL_PART_RemoteEvent();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_RemoteEvent
+        REGISTER_MEMBERS_MANUAL_PART_RemoteEvent();
     #endif
 }
 

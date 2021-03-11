@@ -23,8 +23,8 @@ void CollectMembers_Controls(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("float Controls::pitch_", "float pitch", offsetof(Controls, pitch_)));
     members.fields_.Push(RegisterObjectPropertyArgs("VariantMap Controls::extraData_", "VariantMap extraData", offsetof(Controls, extraData_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Controls
-        REGISTER_MEMBER_MANUAL_PART_Controls();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Controls
+        REGISTER_MEMBERS_MANUAL_PART_Controls();
     #endif
 }
 
@@ -130,8 +130,8 @@ void CollectMembers_Input(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Input::IsMinimized() const", "bool IsMinimized() const", AS_METHODPR(Input, IsMinimized, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Input::IsMinimized() const", "bool get_minimized() const", AS_METHODPR(Input, IsMinimized, () const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Input
-        REGISTER_MEMBER_MANUAL_PART_Input();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Input
+        REGISTER_MEMBERS_MANUAL_PART_Input();
     #endif
 }
 
@@ -175,8 +175,8 @@ void CollectMembers_JoystickState(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("SDL_JoystickID JoystickState::joystickID_", "SDL_JoystickID joystickID", offsetof(JoystickState, joystickID_)));
     members.fields_.Push(RegisterObjectPropertyArgs("String JoystickState::name_", "String name", offsetof(JoystickState, name_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_JoystickState
-        REGISTER_MEMBER_MANUAL_PART_JoystickState();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_JoystickState
+        REGISTER_MEMBERS_MANUAL_PART_JoystickState();
     #endif
 }
 
@@ -195,8 +195,8 @@ void CollectMembers_TouchState(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("IntVector2 TouchState::delta_", "IntVector2 delta", offsetof(TouchState, delta_)));
     members.fields_.Push(RegisterObjectPropertyArgs("float TouchState::pressure_", "float pressure", offsetof(TouchState, pressure_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TouchState
-        REGISTER_MEMBER_MANUAL_PART_TouchState();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TouchState
+        REGISTER_MEMBERS_MANUAL_PART_TouchState();
     #endif
 }
 

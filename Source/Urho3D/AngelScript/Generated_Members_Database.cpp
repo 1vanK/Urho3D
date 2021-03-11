@@ -28,8 +28,8 @@ void CollectMembers_Database(MemberCollection& members)
 
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static DBAPI Database::GetAPI()", "DBAPI GetAPI()", AS_FUNCTIONPR(Database::GetAPI, (), DBAPI), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Database
-        REGISTER_MEMBER_MANUAL_PART_Database();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Database
+        REGISTER_MEMBERS_MANUAL_PART_Database();
     #endif
 }
 

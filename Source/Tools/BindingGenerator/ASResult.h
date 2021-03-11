@@ -175,6 +175,23 @@ struct StaticFieldRegistration
     RegisterGlobalPropertyArgs registration_;
 };
 
+struct RegisterObjectBehaviourArgs
+{
+    string behaviour_;              // asEBehaviours
+    vector<string> asDeclarations_; // String
+    string funcPointer_;            // asSFuncPtr
+    string callConv_;               // asDWORD
+};
+
+// Used only for AddRef(), ReleaseRef() yet
+struct BehaviorRegistration
+{
+    string name_; // Used for sorting
+    string cppDeclaration_;
+    //string glue_;
+    RegisterObjectBehaviourArgs registration_;
+};
+
 struct MemberRegistrationError
 {
     string name_; // Used for sorting
@@ -199,12 +216,12 @@ struct ProcessedClass
     shared_ptr<SpecialMethodRegistration> defaultConstructor_;
     vector<SpecialMethodRegistration> nonDefaultConstructors_;
 
-
-
     shared_ptr<SpecialMethodRegistration> destructor_;
 
     vector<MemberRegistrationError> unregisteredSpecialMethods_;
 
+    // AddRef(), ReleaseRef()
+    //vector<BehaviorRegistration> inheritedBehaviors_;
 
     vector<MethodRegistration> methods_;
     vector<MemberRegistrationError> unregisteredMethods_;

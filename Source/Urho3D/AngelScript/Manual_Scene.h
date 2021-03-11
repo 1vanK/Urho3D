@@ -39,7 +39,7 @@ namespace Urho3D
 
 const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* ptr);
 
-#define REGISTER_MEMBER_MANUAL_PART_Serializable() \
+#define REGISTER_MEMBERS_MANUAL_PART_Serializable() \
     members.methods_.Push(RegisterObjectMethodArgs("fad125ab-81f8-4980-94c8-cc946d76e69a", "const AttributeInfo& get_attributeInfos(uint) const", AS_FUNCTION_OBJLAST(SerializableGetAttributeInfo), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
@@ -210,7 +210,7 @@ void BoneSetNode(Node* node, Bone* ptr);
 
 // ========================================================================================
 
-#define REGISTER_MEMBER_MANUAL_PART_Component() \
+#define REGISTER_MEMBERS_MANUAL_PART_Component() \
     /* Workarounds for Connection that used outside URHO3D_NETWORK define */ \
     if (URHO3D_NETWORK_DEFINED) \
     { \

@@ -49,8 +49,8 @@ void CollectMembers_AnimatedSprite2D(MemberCollection& members)
     // static void AnimatedSprite2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimatedSprite2D
-        REGISTER_MEMBER_MANUAL_PART_AnimatedSprite2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_AnimatedSprite2D
+        REGISTER_MEMBERS_MANUAL_PART_AnimatedSprite2D();
     #endif
 }
 
@@ -77,8 +77,8 @@ void CollectMembers_AnimationSet2D(MemberCollection& members)
     // static void AnimationSet2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_AnimationSet2D
-        REGISTER_MEMBER_MANUAL_PART_AnimationSet2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_AnimationSet2D
+        REGISTER_MEMBERS_MANUAL_PART_AnimationSet2D();
     #endif
 }
 
@@ -107,8 +107,8 @@ void CollectMembers_CollisionBox2D(MemberCollection& members)
     // static void CollisionBox2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CollisionBox2D
-        REGISTER_MEMBER_MANUAL_PART_CollisionBox2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CollisionBox2D
+        REGISTER_MEMBERS_MANUAL_PART_CollisionBox2D();
     #endif
 }
 
@@ -162,8 +162,8 @@ void CollectMembers_CollisionChain2D(MemberCollection& members)
     // static void CollisionChain2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CollisionChain2D
-        REGISTER_MEMBER_MANUAL_PART_CollisionChain2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CollisionChain2D
+        REGISTER_MEMBERS_MANUAL_PART_CollisionChain2D();
     #endif
 }
 
@@ -187,8 +187,8 @@ void CollectMembers_CollisionCircle2D(MemberCollection& members)
     // static void CollisionCircle2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CollisionCircle2D
-        REGISTER_MEMBER_MANUAL_PART_CollisionCircle2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CollisionCircle2D
+        REGISTER_MEMBERS_MANUAL_PART_CollisionCircle2D();
     #endif
 }
 
@@ -212,8 +212,8 @@ void CollectMembers_CollisionEdge2D(MemberCollection& members)
     // static void CollisionEdge2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CollisionEdge2D
-        REGISTER_MEMBER_MANUAL_PART_CollisionEdge2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CollisionEdge2D
+        REGISTER_MEMBERS_MANUAL_PART_CollisionEdge2D();
     #endif
 }
 
@@ -263,8 +263,8 @@ void CollectMembers_CollisionPolygon2D(MemberCollection& members)
     // static void CollisionPolygon2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CollisionPolygon2D
-        REGISTER_MEMBER_MANUAL_PART_CollisionPolygon2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CollisionPolygon2D
+        REGISTER_MEMBERS_MANUAL_PART_CollisionPolygon2D();
     #endif
 }
 
@@ -321,8 +321,8 @@ void CollectMembers_CollisionShape2D(MemberCollection& members)
     // static void CollisionShape2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_CollisionShape2D
-        REGISTER_MEMBER_MANUAL_PART_CollisionShape2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_CollisionShape2D
+        REGISTER_MEMBERS_MANUAL_PART_CollisionShape2D();
     #endif
 }
 
@@ -359,8 +359,8 @@ void CollectMembers_Constraint2D(MemberCollection& members)
     // static void Constraint2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Constraint2D
-        REGISTER_MEMBER_MANUAL_PART_Constraint2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Constraint2D
+        REGISTER_MEMBERS_MANUAL_PART_Constraint2D();
     #endif
 }
 
@@ -395,8 +395,8 @@ void CollectMembers_ConstraintDistance2D(MemberCollection& members)
     // static void ConstraintDistance2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintDistance2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintDistance2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintDistance2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintDistance2D();
     #endif
 }
 
@@ -423,8 +423,8 @@ void CollectMembers_ConstraintFriction2D(MemberCollection& members)
     // static void ConstraintFriction2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintFriction2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintFriction2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintFriction2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintFriction2D();
     #endif
 }
 
@@ -451,8 +451,8 @@ void CollectMembers_ConstraintGear2D(MemberCollection& members)
     // static void ConstraintGear2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintGear2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintGear2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintGear2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintGear2D();
     #endif
 }
 
@@ -487,8 +487,8 @@ void CollectMembers_ConstraintMotor2D(MemberCollection& members)
     // static void ConstraintMotor2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintMotor2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintMotor2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintMotor2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintMotor2D();
     #endif
 }
 
@@ -519,8 +519,8 @@ void CollectMembers_ConstraintMouse2D(MemberCollection& members)
     // static void ConstraintMouse2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintMouse2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintMouse2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintMouse2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintMouse2D();
     #endif
 }
 
@@ -567,8 +567,8 @@ void CollectMembers_ConstraintPrismatic2D(MemberCollection& members)
     // static void ConstraintPrismatic2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintPrismatic2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintPrismatic2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintPrismatic2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintPrismatic2D();
     #endif
 }
 
@@ -603,8 +603,8 @@ void CollectMembers_ConstraintPulley2D(MemberCollection& members)
     // static void ConstraintPulley2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintPulley2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintPulley2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintPulley2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintPulley2D();
     #endif
 }
 
@@ -647,8 +647,8 @@ void CollectMembers_ConstraintRevolute2D(MemberCollection& members)
     // static void ConstraintRevolute2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintRevolute2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintRevolute2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintRevolute2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintRevolute2D();
     #endif
 }
 
@@ -675,8 +675,8 @@ void CollectMembers_ConstraintRope2D(MemberCollection& members)
     // static void ConstraintRope2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintRope2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintRope2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintRope2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintRope2D();
     #endif
 }
 
@@ -703,8 +703,8 @@ void CollectMembers_ConstraintWeld2D(MemberCollection& members)
     // static void ConstraintWeld2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintWeld2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintWeld2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintWeld2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintWeld2D();
     #endif
 }
 
@@ -747,8 +747,8 @@ void CollectMembers_ConstraintWheel2D(MemberCollection& members)
     // static void ConstraintWheel2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ConstraintWheel2D
-        REGISTER_MEMBER_MANUAL_PART_ConstraintWheel2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ConstraintWheel2D
+        REGISTER_MEMBERS_MANUAL_PART_ConstraintWheel2D();
     #endif
 }
 
@@ -763,8 +763,8 @@ void CollectMembers_DelayedWorldTransform2D(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("Vector3 DelayedWorldTransform2D::worldPosition_", "Vector3 worldPosition", offsetof(DelayedWorldTransform2D, worldPosition_)));
     members.fields_.Push(RegisterObjectPropertyArgs("Quaternion DelayedWorldTransform2D::worldRotation_", "Quaternion worldRotation", offsetof(DelayedWorldTransform2D, worldRotation_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_DelayedWorldTransform2D
-        REGISTER_MEMBER_MANUAL_PART_DelayedWorldTransform2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_DelayedWorldTransform2D
+        REGISTER_MEMBERS_MANUAL_PART_DelayedWorldTransform2D();
     #endif
 }
 
@@ -793,8 +793,8 @@ void CollectMembers_Drawable2D(MemberCollection& members)
     // static void Drawable2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Drawable2D
-        REGISTER_MEMBER_MANUAL_PART_Drawable2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Drawable2D
+        REGISTER_MEMBERS_MANUAL_PART_Drawable2D();
     #endif
 }
 
@@ -818,8 +818,8 @@ void CollectMembers_Particle2D(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("float Particle2D::emitRotation_", "float emitRotation", offsetof(Particle2D, emitRotation_)));
     members.fields_.Push(RegisterObjectPropertyArgs("float Particle2D::emitRotationDelta_", "float emitRotationDelta", offsetof(Particle2D, emitRotationDelta_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Particle2D
-        REGISTER_MEMBER_MANUAL_PART_Particle2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Particle2D
+        REGISTER_MEMBERS_MANUAL_PART_Particle2D();
     #endif
 }
 
@@ -921,8 +921,8 @@ void CollectMembers_ParticleEffect2D(MemberCollection& members)
     // static void ParticleEffect2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ParticleEffect2D
-        REGISTER_MEMBER_MANUAL_PART_ParticleEffect2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ParticleEffect2D
+        REGISTER_MEMBERS_MANUAL_PART_ParticleEffect2D();
     #endif
 }
 
@@ -963,8 +963,8 @@ void CollectMembers_ParticleEmitter2D(MemberCollection& members)
     // static void ParticleEmitter2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ParticleEmitter2D
-        REGISTER_MEMBER_MANUAL_PART_ParticleEmitter2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ParticleEmitter2D
+        REGISTER_MEMBERS_MANUAL_PART_ParticleEmitter2D();
     #endif
 }
 
@@ -981,8 +981,8 @@ void CollectMembers_PhysicsRaycastResult2D(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("Vector2 PhysicsRaycastResult2D::normal_", "Vector2 normal", offsetof(PhysicsRaycastResult2D, normal_)));
     members.fields_.Push(RegisterObjectPropertyArgs("float PhysicsRaycastResult2D::distance_", "float distance", offsetof(PhysicsRaycastResult2D, distance_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_PhysicsRaycastResult2D
-        REGISTER_MEMBER_MANUAL_PART_PhysicsRaycastResult2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_PhysicsRaycastResult2D
+        REGISTER_MEMBERS_MANUAL_PART_PhysicsRaycastResult2D();
     #endif
 }
 
@@ -1093,8 +1093,8 @@ void CollectMembers_PhysicsWorld2D(MemberCollection& members)
     // static void PhysicsWorld2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_PhysicsWorld2D
-        REGISTER_MEMBER_MANUAL_PART_PhysicsWorld2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_PhysicsWorld2D
+        REGISTER_MEMBERS_MANUAL_PART_PhysicsWorld2D();
     #endif
 }
 
@@ -1107,8 +1107,8 @@ void CollectMembers_PropertySet2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool PropertySet2D::HasProperty(const String& name) const", "bool HasProperty(const String&in) const", AS_METHODPR(PropertySet2D, HasProperty, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& PropertySet2D::GetProperty(const String& name) const", "const String& GetProperty(const String&in) const", AS_METHODPR(PropertySet2D, GetProperty, (const String&) const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_PropertySet2D
-        REGISTER_MEMBER_MANUAL_PART_PropertySet2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_PropertySet2D
+        REGISTER_MEMBERS_MANUAL_PART_PropertySet2D();
     #endif
 }
 
@@ -1138,8 +1138,8 @@ void CollectMembers_Renderer2D(MemberCollection& members)
     // static void Renderer2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Renderer2D
-        REGISTER_MEMBER_MANUAL_PART_Renderer2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Renderer2D
+        REGISTER_MEMBERS_MANUAL_PART_Renderer2D();
     #endif
 }
 
@@ -1228,8 +1228,8 @@ void CollectMembers_RigidBody2D(MemberCollection& members)
     // static void RigidBody2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_RigidBody2D
-        REGISTER_MEMBER_MANUAL_PART_RigidBody2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_RigidBody2D
+        REGISTER_MEMBERS_MANUAL_PART_RigidBody2D();
     #endif
 }
 
@@ -1246,8 +1246,8 @@ void CollectMembers_SourceBatch2D(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("float SourceBatch2D::distance_", "float distance", offsetof(SourceBatch2D, distance_)));
     members.fields_.Push(RegisterObjectPropertyArgs("int SourceBatch2D::drawOrder_", "int drawOrder", offsetof(SourceBatch2D, drawOrder_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SourceBatch2D
-        REGISTER_MEMBER_MANUAL_PART_SourceBatch2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SourceBatch2D
+        REGISTER_MEMBERS_MANUAL_PART_SourceBatch2D();
     #endif
 }
 
@@ -1293,8 +1293,8 @@ void CollectMembers_Sprite2D(MemberCollection& members)
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static ResourceRef Sprite2D::SaveToResourceRef(Sprite2D* sprite)", "ResourceRef SaveToResourceRef(Sprite2D@+)", AS_FUNCTIONPR(Sprite2D::SaveToResourceRef, (Sprite2D*), ResourceRef), AS_CALL_CDECL));
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static Sprite2D* Sprite2D::LoadFromResourceRef(Object* object, const ResourceRef& value)", "Sprite2D@+ LoadFromResourceRef(Object@+, const ResourceRef&in)", AS_FUNCTIONPR(Sprite2D::LoadFromResourceRef, (Object*, const ResourceRef&), Sprite2D*), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Sprite2D
-        REGISTER_MEMBER_MANUAL_PART_Sprite2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Sprite2D
+        REGISTER_MEMBERS_MANUAL_PART_Sprite2D();
     #endif
 }
 
@@ -1321,8 +1321,8 @@ void CollectMembers_SpriteSheet2D(MemberCollection& members)
     // static void SpriteSheet2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SpriteSheet2D
-        REGISTER_MEMBER_MANUAL_PART_SpriteSheet2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SpriteSheet2D
+        REGISTER_MEMBERS_MANUAL_PART_SpriteSheet2D();
     #endif
 }
 
@@ -1398,8 +1398,8 @@ void CollectMembers_StaticSprite2D(MemberCollection& members)
     // static void StaticSprite2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_StaticSprite2D
-        REGISTER_MEMBER_MANUAL_PART_StaticSprite2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_StaticSprite2D
+        REGISTER_MEMBERS_MANUAL_PART_StaticSprite2D();
     #endif
 }
 
@@ -1418,8 +1418,8 @@ void CollectMembers_StretchableSprite2D(MemberCollection& members)
     // static void StretchableSprite2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_StretchableSprite2D
-        REGISTER_MEMBER_MANUAL_PART_StretchableSprite2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_StretchableSprite2D
+        REGISTER_MEMBERS_MANUAL_PART_StretchableSprite2D();
     #endif
 }
 
@@ -1441,8 +1441,8 @@ void CollectMembers_Tile2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Tile2D::HasProperty(const String& name) const", "bool HasProperty(const String&in) const", AS_METHODPR(Tile2D, HasProperty, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& Tile2D::GetProperty(const String& name) const", "const String& GetProperty(const String&in) const", AS_METHODPR(Tile2D, GetProperty, (const String&) const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Tile2D
-        REGISTER_MEMBER_MANUAL_PART_Tile2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Tile2D
+        REGISTER_MEMBERS_MANUAL_PART_Tile2D();
     #endif
 }
 
@@ -1486,8 +1486,8 @@ void CollectMembers_TileMap2D(MemberCollection& members)
     // static void TileMap2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TileMap2D
-        REGISTER_MEMBER_MANUAL_PART_TileMap2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TileMap2D
+        REGISTER_MEMBERS_MANUAL_PART_TileMap2D();
     #endif
 }
 
@@ -1508,8 +1508,8 @@ void CollectMembers_TileMapInfo2D(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("float TileMapInfo2D::tileWidth_", "float tileWidth", offsetof(TileMapInfo2D, tileWidth_)));
     members.fields_.Push(RegisterObjectPropertyArgs("float TileMapInfo2D::tileHeight_", "float tileHeight", offsetof(TileMapInfo2D, tileHeight_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TileMapInfo2D
-        REGISTER_MEMBER_MANUAL_PART_TileMapInfo2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TileMapInfo2D
+        REGISTER_MEMBERS_MANUAL_PART_TileMapInfo2D();
     #endif
 }
 
@@ -1554,8 +1554,8 @@ void CollectMembers_TileMapLayer2D(MemberCollection& members)
     // static void TileMapLayer2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TileMapLayer2D
-        REGISTER_MEMBER_MANUAL_PART_TileMapLayer2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TileMapLayer2D
+        REGISTER_MEMBERS_MANUAL_PART_TileMapLayer2D();
     #endif
 }
 
@@ -1590,8 +1590,8 @@ void CollectMembers_TileMapObject2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool TileMapObject2D::HasProperty(const String& name) const", "bool HasProperty(const String&in) const", AS_METHODPR(TileMapObject2D, HasProperty, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& TileMapObject2D::GetProperty(const String& name) const", "const String& GetProperty(const String&in) const", AS_METHODPR(TileMapObject2D, GetProperty, (const String&) const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TileMapObject2D
-        REGISTER_MEMBER_MANUAL_PART_TileMapObject2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TileMapObject2D
+        REGISTER_MEMBERS_MANUAL_PART_TileMapObject2D();
     #endif
 }
 
@@ -1635,8 +1635,8 @@ void CollectMembers_TmxFile2D(MemberCollection& members)
     // static void TmxFile2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TmxFile2D
-        REGISTER_MEMBER_MANUAL_PART_TmxFile2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TmxFile2D
+        REGISTER_MEMBERS_MANUAL_PART_TmxFile2D();
     #endif
 }
 
@@ -1650,8 +1650,8 @@ void CollectMembers_TmxImageLayer2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("const String& TmxImageLayer2D::GetSource() const", "const String& GetSource() const", AS_METHODPR(TmxImageLayer2D, GetSource, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Sprite2D* TmxImageLayer2D::GetSprite() const", "Sprite2D@+ GetSprite() const", AS_METHODPR(TmxImageLayer2D, GetSprite, () const, Sprite2D*), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TmxImageLayer2D
-        REGISTER_MEMBER_MANUAL_PART_TmxImageLayer2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TmxImageLayer2D
+        REGISTER_MEMBERS_MANUAL_PART_TmxImageLayer2D();
     #endif
 }
 
@@ -1669,8 +1669,8 @@ void CollectMembers_TmxLayer2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool TmxLayer2D::HasProperty(const String& name) const", "bool HasProperty(const String&in) const", AS_METHODPR(TmxLayer2D, HasProperty, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& TmxLayer2D::GetProperty(const String& name) const", "const String& GetProperty(const String&in) const", AS_METHODPR(TmxLayer2D, GetProperty, (const String&) const, const String&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TmxLayer2D
-        REGISTER_MEMBER_MANUAL_PART_TmxLayer2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TmxLayer2D
+        REGISTER_MEMBERS_MANUAL_PART_TmxLayer2D();
     #endif
 }
 
@@ -1686,8 +1686,8 @@ void CollectMembers_TmxObjectGroup2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("unsigned TmxObjectGroup2D::GetNumObjects() const", "uint GetNumObjects() const", AS_METHODPR(TmxObjectGroup2D, GetNumObjects, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("TileMapObject2D* TmxObjectGroup2D::GetObject(unsigned index) const", "TileMapObject2D@+ GetObject(uint) const", AS_METHODPR(TmxObjectGroup2D, GetObject, (unsigned) const, TileMapObject2D*), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TmxObjectGroup2D
-        REGISTER_MEMBER_MANUAL_PART_TmxObjectGroup2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TmxObjectGroup2D
+        REGISTER_MEMBERS_MANUAL_PART_TmxObjectGroup2D();
     #endif
 }
 
@@ -1699,8 +1699,8 @@ void CollectMembers_TmxTileLayer2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool TmxTileLayer2D::Load(const XMLElement& element, const TileMapInfo2D& info)", "bool Load(const XMLElement&in, const TileMapInfo2D&in)", AS_METHODPR(TmxTileLayer2D, Load, (const XMLElement&, const TileMapInfo2D&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Tile2D* TmxTileLayer2D::GetTile(int x, int y) const", "Tile2D@+ GetTile(int, int) const", AS_METHODPR(TmxTileLayer2D, GetTile, (int, int) const, Tile2D*), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_TmxTileLayer2D
-        REGISTER_MEMBER_MANUAL_PART_TmxTileLayer2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_TmxTileLayer2D
+        REGISTER_MEMBERS_MANUAL_PART_TmxTileLayer2D();
     #endif
 }
 
@@ -1711,8 +1711,8 @@ void CollectMembers_Vertex2D(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned Vertex2D::color_", "uint color", offsetof(Vertex2D, color_)));
     members.fields_.Push(RegisterObjectPropertyArgs("Vector2 Vertex2D::uv_", "Vector2 uv", offsetof(Vertex2D, uv_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Vertex2D
-        REGISTER_MEMBER_MANUAL_PART_Vertex2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Vertex2D
+        REGISTER_MEMBERS_MANUAL_PART_Vertex2D();
     #endif
 }
 
@@ -1736,8 +1736,8 @@ void CollectMembers_ViewBatchInfo2D(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned ViewBatchInfo2D::batchUpdatedFrameNumber_", "uint batchUpdatedFrameNumber", offsetof(ViewBatchInfo2D, batchUpdatedFrameNumber_)));
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned ViewBatchInfo2D::batchCount_", "uint batchCount", offsetof(ViewBatchInfo2D, batchCount_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ViewBatchInfo2D
-        REGISTER_MEMBER_MANUAL_PART_ViewBatchInfo2D();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ViewBatchInfo2D
+        REGISTER_MEMBERS_MANUAL_PART_ViewBatchInfo2D();
     #endif
 }
 

@@ -49,8 +49,8 @@ void CollectMembers_Animatable(MemberCollection& members)
     // static void Animatable::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Animatable
-        REGISTER_MEMBER_MANUAL_PART_Animatable();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Animatable
+        REGISTER_MEMBERS_MANUAL_PART_Animatable();
     #endif
 }
 
@@ -74,8 +74,8 @@ void CollectMembers_AsyncProgress(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::loadedNodes_", "uint loadedNodes", offsetof(AsyncProgress, loadedNodes_)));
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned AsyncProgress::totalNodes_", "uint totalNodes", offsetof(AsyncProgress, totalNodes_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_AsyncProgress
-        REGISTER_MEMBER_MANUAL_PART_AsyncProgress();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_AsyncProgress
+        REGISTER_MEMBERS_MANUAL_PART_AsyncProgress();
     #endif
 }
 
@@ -86,8 +86,8 @@ void CollectMembers_AttributeAnimationInfo(MemberCollection& members)
 
     members.methods_.Push(RegisterObjectMethodArgs("const AttributeInfo& AttributeAnimationInfo::GetAttributeInfo() const", "const AttributeInfo& GetAttributeInfo() const", AS_METHODPR(AttributeAnimationInfo, GetAttributeInfo, () const, const AttributeInfo&), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_AttributeAnimationInfo
-        REGISTER_MEMBER_MANUAL_PART_AttributeAnimationInfo();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_AttributeAnimationInfo
+        REGISTER_MEMBERS_MANUAL_PART_AttributeAnimationInfo();
     #endif
 }
 
@@ -133,8 +133,8 @@ void CollectMembers_Component(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("Component* Component::GetComponent(StringHash type) const", "Component@+ GetComponent(StringHash) const", AS_METHODPR(Component, GetComponent, (StringHash) const, Component*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Component::PrepareNetworkUpdate()", "void PrepareNetworkUpdate()", AS_METHODPR(Component, PrepareNetworkUpdate, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Component
-        REGISTER_MEMBER_MANUAL_PART_Component();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Component
+        REGISTER_MEMBERS_MANUAL_PART_Component();
     #endif
 }
 
@@ -150,8 +150,8 @@ void CollectMembers_ComponentReplicationState(MemberCollection& members)
 
     members.fields_.Push(RegisterObjectPropertyArgs("DirtyBits ComponentReplicationState::dirtyAttributes_", "DirtyBits dirtyAttributes", offsetof(ComponentReplicationState, dirtyAttributes_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ComponentReplicationState
-        REGISTER_MEMBER_MANUAL_PART_ComponentReplicationState();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ComponentReplicationState
+        REGISTER_MEMBERS_MANUAL_PART_ComponentReplicationState();
     #endif
 }
 
@@ -169,8 +169,8 @@ void CollectMembers_DirtyBits(MemberCollection& members)
 
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned char DirtyBits::count_", "uint8 count", offsetof(DirtyBits, count_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_DirtyBits
-        REGISTER_MEMBER_MANUAL_PART_DirtyBits();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_DirtyBits
+        REGISTER_MEMBERS_MANUAL_PART_DirtyBits();
     #endif
 }
 
@@ -181,8 +181,8 @@ void CollectMembers_LogicComponent(MemberCollection& members)
 
     Remove(members.methods_, "virtual void Component::OnSetEnabled()");
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_LogicComponent
-        REGISTER_MEMBER_MANUAL_PART_LogicComponent();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_LogicComponent
+        REGISTER_MEMBERS_MANUAL_PART_LogicComponent();
     #endif
 }
 
@@ -201,8 +201,8 @@ void CollectMembers_NetworkState(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("VariantMap NetworkState::previousVars_", "VariantMap previousVars", offsetof(NetworkState, previousVars_)));
     members.fields_.Push(RegisterObjectPropertyArgs("unsigned long long NetworkState::interceptMask_", "uint64 interceptMask", offsetof(NetworkState, interceptMask_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_NetworkState
-        REGISTER_MEMBER_MANUAL_PART_NetworkState();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_NetworkState
+        REGISTER_MEMBERS_MANUAL_PART_NetworkState();
     #endif
 }
 
@@ -551,8 +551,8 @@ void CollectMembers_Node(MemberCollection& members)
     // static void Node::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Node
-        REGISTER_MEMBER_MANUAL_PART_Node();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Node
+        REGISTER_MEMBERS_MANUAL_PART_Node();
     #endif
 }
 
@@ -570,8 +570,8 @@ void CollectMembers_NodeImpl(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("StringHash NodeImpl::nameHash_", "StringHash nameHash", offsetof(NodeImpl, nameHash_)));
     members.fields_.Push(RegisterObjectPropertyArgs("VectorBuffer NodeImpl::attrBuffer_", "VectorBuffer attrBuffer", offsetof(NodeImpl, attrBuffer_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_NodeImpl
-        REGISTER_MEMBER_MANUAL_PART_NodeImpl();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_NodeImpl
+        REGISTER_MEMBERS_MANUAL_PART_NodeImpl();
     #endif
 }
 
@@ -593,8 +593,8 @@ void CollectMembers_NodeReplicationState(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("float NodeReplicationState::priorityAcc_", "float priorityAcc", offsetof(NodeReplicationState, priorityAcc_)));
     members.fields_.Push(RegisterObjectPropertyArgs("bool NodeReplicationState::markedDirty_", "bool markedDirty", offsetof(NodeReplicationState, markedDirty_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_NodeReplicationState
-        REGISTER_MEMBER_MANUAL_PART_NodeReplicationState();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_NodeReplicationState
+        REGISTER_MEMBERS_MANUAL_PART_NodeReplicationState();
     #endif
 }
 
@@ -629,8 +629,8 @@ void CollectMembers_ObjectAnimation(MemberCollection& members)
     // static void ObjectAnimation::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ObjectAnimation
-        REGISTER_MEMBER_MANUAL_PART_ObjectAnimation();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ObjectAnimation
+        REGISTER_MEMBERS_MANUAL_PART_ObjectAnimation();
     #endif
 }
 
@@ -640,8 +640,8 @@ void CollectMembers_ReplicationState(MemberCollection& members)
     // Connection* ReplicationState::connection_
     // Not registered because pointer
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ReplicationState
-        REGISTER_MEMBER_MANUAL_PART_ReplicationState();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ReplicationState
+        REGISTER_MEMBERS_MANUAL_PART_ReplicationState();
     #endif
 }
 
@@ -785,8 +785,8 @@ void CollectMembers_Scene(MemberCollection& members)
 
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static bool Scene::IsReplicatedID(unsigned id)", "bool IsReplicatedID(uint)", AS_FUNCTIONPR(Scene::IsReplicatedID, (unsigned), bool), AS_CALL_CDECL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Scene
-        REGISTER_MEMBER_MANUAL_PART_Scene();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Scene
+        REGISTER_MEMBERS_MANUAL_PART_Scene();
     #endif
 }
 
@@ -802,8 +802,8 @@ void CollectMembers_SceneReplicationState(MemberCollection& members)
     // HashSet<unsigned> SceneReplicationState::dirtyNodes_
     // Error: type "HashSet<unsigned>" can not automatically bind
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SceneReplicationState
-        REGISTER_MEMBER_MANUAL_PART_SceneReplicationState();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SceneReplicationState
+        REGISTER_MEMBERS_MANUAL_PART_SceneReplicationState();
     #endif
 }
 
@@ -815,8 +815,8 @@ void CollectMembers_SceneResolver(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void SceneResolver::AddComponent(unsigned oldID, Component* component)", "void AddComponent(uint, Component@+)", AS_METHODPR(SceneResolver, AddComponent, (unsigned, Component*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void SceneResolver::Resolve()", "void Resolve()", AS_METHODPR(SceneResolver, Resolve, (), void), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SceneResolver
-        REGISTER_MEMBER_MANUAL_PART_SceneResolver();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SceneResolver
+        REGISTER_MEMBERS_MANUAL_PART_SceneResolver();
     #endif
 }
 
@@ -871,8 +871,8 @@ void CollectMembers_Serializable(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Serializable::IsTemporary() const", "bool get_temporary() const", AS_METHODPR(Serializable, IsTemporary, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Serializable::GetInterceptNetworkUpdate(const String& attributeName) const", "bool GetInterceptNetworkUpdate(const String&in) const", AS_METHODPR(Serializable, GetInterceptNetworkUpdate, (const String&) const, bool), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_Serializable
-        REGISTER_MEMBER_MANUAL_PART_Serializable();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_Serializable
+        REGISTER_MEMBERS_MANUAL_PART_Serializable();
     #endif
 }
 
@@ -906,8 +906,8 @@ void CollectMembers_SmoothedTransform(MemberCollection& members)
     // static void SmoothedTransform::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SmoothedTransform
-        REGISTER_MEMBER_MANUAL_PART_SmoothedTransform();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SmoothedTransform
+        REGISTER_MEMBERS_MANUAL_PART_SmoothedTransform();
     #endif
 }
 
@@ -958,8 +958,8 @@ void CollectMembers_SplinePath(MemberCollection& members)
     // static void SplinePath::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_SplinePath
-        REGISTER_MEMBER_MANUAL_PART_SplinePath();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_SplinePath
+        REGISTER_MEMBERS_MANUAL_PART_SplinePath();
     #endif
 }
 
@@ -1016,8 +1016,8 @@ void CollectMembers_UnknownComponent(MemberCollection& members)
     // static const Urho3D::String& UnknownComponent::GetTypeNameStatic()
     // Error: type "const Urho3D::String&" can not automatically bind
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_UnknownComponent
-        REGISTER_MEMBER_MANUAL_PART_UnknownComponent();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_UnknownComponent
+        REGISTER_MEMBERS_MANUAL_PART_UnknownComponent();
     #endif
 }
 
@@ -1028,8 +1028,8 @@ void CollectMembers_VAnimEventFrame(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("StringHash VAnimEventFrame::eventType_", "StringHash eventType", offsetof(VAnimEventFrame, eventType_)));
     members.fields_.Push(RegisterObjectPropertyArgs("VariantMap VAnimEventFrame::eventData_", "VariantMap eventData", offsetof(VAnimEventFrame, eventData_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_VAnimEventFrame
-        REGISTER_MEMBER_MANUAL_PART_VAnimEventFrame();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_VAnimEventFrame
+        REGISTER_MEMBERS_MANUAL_PART_VAnimEventFrame();
     #endif
 }
 
@@ -1039,8 +1039,8 @@ void CollectMembers_VAnimKeyFrame(MemberCollection& members)
     members.fields_.Push(RegisterObjectPropertyArgs("float VAnimKeyFrame::time_", "float time", offsetof(VAnimKeyFrame, time_)));
     members.fields_.Push(RegisterObjectPropertyArgs("Variant VAnimKeyFrame::value_", "Variant value", offsetof(VAnimKeyFrame, value_)));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_VAnimKeyFrame
-        REGISTER_MEMBER_MANUAL_PART_VAnimKeyFrame();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_VAnimKeyFrame
+        REGISTER_MEMBERS_MANUAL_PART_VAnimKeyFrame();
     #endif
 }
 
@@ -1090,8 +1090,8 @@ void CollectMembers_ValueAnimation(MemberCollection& members)
     // static void ValueAnimation::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ValueAnimation
-        REGISTER_MEMBER_MANUAL_PART_ValueAnimation();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ValueAnimation
+        REGISTER_MEMBERS_MANUAL_PART_ValueAnimation();
     #endif
 }
 
@@ -1110,8 +1110,8 @@ void CollectMembers_ValueAnimationInfo(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("float ValueAnimationInfo::GetTime() const", "float GetTime() const", AS_METHODPR(ValueAnimationInfo, GetTime, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float ValueAnimationInfo::GetSpeed() const", "float GetSpeed() const", AS_METHODPR(ValueAnimationInfo, GetSpeed, () const, float), AS_CALL_THISCALL));
 
-    #ifdef REGISTER_MEMBER_MANUAL_PART_ValueAnimationInfo
-        REGISTER_MEMBER_MANUAL_PART_ValueAnimationInfo();
+    #ifdef REGISTER_MEMBERS_MANUAL_PART_ValueAnimationInfo
+        REGISTER_MEMBERS_MANUAL_PART_ValueAnimationInfo();
     #endif
 }
 

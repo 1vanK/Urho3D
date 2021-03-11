@@ -965,8 +965,8 @@ namespace Result
                 file->ofs_ << '\n';
 
             file->ofs_ <<
-                "    #ifdef REGISTER_MEMBER_MANUAL_PART_" << processedClass.name_ << "\n"
-                "        REGISTER_MEMBER_MANUAL_PART_" << processedClass.name_ << "();\n"
+                "    #ifdef REGISTER_MEMBERS_MANUAL_PART_" << processedClass.name_ << "\n"
+                "        REGISTER_MEMBERS_MANUAL_PART_" << processedClass.name_ << "();\n"
                 "    #endif\n";
 
             file->ofs_ << "}\n";
