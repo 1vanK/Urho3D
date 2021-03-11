@@ -50,13 +50,13 @@ void ASRegisterManualLast_UI(asIScriptEngine* engine)
 
 // ========================================================================================
 
-// bool Font::SaveXML(Serializer &dest, int pointSize, bool usedGlyphs=false, const String &indentation="\t") | File: ../UI/Font.h
+// bool Font::SaveXML(Serializer& dest, int pointSize, bool usedGlyphs=false, const String& indentation="\t") | File: ../UI/Font.h
 bool FontSaveXMLVectorBuffer(VectorBuffer& buffer, int pointSize, bool usedGlyphs, const String& indentation, Font* ptr)
 {
     return ptr->SaveXML(buffer, pointSize, usedGlyphs, indentation);
 }
 
-// bool Font::SaveXML(Serializer &dest, int pointSize, bool usedGlyphs=false, const String &indentation="\t") | File: ../UI/Font.h
+// bool Font::SaveXML(Serializer& dest, int pointSize, bool usedGlyphs=false, const String& indentation="\t") | File: ../UI/Font.h
 bool FontSaveXML(const String& fileName, int pointSize, bool usedGlyphs, const String& indentation, Font* ptr)
 {
     if (fileName.Empty())
@@ -66,7 +66,7 @@ bool FontSaveXML(const String& fileName, int pointSize, bool usedGlyphs, const S
     return ptr->SaveXML(file, pointSize, usedGlyphs, indentation);
 }
 
-// bool Font::SaveXML(Serializer &dest, int pointSize, bool usedGlyphs=false, const String &indentation="\t") | File: ../UI/Font.h
+// bool Font::SaveXML(Serializer& dest, int pointSize, bool usedGlyphs=false, const String& indentation="\t") | File: ../UI/Font.h
 bool FontSaveXMLFile(File* file, int pointSize, bool usedGlyphs, const String& indentation, Font* ptr)
 {
     return ptr->SaveXML(*file, pointSize, usedGlyphs, indentation);
@@ -74,7 +74,7 @@ bool FontSaveXMLFile(File* file, int pointSize, bool usedGlyphs, const String& i
 
 // ========================================================================================
 
-// SharedPtr<UIElement> UI::LoadLayout(Deserializer &source, XMLFile *styleFile=nullptr) | File: ../UI/UI.h
+// SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr) | File: ../UI/UI.h
 UIElement* UILoadLayoutFromFile(File* file, UI* ptr)
 {
     if (file)
@@ -88,7 +88,7 @@ UIElement* UILoadLayoutFromFile(File* file, UI* ptr)
         return nullptr;
 }
 
-// SharedPtr<UIElement> UI::LoadLayout(Deserializer &source, XMLFile *styleFile=nullptr) | File: ../UI/UI.h
+// SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr) | File: ../UI/UI.h
 UIElement* UILoadLayoutFromVectorBuffer(VectorBuffer& buffer, UI* ptr)
 {
     SharedPtr<UIElement> root = ptr->LoadLayout(buffer);
@@ -97,7 +97,7 @@ UIElement* UILoadLayoutFromVectorBuffer(VectorBuffer& buffer, UI* ptr)
     return root.Get();
 }
 
-// SharedPtr<UIElement> UI::LoadLayout(Deserializer &source, XMLFile *styleFile=nullptr) | File: ../UI/UI.h
+// SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr) | File: ../UI/UI.h
 UIElement* UILoadLayoutFromFileWithStyle(File* file, XMLFile* styleFile, UI* ptr)
 {
     if (file)
@@ -111,7 +111,7 @@ UIElement* UILoadLayoutFromFileWithStyle(File* file, XMLFile* styleFile, UI* ptr
         return nullptr;
 }
 
-// SharedPtr<UIElement> UI::LoadLayout(Deserializer &source, XMLFile *styleFile=nullptr) | File: ../UI/UI.h
+// SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr) | File: ../UI/UI.h
 UIElement* UILoadLayoutFromVectorBufferWithStyle(VectorBuffer& buffer, XMLFile* styleFile, UI* ptr)
 {
     SharedPtr<UIElement> root = ptr->LoadLayout(buffer, styleFile);
@@ -120,13 +120,13 @@ UIElement* UILoadLayoutFromVectorBufferWithStyle(VectorBuffer& buffer, XMLFile* 
     return root.Get();
 }
 
-// bool UI::SaveLayout(Serializer &dest, UIElement *element) | File: ../UI/UI.h
+// bool UI::SaveLayout(Serializer& dest, UIElement* element) | File: ../UI/UI.h
 bool UISaveLayout(File* file, UIElement* element, UI* ptr)
 {
     return file && ptr->SaveLayout(*file, element);
 }
 
-// bool UI::SaveLayout(Serializer &dest, UIElement *element) | File: ../UI/UI.h
+// bool UI::SaveLayout(Serializer& dest, UIElement* element) | File: ../UI/UI.h
 bool UISaveLayoutVectorBuffer(VectorBuffer& buffer, UIElement* element, UI* ptr)
 {
     return ptr->SaveLayout(buffer, element);
@@ -138,7 +138,7 @@ CScriptArray* UIGetDragElements(UI* ptr)
     return VectorToHandleArray(ptr->GetDragElements(), "const Array<UIElement@>@");
 }
 
-// void UI::SetFocusElement(UIElement *element, bool byKey=false) | File: ../UI/UI.h
+// void UI::SetFocusElement(UIElement* element, bool byKey=false) | File: ../UI/UI.h
 void UISetFocusElement(UIElement* element, UI* ptr)
 {
     ptr->SetFocusElement(element);

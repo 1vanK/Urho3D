@@ -31,9 +31,8 @@ namespace Urho3D
 // const char** AttributeInfo::enumNames_ | File: ../Core/Attribute.h
 CScriptArray* AttributeInfoGetEnumNames(AttributeInfo* ptr);
 
-#define REGISTER_MANUAL_PART_AttributeInfo(T, className) \
-    /* const char** AttributeInfo::enumNames_ | File: ../Core/Attribute.h */ \
-    engine->RegisterObjectMethod(className, "Array<String>@ get_enumNames() const", AS_FUNCTION_OBJLAST(AttributeInfoGetEnumNames), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_AttributeInfo() \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("const char** AttributeInfo::enumNames_", "Array<String>@ get_enumNames() const", AS_FUNCTION_OBJLAST(AttributeInfoGetEnumNames), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
