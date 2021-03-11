@@ -16,6 +16,9 @@ void FakeReleaseRef(void* ptr);
 // class AbstractFile | File: ../IO/AbstractFile.h
 static void Register_AbstractFile(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("AbstractFile", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AbstractFile", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_AbstractFile(members);
     RegisterMembers(engine, "AbstractFile", members);
@@ -1238,6 +1241,9 @@ static void Register_DepthValue(asIScriptEngine* engine)
 // class Deserializer | File: ../IO/Deserializer.h
 static void Register_Deserializer(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("Deserializer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Deserializer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Deserializer(members);
     RegisterMembers(engine, "Deserializer", members);
@@ -3822,6 +3828,9 @@ static void Register_Serializable(asIScriptEngine* engine)
 // class Serializer | File: ../IO/Serializer.h
 static void Register_Serializer(asIScriptEngine* engine)
 {
+    engine->RegisterObjectBehaviour("Serializer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Serializer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+
     MemberCollection members;
     CollectMembers_Serializer(members);
     RegisterMembers(engine, "Serializer", members);
