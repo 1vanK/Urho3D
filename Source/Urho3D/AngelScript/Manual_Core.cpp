@@ -399,19 +399,19 @@ void SetSplineKnot(unsigned index, const Variant& in, Spline* ptr)
 
 // ========================================================================================
 
-// static unsigned GetSystemTime() | File: ../Core/Timer.h
+// static unsigned Time::GetSystemTime() | File: ../Core/Timer.h
 unsigned TimeGetSystemTime(Time* time)
 {
     return Time::GetSystemTime();
 }
 
-// static unsigned GetTimeSinceEpoch() | File: ../Core/Timer.h
+// static unsigned Time::GetTimeSinceEpoch() | File: ../Core/Timer.h
 unsigned TimeGetTimeSinceEpoch(Time* time)
 {
     return Time::GetTimeSinceEpoch();
 }
 
-// static String GetTimeStamp() | File: ../Core/Timer.h
+// static String Time::GetTimeStamp() | File: ../Core/Timer.h
 String TimeGetTimeStamp(Time* time)
 {
     return Time::GetTimeStamp();
