@@ -90,6 +90,22 @@ CScriptArray* NavigationMesh_FindPath(const Vector3& start, const Vector3& end, 
 
 // ========================================================================================
 
+// PODVector<unsigned char> DynamicNavigationMesh::GetTileData(const IntVector2& tile) const override | File: ../Navigation/DynamicNavigationMesh.h
+VectorBuffer DynamicNavigationMesh_GetTileData(const IntVector2& tile, const DynamicNavigationMesh* ptr)
+{
+    VectorBuffer buffer;
+    buffer.SetData(ptr->GetTileData(tile));
+    return buffer;
+}
+
+// bool DynamicNavigationMesh::AddTile(const PODVector<unsigned char>& tileData) override | File: ../Navigation/DynamicNavigationMesh.h
+bool DynamicNavigationMesh_AddTile(const VectorBuffer& tileData, DynamicNavigationMesh* ptr)
+{
+    return ptr->AddTile(tileData.GetBuffer());
+}
+
+// ========================================================================================
+
 // Vector3 CrowdManager::GetRandomPoint(int queryFilterType, dtPolyRef* randomRef = nullptr) | File: ../Navigation/CrowdManager.h
 Vector3 CrowdManager_GetRandomPoint(int queryFilterType, CrowdManager* crowdManager)
 {

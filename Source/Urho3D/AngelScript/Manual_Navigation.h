@@ -24,9 +24,10 @@
 
 #ifdef URHO3D_NAVIGATION
 
-#include "../Navigation/NavigationMesh.h"
 #include "../Navigation/CrowdAgent.h"
 #include "../Navigation/CrowdManager.h"
+#include "../Navigation/DynamicNavigationMesh.h"
+#include "../Navigation/NavigationMesh.h"
 
 namespace Urho3D
 {
@@ -68,6 +69,18 @@ CScriptArray* NavigationMesh_FindPath(const Vector3& start, const Vector3& end, 
     members.methods_.Push(RegisterObjectMethodArgs("Vector3 NavigationMesh::Raycast(const Vector3& start, const Vector3& end, const Vector3& extents = Vector3::ONE, const dtQueryFilter* filter = nullptr, Vector3* hitNormal = nullptr)", "Vector3 Raycast(const Vector3&in, const Vector3&in, const Vector3&in = Vector3::ONE)", AS_FUNCTION_OBJLAST(NavigationMesh_Raycast), AS_CALL_CDECL_OBJLAST)); \
     members.methods_.Push(RegisterObjectMethodArgs("Vector3 NavigationMesh::MoveAlongSurface(const Vector3& start, const Vector3& end, const Vector3& extents = Vector3::ONE, int maxVisited = 3, const dtQueryFilter* filter = nullptr)", "Vector3 MoveAlongSurface(const Vector3&in, const Vector3&in, const Vector3&in = Vector3::ONE, int = 3)", AS_FUNCTION_OBJLAST(NavigationMesh_MoveAlongSurface), AS_CALL_CDECL_OBJLAST)); \
     members.methods_.Push(RegisterObjectMethodArgs("void NavigationMesh::FindPath(PODVector<Vector3>& dest, const Vector3& start, const Vector3& end, const Vector3& extents = Vector3::ONE, const dtQueryFilter* filter = nullptr)", "Array<Vector3>@ FindPath(const Vector3&in, const Vector3&in, const Vector3&in extents = Vector3::ONE)", AS_FUNCTION_OBJLAST(NavigationMesh_FindPath), AS_CALL_CDECL_OBJLAST));
+
+// ========================================================================================
+
+// PODVector<unsigned char> DynamicNavigationMesh::GetTileData(const IntVector2& tile) const override | File: ../Navigation/DynamicNavigationMesh.h
+VectorBuffer DynamicNavigationMesh_GetTileData(const IntVector2& tile, const DynamicNavigationMesh* ptr);
+
+// bool DynamicNavigationMesh::AddTile(const PODVector<unsigned char>& tileData) override | File: ../Navigation/DynamicNavigationMesh.h
+bool DynamicNavigationMesh_AddTile(const VectorBuffer& tileData, DynamicNavigationMesh* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_DynamicNavigationMesh() \
+    members.methods_.Push(RegisterObjectMethodArgs("PODVector<unsigned char> DynamicNavigationMesh::GetTileData(const IntVector2& tile) const override", "VectorBuffer GetTileData(const IntVector2&) const", AS_FUNCTION_OBJLAST(DynamicNavigationMesh_GetTileData), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool DynamicNavigationMesh::AddTile(const PODVector<unsigned char>& tileData) override", "bool AddTile(const VectorBuffer&in) const", AS_FUNCTION_OBJLAST(DynamicNavigationMesh_AddTile), AS_CALL_CDECL_OBJLAST)); \
 
 // ========================================================================================
 
