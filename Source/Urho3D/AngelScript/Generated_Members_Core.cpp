@@ -484,7 +484,7 @@ void CollectMembers_ProfilerBlock(MemberCollection& members)
 void CollectMembers_ResourceRef(MemberCollection& members)
 {
     // bool ResourceRef::operator !=(const ResourceRef& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool ResourceRef::operator ==(const ResourceRef& rhs) const", "bool opEquals(const ResourceRef&in) const", AS_METHODPR(ResourceRef, operator==, (const ResourceRef&) const, bool), AS_CALL_THISCALL));
 
@@ -500,7 +500,7 @@ void CollectMembers_ResourceRef(MemberCollection& members)
 void CollectMembers_ResourceRefList(MemberCollection& members)
 {
     // bool ResourceRefList::operator !=(const ResourceRefList& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool ResourceRefList::operator ==(const ResourceRefList& rhs) const", "bool opEquals(const ResourceRefList&in) const", AS_METHODPR(ResourceRefList, operator==, (const ResourceRefList&) const, bool), AS_CALL_THISCALL));
 
@@ -522,7 +522,7 @@ void CollectMembers_Spline(MemberCollection& members)
     // void Spline::SetKnots(const Vector<Variant>& knots)
     // Error: type "const Vector<Variant>&" can not automatically bind
     // bool Spline::operator !=(const Spline& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Spline& Spline::operator =(const Spline& rhs) = default", "Spline& opAssign(const Spline&in)", AS_METHODPR(Spline, operator=, (const Spline&), Spline&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Spline::operator ==(const Spline& rhs) const", "bool opEquals(const Spline&in) const", AS_METHODPR(Spline, operator==, (const Spline&) const, bool), AS_CALL_THISCALL));
@@ -702,63 +702,63 @@ void CollectMembers_Variant(MemberCollection& members)
     // void Variant::SetCustomVariantValue(const CustomVariantValue& value)
     // Error: type "CustomVariantValue" can not automatically bind bacause have @nobind mark
     // bool Variant::operator !=(RefCounted* rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(bool rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const IntRect& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const IntVector2& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const IntVector3& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const Matrix3& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const Matrix3x4& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const Matrix4& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const PODVector<unsigned char>& rhs) const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
     // bool Variant::operator !=(const Quaternion& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const Rect& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const ResourceRef& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const ResourceRefList& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const String& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const StringHash& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const StringVector& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const Variant& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const VariantMap& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const VariantVector& rhs) const
     // Error: type "const VariantVector&" can not automatically bind
     // bool Variant::operator !=(const Vector2& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const Vector3& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const Vector4& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(const VectorBuffer& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(double rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(float rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(int rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(long long rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(unsigned long long rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(unsigned rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool Variant::operator !=(void* rhs) const
     // Error: type "void*" can not automatically bind
     // Variant& Variant::operator =(const PODVector<unsigned char>& rhs)

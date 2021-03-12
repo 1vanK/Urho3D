@@ -32,7 +32,7 @@ void CollectMembers_BoundingBox(MemberCollection& members)
     // void BoundingBox::Merge(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
     // bool BoundingBox::operator !=(const BoundingBox& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("BoundingBox& BoundingBox::operator =(const BoundingBox& rhs) noexcept", "BoundingBox& opAssign(const BoundingBox&in)", AS_METHODPR(BoundingBox, operator=, (const BoundingBox&), BoundingBox&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("BoundingBox& BoundingBox::operator =(const Rect& rhs) noexcept", "BoundingBox& opAssign(const Rect&in)", AS_METHODPR(BoundingBox, operator=, (const Rect&), BoundingBox&), AS_CALL_THISCALL));
@@ -94,7 +94,7 @@ void CollectMembers_Color(MemberCollection& members)
     // unsigned Color::ToUIntMask(const ChannelMask& mask) const
     // Error: type "const ChannelMask&" can not automatically bind
     // bool Color::operator !=(const Color& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Color& Color::operator =(const Color& rhs) noexcept = default", "Color& opAssign(const Color&in)", AS_METHODPR(Color, operator=, (const Color&), Color&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Color::operator ==(const Color& rhs) const", "bool opEquals(const Color&in) const", AS_METHODPR(Color, operator==, (const Color&) const, bool), AS_CALL_THISCALL));
@@ -204,7 +204,7 @@ void CollectMembers_IntRect(MemberCollection& members)
     // const int* IntRect::Data() const
     // Error: type "const int*" can not automatically bind
     // bool IntRect::operator !=(const IntRect& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool IntRect::operator ==(const IntRect& rhs) const", "bool opEquals(const IntRect&in) const", AS_METHODPR(IntRect, operator==, (const IntRect&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator +=(const IntRect& rhs)", "IntRect& opAddAssign(const IntRect&in)", AS_METHODPR(IntRect, operator+=, (const IntRect&), IntRect&), AS_CALL_THISCALL));
@@ -251,7 +251,7 @@ void CollectMembers_IntVector2(MemberCollection& members)
     // const int* IntVector2::Data() const
     // Error: type "const int*" can not automatically bind
     // bool IntVector2::operator !=(const IntVector2& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator =(const IntVector2& rhs) noexcept = default", "IntVector2& opAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool IntVector2::operator ==(const IntVector2& rhs) const", "bool opEquals(const IntVector2&in) const", AS_METHODPR(IntVector2, operator==, (const IntVector2&) const, bool), AS_CALL_THISCALL));
@@ -293,7 +293,7 @@ void CollectMembers_IntVector3(MemberCollection& members)
     // const int* IntVector3::Data() const
     // Error: type "const int*" can not automatically bind
     // bool IntVector3::operator !=(const IntVector3& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator =(const IntVector3& rhs) noexcept = default", "IntVector3& opAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool IntVector3::operator ==(const IntVector3& rhs) const", "bool opEquals(const IntVector3&in) const", AS_METHODPR(IntVector3, operator==, (const IntVector3&) const, bool), AS_CALL_THISCALL));
@@ -338,7 +338,7 @@ void CollectMembers_Matrix2(MemberCollection& members)
     // const float* Matrix2::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Matrix2::operator !=(const Matrix2& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Matrix2& Matrix2::operator =(const Matrix2& rhs) noexcept = default", "Matrix2& opAssign(const Matrix2&in)", AS_METHODPR(Matrix2, operator=, (const Matrix2&), Matrix2&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Matrix2::operator ==(const Matrix2& rhs) const", "bool opEquals(const Matrix2&in) const", AS_METHODPR(Matrix2, operator==, (const Matrix2&) const, bool), AS_CALL_THISCALL));
@@ -380,7 +380,7 @@ void CollectMembers_Matrix3(MemberCollection& members)
     // const float* Matrix3::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Matrix3::operator !=(const Matrix3& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Matrix3& Matrix3::operator =(const Matrix3& rhs) noexcept = default", "Matrix3& opAssign(const Matrix3&in)", AS_METHODPR(Matrix3, operator=, (const Matrix3&), Matrix3&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Matrix3::operator ==(const Matrix3& rhs) const", "bool opEquals(const Matrix3&in) const", AS_METHODPR(Matrix3, operator==, (const Matrix3&) const, bool), AS_CALL_THISCALL));
@@ -431,7 +431,7 @@ void CollectMembers_Matrix3x4(MemberCollection& members)
     // const float* Matrix3x4::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Matrix3x4::operator !=(const Matrix3x4& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4& Matrix3x4::operator =(const Matrix3x4& rhs) noexcept = default", "Matrix3x4& opAssign(const Matrix3x4&in)", AS_METHODPR(Matrix3x4, operator=, (const Matrix3x4&), Matrix3x4&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4& Matrix3x4::operator =(const Matrix3& rhs) noexcept", "Matrix3x4& opAssign(const Matrix3&in)", AS_METHODPR(Matrix3x4, operator=, (const Matrix3&), Matrix3x4&), AS_CALL_THISCALL));
@@ -492,7 +492,7 @@ void CollectMembers_Matrix4(MemberCollection& members)
     // const float* Matrix4::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Matrix4::operator !=(const Matrix4& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Matrix4& Matrix4::operator =(const Matrix4& rhs) noexcept", "Matrix4& opAssign(const Matrix4&in)", AS_METHODPR(Matrix4, operator=, (const Matrix4&), Matrix4&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Matrix4& Matrix4::operator =(const Matrix3& rhs) noexcept", "Matrix4& opAssign(const Matrix3&in)", AS_METHODPR(Matrix4, operator=, (const Matrix3&), Matrix4&), AS_CALL_THISCALL));
@@ -626,7 +626,7 @@ void CollectMembers_Quaternion(MemberCollection& members)
     // const float* Quaternion::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Quaternion::operator !=(const Quaternion& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Quaternion& Quaternion::operator =(const Quaternion& rhs) noexcept", "Quaternion& opAssign(const Quaternion&in)", AS_METHODPR(Quaternion, operator=, (const Quaternion&), Quaternion&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Quaternion& Quaternion::operator +=(const Quaternion& rhs)", "Quaternion& opAddAssign(const Quaternion&in)", AS_METHODPR(Quaternion, operator+=, (const Quaternion&), Quaternion&), AS_CALL_THISCALL));
@@ -697,7 +697,7 @@ void CollectMembers_Ray(MemberCollection& members)
     // bool Ray::InsideGeometry(const void* vertexData, unsigned vertexSize, unsigned vertexStart, unsigned vertexCount) const
     // Error: type "const void*" can not automatically bind
     // bool Ray::operator !=(const Ray& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Ray& Ray::operator =(const Ray& rhs) noexcept = default", "Ray& opAssign(const Ray&in)", AS_METHODPR(Ray, operator=, (const Ray&), Ray&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Ray::operator ==(const Ray& rhs) const", "bool opEquals(const Ray&in) const", AS_METHODPR(Ray, operator==, (const Ray&) const, bool), AS_CALL_THISCALL));
@@ -725,7 +725,7 @@ void CollectMembers_Rect(MemberCollection& members)
     // const float* Rect::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Rect::operator !=(const Rect& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator =(const Rect& rhs) noexcept = default", "Rect& opAssign(const Rect&in)", AS_METHODPR(Rect, operator=, (const Rect&), Rect&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Rect::operator ==(const Rect& rhs) const", "bool opEquals(const Rect&in) const", AS_METHODPR(Rect, operator==, (const Rect&) const, bool), AS_CALL_THISCALL));
@@ -787,7 +787,7 @@ void CollectMembers_Sphere(MemberCollection& members)
     // void Sphere::Merge(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
     // bool Sphere::operator !=(const Sphere& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Sphere& Sphere::operator =(const Sphere& rhs) noexcept = default", "Sphere& opAssign(const Sphere&in)", AS_METHODPR(Sphere, operator=, (const Sphere&), Sphere&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Sphere::operator ==(const Sphere& rhs) const", "bool opEquals(const Sphere&in) const", AS_METHODPR(Sphere, operator==, (const Sphere&) const, bool), AS_CALL_THISCALL));
@@ -824,7 +824,7 @@ void CollectMembers_Sphere(MemberCollection& members)
 void CollectMembers_StringHash(MemberCollection& members)
 {
     // bool StringHash::operator !=(const StringHash& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool StringHash::operator <(const StringHash& rhs) const
     // Registerd as opCmp separately
     // bool StringHash::operator>(const StringHash& rhs) const
@@ -859,7 +859,7 @@ void CollectMembers_Vector2(MemberCollection& members)
     // const float* Vector2::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Vector2::operator !=(const Vector2& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator =(const Vector2& rhs) noexcept = default", "Vector2& opAssign(const Vector2&in)", AS_METHODPR(Vector2, operator=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Vector2::operator ==(const Vector2& rhs) const", "bool opEquals(const Vector2&in) const", AS_METHODPR(Vector2, operator==, (const Vector2&) const, bool), AS_CALL_THISCALL));
@@ -916,7 +916,7 @@ void CollectMembers_Vector3(MemberCollection& members)
     // const float* Vector3::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Vector3::operator !=(const Vector3& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator =(const Vector3& rhs) noexcept = default", "Vector3& opAssign(const Vector3&in)", AS_METHODPR(Vector3, operator=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Vector3::operator ==(const Vector3& rhs) const", "bool opEquals(const Vector3&in) const", AS_METHODPR(Vector3, operator==, (const Vector3&) const, bool), AS_CALL_THISCALL));
@@ -983,7 +983,7 @@ void CollectMembers_Vector4(MemberCollection& members)
     // const float* Vector4::Data() const
     // Error: type "const float*" can not automatically bind
     // bool Vector4::operator !=(const Vector4& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator =(const Vector4& rhs) noexcept = default", "Vector4& opAssign(const Vector4&in)", AS_METHODPR(Vector4, operator=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Vector4::operator ==(const Vector4& rhs) const", "bool opEquals(const Vector4&in) const", AS_METHODPR(Vector4, operator==, (const Vector4&) const, bool), AS_CALL_THISCALL));

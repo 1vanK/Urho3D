@@ -279,7 +279,7 @@ void CollectMembers_ManifoldPair(MemberCollection& members)
 void CollectMembers_PhysicsRaycastResult(MemberCollection& members)
 {
     // bool PhysicsRaycastResult::operator !=(const PhysicsRaycastResult& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     // RigidBody* PhysicsRaycastResult::body_
     // Not registered because pointer

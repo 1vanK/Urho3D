@@ -495,7 +495,7 @@ void CollectMembers_BatchGroup(MemberCollection& members)
 void CollectMembers_BatchGroupKey(MemberCollection& members)
 {
     // bool BatchGroupKey::operator !=(const BatchGroupKey& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool BatchGroupKey::operator ==(const BatchGroupKey& rhs) const", "bool opEquals(const BatchGroupKey&in) const", AS_METHODPR(BatchGroupKey, operator==, (const BatchGroupKey&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned BatchGroupKey::ToHash() const", "uint ToHash() const", AS_METHODPR(BatchGroupKey, ToHash, () const, unsigned), AS_CALL_THISCALL));
@@ -2441,7 +2441,7 @@ void CollectMembers_OctreeQuery(MemberCollection& members)
 void CollectMembers_OctreeQueryResult(MemberCollection& members)
 {
     // bool OctreeQueryResult::operator !=(const OctreeQueryResult& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     // Drawable* OctreeQueryResult::drawable_
     // Not registered because pointer
@@ -2882,7 +2882,7 @@ void CollectMembers_RayOctreeQuery(MemberCollection& members)
 void CollectMembers_RayQueryResult(MemberCollection& members)
 {
     // bool RayQueryResult::operator !=(const RayQueryResult& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     // Drawable* RayQueryResult::drawable_
     // Not registered because pointer
@@ -3426,7 +3426,7 @@ void CollectMembers_ScratchBuffer(MemberCollection& members)
 void CollectMembers_ScreenModeParams(MemberCollection& members)
 {
     // bool ScreenModeParams::operator !=(const ScreenModeParams& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool ScreenModeParams::EqualsExceptVSync(const ScreenModeParams& rhs) const", "bool EqualsExceptVSync(const ScreenModeParams&in) const", AS_METHODPR(ScreenModeParams, EqualsExceptVSync, (const ScreenModeParams&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool ScreenModeParams::operator ==(const ScreenModeParams& rhs) const", "bool opEquals(const ScreenModeParams&in) const", AS_METHODPR(ScreenModeParams, operator==, (const ScreenModeParams&) const, bool), AS_CALL_THISCALL));
@@ -4527,7 +4527,7 @@ void CollectMembers_VertexBufferMorph(MemberCollection& members)
 void CollectMembers_VertexElement(MemberCollection& members)
 {
     // bool VertexElement::operator !=(const VertexElement& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool VertexElement::operator ==(const VertexElement& rhs) const", "bool opEquals(const VertexElement&in) const", AS_METHODPR(VertexElement, operator==, (const VertexElement&) const, bool), AS_CALL_THISCALL));
 

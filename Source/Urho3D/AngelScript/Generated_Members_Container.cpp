@@ -57,7 +57,7 @@ void CollectMembers_HashBase(MemberCollection& members)
 void CollectMembers_HashIteratorBase(MemberCollection& members)
 {
     // bool HashIteratorBase::operator !=(const HashIteratorBase& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool HashIteratorBase::operator ==(const HashIteratorBase& rhs) const", "bool opEquals(const HashIteratorBase&in) const", AS_METHODPR(HashIteratorBase, operator==, (const HashIteratorBase&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void HashIteratorBase::GotoNext()", "void GotoNext()", AS_METHODPR(HashIteratorBase, GotoNext, (), void), AS_CALL_THISCALL));
@@ -111,7 +111,7 @@ void CollectMembers_ListBase(MemberCollection& members)
 void CollectMembers_ListIteratorBase(MemberCollection& members)
 {
     // bool ListIteratorBase::operator !=(const ListIteratorBase& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool ListIteratorBase::operator ==(const ListIteratorBase& rhs) const", "bool opEquals(const ListIteratorBase&in) const", AS_METHODPR(ListIteratorBase, operator==, (const ListIteratorBase&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListIteratorBase::GotoNext()", "void GotoNext()", AS_METHODPR(ListIteratorBase, GotoNext, (), void), AS_CALL_THISCALL));
@@ -232,7 +232,7 @@ void CollectMembers_String(MemberCollection& members)
     // void String::SetUTF8FromWChar(const wchar_t* str)
     // Error: type "const wchar_t*" can not automatically bind
     // bool String::operator !=(const String& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
     // bool String::operator !=(const char* rhs) const
     // Error: type "const char*" can not automatically bind
     // String String::operator +(const char* rhs) const

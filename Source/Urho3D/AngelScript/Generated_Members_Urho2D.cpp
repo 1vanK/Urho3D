@@ -972,7 +972,7 @@ void CollectMembers_ParticleEmitter2D(MemberCollection& members)
 void CollectMembers_PhysicsRaycastResult2D(MemberCollection& members)
 {
     // bool PhysicsRaycastResult2D::operator !=(const PhysicsRaycastResult2D& rhs) const
-    // Only operator== is needed
+    // Only operator == is needed
 
     // RigidBody2D* PhysicsRaycastResult2D::body_
     // Not registered because pointer
