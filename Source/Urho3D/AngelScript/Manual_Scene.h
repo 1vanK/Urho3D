@@ -48,52 +48,52 @@ const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* 
     RegisterNamedObjectConstructor<Node>(engine, "Node");
 
 // bool Node::SaveXML(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
-bool NodeSaveXMLFile(File* file, const String& indentation, Node* ptr);
-bool NodeSaveXMLVectorBuffer(VectorBuffer& buffer, const String& indentation, Node* ptr);
+bool Node_SaveXML_File(File* file, const String& indentation, Node* ptr);
+bool Node_SaveXML_VectorBuffer(VectorBuffer& buffer, const String& indentation, Node* ptr);
 
 // bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
-bool NodeSaveJSONFile(File* file, Node* ptr);
-bool NodeSaveJSONVectorBuffer(VectorBuffer& buffer, Node* ptr);
+bool Node_SaveJSON_File(File* file, Node* ptr);
+bool Node_SaveJSON_VectorBuffer(VectorBuffer& buffer, Node* ptr);
 
 // template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const | File: ../Scene/Node.h
-CScriptArray* NodeGetChildrenWithScript(bool recursive, Node* ptr);
-CScriptArray* NodeGetChildrenWithClassName(const String& className, bool recursive, Node* ptr);
+CScriptArray* Node_GetChildrenWithScript(bool recursive, Node* ptr);
+CScriptArray* Node_GetChildrenWithClassName(const String& className, bool recursive, Node* ptr);
 
 // void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive = false) const | File: ../Scene/Node.h
-CScriptArray* NodeGetComponentsWithType(const String& typeName, bool recursive, Node* ptr);
+CScriptArray* Node_GetComponents_Type(const String& typeName, bool recursive, Node* ptr);
 
 // unsigned Node::GetNumChildren(bool recursive = false) const | File: ../Scene/Node.h
-unsigned NodeGetNumChildrenNonRecursive(Node* ptr);
-unsigned NodeGetNumChildrenRecursive(Node* ptr);
+unsigned Node_GetNumChildren_NonRecursive(Node* ptr);
+unsigned Node_GetNumChildren_Recursive(Node* ptr);
 
 // Node* Node::GetChild(unsigned index) const | File: ../Scene/Node.h
-Node* NodeGetChild(unsigned index, Node* ptr);
+Node* Node_GetChild(unsigned index, Node* ptr);
 
 // Node* Node::GetChild(const String& name, bool recursive = false) const | File: ../Scene/Node.h
-Node* NodeGetChildByName(const String& name, Node* ptr);
-Node* NodeGetChildByNameRecursive(const String& name, Node* ptr);
+Node* Node_GetChild_Name_NonRecursive(const String& name, Node* ptr);
+Node* Node_GetChild_Name_Recursive(const String& name, Node* ptr);
 
 // const Vector<SharedPtr<Component>>& Node::GetComponents() const | File: ../Scene/Node.h
-Component* NodeGetComponent(unsigned index, Node* ptr);
+Component* Node_GetComponent(unsigned index, Node* ptr);
 
 // const VariantMap& Node::GetVars() const | File: ../Scene/Node.h
-VariantMap& NodeGetVars(Node* ptr);
+VariantMap& Node_GetVars(Node* ptr);
 
 #define REGISTER_MEMBERS_MANUAL_PART_Node() \
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(File@+, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLFile), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(VectorBuffer&, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLVectorBuffer), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveJSON(File@+)", AS_FUNCTION_OBJLAST(NodeSaveJSONFile), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveJSON(VectorBuffer&)", AS_FUNCTION_OBJLAST(NodeSaveJSONVectorBuffer), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("a159d71d-b9e5-454d-a01b-b5bb5fe78451", "Array<Node@>@ GetChildrenWithScript(bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetChildrenWithScript), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("e38b37f8-1fb6-4fa7-9908-9178f16eefdf", "Array<Node@>@ GetChildrenWithScript(const String&in, bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetChildrenWithClassName), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive = false) const", "Array<Component@>@ GetComponents(const String&in, bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetComponentsWithType), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumChildren(bool recursive = false) const", "uint get_numChildren() const", AS_FUNCTION_OBJLAST(NodeGetNumChildrenNonRecursive), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumChildren(bool recursive = false) const", "uint get_numAllChildren() const", AS_FUNCTION_OBJLAST(NodeGetNumChildrenRecursive), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(unsigned index) const", "Node@+ get_children(uint) const", AS_FUNCTION_OBJLAST(NodeGetChild), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(const String& name, bool recursive = false) const", "Node@+ get_childrenByName(const String&in) const", AS_FUNCTION_OBJLAST(NodeGetChildByName), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(const String& name, bool recursive = false) const", "Node@+ get_allChildrenByName(const String&in) const", AS_FUNCTION_OBJLAST(NodeGetChildByNameRecursive), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("const Vector<SharedPtr<Component>>& Node::GetComponents() const", "Component@+ get_components(uint) const", AS_FUNCTION_OBJLAST(NodeGetComponent), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("const VariantMap& Node::GetVars() const", "VariantMap& get_vars()", AS_FUNCTION_OBJLAST(NodeGetVars), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(File@+, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(Node_SaveXML_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(VectorBuffer&, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(Node_SaveXML_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveJSON(File@+)", AS_FUNCTION_OBJLAST(Node_SaveJSON_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveJSON(VectorBuffer&)", AS_FUNCTION_OBJLAST(Node_SaveJSON_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("a159d71d-b9e5-454d-a01b-b5bb5fe78451", "Array<Node@>@ GetChildrenWithScript(bool recursive = false) const", AS_FUNCTION_OBJLAST(Node_GetChildrenWithScript), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("e38b37f8-1fb6-4fa7-9908-9178f16eefdf", "Array<Node@>@ GetChildrenWithScript(const String&in, bool recursive = false) const", AS_FUNCTION_OBJLAST(Node_GetChildrenWithClassName), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive = false) const", "Array<Component@>@ GetComponents(const String&in, bool recursive = false) const", AS_FUNCTION_OBJLAST(Node_GetComponents_Type), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumChildren(bool recursive = false) const", "uint get_numChildren() const", AS_FUNCTION_OBJLAST(Node_GetNumChildren_NonRecursive), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumChildren(bool recursive = false) const", "uint get_numAllChildren() const", AS_FUNCTION_OBJLAST(Node_GetNumChildren_Recursive), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(unsigned index) const", "Node@+ get_children(uint) const", AS_FUNCTION_OBJLAST(Node_GetChild), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(const String& name, bool recursive = false) const", "Node@+ get_childrenByName(const String&in) const", AS_FUNCTION_OBJLAST(Node_GetChild_Name_NonRecursive), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(const String& name, bool recursive = false) const", "Node@+ get_allChildrenByName(const String&in) const", AS_FUNCTION_OBJLAST(Node_GetChild_Name_Recursive), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("const Vector<SharedPtr<Component>>& Node::GetComponents() const", "Component@+ get_components(uint) const", AS_FUNCTION_OBJLAST(Node_GetComponent), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("const VariantMap& Node::GetVars() const", "VariantMap& get_vars()", AS_FUNCTION_OBJLAST(Node_GetVars), AS_CALL_CDECL_OBJLAST)); \
     /* Workarounds for Connection that used outside URHO3D_NETWORK define */ \
     if (URHO3D_NETWORK_DEFINED) \
     { \
@@ -109,77 +109,61 @@ VariantMap& NodeGetVars(Node* ptr);
 #define REGISTER_CLASS_MANUAL_PART_Scene() \
     RegisterNamedObjectConstructor<Scene>(engine, "Scene");
 
-// bool Scene::LoadXML(Deserializer &source) | File: ../Scene/Scene.h
-bool SceneLoadXML(File* file, Scene* ptr);
-// bool Scene::LoadXML(Deserializer &source) | File: ../Scene/Scene.h
-bool SceneLoadXMLVectorBuffer(VectorBuffer& buffer, Scene* ptr);
-// bool Scene::LoadJSON(Deserializer &source) | File: ../Scene/Scene.h
-bool SceneLoadJSON(File* file, Scene* ptr);
-// bool Scene::LoadJSON(Deserializer &source) | File: ../Scene/Scene.h
-bool SceneLoadJSONVectorBuffer(VectorBuffer& buffer, Scene* ptr);
-// Node* Scene::Instantiate(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiate(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
-// Node* Scene::Instantiate(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateVectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
-// Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateXML(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
-// Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateXMLVectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
-// Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateXMLFile(XMLFile* xml, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
-// Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateJSON(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
-// Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateJSONVectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
-// Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateJSONFile(JSONFile* json, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
-// bool Scene::GetNodesWithTag(PODVector< Node * > &dest, const String &tag) const | File: ../Scene/Scene.h
-CScriptArray* SceneGetNodesWithTag(const String& tag, Scene* ptr);
-// template<class T> T * Node::GetComponent(bool recursive=false) const | File: ../Scene/Node.h
-DebugRenderer* SceneGetDebugRenderer(Scene* ptr);
-// template<class T> T * Node::GetComponent(bool recursive=false) const | File: ../Scene/Node.h
-Octree* SceneGetOctree(Scene* ptr);
+// bool Scene::LoadXML(Deserializer& source) | File: ../Scene/Scene.h
+bool Scene_LoadXML_File(File* file, Scene* ptr);
+bool Scene_LoadXML_VectorBuffer(VectorBuffer& buffer, Scene* ptr);
 
-#define REGISTER_MANUAL_PART_Scene(T, className) \
-    /* bool Scene::LoadXML(Deserializer &source) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "bool LoadXML(File@+)", AS_FUNCTION_OBJLAST(SceneLoadXML), AS_CALL_CDECL_OBJLAST); \
-    /* bool Scene::LoadXML(Deserializer &source) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "bool LoadXML(VectorBuffer&)", AS_FUNCTION_OBJLAST(SceneLoadXMLVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    /* bool Scene::LoadJSON(Deserializer &source) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "bool LoadJSON(File@+)", AS_FUNCTION_OBJLAST(SceneLoadJSON), AS_CALL_CDECL_OBJLAST); \
-    /* bool Scene::LoadJSON(Deserializer &source) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "bool LoadJSON(VectorBuffer&)", AS_FUNCTION_OBJLAST(SceneLoadJSONVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Scene::Instantiate(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ Instantiate(File@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(SceneInstantiate), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Scene::Instantiate(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    /* Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ Instantiate(VectorBuffer&, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(SceneInstantiateVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ InstantiateXML(File@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(SceneInstantiateXML), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ InstantiateXML(VectorBuffer&, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(SceneInstantiateXMLVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ InstantiateXML(XMLFile@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(SceneInstantiateXMLFile), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ InstantiateJSON(File@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(SceneInstantiateJSON), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ InstantiateJSON(VectorBuffer&, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(SceneInstantiateJSONVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ InstantiateJSON(JSONFile@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(SceneInstantiateJSONFile), AS_CALL_CDECL_OBJLAST); \
-    /* bool Scene::GetNodesWithTag(PODVector< Node * > &dest, const String &tag) const | File: ../Scene/Scene.h */ \
-    engine->RegisterObjectMethod(className, "Array<Node@>@ GetNodesWithTag(const String&in) const", AS_FUNCTION_OBJLAST(SceneGetNodesWithTag), AS_CALL_CDECL_OBJLAST); \
-    /* Component* Node::GetComponent(StringHash type, bool recursive=false) const | File: ../Scene/Scene.h */ \
+// bool Scene::LoadJSON(Deserializer& source) | File: ../Scene/Scene.h
+bool Scene_LoadJSON_File(File* file, Scene* ptr);
+bool Scene_LoadJSON_VectorBuffer(VectorBuffer& buffer, Scene* ptr);
+
+// Node* Scene::Instantiate(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_Instantiate_File(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
+Node* Scene_Instantiate_VectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
+
+// Node* Scene::InstantiateXML(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_InstantiateXML_File(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
+Node* Scene_InstantiateXML_VectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
+
+// Node* Scene::InstantiateXML(const XMLElement& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_InstantiateXML_XMLFile(XMLFile* xml, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
+
+// Node* Scene::InstantiateJSON(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_InstantiateJSON_File(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
+Node* Scene_InstantiateJSON_VectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
+
+// Node* Scene::InstantiateJSON(const JSONValue& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)  | File: ../Scene/Scene.h
+Node* Scene_InstantiateJSON_JSONFile(JSONFile* json, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr);
+
+// bool Scene::GetNodesWithTag(PODVector<Node*>& dest, const String& tag) const | File: ../Scene/Scene.h
+CScriptArray* Scene_GetNodesWithTag(const String& tag, Scene* ptr);
+
+// template <class T> T* Scene::GetComponent(bool recursive = false) const | File: ../Scene/Node.h
+DebugRenderer* Scene_GetDebugRenderer(Scene* ptr);
+Octree* Scene_GetOctree(Scene* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_Scene() \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadXML(Deserializer& source)", "bool LoadXML(File@+)", AS_FUNCTION_OBJLAST(Scene_LoadXML_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadXML(Deserializer& source)", "bool LoadXML(VectorBuffer&)", AS_FUNCTION_OBJLAST(Scene_LoadXML_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadJSON(Deserializer& source)", "bool LoadJSON(File@+)", AS_FUNCTION_OBJLAST(Scene_LoadJSON_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadJSON(Deserializer& source)", "bool LoadJSON(VectorBuffer&)", AS_FUNCTION_OBJLAST(Scene_LoadJSON_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::Instantiate(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ Instantiate(File@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(Scene_Instantiate_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::Instantiate(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ Instantiate(VectorBuffer&, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(Scene_Instantiate_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateXML(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateXML(File@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(Scene_InstantiateXML_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateXML(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateXML(VectorBuffer&, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(Scene_InstantiateXML_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateXML(const XMLElement& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateXML(XMLFile@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(Scene_InstantiateXML_XMLFile), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateJSON(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateJSON(File@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(Scene_InstantiateJSON_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateJSON(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateJSON(VectorBuffer&, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(Scene_InstantiateJSON_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateJSON(const JSONValue& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateJSON(JSONFile@+, const Vector3&in, const Quaternion&in, CreateMode mode = REPLICATED)", AS_FUNCTION_OBJLAST(Scene_InstantiateJSON_JSONFile), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::GetNodesWithTag(PODVector<Node*>& dest, const String& tag) const", "Array<Node@>@ GetNodesWithTag(const String&in) const", AS_FUNCTION_OBJLAST(Scene_GetNodesWithTag), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("b110d8f3-ac5a-4543-81c7-afbd4d1d3676", "DebugRenderer@+ get_debugRenderer() const", AS_FUNCTION_OBJLAST(Scene_GetDebugRenderer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("2595b413-601b-4428-845c-d3bdf37a5e50", "Octree@+ get_octree() const", AS_FUNCTION_OBJLAST(Scene_GetOctree), AS_CALL_CDECL_OBJLAST)); \
     /* Workaround Doxygen bug: have no const flag in xml */ \
-    engine->RegisterObjectMethod(className, "Component@+ GetComponent(StringHash, bool = false) const", AS_METHODPR(Scene, GetComponent, (StringHash, bool) const, Component*), AS_CALL_THISCALL); \
-    /* bool Node::SaveXML(XMLElement &dest) const override | File: ../Scene/Scene.h */ \
+    members.methods_.Push(RegisterObjectMethodArgs("Component* Scene::GetComponent(StringHash type, bool recursive = false) const", "Component@+ GetComponent(StringHash, bool = false) const", AS_METHODPR(Scene, GetComponent, (StringHash, bool) const, Component*), AS_CALL_THISCALL)); \
     /* Workaround Doxygen bug: have no const flag in xml */ \
-    engine->RegisterObjectMethod(className, "bool SaveXML(XMLElement&) const", AS_METHODPR(Scene, SaveXML, (XMLElement &) const, bool), AS_CALL_THISCALL); \
-    /* bool Node::SaveJSON(JSONValue &dest) const override | File: ../Scene/Scene.h */\
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::SaveXML(XMLElement& dest) const override", "bool SaveXML(XMLElement&) const", AS_METHODPR(Scene, SaveXML, (XMLElement &) const, bool), AS_CALL_THISCALL)); \
     /* Workaround Doxygen bug: have no const flag in xml */ \
-    engine->RegisterObjectMethod(className, "bool SaveJSON(JSONValue&) const", AS_METHODPR(Scene, SaveJSON, (JSONValue &) const, bool), AS_CALL_THISCALL); \
-    /* template<class T> T * Node::GetComponent(bool recursive=false) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "DebugRenderer@+ get_debugRenderer() const", AS_FUNCTION_OBJLAST(SceneGetDebugRenderer), AS_CALL_CDECL_OBJLAST); \
-    engine->RegisterObjectMethod(className, "Octree@+ get_octree() const", AS_FUNCTION_OBJLAST(SceneGetOctree), AS_CALL_CDECL_OBJLAST);
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::SaveJSON(JSONValue& dest) const override", "bool SaveJSON(JSONValue&) const", AS_METHODPR(Scene, SaveJSON, (JSONValue &) const, bool), AS_CALL_THISCALL));
 
 // ========================================================================================
 

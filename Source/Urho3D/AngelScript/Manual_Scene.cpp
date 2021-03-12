@@ -92,31 +92,31 @@ const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* 
 // ========================================================================================
 
 // bool Node::SaveXML(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
-bool NodeSaveXMLFile(File* file, const String& indentation, Node* ptr)
+bool Node_SaveXML_File(File* file, const String& indentation, Node* ptr)
 {
     return file && ptr->SaveXML(*file, indentation);
 }
 
 // bool Node::SaveXML(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
-bool NodeSaveXMLVectorBuffer(VectorBuffer& buffer, const String& indentation, Node* ptr)
+bool Node_SaveXML_VectorBuffer(VectorBuffer& buffer, const String& indentation, Node* ptr)
 {
     return ptr->SaveXML(buffer, indentation);
 }
 
 // bool Node::SaveJSON(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
-bool NodeSaveJSONFile(File* file, Node* ptr)
+bool Node_SaveJSON_File(File* file, Node* ptr)
 {
     return file && ptr->SaveJSON(*file);
 }
 
 // bool Node::SaveJSON(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
-bool NodeSaveJSONVectorBuffer(VectorBuffer& buffer, Node* ptr)
+bool Node_SaveJSON_VectorBuffer(VectorBuffer& buffer, Node* ptr)
 {
     return ptr->SaveJSON(buffer);
 }
 
 // template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const | File: ../Scene/Node.h
-CScriptArray* NodeGetChildrenWithScript(bool recursive, Node* ptr)
+CScriptArray* Node_GetChildrenWithScript(bool recursive, Node* ptr)
 {
     PODVector<Node*> nodes;
     ptr->GetChildrenWithComponent<ScriptInstance>(nodes, recursive);
@@ -124,7 +124,7 @@ CScriptArray* NodeGetChildrenWithScript(bool recursive, Node* ptr)
 }
 
 // template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const | File: ../Scene/Node.h
-CScriptArray* NodeGetChildrenWithClassName(const String& className, bool recursive, Node* ptr)
+CScriptArray* Node_GetChildrenWithClassName(const String& className, bool recursive, Node* ptr)
 {
     PODVector<Node*> nodes;
     ptr->GetChildrenWithComponent<ScriptInstance>(nodes, recursive);
@@ -149,7 +149,7 @@ CScriptArray* NodeGetChildrenWithClassName(const String& className, bool recursi
 }
 
 // void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive = false) const | File: ../Scene/Node.h
-CScriptArray* NodeGetComponentsWithType(const String& typeName, bool recursive, Node* ptr)
+CScriptArray* Node_GetComponents_Type(const String& typeName, bool recursive, Node* ptr)
 {
     PODVector<Component*> components;
     ptr->GetComponents(components, typeName, recursive);
@@ -157,19 +157,19 @@ CScriptArray* NodeGetComponentsWithType(const String& typeName, bool recursive, 
 }
 
 // unsigned Node::GetNumChildren(bool recursive = false) const | File: ../Scene/Node.h
-unsigned NodeGetNumChildrenNonRecursive(Node* ptr)
+unsigned Node_GetNumChildren_NonRecursive(Node* ptr)
 {
     return ptr->GetNumChildren(false);
 }
 
 // unsigned Node::GetNumChildren(bool recursive = false) const | File: ../Scene/Node.h
-unsigned NodeGetNumChildrenRecursive(Node* ptr)
+unsigned Node_GetNumChildren_Recursive(Node* ptr)
 {
     return ptr->GetNumChildren(true);
 }
 
 // Node* Node::GetChild(unsigned index) const | File: ../Scene/Node.h
-Node* NodeGetChild(unsigned index, Node* ptr)
+Node* Node_GetChild(unsigned index, Node* ptr)
 {
     const Vector<SharedPtr<Node> >& children = ptr->GetChildren();
     if (index >= children.Size())
@@ -182,19 +182,19 @@ Node* NodeGetChild(unsigned index, Node* ptr)
 }
 
 // Node* Node::GetChild(const String& name, bool recursive = false) const | File: ../Scene/Node.h
-Node* NodeGetChildByName(const String& name, Node* ptr)
+Node* Node_GetChild_Name_NonRecursive(const String& name, Node* ptr)
 {
     return ptr->GetChild(name, false);
 }
 
 // Node* Node::GetChild(const String& name, bool recursive = false) const | File: ../Scene/Node.h
-Node* NodeGetChildByNameRecursive(const String& name, Node* ptr)
+Node* Node_GetChild_Name_Recursive(const String& name, Node* ptr)
 {
     return ptr->GetChild(name, true);
 }
 
 // const Vector<SharedPtr<Component>>& Node::GetComponents() const | File: ../Scene/Node.h
-Component* NodeGetComponent(unsigned index, Node* ptr)
+Component* Node_GetComponent(unsigned index, Node* ptr)
 {
     const Vector<SharedPtr<Component> >& components = ptr->GetComponents();
     if (index >= components.Size())
@@ -207,7 +207,7 @@ Component* NodeGetComponent(unsigned index, Node* ptr)
 }
 
 // const VariantMap& Node::GetVars() const | File: ../Scene/Node.h
-VariantMap& NodeGetVars(Node* ptr)
+VariantMap& Node_GetVars(Node* ptr)
 {
     // Assume that the vars will be modified and queue a network update attribute check
     ptr->MarkNetworkUpdate();
@@ -216,94 +216,94 @@ VariantMap& NodeGetVars(Node* ptr)
 
 // ========================================================================================
 
-// bool Scene::LoadXML(Deserializer &source) | File: ../Scene/Scene.h
-bool SceneLoadXML(File* file, Scene* ptr)
+// bool Scene::LoadXML(Deserializer& source) | File: ../Scene/Scene.h
+bool Scene_LoadXML_File(File* file, Scene* ptr)
 {
     return file && ptr->LoadXML(*file);
 }
 
-// bool Scene::LoadXML(Deserializer &source) | File: ../Scene/Scene.h
-bool SceneLoadXMLVectorBuffer(VectorBuffer& buffer, Scene* ptr)
+// bool Scene::LoadXML(Deserializer& source) | File: ../Scene/Scene.h
+bool Scene_LoadXML_VectorBuffer(VectorBuffer& buffer, Scene* ptr)
 {
     return ptr->LoadXML(buffer);
 }
 
-// bool Scene::LoadJSON(Deserializer &source) | File: ../Scene/Scene.h
-bool SceneLoadJSON(File* file, Scene* ptr)
+// bool Scene::LoadJSON(Deserializer& source) | File: ../Scene/Scene.h
+bool Scene_LoadJSON_File(File* file, Scene* ptr)
 {
     return file && ptr->LoadJSON(*file);
 }
 
-// bool Scene::LoadJSON(Deserializer &source) | File: ../Scene/Scene.h
-bool SceneLoadJSONVectorBuffer(VectorBuffer& buffer, Scene* ptr)
+// bool Scene::LoadJSON(Deserializer& source) | File: ../Scene/Scene.h
+bool Scene_LoadJSON_VectorBuffer(VectorBuffer& buffer, Scene* ptr)
 {
     return ptr->LoadJSON(buffer);
 }
 
-// Node* Scene::Instantiate(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiate(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
+// Node* Scene::Instantiate(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_Instantiate_File(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
 {
     return file ? ptr->Instantiate(*file, position, rotation, mode) : nullptr;
 }
 
-// Node* Scene::Instantiate(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateVectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
+// Node* Scene::Instantiate(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_Instantiate_VectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
 {
     return ptr->Instantiate(buffer, position, rotation, mode);
 }
 
-// Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateXML(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
+// Node* Scene::InstantiateXML(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_InstantiateXML_File(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
 {
     return file ? ptr->InstantiateXML(*file, position, rotation, mode) : nullptr;
 }
 
-// Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateXMLVectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
+// Node* Scene::InstantiateXML(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_InstantiateXML_VectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
 {
     return ptr->InstantiateXML(buffer, position, rotation, mode);
 }
 
-// Node* Scene::InstantiateXML(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateXMLFile(XMLFile* xml, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
+// Node* Scene::InstantiateXML(const XMLElement& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_InstantiateXML_XMLFile(XMLFile* xml, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
 {
     return xml ? ptr->InstantiateXML(xml->GetRoot(), position, rotation, mode) : nullptr;
 }
 
-// Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateJSON(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
+// Node* Scene::InstantiateJSON(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_InstantiateJSON_File(File* file, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
 {
     return file ? ptr->InstantiateJSON(*file, position, rotation, mode) : nullptr;
 }
 
-// Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateJSONVectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
+// Node* Scene::InstantiateJSON(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED) | File: ../Scene/Scene.h
+Node* Scene_InstantiateJSON_VectorBuffer(VectorBuffer& buffer, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
 {
     return ptr->InstantiateJSON(buffer, position, rotation, mode);
 }
 
-// Node* Scene::InstantiateJSON(Deserializer &source, const Vector3 &position, const Quaternion &rotation, CreateMode mode=REPLICATED) | File: ../Scene/Scene.h
-Node* SceneInstantiateJSONFile(JSONFile* json, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
+// Node* Scene::InstantiateJSON(const JSONValue& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)  | File: ../Scene/Scene.h
+Node* Scene_InstantiateJSON_JSONFile(JSONFile* json, const Vector3& position, const Quaternion& rotation, CreateMode mode, Scene* ptr)
 {
     return json ? ptr->InstantiateJSON(json->GetRoot(), position, rotation, mode) : nullptr;
 }
 
-// bool Scene::GetNodesWithTag(PODVector< Node * > &dest, const String &tag) const | File: ../Scene/Scene.h
-CScriptArray* SceneGetNodesWithTag(const String& tag, Scene* ptr)
+// bool Scene::GetNodesWithTag(PODVector<Node*>& dest, const String& tag) const | File: ../Scene/Scene.h
+CScriptArray* Scene_GetNodesWithTag(const String& tag, Scene* ptr)
 {
     PODVector<Node*> nodes;
     ptr->GetNodesWithTag(nodes, tag);
     return VectorToHandleArray<Node>(nodes, "Array<Node@>");
 }
 
-// template<class T> T * Node::GetComponent(bool recursive=false) const | File: ../Scene/Node.h
-DebugRenderer* SceneGetDebugRenderer(Scene* ptr)
+// template <class T> T* Scene::GetComponent(bool recursive = false) const | File: ../Scene/Node.h
+DebugRenderer* Scene_GetDebugRenderer(Scene* ptr)
 {
     return ptr->GetComponent<DebugRenderer>();
 }
 
-// template<class T> T * Node::GetComponent(bool recursive=false) const | File: ../Scene/Node.h
-Octree* SceneGetOctree(Scene* ptr)
+// template <class T> T* Scene::GetComponent(bool recursive = false) const | File: ../Scene/Node.h
+Octree* Scene_GetOctree(Scene* ptr)
 {
     return ptr->GetComponent<Octree>();
 }
