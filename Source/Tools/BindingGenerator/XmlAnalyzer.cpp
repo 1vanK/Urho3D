@@ -225,6 +225,8 @@ static string BeautifyDefinition(const string& definition)
     result = ReplaceAll(result, "/ = ", "/=");
     result = ReplaceAll(result, "operator = ", "operator=");
 
+    result = ReplaceAll(result, "operator", "operator ");
+
     while (Contains(result, "  "))
         result = ReplaceAll(result, "  ", " ");
 

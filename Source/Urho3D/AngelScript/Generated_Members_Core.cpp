@@ -305,7 +305,7 @@ void CollectMembers_Mutex(MemberCollection& members)
 // class MutexLock | File: ../Core/Mutex.h
 void CollectMembers_MutexLock(MemberCollection& members)
 {
-    // MutexLock& MutexLock::operator=(const MutexLock& rhs) = delete
+    // MutexLock& MutexLock::operator =(const MutexLock& rhs) = delete
     // Not registered because deleted
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_MutexLock
@@ -483,10 +483,10 @@ void CollectMembers_ProfilerBlock(MemberCollection& members)
 // struct ResourceRef | File: ../Core/Variant.h
 void CollectMembers_ResourceRef(MemberCollection& members)
 {
-    // bool ResourceRef::operator!=(const ResourceRef& rhs) const
+    // bool ResourceRef::operator !=(const ResourceRef& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceRef::operator==(const ResourceRef& rhs) const", "bool opEquals(const ResourceRef&in) const", AS_METHODPR(ResourceRef, operator==, (const ResourceRef&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceRef::operator ==(const ResourceRef& rhs) const", "bool opEquals(const ResourceRef&in) const", AS_METHODPR(ResourceRef, operator==, (const ResourceRef&) const, bool), AS_CALL_THISCALL));
 
     members.fields_.Push(RegisterObjectPropertyArgs("StringHash ResourceRef::type_", "StringHash type", offsetof(ResourceRef, type_)));
     members.fields_.Push(RegisterObjectPropertyArgs("String ResourceRef::name_", "String name", offsetof(ResourceRef, name_)));
@@ -499,10 +499,10 @@ void CollectMembers_ResourceRef(MemberCollection& members)
 // struct ResourceRefList | File: ../Core/Variant.h
 void CollectMembers_ResourceRefList(MemberCollection& members)
 {
-    // bool ResourceRefList::operator!=(const ResourceRefList& rhs) const
+    // bool ResourceRefList::operator !=(const ResourceRefList& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceRefList::operator==(const ResourceRefList& rhs) const", "bool opEquals(const ResourceRefList&in) const", AS_METHODPR(ResourceRefList, operator==, (const ResourceRefList&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceRefList::operator ==(const ResourceRefList& rhs) const", "bool opEquals(const ResourceRefList&in) const", AS_METHODPR(ResourceRefList, operator==, (const ResourceRefList&) const, bool), AS_CALL_THISCALL));
 
     // StringVector ResourceRefList::names_
     // Error: type "StringVector" can not automatically bind
@@ -521,11 +521,11 @@ void CollectMembers_Spline(MemberCollection& members)
     // Error: type "const VariantVector&" can not automatically bind
     // void Spline::SetKnots(const Vector<Variant>& knots)
     // Error: type "const Vector<Variant>&" can not automatically bind
-    // bool Spline::operator!=(const Spline& rhs) const
+    // bool Spline::operator !=(const Spline& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Spline& Spline::operator=(const Spline& rhs) = default", "Spline& opAssign(const Spline&in)", AS_METHODPR(Spline, operator=, (const Spline&), Spline&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Spline::operator==(const Spline& rhs) const", "bool opEquals(const Spline&in) const", AS_METHODPR(Spline, operator==, (const Spline&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Spline& Spline::operator =(const Spline& rhs) = default", "Spline& opAssign(const Spline&in)", AS_METHODPR(Spline, operator=, (const Spline&), Spline&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Spline::operator ==(const Spline& rhs) const", "bool opEquals(const Spline&in) const", AS_METHODPR(Spline, operator==, (const Spline&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("InterpolationMode Spline::GetInterpolationMode() const", "InterpolationMode GetInterpolationMode() const", AS_METHODPR(Spline, GetInterpolationMode, () const, InterpolationMode), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("InterpolationMode Spline::GetInterpolationMode() const", "InterpolationMode get_interpolationMode() const", AS_METHODPR(Spline, GetInterpolationMode, () const, InterpolationMode), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Variant Spline::GetKnot(unsigned index) const", "Variant GetKnot(uint) const", AS_METHODPR(Spline, GetKnot, (unsigned) const, Variant), AS_CALL_THISCALL));
@@ -643,8 +643,8 @@ void CollectMembers_TypeInfo(MemberCollection& members)
     #endif
 }
 
-// Variant& Variant::operator=(const StringVector& rhs)
-// Variant& Variant::operator=(const StringVector& rhs) | File: ../Core/Variant.h
+// Variant& Variant::operator =(const StringVector& rhs)
+// Variant& Variant::operator =(const StringVector& rhs) | File: ../Core/Variant.h
 static Variant& Variant_operatorequals_StringVector(Variant* ptr, CScriptArray* rhs_conv)
 {
     StringVector rhs = ArrayToVector<String>(rhs_conv);
@@ -653,8 +653,8 @@ static Variant& Variant_operatorequals_StringVector(Variant* ptr, CScriptArray* 
 }
 
 
-// bool Variant::operator==(const StringVector& rhs) const
-// bool Variant::operator==(const StringVector& rhs) const | File: ../Core/Variant.h
+// bool Variant::operator ==(const StringVector& rhs) const
+// bool Variant::operator ==(const StringVector& rhs) const | File: ../Core/Variant.h
 static bool Variant_operatorequalsequals_StringVector(Variant* ptr, CScriptArray* rhs_conv)
 {
     StringVector rhs = ArrayToVector<String>(rhs_conv);
@@ -701,138 +701,138 @@ void CollectMembers_Variant(MemberCollection& members)
     // Error: type "const void*" can not automatically bind
     // void Variant::SetCustomVariantValue(const CustomVariantValue& value)
     // Error: type "CustomVariantValue" can not automatically bind bacause have @nobind mark
-    // bool Variant::operator!=(RefCounted* rhs) const
+    // bool Variant::operator !=(RefCounted* rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(bool rhs) const
+    // bool Variant::operator !=(bool rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const IntRect& rhs) const
+    // bool Variant::operator !=(const IntRect& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const IntVector2& rhs) const
+    // bool Variant::operator !=(const IntVector2& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const IntVector3& rhs) const
+    // bool Variant::operator !=(const IntVector3& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const Matrix3& rhs) const
+    // bool Variant::operator !=(const Matrix3& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const Matrix3x4& rhs) const
+    // bool Variant::operator !=(const Matrix3x4& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const Matrix4& rhs) const
+    // bool Variant::operator !=(const Matrix4& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const PODVector<unsigned char>& rhs) const
+    // bool Variant::operator !=(const PODVector<unsigned char>& rhs) const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
-    // bool Variant::operator!=(const Quaternion& rhs) const
+    // bool Variant::operator !=(const Quaternion& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const Rect& rhs) const
+    // bool Variant::operator !=(const Rect& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const ResourceRef& rhs) const
+    // bool Variant::operator !=(const ResourceRef& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const ResourceRefList& rhs) const
+    // bool Variant::operator !=(const ResourceRefList& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const String& rhs) const
+    // bool Variant::operator !=(const String& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const StringHash& rhs) const
+    // bool Variant::operator !=(const StringHash& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const StringVector& rhs) const
+    // bool Variant::operator !=(const StringVector& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const Variant& rhs) const
+    // bool Variant::operator !=(const Variant& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const VariantMap& rhs) const
+    // bool Variant::operator !=(const VariantMap& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const VariantVector& rhs) const
+    // bool Variant::operator !=(const VariantVector& rhs) const
     // Error: type "const VariantVector&" can not automatically bind
-    // bool Variant::operator!=(const Vector2& rhs) const
+    // bool Variant::operator !=(const Vector2& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const Vector3& rhs) const
+    // bool Variant::operator !=(const Vector3& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const Vector4& rhs) const
+    // bool Variant::operator !=(const Vector4& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(const VectorBuffer& rhs) const
+    // bool Variant::operator !=(const VectorBuffer& rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(double rhs) const
+    // bool Variant::operator !=(double rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(float rhs) const
+    // bool Variant::operator !=(float rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(int rhs) const
+    // bool Variant::operator !=(int rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(long long rhs) const
+    // bool Variant::operator !=(long long rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(unsigned long long rhs) const
+    // bool Variant::operator !=(unsigned long long rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(unsigned rhs) const
+    // bool Variant::operator !=(unsigned rhs) const
     // Only operator== is needed
-    // bool Variant::operator!=(void* rhs) const
+    // bool Variant::operator !=(void* rhs) const
     // Error: type "void*" can not automatically bind
-    // Variant& Variant::operator=(const PODVector<unsigned char>& rhs)
+    // Variant& Variant::operator =(const PODVector<unsigned char>& rhs)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
-    // Variant& Variant::operator=(const VariantVector& rhs)
+    // Variant& Variant::operator =(const VariantVector& rhs)
     // Error: type "const VariantVector&" can not automatically bind
-    // Variant& Variant::operator=(const char* rhs)
+    // Variant& Variant::operator =(const char* rhs)
     // Error: type "const char*" can not automatically bind
-    // Variant& Variant::operator=(void* rhs)
+    // Variant& Variant::operator =(void* rhs)
     // Error: type "void*" can not automatically bind
-    // bool Variant::operator==(const PODVector<unsigned char>& rhs) const
+    // bool Variant::operator ==(const PODVector<unsigned char>& rhs) const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
-    // bool Variant::operator==(const VariantVector& rhs) const
+    // bool Variant::operator ==(const VariantVector& rhs) const
     // Error: type "const VariantVector&" can not automatically bind
-    // bool Variant::operator==(void* rhs) const
+    // bool Variant::operator ==(void* rhs) const
     // Error: type "void*" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("void Variant::Clear()", "void Clear()", AS_METHODPR(Variant, Clear, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Variant& rhs)", "Variant& opAssign(const Variant&in)", AS_METHODPR(Variant, operator=, (const Variant&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(int rhs)", "Variant& opAssign(int)", AS_METHODPR(Variant, operator=, (int), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(long long rhs)", "Variant& opAssign(int64)", AS_METHODPR(Variant, operator=, (long long), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(unsigned long long rhs)", "Variant& opAssign(uint64)", AS_METHODPR(Variant, operator=, (unsigned long long), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(unsigned rhs)", "Variant& opAssign(uint)", AS_METHODPR(Variant, operator=, (unsigned), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const StringHash& rhs)", "Variant& opAssign(const StringHash&in)", AS_METHODPR(Variant, operator=, (const StringHash&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(bool rhs)", "Variant& opAssign(bool)", AS_METHODPR(Variant, operator=, (bool), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(float rhs)", "Variant& opAssign(float)", AS_METHODPR(Variant, operator=, (float), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(double rhs)", "Variant& opAssign(double)", AS_METHODPR(Variant, operator=, (double), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Vector2& rhs)", "Variant& opAssign(const Vector2&in)", AS_METHODPR(Variant, operator=, (const Vector2&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Vector3& rhs)", "Variant& opAssign(const Vector3&in)", AS_METHODPR(Variant, operator=, (const Vector3&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Vector4& rhs)", "Variant& opAssign(const Vector4&in)", AS_METHODPR(Variant, operator=, (const Vector4&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Quaternion& rhs)", "Variant& opAssign(const Quaternion&in)", AS_METHODPR(Variant, operator=, (const Quaternion&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Color& rhs)", "Variant& opAssign(const Color&in)", AS_METHODPR(Variant, operator=, (const Color&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const String& rhs)", "Variant& opAssign(const String&in)", AS_METHODPR(Variant, operator=, (const String&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const VectorBuffer& rhs)", "Variant& opAssign(const VectorBuffer&in)", AS_METHODPR(Variant, operator=, (const VectorBuffer&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const ResourceRef& rhs)", "Variant& opAssign(const ResourceRef&in)", AS_METHODPR(Variant, operator=, (const ResourceRef&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const ResourceRefList& rhs)", "Variant& opAssign(const ResourceRefList&in)", AS_METHODPR(Variant, operator=, (const ResourceRefList&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const StringVector& rhs)", "Variant& opAssign(Array<String>@+)", AS_FUNCTION_OBJFIRST(Variant_operatorequals_StringVector), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const VariantMap& rhs)", "Variant& opAssign(const VariantMap&in)", AS_METHODPR(Variant, operator=, (const VariantMap&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Rect& rhs)", "Variant& opAssign(const Rect&in)", AS_METHODPR(Variant, operator=, (const Rect&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const IntRect& rhs)", "Variant& opAssign(const IntRect&in)", AS_METHODPR(Variant, operator=, (const IntRect&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const IntVector2& rhs)", "Variant& opAssign(const IntVector2&in)", AS_METHODPR(Variant, operator=, (const IntVector2&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const IntVector3& rhs)", "Variant& opAssign(const IntVector3&in)", AS_METHODPR(Variant, operator=, (const IntVector3&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(RefCounted* rhs)", "Variant& opAssign(RefCounted@+)", AS_METHODPR(Variant, operator=, (RefCounted*), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Matrix3& rhs)", "Variant& opAssign(const Matrix3&in)", AS_METHODPR(Variant, operator=, (const Matrix3&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Matrix3x4& rhs)", "Variant& opAssign(const Matrix3x4&in)", AS_METHODPR(Variant, operator=, (const Matrix3x4&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator=(const Matrix4& rhs)", "Variant& opAssign(const Matrix4&in)", AS_METHODPR(Variant, operator=, (const Matrix4&), Variant&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Variant& rhs) const", "bool opEquals(const Variant&in) const", AS_METHODPR(Variant, operator==, (const Variant&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(int rhs) const", "bool opEquals(int) const", AS_METHODPR(Variant, operator==, (int) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(unsigned rhs) const", "bool opEquals(uint) const", AS_METHODPR(Variant, operator==, (unsigned) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(long long rhs) const", "bool opEquals(int64) const", AS_METHODPR(Variant, operator==, (long long) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(unsigned long long rhs) const", "bool opEquals(uint64) const", AS_METHODPR(Variant, operator==, (unsigned long long) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(bool rhs) const", "bool opEquals(bool) const", AS_METHODPR(Variant, operator==, (bool) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(float rhs) const", "bool opEquals(float) const", AS_METHODPR(Variant, operator==, (float) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(double rhs) const", "bool opEquals(double) const", AS_METHODPR(Variant, operator==, (double) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Vector2& rhs) const", "bool opEquals(const Vector2&in) const", AS_METHODPR(Variant, operator==, (const Vector2&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Vector3& rhs) const", "bool opEquals(const Vector3&in) const", AS_METHODPR(Variant, operator==, (const Vector3&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Vector4& rhs) const", "bool opEquals(const Vector4&in) const", AS_METHODPR(Variant, operator==, (const Vector4&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Quaternion& rhs) const", "bool opEquals(const Quaternion&in) const", AS_METHODPR(Variant, operator==, (const Quaternion&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Color& rhs) const", "bool opEquals(const Color&in) const", AS_METHODPR(Variant, operator==, (const Color&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const String& rhs) const", "bool opEquals(const String&in) const", AS_METHODPR(Variant, operator==, (const String&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const VectorBuffer& rhs) const", "bool opEquals(const VectorBuffer&in) const", AS_METHODPR(Variant, operator==, (const VectorBuffer&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const ResourceRef& rhs) const", "bool opEquals(const ResourceRef&in) const", AS_METHODPR(Variant, operator==, (const ResourceRef&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const ResourceRefList& rhs) const", "bool opEquals(const ResourceRefList&in) const", AS_METHODPR(Variant, operator==, (const ResourceRefList&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const StringVector& rhs) const", "bool opEquals(Array<String>@+) const", AS_FUNCTION_OBJFIRST(Variant_operatorequalsequals_StringVector), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const VariantMap& rhs) const", "bool opEquals(const VariantMap&in) const", AS_METHODPR(Variant, operator==, (const VariantMap&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Rect& rhs) const", "bool opEquals(const Rect&in) const", AS_METHODPR(Variant, operator==, (const Rect&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const IntRect& rhs) const", "bool opEquals(const IntRect&in) const", AS_METHODPR(Variant, operator==, (const IntRect&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const IntVector2& rhs) const", "bool opEquals(const IntVector2&in) const", AS_METHODPR(Variant, operator==, (const IntVector2&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const IntVector3& rhs) const", "bool opEquals(const IntVector3&in) const", AS_METHODPR(Variant, operator==, (const IntVector3&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const StringHash& rhs) const", "bool opEquals(const StringHash&in) const", AS_METHODPR(Variant, operator==, (const StringHash&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(RefCounted* rhs) const", "bool opEquals(RefCounted@+) const", AS_METHODPR(Variant, operator==, (RefCounted*) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Matrix3& rhs) const", "bool opEquals(const Matrix3&in) const", AS_METHODPR(Variant, operator==, (const Matrix3&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Matrix3x4& rhs) const", "bool opEquals(const Matrix3x4&in) const", AS_METHODPR(Variant, operator==, (const Matrix3x4&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator==(const Matrix4& rhs) const", "bool opEquals(const Matrix4&in) const", AS_METHODPR(Variant, operator==, (const Matrix4&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Variant& rhs)", "Variant& opAssign(const Variant&in)", AS_METHODPR(Variant, operator=, (const Variant&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(int rhs)", "Variant& opAssign(int)", AS_METHODPR(Variant, operator=, (int), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(long long rhs)", "Variant& opAssign(int64)", AS_METHODPR(Variant, operator=, (long long), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(unsigned long long rhs)", "Variant& opAssign(uint64)", AS_METHODPR(Variant, operator=, (unsigned long long), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(unsigned rhs)", "Variant& opAssign(uint)", AS_METHODPR(Variant, operator=, (unsigned), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const StringHash& rhs)", "Variant& opAssign(const StringHash&in)", AS_METHODPR(Variant, operator=, (const StringHash&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(bool rhs)", "Variant& opAssign(bool)", AS_METHODPR(Variant, operator=, (bool), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(float rhs)", "Variant& opAssign(float)", AS_METHODPR(Variant, operator=, (float), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(double rhs)", "Variant& opAssign(double)", AS_METHODPR(Variant, operator=, (double), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Vector2& rhs)", "Variant& opAssign(const Vector2&in)", AS_METHODPR(Variant, operator=, (const Vector2&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Vector3& rhs)", "Variant& opAssign(const Vector3&in)", AS_METHODPR(Variant, operator=, (const Vector3&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Vector4& rhs)", "Variant& opAssign(const Vector4&in)", AS_METHODPR(Variant, operator=, (const Vector4&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Quaternion& rhs)", "Variant& opAssign(const Quaternion&in)", AS_METHODPR(Variant, operator=, (const Quaternion&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Color& rhs)", "Variant& opAssign(const Color&in)", AS_METHODPR(Variant, operator=, (const Color&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const String& rhs)", "Variant& opAssign(const String&in)", AS_METHODPR(Variant, operator=, (const String&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const VectorBuffer& rhs)", "Variant& opAssign(const VectorBuffer&in)", AS_METHODPR(Variant, operator=, (const VectorBuffer&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const ResourceRef& rhs)", "Variant& opAssign(const ResourceRef&in)", AS_METHODPR(Variant, operator=, (const ResourceRef&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const ResourceRefList& rhs)", "Variant& opAssign(const ResourceRefList&in)", AS_METHODPR(Variant, operator=, (const ResourceRefList&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const StringVector& rhs)", "Variant& opAssign(Array<String>@+)", AS_FUNCTION_OBJFIRST(Variant_operatorequals_StringVector), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const VariantMap& rhs)", "Variant& opAssign(const VariantMap&in)", AS_METHODPR(Variant, operator=, (const VariantMap&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Rect& rhs)", "Variant& opAssign(const Rect&in)", AS_METHODPR(Variant, operator=, (const Rect&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const IntRect& rhs)", "Variant& opAssign(const IntRect&in)", AS_METHODPR(Variant, operator=, (const IntRect&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const IntVector2& rhs)", "Variant& opAssign(const IntVector2&in)", AS_METHODPR(Variant, operator=, (const IntVector2&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const IntVector3& rhs)", "Variant& opAssign(const IntVector3&in)", AS_METHODPR(Variant, operator=, (const IntVector3&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(RefCounted* rhs)", "Variant& opAssign(RefCounted@+)", AS_METHODPR(Variant, operator=, (RefCounted*), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Matrix3& rhs)", "Variant& opAssign(const Matrix3&in)", AS_METHODPR(Variant, operator=, (const Matrix3&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Matrix3x4& rhs)", "Variant& opAssign(const Matrix3x4&in)", AS_METHODPR(Variant, operator=, (const Matrix3x4&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Variant& Variant::operator =(const Matrix4& rhs)", "Variant& opAssign(const Matrix4&in)", AS_METHODPR(Variant, operator=, (const Matrix4&), Variant&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Variant& rhs) const", "bool opEquals(const Variant&in) const", AS_METHODPR(Variant, operator==, (const Variant&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(int rhs) const", "bool opEquals(int) const", AS_METHODPR(Variant, operator==, (int) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(unsigned rhs) const", "bool opEquals(uint) const", AS_METHODPR(Variant, operator==, (unsigned) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(long long rhs) const", "bool opEquals(int64) const", AS_METHODPR(Variant, operator==, (long long) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(unsigned long long rhs) const", "bool opEquals(uint64) const", AS_METHODPR(Variant, operator==, (unsigned long long) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(bool rhs) const", "bool opEquals(bool) const", AS_METHODPR(Variant, operator==, (bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(float rhs) const", "bool opEquals(float) const", AS_METHODPR(Variant, operator==, (float) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(double rhs) const", "bool opEquals(double) const", AS_METHODPR(Variant, operator==, (double) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Vector2& rhs) const", "bool opEquals(const Vector2&in) const", AS_METHODPR(Variant, operator==, (const Vector2&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Vector3& rhs) const", "bool opEquals(const Vector3&in) const", AS_METHODPR(Variant, operator==, (const Vector3&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Vector4& rhs) const", "bool opEquals(const Vector4&in) const", AS_METHODPR(Variant, operator==, (const Vector4&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Quaternion& rhs) const", "bool opEquals(const Quaternion&in) const", AS_METHODPR(Variant, operator==, (const Quaternion&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Color& rhs) const", "bool opEquals(const Color&in) const", AS_METHODPR(Variant, operator==, (const Color&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const String& rhs) const", "bool opEquals(const String&in) const", AS_METHODPR(Variant, operator==, (const String&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const VectorBuffer& rhs) const", "bool opEquals(const VectorBuffer&in) const", AS_METHODPR(Variant, operator==, (const VectorBuffer&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const ResourceRef& rhs) const", "bool opEquals(const ResourceRef&in) const", AS_METHODPR(Variant, operator==, (const ResourceRef&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const ResourceRefList& rhs) const", "bool opEquals(const ResourceRefList&in) const", AS_METHODPR(Variant, operator==, (const ResourceRefList&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const StringVector& rhs) const", "bool opEquals(Array<String>@+) const", AS_FUNCTION_OBJFIRST(Variant_operatorequalsequals_StringVector), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const VariantMap& rhs) const", "bool opEquals(const VariantMap&in) const", AS_METHODPR(Variant, operator==, (const VariantMap&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Rect& rhs) const", "bool opEquals(const Rect&in) const", AS_METHODPR(Variant, operator==, (const Rect&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const IntRect& rhs) const", "bool opEquals(const IntRect&in) const", AS_METHODPR(Variant, operator==, (const IntRect&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const IntVector2& rhs) const", "bool opEquals(const IntVector2&in) const", AS_METHODPR(Variant, operator==, (const IntVector2&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const IntVector3& rhs) const", "bool opEquals(const IntVector3&in) const", AS_METHODPR(Variant, operator==, (const IntVector3&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const StringHash& rhs) const", "bool opEquals(const StringHash&in) const", AS_METHODPR(Variant, operator==, (const StringHash&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(RefCounted* rhs) const", "bool opEquals(RefCounted@+) const", AS_METHODPR(Variant, operator==, (RefCounted*) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Matrix3& rhs) const", "bool opEquals(const Matrix3&in) const", AS_METHODPR(Variant, operator==, (const Matrix3&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Matrix3x4& rhs) const", "bool opEquals(const Matrix3x4&in) const", AS_METHODPR(Variant, operator==, (const Matrix3x4&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Variant::operator ==(const Matrix4& rhs) const", "bool opEquals(const Matrix4&in) const", AS_METHODPR(Variant, operator==, (const Matrix4&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Variant::FromString(const String& type, const String& value)", "void FromString(const String&in, const String&in)", AS_METHODPR(Variant, FromString, (const String&, const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Variant::FromString(VariantType type, const String& value)", "void FromString(VariantType, const String&in)", AS_METHODPR(Variant, FromString, (VariantType, const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int Variant::GetInt() const", "int GetInt() const", AS_METHODPR(Variant, GetInt, () const, int), AS_CALL_THISCALL));
@@ -873,7 +873,7 @@ void CollectMembers_Variant(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Variant::IsEmpty() const", "bool get_empty() const", AS_METHODPR(Variant, IsEmpty, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Variant::IsCustom() const", "bool IsCustom() const", AS_METHODPR(Variant, IsCustom, () const, bool), AS_CALL_THISCALL));
 
-    // template <class T> Variant& Variant::operator=(const CustomVariantValueImpl<T>& value)
+    // template <class T> Variant& Variant::operator =(const CustomVariantValueImpl<T>& value)
     // Not registered because template
     // template <class T> void Variant::SetCustom(const T& value)
     // Not registered because template

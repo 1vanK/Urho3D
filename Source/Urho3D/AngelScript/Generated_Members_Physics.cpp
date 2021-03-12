@@ -278,7 +278,7 @@ void CollectMembers_ManifoldPair(MemberCollection& members)
 // struct PhysicsRaycastResult | File: ../Physics/PhysicsWorld.h
 void CollectMembers_PhysicsRaycastResult(MemberCollection& members)
 {
-    // bool PhysicsRaycastResult::operator!=(const PhysicsRaycastResult& rhs) const
+    // bool PhysicsRaycastResult::operator !=(const PhysicsRaycastResult& rhs) const
     // Only operator== is needed
 
     // RigidBody* PhysicsRaycastResult::body_

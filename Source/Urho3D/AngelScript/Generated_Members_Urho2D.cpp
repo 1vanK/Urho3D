@@ -971,7 +971,7 @@ void CollectMembers_ParticleEmitter2D(MemberCollection& members)
 // struct PhysicsRaycastResult2D | File: ../Urho2D/PhysicsWorld2D.h
 void CollectMembers_PhysicsRaycastResult2D(MemberCollection& members)
 {
-    // bool PhysicsRaycastResult2D::operator!=(const PhysicsRaycastResult2D& rhs) const
+    // bool PhysicsRaycastResult2D::operator !=(const PhysicsRaycastResult2D& rhs) const
     // Only operator== is needed
 
     // RigidBody2D* PhysicsRaycastResult2D::body_

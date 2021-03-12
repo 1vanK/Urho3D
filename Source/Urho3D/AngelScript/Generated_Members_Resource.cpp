@@ -261,20 +261,20 @@ void CollectMembers_JSONValue(MemberCollection& members)
     // Error: type "VariantVector" can not automatically bind
     // void JSONValue::SetVariantVector(const VariantVector& variantVector, Context* context = nullptr)
     // Error: type "const VariantVector&" can not automatically bind
-    // JSONValue& JSONValue::operator=(const JSONArray& rhs)
+    // JSONValue& JSONValue::operator =(const JSONArray& rhs)
     // Error: type "const JSONArray&" can not automatically bind
-    // JSONValue& JSONValue::operator=(const JSONObject& rhs)
+    // JSONValue& JSONValue::operator =(const JSONObject& rhs)
     // Error: type "const JSONObject&" can not automatically bind
-    // JSONValue& JSONValue::operator=(const char* rhs)
+    // JSONValue& JSONValue::operator =(const char* rhs)
     // Error: type "const char*" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator=(bool rhs)", "JSONValue& opAssign(bool)", AS_METHODPR(JSONValue, operator=, (bool), JSONValue&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator=(int rhs)", "JSONValue& opAssign(int)", AS_METHODPR(JSONValue, operator=, (int), JSONValue&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator=(unsigned rhs)", "JSONValue& opAssign(uint)", AS_METHODPR(JSONValue, operator=, (unsigned), JSONValue&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator=(float rhs)", "JSONValue& opAssign(float)", AS_METHODPR(JSONValue, operator=, (float), JSONValue&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator=(double rhs)", "JSONValue& opAssign(double)", AS_METHODPR(JSONValue, operator=, (double), JSONValue&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator=(const String& rhs)", "JSONValue& opAssign(const String&in)", AS_METHODPR(JSONValue, operator=, (const String&), JSONValue&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator=(const JSONValue& rhs)", "JSONValue& opAssign(const JSONValue&in)", AS_METHODPR(JSONValue, operator=, (const JSONValue&), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator =(bool rhs)", "JSONValue& opAssign(bool)", AS_METHODPR(JSONValue, operator=, (bool), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator =(int rhs)", "JSONValue& opAssign(int)", AS_METHODPR(JSONValue, operator=, (int), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator =(unsigned rhs)", "JSONValue& opAssign(uint)", AS_METHODPR(JSONValue, operator=, (unsigned), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator =(float rhs)", "JSONValue& opAssign(float)", AS_METHODPR(JSONValue, operator=, (float), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator =(double rhs)", "JSONValue& opAssign(double)", AS_METHODPR(JSONValue, operator=, (double), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator =(const String& rhs)", "JSONValue& opAssign(const String&in)", AS_METHODPR(JSONValue, operator=, (const String&), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator =(const JSONValue& rhs)", "JSONValue& opAssign(const JSONValue&in)", AS_METHODPR(JSONValue, operator=, (const JSONValue&), JSONValue&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("JSONValueType JSONValue::GetValueType() const", "JSONValueType GetValueType() const", AS_METHODPR(JSONValue, GetValueType, () const, JSONValueType), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("JSONValueType JSONValue::GetValueType() const", "JSONValueType get_valueType() const", AS_METHODPR(JSONValue, GetValueType, () const, JSONValueType), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("JSONNumberType JSONValue::GetNumberType() const", "JSONNumberType GetNumberType() const", AS_METHODPR(JSONValue, GetNumberType, () const, JSONNumberType), AS_CALL_THISCALL));
@@ -301,8 +301,8 @@ void CollectMembers_JSONValue(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("float JSONValue::GetFloat(float defaultValue = 0.0f) const", "float GetFloat(float = 0.0f) const", AS_METHODPR(JSONValue, GetFloat, (float) const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("double JSONValue::GetDouble(double defaultValue = 0.0) const", "double GetDouble(double = 0.0) const", AS_METHODPR(JSONValue, GetDouble, (double) const, double), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& JSONValue::GetString(const String& defaultValue = String::EMPTY) const", "const String& GetString(const String&in = String::EMPTY) const", AS_METHODPR(JSONValue, GetString, (const String&) const, const String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator[](unsigned index)", "JSONValue& opIndex(uint)", AS_METHODPR(JSONValue, operator[], (unsigned), JSONValue&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("const JSONValue& JSONValue::operator[](unsigned index) const", "const JSONValue& opIndex(uint) const", AS_METHODPR(JSONValue, operator[], (unsigned) const, const JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator [](unsigned index)", "JSONValue& opIndex(uint)", AS_METHODPR(JSONValue, operator[], (unsigned), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("const JSONValue& JSONValue::operator [](unsigned index) const", "const JSONValue& opIndex(uint) const", AS_METHODPR(JSONValue, operator[], (unsigned) const, const JSONValue&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Push(const JSONValue& value)", "void Push(const JSONValue&in)", AS_METHODPR(JSONValue, Push, (const JSONValue&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Pop()", "void Pop()", AS_METHODPR(JSONValue, Pop, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Insert(unsigned pos, const JSONValue& value)", "void Insert(uint, const JSONValue&in)", AS_METHODPR(JSONValue, Insert, (unsigned, const JSONValue&), void), AS_CALL_THISCALL));
@@ -310,8 +310,8 @@ void CollectMembers_JSONValue(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Resize(unsigned newSize)", "void Resize(uint)", AS_METHODPR(JSONValue, Resize, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned JSONValue::Size() const", "uint Size() const", AS_METHODPR(JSONValue, Size, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned JSONValue::Size() const", "uint get_size() const", AS_METHODPR(JSONValue, Size, () const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator[](const String& key)", "JSONValue& opIndex(const String&in)", AS_METHODPR(JSONValue, operator[], (const String&), JSONValue&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("const JSONValue& JSONValue::operator[](const String& key) const", "const JSONValue& opIndex(const String&in) const", AS_METHODPR(JSONValue, operator[], (const String&) const, const JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator [](const String& key)", "JSONValue& opIndex(const String&in)", AS_METHODPR(JSONValue, operator[], (const String&), JSONValue&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("const JSONValue& JSONValue::operator [](const String& key) const", "const JSONValue& opIndex(const String&in) const", AS_METHODPR(JSONValue, operator[], (const String&) const, const JSONValue&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Set(const String& key, const JSONValue& value)", "void Set(const String&in, const JSONValue&in)", AS_METHODPR(JSONValue, Set, (const String&, const JSONValue&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const JSONValue& JSONValue::Get(const String& key) const", "const JSONValue& Get(const String&in) const", AS_METHODPR(JSONValue, Get, (const String&) const, const JSONValue&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONValue::Erase(const String& key)", "bool Erase(const String&in)", AS_METHODPR(JSONValue, Erase, (const String&), bool), AS_CALL_THISCALL));
@@ -673,7 +673,7 @@ void CollectMembers_XMLElement(MemberCollection& members)
     // bool XMLElement::SetVariantVector(const VariantVector& value)
     // Error: type "const VariantVector&" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("XMLElement& XMLElement::operator=(const XMLElement& rhs)", "XMLElement& opAssign(const XMLElement&in)", AS_METHODPR(XMLElement, operator=, (const XMLElement&), XMLElement&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("XMLElement& XMLElement::operator =(const XMLElement& rhs)", "XMLElement& opAssign(const XMLElement&in)", AS_METHODPR(XMLElement, operator=, (const XMLElement&), XMLElement&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::CreateChild(const String& name)", "XMLElement CreateChild(const String&in)", AS_METHODPR(XMLElement, CreateChild, (const String&), XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::GetOrCreateChild(const String& name)", "XMLElement GetOrCreateChild(const String&in)", AS_METHODPR(XMLElement, GetOrCreateChild, (const String&), XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::AppendChild(XMLElement element, bool asCopy = false)", "bool AppendChild(XMLElement, bool = false)", AS_METHODPR(XMLElement, AppendChild, (XMLElement, bool), bool), AS_CALL_THISCALL));
@@ -843,8 +843,8 @@ void CollectMembers_XPathResultSet(MemberCollection& members)
     // pugi::xpath_node_set* XPathResultSet::GetXPathNodeSet() const
     // Error: type "pugi::xpath_node_set*" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("XPathResultSet& XPathResultSet::operator=(const XPathResultSet& rhs)", "XPathResultSet& opAssign(const XPathResultSet&in)", AS_METHODPR(XPathResultSet, operator=, (const XPathResultSet&), XPathResultSet&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XPathResultSet::operator[](unsigned index) const", "XMLElement opIndex(uint) const", AS_METHODPR(XPathResultSet, operator[], (unsigned) const, XMLElement), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("XPathResultSet& XPathResultSet::operator =(const XPathResultSet& rhs)", "XPathResultSet& opAssign(const XPathResultSet&in)", AS_METHODPR(XPathResultSet, operator=, (const XPathResultSet&), XPathResultSet&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XPathResultSet::operator [](unsigned index) const", "XMLElement opIndex(uint) const", AS_METHODPR(XPathResultSet, operator[], (unsigned) const, XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XPathResultSet::FirstResult()", "XMLElement FirstResult()", AS_METHODPR(XPathResultSet, FirstResult, (), XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XPathResultSet::FirstResult()", "XMLElement get_firstResult()", AS_METHODPR(XPathResultSet, FirstResult, (), XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned XPathResultSet::Size() const", "uint Size() const", AS_METHODPR(XPathResultSet, Size, () const, unsigned), AS_CALL_THISCALL));

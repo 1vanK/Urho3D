@@ -296,7 +296,7 @@ static string CppMethodNameToAS(const MethodAnalyzer& methodAnalyzer)
     }
 
     if (name == "operator!=")
-        throw Exception("Only operator== is needed");
+        throw Exception("Only operator == is needed");
 
     if (name == "operator<")
         throw Exception("Registerd as opCmp separately");

@@ -31,12 +31,12 @@ void CollectMembers_BoundingBox(MemberCollection& members)
     // Error: type "const Vector3*" can not automatically bind
     // void BoundingBox::Merge(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
-    // bool BoundingBox::operator!=(const BoundingBox& rhs) const
+    // bool BoundingBox::operator !=(const BoundingBox& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("BoundingBox& BoundingBox::operator=(const BoundingBox& rhs) noexcept", "BoundingBox& opAssign(const BoundingBox&in)", AS_METHODPR(BoundingBox, operator=, (const BoundingBox&), BoundingBox&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("BoundingBox& BoundingBox::operator=(const Rect& rhs) noexcept", "BoundingBox& opAssign(const Rect&in)", AS_METHODPR(BoundingBox, operator=, (const Rect&), BoundingBox&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool BoundingBox::operator==(const BoundingBox& rhs) const", "bool opEquals(const BoundingBox&in) const", AS_METHODPR(BoundingBox, operator==, (const BoundingBox&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("BoundingBox& BoundingBox::operator =(const BoundingBox& rhs) noexcept", "BoundingBox& opAssign(const BoundingBox&in)", AS_METHODPR(BoundingBox, operator=, (const BoundingBox&), BoundingBox&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("BoundingBox& BoundingBox::operator =(const Rect& rhs) noexcept", "BoundingBox& opAssign(const Rect&in)", AS_METHODPR(BoundingBox, operator=, (const Rect&), BoundingBox&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool BoundingBox::operator ==(const BoundingBox& rhs) const", "bool opEquals(const BoundingBox&in) const", AS_METHODPR(BoundingBox, operator==, (const BoundingBox&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void BoundingBox::Define(const BoundingBox& box)", "void Define(const BoundingBox&in)", AS_METHODPR(BoundingBox, Define, (const BoundingBox&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void BoundingBox::Define(const Rect& rect)", "void Define(const Rect&in)", AS_METHODPR(BoundingBox, Define, (const Rect&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void BoundingBox::Define(const Vector3& min, const Vector3& max)", "void Define(const Vector3&in, const Vector3&in)", AS_METHODPR(BoundingBox, Define, (const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
@@ -93,16 +93,16 @@ void CollectMembers_Color(MemberCollection& members)
     // Error: type "const ChannelMask&" can not automatically bind
     // unsigned Color::ToUIntMask(const ChannelMask& mask) const
     // Error: type "const ChannelMask&" can not automatically bind
-    // bool Color::operator!=(const Color& rhs) const
+    // bool Color::operator !=(const Color& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Color& Color::operator=(const Color& rhs) noexcept = default", "Color& opAssign(const Color&in)", AS_METHODPR(Color, operator=, (const Color&), Color&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Color::operator==(const Color& rhs) const", "bool opEquals(const Color&in) const", AS_METHODPR(Color, operator==, (const Color&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Color Color::operator*(float rhs) const", "Color opMul(float) const", AS_METHODPR(Color, operator*, (float) const, Color), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Color Color::operator+(const Color& rhs) const", "Color opAdd(const Color&in) const", AS_METHODPR(Color, operator+, (const Color&) const, Color), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Color Color::operator-() const", "Color opNeg() const", AS_METHODPR(Color, operator-, () const, Color), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Color Color::operator-(const Color& rhs) const", "Color opSub(const Color&in) const", AS_METHODPR(Color, operator-, (const Color&) const, Color), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Color& Color::operator+=(const Color& rhs)", "Color& opAddAssign(const Color&in)", AS_METHODPR(Color, operator+=, (const Color&), Color&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Color& Color::operator =(const Color& rhs) noexcept = default", "Color& opAssign(const Color&in)", AS_METHODPR(Color, operator=, (const Color&), Color&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Color::operator ==(const Color& rhs) const", "bool opEquals(const Color&in) const", AS_METHODPR(Color, operator==, (const Color&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Color Color::operator *(float rhs) const", "Color opMul(float) const", AS_METHODPR(Color, operator*, (float) const, Color), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Color Color::operator +(const Color& rhs) const", "Color opAdd(const Color&in) const", AS_METHODPR(Color, operator+, (const Color&) const, Color), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Color Color::operator -() const", "Color opNeg() const", AS_METHODPR(Color, operator-, () const, Color), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Color Color::operator -(const Color& rhs) const", "Color opSub(const Color&in) const", AS_METHODPR(Color, operator-, (const Color&) const, Color), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Color& Color::operator +=(const Color& rhs)", "Color& opAddAssign(const Color&in)", AS_METHODPR(Color, operator+=, (const Color&), Color&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Color::ToUInt() const", "uint ToUInt() const", AS_METHODPR(Color, ToUInt, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Vector3 Color::ToHSL() const", "Vector3 ToHSL() const", AS_METHODPR(Color, ToHSL, () const, Vector3), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Vector3 Color::ToHSV() const", "Vector3 ToHSV() const", AS_METHODPR(Color, ToHSV, () const, Vector3), AS_CALL_THISCALL));
@@ -168,7 +168,7 @@ void CollectMembers_Color(MemberCollection& members)
 // class Frustum | File: ../Math/Frustum.h
 void CollectMembers_Frustum(MemberCollection& members)
 {
-    members.methods_.Push(RegisterObjectMethodArgs("Frustum& Frustum::operator=(const Frustum& rhs) noexcept", "Frustum& opAssign(const Frustum&in)", AS_METHODPR(Frustum, operator=, (const Frustum&), Frustum&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Frustum& Frustum::operator =(const Frustum& rhs) noexcept", "Frustum& opAssign(const Frustum&in)", AS_METHODPR(Frustum, operator=, (const Frustum&), Frustum&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Frustum::Define(float fov, float aspectRatio, float zoom, float nearZ, float farZ, const Matrix3x4& transform = Matrix3x4::IDENTITY)", "void Define(float, float, float, float, float, const Matrix3x4&in = Matrix3x4::IDENTITY)", AS_METHODPR(Frustum, Define, (float, float, float, float, float, const Matrix3x4&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Frustum::Define(const Vector3& near, const Vector3& far, const Matrix3x4& transform = Matrix3x4::IDENTITY)", "void Define(const Vector3&in, const Vector3&in, const Matrix3x4&in = Matrix3x4::IDENTITY)", AS_METHODPR(Frustum, Define, (const Vector3&, const Vector3&, const Matrix3x4&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Frustum::Define(const BoundingBox& box, const Matrix3x4& transform = Matrix3x4::IDENTITY)", "void Define(const BoundingBox&in, const Matrix3x4&in = Matrix3x4::IDENTITY)", AS_METHODPR(Frustum, Define, (const BoundingBox&, const Matrix3x4&), void), AS_CALL_THISCALL));
@@ -203,18 +203,18 @@ void CollectMembers_IntRect(MemberCollection& members)
 {
     // const int* IntRect::Data() const
     // Error: type "const int*" can not automatically bind
-    // bool IntRect::operator!=(const IntRect& rhs) const
+    // bool IntRect::operator !=(const IntRect& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool IntRect::operator==(const IntRect& rhs) const", "bool opEquals(const IntRect&in) const", AS_METHODPR(IntRect, operator==, (const IntRect&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator+=(const IntRect& rhs)", "IntRect& opAddAssign(const IntRect&in)", AS_METHODPR(IntRect, operator+=, (const IntRect&), IntRect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator-=(const IntRect& rhs)", "IntRect& opSubAssign(const IntRect&in)", AS_METHODPR(IntRect, operator-=, (const IntRect&), IntRect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator/=(float value)", "IntRect& opDivAssign(float)", AS_METHODPR(IntRect, operator/=, (float), IntRect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator*=(float value)", "IntRect& opMulAssign(float)", AS_METHODPR(IntRect, operator*=, (float), IntRect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntRect IntRect::operator/(float value) const", "IntRect opDiv(float) const", AS_METHODPR(IntRect, operator/, (float) const, IntRect), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntRect IntRect::operator*(float value) const", "IntRect opMul(float) const", AS_METHODPR(IntRect, operator*, (float) const, IntRect), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntRect IntRect::operator+(const IntRect& rhs) const", "IntRect opAdd(const IntRect&in) const", AS_METHODPR(IntRect, operator+, (const IntRect&) const, IntRect), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntRect IntRect::operator-(const IntRect& rhs) const", "IntRect opSub(const IntRect&in) const", AS_METHODPR(IntRect, operator-, (const IntRect&) const, IntRect), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool IntRect::operator ==(const IntRect& rhs) const", "bool opEquals(const IntRect&in) const", AS_METHODPR(IntRect, operator==, (const IntRect&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator +=(const IntRect& rhs)", "IntRect& opAddAssign(const IntRect&in)", AS_METHODPR(IntRect, operator+=, (const IntRect&), IntRect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator -=(const IntRect& rhs)", "IntRect& opSubAssign(const IntRect&in)", AS_METHODPR(IntRect, operator-=, (const IntRect&), IntRect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator /=(float value)", "IntRect& opDivAssign(float)", AS_METHODPR(IntRect, operator/=, (float), IntRect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntRect& IntRect::operator *=(float value)", "IntRect& opMulAssign(float)", AS_METHODPR(IntRect, operator*=, (float), IntRect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntRect IntRect::operator /(float value) const", "IntRect opDiv(float) const", AS_METHODPR(IntRect, operator/, (float) const, IntRect), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntRect IntRect::operator *(float value) const", "IntRect opMul(float) const", AS_METHODPR(IntRect, operator*, (float) const, IntRect), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntRect IntRect::operator +(const IntRect& rhs) const", "IntRect opAdd(const IntRect&in) const", AS_METHODPR(IntRect, operator+, (const IntRect&) const, IntRect), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntRect IntRect::operator -(const IntRect& rhs) const", "IntRect opSub(const IntRect&in) const", AS_METHODPR(IntRect, operator-, (const IntRect&) const, IntRect), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntRect::Size() const", "IntVector2 Size() const", AS_METHODPR(IntRect, Size, () const, IntVector2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntRect::Size() const", "IntVector2 get_size() const", AS_METHODPR(IntRect, Size, () const, IntVector2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int IntRect::Width() const", "int Width() const", AS_METHODPR(IntRect, Width, () const, int), AS_CALL_THISCALL));
@@ -250,24 +250,24 @@ void CollectMembers_IntVector2(MemberCollection& members)
 {
     // const int* IntVector2::Data() const
     // Error: type "const int*" can not automatically bind
-    // bool IntVector2::operator!=(const IntVector2& rhs) const
+    // bool IntVector2::operator !=(const IntVector2& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator=(const IntVector2& rhs) noexcept = default", "IntVector2& opAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool IntVector2::operator==(const IntVector2& rhs) const", "bool opEquals(const IntVector2&in) const", AS_METHODPR(IntVector2, operator==, (const IntVector2&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator+(const IntVector2& rhs) const", "IntVector2 opAdd(const IntVector2&in) const", AS_METHODPR(IntVector2, operator+, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator-() const", "IntVector2 opNeg() const", AS_METHODPR(IntVector2, operator-, () const, IntVector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator-(const IntVector2& rhs) const", "IntVector2 opSub(const IntVector2&in) const", AS_METHODPR(IntVector2, operator-, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator*(int rhs) const", "IntVector2 opMul(int) const", AS_METHODPR(IntVector2, operator*, (int) const, IntVector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator*(const IntVector2& rhs) const", "IntVector2 opMul(const IntVector2&in) const", AS_METHODPR(IntVector2, operator*, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator/(int rhs) const", "IntVector2 opDiv(int) const", AS_METHODPR(IntVector2, operator/, (int) const, IntVector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator/(const IntVector2& rhs) const", "IntVector2 opDiv(const IntVector2&in) const", AS_METHODPR(IntVector2, operator/, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator+=(const IntVector2& rhs)", "IntVector2& opAddAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator+=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator-=(const IntVector2& rhs)", "IntVector2& opSubAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator-=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator*=(int rhs)", "IntVector2& opMulAssign(int)", AS_METHODPR(IntVector2, operator*=, (int), IntVector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator*=(const IntVector2& rhs)", "IntVector2& opMulAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator*=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator/=(int rhs)", "IntVector2& opDivAssign(int)", AS_METHODPR(IntVector2, operator/=, (int), IntVector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator/=(const IntVector2& rhs)", "IntVector2& opDivAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator/=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator =(const IntVector2& rhs) noexcept = default", "IntVector2& opAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool IntVector2::operator ==(const IntVector2& rhs) const", "bool opEquals(const IntVector2&in) const", AS_METHODPR(IntVector2, operator==, (const IntVector2&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator +(const IntVector2& rhs) const", "IntVector2 opAdd(const IntVector2&in) const", AS_METHODPR(IntVector2, operator+, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator -() const", "IntVector2 opNeg() const", AS_METHODPR(IntVector2, operator-, () const, IntVector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator -(const IntVector2& rhs) const", "IntVector2 opSub(const IntVector2&in) const", AS_METHODPR(IntVector2, operator-, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator *(int rhs) const", "IntVector2 opMul(int) const", AS_METHODPR(IntVector2, operator*, (int) const, IntVector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator *(const IntVector2& rhs) const", "IntVector2 opMul(const IntVector2&in) const", AS_METHODPR(IntVector2, operator*, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator /(int rhs) const", "IntVector2 opDiv(int) const", AS_METHODPR(IntVector2, operator/, (int) const, IntVector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2 IntVector2::operator /(const IntVector2& rhs) const", "IntVector2 opDiv(const IntVector2&in) const", AS_METHODPR(IntVector2, operator/, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator +=(const IntVector2& rhs)", "IntVector2& opAddAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator+=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator -=(const IntVector2& rhs)", "IntVector2& opSubAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator-=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator *=(int rhs)", "IntVector2& opMulAssign(int)", AS_METHODPR(IntVector2, operator*=, (int), IntVector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator *=(const IntVector2& rhs)", "IntVector2& opMulAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator*=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator /=(int rhs)", "IntVector2& opDivAssign(int)", AS_METHODPR(IntVector2, operator/=, (int), IntVector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector2& IntVector2::operator /=(const IntVector2& rhs)", "IntVector2& opDivAssign(const IntVector2&in)", AS_METHODPR(IntVector2, operator/=, (const IntVector2&), IntVector2&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String IntVector2::ToString() const", "String ToString() const", AS_METHODPR(IntVector2, ToString, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned IntVector2::ToHash() const", "uint ToHash() const", AS_METHODPR(IntVector2, ToHash, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float IntVector2::Length() const", "float Length() const", AS_METHODPR(IntVector2, Length, () const, float), AS_CALL_THISCALL));
@@ -292,24 +292,24 @@ void CollectMembers_IntVector3(MemberCollection& members)
 {
     // const int* IntVector3::Data() const
     // Error: type "const int*" can not automatically bind
-    // bool IntVector3::operator!=(const IntVector3& rhs) const
+    // bool IntVector3::operator !=(const IntVector3& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator=(const IntVector3& rhs) noexcept = default", "IntVector3& opAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool IntVector3::operator==(const IntVector3& rhs) const", "bool opEquals(const IntVector3&in) const", AS_METHODPR(IntVector3, operator==, (const IntVector3&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator+(const IntVector3& rhs) const", "IntVector3 opAdd(const IntVector3&in) const", AS_METHODPR(IntVector3, operator+, (const IntVector3&) const, IntVector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator-() const", "IntVector3 opNeg() const", AS_METHODPR(IntVector3, operator-, () const, IntVector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator-(const IntVector3& rhs) const", "IntVector3 opSub(const IntVector3&in) const", AS_METHODPR(IntVector3, operator-, (const IntVector3&) const, IntVector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator*(int rhs) const", "IntVector3 opMul(int) const", AS_METHODPR(IntVector3, operator*, (int) const, IntVector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator*(const IntVector3& rhs) const", "IntVector3 opMul(const IntVector3&in) const", AS_METHODPR(IntVector3, operator*, (const IntVector3&) const, IntVector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator/(int rhs) const", "IntVector3 opDiv(int) const", AS_METHODPR(IntVector3, operator/, (int) const, IntVector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator/(const IntVector3& rhs) const", "IntVector3 opDiv(const IntVector3&in) const", AS_METHODPR(IntVector3, operator/, (const IntVector3&) const, IntVector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator+=(const IntVector3& rhs)", "IntVector3& opAddAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator+=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator-=(const IntVector3& rhs)", "IntVector3& opSubAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator-=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator*=(int rhs)", "IntVector3& opMulAssign(int)", AS_METHODPR(IntVector3, operator*=, (int), IntVector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator*=(const IntVector3& rhs)", "IntVector3& opMulAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator*=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator/=(int rhs)", "IntVector3& opDivAssign(int)", AS_METHODPR(IntVector3, operator/=, (int), IntVector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator/=(const IntVector3& rhs)", "IntVector3& opDivAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator/=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator =(const IntVector3& rhs) noexcept = default", "IntVector3& opAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool IntVector3::operator ==(const IntVector3& rhs) const", "bool opEquals(const IntVector3&in) const", AS_METHODPR(IntVector3, operator==, (const IntVector3&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator +(const IntVector3& rhs) const", "IntVector3 opAdd(const IntVector3&in) const", AS_METHODPR(IntVector3, operator+, (const IntVector3&) const, IntVector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator -() const", "IntVector3 opNeg() const", AS_METHODPR(IntVector3, operator-, () const, IntVector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator -(const IntVector3& rhs) const", "IntVector3 opSub(const IntVector3&in) const", AS_METHODPR(IntVector3, operator-, (const IntVector3&) const, IntVector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator *(int rhs) const", "IntVector3 opMul(int) const", AS_METHODPR(IntVector3, operator*, (int) const, IntVector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator *(const IntVector3& rhs) const", "IntVector3 opMul(const IntVector3&in) const", AS_METHODPR(IntVector3, operator*, (const IntVector3&) const, IntVector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator /(int rhs) const", "IntVector3 opDiv(int) const", AS_METHODPR(IntVector3, operator/, (int) const, IntVector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3 IntVector3::operator /(const IntVector3& rhs) const", "IntVector3 opDiv(const IntVector3&in) const", AS_METHODPR(IntVector3, operator/, (const IntVector3&) const, IntVector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator +=(const IntVector3& rhs)", "IntVector3& opAddAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator+=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator -=(const IntVector3& rhs)", "IntVector3& opSubAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator-=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator *=(int rhs)", "IntVector3& opMulAssign(int)", AS_METHODPR(IntVector3, operator*=, (int), IntVector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator *=(const IntVector3& rhs)", "IntVector3& opMulAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator*=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator /=(int rhs)", "IntVector3& opDivAssign(int)", AS_METHODPR(IntVector3, operator/=, (int), IntVector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("IntVector3& IntVector3::operator /=(const IntVector3& rhs)", "IntVector3& opDivAssign(const IntVector3&in)", AS_METHODPR(IntVector3, operator/=, (const IntVector3&), IntVector3&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String IntVector3::ToString() const", "String ToString() const", AS_METHODPR(IntVector3, ToString, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned IntVector3::ToHash() const", "uint ToHash() const", AS_METHODPR(IntVector3, ToHash, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float IntVector3::Length() const", "float Length() const", AS_METHODPR(IntVector3, Length, () const, float), AS_CALL_THISCALL));
@@ -337,16 +337,16 @@ void CollectMembers_Matrix2(MemberCollection& members)
 {
     // const float* Matrix2::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Matrix2::operator!=(const Matrix2& rhs) const
+    // bool Matrix2::operator !=(const Matrix2& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix2& Matrix2::operator=(const Matrix2& rhs) noexcept = default", "Matrix2& opAssign(const Matrix2&in)", AS_METHODPR(Matrix2, operator=, (const Matrix2&), Matrix2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Matrix2::operator==(const Matrix2& rhs) const", "bool opEquals(const Matrix2&in) const", AS_METHODPR(Matrix2, operator==, (const Matrix2&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Matrix2::operator*(const Vector2& rhs) const", "Vector2 opMul(const Vector2&in) const", AS_METHODPR(Matrix2, operator*, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix2 Matrix2::operator+(const Matrix2& rhs) const", "Matrix2 opAdd(const Matrix2&in) const", AS_METHODPR(Matrix2, operator+, (const Matrix2&) const, Matrix2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix2 Matrix2::operator-(const Matrix2& rhs) const", "Matrix2 opSub(const Matrix2&in) const", AS_METHODPR(Matrix2, operator-, (const Matrix2&) const, Matrix2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix2 Matrix2::operator*(float rhs) const", "Matrix2 opMul(float) const", AS_METHODPR(Matrix2, operator*, (float) const, Matrix2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix2 Matrix2::operator*(const Matrix2& rhs) const", "Matrix2 opMul(const Matrix2&in) const", AS_METHODPR(Matrix2, operator*, (const Matrix2&) const, Matrix2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix2& Matrix2::operator =(const Matrix2& rhs) noexcept = default", "Matrix2& opAssign(const Matrix2&in)", AS_METHODPR(Matrix2, operator=, (const Matrix2&), Matrix2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Matrix2::operator ==(const Matrix2& rhs) const", "bool opEquals(const Matrix2&in) const", AS_METHODPR(Matrix2, operator==, (const Matrix2&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Matrix2::operator *(const Vector2& rhs) const", "Vector2 opMul(const Vector2&in) const", AS_METHODPR(Matrix2, operator*, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix2 Matrix2::operator +(const Matrix2& rhs) const", "Matrix2 opAdd(const Matrix2&in) const", AS_METHODPR(Matrix2, operator+, (const Matrix2&) const, Matrix2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix2 Matrix2::operator -(const Matrix2& rhs) const", "Matrix2 opSub(const Matrix2&in) const", AS_METHODPR(Matrix2, operator-, (const Matrix2&) const, Matrix2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix2 Matrix2::operator *(float rhs) const", "Matrix2 opMul(float) const", AS_METHODPR(Matrix2, operator*, (float) const, Matrix2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix2 Matrix2::operator *(const Matrix2& rhs) const", "Matrix2 opMul(const Matrix2&in) const", AS_METHODPR(Matrix2, operator*, (const Matrix2&) const, Matrix2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix2::SetScale(const Vector2& scale)", "void SetScale(const Vector2&in)", AS_METHODPR(Matrix2, SetScale, (const Vector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix2::SetScale(float scale)", "void SetScale(float)", AS_METHODPR(Matrix2, SetScale, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Vector2 Matrix2::Scale() const", "Vector2 Scale() const", AS_METHODPR(Matrix2, Scale, () const, Vector2), AS_CALL_THISCALL));
@@ -379,16 +379,16 @@ void CollectMembers_Matrix3(MemberCollection& members)
 {
     // const float* Matrix3::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Matrix3::operator!=(const Matrix3& rhs) const
+    // bool Matrix3::operator !=(const Matrix3& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3& Matrix3::operator=(const Matrix3& rhs) noexcept = default", "Matrix3& opAssign(const Matrix3&in)", AS_METHODPR(Matrix3, operator=, (const Matrix3&), Matrix3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Matrix3::operator==(const Matrix3& rhs) const", "bool opEquals(const Matrix3&in) const", AS_METHODPR(Matrix3, operator==, (const Matrix3&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix3::operator*(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Matrix3, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3 Matrix3::operator+(const Matrix3& rhs) const", "Matrix3 opAdd(const Matrix3&in) const", AS_METHODPR(Matrix3, operator+, (const Matrix3&) const, Matrix3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3 Matrix3::operator-(const Matrix3& rhs) const", "Matrix3 opSub(const Matrix3&in) const", AS_METHODPR(Matrix3, operator-, (const Matrix3&) const, Matrix3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3 Matrix3::operator*(float rhs) const", "Matrix3 opMul(float) const", AS_METHODPR(Matrix3, operator*, (float) const, Matrix3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3 Matrix3::operator*(const Matrix3& rhs) const", "Matrix3 opMul(const Matrix3&in) const", AS_METHODPR(Matrix3, operator*, (const Matrix3&) const, Matrix3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3& Matrix3::operator =(const Matrix3& rhs) noexcept = default", "Matrix3& opAssign(const Matrix3&in)", AS_METHODPR(Matrix3, operator=, (const Matrix3&), Matrix3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Matrix3::operator ==(const Matrix3& rhs) const", "bool opEquals(const Matrix3&in) const", AS_METHODPR(Matrix3, operator==, (const Matrix3&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix3::operator *(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Matrix3, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3 Matrix3::operator +(const Matrix3& rhs) const", "Matrix3 opAdd(const Matrix3&in) const", AS_METHODPR(Matrix3, operator+, (const Matrix3&) const, Matrix3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3 Matrix3::operator -(const Matrix3& rhs) const", "Matrix3 opSub(const Matrix3&in) const", AS_METHODPR(Matrix3, operator-, (const Matrix3&) const, Matrix3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3 Matrix3::operator *(float rhs) const", "Matrix3 opMul(float) const", AS_METHODPR(Matrix3, operator*, (float) const, Matrix3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3 Matrix3::operator *(const Matrix3& rhs) const", "Matrix3 opMul(const Matrix3&in) const", AS_METHODPR(Matrix3, operator*, (const Matrix3&) const, Matrix3), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix3::SetScale(const Vector3& scale)", "void SetScale(const Vector3&in)", AS_METHODPR(Matrix3, SetScale, (const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix3::SetScale(float scale)", "void SetScale(float)", AS_METHODPR(Matrix3, SetScale, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix3::Scale() const", "Vector3 Scale() const", AS_METHODPR(Matrix3, Scale, () const, Vector3), AS_CALL_THISCALL));
@@ -430,20 +430,20 @@ void CollectMembers_Matrix3x4(MemberCollection& members)
 {
     // const float* Matrix3x4::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Matrix3x4::operator!=(const Matrix3x4& rhs) const
+    // bool Matrix3x4::operator !=(const Matrix3x4& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4& Matrix3x4::operator=(const Matrix3x4& rhs) noexcept = default", "Matrix3x4& opAssign(const Matrix3x4&in)", AS_METHODPR(Matrix3x4, operator=, (const Matrix3x4&), Matrix3x4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4& Matrix3x4::operator=(const Matrix3& rhs) noexcept", "Matrix3x4& opAssign(const Matrix3&in)", AS_METHODPR(Matrix3x4, operator=, (const Matrix3&), Matrix3x4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4& Matrix3x4::operator=(const Matrix4& rhs) noexcept", "Matrix3x4& opAssign(const Matrix4&in)", AS_METHODPR(Matrix3x4, operator=, (const Matrix4&), Matrix3x4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Matrix3x4::operator==(const Matrix3x4& rhs) const", "bool opEquals(const Matrix3x4&in) const", AS_METHODPR(Matrix3x4, operator==, (const Matrix3x4&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix3x4::operator*(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Matrix3x4, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix3x4::operator*(const Vector4& rhs) const", "Vector3 opMul(const Vector4&in) const", AS_METHODPR(Matrix3x4, operator*, (const Vector4&) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Matrix3x4::operator+(const Matrix3x4& rhs) const", "Matrix3x4 opAdd(const Matrix3x4&in) const", AS_METHODPR(Matrix3x4, operator+, (const Matrix3x4&) const, Matrix3x4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Matrix3x4::operator-(const Matrix3x4& rhs) const", "Matrix3x4 opSub(const Matrix3x4&in) const", AS_METHODPR(Matrix3x4, operator-, (const Matrix3x4&) const, Matrix3x4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Matrix3x4::operator*(float rhs) const", "Matrix3x4 opMul(float) const", AS_METHODPR(Matrix3x4, operator*, (float) const, Matrix3x4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Matrix3x4::operator*(const Matrix3x4& rhs) const", "Matrix3x4 opMul(const Matrix3x4&in) const", AS_METHODPR(Matrix3x4, operator*, (const Matrix3x4&) const, Matrix3x4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix3x4::operator*(const Matrix4& rhs) const", "Matrix4 opMul(const Matrix4&in) const", AS_METHODPR(Matrix3x4, operator*, (const Matrix4&) const, Matrix4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4& Matrix3x4::operator =(const Matrix3x4& rhs) noexcept = default", "Matrix3x4& opAssign(const Matrix3x4&in)", AS_METHODPR(Matrix3x4, operator=, (const Matrix3x4&), Matrix3x4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4& Matrix3x4::operator =(const Matrix3& rhs) noexcept", "Matrix3x4& opAssign(const Matrix3&in)", AS_METHODPR(Matrix3x4, operator=, (const Matrix3&), Matrix3x4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4& Matrix3x4::operator =(const Matrix4& rhs) noexcept", "Matrix3x4& opAssign(const Matrix4&in)", AS_METHODPR(Matrix3x4, operator=, (const Matrix4&), Matrix3x4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Matrix3x4::operator ==(const Matrix3x4& rhs) const", "bool opEquals(const Matrix3x4&in) const", AS_METHODPR(Matrix3x4, operator==, (const Matrix3x4&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix3x4::operator *(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Matrix3x4, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix3x4::operator *(const Vector4& rhs) const", "Vector3 opMul(const Vector4&in) const", AS_METHODPR(Matrix3x4, operator*, (const Vector4&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Matrix3x4::operator +(const Matrix3x4& rhs) const", "Matrix3x4 opAdd(const Matrix3x4&in) const", AS_METHODPR(Matrix3x4, operator+, (const Matrix3x4&) const, Matrix3x4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Matrix3x4::operator -(const Matrix3x4& rhs) const", "Matrix3x4 opSub(const Matrix3x4&in) const", AS_METHODPR(Matrix3x4, operator-, (const Matrix3x4&) const, Matrix3x4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Matrix3x4::operator *(float rhs) const", "Matrix3x4 opMul(float) const", AS_METHODPR(Matrix3x4, operator*, (float) const, Matrix3x4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Matrix3x4::operator *(const Matrix3x4& rhs) const", "Matrix3x4 opMul(const Matrix3x4&in) const", AS_METHODPR(Matrix3x4, operator*, (const Matrix3x4&) const, Matrix3x4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix3x4::operator *(const Matrix4& rhs) const", "Matrix4 opMul(const Matrix4&in) const", AS_METHODPR(Matrix3x4, operator*, (const Matrix4&) const, Matrix4), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix3x4::SetTranslation(const Vector3& translation)", "void SetTranslation(const Vector3&in)", AS_METHODPR(Matrix3x4, SetTranslation, (const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix3x4::SetRotation(const Matrix3& rotation)", "void SetRotation(const Matrix3&in)", AS_METHODPR(Matrix3x4, SetRotation, (const Matrix3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix3x4::SetScale(const Vector3& scale)", "void SetScale(const Vector3&in)", AS_METHODPR(Matrix3x4, SetScale, (const Vector3&), void), AS_CALL_THISCALL));
@@ -491,19 +491,19 @@ void CollectMembers_Matrix4(MemberCollection& members)
 {
     // const float* Matrix4::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Matrix4::operator!=(const Matrix4& rhs) const
+    // bool Matrix4::operator !=(const Matrix4& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix4& Matrix4::operator=(const Matrix4& rhs) noexcept", "Matrix4& opAssign(const Matrix4&in)", AS_METHODPR(Matrix4, operator=, (const Matrix4&), Matrix4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix4& Matrix4::operator=(const Matrix3& rhs) noexcept", "Matrix4& opAssign(const Matrix3&in)", AS_METHODPR(Matrix4, operator=, (const Matrix3&), Matrix4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Matrix4::operator==(const Matrix4& rhs) const", "bool opEquals(const Matrix4&in) const", AS_METHODPR(Matrix4, operator==, (const Matrix4&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix4::operator*(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Matrix4, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Matrix4::operator*(const Vector4& rhs) const", "Vector4 opMul(const Vector4&in) const", AS_METHODPR(Matrix4, operator*, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator+(const Matrix4& rhs) const", "Matrix4 opAdd(const Matrix4&in) const", AS_METHODPR(Matrix4, operator+, (const Matrix4&) const, Matrix4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator-(const Matrix4& rhs) const", "Matrix4 opSub(const Matrix4&in) const", AS_METHODPR(Matrix4, operator-, (const Matrix4&) const, Matrix4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator*(float rhs) const", "Matrix4 opMul(float) const", AS_METHODPR(Matrix4, operator*, (float) const, Matrix4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator*(const Matrix4& rhs) const", "Matrix4 opMul(const Matrix4&in) const", AS_METHODPR(Matrix4, operator*, (const Matrix4&) const, Matrix4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator*(const Matrix3x4& rhs) const", "Matrix4 opMul(const Matrix3x4&in) const", AS_METHODPR(Matrix4, operator*, (const Matrix3x4&) const, Matrix4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix4& Matrix4::operator =(const Matrix4& rhs) noexcept", "Matrix4& opAssign(const Matrix4&in)", AS_METHODPR(Matrix4, operator=, (const Matrix4&), Matrix4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix4& Matrix4::operator =(const Matrix3& rhs) noexcept", "Matrix4& opAssign(const Matrix3&in)", AS_METHODPR(Matrix4, operator=, (const Matrix3&), Matrix4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Matrix4::operator ==(const Matrix4& rhs) const", "bool opEquals(const Matrix4&in) const", AS_METHODPR(Matrix4, operator==, (const Matrix4&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Matrix4::operator *(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Matrix4, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Matrix4::operator *(const Vector4& rhs) const", "Vector4 opMul(const Vector4&in) const", AS_METHODPR(Matrix4, operator*, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator +(const Matrix4& rhs) const", "Matrix4 opAdd(const Matrix4&in) const", AS_METHODPR(Matrix4, operator+, (const Matrix4&) const, Matrix4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator -(const Matrix4& rhs) const", "Matrix4 opSub(const Matrix4&in) const", AS_METHODPR(Matrix4, operator-, (const Matrix4&) const, Matrix4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator *(float rhs) const", "Matrix4 opMul(float) const", AS_METHODPR(Matrix4, operator*, (float) const, Matrix4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator *(const Matrix4& rhs) const", "Matrix4 opMul(const Matrix4&in) const", AS_METHODPR(Matrix4, operator*, (const Matrix4&) const, Matrix4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Matrix4 Matrix4::operator *(const Matrix3x4& rhs) const", "Matrix4 opMul(const Matrix3x4&in) const", AS_METHODPR(Matrix4, operator*, (const Matrix3x4&) const, Matrix4), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix4::SetTranslation(const Vector3& translation)", "void SetTranslation(const Vector3&in)", AS_METHODPR(Matrix4, SetTranslation, (const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix4::SetRotation(const Matrix3& rotation)", "void SetRotation(const Matrix3&in)", AS_METHODPR(Matrix4, SetRotation, (const Matrix3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Matrix4::SetScale(const Vector3& scale)", "void SetScale(const Vector3&in)", AS_METHODPR(Matrix4, SetScale, (const Vector3&), void), AS_CALL_THISCALL));
@@ -556,7 +556,7 @@ void CollectMembers_Matrix4(MemberCollection& members)
 // class Plane | File: ../Math/Plane.h
 void CollectMembers_Plane(MemberCollection& members)
 {
-    members.methods_.Push(RegisterObjectMethodArgs("Plane& Plane::operator=(const Plane& rhs) noexcept = default", "Plane& opAssign(const Plane&in)", AS_METHODPR(Plane, operator=, (const Plane&), Plane&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Plane& Plane::operator =(const Plane& rhs) noexcept = default", "Plane& opAssign(const Plane&in)", AS_METHODPR(Plane, operator=, (const Plane&), Plane&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Plane::Define(const Vector3& v0, const Vector3& v1, const Vector3& v2)", "void Define(const Vector3&in, const Vector3&in, const Vector3&in)", AS_METHODPR(Plane, Define, (const Vector3&, const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Plane::Define(const Vector3& normal, const Vector3& point)", "void Define(const Vector3&in, const Vector3&in)", AS_METHODPR(Plane, Define, (const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Plane::Define(const Vector4& plane)", "void Define(const Vector4&in)", AS_METHODPR(Plane, Define, (const Vector4&), void), AS_CALL_THISCALL));
@@ -596,7 +596,7 @@ static void Polyhedron_AddFace_PODVectorVector3(Polyhedron* ptr, CScriptArray* f
 // class Polyhedron | File: ../Math/Polyhedron.h
 void CollectMembers_Polyhedron(MemberCollection& members)
 {
-    members.methods_.Push(RegisterObjectMethodArgs("Polyhedron& Polyhedron::operator=(const Polyhedron& rhs)", "Polyhedron& opAssign(const Polyhedron&in)", AS_METHODPR(Polyhedron, operator=, (const Polyhedron&), Polyhedron&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Polyhedron& Polyhedron::operator =(const Polyhedron& rhs)", "Polyhedron& opAssign(const Polyhedron&in)", AS_METHODPR(Polyhedron, operator=, (const Polyhedron&), Polyhedron&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Polyhedron::Define(const BoundingBox& box)", "void Define(const BoundingBox&in)", AS_METHODPR(Polyhedron, Define, (const BoundingBox&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Polyhedron::Define(const Frustum& frustum)", "void Define(const Frustum&in)", AS_METHODPR(Polyhedron, Define, (const Frustum&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Polyhedron::AddFace(const Vector3& v0, const Vector3& v1, const Vector3& v2)", "void AddFace(const Vector3&in, const Vector3&in, const Vector3&in)", AS_METHODPR(Polyhedron, AddFace, (const Vector3&, const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
@@ -625,19 +625,19 @@ void CollectMembers_Quaternion(MemberCollection& members)
 {
     // const float* Quaternion::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Quaternion::operator!=(const Quaternion& rhs) const
+    // bool Quaternion::operator !=(const Quaternion& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion& Quaternion::operator=(const Quaternion& rhs) noexcept", "Quaternion& opAssign(const Quaternion&in)", AS_METHODPR(Quaternion, operator=, (const Quaternion&), Quaternion&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion& Quaternion::operator+=(const Quaternion& rhs)", "Quaternion& opAddAssign(const Quaternion&in)", AS_METHODPR(Quaternion, operator+=, (const Quaternion&), Quaternion&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion& Quaternion::operator*=(float rhs)", "Quaternion& opMulAssign(float)", AS_METHODPR(Quaternion, operator*=, (float), Quaternion&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Quaternion::operator==(const Quaternion& rhs) const", "bool opEquals(const Quaternion&in) const", AS_METHODPR(Quaternion, operator==, (const Quaternion&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator*(float rhs) const", "Quaternion opMul(float) const", AS_METHODPR(Quaternion, operator*, (float) const, Quaternion), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator-() const", "Quaternion opNeg() const", AS_METHODPR(Quaternion, operator-, () const, Quaternion), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator+(const Quaternion& rhs) const", "Quaternion opAdd(const Quaternion&in) const", AS_METHODPR(Quaternion, operator+, (const Quaternion&) const, Quaternion), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator-(const Quaternion& rhs) const", "Quaternion opSub(const Quaternion&in) const", AS_METHODPR(Quaternion, operator-, (const Quaternion&) const, Quaternion), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator*(const Quaternion& rhs) const", "Quaternion opMul(const Quaternion&in) const", AS_METHODPR(Quaternion, operator*, (const Quaternion&) const, Quaternion), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Quaternion::operator*(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Quaternion, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion& Quaternion::operator =(const Quaternion& rhs) noexcept", "Quaternion& opAssign(const Quaternion&in)", AS_METHODPR(Quaternion, operator=, (const Quaternion&), Quaternion&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion& Quaternion::operator +=(const Quaternion& rhs)", "Quaternion& opAddAssign(const Quaternion&in)", AS_METHODPR(Quaternion, operator+=, (const Quaternion&), Quaternion&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion& Quaternion::operator *=(float rhs)", "Quaternion& opMulAssign(float)", AS_METHODPR(Quaternion, operator*=, (float), Quaternion&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Quaternion::operator ==(const Quaternion& rhs) const", "bool opEquals(const Quaternion&in) const", AS_METHODPR(Quaternion, operator==, (const Quaternion&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator *(float rhs) const", "Quaternion opMul(float) const", AS_METHODPR(Quaternion, operator*, (float) const, Quaternion), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator -() const", "Quaternion opNeg() const", AS_METHODPR(Quaternion, operator-, () const, Quaternion), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator +(const Quaternion& rhs) const", "Quaternion opAdd(const Quaternion&in) const", AS_METHODPR(Quaternion, operator+, (const Quaternion&) const, Quaternion), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator -(const Quaternion& rhs) const", "Quaternion opSub(const Quaternion&in) const", AS_METHODPR(Quaternion, operator-, (const Quaternion&) const, Quaternion), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Quaternion::operator *(const Quaternion& rhs) const", "Quaternion opMul(const Quaternion&in) const", AS_METHODPR(Quaternion, operator*, (const Quaternion&) const, Quaternion), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Quaternion::operator *(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Quaternion, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Quaternion::FromAngleAxis(float angle, const Vector3& axis)", "void FromAngleAxis(float, const Vector3&in)", AS_METHODPR(Quaternion, FromAngleAxis, (float, const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Quaternion::FromEulerAngles(float x, float y, float z)", "void FromEulerAngles(float, float, float)", AS_METHODPR(Quaternion, FromEulerAngles, (float, float, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Quaternion::FromRotationTo(const Vector3& start, const Vector3& end)", "void FromRotationTo(const Vector3&in, const Vector3&in)", AS_METHODPR(Quaternion, FromRotationTo, (const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
@@ -696,11 +696,11 @@ void CollectMembers_Ray(MemberCollection& members)
     // Error: type "const void*" can not automatically bind
     // bool Ray::InsideGeometry(const void* vertexData, unsigned vertexSize, unsigned vertexStart, unsigned vertexCount) const
     // Error: type "const void*" can not automatically bind
-    // bool Ray::operator!=(const Ray& rhs) const
+    // bool Ray::operator !=(const Ray& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Ray& Ray::operator=(const Ray& rhs) noexcept = default", "Ray& opAssign(const Ray&in)", AS_METHODPR(Ray, operator=, (const Ray&), Ray&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Ray::operator==(const Ray& rhs) const", "bool opEquals(const Ray&in) const", AS_METHODPR(Ray, operator==, (const Ray&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Ray& Ray::operator =(const Ray& rhs) noexcept = default", "Ray& opAssign(const Ray&in)", AS_METHODPR(Ray, operator=, (const Ray&), Ray&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Ray::operator ==(const Ray& rhs) const", "bool opEquals(const Ray&in) const", AS_METHODPR(Ray, operator==, (const Ray&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Ray::Define(const Vector3& origin, const Vector3& direction)", "void Define(const Vector3&in, const Vector3&in)", AS_METHODPR(Ray, Define, (const Vector3&, const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Vector3 Ray::Project(const Vector3& point) const", "Vector3 Project(const Vector3&in) const", AS_METHODPR(Ray, Project, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Ray::Distance(const Vector3& point) const", "float Distance(const Vector3&in) const", AS_METHODPR(Ray, Distance, (const Vector3&) const, float), AS_CALL_THISCALL));
@@ -724,19 +724,19 @@ void CollectMembers_Rect(MemberCollection& members)
 {
     // const float* Rect::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Rect::operator!=(const Rect& rhs) const
+    // bool Rect::operator !=(const Rect& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator=(const Rect& rhs) noexcept = default", "Rect& opAssign(const Rect&in)", AS_METHODPR(Rect, operator=, (const Rect&), Rect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Rect::operator==(const Rect& rhs) const", "bool opEquals(const Rect&in) const", AS_METHODPR(Rect, operator==, (const Rect&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator+=(const Rect& rhs)", "Rect& opAddAssign(const Rect&in)", AS_METHODPR(Rect, operator+=, (const Rect&), Rect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator-=(const Rect& rhs)", "Rect& opSubAssign(const Rect&in)", AS_METHODPR(Rect, operator-=, (const Rect&), Rect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator/=(float value)", "Rect& opDivAssign(float)", AS_METHODPR(Rect, operator/=, (float), Rect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator*=(float value)", "Rect& opMulAssign(float)", AS_METHODPR(Rect, operator*=, (float), Rect&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Rect Rect::operator/(float value) const", "Rect opDiv(float) const", AS_METHODPR(Rect, operator/, (float) const, Rect), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Rect Rect::operator*(float value) const", "Rect opMul(float) const", AS_METHODPR(Rect, operator*, (float) const, Rect), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Rect Rect::operator+(const Rect& rhs) const", "Rect opAdd(const Rect&in) const", AS_METHODPR(Rect, operator+, (const Rect&) const, Rect), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Rect Rect::operator-(const Rect& rhs) const", "Rect opSub(const Rect&in) const", AS_METHODPR(Rect, operator-, (const Rect&) const, Rect), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator =(const Rect& rhs) noexcept = default", "Rect& opAssign(const Rect&in)", AS_METHODPR(Rect, operator=, (const Rect&), Rect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Rect::operator ==(const Rect& rhs) const", "bool opEquals(const Rect&in) const", AS_METHODPR(Rect, operator==, (const Rect&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator +=(const Rect& rhs)", "Rect& opAddAssign(const Rect&in)", AS_METHODPR(Rect, operator+=, (const Rect&), Rect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator -=(const Rect& rhs)", "Rect& opSubAssign(const Rect&in)", AS_METHODPR(Rect, operator-=, (const Rect&), Rect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator /=(float value)", "Rect& opDivAssign(float)", AS_METHODPR(Rect, operator/=, (float), Rect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect& Rect::operator *=(float value)", "Rect& opMulAssign(float)", AS_METHODPR(Rect, operator*=, (float), Rect&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect Rect::operator /(float value) const", "Rect opDiv(float) const", AS_METHODPR(Rect, operator/, (float) const, Rect), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect Rect::operator *(float value) const", "Rect opMul(float) const", AS_METHODPR(Rect, operator*, (float) const, Rect), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect Rect::operator +(const Rect& rhs) const", "Rect opAdd(const Rect&in) const", AS_METHODPR(Rect, operator+, (const Rect&) const, Rect), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Rect Rect::operator -(const Rect& rhs) const", "Rect opSub(const Rect&in) const", AS_METHODPR(Rect, operator-, (const Rect&) const, Rect), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Rect::Define(const Rect& rect)", "void Define(const Rect&in)", AS_METHODPR(Rect, Define, (const Rect&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Rect::Define(const Vector2& min, const Vector2& max)", "void Define(const Vector2&in, const Vector2&in)", AS_METHODPR(Rect, Define, (const Vector2&, const Vector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Rect::Define(const Vector2& point)", "void Define(const Vector2&in)", AS_METHODPR(Rect, Define, (const Vector2&), void), AS_CALL_THISCALL));
@@ -786,11 +786,11 @@ void CollectMembers_Sphere(MemberCollection& members)
     // Error: type "const Vector3*" can not automatically bind
     // void Sphere::Merge(const Vector3* vertices, unsigned count)
     // Error: type "const Vector3*" can not automatically bind
-    // bool Sphere::operator!=(const Sphere& rhs) const
+    // bool Sphere::operator !=(const Sphere& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Sphere& Sphere::operator=(const Sphere& rhs) noexcept = default", "Sphere& opAssign(const Sphere&in)", AS_METHODPR(Sphere, operator=, (const Sphere&), Sphere&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Sphere::operator==(const Sphere& rhs) const", "bool opEquals(const Sphere&in) const", AS_METHODPR(Sphere, operator==, (const Sphere&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Sphere& Sphere::operator =(const Sphere& rhs) noexcept = default", "Sphere& opAssign(const Sphere&in)", AS_METHODPR(Sphere, operator=, (const Sphere&), Sphere&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Sphere::operator ==(const Sphere& rhs) const", "bool opEquals(const Sphere&in) const", AS_METHODPR(Sphere, operator==, (const Sphere&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Sphere::Define(const Sphere& sphere)", "void Define(const Sphere&in)", AS_METHODPR(Sphere, Define, (const Sphere&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Sphere::Define(const Vector3& center, float radius)", "void Define(const Vector3&in, float)", AS_METHODPR(Sphere, Define, (const Vector3&, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Sphere::Define(const BoundingBox& box)", "void Define(const BoundingBox&in)", AS_METHODPR(Sphere, Define, (const BoundingBox&), void), AS_CALL_THISCALL));
@@ -823,17 +823,17 @@ void CollectMembers_Sphere(MemberCollection& members)
 // class StringHash | File: ../Math/StringHash.h
 void CollectMembers_StringHash(MemberCollection& members)
 {
-    // bool StringHash::operator!=(const StringHash& rhs) const
+    // bool StringHash::operator !=(const StringHash& rhs) const
     // Only operator== is needed
-    // bool StringHash::operator<(const StringHash& rhs) const
+    // bool StringHash::operator <(const StringHash& rhs) const
     // Registerd as opCmp separately
     // bool StringHash::operator>(const StringHash& rhs) const
     // Registerd as opCmp separately
 
-    members.methods_.Push(RegisterObjectMethodArgs("StringHash& StringHash::operator=(const StringHash& rhs) noexcept = default", "StringHash& opAssign(const StringHash&in)", AS_METHODPR(StringHash, operator=, (const StringHash&), StringHash&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("StringHash StringHash::operator+(const StringHash& rhs) const", "StringHash opAdd(const StringHash&in) const", AS_METHODPR(StringHash, operator+, (const StringHash&) const, StringHash), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("StringHash& StringHash::operator+=(const StringHash& rhs)", "StringHash& opAddAssign(const StringHash&in)", AS_METHODPR(StringHash, operator+=, (const StringHash&), StringHash&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool StringHash::operator==(const StringHash& rhs) const", "bool opEquals(const StringHash&in) const", AS_METHODPR(StringHash, operator==, (const StringHash&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("StringHash& StringHash::operator =(const StringHash& rhs) noexcept = default", "StringHash& opAssign(const StringHash&in)", AS_METHODPR(StringHash, operator=, (const StringHash&), StringHash&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("StringHash StringHash::operator +(const StringHash& rhs) const", "StringHash opAdd(const StringHash&in) const", AS_METHODPR(StringHash, operator+, (const StringHash&) const, StringHash), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("StringHash& StringHash::operator +=(const StringHash& rhs)", "StringHash& opAddAssign(const StringHash&in)", AS_METHODPR(StringHash, operator+=, (const StringHash&), StringHash&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool StringHash::operator ==(const StringHash& rhs) const", "bool opEquals(const StringHash&in) const", AS_METHODPR(StringHash, operator==, (const StringHash&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("explicit StringHash::operator bool() const", "bool opConv() const", AS_METHODPR(StringHash, operator bool, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned StringHash::Value() const", "uint Value() const", AS_METHODPR(StringHash, Value, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned StringHash::Value() const", "uint get_value() const", AS_METHODPR(StringHash, Value, () const, unsigned), AS_CALL_THISCALL));
@@ -858,24 +858,24 @@ void CollectMembers_Vector2(MemberCollection& members)
 {
     // const float* Vector2::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Vector2::operator!=(const Vector2& rhs) const
+    // bool Vector2::operator !=(const Vector2& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator=(const Vector2& rhs) noexcept = default", "Vector2& opAssign(const Vector2&in)", AS_METHODPR(Vector2, operator=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Vector2::operator==(const Vector2& rhs) const", "bool opEquals(const Vector2&in) const", AS_METHODPR(Vector2, operator==, (const Vector2&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator+(const Vector2& rhs) const", "Vector2 opAdd(const Vector2&in) const", AS_METHODPR(Vector2, operator+, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator-() const", "Vector2 opNeg() const", AS_METHODPR(Vector2, operator-, () const, Vector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator-(const Vector2& rhs) const", "Vector2 opSub(const Vector2&in) const", AS_METHODPR(Vector2, operator-, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator*(float rhs) const", "Vector2 opMul(float) const", AS_METHODPR(Vector2, operator*, (float) const, Vector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator*(const Vector2& rhs) const", "Vector2 opMul(const Vector2&in) const", AS_METHODPR(Vector2, operator*, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator/(float rhs) const", "Vector2 opDiv(float) const", AS_METHODPR(Vector2, operator/, (float) const, Vector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator/(const Vector2& rhs) const", "Vector2 opDiv(const Vector2&in) const", AS_METHODPR(Vector2, operator/, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator+=(const Vector2& rhs)", "Vector2& opAddAssign(const Vector2&in)", AS_METHODPR(Vector2, operator+=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator-=(const Vector2& rhs)", "Vector2& opSubAssign(const Vector2&in)", AS_METHODPR(Vector2, operator-=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator*=(float rhs)", "Vector2& opMulAssign(float)", AS_METHODPR(Vector2, operator*=, (float), Vector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator*=(const Vector2& rhs)", "Vector2& opMulAssign(const Vector2&in)", AS_METHODPR(Vector2, operator*=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator/=(float rhs)", "Vector2& opDivAssign(float)", AS_METHODPR(Vector2, operator/=, (float), Vector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator/=(const Vector2& rhs)", "Vector2& opDivAssign(const Vector2&in)", AS_METHODPR(Vector2, operator/=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator =(const Vector2& rhs) noexcept = default", "Vector2& opAssign(const Vector2&in)", AS_METHODPR(Vector2, operator=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Vector2::operator ==(const Vector2& rhs) const", "bool opEquals(const Vector2&in) const", AS_METHODPR(Vector2, operator==, (const Vector2&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator +(const Vector2& rhs) const", "Vector2 opAdd(const Vector2&in) const", AS_METHODPR(Vector2, operator+, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator -() const", "Vector2 opNeg() const", AS_METHODPR(Vector2, operator-, () const, Vector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator -(const Vector2& rhs) const", "Vector2 opSub(const Vector2&in) const", AS_METHODPR(Vector2, operator-, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator *(float rhs) const", "Vector2 opMul(float) const", AS_METHODPR(Vector2, operator*, (float) const, Vector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator *(const Vector2& rhs) const", "Vector2 opMul(const Vector2&in) const", AS_METHODPR(Vector2, operator*, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator /(float rhs) const", "Vector2 opDiv(float) const", AS_METHODPR(Vector2, operator/, (float) const, Vector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2 Vector2::operator /(const Vector2& rhs) const", "Vector2 opDiv(const Vector2&in) const", AS_METHODPR(Vector2, operator/, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator +=(const Vector2& rhs)", "Vector2& opAddAssign(const Vector2&in)", AS_METHODPR(Vector2, operator+=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator -=(const Vector2& rhs)", "Vector2& opSubAssign(const Vector2&in)", AS_METHODPR(Vector2, operator-=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator *=(float rhs)", "Vector2& opMulAssign(float)", AS_METHODPR(Vector2, operator*=, (float), Vector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator *=(const Vector2& rhs)", "Vector2& opMulAssign(const Vector2&in)", AS_METHODPR(Vector2, operator*=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator /=(float rhs)", "Vector2& opDivAssign(float)", AS_METHODPR(Vector2, operator/=, (float), Vector2&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector2& Vector2::operator /=(const Vector2& rhs)", "Vector2& opDivAssign(const Vector2&in)", AS_METHODPR(Vector2, operator/=, (const Vector2&), Vector2&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Vector2::Normalize()", "void Normalize()", AS_METHODPR(Vector2, Normalize, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Vector2::Length() const", "float Length() const", AS_METHODPR(Vector2, Length, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Vector2::Length() const", "float get_length() const", AS_METHODPR(Vector2, Length, () const, float), AS_CALL_THISCALL));
@@ -915,24 +915,24 @@ void CollectMembers_Vector3(MemberCollection& members)
 {
     // const float* Vector3::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Vector3::operator!=(const Vector3& rhs) const
+    // bool Vector3::operator !=(const Vector3& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator=(const Vector3& rhs) noexcept = default", "Vector3& opAssign(const Vector3&in)", AS_METHODPR(Vector3, operator=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Vector3::operator==(const Vector3& rhs) const", "bool opEquals(const Vector3&in) const", AS_METHODPR(Vector3, operator==, (const Vector3&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator+(const Vector3& rhs) const", "Vector3 opAdd(const Vector3&in) const", AS_METHODPR(Vector3, operator+, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator-() const", "Vector3 opNeg() const", AS_METHODPR(Vector3, operator-, () const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator-(const Vector3& rhs) const", "Vector3 opSub(const Vector3&in) const", AS_METHODPR(Vector3, operator-, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator*(float rhs) const", "Vector3 opMul(float) const", AS_METHODPR(Vector3, operator*, (float) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator*(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Vector3, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator/(float rhs) const", "Vector3 opDiv(float) const", AS_METHODPR(Vector3, operator/, (float) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator/(const Vector3& rhs) const", "Vector3 opDiv(const Vector3&in) const", AS_METHODPR(Vector3, operator/, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator+=(const Vector3& rhs)", "Vector3& opAddAssign(const Vector3&in)", AS_METHODPR(Vector3, operator+=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator-=(const Vector3& rhs)", "Vector3& opSubAssign(const Vector3&in)", AS_METHODPR(Vector3, operator-=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator*=(float rhs)", "Vector3& opMulAssign(float)", AS_METHODPR(Vector3, operator*=, (float), Vector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator*=(const Vector3& rhs)", "Vector3& opMulAssign(const Vector3&in)", AS_METHODPR(Vector3, operator*=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator/=(float rhs)", "Vector3& opDivAssign(float)", AS_METHODPR(Vector3, operator/=, (float), Vector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator/=(const Vector3& rhs)", "Vector3& opDivAssign(const Vector3&in)", AS_METHODPR(Vector3, operator/=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator =(const Vector3& rhs) noexcept = default", "Vector3& opAssign(const Vector3&in)", AS_METHODPR(Vector3, operator=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Vector3::operator ==(const Vector3& rhs) const", "bool opEquals(const Vector3&in) const", AS_METHODPR(Vector3, operator==, (const Vector3&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator +(const Vector3& rhs) const", "Vector3 opAdd(const Vector3&in) const", AS_METHODPR(Vector3, operator+, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator -() const", "Vector3 opNeg() const", AS_METHODPR(Vector3, operator-, () const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator -(const Vector3& rhs) const", "Vector3 opSub(const Vector3&in) const", AS_METHODPR(Vector3, operator-, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator *(float rhs) const", "Vector3 opMul(float) const", AS_METHODPR(Vector3, operator*, (float) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator *(const Vector3& rhs) const", "Vector3 opMul(const Vector3&in) const", AS_METHODPR(Vector3, operator*, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator /(float rhs) const", "Vector3 opDiv(float) const", AS_METHODPR(Vector3, operator/, (float) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Vector3::operator /(const Vector3& rhs) const", "Vector3 opDiv(const Vector3&in) const", AS_METHODPR(Vector3, operator/, (const Vector3&) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator +=(const Vector3& rhs)", "Vector3& opAddAssign(const Vector3&in)", AS_METHODPR(Vector3, operator+=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator -=(const Vector3& rhs)", "Vector3& opSubAssign(const Vector3&in)", AS_METHODPR(Vector3, operator-=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator *=(float rhs)", "Vector3& opMulAssign(float)", AS_METHODPR(Vector3, operator*=, (float), Vector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator *=(const Vector3& rhs)", "Vector3& opMulAssign(const Vector3&in)", AS_METHODPR(Vector3, operator*=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator /=(float rhs)", "Vector3& opDivAssign(float)", AS_METHODPR(Vector3, operator/=, (float), Vector3&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3& Vector3::operator /=(const Vector3& rhs)", "Vector3& opDivAssign(const Vector3&in)", AS_METHODPR(Vector3, operator/=, (const Vector3&), Vector3&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Vector3::Normalize()", "void Normalize()", AS_METHODPR(Vector3, Normalize, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Vector3::Length() const", "float Length() const", AS_METHODPR(Vector3, Length, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Vector3::Length() const", "float get_length() const", AS_METHODPR(Vector3, Length, () const, float), AS_CALL_THISCALL));
@@ -982,26 +982,26 @@ void CollectMembers_Vector4(MemberCollection& members)
 {
     // const float* Vector4::Data() const
     // Error: type "const float*" can not automatically bind
-    // bool Vector4::operator!=(const Vector4& rhs) const
+    // bool Vector4::operator !=(const Vector4& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator=(const Vector4& rhs) noexcept = default", "Vector4& opAssign(const Vector4&in)", AS_METHODPR(Vector4, operator=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Vector4::operator==(const Vector4& rhs) const", "bool opEquals(const Vector4&in) const", AS_METHODPR(Vector4, operator==, (const Vector4&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator+(const Vector4& rhs) const", "Vector4 opAdd(const Vector4&in) const", AS_METHODPR(Vector4, operator+, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator-() const", "Vector4 opNeg() const", AS_METHODPR(Vector4, operator-, () const, Vector4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator-(const Vector4& rhs) const", "Vector4 opSub(const Vector4&in) const", AS_METHODPR(Vector4, operator-, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator*(float rhs) const", "Vector4 opMul(float) const", AS_METHODPR(Vector4, operator*, (float) const, Vector4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator*(const Vector4& rhs) const", "Vector4 opMul(const Vector4&in) const", AS_METHODPR(Vector4, operator*, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator/(float rhs) const", "Vector4 opDiv(float) const", AS_METHODPR(Vector4, operator/, (float) const, Vector4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator/(const Vector4& rhs) const", "Vector4 opDiv(const Vector4&in) const", AS_METHODPR(Vector4, operator/, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator+=(const Vector4& rhs)", "Vector4& opAddAssign(const Vector4&in)", AS_METHODPR(Vector4, operator+=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator-=(const Vector4& rhs)", "Vector4& opSubAssign(const Vector4&in)", AS_METHODPR(Vector4, operator-=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator*=(float rhs)", "Vector4& opMulAssign(float)", AS_METHODPR(Vector4, operator*=, (float), Vector4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator*=(const Vector4& rhs)", "Vector4& opMulAssign(const Vector4&in)", AS_METHODPR(Vector4, operator*=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator/=(float rhs)", "Vector4& opDivAssign(float)", AS_METHODPR(Vector4, operator/=, (float), Vector4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator/=(const Vector4& rhs)", "Vector4& opDivAssign(const Vector4&in)", AS_METHODPR(Vector4, operator/=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("float Vector4::operator[](unsigned index) const", "float opIndex(uint) const", AS_METHODPR(Vector4, operator[], (unsigned) const, float), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("float& Vector4::operator[](unsigned index)", "float& opIndex(uint)", AS_METHODPR(Vector4, operator[], (unsigned), float&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator =(const Vector4& rhs) noexcept = default", "Vector4& opAssign(const Vector4&in)", AS_METHODPR(Vector4, operator=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Vector4::operator ==(const Vector4& rhs) const", "bool opEquals(const Vector4&in) const", AS_METHODPR(Vector4, operator==, (const Vector4&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator +(const Vector4& rhs) const", "Vector4 opAdd(const Vector4&in) const", AS_METHODPR(Vector4, operator+, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator -() const", "Vector4 opNeg() const", AS_METHODPR(Vector4, operator-, () const, Vector4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator -(const Vector4& rhs) const", "Vector4 opSub(const Vector4&in) const", AS_METHODPR(Vector4, operator-, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator *(float rhs) const", "Vector4 opMul(float) const", AS_METHODPR(Vector4, operator*, (float) const, Vector4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator *(const Vector4& rhs) const", "Vector4 opMul(const Vector4&in) const", AS_METHODPR(Vector4, operator*, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator /(float rhs) const", "Vector4 opDiv(float) const", AS_METHODPR(Vector4, operator/, (float) const, Vector4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4 Vector4::operator /(const Vector4& rhs) const", "Vector4 opDiv(const Vector4&in) const", AS_METHODPR(Vector4, operator/, (const Vector4&) const, Vector4), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator +=(const Vector4& rhs)", "Vector4& opAddAssign(const Vector4&in)", AS_METHODPR(Vector4, operator+=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator -=(const Vector4& rhs)", "Vector4& opSubAssign(const Vector4&in)", AS_METHODPR(Vector4, operator-=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator *=(float rhs)", "Vector4& opMulAssign(float)", AS_METHODPR(Vector4, operator*=, (float), Vector4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator *=(const Vector4& rhs)", "Vector4& opMulAssign(const Vector4&in)", AS_METHODPR(Vector4, operator*=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator /=(float rhs)", "Vector4& opDivAssign(float)", AS_METHODPR(Vector4, operator/=, (float), Vector4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector4& Vector4::operator /=(const Vector4& rhs)", "Vector4& opDivAssign(const Vector4&in)", AS_METHODPR(Vector4, operator/=, (const Vector4&), Vector4&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("float Vector4::operator [](unsigned index) const", "float opIndex(uint) const", AS_METHODPR(Vector4, operator[], (unsigned) const, float), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("float& Vector4::operator [](unsigned index)", "float& opIndex(uint)", AS_METHODPR(Vector4, operator[], (unsigned), float&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Vector4::DotProduct(const Vector4& rhs) const", "float DotProduct(const Vector4&in) const", AS_METHODPR(Vector4, DotProduct, (const Vector4&) const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Vector4::AbsDotProduct(const Vector4& rhs) const", "float AbsDotProduct(const Vector4&in) const", AS_METHODPR(Vector4, AbsDotProduct, (const Vector4&) const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Vector4::ProjectOntoAxis(const Vector3& axis) const", "float ProjectOntoAxis(const Vector3&in) const", AS_METHODPR(Vector4, ProjectOntoAxis, (const Vector3&) const, float), AS_CALL_THISCALL));

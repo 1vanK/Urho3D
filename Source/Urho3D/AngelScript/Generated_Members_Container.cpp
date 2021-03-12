@@ -56,10 +56,10 @@ void CollectMembers_HashBase(MemberCollection& members)
 // struct HashIteratorBase | File: ../Container/HashBase.h
 void CollectMembers_HashIteratorBase(MemberCollection& members)
 {
-    // bool HashIteratorBase::operator!=(const HashIteratorBase& rhs) const
+    // bool HashIteratorBase::operator !=(const HashIteratorBase& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool HashIteratorBase::operator==(const HashIteratorBase& rhs) const", "bool opEquals(const HashIteratorBase&in) const", AS_METHODPR(HashIteratorBase, operator==, (const HashIteratorBase&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool HashIteratorBase::operator ==(const HashIteratorBase& rhs) const", "bool opEquals(const HashIteratorBase&in) const", AS_METHODPR(HashIteratorBase, operator==, (const HashIteratorBase&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void HashIteratorBase::GotoNext()", "void GotoNext()", AS_METHODPR(HashIteratorBase, GotoNext, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void HashIteratorBase::GotoPrev()", "void GotoPrev()", AS_METHODPR(HashIteratorBase, GotoPrev, (), void), AS_CALL_THISCALL));
 
@@ -110,10 +110,10 @@ void CollectMembers_ListBase(MemberCollection& members)
 // struct ListIteratorBase | File: ../Container/ListBase.h
 void CollectMembers_ListIteratorBase(MemberCollection& members)
 {
-    // bool ListIteratorBase::operator!=(const ListIteratorBase& rhs) const
+    // bool ListIteratorBase::operator !=(const ListIteratorBase& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool ListIteratorBase::operator==(const ListIteratorBase& rhs) const", "bool opEquals(const ListIteratorBase&in) const", AS_METHODPR(ListIteratorBase, operator==, (const ListIteratorBase&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool ListIteratorBase::operator ==(const ListIteratorBase& rhs) const", "bool opEquals(const ListIteratorBase&in) const", AS_METHODPR(ListIteratorBase, operator==, (const ListIteratorBase&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListIteratorBase::GotoNext()", "void GotoNext()", AS_METHODPR(ListIteratorBase, GotoNext, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListIteratorBase::GotoPrev()", "void GotoPrev()", AS_METHODPR(ListIteratorBase, GotoPrev, (), void), AS_CALL_THISCALL));
 
@@ -164,7 +164,7 @@ void CollectMembers_RefCounted(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int WeakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int get_weakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
 
-    // RefCounted& RefCounted::operator=(const RefCounted& rhs) = delete
+    // RefCounted& RefCounted::operator =(const RefCounted& rhs) = delete
     // Not registered because deleted
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_RefCounted
@@ -231,48 +231,48 @@ void CollectMembers_String(MemberCollection& members)
     // Error: type "const char*" can not automatically bind
     // void String::SetUTF8FromWChar(const wchar_t* str)
     // Error: type "const wchar_t*" can not automatically bind
-    // bool String::operator!=(const String& rhs) const
+    // bool String::operator !=(const String& rhs) const
     // Only operator== is needed
-    // bool String::operator!=(const char* rhs) const
+    // bool String::operator !=(const char* rhs) const
     // Error: type "const char*" can not automatically bind
-    // String String::operator+(const char* rhs) const
+    // String String::operator +(const char* rhs) const
     // Error: type "const char*" can not automatically bind
-    // String& String::operator+=(const char* rhs)
+    // String& String::operator +=(const char* rhs)
     // Error: type "const char*" can not automatically bind
-    // String& String::operator+=(long rhs)
+    // String& String::operator +=(long rhs)
     // Not registered because have @nobind mark
-    // String& String::operator+=(unsigned long rhs)
+    // String& String::operator +=(unsigned long rhs)
     // Not registered because have @nobind mark
-    // bool String::operator<(const String& rhs) const
+    // bool String::operator <(const String& rhs) const
     // Registerd as opCmp separately
-    // bool String::operator<(const char* rhs) const
+    // bool String::operator <(const char* rhs) const
     // Error: type "const char*" can not automatically bind
-    // String& String::operator=(String&& rhs) noexcept
+    // String& String::operator =(String&& rhs) noexcept
     // Error: type "String&&" can not automatically bind
-    // String& String::operator=(const char* rhs)
+    // String& String::operator =(const char* rhs)
     // Error: type "const char*" can not automatically bind
-    // bool String::operator==(const char* rhs) const
+    // bool String::operator ==(const char* rhs) const
     // Error: type "const char*" can not automatically bind
     // bool String::operator>(const String& rhs) const
     // Registerd as opCmp separately
     // bool String::operator>(const char* rhs) const
     // Error: type "const char*" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator=(const String& rhs)", "String& opAssign(const String&in)", AS_METHODPR(String, operator=, (const String&), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(const String& rhs)", "String& opAddAssign(const String&in)", AS_METHODPR(String, operator+=, (const String&), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(char rhs)", "String& opAddAssign(int8)", AS_METHODPR(String, operator+=, (char), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(int rhs)", "String& opAddAssign(int)", AS_METHODPR(String, operator+=, (int), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(short rhs)", "String& opAddAssign(int16)", AS_METHODPR(String, operator+=, (short), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(long long rhs)", "String& opAddAssign(int64)", AS_METHODPR(String, operator+=, (long long), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(unsigned rhs)", "String& opAddAssign(uint)", AS_METHODPR(String, operator+=, (unsigned), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(unsigned short rhs)", "String& opAddAssign(uint16)", AS_METHODPR(String, operator+=, (unsigned short), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(unsigned long long rhs)", "String& opAddAssign(uint64)", AS_METHODPR(String, operator+=, (unsigned long long), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(float rhs)", "String& opAddAssign(float)", AS_METHODPR(String, operator+=, (float), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator+=(bool rhs)", "String& opAddAssign(bool)", AS_METHODPR(String, operator+=, (bool), String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String String::operator+(const String& rhs) const", "String opAdd(const String&in) const", AS_METHODPR(String, operator+, (const String&) const, String), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool String::operator==(const String& rhs) const", "bool opEquals(const String&in) const", AS_METHODPR(String, operator==, (const String&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("char& String::operator[](unsigned index)", "int8& opIndex(uint)", AS_METHODPR(String, operator[], (unsigned), char&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("const char& String::operator[](unsigned index) const", "const int8& opIndex(uint) const", AS_METHODPR(String, operator[], (unsigned) const, const char&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator =(const String& rhs)", "String& opAssign(const String&in)", AS_METHODPR(String, operator=, (const String&), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(const String& rhs)", "String& opAddAssign(const String&in)", AS_METHODPR(String, operator+=, (const String&), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(char rhs)", "String& opAddAssign(int8)", AS_METHODPR(String, operator+=, (char), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(int rhs)", "String& opAddAssign(int)", AS_METHODPR(String, operator+=, (int), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(short rhs)", "String& opAddAssign(int16)", AS_METHODPR(String, operator+=, (short), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(long long rhs)", "String& opAddAssign(int64)", AS_METHODPR(String, operator+=, (long long), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(unsigned rhs)", "String& opAddAssign(uint)", AS_METHODPR(String, operator+=, (unsigned), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(unsigned short rhs)", "String& opAddAssign(uint16)", AS_METHODPR(String, operator+=, (unsigned short), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(unsigned long long rhs)", "String& opAddAssign(uint64)", AS_METHODPR(String, operator+=, (unsigned long long), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(float rhs)", "String& opAddAssign(float)", AS_METHODPR(String, operator+=, (float), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String& String::operator +=(bool rhs)", "String& opAddAssign(bool)", AS_METHODPR(String, operator+=, (bool), String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String String::operator +(const String& rhs) const", "String opAdd(const String&in) const", AS_METHODPR(String, operator+, (const String&) const, String), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool String::operator ==(const String& rhs) const", "bool opEquals(const String&in) const", AS_METHODPR(String, operator==, (const String&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("char& String::operator [](unsigned index)", "int8& opIndex(uint)", AS_METHODPR(String, operator[], (unsigned), char&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("const char& String::operator [](unsigned index) const", "const int8& opIndex(uint) const", AS_METHODPR(String, operator[], (unsigned) const, const char&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("char& String::At(unsigned index)", "int8& At(uint)", AS_METHODPR(String, At, (unsigned), char&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const char& String::At(unsigned index) const", "const int8& At(uint) const", AS_METHODPR(String, At, (unsigned) const, const char&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void String::Replace(char replaceThis, char replaceWith, bool caseSensitive = true)", "void Replace(int8, int8, bool = true)", AS_METHODPR(String, Replace, (char, char, bool), void), AS_CALL_THISCALL));
@@ -324,7 +324,7 @@ void CollectMembers_String(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("String String::SubstringUTF8(unsigned pos, unsigned length) const", "String SubstringUTF8(uint, uint) const", AS_METHODPR(String, SubstringUTF8, (unsigned, unsigned) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::ToHash() const", "uint ToHash() const", AS_METHODPR(String, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
-    // template <class T> String& String::operator+=(const T& rhs)
+    // template <class T> String& String::operator +=(const T& rhs)
     // Not registered because template
     // static Vector<String> String::Split(const char* str, char separator, bool keepEmptyStrings = false)
     // Error: type "const char*" can not automatically bind
@@ -367,9 +367,9 @@ void CollectMembers_WString(MemberCollection& members)
     // Error: type "wchar_t&" can not automatically bind
     // const wchar_t* WString::CString() const
     // Error: type "const wchar_t*" can not automatically bind
-    // const wchar_t& WString::operator[](unsigned index) const
+    // const wchar_t& WString::operator [](unsigned index) const
     // Error: type "const wchar_t&" can not automatically bind
-    // wchar_t& WString::operator[](unsigned index)
+    // wchar_t& WString::operator [](unsigned index)
     // Error: type "wchar_t&" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("void WString::Resize(unsigned newLength)", "void Resize(uint)", AS_METHODPR(WString, Resize, (unsigned), void), AS_CALL_THISCALL));

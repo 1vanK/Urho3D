@@ -494,10 +494,10 @@ void CollectMembers_BatchGroup(MemberCollection& members)
 // struct BatchGroupKey | File: ../Graphics/Batch.h
 void CollectMembers_BatchGroupKey(MemberCollection& members)
 {
-    // bool BatchGroupKey::operator!=(const BatchGroupKey& rhs) const
+    // bool BatchGroupKey::operator !=(const BatchGroupKey& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool BatchGroupKey::operator==(const BatchGroupKey& rhs) const", "bool opEquals(const BatchGroupKey&in) const", AS_METHODPR(BatchGroupKey, operator==, (const BatchGroupKey&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool BatchGroupKey::operator ==(const BatchGroupKey& rhs) const", "bool opEquals(const BatchGroupKey&in) const", AS_METHODPR(BatchGroupKey, operator==, (const BatchGroupKey&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned BatchGroupKey::ToHash() const", "uint ToHash() const", AS_METHODPR(BatchGroupKey, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
     // Zone* BatchGroupKey::zone_
@@ -2423,7 +2423,7 @@ void CollectMembers_OctreeQuery(MemberCollection& members)
 
     members.methods_.Push(RegisterObjectMethodArgs("virtual Intersection OctreeQuery::TestOctant(const BoundingBox& box, bool inside) = 0", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(OctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
 
-    // OctreeQuery& OctreeQuery::operator=(const OctreeQuery& rhs) = delete
+    // OctreeQuery& OctreeQuery::operator =(const OctreeQuery& rhs) = delete
     // Not registered because deleted
 
     // PODVector<Drawable*>& OctreeQuery::result_
@@ -2440,7 +2440,7 @@ void CollectMembers_OctreeQuery(MemberCollection& members)
 // struct OctreeQueryResult | File: ../Graphics/OctreeQuery.h
 void CollectMembers_OctreeQueryResult(MemberCollection& members)
 {
-    // bool OctreeQueryResult::operator!=(const OctreeQueryResult& rhs) const
+    // bool OctreeQueryResult::operator !=(const OctreeQueryResult& rhs) const
     // Only operator== is needed
 
     // Drawable* OctreeQueryResult::drawable_
@@ -2861,7 +2861,7 @@ void CollectMembers_PointOctreeQuery(MemberCollection& members)
 // class RayOctreeQuery | File: ../Graphics/OctreeQuery.h
 void CollectMembers_RayOctreeQuery(MemberCollection& members)
 {
-    // RayOctreeQuery& RayOctreeQuery::operator=(const RayOctreeQuery& rhs) = delete
+    // RayOctreeQuery& RayOctreeQuery::operator =(const RayOctreeQuery& rhs) = delete
     // Not registered because deleted
 
     // PODVector<RayQueryResult>& RayOctreeQuery::result_
@@ -2881,7 +2881,7 @@ void CollectMembers_RayOctreeQuery(MemberCollection& members)
 // struct RayQueryResult | File: ../Graphics/OctreeQuery.h
 void CollectMembers_RayQueryResult(MemberCollection& members)
 {
-    // bool RayQueryResult::operator!=(const RayQueryResult& rhs) const
+    // bool RayQueryResult::operator !=(const RayQueryResult& rhs) const
     // Only operator== is needed
 
     // Drawable* RayQueryResult::drawable_
@@ -3425,11 +3425,11 @@ void CollectMembers_ScratchBuffer(MemberCollection& members)
 // struct ScreenModeParams | File: ../Graphics/Graphics.h
 void CollectMembers_ScreenModeParams(MemberCollection& members)
 {
-    // bool ScreenModeParams::operator!=(const ScreenModeParams& rhs) const
+    // bool ScreenModeParams::operator !=(const ScreenModeParams& rhs) const
     // Only operator== is needed
 
     members.methods_.Push(RegisterObjectMethodArgs("bool ScreenModeParams::EqualsExceptVSync(const ScreenModeParams& rhs) const", "bool EqualsExceptVSync(const ScreenModeParams&in) const", AS_METHODPR(ScreenModeParams, EqualsExceptVSync, (const ScreenModeParams&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool ScreenModeParams::operator==(const ScreenModeParams& rhs) const", "bool opEquals(const ScreenModeParams&in) const", AS_METHODPR(ScreenModeParams, operator==, (const ScreenModeParams&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool ScreenModeParams::operator ==(const ScreenModeParams& rhs) const", "bool opEquals(const ScreenModeParams&in) const", AS_METHODPR(ScreenModeParams, operator==, (const ScreenModeParams&) const, bool), AS_CALL_THISCALL));
 
     members.fields_.Push(RegisterObjectPropertyArgs("bool ScreenModeParams::fullscreen_", "bool fullscreen", offsetof(ScreenModeParams, fullscreen_)));
     members.fields_.Push(RegisterObjectPropertyArgs("bool ScreenModeParams::borderless_", "bool borderless", offsetof(ScreenModeParams, borderless_)));
@@ -3639,7 +3639,7 @@ void CollectMembers_Skybox(MemberCollection& members)
 // struct SourceBatch | File: ../Graphics/Drawable.h
 void CollectMembers_SourceBatch(MemberCollection& members)
 {
-    members.methods_.Push(RegisterObjectMethodArgs("SourceBatch& SourceBatch::operator=(const SourceBatch& rhs)", "SourceBatch& opAssign(const SourceBatch&in)", AS_METHODPR(SourceBatch, operator=, (const SourceBatch&), SourceBatch&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("SourceBatch& SourceBatch::operator =(const SourceBatch& rhs)", "SourceBatch& opAssign(const SourceBatch&in)", AS_METHODPR(SourceBatch, operator=, (const SourceBatch&), SourceBatch&), AS_CALL_THISCALL));
 
     // Geometry* SourceBatch::geometry_
     // Not registered because pointer
@@ -4526,10 +4526,10 @@ void CollectMembers_VertexBufferMorph(MemberCollection& members)
 // struct VertexElement | File: ../Graphics/GraphicsDefs.h
 void CollectMembers_VertexElement(MemberCollection& members)
 {
-    // bool VertexElement::operator!=(const VertexElement& rhs) const
+    // bool VertexElement::operator !=(const VertexElement& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool VertexElement::operator==(const VertexElement& rhs) const", "bool opEquals(const VertexElement&in) const", AS_METHODPR(VertexElement, operator==, (const VertexElement&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool VertexElement::operator ==(const VertexElement& rhs) const", "bool opEquals(const VertexElement&in) const", AS_METHODPR(VertexElement, operator==, (const VertexElement&) const, bool), AS_CALL_THISCALL));
 
     members.fields_.Push(RegisterObjectPropertyArgs("VertexElementType VertexElement::type_", "VertexElementType type", offsetof(VertexElement, type_)));
     members.fields_.Push(RegisterObjectPropertyArgs("VertexElementSemantic VertexElement::semantic_", "VertexElementSemantic semantic", offsetof(VertexElement, semantic_)));
