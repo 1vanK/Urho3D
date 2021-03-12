@@ -51,7 +51,6 @@ static PhysicsWorld* SceneGetPhysicsWorld(Scene* ptr)
 }
 #endif
 
-
 #ifdef URHO3D_URHO2D
 // template<class T> T * Node::GetComponent(bool recursive=false) const | File: ../Scene/Node.h
 static PhysicsWorld2D* SceneGetPhysicsWorld2D(Scene* ptr)
@@ -92,31 +91,31 @@ const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* 
 
 // ========================================================================================
 
-// bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+// bool Node::SaveXML(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
 bool NodeSaveXMLFile(File* file, const String& indentation, Node* ptr)
 {
     return file && ptr->SaveXML(*file, indentation);
 }
 
-// bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+// bool Node::SaveXML(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
 bool NodeSaveXMLVectorBuffer(VectorBuffer& buffer, const String& indentation, Node* ptr)
 {
     return ptr->SaveXML(buffer, indentation);
 }
 
-// bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+// bool Node::SaveJSON(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
 bool NodeSaveJSONFile(File* file, Node* ptr)
 {
     return file && ptr->SaveJSON(*file);
 }
 
-// bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+// bool Node::SaveJSON(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
 bool NodeSaveJSONVectorBuffer(VectorBuffer& buffer, Node* ptr)
 {
     return ptr->SaveJSON(buffer);
 }
 
-// template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>&dest, bool recursive=false) const | File: ../Scene/Node.h
+// template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetChildrenWithScript(bool recursive, Node* ptr)
 {
     PODVector<Node*> nodes;
@@ -124,13 +123,14 @@ CScriptArray* NodeGetChildrenWithScript(bool recursive, Node* ptr)
     return VectorToHandleArray<Node>(nodes, "Array<Node@>");
 }
 
-// template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h
+// template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetChildrenWithClassName(const String& className, bool recursive, Node* ptr)
 {
     PODVector<Node*> nodes;
-    PODVector<Node*> result;
-
     ptr->GetChildrenWithComponent<ScriptInstance>(nodes, recursive);
+
+    PODVector<Node*> result;
+    
     for (PODVector<Node*>::Iterator i = nodes.Begin(); i != nodes.End(); ++i)
     {
         Node* node = *i;
@@ -148,7 +148,7 @@ CScriptArray* NodeGetChildrenWithClassName(const String& className, bool recursi
     return VectorToHandleArray<Node>(result, "Array<Node@>");
 }
 
-// void Node::GetComponents(PODVector< Component * > &dest, StringHash type, bool recursive=false) const | File: ../Scene/Node.h
+// void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive = false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetComponentsWithType(const String& typeName, bool recursive, Node* ptr)
 {
     PODVector<Component*> components;
@@ -156,13 +156,13 @@ CScriptArray* NodeGetComponentsWithType(const String& typeName, bool recursive, 
     return VectorToHandleArray<Component>(components, "Array<Component@>");
 }
 
-// unsigned Node::GetNumChildren(bool recursive=false) const | File: ../Scene/Node.h
+// unsigned Node::GetNumChildren(bool recursive = false) const | File: ../Scene/Node.h
 unsigned NodeGetNumChildrenNonRecursive(Node* ptr)
 {
     return ptr->GetNumChildren(false);
 }
 
-// unsigned Node::GetNumChildren(bool recursive=false) const | File: ../Scene/Node.h
+// unsigned Node::GetNumChildren(bool recursive = false) const | File: ../Scene/Node.h
 unsigned NodeGetNumChildrenRecursive(Node* ptr)
 {
     return ptr->GetNumChildren(true);
@@ -181,27 +181,19 @@ Node* NodeGetChild(unsigned index, Node* ptr)
         return children[index].Get();
 }
 
-// Node* Node::GetChild(const String &name, bool recursive=false) const | File: ../Scene/Node.h
+// Node* Node::GetChild(const String& name, bool recursive = false) const | File: ../Scene/Node.h
 Node* NodeGetChildByName(const String& name, Node* ptr)
 {
-    return ptr->GetChild(name);
+    return ptr->GetChild(name, false);
 }
 
-// Node* Node::GetChild(const String &name, bool recursive=false) const | File: ../Scene/Node.h
+// Node* Node::GetChild(const String& name, bool recursive = false) const | File: ../Scene/Node.h
 Node* NodeGetChildByNameRecursive(const String& name, Node* ptr)
 {
     return ptr->GetChild(name, true);
 }
 
-// const VariantMap& Node::GetVars() const | File: ../Scene/Node.h
-VariantMap& NodeGetVars(Node* ptr)
-{
-    // Assume that the vars will be modified and queue a network update attribute check
-    ptr->MarkNetworkUpdate();
-    return const_cast<VariantMap&>(ptr->GetVars());
-}
-
-// const Vector<SharedPtr<Component> >& Node::GetComponents() const | File: ../Scene/Node.h
+// const Vector<SharedPtr<Component>>& Node::GetComponents() const | File: ../Scene/Node.h
 Component* NodeGetComponent(unsigned index, Node* ptr)
 {
     const Vector<SharedPtr<Component> >& components = ptr->GetComponents();
@@ -212,6 +204,14 @@ Component* NodeGetComponent(unsigned index, Node* ptr)
     }
     else
         return components[index];
+}
+
+// const VariantMap& Node::GetVars() const | File: ../Scene/Node.h
+VariantMap& NodeGetVars(Node* ptr)
+{
+    // Assume that the vars will be modified and queue a network update attribute check
+    ptr->MarkNetworkUpdate();
+    return const_cast<VariantMap&>(ptr->GetVars());
 }
 
 // ========================================================================================

@@ -47,7 +47,7 @@ const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* 
 #define REGISTER_CLASS_MANUAL_PART_Node() \
     RegisterNamedObjectConstructor<Node>(engine, "Node");
 
-// bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+// bool Node::SaveXML(Serializer& dest, const String& indentation = "\t") const | File: ../Scene/Node.h
 bool NodeSaveXMLFile(File* file, const String& indentation, Node* ptr);
 bool NodeSaveXMLVectorBuffer(VectorBuffer& buffer, const String& indentation, Node* ptr);
 
@@ -55,65 +55,53 @@ bool NodeSaveXMLVectorBuffer(VectorBuffer& buffer, const String& indentation, No
 bool NodeSaveJSONFile(File* file, Node* ptr);
 bool NodeSaveJSONVectorBuffer(VectorBuffer& buffer, Node* ptr);
 
-// template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h
-// template <class T> void GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const
+// template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetChildrenWithScript(bool recursive, Node* ptr);
-// template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetChildrenWithClassName(const String& className, bool recursive, Node* ptr);
 
-// void Node::GetComponents(PODVector< Component * > &dest, StringHash type, bool recursive=false) const | File: ../Scene/Node.h
+// void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive = false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetComponentsWithType(const String& typeName, bool recursive, Node* ptr);
-// unsigned Node::GetNumChildren(bool recursive=false) const | File: ../Scene/Node.h
+
+// unsigned Node::GetNumChildren(bool recursive = false) const | File: ../Scene/Node.h
 unsigned NodeGetNumChildrenNonRecursive(Node* ptr);
-// unsigned Node::GetNumChildren(bool recursive=false) const | File: ../Scene/Node.h
 unsigned NodeGetNumChildrenRecursive(Node* ptr);
+
 // Node* Node::GetChild(unsigned index) const | File: ../Scene/Node.h
 Node* NodeGetChild(unsigned index, Node* ptr);
-// Node* Node::GetChild(const String &name, bool recursive=false) const | File: ../Scene/Node.h
+
+// Node* Node::GetChild(const String& name, bool recursive = false) const | File: ../Scene/Node.h
 Node* NodeGetChildByName(const String& name, Node* ptr);
-// Node* Node::GetChild(const String &name, bool recursive=false) const | File: ../Scene/Node.h
 Node* NodeGetChildByNameRecursive(const String& name, Node* ptr);
-// const VariantMap& Node::GetVars() const | File: ../Scene/Node.h
-VariantMap& NodeGetVars(Node* ptr);
-// const Vector<SharedPtr<Component> >& Node::GetComponents() const | File: ../Scene/Node.h
+
+// const Vector<SharedPtr<Component>>& Node::GetComponents() const | File: ../Scene/Node.h
 Component* NodeGetComponent(unsigned index, Node* ptr);
 
+// const VariantMap& Node::GetVars() const | File: ../Scene/Node.h
+VariantMap& NodeGetVars(Node* ptr);
+
 #define REGISTER_MEMBERS_MANUAL_PART_Node() \
-    engine->RegisterObjectMethod("bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveXML(File@+, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLFile), AS_CALL_CDECL_OBJLAST); \
-    engine->RegisterObjectMethod("bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveXML(VectorBuffer&, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    engine->RegisterObjectMethod("bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveJSON(File@+)", AS_FUNCTION_OBJLAST(NodeSaveJSONFile), AS_CALL_CDECL_OBJLAST); \
-    engine->RegisterObjectMethod("bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveJSON(VectorBuffer&)", AS_FUNCTION_OBJLAST(NodeSaveJSONVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    /* template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "Array<Node@>@ GetChildrenWithScript(bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetChildrenWithScript), AS_CALL_CDECL_OBJLAST); \
-    /* template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "Array<Node@>@ GetChildrenWithScript(const String&in, bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetChildrenWithClassName), AS_CALL_CDECL_OBJLAST); \
-    /* void Node::GetComponents(PODVector< Component * > &dest, StringHash type, bool recursive=false) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "Array<Component@>@ GetComponents(const String&in, bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetComponentsWithType), AS_CALL_CDECL_OBJLAST); \
-    /* unsigned Node::GetNumChildren(bool recursive=false) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "uint get_numChildren() const", AS_FUNCTION_OBJLAST(NodeGetNumChildrenNonRecursive), AS_CALL_CDECL_OBJLAST); \
-    /* unsigned Node::GetNumChildren(bool recursive=false) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "uint get_numAllChildren() const", AS_FUNCTION_OBJLAST(NodeGetNumChildrenRecursive), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Node::GetChild(unsigned index) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ get_children(uint) const", AS_FUNCTION_OBJLAST(NodeGetChild), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Node::GetChild(const String &name, bool recursive=false) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ get_childrenByName(const String&in) const", AS_FUNCTION_OBJLAST(NodeGetChildByName), AS_CALL_CDECL_OBJLAST); \
-    /* Node* Node::GetChild(const String &name, bool recursive=false) const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ get_allChildrenByName(const String&in) const", AS_FUNCTION_OBJLAST(NodeGetChildByNameRecursive), AS_CALL_CDECL_OBJLAST); \
-    /* const Vector<SharedPtr<Component> >& Node::GetComponents() const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "Component@+ get_components(uint) const", AS_FUNCTION_OBJLAST(NodeGetComponent), AS_CALL_CDECL_OBJLAST); \
-    /* const VariantMap& Node::GetVars() const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "VariantMap& get_vars()", AS_FUNCTION_OBJLAST(NodeGetVars), AS_CALL_CDECL_OBJLAST); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(File@+, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLFile), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(VectorBuffer&, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLVectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveJSON(File@+)", AS_FUNCTION_OBJLAST(NodeSaveJSONFile), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveJSON(VectorBuffer&)", AS_FUNCTION_OBJLAST(NodeSaveJSONVectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("a159d71d-b9e5-454d-a01b-b5bb5fe78451", "Array<Node@>@ GetChildrenWithScript(bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetChildrenWithScript), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("e38b37f8-1fb6-4fa7-9908-9178f16eefdf", "Array<Node@>@ GetChildrenWithScript(const String&in, bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetChildrenWithClassName), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive = false) const", "Array<Component@>@ GetComponents(const String&in, bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetComponentsWithType), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumChildren(bool recursive = false) const", "uint get_numChildren() const", AS_FUNCTION_OBJLAST(NodeGetNumChildrenNonRecursive), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumChildren(bool recursive = false) const", "uint get_numAllChildren() const", AS_FUNCTION_OBJLAST(NodeGetNumChildrenRecursive), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(unsigned index) const", "Node@+ get_children(uint) const", AS_FUNCTION_OBJLAST(NodeGetChild), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(const String& name, bool recursive = false) const", "Node@+ get_childrenByName(const String&in) const", AS_FUNCTION_OBJLAST(NodeGetChildByName), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(const String& name, bool recursive = false) const", "Node@+ get_allChildrenByName(const String&in) const", AS_FUNCTION_OBJLAST(NodeGetChildByNameRecursive), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("const Vector<SharedPtr<Component>>& Node::GetComponents() const", "Component@+ get_components(uint) const", AS_FUNCTION_OBJLAST(NodeGetComponent), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("const VariantMap& Node::GetVars() const", "VariantMap& get_vars()", AS_FUNCTION_OBJLAST(NodeGetVars), AS_CALL_CDECL_OBJLAST)); \
     /* Workarounds for Connection that used outside URHO3D_NETWORK define */ \
     if (URHO3D_NETWORK_DEFINED) \
     { \
-        /* void Node::SetOwner(Connection* owner) | File: ../Scene/Node.h */ \
-        engine->RegisterObjectMethod(className, "void SetOwner(Connection@+)", AS_METHOD(T, SetOwner), AS_CALL_THISCALL); \
-        engine->RegisterObjectMethod(className, "void set_owner(Connection@+)", AS_METHOD(T, SetOwner), AS_CALL_THISCALL); \
-        /* Connection* Node::GetOwner() const | File: ../Scene/Node.h */ \
-        engine->RegisterObjectMethod(className, "Connection@+ GetOwner() const", AS_METHOD(T, GetOwner), AS_CALL_THISCALL); \
-        engine->RegisterObjectMethod(className, "Connection@+ get_owner() const", AS_METHOD(T, GetOwner), AS_CALL_THISCALL); \
-        /* void Node::CleanupConnection(Connection* connection) | File: ../Scene/Node.h */ \
-        engine->RegisterObjectMethod(className, "void CleanupConnection(Connection@+)", AS_METHOD(T, CleanupConnection), AS_CALL_THISCALL); \
+        members.methods_.Push(RegisterObjectMethodArgs("void Node::SetOwner(Connection* owner)", "void SetOwner(Connection@+)", AS_METHOD(Node, SetOwner), AS_CALL_THISCALL)); \
+        members.methods_.Push(RegisterObjectMethodArgs("void Node::SetOwner(Connection* owner)", "void set_owner(Connection@+)", AS_METHOD(Node, SetOwner), AS_CALL_THISCALL)); \
+        members.methods_.Push(RegisterObjectMethodArgs("Connection* Node::GetOwner() const", "Connection@+ GetOwner() const", AS_METHOD(Node, GetOwner), AS_CALL_THISCALL)); \
+        members.methods_.Push(RegisterObjectMethodArgs("Connection* Node::GetOwner() const", "Connection@+ get_owner() const", AS_METHOD(Node, GetOwner), AS_CALL_THISCALL)); \
+        members.methods_.Push(RegisterObjectMethodArgs("void Node::CleanupConnection(Connection* connection)", "void CleanupConnection(Connection@+)", AS_METHOD(Node, CleanupConnection), AS_CALL_THISCALL)); \
     }
 
 // ========================================================================================
