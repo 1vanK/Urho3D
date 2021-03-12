@@ -130,7 +130,7 @@ void CollectMembers_Engine(MemberCollection& members)
     CollectMembers_Object(members);
 
     members.methods_.Push(RegisterObjectMethodArgs("bool Engine::Initialize(const VariantMap& parameters)", "bool Initialize(const VariantMap&in)", AS_METHODPR(Engine, Initialize, (const VariantMap&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Engine::InitializeResourceCache(const VariantMap& parameters, bool removeOld=true)", "bool InitializeResourceCache(const VariantMap&in, bool = true)", AS_METHODPR(Engine, InitializeResourceCache, (const VariantMap&, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Engine::InitializeResourceCache(const VariantMap& parameters, bool removeOld = true)", "bool InitializeResourceCache(const VariantMap&in, bool = true)", AS_METHODPR(Engine, InitializeResourceCache, (const VariantMap&, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Engine::RunFrame()", "void RunFrame()", AS_METHODPR(Engine, RunFrame, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Console* Engine::CreateConsole()", "Console@+ CreateConsole()", AS_METHODPR(Engine, CreateConsole, (), Console*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("DebugHud* Engine::CreateDebugHud()", "DebugHud@+ CreateDebugHud()", AS_METHODPR(Engine, CreateDebugHud, (), DebugHud*), AS_CALL_THISCALL));
@@ -149,7 +149,7 @@ void CollectMembers_Engine(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Engine::SetNextTimeStep(float seconds)", "void SetNextTimeStep(float)", AS_METHODPR(Engine, SetNextTimeStep, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Engine::Exit()", "void Exit()", AS_METHODPR(Engine, Exit, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Engine::DumpProfiler()", "void DumpProfiler()", AS_METHODPR(Engine, DumpProfiler, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Engine::DumpResources(bool dumpFileName=false)", "void DumpResources(bool = false)", AS_METHODPR(Engine, DumpResources, (bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Engine::DumpResources(bool dumpFileName = false)", "void DumpResources(bool = false)", AS_METHODPR(Engine, DumpResources, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Engine::DumpMemory()", "void DumpMemory()", AS_METHODPR(Engine, DumpMemory, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Engine::GetNextTimeStep() const", "float GetNextTimeStep() const", AS_METHODPR(Engine, GetNextTimeStep, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int Engine::GetMinFps() const", "int GetMinFps() const", AS_METHODPR(Engine, GetMinFps, () const, int), AS_CALL_THISCALL));
@@ -176,7 +176,7 @@ void CollectMembers_Engine(MemberCollection& members)
 
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static VariantMap Engine::ParseParameters(const Vector<String>& arguments)", "VariantMap ParseParameters(Array<String>@+)", AS_FUNCTION(Engine_ParseParameters_VectorString), AS_CALL_CDECL));
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static bool Engine::HasParameter(const VariantMap& parameters, const String& parameter)", "bool HasParameter(const VariantMap&in, const String&in)", AS_FUNCTIONPR(Engine::HasParameter, (const VariantMap&, const String&), bool), AS_CALL_CDECL));
-    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static const Variant& Engine::GetParameter(const VariantMap& parameters, const String& parameter, const Variant& defaultValue=Variant::EMPTY)", "const Variant& GetParameter(const VariantMap&in, const String&in, const Variant&in = Variant::EMPTY)", AS_FUNCTIONPR(Engine::GetParameter, (const VariantMap&, const String&, const Variant&), const Variant&), AS_CALL_CDECL));
+    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static const Variant& Engine::GetParameter(const VariantMap& parameters, const String& parameter, const Variant& defaultValue = Variant::EMPTY)", "const Variant& GetParameter(const VariantMap&in, const String&in, const Variant&in = Variant::EMPTY)", AS_FUNCTIONPR(Engine::GetParameter, (const VariantMap&, const String&, const Variant&), const Variant&), AS_CALL_CDECL));
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_Engine
         REGISTER_MEMBERS_MANUAL_PART_Engine();

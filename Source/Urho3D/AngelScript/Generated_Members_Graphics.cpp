@@ -92,7 +92,7 @@ void CollectMembers_AnimatedModel(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::UpdateGeometry(const FrameInfo& frame) override", "void UpdateGeometry(const FrameInfo&in)", AS_METHODPR(AnimatedModel, UpdateGeometry, (const FrameInfo&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("UpdateGeometryType AnimatedModel::GetUpdateGeometryType() override", "UpdateGeometryType GetUpdateGeometryType()", AS_METHODPR(AnimatedModel, GetUpdateGeometryType, (), UpdateGeometryType), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(AnimatedModel, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::SetModel(Model* model, bool createBones=true)", "void SetModel(Model@+, bool = true)", AS_METHODPR(AnimatedModel, SetModel, (Model*, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::SetModel(Model* model, bool createBones = true)", "void SetModel(Model@+, bool = true)", AS_METHODPR(AnimatedModel, SetModel, (Model*, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("AnimationState* AnimatedModel::AddAnimationState(Animation* animation)", "AnimationState@+ AddAnimationState(Animation@+)", AS_METHODPR(AnimatedModel, AddAnimationState, (Animation*), AnimationState*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::RemoveAnimationState(Animation* animation)", "void RemoveAnimationState(Animation@+)", AS_METHODPR(AnimatedModel, RemoveAnimationState, (Animation*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::RemoveAnimationState(const String& animationName)", "void RemoveAnimationState(const String&in)", AS_METHODPR(AnimatedModel, RemoveAnimationState, (const String&), void), AS_CALL_THISCALL));
@@ -144,8 +144,8 @@ void CollectMembers_AnimatedModel(MemberCollection& members)
     #endif
 }
 
-// SharedPtr<Animation> Animation::Clone(const String& cloneName=String::EMPTY) const
-// SharedPtr<Animation> Animation::Clone(const String& cloneName=String::EMPTY) const | File: ../Graphics/Animation.h
+// SharedPtr<Animation> Animation::Clone(const String& cloneName = String::EMPTY) const
+// SharedPtr<Animation> Animation::Clone(const String& cloneName = String::EMPTY) const | File: ../Graphics/Animation.h
 static Animation* Animation_Clone_String(Animation* ptr, const String& cloneName)
 {
     SharedPtr<Animation> result = ptr->Clone(cloneName);
@@ -185,7 +185,7 @@ void CollectMembers_Animation(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Animation::RemoveAllTriggers()", "void RemoveAllTriggers()", AS_METHODPR(Animation, RemoveAllTriggers, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Animation::SetNumTriggers(unsigned num)", "void SetNumTriggers(uint)", AS_METHODPR(Animation, SetNumTriggers, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Animation::SetNumTriggers(unsigned num)", "void set_numTriggers(uint)", AS_METHODPR(Animation, SetNumTriggers, (unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Animation> Animation::Clone(const String& cloneName=String::EMPTY) const", "Animation@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(Animation_Clone_String), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Animation> Animation::Clone(const String& cloneName = String::EMPTY) const", "Animation@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(Animation_Clone_String), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("const String& Animation::GetAnimationName() const", "const String& GetAnimationName() const", AS_METHODPR(Animation, GetAnimationName, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& Animation::GetAnimationName() const", "const String& get_animationName() const", AS_METHODPR(Animation, GetAnimationName, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("StringHash Animation::GetAnimationNameHash() const", "StringHash GetAnimationNameHash() const", AS_METHODPR(Animation, GetAnimationNameHash, () const, StringHash), AS_CALL_THISCALL));
@@ -256,11 +256,11 @@ void CollectMembers_AnimationController(MemberCollection& members)
 
     members.methods_.Push(RegisterObjectMethodArgs("void AnimationController::OnSetEnabled() override", "void OnSetEnabled()", AS_METHODPR(AnimationController, OnSetEnabled, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("virtual void AnimationController::Update(float timeStep)", "void Update(float)", AS_METHODPR(AnimationController, Update, (float), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::Play(const String& name, unsigned char layer, bool looped, float fadeInTime=0.0f)", "bool Play(const String&in, uint8, bool, float = 0.0f)", AS_METHODPR(AnimationController, Play, (const String&, unsigned char, bool, float), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::PlayExclusive(const String& name, unsigned char layer, bool looped, float fadeTime=0.0f)", "bool PlayExclusive(const String&in, uint8, bool, float = 0.0f)", AS_METHODPR(AnimationController, PlayExclusive, (const String&, unsigned char, bool, float), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::Stop(const String& name, float fadeOutTime=0.0f)", "bool Stop(const String&in, float = 0.0f)", AS_METHODPR(AnimationController, Stop, (const String&, float), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void AnimationController::StopLayer(unsigned char layer, float fadeOutTime=0.0f)", "void StopLayer(uint8, float = 0.0f)", AS_METHODPR(AnimationController, StopLayer, (unsigned char, float), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void AnimationController::StopAll(float fadeOutTime=0.0f)", "void StopAll(float = 0.0f)", AS_METHODPR(AnimationController, StopAll, (float), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::Play(const String& name, unsigned char layer, bool looped, float fadeInTime = 0.0f)", "bool Play(const String&in, uint8, bool, float = 0.0f)", AS_METHODPR(AnimationController, Play, (const String&, unsigned char, bool, float), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::PlayExclusive(const String& name, unsigned char layer, bool looped, float fadeTime = 0.0f)", "bool PlayExclusive(const String&in, uint8, bool, float = 0.0f)", AS_METHODPR(AnimationController, PlayExclusive, (const String&, unsigned char, bool, float), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::Stop(const String& name, float fadeOutTime = 0.0f)", "bool Stop(const String&in, float = 0.0f)", AS_METHODPR(AnimationController, Stop, (const String&, float), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimationController::StopLayer(unsigned char layer, float fadeOutTime = 0.0f)", "void StopLayer(uint8, float = 0.0f)", AS_METHODPR(AnimationController, StopLayer, (unsigned char, float), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimationController::StopAll(float fadeOutTime = 0.0f)", "void StopAll(float = 0.0f)", AS_METHODPR(AnimationController, StopAll, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::Fade(const String& name, float targetWeight, float fadeTime)", "bool Fade(const String&in, float, float)", AS_METHODPR(AnimationController, Fade, (const String&, float, float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::FadeOthers(const String& name, float targetWeight, float fadeTime)", "bool FadeOthers(const String&in, float, float)", AS_METHODPR(AnimationController, FadeOthers, (const String&, float, float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool AnimationController::SetLayer(const String& name, unsigned char layer)", "bool SetLayer(const String&in, uint8)", AS_METHODPR(AnimationController, SetLayer, (const String&, unsigned char), bool), AS_CALL_THISCALL));
@@ -329,9 +329,9 @@ void CollectMembers_AnimationState(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetBlendMode(AnimationBlendMode mode)", "void set_blendMode(AnimationBlendMode)", AS_METHODPR(AnimationState, SetBlendMode, (AnimationBlendMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetTime(float time)", "void SetTime(float)", AS_METHODPR(AnimationState, SetTime, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetTime(float time)", "void set_time(float)", AS_METHODPR(AnimationState, SetTime, (float), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetBoneWeight(unsigned index, float weight, bool recursive=false)", "void SetBoneWeight(uint, float, bool = false)", AS_METHODPR(AnimationState, SetBoneWeight, (unsigned, float, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetBoneWeight(const String& name, float weight, bool recursive=false)", "void SetBoneWeight(const String&in, float, bool = false)", AS_METHODPR(AnimationState, SetBoneWeight, (const String&, float, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetBoneWeight(StringHash nameHash, float weight, bool recursive=false)", "void SetBoneWeight(StringHash, float, bool = false)", AS_METHODPR(AnimationState, SetBoneWeight, (StringHash, float, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetBoneWeight(unsigned index, float weight, bool recursive = false)", "void SetBoneWeight(uint, float, bool = false)", AS_METHODPR(AnimationState, SetBoneWeight, (unsigned, float, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetBoneWeight(const String& name, float weight, bool recursive = false)", "void SetBoneWeight(const String&in, float, bool = false)", AS_METHODPR(AnimationState, SetBoneWeight, (const String&, float, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetBoneWeight(StringHash nameHash, float weight, bool recursive = false)", "void SetBoneWeight(StringHash, float, bool = false)", AS_METHODPR(AnimationState, SetBoneWeight, (StringHash, float, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::AddWeight(float delta)", "void AddWeight(float)", AS_METHODPR(AnimationState, AddWeight, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::AddTime(float delta)", "void AddTime(float)", AS_METHODPR(AnimationState, AddTime, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetLayer(unsigned char layer)", "void SetLayer(uint8)", AS_METHODPR(AnimationState, SetLayer, (unsigned char), void), AS_CALL_THISCALL));
@@ -813,7 +813,7 @@ void CollectMembers_Camera(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("float Camera::GetDistance(const Vector3& worldPos) const", "float GetDistance(const Vector3&in) const", AS_METHODPR(Camera, GetDistance, (const Vector3&) const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Camera::GetDistanceSquared(const Vector3& worldPos) const", "float GetDistanceSquared(const Vector3&in) const", AS_METHODPR(Camera, GetDistanceSquared, (const Vector3&) const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Camera::GetLodDistance(float distance, float scale, float bias) const", "float GetLodDistance(float, float, float) const", AS_METHODPR(Camera, GetLodDistance, (float, float, float) const, float), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Camera::GetFaceCameraRotation(const Vector3& position, const Quaternion& rotation, FaceCameraMode mode, float minAngle=0.0f)", "Quaternion GetFaceCameraRotation(const Vector3&in, const Quaternion&in, FaceCameraMode, float = 0.0f)", AS_METHODPR(Camera, GetFaceCameraRotation, (const Vector3&, const Quaternion&, FaceCameraMode, float), Quaternion), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Quaternion Camera::GetFaceCameraRotation(const Vector3& position, const Quaternion& rotation, FaceCameraMode mode, float minAngle = 0.0f)", "Quaternion GetFaceCameraRotation(const Vector3&in, const Quaternion&in, FaceCameraMode, float = 0.0f)", AS_METHODPR(Camera, GetFaceCameraRotation, (const Vector3&, const Quaternion&, FaceCameraMode, float), Quaternion), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Camera::GetEffectiveWorldTransform() const", "Matrix3x4 GetEffectiveWorldTransform() const", AS_METHODPR(Camera, GetEffectiveWorldTransform, () const, Matrix3x4), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Matrix3x4 Camera::GetEffectiveWorldTransform() const", "Matrix3x4 get_effectiveWorldTransform() const", AS_METHODPR(Camera, GetEffectiveWorldTransform, () const, Matrix3x4), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Camera::IsProjectionValid() const", "bool IsProjectionValid() const", AS_METHODPR(Camera, IsProjectionValid, () const, bool), AS_CALL_THISCALL));
@@ -933,8 +933,8 @@ void CollectMembers_CustomGeometry(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("unsigned CustomGeometry::GetNumVertices(unsigned index) const", "uint get_numVertices(uint) const", AS_METHODPR(CustomGeometry, GetNumVertices, (unsigned) const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool CustomGeometry::IsDynamic() const", "bool IsDynamic() const", AS_METHODPR(CustomGeometry, IsDynamic, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool CustomGeometry::IsDynamic() const", "bool get_dynamic() const", AS_METHODPR(CustomGeometry, IsDynamic, () const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Material* CustomGeometry::GetMaterial(unsigned index=0) const", "Material@+ GetMaterial(uint = 0) const", AS_METHODPR(CustomGeometry, GetMaterial, (unsigned) const, Material*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Material* CustomGeometry::GetMaterial(unsigned index=0) const", "Material@+ get_materials(uint = 0) const", AS_METHODPR(CustomGeometry, GetMaterial, (unsigned) const, Material*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Material* CustomGeometry::GetMaterial(unsigned index = 0) const", "Material@+ GetMaterial(uint = 0) const", AS_METHODPR(CustomGeometry, GetMaterial, (unsigned) const, Material*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Material* CustomGeometry::GetMaterial(unsigned index = 0) const", "Material@+ get_materials(uint = 0) const", AS_METHODPR(CustomGeometry, GetMaterial, (unsigned) const, Material*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("CustomGeometryVertex* CustomGeometry::GetVertex(unsigned geometryIndex, unsigned vertexNum)", "CustomGeometryVertex@+ GetVertex(uint, uint)", AS_METHODPR(CustomGeometry, GetVertex, (unsigned, unsigned), CustomGeometryVertex*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void CustomGeometry::SetMaterialsAttr(const ResourceRefList& value)", "void SetMaterialsAttr(const ResourceRefList&in)", AS_METHODPR(CustomGeometry, SetMaterialsAttr, (const ResourceRefList&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const ResourceRefList& CustomGeometry::GetMaterialsAttr() const", "const ResourceRefList& GetMaterialsAttr() const", AS_METHODPR(CustomGeometry, GetMaterialsAttr, () const, const ResourceRefList&), AS_CALL_THISCALL));
@@ -980,32 +980,32 @@ void CollectMembers_DebugRenderer(MemberCollection& members)
 
     Remove(members.staticMethods_, "static void Animatable::RegisterObject(Context* context)");
 
-    // void DebugRenderer::AddTriangleMesh(const void* vertexData, unsigned vertexSize, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount, const Matrix3x4& transform, const Color& color, bool depthTest=true)
+    // void DebugRenderer::AddTriangleMesh(const void* vertexData, unsigned vertexSize, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount, const Matrix3x4& transform, const Color& color, bool depthTest = true)
     // Error: type "const void*" can not automatically bind
-    // void DebugRenderer::AddTriangleMesh(const void* vertexData, unsigned vertexSize, unsigned vertexStart, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount, const Matrix3x4& transform, const Color& color, bool depthTest=true)
+    // void DebugRenderer::AddTriangleMesh(const void* vertexData, unsigned vertexSize, unsigned vertexStart, const void* indexData, unsigned indexSize, unsigned indexStart, unsigned indexCount, const Matrix3x4& transform, const Color& color, bool depthTest = true)
     // Error: type "const void*" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::SetLineAntiAlias(bool enable)", "void SetLineAntiAlias(bool)", AS_METHODPR(DebugRenderer, SetLineAntiAlias, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::SetLineAntiAlias(bool enable)", "void set_lineAntiAlias(bool)", AS_METHODPR(DebugRenderer, SetLineAntiAlias, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::SetView(Camera* camera)", "void SetView(Camera@+)", AS_METHODPR(DebugRenderer, SetView, (Camera*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddLine(const Vector3& start, const Vector3& end, const Color& color, bool depthTest=true)", "void AddLine(const Vector3&in, const Vector3&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddLine, (const Vector3&, const Vector3&, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddLine(const Vector3& start, const Vector3& end, unsigned color, bool depthTest=true)", "void AddLine(const Vector3&in, const Vector3&in, uint, bool = true)", AS_METHODPR(DebugRenderer, AddLine, (const Vector3&, const Vector3&, unsigned, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddTriangle(const Vector3& v1, const Vector3& v2, const Vector3& v3, const Color& color, bool depthTest=true)", "void AddTriangle(const Vector3&in, const Vector3&in, const Vector3&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddTriangle, (const Vector3&, const Vector3&, const Vector3&, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddTriangle(const Vector3& v1, const Vector3& v2, const Vector3& v3, unsigned color, bool depthTest=true)", "void AddTriangle(const Vector3&in, const Vector3&in, const Vector3&in, uint, bool = true)", AS_METHODPR(DebugRenderer, AddTriangle, (const Vector3&, const Vector3&, const Vector3&, unsigned, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddPolygon(const Vector3& v1, const Vector3& v2, const Vector3& v3, const Vector3& v4, const Color& color, bool depthTest=true)", "void AddPolygon(const Vector3&in, const Vector3&in, const Vector3&in, const Vector3&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddPolygon, (const Vector3&, const Vector3&, const Vector3&, const Vector3&, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddPolygon(const Vector3& v1, const Vector3& v2, const Vector3& v3, const Vector3& v4, unsigned color, bool depthTest=true)", "void AddPolygon(const Vector3&in, const Vector3&in, const Vector3&in, const Vector3&in, uint, bool = true)", AS_METHODPR(DebugRenderer, AddPolygon, (const Vector3&, const Vector3&, const Vector3&, const Vector3&, unsigned, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddNode(Node* node, float scale=1.0f, bool depthTest=true)", "void AddNode(Node@+, float = 1.0f, bool = true)", AS_METHODPR(DebugRenderer, AddNode, (Node*, float, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddBoundingBox(const BoundingBox& box, const Color& color, bool depthTest=true, bool solid=false)", "void AddBoundingBox(const BoundingBox&in, const Color&in, bool = true, bool = false)", AS_METHODPR(DebugRenderer, AddBoundingBox, (const BoundingBox&, const Color&, bool, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddBoundingBox(const BoundingBox& box, const Matrix3x4& transform, const Color& color, bool depthTest=true, bool solid=false)", "void AddBoundingBox(const BoundingBox&in, const Matrix3x4&in, const Color&in, bool = true, bool = false)", AS_METHODPR(DebugRenderer, AddBoundingBox, (const BoundingBox&, const Matrix3x4&, const Color&, bool, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddFrustum(const Frustum& frustum, const Color& color, bool depthTest=true)", "void AddFrustum(const Frustum&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddFrustum, (const Frustum&, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddPolyhedron(const Polyhedron& poly, const Color& color, bool depthTest=true)", "void AddPolyhedron(const Polyhedron&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddPolyhedron, (const Polyhedron&, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddSphere(const Sphere& sphere, const Color& color, bool depthTest=true)", "void AddSphere(const Sphere&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddSphere, (const Sphere&, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddSphereSector(const Sphere& sphere, const Quaternion& rotation, float angle, bool drawLines, const Color& color, bool depthTest=true)", "void AddSphereSector(const Sphere&in, const Quaternion&in, float, bool, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddSphereSector, (const Sphere&, const Quaternion&, float, bool, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddCylinder(const Vector3& position, float radius, float height, const Color& color, bool depthTest=true)", "void AddCylinder(const Vector3&in, float, float, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddCylinder, (const Vector3&, float, float, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddSkeleton(const Skeleton& skeleton, const Color& color, bool depthTest=true)", "void AddSkeleton(const Skeleton&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddSkeleton, (const Skeleton&, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddCircle(const Vector3& center, const Vector3& normal, float radius, const Color& color, int steps=64, bool depthTest=true)", "void AddCircle(const Vector3&in, const Vector3&in, float, const Color&in, int = 64, bool = true)", AS_METHODPR(DebugRenderer, AddCircle, (const Vector3&, const Vector3&, float, const Color&, int, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddCross(const Vector3& center, float size, const Color& color, bool depthTest=true)", "void AddCross(const Vector3&in, float, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddCross, (const Vector3&, float, const Color&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddQuad(const Vector3& center, float width, float height, const Color& color, bool depthTest=true)", "void AddQuad(const Vector3&in, float, float, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddQuad, (const Vector3&, float, float, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddLine(const Vector3& start, const Vector3& end, const Color& color, bool depthTest = true)", "void AddLine(const Vector3&in, const Vector3&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddLine, (const Vector3&, const Vector3&, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddLine(const Vector3& start, const Vector3& end, unsigned color, bool depthTest = true)", "void AddLine(const Vector3&in, const Vector3&in, uint, bool = true)", AS_METHODPR(DebugRenderer, AddLine, (const Vector3&, const Vector3&, unsigned, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddTriangle(const Vector3& v1, const Vector3& v2, const Vector3& v3, const Color& color, bool depthTest = true)", "void AddTriangle(const Vector3&in, const Vector3&in, const Vector3&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddTriangle, (const Vector3&, const Vector3&, const Vector3&, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddTriangle(const Vector3& v1, const Vector3& v2, const Vector3& v3, unsigned color, bool depthTest = true)", "void AddTriangle(const Vector3&in, const Vector3&in, const Vector3&in, uint, bool = true)", AS_METHODPR(DebugRenderer, AddTriangle, (const Vector3&, const Vector3&, const Vector3&, unsigned, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddPolygon(const Vector3& v1, const Vector3& v2, const Vector3& v3, const Vector3& v4, const Color& color, bool depthTest = true)", "void AddPolygon(const Vector3&in, const Vector3&in, const Vector3&in, const Vector3&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddPolygon, (const Vector3&, const Vector3&, const Vector3&, const Vector3&, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddPolygon(const Vector3& v1, const Vector3& v2, const Vector3& v3, const Vector3& v4, unsigned color, bool depthTest = true)", "void AddPolygon(const Vector3&in, const Vector3&in, const Vector3&in, const Vector3&in, uint, bool = true)", AS_METHODPR(DebugRenderer, AddPolygon, (const Vector3&, const Vector3&, const Vector3&, const Vector3&, unsigned, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddNode(Node* node, float scale = 1.0f, bool depthTest = true)", "void AddNode(Node@+, float = 1.0f, bool = true)", AS_METHODPR(DebugRenderer, AddNode, (Node*, float, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddBoundingBox(const BoundingBox& box, const Color& color, bool depthTest = true, bool solid = false)", "void AddBoundingBox(const BoundingBox&in, const Color&in, bool = true, bool = false)", AS_METHODPR(DebugRenderer, AddBoundingBox, (const BoundingBox&, const Color&, bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddBoundingBox(const BoundingBox& box, const Matrix3x4& transform, const Color& color, bool depthTest = true, bool solid = false)", "void AddBoundingBox(const BoundingBox&in, const Matrix3x4&in, const Color&in, bool = true, bool = false)", AS_METHODPR(DebugRenderer, AddBoundingBox, (const BoundingBox&, const Matrix3x4&, const Color&, bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddFrustum(const Frustum& frustum, const Color& color, bool depthTest = true)", "void AddFrustum(const Frustum&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddFrustum, (const Frustum&, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddPolyhedron(const Polyhedron& poly, const Color& color, bool depthTest = true)", "void AddPolyhedron(const Polyhedron&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddPolyhedron, (const Polyhedron&, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddSphere(const Sphere& sphere, const Color& color, bool depthTest = true)", "void AddSphere(const Sphere&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddSphere, (const Sphere&, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddSphereSector(const Sphere& sphere, const Quaternion& rotation, float angle, bool drawLines, const Color& color, bool depthTest = true)", "void AddSphereSector(const Sphere&in, const Quaternion&in, float, bool, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddSphereSector, (const Sphere&, const Quaternion&, float, bool, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddCylinder(const Vector3& position, float radius, float height, const Color& color, bool depthTest = true)", "void AddCylinder(const Vector3&in, float, float, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddCylinder, (const Vector3&, float, float, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddSkeleton(const Skeleton& skeleton, const Color& color, bool depthTest = true)", "void AddSkeleton(const Skeleton&in, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddSkeleton, (const Skeleton&, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddCircle(const Vector3& center, const Vector3& normal, float radius, const Color& color, int steps = 64, bool depthTest = true)", "void AddCircle(const Vector3&in, const Vector3&in, float, const Color&in, int = 64, bool = true)", AS_METHODPR(DebugRenderer, AddCircle, (const Vector3&, const Vector3&, float, const Color&, int, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddCross(const Vector3& center, float size, const Color& color, bool depthTest = true)", "void AddCross(const Vector3&in, float, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddCross, (const Vector3&, float, const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::AddQuad(const Vector3& center, float width, float height, const Color& color, bool depthTest = true)", "void AddQuad(const Vector3&in, float, float, const Color&in, bool = true)", AS_METHODPR(DebugRenderer, AddQuad, (const Vector3&, float, float, const Color&, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void DebugRenderer::Render()", "void Render()", AS_METHODPR(DebugRenderer, Render, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool DebugRenderer::GetLineAntiAlias() const", "bool GetLineAntiAlias() const", AS_METHODPR(DebugRenderer, GetLineAntiAlias, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool DebugRenderer::GetLineAntiAlias() const", "bool get_lineAntiAlias() const", AS_METHODPR(DebugRenderer, GetLineAntiAlias, () const, bool), AS_CALL_THISCALL));
@@ -1090,7 +1090,7 @@ void CollectMembers_DecalSet(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void DecalSet::SetMaxIndices(unsigned num)", "void set_maxIndices(uint)", AS_METHODPR(DecalSet, SetMaxIndices, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void DecalSet::SetOptimizeBufferSize(bool enable)", "void SetOptimizeBufferSize(bool)", AS_METHODPR(DecalSet, SetOptimizeBufferSize, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void DecalSet::SetOptimizeBufferSize(bool enable)", "void set_optimizeBufferSize(bool)", AS_METHODPR(DecalSet, SetOptimizeBufferSize, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool DecalSet::AddDecal(Drawable* target, const Vector3& worldPosition, const Quaternion& worldRotation, float size, float aspectRatio, float depth, const Vector2& topLeftUV, const Vector2& bottomRightUV, float timeToLive=0.0f, float normalCutoff=0.1f, unsigned subGeometry=M_MAX_UNSIGNED)", "bool AddDecal(Drawable@+, const Vector3&in, const Quaternion&in, float, float, float, const Vector2&in, const Vector2&in, float = 0.0f, float = 0.1f, uint = M_MAX_UNSIGNED)", AS_METHODPR(DecalSet, AddDecal, (Drawable*, const Vector3&, const Quaternion&, float, float, float, const Vector2&, const Vector2&, float, float, unsigned), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool DecalSet::AddDecal(Drawable* target, const Vector3& worldPosition, const Quaternion& worldRotation, float size, float aspectRatio, float depth, const Vector2& topLeftUV, const Vector2& bottomRightUV, float timeToLive = 0.0f, float normalCutoff = 0.1f, unsigned subGeometry = M_MAX_UNSIGNED)", "bool AddDecal(Drawable@+, const Vector3&in, const Quaternion&in, float, float, float, const Vector2&in, const Vector2&in, float = 0.0f, float = 0.1f, uint = M_MAX_UNSIGNED)", AS_METHODPR(DecalSet, AddDecal, (Drawable*, const Vector3&, const Quaternion&, float, float, float, const Vector2&, const Vector2&, float, float, unsigned), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void DecalSet::RemoveDecals(unsigned num)", "void RemoveDecals(uint)", AS_METHODPR(DecalSet, RemoveDecals, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void DecalSet::RemoveAllDecals()", "void RemoveAllDecals()", AS_METHODPR(DecalSet, RemoveAllDecals, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Material* DecalSet::GetMaterial() const", "Material@+ GetMaterial() const", AS_METHODPR(DecalSet, GetMaterial, () const, Material*), AS_CALL_THISCALL));
@@ -1244,7 +1244,7 @@ void CollectMembers_Drawable(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Drawable::IsInView() const", "bool IsInView() const", AS_METHODPR(Drawable, IsInView, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Drawable::IsInView() const", "bool get_inView() const", AS_METHODPR(Drawable, IsInView, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Drawable::IsInView(Camera* camera) const", "bool IsInView(Camera@+) const", AS_METHODPR(Drawable, IsInView, (Camera*) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Drawable::SetZone(Zone* zone, bool temporary=false)", "void SetZone(Zone@+, bool = false)", AS_METHODPR(Drawable, SetZone, (Zone*, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Drawable::SetZone(Zone* zone, bool temporary = false)", "void SetZone(Zone@+, bool = false)", AS_METHODPR(Drawable, SetZone, (Zone*, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Drawable::SetSortValue(float value)", "void SetSortValue(float)", AS_METHODPR(Drawable, SetSortValue, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Drawable::SetMinMaxZ(float minZ, float maxZ)", "void SetMinMaxZ(float, float)", AS_METHODPR(Drawable, SetMinMaxZ, (float, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Drawable::MarkInView(const FrameInfo& frame)", "void MarkInView(const FrameInfo&in)", AS_METHODPR(Drawable, MarkInView, (const FrameInfo&), void), AS_CALL_THISCALL));
@@ -1258,7 +1258,7 @@ void CollectMembers_Drawable(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("float Drawable::GetDistance() const", "float GetDistance() const", AS_METHODPR(Drawable, GetDistance, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Drawable::GetLodDistance() const", "float GetLodDistance() const", AS_METHODPR(Drawable, GetLodDistance, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Drawable::GetSortValue() const", "float GetSortValue() const", AS_METHODPR(Drawable, GetSortValue, () const, float), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Drawable::IsInView(const FrameInfo& frame, bool anyCamera=false) const", "bool IsInView(const FrameInfo&in, bool = false) const", AS_METHODPR(Drawable, IsInView, (const FrameInfo&, bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Drawable::IsInView(const FrameInfo& frame, bool anyCamera = false) const", "bool IsInView(const FrameInfo&in, bool = false) const", AS_METHODPR(Drawable, IsInView, (const FrameInfo&, bool) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Drawable::HasBasePass(unsigned batchIndex) const", "bool HasBasePass(uint) const", AS_METHODPR(Drawable, HasBasePass, (unsigned) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const PODVector<Light*>& Drawable::GetLights() const", "Array<Light@>@ GetLights() const", AS_FUNCTION_OBJFIRST(Drawable_GetLights_void), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("const PODVector<Light*>& Drawable::GetVertexLights() const", "Array<Light@>@ GetVertexLights() const", AS_FUNCTION_OBJFIRST(Drawable_GetVertexLights_void), AS_CALL_CDECL_OBJFIRST));
@@ -1357,7 +1357,7 @@ void CollectMembers_Geometry(MemberCollection& members)
 {
     CollectMembers_Object(members);
 
-    // float Geometry::GetHitDistance(const Ray& ray, Vector3* outNormal=nullptr, Vector2* outUV=nullptr) const
+    // float Geometry::GetHitDistance(const Ray& ray, Vector3* outNormal = nullptr, Vector2* outUV = nullptr) const
     // Error: type "Vector3*" can not automatically bind
     // void Geometry::GetRawData(const unsigned char*& vertexData, unsigned& vertexSize, const unsigned char*& indexData, unsigned& indexSize, const PODVector<VertexElement>*& elements) const
     // Error: type "const unsigned char*&" can not automatically bind
@@ -1375,8 +1375,8 @@ void CollectMembers_Geometry(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Geometry::SetVertexBuffer(unsigned index, VertexBuffer* buffer)", "bool SetVertexBuffer(uint, VertexBuffer@+)", AS_METHODPR(Geometry, SetVertexBuffer, (unsigned, VertexBuffer*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Geometry::SetIndexBuffer(IndexBuffer* buffer)", "void SetIndexBuffer(IndexBuffer@+)", AS_METHODPR(Geometry, SetIndexBuffer, (IndexBuffer*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Geometry::SetIndexBuffer(IndexBuffer* buffer)", "void set_indexBuffer(IndexBuffer@+)", AS_METHODPR(Geometry, SetIndexBuffer, (IndexBuffer*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Geometry::SetDrawRange(PrimitiveType type, unsigned indexStart, unsigned indexCount, bool getUsedVertexRange=true)", "bool SetDrawRange(PrimitiveType, uint, uint, bool = true)", AS_METHODPR(Geometry, SetDrawRange, (PrimitiveType, unsigned, unsigned, bool), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Geometry::SetDrawRange(PrimitiveType type, unsigned indexStart, unsigned indexCount, unsigned vertexStart, unsigned vertexCount, bool checkIllegal=true)", "bool SetDrawRange(PrimitiveType, uint, uint, uint, uint, bool = true)", AS_METHODPR(Geometry, SetDrawRange, (PrimitiveType, unsigned, unsigned, unsigned, unsigned, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Geometry::SetDrawRange(PrimitiveType type, unsigned indexStart, unsigned indexCount, bool getUsedVertexRange = true)", "bool SetDrawRange(PrimitiveType, uint, uint, bool = true)", AS_METHODPR(Geometry, SetDrawRange, (PrimitiveType, unsigned, unsigned, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Geometry::SetDrawRange(PrimitiveType type, unsigned indexStart, unsigned indexCount, unsigned vertexStart, unsigned vertexCount, bool checkIllegal = true)", "bool SetDrawRange(PrimitiveType, uint, uint, uint, uint, bool = true)", AS_METHODPR(Geometry, SetDrawRange, (PrimitiveType, unsigned, unsigned, unsigned, unsigned, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Geometry::SetLodDistance(float distance)", "void SetLodDistance(float)", AS_METHODPR(Geometry, SetLodDistance, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Geometry::SetLodDistance(float distance)", "void set_lodDistance(float)", AS_METHODPR(Geometry, SetLodDistance, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Geometry::Draw(Graphics* graphics)", "void Draw(Graphics@+)", AS_METHODPR(Geometry, Draw, (Graphics*), void), AS_CALL_THISCALL));
@@ -1423,8 +1423,8 @@ void CollectMembers_GeometryDesc(MemberCollection& members)
     #endif
 }
 
-// bool Graphics::SetVertexBuffers(const Vector<SharedPtr<VertexBuffer>>& buffers, unsigned instanceOffset=0)
-// bool Graphics::SetVertexBuffers(const Vector<SharedPtr<VertexBuffer>>& buffers, unsigned instanceOffset=0) | File: ../Graphics/Graphics.h
+// bool Graphics::SetVertexBuffers(const Vector<SharedPtr<VertexBuffer>>& buffers, unsigned instanceOffset = 0)
+// bool Graphics::SetVertexBuffers(const Vector<SharedPtr<VertexBuffer>>& buffers, unsigned instanceOffset = 0) | File: ../Graphics/Graphics.h
 static bool Graphics_SetVertexBuffers_VectorSharedPtrVertexBuffer_unsigned(Graphics* ptr, CScriptArray* buffers_conv, unsigned instanceOffset)
 {
     Vector<SharedPtr<VertexBuffer>> buffers = HandleArrayToVector<VertexBuffer>(buffers_conv);
@@ -1496,7 +1496,7 @@ void CollectMembers_Graphics(MemberCollection& members)
     // Not registered because have @nobind mark
     // void Graphics::SetVBO(unsigned object)
     // Not registered because have @nobind mark
-    // bool Graphics::SetVertexBuffers(const PODVector<VertexBuffer*>& buffers, unsigned instanceOffset=0)
+    // bool Graphics::SetVertexBuffers(const PODVector<VertexBuffer*>& buffers, unsigned instanceOffset = 0)
     // Not registered because have @nobind mark
 
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetWindowTitle(const String& windowTitle)", "void SetWindowTitle(const String&in)", AS_METHODPR(Graphics, SetWindowTitle, (const String&), void), AS_CALL_THISCALL));
@@ -1506,9 +1506,9 @@ void CollectMembers_Graphics(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetWindowPosition(const IntVector2& position)", "void SetWindowPosition(const IntVector2&in)", AS_METHODPR(Graphics, SetWindowPosition, (const IntVector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetWindowPosition(const IntVector2& position)", "void set_windowPosition(const IntVector2&in)", AS_METHODPR(Graphics, SetWindowPosition, (const IntVector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetWindowPosition(int x, int y)", "void SetWindowPosition(int, int)", AS_METHODPR(Graphics, SetWindowPosition, (int, int), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetScreenMode(int width, int height, const ScreenModeParams& params, bool maximize=false)", "bool SetScreenMode(int, int, const ScreenModeParams&in, bool = false)", AS_METHODPR(Graphics, SetScreenMode, (int, int, const ScreenModeParams&, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetScreenMode(int width, int height, const ScreenModeParams& params, bool maximize = false)", "bool SetScreenMode(int, int, const ScreenModeParams&in, bool = false)", AS_METHODPR(Graphics, SetScreenMode, (int, int, const ScreenModeParams&, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetScreenMode(int width, int height)", "bool SetScreenMode(int, int)", AS_METHODPR(Graphics, SetScreenMode, (int, int), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetWindowModes(const WindowModeParams& windowMode, const WindowModeParams& secondaryWindowMode, bool maximize=false)", "bool SetWindowModes(const WindowModeParams&in, const WindowModeParams&in, bool = false)", AS_METHODPR(Graphics, SetWindowModes, (const WindowModeParams&, const WindowModeParams&, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetWindowModes(const WindowModeParams& windowMode, const WindowModeParams& secondaryWindowMode, bool maximize = false)", "bool SetWindowModes(const WindowModeParams&in, const WindowModeParams&in, bool = false)", AS_METHODPR(Graphics, SetWindowModes, (const WindowModeParams&, const WindowModeParams&, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetDefaultWindowModes(int width, int height, const ScreenModeParams& params)", "bool SetDefaultWindowModes(int, int, const ScreenModeParams&in)", AS_METHODPR(Graphics, SetDefaultWindowModes, (int, int, const ScreenModeParams&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetMode(int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample, int monitor, int refreshRate)", "bool SetMode(int, int, bool, bool, bool, bool, bool, bool, int, int, int)", AS_METHODPR(Graphics, SetMode, (int, int, bool, bool, bool, bool, bool, bool, int, int, int), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetMode(int width, int height)", "bool SetMode(int, int)", AS_METHODPR(Graphics, SetMode, (int, int), bool), AS_CALL_THISCALL));
@@ -1526,7 +1526,7 @@ void CollectMembers_Graphics(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::TakeScreenShot(Image& destImage)", "bool TakeScreenShot(Image&)", AS_METHODPR(Graphics, TakeScreenShot, (Image&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::BeginFrame()", "bool BeginFrame()", AS_METHODPR(Graphics, BeginFrame, (), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::EndFrame()", "void EndFrame()", AS_METHODPR(Graphics, EndFrame, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::Clear(ClearTargetFlags flags, const Color& color=Color(0.0f, 0.0f, 0.0f, 0.0f), float depth=1.0f, unsigned stencil=0)", "void Clear(ClearTargetFlags, const Color&in = Color(0.0f, 0.0f, 0.0f, 0.0f), float = 1.0f, uint = 0)", AS_METHODPR(Graphics, Clear, (ClearTargetFlags, const Color&, float, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::Clear(ClearTargetFlags flags, const Color& color = Color(0.0f, 0.0f, 0.0f, 0.0f), float depth = 1.0f, unsigned stencil = 0)", "void Clear(ClearTargetFlags, const Color&in = Color(0.0f, 0.0f, 0.0f, 0.0f), float = 1.0f, uint = 0)", AS_METHODPR(Graphics, Clear, (ClearTargetFlags, const Color&, float, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::ResolveToTexture(Texture2D* destination, const IntRect& viewport)", "bool ResolveToTexture(Texture2D@+, const IntRect&in)", AS_METHODPR(Graphics, ResolveToTexture, (Texture2D*, const IntRect&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::ResolveToTexture(Texture2D* texture)", "bool ResolveToTexture(Texture2D@+)", AS_METHODPR(Graphics, ResolveToTexture, (Texture2D*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::ResolveToTexture(TextureCube* texture)", "bool ResolveToTexture(TextureCube@+)", AS_METHODPR(Graphics, ResolveToTexture, (TextureCube*), bool), AS_CALL_THISCALL));
@@ -1536,7 +1536,7 @@ void CollectMembers_Graphics(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::DrawInstanced(PrimitiveType type, unsigned indexStart, unsigned indexCount, unsigned minVertex, unsigned vertexCount, unsigned instanceCount)", "void DrawInstanced(PrimitiveType, uint, uint, uint, uint, uint)", AS_METHODPR(Graphics, DrawInstanced, (PrimitiveType, unsigned, unsigned, unsigned, unsigned, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::DrawInstanced(PrimitiveType type, unsigned indexStart, unsigned indexCount, unsigned baseVertexIndex, unsigned minVertex, unsigned vertexCount, unsigned instanceCount)", "void DrawInstanced(PrimitiveType, uint, uint, uint, uint, uint, uint)", AS_METHODPR(Graphics, DrawInstanced, (PrimitiveType, unsigned, unsigned, unsigned, unsigned, unsigned, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetVertexBuffer(VertexBuffer* buffer)", "void SetVertexBuffer(VertexBuffer@+)", AS_METHODPR(Graphics, SetVertexBuffer, (VertexBuffer*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetVertexBuffers(const Vector<SharedPtr<VertexBuffer>>& buffers, unsigned instanceOffset=0)", "bool SetVertexBuffers(Array<VertexBuffer@>@+, uint = 0)", AS_FUNCTION_OBJFIRST(Graphics_SetVertexBuffers_VectorSharedPtrVertexBuffer_unsigned), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::SetVertexBuffers(const Vector<SharedPtr<VertexBuffer>>& buffers, unsigned instanceOffset = 0)", "bool SetVertexBuffers(Array<VertexBuffer@>@+, uint = 0)", AS_FUNCTION_OBJFIRST(Graphics_SetVertexBuffers_VectorSharedPtrVertexBuffer_unsigned), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetIndexBuffer(IndexBuffer* buffer)", "void SetIndexBuffer(IndexBuffer@+)", AS_METHODPR(Graphics, SetIndexBuffer, (IndexBuffer*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetShaders(ShaderVariation* vs, ShaderVariation* ps)", "void SetShaders(ShaderVariation@+, ShaderVariation@+)", AS_METHODPR(Graphics, SetShaders, (ShaderVariation*, ShaderVariation*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetShaderParameter(StringHash param, float value)", "void SetShaderParameter(StringHash, float)", AS_METHODPR(Graphics, SetShaderParameter, (StringHash, float), void), AS_CALL_THISCALL));
@@ -1566,7 +1566,7 @@ void CollectMembers_Graphics(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetDepthStencil(RenderSurface* depthStencil)", "void SetDepthStencil(RenderSurface@+)", AS_METHODPR(Graphics, SetDepthStencil, (RenderSurface*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetDepthStencil(Texture2D* texture)", "void SetDepthStencil(Texture2D@+)", AS_METHODPR(Graphics, SetDepthStencil, (Texture2D*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetViewport(const IntRect& rect)", "void SetViewport(const IntRect&in)", AS_METHODPR(Graphics, SetViewport, (const IntRect&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetBlendMode(BlendMode mode, bool alphaToCoverage=false)", "void SetBlendMode(BlendMode, bool = false)", AS_METHODPR(Graphics, SetBlendMode, (BlendMode, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetBlendMode(BlendMode mode, bool alphaToCoverage = false)", "void SetBlendMode(BlendMode, bool = false)", AS_METHODPR(Graphics, SetBlendMode, (BlendMode, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetColorWrite(bool enable)", "void SetColorWrite(bool)", AS_METHODPR(Graphics, SetColorWrite, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetCullMode(CullMode mode)", "void SetCullMode(CullMode)", AS_METHODPR(Graphics, SetCullMode, (CullMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetDepthBias(float constantBias, float slopeScaledBias)", "void SetDepthBias(float, float)", AS_METHODPR(Graphics, SetDepthBias, (float, float), void), AS_CALL_THISCALL));
@@ -1574,10 +1574,10 @@ void CollectMembers_Graphics(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetDepthWrite(bool enable)", "void SetDepthWrite(bool)", AS_METHODPR(Graphics, SetDepthWrite, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetFillMode(FillMode mode)", "void SetFillMode(FillMode)", AS_METHODPR(Graphics, SetFillMode, (FillMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetLineAntiAlias(bool enable)", "void SetLineAntiAlias(bool)", AS_METHODPR(Graphics, SetLineAntiAlias, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetScissorTest(bool enable, const Rect& rect=Rect::FULL, bool borderInclusive=true)", "void SetScissorTest(bool, const Rect&in = Rect::FULL, bool = true)", AS_METHODPR(Graphics, SetScissorTest, (bool, const Rect&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetScissorTest(bool enable, const Rect& rect = Rect::FULL, bool borderInclusive = true)", "void SetScissorTest(bool, const Rect&in = Rect::FULL, bool = true)", AS_METHODPR(Graphics, SetScissorTest, (bool, const Rect&, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetScissorTest(bool enable, const IntRect& rect)", "void SetScissorTest(bool, const IntRect&in)", AS_METHODPR(Graphics, SetScissorTest, (bool, const IntRect&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetStencilTest(bool enable, CompareMode mode=CMP_ALWAYS, StencilOp pass=OP_KEEP, StencilOp fail=OP_KEEP, StencilOp zFail=OP_KEEP, unsigned stencilRef=0, unsigned compareMask=M_MAX_UNSIGNED, unsigned writeMask=M_MAX_UNSIGNED)", "void SetStencilTest(bool, CompareMode = CMP_ALWAYS, StencilOp = OP_KEEP, StencilOp = OP_KEEP, StencilOp = OP_KEEP, uint = 0, uint = M_MAX_UNSIGNED, uint = M_MAX_UNSIGNED)", AS_METHODPR(Graphics, SetStencilTest, (bool, CompareMode, StencilOp, StencilOp, StencilOp, unsigned, unsigned, unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetClipPlane(bool enable, const Plane& clipPlane=Plane::UP, const Matrix3x4& view=Matrix3x4::IDENTITY, const Matrix4& projection=Matrix4::IDENTITY)", "void SetClipPlane(bool, const Plane&in = Plane::UP, const Matrix3x4&in = Matrix3x4::IDENTITY, const Matrix4&in = Matrix4::IDENTITY)", AS_METHODPR(Graphics, SetClipPlane, (bool, const Plane&, const Matrix3x4&, const Matrix4&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetStencilTest(bool enable, CompareMode mode = CMP_ALWAYS, StencilOp pass = OP_KEEP, StencilOp fail = OP_KEEP, StencilOp zFail = OP_KEEP, unsigned stencilRef = 0, unsigned compareMask = M_MAX_UNSIGNED, unsigned writeMask = M_MAX_UNSIGNED)", "void SetStencilTest(bool, CompareMode = CMP_ALWAYS, StencilOp = OP_KEEP, StencilOp = OP_KEEP, StencilOp = OP_KEEP, uint = 0, uint = M_MAX_UNSIGNED, uint = M_MAX_UNSIGNED)", AS_METHODPR(Graphics, SetStencilTest, (bool, CompareMode, StencilOp, StencilOp, StencilOp, unsigned, unsigned, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::SetClipPlane(bool enable, const Plane& clipPlane = Plane::UP, const Matrix3x4& view = Matrix3x4::IDENTITY, const Matrix4& projection = Matrix4::IDENTITY)", "void SetClipPlane(bool, const Plane&in = Plane::UP, const Matrix3x4&in = Matrix3x4::IDENTITY, const Matrix4&in = Matrix4::IDENTITY)", AS_METHODPR(Graphics, SetClipPlane, (bool, const Plane&, const Matrix3x4&, const Matrix4&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::BeginDumpShaders(const String& fileName)", "void BeginDumpShaders(const String&in)", AS_METHODPR(Graphics, BeginDumpShaders, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::EndDumpShaders()", "void EndDumpShaders()", AS_METHODPR(Graphics, EndDumpShaders, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Graphics::PrecacheShaders(Deserializer& source)", "void PrecacheShaders(Deserializer&)", AS_METHODPR(Graphics, PrecacheShaders, (Deserializer&), void), AS_CALL_THISCALL));
@@ -1659,10 +1659,10 @@ void CollectMembers_Graphics(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("int Graphics::GetCurrentMonitor() const", "int get_currentMonitor() const", AS_METHODPR(Graphics, GetCurrentMonitor, () const, int), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::GetMaximized() const", "bool GetMaximized() const", AS_METHODPR(Graphics, GetMaximized, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Graphics::GetMaximized() const", "bool get_maximized() const", AS_METHODPR(Graphics, GetMaximized, () const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Graphics::GetDisplayDPI(int monitor=0) const", "Vector3 GetDisplayDPI(int = 0) const", AS_METHODPR(Graphics, GetDisplayDPI, (int) const, Vector3), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Graphics::GetDisplayDPI(int monitor=0) const", "Vector3 get_displayDPI(int = 0) const", AS_METHODPR(Graphics, GetDisplayDPI, (int) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Graphics::GetDisplayDPI(int monitor = 0) const", "Vector3 GetDisplayDPI(int = 0) const", AS_METHODPR(Graphics, GetDisplayDPI, (int) const, Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 Graphics::GetDisplayDPI(int monitor = 0) const", "Vector3 get_displayDPI(int = 0) const", AS_METHODPR(Graphics, GetDisplayDPI, (int) const, Vector3), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Graphics::GetFormat(CompressedFormat format) const", "uint GetFormat(CompressedFormat) const", AS_METHODPR(Graphics, GetFormat, (CompressedFormat) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("ShaderVariation* Graphics::GetShader(ShaderType type, const String& name, const String& defines=String::EMPTY) const", "ShaderVariation@+ GetShader(ShaderType, const String&in, const String&in = String::EMPTY) const", AS_METHODPR(Graphics, GetShader, (ShaderType, const String&, const String&) const, ShaderVariation*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("ShaderVariation* Graphics::GetShader(ShaderType type, const String& name, const String& defines = String::EMPTY) const", "ShaderVariation@+ GetShader(ShaderType, const String&in, const String&in = String::EMPTY) const", AS_METHODPR(Graphics, GetShader, (ShaderType, const String&, const String&) const, ShaderVariation*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("VertexBuffer* Graphics::GetVertexBuffer(unsigned index) const", "VertexBuffer@+ GetVertexBuffer(uint) const", AS_METHODPR(Graphics, GetVertexBuffer, (unsigned) const, VertexBuffer*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("IndexBuffer* Graphics::GetIndexBuffer() const", "IndexBuffer@+ GetIndexBuffer() const", AS_METHODPR(Graphics, GetIndexBuffer, () const, IndexBuffer*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("ShaderVariation* Graphics::GetVertexShader() const", "ShaderVariation@+ GetVertexShader() const", AS_METHODPR(Graphics, GetVertexShader, () const, ShaderVariation*), AS_CALL_THISCALL));
@@ -1747,11 +1747,11 @@ void CollectMembers_IndexBuffer(MemberCollection& members)
     // Error: type "unsigned char*" can not automatically bind
     // SharedArrayPtr<unsigned char> IndexBuffer::GetShadowDataShared() const
     // Error: type "SharedArrayPtr<unsigned char>" can not automatically bind
-    // void* IndexBuffer::Lock(unsigned start, unsigned count, bool discard=false)
+    // void* IndexBuffer::Lock(unsigned start, unsigned count, bool discard = false)
     // Error: type "void*" can not automatically bind
     // bool IndexBuffer::SetData(const void* data)
     // Error: type "const void*" can not automatically bind
-    // bool IndexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard=false)
+    // bool IndexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard = false)
     // Error: type "const void*" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("void IndexBuffer::OnDeviceLost() override", "void OnDeviceLost()", AS_METHODPR(IndexBuffer, OnDeviceLost, (), void), AS_CALL_THISCALL));
@@ -1759,7 +1759,7 @@ void CollectMembers_IndexBuffer(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void IndexBuffer::Release() override", "void Release()", AS_METHODPR(IndexBuffer, Release, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void IndexBuffer::SetShadowed(bool enable)", "void SetShadowed(bool)", AS_METHODPR(IndexBuffer, SetShadowed, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void IndexBuffer::SetShadowed(bool enable)", "void set_shadowed(bool)", AS_METHODPR(IndexBuffer, SetShadowed, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool IndexBuffer::SetSize(unsigned indexCount, bool largeIndices, bool dynamic=false)", "bool SetSize(uint, bool, bool = false)", AS_METHODPR(IndexBuffer, SetSize, (unsigned, bool, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool IndexBuffer::SetSize(unsigned indexCount, bool largeIndices, bool dynamic = false)", "bool SetSize(uint, bool, bool = false)", AS_METHODPR(IndexBuffer, SetSize, (unsigned, bool, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void IndexBuffer::Unlock()", "void Unlock()", AS_METHODPR(IndexBuffer, Unlock, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool IndexBuffer::IsShadowed() const", "bool IsShadowed() const", AS_METHODPR(IndexBuffer, IsShadowed, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool IndexBuffer::IsShadowed() const", "bool get_shadowed() const", AS_METHODPR(IndexBuffer, IsShadowed, () const, bool), AS_CALL_THISCALL));
@@ -1935,7 +1935,7 @@ void CollectMembers_Light(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Light::SetIntensitySortValue(float distance)", "void SetIntensitySortValue(float)", AS_METHODPR(Light, SetIntensitySortValue, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Light::SetIntensitySortValue(const BoundingBox& box)", "void SetIntensitySortValue(const BoundingBox&in)", AS_METHODPR(Light, SetIntensitySortValue, (const BoundingBox&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Matrix3x4& Light::GetVolumeTransform(Camera* camera)", "const Matrix3x4& GetVolumeTransform(Camera@+)", AS_METHODPR(Light, GetVolumeTransform, (Camera*), const Matrix3x4&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("float Light::GetIntensityDivisor(float attenuation=1.0f) const", "float GetIntensityDivisor(float = 1.0f) const", AS_METHODPR(Light, GetIntensityDivisor, (float) const, float), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("float Light::GetIntensityDivisor(float attenuation = 1.0f) const", "float GetIntensityDivisor(float = 1.0f) const", AS_METHODPR(Light, GetIntensityDivisor, (float) const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Light::SetRampTextureAttr(const ResourceRef& value)", "void SetRampTextureAttr(const ResourceRef&in)", AS_METHODPR(Light, SetRampTextureAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Light::SetShapeTextureAttr(const ResourceRef& value)", "void SetShapeTextureAttr(const ResourceRef&in)", AS_METHODPR(Light, SetShapeTextureAttr, (const ResourceRef&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("ResourceRef Light::GetRampTextureAttr() const", "ResourceRef GetRampTextureAttr() const", AS_METHODPR(Light, GetRampTextureAttr, () const, ResourceRef), AS_CALL_THISCALL));
@@ -2003,8 +2003,8 @@ void CollectMembers_LightQueryResult(MemberCollection& members)
     #endif
 }
 
-// SharedPtr<Material> Material::Clone(const String& cloneName=String::EMPTY) const
-// SharedPtr<Material> Material::Clone(const String& cloneName=String::EMPTY) const | File: ../Graphics/Material.h
+// SharedPtr<Material> Material::Clone(const String& cloneName = String::EMPTY) const
+// SharedPtr<Material> Material::Clone(const String& cloneName = String::EMPTY) const | File: ../Graphics/Material.h
 static Material* Material_Clone_String(Material* ptr, const String& cloneName)
 {
     SharedPtr<Material> result = ptr->Clone(cloneName);
@@ -2038,14 +2038,14 @@ void CollectMembers_Material(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Material::Save(JSONValue& dest) const", "bool Save(JSONValue&) const", AS_METHODPR(Material, Save, (JSONValue&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetNumTechniques(unsigned num)", "void SetNumTechniques(uint)", AS_METHODPR(Material, SetNumTechniques, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetNumTechniques(unsigned num)", "void set_numTechniques(uint)", AS_METHODPR(Material, SetNumTechniques, (unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Material::SetTechnique(unsigned index, Technique* tech, MaterialQuality qualityLevel=QUALITY_LOW, float lodDistance=0.0f)", "void SetTechnique(uint, Technique@+, MaterialQuality = QUALITY_LOW, float = 0.0f)", AS_METHODPR(Material, SetTechnique, (unsigned, Technique*, MaterialQuality, float), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Material::SetTechnique(unsigned index, Technique* tech, MaterialQuality qualityLevel = QUALITY_LOW, float lodDistance = 0.0f)", "void SetTechnique(uint, Technique@+, MaterialQuality = QUALITY_LOW, float = 0.0f)", AS_METHODPR(Material, SetTechnique, (unsigned, Technique*, MaterialQuality, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetVertexShaderDefines(const String& defines)", "void SetVertexShaderDefines(const String&in)", AS_METHODPR(Material, SetVertexShaderDefines, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetVertexShaderDefines(const String& defines)", "void set_vertexShaderDefines(const String&in)", AS_METHODPR(Material, SetVertexShaderDefines, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetPixelShaderDefines(const String& defines)", "void SetPixelShaderDefines(const String&in)", AS_METHODPR(Material, SetPixelShaderDefines, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetPixelShaderDefines(const String& defines)", "void set_pixelShaderDefines(const String&in)", AS_METHODPR(Material, SetPixelShaderDefines, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetShaderParameter(const String& name, const Variant& value)", "void SetShaderParameter(const String&in, const Variant&in)", AS_METHODPR(Material, SetShaderParameter, (const String&, const Variant&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetShaderParameter(const String& name, const Variant& value)", "void set_shaderParameters(const String&in, const Variant&in)", AS_METHODPR(Material, SetShaderParameter, (const String&, const Variant&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Material::SetShaderParameterAnimation(const String& name, ValueAnimation* animation, WrapMode wrapMode=WM_LOOP, float speed=1.0f)", "void SetShaderParameterAnimation(const String&in, ValueAnimation@+, WrapMode = WM_LOOP, float = 1.0f)", AS_METHODPR(Material, SetShaderParameterAnimation, (const String&, ValueAnimation*, WrapMode, float), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Material::SetShaderParameterAnimation(const String& name, ValueAnimation* animation, WrapMode wrapMode = WM_LOOP, float speed = 1.0f)", "void SetShaderParameterAnimation(const String&in, ValueAnimation@+, WrapMode = WM_LOOP, float = 1.0f)", AS_METHODPR(Material, SetShaderParameterAnimation, (const String&, ValueAnimation*, WrapMode, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetShaderParameterAnimationWrapMode(const String& name, WrapMode wrapMode)", "void SetShaderParameterAnimationWrapMode(const String&in, WrapMode)", AS_METHODPR(Material, SetShaderParameterAnimationWrapMode, (const String&, WrapMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetShaderParameterAnimationSpeed(const String& name, float speed)", "void SetShaderParameterAnimationSpeed(const String&in, float)", AS_METHODPR(Material, SetShaderParameterAnimationSpeed, (const String&, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetTexture(TextureUnit unit, Texture* texture)", "void SetTexture(TextureUnit, Texture@+)", AS_METHODPR(Material, SetTexture, (TextureUnit, Texture*), void), AS_CALL_THISCALL));
@@ -2072,7 +2072,7 @@ void CollectMembers_Material(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SetScene(Scene* scene)", "void set_scene(Scene@+)", AS_METHODPR(Material, SetScene, (Scene*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::RemoveShaderParameter(const String& name)", "void RemoveShaderParameter(const String&in)", AS_METHODPR(Material, RemoveShaderParameter, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::ReleaseShaders()", "void ReleaseShaders()", AS_METHODPR(Material, ReleaseShaders, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Material> Material::Clone(const String& cloneName=String::EMPTY) const", "Material@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(Material_Clone_String), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Material> Material::Clone(const String& cloneName = String::EMPTY) const", "Material@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(Material_Clone_String), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::SortTechniques()", "void SortTechniques()", AS_METHODPR(Material, SortTechniques, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Material::MarkForAuxView(unsigned frameNumber)", "void MarkForAuxView(uint)", AS_METHODPR(Material, MarkForAuxView, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Material::GetNumTechniques() const", "uint GetNumTechniques() const", AS_METHODPR(Material, GetNumTechniques, () const, unsigned), AS_CALL_THISCALL));
@@ -2158,8 +2158,8 @@ static bool Model_SetIndexBuffers_VectorSharedPtrIndexBuffer(Model* ptr, CScript
 }
 
 
-// SharedPtr<Model> Model::Clone(const String& cloneName=String::EMPTY) const
-// SharedPtr<Model> Model::Clone(const String& cloneName=String::EMPTY) const | File: ../Graphics/Model.h
+// SharedPtr<Model> Model::Clone(const String& cloneName = String::EMPTY) const
+// SharedPtr<Model> Model::Clone(const String& cloneName = String::EMPTY) const | File: ../Graphics/Model.h
 static Model* Model_Clone_String(Model* ptr, const String& cloneName)
 {
     SharedPtr<Model> result = ptr->Clone(cloneName);
@@ -2235,7 +2235,7 @@ void CollectMembers_Model(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Model::SetGeometryCenter(unsigned index, const Vector3& center)", "bool SetGeometryCenter(uint, const Vector3&in)", AS_METHODPR(Model, SetGeometryCenter, (unsigned, const Vector3&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Model::SetGeometryCenter(unsigned index, const Vector3& center)", "bool set_geometryCenters(uint, const Vector3&in)", AS_METHODPR(Model, SetGeometryCenter, (unsigned, const Vector3&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Model::SetSkeleton(const Skeleton& skeleton)", "void SetSkeleton(const Skeleton&in)", AS_METHODPR(Model, SetSkeleton, (const Skeleton&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Model> Model::Clone(const String& cloneName=String::EMPTY) const", "Model@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(Model_Clone_String), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Model> Model::Clone(const String& cloneName = String::EMPTY) const", "Model@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(Model_Clone_String), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("const BoundingBox& Model::GetBoundingBox() const", "const BoundingBox& GetBoundingBox() const", AS_METHODPR(Model, GetBoundingBox, () const, const BoundingBox&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const BoundingBox& Model::GetBoundingBox() const", "const BoundingBox& get_boundingBox() const", AS_METHODPR(Model, GetBoundingBox, () const, const BoundingBox&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Skeleton& Model::GetSkeleton()", "Skeleton& GetSkeleton()", AS_METHODPR(Model, GetSkeleton, (), Skeleton&), AS_CALL_THISCALL));
@@ -2362,7 +2362,7 @@ void CollectMembers_Octant(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Octant::InsertDrawable(Drawable* drawable)", "void InsertDrawable(Drawable@+)", AS_METHODPR(Octant, InsertDrawable, (Drawable*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Octant::CheckDrawableFit(const BoundingBox& box) const", "bool CheckDrawableFit(const BoundingBox&in) const", AS_METHODPR(Octant, CheckDrawableFit, (const BoundingBox&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Octant::AddDrawable(Drawable* drawable)", "void AddDrawable(Drawable@+)", AS_METHODPR(Octant, AddDrawable, (Drawable*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Octant::RemoveDrawable(Drawable* drawable, bool resetOctant=true)", "void RemoveDrawable(Drawable@+, bool = true)", AS_METHODPR(Octant, RemoveDrawable, (Drawable*, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Octant::RemoveDrawable(Drawable* drawable, bool resetOctant = true)", "void RemoveDrawable(Drawable@+, bool = true)", AS_METHODPR(Octant, RemoveDrawable, (Drawable*, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const BoundingBox& Octant::GetWorldBoundingBox() const", "const BoundingBox& GetWorldBoundingBox() const", AS_METHODPR(Octant, GetWorldBoundingBox, () const, const BoundingBox&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const BoundingBox& Octant::GetWorldBoundingBox() const", "const BoundingBox& get_worldBoundingBox() const", AS_METHODPR(Octant, GetWorldBoundingBox, () const, const BoundingBox&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const BoundingBox& Octant::GetCullingBox() const", "const BoundingBox& GetCullingBox() const", AS_METHODPR(Octant, GetCullingBox, () const, const BoundingBox&), AS_CALL_THISCALL));
@@ -2418,10 +2418,13 @@ void CollectMembers_Octree(MemberCollection& members)
 // class OctreeQuery | File: ../Graphics/OctreeQuery.h
 void CollectMembers_OctreeQuery(MemberCollection& members)
 {
-    // virtual void OctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside)=0
+    // virtual void OctreeQuery::TestDrawables(Drawable** start, Drawable** end, bool inside) = 0
     // Error: type "Drawable**" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("virtual Intersection OctreeQuery::TestOctant(const BoundingBox& box, bool inside)=0", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(OctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual Intersection OctreeQuery::TestOctant(const BoundingBox& box, bool inside) = 0", "Intersection TestOctant(const BoundingBox&in, bool)", AS_METHODPR(OctreeQuery, TestOctant, (const BoundingBox&, bool), Intersection), AS_CALL_THISCALL));
+
+    // OctreeQuery& OctreeQuery::operator=(const OctreeQuery& rhs) = delete
+    // Not registered because deleted
 
     // PODVector<Drawable*>& OctreeQuery::result_
     // Error: type "PODVector<Drawable*>&" can not automatically bind
@@ -2467,8 +2470,8 @@ void CollectMembers_Particle(MemberCollection& members)
     #endif
 }
 
-// SharedPtr<ParticleEffect> ParticleEffect::Clone(const String& cloneName=String::EMPTY) const
-// SharedPtr<ParticleEffect> ParticleEffect::Clone(const String& cloneName=String::EMPTY) const | File: ../Graphics/ParticleEffect.h
+// SharedPtr<ParticleEffect> ParticleEffect::Clone(const String& cloneName = String::EMPTY) const
+// SharedPtr<ParticleEffect> ParticleEffect::Clone(const String& cloneName = String::EMPTY) const | File: ../Graphics/ParticleEffect.h
 static ParticleEffect* ParticleEffect_Clone_String(ParticleEffect* ptr, const String& cloneName)
 {
     SharedPtr<ParticleEffect> result = ptr->Clone(cloneName);
@@ -2576,7 +2579,7 @@ void CollectMembers_ParticleEffect(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void ParticleEffect::SetNumTextureFrames(unsigned number)", "void SetNumTextureFrames(uint)", AS_METHODPR(ParticleEffect, SetNumTextureFrames, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ParticleEffect::SetNumTextureFrames(unsigned number)", "void set_numTextureFrames(uint)", AS_METHODPR(ParticleEffect, SetNumTextureFrames, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ParticleEffect::SortTextureFrames()", "void SortTextureFrames()", AS_METHODPR(ParticleEffect, SortTextureFrames, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<ParticleEffect> ParticleEffect::Clone(const String& cloneName=String::EMPTY) const", "ParticleEffect@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(ParticleEffect_Clone_String), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<ParticleEffect> ParticleEffect::Clone(const String& cloneName = String::EMPTY) const", "ParticleEffect@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(ParticleEffect_Clone_String), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("Material* ParticleEffect::GetMaterial() const", "Material@+ GetMaterial() const", AS_METHODPR(ParticleEffect, GetMaterial, () const, Material*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Material* ParticleEffect::GetMaterial() const", "Material@+ get_material() const", AS_METHODPR(ParticleEffect, GetMaterial, () const, Material*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned ParticleEffect::GetNumParticles() const", "uint GetNumParticles() const", AS_METHODPR(ParticleEffect, GetNumParticles, () const, unsigned), AS_CALL_THISCALL));
@@ -2858,6 +2861,9 @@ void CollectMembers_PointOctreeQuery(MemberCollection& members)
 // class RayOctreeQuery | File: ../Graphics/OctreeQuery.h
 void CollectMembers_RayOctreeQuery(MemberCollection& members)
 {
+    // RayOctreeQuery& RayOctreeQuery::operator=(const RayOctreeQuery& rhs) = delete
+    // Not registered because deleted
+
     // PODVector<RayQueryResult>& RayOctreeQuery::result_
     // Error: type "PODVector<RayQueryResult>&" can not automatically bind
 
@@ -2962,7 +2968,7 @@ void CollectMembers_RenderPathCommand(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void RenderPathCommand::RemoveShaderParameter(const String& name)", "void RemoveShaderParameter(const String&in)", AS_METHODPR(RenderPathCommand, RemoveShaderParameter, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetNumOutputs(unsigned num)", "void SetNumOutputs(uint)", AS_METHODPR(RenderPathCommand, SetNumOutputs, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetNumOutputs(unsigned num)", "void set_numOutputs(uint)", AS_METHODPR(RenderPathCommand, SetNumOutputs, (unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetOutput(unsigned index, const String& name, CubeMapFace face=FACE_POSITIVE_X)", "void SetOutput(uint, const String&in, CubeMapFace = FACE_POSITIVE_X)", AS_METHODPR(RenderPathCommand, SetOutput, (unsigned, const String&, CubeMapFace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetOutput(unsigned index, const String& name, CubeMapFace face = FACE_POSITIVE_X)", "void SetOutput(uint, const String&in, CubeMapFace = FACE_POSITIVE_X)", AS_METHODPR(RenderPathCommand, SetOutput, (unsigned, const String&, CubeMapFace), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetOutputName(unsigned index, const String& name)", "void SetOutputName(uint, const String&in)", AS_METHODPR(RenderPathCommand, SetOutputName, (unsigned, const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetOutputName(unsigned index, const String& name)", "void set_outputNames(uint, const String&in)", AS_METHODPR(RenderPathCommand, SetOutputName, (unsigned, const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void RenderPathCommand::SetOutputFace(unsigned index, CubeMapFace face)", "void SetOutputFace(uint, CubeMapFace)", AS_METHODPR(RenderPathCommand, SetOutputFace, (unsigned, CubeMapFace), void), AS_CALL_THISCALL));
@@ -3243,14 +3249,14 @@ void CollectMembers_Renderer(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumPrimitives() const", "uint get_numPrimitives() const", AS_METHODPR(Renderer, GetNumPrimitives, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumBatches() const", "uint GetNumBatches() const", AS_METHODPR(Renderer, GetNumBatches, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumBatches() const", "uint get_numBatches() const", AS_METHODPR(Renderer, GetNumBatches, () const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumGeometries(bool allViews=false) const", "uint GetNumGeometries(bool = false) const", AS_METHODPR(Renderer, GetNumGeometries, (bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumGeometries(bool allViews=false) const", "uint get_numGeometries(bool = false) const", AS_METHODPR(Renderer, GetNumGeometries, (bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumLights(bool allViews=false) const", "uint GetNumLights(bool = false) const", AS_METHODPR(Renderer, GetNumLights, (bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumLights(bool allViews=false) const", "uint get_numLights(bool = false) const", AS_METHODPR(Renderer, GetNumLights, (bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumShadowMaps(bool allViews=false) const", "uint GetNumShadowMaps(bool = false) const", AS_METHODPR(Renderer, GetNumShadowMaps, (bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumShadowMaps(bool allViews=false) const", "uint get_numShadowMaps(bool = false) const", AS_METHODPR(Renderer, GetNumShadowMaps, (bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumOccluders(bool allViews=false) const", "uint GetNumOccluders(bool = false) const", AS_METHODPR(Renderer, GetNumOccluders, (bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumOccluders(bool allViews=false) const", "uint get_numOccluders(bool = false) const", AS_METHODPR(Renderer, GetNumOccluders, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumGeometries(bool allViews = false) const", "uint GetNumGeometries(bool = false) const", AS_METHODPR(Renderer, GetNumGeometries, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumGeometries(bool allViews = false) const", "uint get_numGeometries(bool = false) const", AS_METHODPR(Renderer, GetNumGeometries, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumLights(bool allViews = false) const", "uint GetNumLights(bool = false) const", AS_METHODPR(Renderer, GetNumLights, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumLights(bool allViews = false) const", "uint get_numLights(bool = false) const", AS_METHODPR(Renderer, GetNumLights, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumShadowMaps(bool allViews = false) const", "uint GetNumShadowMaps(bool = false) const", AS_METHODPR(Renderer, GetNumShadowMaps, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumShadowMaps(bool allViews = false) const", "uint get_numShadowMaps(bool = false) const", AS_METHODPR(Renderer, GetNumShadowMaps, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumOccluders(bool allViews = false) const", "uint GetNumOccluders(bool = false) const", AS_METHODPR(Renderer, GetNumOccluders, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Renderer::GetNumOccluders(bool allViews = false) const", "uint get_numOccluders(bool = false) const", AS_METHODPR(Renderer, GetNumOccluders, (bool) const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Zone* Renderer::GetDefaultZone() const", "Zone@+ GetDefaultZone() const", AS_METHODPR(Renderer, GetDefaultZone, () const, Zone*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Zone* Renderer::GetDefaultZone() const", "Zone@+ get_defaultZone() const", AS_METHODPR(Renderer, GetDefaultZone, () const, Zone*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Material* Renderer::GetDefaultMaterial() const", "Material@+ GetDefaultMaterial() const", AS_METHODPR(Renderer, GetDefaultMaterial, () const, Material*), AS_CALL_THISCALL));
@@ -3271,7 +3277,7 @@ void CollectMembers_Renderer(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("Geometry* Renderer::GetLightGeometry(Light* light)", "Geometry@+ GetLightGeometry(Light@+)", AS_METHODPR(Renderer, GetLightGeometry, (Light*), Geometry*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Geometry* Renderer::GetQuadGeometry()", "Geometry@+ GetQuadGeometry()", AS_METHODPR(Renderer, GetQuadGeometry, (), Geometry*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Texture2D* Renderer::GetShadowMap(Light* light, Camera* camera, unsigned viewWidth, unsigned viewHeight)", "Texture2D@+ GetShadowMap(Light@+, Camera@+, uint, uint)", AS_METHODPR(Renderer, GetShadowMap, (Light*, Camera*, unsigned, unsigned), Texture2D*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Texture* Renderer::GetScreenBuffer(int width, int height, unsigned format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, unsigned persistentKey=0)", "Texture@+ GetScreenBuffer(int, int, uint, int, bool, bool, bool, bool, uint = 0)", AS_METHODPR(Renderer, GetScreenBuffer, (int, int, unsigned, int, bool, bool, bool, bool, unsigned), Texture*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Texture* Renderer::GetScreenBuffer(int width, int height, unsigned format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, unsigned persistentKey = 0)", "Texture@+ GetScreenBuffer(int, int, uint, int, bool, bool, bool, bool, uint = 0)", AS_METHODPR(Renderer, GetScreenBuffer, (int, int, unsigned, int, bool, bool, bool, bool, unsigned), Texture*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("RenderSurface* Renderer::GetDepthStencil(int width, int height, int multiSample, bool autoResolve)", "RenderSurface@+ GetDepthStencil(int, int, int, bool)", AS_METHODPR(Renderer, GetDepthStencil, (int, int, int, bool), RenderSurface*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("OcclusionBuffer* Renderer::GetOcclusionBuffer(Camera* camera)", "OcclusionBuffer@+ GetOcclusionBuffer(Camera@+)", AS_METHODPR(Renderer, GetOcclusionBuffer, (Camera*), OcclusionBuffer*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Camera* Renderer::GetShadowCamera()", "Camera@+ GetShadowCamera()", AS_METHODPR(Renderer, GetShadowCamera, (), Camera*), AS_CALL_THISCALL));
@@ -3696,7 +3702,7 @@ void CollectMembers_StaticModel(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("virtual bool StaticModel::SetMaterial(unsigned index, Material* material)", "bool set_materials(uint, Material@+)", AS_METHODPR(StaticModel, SetMaterial, (unsigned, Material*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void StaticModel::SetOcclusionLodLevel(unsigned level)", "void SetOcclusionLodLevel(uint)", AS_METHODPR(StaticModel, SetOcclusionLodLevel, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void StaticModel::SetOcclusionLodLevel(unsigned level)", "void set_occlusionLodLevel(uint)", AS_METHODPR(StaticModel, SetOcclusionLodLevel, (unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void StaticModel::ApplyMaterialList(const String& fileName=String::EMPTY)", "void ApplyMaterialList(const String&in = String::EMPTY)", AS_METHODPR(StaticModel, ApplyMaterialList, (const String&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void StaticModel::ApplyMaterialList(const String& fileName = String::EMPTY)", "void ApplyMaterialList(const String&in = String::EMPTY)", AS_METHODPR(StaticModel, ApplyMaterialList, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Model* StaticModel::GetModel() const", "Model@+ GetModel() const", AS_METHODPR(StaticModel, GetModel, () const, Model*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Model* StaticModel::GetModel() const", "Model@+ get_model() const", AS_METHODPR(StaticModel, GetModel, () const, Model*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned StaticModel::GetNumGeometries() const", "uint GetNumGeometries() const", AS_METHODPR(StaticModel, GetNumGeometries, () const, unsigned), AS_CALL_THISCALL));
@@ -3773,8 +3779,8 @@ void CollectMembers_StaticModelGroup(MemberCollection& members)
     #endif
 }
 
-// SharedPtr<Technique> Technique::Clone(const String& cloneName=String::EMPTY) const
-// SharedPtr<Technique> Technique::Clone(const String& cloneName=String::EMPTY) const | File: ../Graphics/Technique.h
+// SharedPtr<Technique> Technique::Clone(const String& cloneName = String::EMPTY) const
+// SharedPtr<Technique> Technique::Clone(const String& cloneName = String::EMPTY) const | File: ../Graphics/Technique.h
 static Technique* Technique_Clone_String(Technique* ptr, const String& cloneName)
 {
     SharedPtr<Technique> result = ptr->Clone(cloneName);
@@ -3822,7 +3828,7 @@ void CollectMembers_Technique(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("Pass* Technique::CreatePass(const String& name)", "Pass@+ CreatePass(const String&in)", AS_METHODPR(Technique, CreatePass, (const String&), Pass*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Technique::RemovePass(const String& name)", "void RemovePass(const String&in)", AS_METHODPR(Technique, RemovePass, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Technique::ReleaseShaders()", "void ReleaseShaders()", AS_METHODPR(Technique, ReleaseShaders, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Technique> Technique::Clone(const String& cloneName=String::EMPTY) const", "Technique@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(Technique_Clone_String), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Technique> Technique::Clone(const String& cloneName = String::EMPTY) const", "Technique@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(Technique_Clone_String), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("bool Technique::IsDesktop() const", "bool IsDesktop() const", AS_METHODPR(Technique, IsDesktop, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Technique::IsDesktop() const", "bool get_desktop() const", AS_METHODPR(Technique, IsDesktop, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Technique::IsSupported() const", "bool IsSupported() const", AS_METHODPR(Technique, IsSupported, () const, bool), AS_CALL_THISCALL));
@@ -4200,8 +4206,8 @@ void CollectMembers_Texture2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Texture2D::OnDeviceLost() override", "void OnDeviceLost()", AS_METHODPR(Texture2D, OnDeviceLost, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Texture2D::OnDeviceReset() override", "void OnDeviceReset()", AS_METHODPR(Texture2D, OnDeviceReset, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Texture2D::Release() override", "void Release()", AS_METHODPR(Texture2D, Release, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Texture2D::SetSize(int width, int height, unsigned format, TextureUsage usage=TEXTURE_STATIC, int multiSample=1, bool autoResolve=true)", "bool SetSize(int, int, uint, TextureUsage = TEXTURE_STATIC, int = 1, bool = true)", AS_METHODPR(Texture2D, SetSize, (int, int, unsigned, TextureUsage, int, bool), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Texture2D::SetData(Image* image, bool useAlpha=false)", "bool SetData(Image@+, bool = false)", AS_METHODPR(Texture2D, SetData, (Image*, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Texture2D::SetSize(int width, int height, unsigned format, TextureUsage usage = TEXTURE_STATIC, int multiSample = 1, bool autoResolve = true)", "bool SetSize(int, int, uint, TextureUsage = TEXTURE_STATIC, int = 1, bool = true)", AS_METHODPR(Texture2D, SetSize, (int, int, unsigned, TextureUsage, int, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Texture2D::SetData(Image* image, bool useAlpha = false)", "bool SetData(Image@+, bool = false)", AS_METHODPR(Texture2D, SetData, (Image*, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Texture2D::GetImage(Image& image) const", "bool GetImage(Image&) const", AS_METHODPR(Texture2D, GetImage, (Image&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Image> Texture2D::GetImage() const", "Image@+ GetImage() const", AS_FUNCTION_OBJFIRST(Texture2D_GetImage_void), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("RenderSurface* Texture2D::GetRenderSurface() const", "RenderSurface@+ GetRenderSurface() const", AS_METHODPR(Texture2D, GetRenderSurface, () const, RenderSurface*), AS_CALL_THISCALL));
@@ -4238,9 +4244,9 @@ void CollectMembers_Texture2DArray(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Texture2DArray::Release() override", "void Release()", AS_METHODPR(Texture2DArray, Release, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Texture2DArray::SetLayers(unsigned layers)", "void SetLayers(uint)", AS_METHODPR(Texture2DArray, SetLayers, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Texture2DArray::SetLayers(unsigned layers)", "void set_layers(uint)", AS_METHODPR(Texture2DArray, SetLayers, (unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Texture2DArray::SetSize(unsigned layers, int width, int height, unsigned format, TextureUsage usage=TEXTURE_STATIC)", "bool SetSize(uint, int, int, uint, TextureUsage = TEXTURE_STATIC)", AS_METHODPR(Texture2DArray, SetSize, (unsigned, int, int, unsigned, TextureUsage), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Texture2DArray::SetSize(unsigned layers, int width, int height, unsigned format, TextureUsage usage = TEXTURE_STATIC)", "bool SetSize(uint, int, int, uint, TextureUsage = TEXTURE_STATIC)", AS_METHODPR(Texture2DArray, SetSize, (unsigned, int, int, unsigned, TextureUsage), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Texture2DArray::SetData(unsigned layer, Deserializer& source)", "bool SetData(uint, Deserializer&)", AS_METHODPR(Texture2DArray, SetData, (unsigned, Deserializer&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Texture2DArray::SetData(unsigned layer, Image* image, bool useAlpha=false)", "bool SetData(uint, Image@+, bool = false)", AS_METHODPR(Texture2DArray, SetData, (unsigned, Image*, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Texture2DArray::SetData(unsigned layer, Image* image, bool useAlpha = false)", "bool SetData(uint, Image@+, bool = false)", AS_METHODPR(Texture2DArray, SetData, (unsigned, Image*, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Texture2DArray::GetLayers() const", "uint GetLayers() const", AS_METHODPR(Texture2DArray, GetLayers, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Texture2DArray::GetLayers() const", "uint get_layers() const", AS_METHODPR(Texture2DArray, GetLayers, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("RenderSurface* Texture2DArray::GetRenderSurface() const", "RenderSurface@+ GetRenderSurface() const", AS_METHODPR(Texture2DArray, GetRenderSurface, () const, RenderSurface*), AS_CALL_THISCALL));
@@ -4275,8 +4281,8 @@ void CollectMembers_Texture3D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Texture3D::OnDeviceLost() override", "void OnDeviceLost()", AS_METHODPR(Texture3D, OnDeviceLost, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Texture3D::OnDeviceReset() override", "void OnDeviceReset()", AS_METHODPR(Texture3D, OnDeviceReset, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Texture3D::Release() override", "void Release()", AS_METHODPR(Texture3D, Release, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Texture3D::SetSize(int width, int height, int depth, unsigned format, TextureUsage usage=TEXTURE_STATIC)", "bool SetSize(int, int, int, uint, TextureUsage = TEXTURE_STATIC)", AS_METHODPR(Texture3D, SetSize, (int, int, int, unsigned, TextureUsage), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Texture3D::SetData(Image* image, bool useAlpha=false)", "bool SetData(Image@+, bool = false)", AS_METHODPR(Texture3D, SetData, (Image*, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Texture3D::SetSize(int width, int height, int depth, unsigned format, TextureUsage usage = TEXTURE_STATIC)", "bool SetSize(int, int, int, uint, TextureUsage = TEXTURE_STATIC)", AS_METHODPR(Texture3D, SetSize, (int, int, int, unsigned, TextureUsage), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Texture3D::SetData(Image* image, bool useAlpha = false)", "bool SetData(Image@+, bool = false)", AS_METHODPR(Texture3D, SetData, (Image*, bool), bool), AS_CALL_THISCALL));
 
     // static void Texture3D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
@@ -4316,9 +4322,9 @@ void CollectMembers_TextureCube(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void TextureCube::OnDeviceLost() override", "void OnDeviceLost()", AS_METHODPR(TextureCube, OnDeviceLost, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void TextureCube::OnDeviceReset() override", "void OnDeviceReset()", AS_METHODPR(TextureCube, OnDeviceReset, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void TextureCube::Release() override", "void Release()", AS_METHODPR(TextureCube, Release, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool TextureCube::SetSize(int size, unsigned format, TextureUsage usage=TEXTURE_STATIC, int multiSample=1)", "bool SetSize(int, uint, TextureUsage = TEXTURE_STATIC, int = 1)", AS_METHODPR(TextureCube, SetSize, (int, unsigned, TextureUsage, int), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool TextureCube::SetSize(int size, unsigned format, TextureUsage usage = TEXTURE_STATIC, int multiSample = 1)", "bool SetSize(int, uint, TextureUsage = TEXTURE_STATIC, int = 1)", AS_METHODPR(TextureCube, SetSize, (int, unsigned, TextureUsage, int), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool TextureCube::SetData(CubeMapFace face, Deserializer& source)", "bool SetData(CubeMapFace, Deserializer&)", AS_METHODPR(TextureCube, SetData, (CubeMapFace, Deserializer&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool TextureCube::SetData(CubeMapFace face, Image* image, bool useAlpha=false)", "bool SetData(CubeMapFace, Image@+, bool = false)", AS_METHODPR(TextureCube, SetData, (CubeMapFace, Image*, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool TextureCube::SetData(CubeMapFace face, Image* image, bool useAlpha = false)", "bool SetData(CubeMapFace, Image@+, bool = false)", AS_METHODPR(TextureCube, SetData, (CubeMapFace, Image*, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Image> TextureCube::GetImage(CubeMapFace face) const", "Image@+ GetImage(CubeMapFace) const", AS_FUNCTION_OBJFIRST(TextureCube_GetImage_CubeMapFace), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("RenderSurface* TextureCube::GetRenderSurface(CubeMapFace face) const", "RenderSurface@+ GetRenderSurface(CubeMapFace) const", AS_METHODPR(TextureCube, GetRenderSurface, (CubeMapFace) const, RenderSurface*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("RenderSurface* TextureCube::GetRenderSurface(CubeMapFace face) const", "RenderSurface@+ get_renderSurfaces(CubeMapFace) const", AS_METHODPR(TextureCube, GetRenderSurface, (CubeMapFace) const, RenderSurface*), AS_CALL_THISCALL));
@@ -4360,8 +4366,8 @@ void CollectMembers_TrailPoint(MemberCollection& members)
     #endif
 }
 
-// bool VertexBuffer::SetSize(unsigned vertexCount, const PODVector<VertexElement>& elements, bool dynamic=false)
-// bool VertexBuffer::SetSize(unsigned vertexCount, const PODVector<VertexElement>& elements, bool dynamic=false) | File: ../Graphics/VertexBuffer.h
+// bool VertexBuffer::SetSize(unsigned vertexCount, const PODVector<VertexElement>& elements, bool dynamic = false)
+// bool VertexBuffer::SetSize(unsigned vertexCount, const PODVector<VertexElement>& elements, bool dynamic = false) | File: ../Graphics/VertexBuffer.h
 static bool VertexBuffer_SetSize_unsigned_PODVectorVertexElement_bool(VertexBuffer* ptr, unsigned vertexCount, CScriptArray* elements_conv, bool dynamic)
 {
     PODVector<VertexElement> elements = ArrayToPODVector<VertexElement>(elements_conv);
@@ -4379,8 +4385,8 @@ static CScriptArray* VertexBuffer_GetElements_void(VertexBuffer* ptr)
 }
 
 
-// static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)
-// static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0) | File: ../Graphics/VertexBuffer.h
+// static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0)
+// static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0) | File: ../Graphics/VertexBuffer.h
 static bool VertexBuffer_HasElement_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar(CScriptArray* elements_conv, VertexElementType type, VertexElementSemantic semantic, unsigned char index)
 {
     PODVector<VertexElement> elements = ArrayToPODVector<VertexElement>(elements_conv);
@@ -4389,8 +4395,8 @@ static bool VertexBuffer_HasElement_PODVectorVertexElement_VertexElementType_Ver
 }
 
 
-// static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)
-// static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0) | File: ../Graphics/VertexBuffer.h
+// static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0)
+// static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0) | File: ../Graphics/VertexBuffer.h
 static unsigned VertexBuffer_GetElementOffset_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar(CScriptArray* elements_conv, VertexElementType type, VertexElementSemantic semantic, unsigned char index)
 {
     PODVector<VertexElement> elements = ArrayToPODVector<VertexElement>(elements_conv);
@@ -4428,19 +4434,19 @@ void CollectMembers_VertexBuffer(MemberCollection& members)
     Remove(members.methods_, "virtual void GPUObject::OnDeviceReset()");
     Remove(members.methods_, "virtual void GPUObject::Release()");
 
-    // const VertexElement* VertexBuffer::GetElement(VertexElementSemantic semantic, unsigned char index=0) const
+    // const VertexElement* VertexBuffer::GetElement(VertexElementSemantic semantic, unsigned char index = 0) const
     // Error: type "const VertexElement*" can not automatically bind
-    // const VertexElement* VertexBuffer::GetElement(VertexElementType type, VertexElementSemantic semantic, unsigned char index=0) const
+    // const VertexElement* VertexBuffer::GetElement(VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0) const
     // Error: type "const VertexElement*" can not automatically bind
     // unsigned char* VertexBuffer::GetShadowData() const
     // Error: type "unsigned char*" can not automatically bind
     // SharedArrayPtr<unsigned char> VertexBuffer::GetShadowDataShared() const
     // Error: type "SharedArrayPtr<unsigned char>" can not automatically bind
-    // void* VertexBuffer::Lock(unsigned start, unsigned count, bool discard=false)
+    // void* VertexBuffer::Lock(unsigned start, unsigned count, bool discard = false)
     // Error: type "void*" can not automatically bind
     // bool VertexBuffer::SetData(const void* data)
     // Error: type "const void*" can not automatically bind
-    // bool VertexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard=false)
+    // bool VertexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard = false)
     // Error: type "const void*" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("void VertexBuffer::OnDeviceLost() override", "void OnDeviceLost()", AS_METHODPR(VertexBuffer, OnDeviceLost, (), void), AS_CALL_THISCALL));
@@ -4448,8 +4454,8 @@ void CollectMembers_VertexBuffer(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void VertexBuffer::Release() override", "void Release()", AS_METHODPR(VertexBuffer, Release, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void VertexBuffer::SetShadowed(bool enable)", "void SetShadowed(bool)", AS_METHODPR(VertexBuffer, SetShadowed, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void VertexBuffer::SetShadowed(bool enable)", "void set_shadowed(bool)", AS_METHODPR(VertexBuffer, SetShadowed, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::SetSize(unsigned vertexCount, const PODVector<VertexElement>& elements, bool dynamic=false)", "bool SetSize(uint, Array<VertexElement>@+, bool = false)", AS_FUNCTION_OBJFIRST(VertexBuffer_SetSize_unsigned_PODVectorVertexElement_bool), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::SetSize(unsigned vertexCount, unsigned elementMask, bool dynamic=false)", "bool SetSize(uint, uint, bool = false)", AS_METHODPR(VertexBuffer, SetSize, (unsigned, unsigned, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::SetSize(unsigned vertexCount, const PODVector<VertexElement>& elements, bool dynamic = false)", "bool SetSize(uint, Array<VertexElement>@+, bool = false)", AS_FUNCTION_OBJFIRST(VertexBuffer_SetSize_unsigned_PODVectorVertexElement_bool), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::SetSize(unsigned vertexCount, unsigned elementMask, bool dynamic = false)", "bool SetSize(uint, uint, bool = false)", AS_METHODPR(VertexBuffer, SetSize, (unsigned, unsigned, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void VertexBuffer::Unlock()", "void Unlock()", AS_METHODPR(VertexBuffer, Unlock, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::IsShadowed() const", "bool IsShadowed() const", AS_METHODPR(VertexBuffer, IsShadowed, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::IsShadowed() const", "bool get_shadowed() const", AS_METHODPR(VertexBuffer, IsShadowed, () const, bool), AS_CALL_THISCALL));
@@ -4462,21 +4468,21 @@ void CollectMembers_VertexBuffer(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("unsigned VertexBuffer::GetVertexSize() const", "uint get_vertexSize() const", AS_METHODPR(VertexBuffer, GetVertexSize, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const PODVector<VertexElement>& VertexBuffer::GetElements() const", "Array<VertexElement>@ GetElements() const", AS_FUNCTION_OBJFIRST(VertexBuffer_GetElements_void), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("const PODVector<VertexElement>& VertexBuffer::GetElements() const", "Array<VertexElement>@ get_elements() const", AS_FUNCTION_OBJFIRST(VertexBuffer_GetElements_void), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::HasElement(VertexElementSemantic semantic, unsigned char index=0) const", "bool HasElement(VertexElementSemantic, uint8 = 0) const", AS_METHODPR(VertexBuffer, HasElement, (VertexElementSemantic, unsigned char) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::HasElement(VertexElementType type, VertexElementSemantic semantic, unsigned char index=0) const", "bool HasElement(VertexElementType, VertexElementSemantic, uint8 = 0) const", AS_METHODPR(VertexBuffer, HasElement, (VertexElementType, VertexElementSemantic, unsigned char) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned VertexBuffer::GetElementOffset(VertexElementSemantic semantic, unsigned char index=0) const", "uint GetElementOffset(VertexElementSemantic, uint8 = 0) const", AS_METHODPR(VertexBuffer, GetElementOffset, (VertexElementSemantic, unsigned char) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned VertexBuffer::GetElementOffset(VertexElementType type, VertexElementSemantic semantic, unsigned char index=0) const", "uint GetElementOffset(VertexElementType, VertexElementSemantic, uint8 = 0) const", AS_METHODPR(VertexBuffer, GetElementOffset, (VertexElementType, VertexElementSemantic, unsigned char) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::HasElement(VertexElementSemantic semantic, unsigned char index = 0) const", "bool HasElement(VertexElementSemantic, uint8 = 0) const", AS_METHODPR(VertexBuffer, HasElement, (VertexElementSemantic, unsigned char) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::HasElement(VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0) const", "bool HasElement(VertexElementType, VertexElementSemantic, uint8 = 0) const", AS_METHODPR(VertexBuffer, HasElement, (VertexElementType, VertexElementSemantic, unsigned char) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned VertexBuffer::GetElementOffset(VertexElementSemantic semantic, unsigned char index = 0) const", "uint GetElementOffset(VertexElementSemantic, uint8 = 0) const", AS_METHODPR(VertexBuffer, GetElementOffset, (VertexElementSemantic, unsigned char) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned VertexBuffer::GetElementOffset(VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0) const", "uint GetElementOffset(VertexElementType, VertexElementSemantic, uint8 = 0) const", AS_METHODPR(VertexBuffer, GetElementOffset, (VertexElementType, VertexElementSemantic, unsigned char) const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("VertexMaskFlags VertexBuffer::GetElementMask() const", "VertexMaskFlags GetElementMask() const", AS_METHODPR(VertexBuffer, GetElementMask, () const, VertexMaskFlags), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("VertexMaskFlags VertexBuffer::GetElementMask() const", "VertexMaskFlags get_elementMask() const", AS_METHODPR(VertexBuffer, GetElementMask, () const, VertexMaskFlags), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned long long VertexBuffer::GetBufferHash(unsigned streamIndex)", "uint64 GetBufferHash(uint)", AS_METHODPR(VertexBuffer, GetBufferHash, (unsigned), unsigned long long), AS_CALL_THISCALL));
 
-    // static const VertexElement* VertexBuffer::GetElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)
+    // static const VertexElement* VertexBuffer::GetElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0)
     // Error: type "const VertexElement*" can not automatically bind
     // static void VertexBuffer::UpdateOffsets(PODVector<VertexElement>& elements)
     // Error: type "PODVector<VertexElement>&" can not automatically bind
 
-    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)", "bool HasElement(Array<VertexElement>@+, VertexElementType, VertexElementSemantic, uint8 = 0)", AS_FUNCTION(VertexBuffer_HasElement_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar), AS_CALL_CDECL));
-    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index=0)", "uint GetElementOffset(Array<VertexElement>@+, VertexElementType, VertexElementSemantic, uint8 = 0)", AS_FUNCTION(VertexBuffer_GetElementOffset_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar), AS_CALL_CDECL));
+    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static bool VertexBuffer::HasElement(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0)", "bool HasElement(Array<VertexElement>@+, VertexElementType, VertexElementSemantic, uint8 = 0)", AS_FUNCTION(VertexBuffer_HasElement_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar), AS_CALL_CDECL));
+    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetElementOffset(const PODVector<VertexElement>& elements, VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0)", "uint GetElementOffset(Array<VertexElement>@+, VertexElementType, VertexElementSemantic, uint8 = 0)", AS_FUNCTION(VertexBuffer_GetElementOffset_PODVectorVertexElement_VertexElementType_VertexElementSemantic_unsignedchar), AS_CALL_CDECL));
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static PODVector<VertexElement> VertexBuffer::GetElements(unsigned elementMask)", "Array<VertexElement>@ GetElements(uint)", AS_FUNCTION(VertexBuffer_GetElements_unsigned), AS_CALL_CDECL));
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(const PODVector<VertexElement>& elements)", "uint GetVertexSize(Array<VertexElement>@+)", AS_FUNCTION(VertexBuffer_GetVertexSize_PODVectorVertexElement), AS_CALL_CDECL));
     members.staticMethods_.Push(RegisterGlobalFunctionArgs("static unsigned VertexBuffer::GetVertexSize(unsigned elementMask)", "uint GetVertexSize(uint)", AS_FUNCTIONPR(VertexBuffer::GetVertexSize, (unsigned), unsigned), AS_CALL_CDECL));
@@ -4595,8 +4601,8 @@ void CollectMembers_View(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void View::SetCameraShaderParameters(Camera* camera)", "void SetCameraShaderParameters(Camera@+)", AS_METHODPR(View, SetCameraShaderParameters, (Camera*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void View::SetCommandShaderParameters(const RenderPathCommand& command)", "void SetCommandShaderParameters(const RenderPathCommand&in)", AS_METHODPR(View, SetCommandShaderParameters, (const RenderPathCommand&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void View::SetGBufferShaderParameters(const IntVector2& texSize, const IntRect& viewRect)", "void SetGBufferShaderParameters(const IntVector2&in, const IntRect&in)", AS_METHODPR(View, SetGBufferShaderParameters, (const IntVector2&, const IntRect&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void View::DrawFullscreenQuad(bool setIdentityProjection=false)", "void DrawFullscreenQuad(bool = false)", AS_METHODPR(View, DrawFullscreenQuad, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Texture* View::FindNamedTexture(const String& name, bool isRenderTarget, bool isVolumeMap=false)", "Texture@+ FindNamedTexture(const String&in, bool, bool = false)", AS_METHODPR(View, FindNamedTexture, (const String&, bool, bool), Texture*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void View::DrawFullscreenQuad(bool setIdentityProjection = false)", "void DrawFullscreenQuad(bool = false)", AS_METHODPR(View, DrawFullscreenQuad, (bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Texture* View::FindNamedTexture(const String& name, bool isRenderTarget, bool isVolumeMap = false)", "Texture@+ FindNamedTexture(const String&in, bool, bool = false)", AS_METHODPR(View, FindNamedTexture, (const String&, bool, bool), Texture*), AS_CALL_THISCALL));
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_View
         REGISTER_MEMBERS_MANUAL_PART_View();

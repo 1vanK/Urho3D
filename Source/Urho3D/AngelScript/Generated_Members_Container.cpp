@@ -164,13 +164,16 @@ void CollectMembers_RefCounted(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int WeakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int RefCounted::WeakRefs() const", "int get_weakRefs() const", AS_METHODPR(RefCounted, WeakRefs, () const, int), AS_CALL_THISCALL));
 
+    // RefCounted& RefCounted::operator=(const RefCounted& rhs) = delete
+    // Not registered because deleted
+
     #ifdef REGISTER_MEMBERS_MANUAL_PART_RefCounted
         REGISTER_MEMBERS_MANUAL_PART_RefCounted();
     #endif
 }
 
-// Vector<String> String::Split(char separator, bool keepEmptyStrings=false) const
-// Vector<String> String::Split(char separator, bool keepEmptyStrings=false) const | File: ../Container/Str.h
+// Vector<String> String::Split(char separator, bool keepEmptyStrings = false) const
+// Vector<String> String::Split(char separator, bool keepEmptyStrings = false) const | File: ../Container/Str.h
 static CScriptArray* String_Split_char_bool(String* ptr, char separator, bool keepEmptyStrings)
 {
     Vector<String> result = ptr->Split(separator, keepEmptyStrings);
@@ -204,7 +207,7 @@ void CollectMembers_String(MemberCollection& members)
     // Error: type "Iterator" can not automatically bind
     // const char* String::CString() const
     // Error: type "const char*" can not automatically bind
-    // int String::Compare(const char* str, bool caseSensitive=true) const
+    // int String::Compare(const char* str, bool caseSensitive = true) const
     // Error: type "const char*" can not automatically bind
     // ConstIterator String::End() const
     // Error: type "ConstIterator" can not automatically bind
@@ -272,16 +275,16 @@ void CollectMembers_String(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("const char& String::operator[](unsigned index) const", "const int8& opIndex(uint) const", AS_METHODPR(String, operator[], (unsigned) const, const char&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("char& String::At(unsigned index)", "int8& At(uint)", AS_METHODPR(String, At, (unsigned), char&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const char& String::At(unsigned index) const", "const int8& At(uint) const", AS_METHODPR(String, At, (unsigned) const, const char&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void String::Replace(char replaceThis, char replaceWith, bool caseSensitive=true)", "void Replace(int8, int8, bool = true)", AS_METHODPR(String, Replace, (char, char, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void String::Replace(const String& replaceThis, const String& replaceWith, bool caseSensitive=true)", "void Replace(const String&in, const String&in, bool = true)", AS_METHODPR(String, Replace, (const String&, const String&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void String::Replace(char replaceThis, char replaceWith, bool caseSensitive = true)", "void Replace(int8, int8, bool = true)", AS_METHODPR(String, Replace, (char, char, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void String::Replace(const String& replaceThis, const String& replaceWith, bool caseSensitive = true)", "void Replace(const String&in, const String&in, bool = true)", AS_METHODPR(String, Replace, (const String&, const String&, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void String::Replace(unsigned pos, unsigned length, const String& replaceWith)", "void Replace(uint, uint, const String&in)", AS_METHODPR(String, Replace, (unsigned, unsigned, const String&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String String::Replaced(char replaceThis, char replaceWith, bool caseSensitive=true) const", "String Replaced(int8, int8, bool = true) const", AS_METHODPR(String, Replaced, (char, char, bool) const, String), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String String::Replaced(const String& replaceThis, const String& replaceWith, bool caseSensitive=true) const", "String Replaced(const String&in, const String&in, bool = true) const", AS_METHODPR(String, Replaced, (const String&, const String&, bool) const, String), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String String::Replaced(char replaceThis, char replaceWith, bool caseSensitive = true) const", "String Replaced(int8, int8, bool = true) const", AS_METHODPR(String, Replaced, (char, char, bool) const, String), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String String::Replaced(const String& replaceThis, const String& replaceWith, bool caseSensitive = true) const", "String Replaced(const String&in, const String&in, bool = true) const", AS_METHODPR(String, Replaced, (const String&, const String&, bool) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String& String::Append(const String& str)", "String& Append(const String&in)", AS_METHODPR(String, Append, (const String&), String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String& String::Append(char c)", "String& Append(int8)", AS_METHODPR(String, Append, (char), String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void String::Insert(unsigned pos, const String& str)", "void Insert(uint, const String&in)", AS_METHODPR(String, Insert, (unsigned, const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void String::Insert(unsigned pos, char c)", "void Insert(uint, int8)", AS_METHODPR(String, Insert, (unsigned, char), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void String::Erase(unsigned pos, unsigned length=1)", "void Erase(uint, uint = 1)", AS_METHODPR(String, Erase, (unsigned, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void String::Erase(unsigned pos, unsigned length = 1)", "void Erase(uint, uint = 1)", AS_METHODPR(String, Erase, (unsigned, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void String::Resize(unsigned newLength)", "void Resize(uint)", AS_METHODPR(String, Resize, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void String::Reserve(unsigned newCapacity)", "void Reserve(uint)", AS_METHODPR(String, Reserve, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void String::Compact()", "void Compact()", AS_METHODPR(String, Compact, (), void), AS_CALL_THISCALL));
@@ -294,22 +297,22 @@ void CollectMembers_String(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("String String::Trimmed() const", "String Trimmed() const", AS_METHODPR(String, Trimmed, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String String::ToUpper() const", "String ToUpper() const", AS_METHODPR(String, ToUpper, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String String::ToLower() const", "String ToLower() const", AS_METHODPR(String, ToLower, () const, String), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector<String> String::Split(char separator, bool keepEmptyStrings=false) const", "Array<String>@ Split(int8, bool = false) const", AS_FUNCTION_OBJFIRST(String_Split_char_bool), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector<String> String::Split(char separator, bool keepEmptyStrings = false) const", "Array<String>@ Split(int8, bool = false) const", AS_FUNCTION_OBJFIRST(String_Split_char_bool), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("void String::Join(const Vector<String>& subStrings, const String& glue)", "void Join(Array<String>@+, const String&in)", AS_FUNCTION_OBJFIRST(String_Join_VectorString_String), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned String::Find(const String& str, unsigned startPos=0, bool caseSensitive=true) const", "uint Find(const String&in, uint = 0, bool = true) const", AS_METHODPR(String, Find, (const String&, unsigned, bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned String::Find(char c, unsigned startPos=0, bool caseSensitive=true) const", "uint Find(int8, uint = 0, bool = true) const", AS_METHODPR(String, Find, (char, unsigned, bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned String::FindLast(const String& str, unsigned startPos=NPOS, bool caseSensitive=true) const", "uint FindLast(const String&in, uint = String::NPOS, bool = true) const", AS_METHODPR(String, FindLast, (const String&, unsigned, bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned String::FindLast(char c, unsigned startPos=NPOS, bool caseSensitive=true) const", "uint FindLast(int8, uint = String::NPOS, bool = true) const", AS_METHODPR(String, FindLast, (char, unsigned, bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool String::StartsWith(const String& str, bool caseSensitive=true) const", "bool StartsWith(const String&in, bool = true) const", AS_METHODPR(String, StartsWith, (const String&, bool) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool String::EndsWith(const String& str, bool caseSensitive=true) const", "bool EndsWith(const String&in, bool = true) const", AS_METHODPR(String, EndsWith, (const String&, bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned String::Find(const String& str, unsigned startPos = 0, bool caseSensitive = true) const", "uint Find(const String&in, uint = 0, bool = true) const", AS_METHODPR(String, Find, (const String&, unsigned, bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned String::Find(char c, unsigned startPos = 0, bool caseSensitive = true) const", "uint Find(int8, uint = 0, bool = true) const", AS_METHODPR(String, Find, (char, unsigned, bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned String::FindLast(const String& str, unsigned startPos = NPOS, bool caseSensitive = true) const", "uint FindLast(const String&in, uint = String::NPOS, bool = true) const", AS_METHODPR(String, FindLast, (const String&, unsigned, bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned String::FindLast(char c, unsigned startPos = NPOS, bool caseSensitive = true) const", "uint FindLast(int8, uint = String::NPOS, bool = true) const", AS_METHODPR(String, FindLast, (char, unsigned, bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool String::StartsWith(const String& str, bool caseSensitive = true) const", "bool StartsWith(const String&in, bool = true) const", AS_METHODPR(String, StartsWith, (const String&, bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool String::EndsWith(const String& str, bool caseSensitive = true) const", "bool EndsWith(const String&in, bool = true) const", AS_METHODPR(String, EndsWith, (const String&, bool) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::Length() const", "uint Length() const", AS_METHODPR(String, Length, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::Length() const", "uint get_length() const", AS_METHODPR(String, Length, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::Capacity() const", "uint Capacity() const", AS_METHODPR(String, Capacity, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool String::Empty() const", "bool Empty() const", AS_METHODPR(String, Empty, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool String::Empty() const", "bool get_empty() const", AS_METHODPR(String, Empty, () const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("int String::Compare(const String& str, bool caseSensitive=true) const", "int Compare(const String&in, bool = true) const", AS_METHODPR(String, Compare, (const String&, bool) const, int), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool String::Contains(const String& str, bool caseSensitive=true) const", "bool Contains(const String&in, bool = true) const", AS_METHODPR(String, Contains, (const String&, bool) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool String::Contains(char c, bool caseSensitive=true) const", "bool Contains(int8, bool = true) const", AS_METHODPR(String, Contains, (char, bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("int String::Compare(const String& str, bool caseSensitive = true) const", "int Compare(const String&in, bool = true) const", AS_METHODPR(String, Compare, (const String&, bool) const, int), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool String::Contains(const String& str, bool caseSensitive = true) const", "bool Contains(const String&in, bool = true) const", AS_METHODPR(String, Contains, (const String&, bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool String::Contains(char c, bool caseSensitive = true) const", "bool Contains(int8, bool = true) const", AS_METHODPR(String, Contains, (char, bool) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::LengthUTF8() const", "uint LengthUTF8() const", AS_METHODPR(String, LengthUTF8, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::LengthUTF8() const", "uint get_utf8Length() const", AS_METHODPR(String, LengthUTF8, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::ByteOffsetUTF8(unsigned index) const", "uint ByteOffsetUTF8(uint) const", AS_METHODPR(String, ByteOffsetUTF8, (unsigned) const, unsigned), AS_CALL_THISCALL));
@@ -321,7 +324,9 @@ void CollectMembers_String(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("String String::SubstringUTF8(unsigned pos, unsigned length) const", "String SubstringUTF8(uint, uint) const", AS_METHODPR(String, SubstringUTF8, (unsigned, unsigned) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::ToHash() const", "uint ToHash() const", AS_METHODPR(String, ToHash, () const, unsigned), AS_CALL_THISCALL));
 
-    // static Vector<String> String::Split(const char* str, char separator, bool keepEmptyStrings=false)
+    // template <class T> String& String::operator+=(const T& rhs)
+    // Not registered because template
+    // static Vector<String> String::Split(const char* str, char separator, bool keepEmptyStrings = false)
     // Error: type "const char*" can not automatically bind
     // static String String::Joined(const Vector<String>& subStrings, const String& glue)
     // Not registered because have @manualbind mark

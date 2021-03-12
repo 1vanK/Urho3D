@@ -14,7 +14,7 @@ namespace Urho3D
 void CollectMembers_Controls(MemberCollection& members)
 {
     members.methods_.Push(RegisterObjectMethodArgs("void Controls::Reset()", "void Reset()", AS_METHODPR(Controls, Reset, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Controls::Set(unsigned buttons, bool down=true)", "void Set(uint, bool = true)", AS_METHODPR(Controls, Set, (unsigned, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Controls::Set(unsigned buttons, bool down = true)", "void Set(uint, bool = true)", AS_METHODPR(Controls, Set, (unsigned, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Controls::IsDown(unsigned button) const", "bool IsDown(uint) const", AS_METHODPR(Controls, IsDown, (unsigned) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Controls::IsPressed(unsigned button, const Controls& previousControls) const", "bool IsPressed(uint, const Controls&in) const", AS_METHODPR(Controls, IsPressed, (unsigned, const Controls&) const, bool), AS_CALL_THISCALL));
 
@@ -36,13 +36,13 @@ void CollectMembers_Input(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Input::Update()", "void Update()", AS_METHODPR(Input, Update, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Input::SetToggleFullscreen(bool enable)", "void SetToggleFullscreen(bool)", AS_METHODPR(Input, SetToggleFullscreen, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Input::SetToggleFullscreen(bool enable)", "void set_toggleFullscreen(bool)", AS_METHODPR(Input, SetToggleFullscreen, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Input::SetMouseVisible(bool enable, bool suppressEvent=false)", "void SetMouseVisible(bool, bool = false)", AS_METHODPR(Input, SetMouseVisible, (bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Input::SetMouseVisible(bool enable, bool suppressEvent = false)", "void SetMouseVisible(bool, bool = false)", AS_METHODPR(Input, SetMouseVisible, (bool, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Input::ResetMouseVisible()", "void ResetMouseVisible()", AS_METHODPR(Input, ResetMouseVisible, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Input::SetMouseGrabbed(bool grab, bool suppressEvent=false)", "void SetMouseGrabbed(bool, bool = false)", AS_METHODPR(Input, SetMouseGrabbed, (bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Input::SetMouseGrabbed(bool grab, bool suppressEvent = false)", "void SetMouseGrabbed(bool, bool = false)", AS_METHODPR(Input, SetMouseGrabbed, (bool, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Input::ResetMouseGrabbed()", "void ResetMouseGrabbed()", AS_METHODPR(Input, ResetMouseGrabbed, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Input::SetMouseMode(MouseMode mode, bool suppressEvent=false)", "void SetMouseMode(MouseMode, bool = false)", AS_METHODPR(Input, SetMouseMode, (MouseMode, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Input::SetMouseMode(MouseMode mode, bool suppressEvent = false)", "void SetMouseMode(MouseMode, bool = false)", AS_METHODPR(Input, SetMouseMode, (MouseMode, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Input::ResetMouseMode()", "void ResetMouseMode()", AS_METHODPR(Input, ResetMouseMode, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SDL_JoystickID Input::AddScreenJoystick(XMLFile* layoutFile=nullptr, XMLFile* styleFile=nullptr)", "SDL_JoystickID AddScreenJoystick(XMLFile@+ = null, XMLFile@+ = null)", AS_METHODPR(Input, AddScreenJoystick, (XMLFile*, XMLFile*), SDL_JoystickID), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("SDL_JoystickID Input::AddScreenJoystick(XMLFile* layoutFile = nullptr, XMLFile* styleFile = nullptr)", "SDL_JoystickID AddScreenJoystick(XMLFile@+ = null, XMLFile@+ = null)", AS_METHODPR(Input, AddScreenJoystick, (XMLFile*, XMLFile*), SDL_JoystickID), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Input::RemoveScreenJoystick(SDL_JoystickID id)", "bool RemoveScreenJoystick(SDL_JoystickID)", AS_METHODPR(Input, RemoveScreenJoystick, (SDL_JoystickID), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Input::SetScreenJoystickVisible(SDL_JoystickID id, bool enable)", "void SetScreenJoystickVisible(SDL_JoystickID, bool)", AS_METHODPR(Input, SetScreenJoystickVisible, (SDL_JoystickID, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Input::SetScreenJoystickVisible(SDL_JoystickID id, bool enable)", "void set_screenJoystickVisible(SDL_JoystickID, bool)", AS_METHODPR(Input, SetScreenJoystickVisible, (SDL_JoystickID, bool), void), AS_CALL_THISCALL));

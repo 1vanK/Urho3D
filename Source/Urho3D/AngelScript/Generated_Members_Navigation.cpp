@@ -100,9 +100,9 @@ void CollectMembers_CrowdAgent(MemberCollection& members)
     #endif
 }
 
-// PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node=nullptr, bool inCrowdFilter=true) const
+// PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node = nullptr, bool inCrowdFilter = true) const
 #ifdef URHO3D_NAVIGATION
-// PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node=nullptr, bool inCrowdFilter=true) const | File: ../Navigation/CrowdManager.h
+// PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node = nullptr, bool inCrowdFilter = true) const | File: ../Navigation/CrowdManager.h
 static CScriptArray* CrowdManager_GetAgents_Node_bool(CrowdManager* ptr, Node* node, bool inCrowdFilter)
 {
     PODVector<CrowdAgent*> result = ptr->GetAgents(node, inCrowdFilter);
@@ -121,21 +121,21 @@ void CollectMembers_CrowdManager(MemberCollection& members)
 
     Remove(members.staticMethods_, "static void Animatable::RegisterObject(Context* context)");
 
-    // Vector3 CrowdManager::FindNearestPoint(const Vector3& point, int queryFilterType, dtPolyRef* nearestRef=nullptr)
+    // Vector3 CrowdManager::FindNearestPoint(const Vector3& point, int queryFilterType, dtPolyRef* nearestRef = nullptr)
     // Error: type "dtPolyRef*" can not automatically bind
     // void CrowdManager::FindPath(PODVector<Vector3>& dest, const Vector3& start, const Vector3& end, int queryFilterType)
     // Error: type "PODVector<Vector3>&" can not automatically bind
-    // float CrowdManager::GetDistanceToWall(const Vector3& point, float radius, int queryFilterType, Vector3* hitPos=nullptr, Vector3* hitNormal=nullptr)
+    // float CrowdManager::GetDistanceToWall(const Vector3& point, float radius, int queryFilterType, Vector3* hitPos = nullptr, Vector3* hitNormal = nullptr)
     // Error: type "Vector3*" can not automatically bind
     // VariantVector CrowdManager::GetObstacleAvoidanceTypesAttr() const
     // Error: type "VariantVector" can not automatically bind
     // VariantVector CrowdManager::GetQueryFilterTypesAttr() const
     // Error: type "VariantVector" can not automatically bind
-    // Vector3 CrowdManager::GetRandomPoint(int queryFilterType, dtPolyRef* randomRef=nullptr)
+    // Vector3 CrowdManager::GetRandomPoint(int queryFilterType, dtPolyRef* randomRef = nullptr)
     // Error: type "dtPolyRef*" can not automatically bind
-    // Vector3 CrowdManager::GetRandomPointInCircle(const Vector3& center, float radius, int queryFilterType, dtPolyRef* randomRef=nullptr)
+    // Vector3 CrowdManager::GetRandomPointInCircle(const Vector3& center, float radius, int queryFilterType, dtPolyRef* randomRef = nullptr)
     // Error: type "dtPolyRef*" can not automatically bind
-    // Vector3 CrowdManager::Raycast(const Vector3& start, const Vector3& end, int queryFilterType, Vector3* hitNormal=nullptr)
+    // Vector3 CrowdManager::Raycast(const Vector3& start, const Vector3& end, int queryFilterType, Vector3* hitNormal = nullptr)
     // Error: type "Vector3*" can not automatically bind
     // void CrowdManager::SetObstacleAvoidanceTypesAttr(const VariantVector& value)
     // Error: type "const VariantVector&" can not automatically bind
@@ -145,9 +145,9 @@ void CollectMembers_CrowdManager(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(CrowdManager, ApplyAttributes, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(CrowdManager, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::DrawDebugGeometry(bool depthTest)", "void DrawDebugGeometry(bool)", AS_METHODPR(CrowdManager, DrawDebugGeometry, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetCrowdTarget(const Vector3& position, Node* node=nullptr)", "void SetCrowdTarget(const Vector3&in, Node@+ = null)", AS_METHODPR(CrowdManager, SetCrowdTarget, (const Vector3&, Node*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetCrowdVelocity(const Vector3& velocity, Node* node=nullptr)", "void SetCrowdVelocity(const Vector3&in, Node@+ = null)", AS_METHODPR(CrowdManager, SetCrowdVelocity, (const Vector3&, Node*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::ResetCrowdTarget(Node* node=nullptr)", "void ResetCrowdTarget(Node@+ = null)", AS_METHODPR(CrowdManager, ResetCrowdTarget, (Node*), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetCrowdTarget(const Vector3& position, Node* node = nullptr)", "void SetCrowdTarget(const Vector3&in, Node@+ = null)", AS_METHODPR(CrowdManager, SetCrowdTarget, (const Vector3&, Node*), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetCrowdVelocity(const Vector3& velocity, Node* node = nullptr)", "void SetCrowdVelocity(const Vector3&in, Node@+ = null)", AS_METHODPR(CrowdManager, SetCrowdVelocity, (const Vector3&, Node*), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::ResetCrowdTarget(Node* node = nullptr)", "void ResetCrowdTarget(Node@+ = null)", AS_METHODPR(CrowdManager, ResetCrowdTarget, (Node*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetMaxAgents(unsigned maxAgents)", "void SetMaxAgents(uint)", AS_METHODPR(CrowdManager, SetMaxAgents, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetMaxAgents(unsigned maxAgents)", "void set_maxAgents(uint)", AS_METHODPR(CrowdManager, SetMaxAgents, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetMaxAgentRadius(float maxAgentRadius)", "void SetMaxAgentRadius(float)", AS_METHODPR(CrowdManager, SetMaxAgentRadius, (float), void), AS_CALL_THISCALL));
@@ -158,8 +158,8 @@ void CollectMembers_CrowdManager(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetExcludeFlags(unsigned queryFilterType, unsigned short flags)", "void SetExcludeFlags(uint, uint16)", AS_METHODPR(CrowdManager, SetExcludeFlags, (unsigned, unsigned short), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetAreaCost(unsigned queryFilterType, unsigned areaID, float cost)", "void SetAreaCost(uint, uint, float)", AS_METHODPR(CrowdManager, SetAreaCost, (unsigned, unsigned, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void CrowdManager::SetObstacleAvoidanceParams(unsigned obstacleAvoidanceType, const CrowdObstacleAvoidanceParams& params)", "void SetObstacleAvoidanceParams(uint, const CrowdObstacleAvoidanceParams&in)", AS_METHODPR(CrowdManager, SetObstacleAvoidanceParams, (unsigned, const CrowdObstacleAvoidanceParams&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node=nullptr, bool inCrowdFilter=true) const", "Array<CrowdAgent@>@ GetAgents(Node@+ = null, bool = true) const", AS_FUNCTION_OBJFIRST(CrowdManager_GetAgents_Node_bool), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("Vector3 CrowdManager::MoveAlongSurface(const Vector3& start, const Vector3& end, int queryFilterType, int maxVisited=3)", "Vector3 MoveAlongSurface(const Vector3&in, const Vector3&in, int, int = 3)", AS_METHODPR(CrowdManager, MoveAlongSurface, (const Vector3&, const Vector3&, int, int), Vector3), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("PODVector<CrowdAgent*> CrowdManager::GetAgents(Node* node = nullptr, bool inCrowdFilter = true) const", "Array<CrowdAgent@>@ GetAgents(Node@+ = null, bool = true) const", AS_FUNCTION_OBJFIRST(CrowdManager_GetAgents_Node_bool), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("Vector3 CrowdManager::MoveAlongSurface(const Vector3& start, const Vector3& end, int queryFilterType, int maxVisited = 3)", "Vector3 MoveAlongSurface(const Vector3&in, const Vector3&in, int, int = 3)", AS_METHODPR(CrowdManager, MoveAlongSurface, (const Vector3&, const Vector3&, int, int), Vector3), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned CrowdManager::GetMaxAgents() const", "uint GetMaxAgents() const", AS_METHODPR(CrowdManager, GetMaxAgents, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned CrowdManager::GetMaxAgents() const", "uint get_maxAgents() const", AS_METHODPR(CrowdManager, GetMaxAgents, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float CrowdManager::GetMaxAgentRadius() const", "float GetMaxAgentRadius() const", AS_METHODPR(CrowdManager, GetMaxAgentRadius, () const, float), AS_CALL_THISCALL));
@@ -399,25 +399,25 @@ void CollectMembers_NavigationMesh(MemberCollection& members)
 
     // virtual bool NavigationMesh::AddTile(const PODVector<unsigned char>& tileData)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
-    // Vector3 NavigationMesh::FindNearestPoint(const Vector3& point, const Vector3& extents=Vector3::ONE, const dtQueryFilter* filter=nullptr, dtPolyRef* nearestRef=nullptr)
+    // Vector3 NavigationMesh::FindNearestPoint(const Vector3& point, const Vector3& extents = Vector3::ONE, const dtQueryFilter* filter = nullptr, dtPolyRef* nearestRef = nullptr)
     // Error: type "const dtQueryFilter*" can not automatically bind
-    // void NavigationMesh::FindPath(PODVector<NavigationPathPoint>& dest, const Vector3& start, const Vector3& end, const Vector3& extents=Vector3::ONE, const dtQueryFilter* filter=nullptr)
+    // void NavigationMesh::FindPath(PODVector<NavigationPathPoint>& dest, const Vector3& start, const Vector3& end, const Vector3& extents = Vector3::ONE, const dtQueryFilter* filter = nullptr)
     // Error: type "PODVector<NavigationPathPoint>&" can not automatically bind
-    // void NavigationMesh::FindPath(PODVector<Vector3>& dest, const Vector3& start, const Vector3& end, const Vector3& extents=Vector3::ONE, const dtQueryFilter* filter=nullptr)
+    // void NavigationMesh::FindPath(PODVector<Vector3>& dest, const Vector3& start, const Vector3& end, const Vector3& extents = Vector3::ONE, const dtQueryFilter* filter = nullptr)
     // Error: type "PODVector<Vector3>&" can not automatically bind
-    // float NavigationMesh::GetDistanceToWall(const Vector3& point, float radius, const Vector3& extents=Vector3::ONE, const dtQueryFilter* filter=nullptr, Vector3* hitPos=nullptr, Vector3* hitNormal=nullptr)
+    // float NavigationMesh::GetDistanceToWall(const Vector3& point, float radius, const Vector3& extents = Vector3::ONE, const dtQueryFilter* filter = nullptr, Vector3* hitPos = nullptr, Vector3* hitNormal = nullptr)
     // Error: type "const dtQueryFilter*" can not automatically bind
     // virtual PODVector<unsigned char> NavigationMesh::GetNavigationDataAttr() const
     // Error: type "PODVector<unsigned char>" can not automatically bind
-    // Vector3 NavigationMesh::GetRandomPoint(const dtQueryFilter* filter=nullptr, dtPolyRef* randomRef=nullptr)
+    // Vector3 NavigationMesh::GetRandomPoint(const dtQueryFilter* filter = nullptr, dtPolyRef* randomRef = nullptr)
     // Error: type "const dtQueryFilter*" can not automatically bind
-    // Vector3 NavigationMesh::GetRandomPointInCircle(const Vector3& center, float radius, const Vector3& extents=Vector3::ONE, const dtQueryFilter* filter=nullptr, dtPolyRef* randomRef=nullptr)
+    // Vector3 NavigationMesh::GetRandomPointInCircle(const Vector3& center, float radius, const Vector3& extents = Vector3::ONE, const dtQueryFilter* filter = nullptr, dtPolyRef* randomRef = nullptr)
     // Error: type "const dtQueryFilter*" can not automatically bind
     // virtual PODVector<unsigned char> NavigationMesh::GetTileData(const IntVector2& tile) const
     // Error: type "PODVector<unsigned char>" can not automatically bind
-    // Vector3 NavigationMesh::MoveAlongSurface(const Vector3& start, const Vector3& end, const Vector3& extents=Vector3::ONE, int maxVisited=3, const dtQueryFilter* filter=nullptr)
+    // Vector3 NavigationMesh::MoveAlongSurface(const Vector3& start, const Vector3& end, const Vector3& extents = Vector3::ONE, int maxVisited = 3, const dtQueryFilter* filter = nullptr)
     // Error: type "const dtQueryFilter*" can not automatically bind
-    // Vector3 NavigationMesh::Raycast(const Vector3& start, const Vector3& end, const Vector3& extents=Vector3::ONE, const dtQueryFilter* filter=nullptr, Vector3* hitNormal=nullptr)
+    // Vector3 NavigationMesh::Raycast(const Vector3& start, const Vector3& end, const Vector3& extents = Vector3::ONE, const dtQueryFilter* filter = nullptr, Vector3* hitNormal = nullptr)
     // Error: type "const dtQueryFilter*" can not automatically bind
     // virtual void NavigationMesh::SetNavigationDataAttr(const PODVector<unsigned char>& value)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind

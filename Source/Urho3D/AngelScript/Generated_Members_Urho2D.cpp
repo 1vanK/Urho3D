@@ -26,7 +26,7 @@ void CollectMembers_AnimatedSprite2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetAnimationSet(AnimationSet2D* animationSet)", "void set_animationSet(AnimationSet2D@+)", AS_METHODPR(AnimatedSprite2D, SetAnimationSet, (AnimationSet2D*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetEntity(const String& entity)", "void SetEntity(const String&in)", AS_METHODPR(AnimatedSprite2D, SetEntity, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetEntity(const String& entity)", "void set_entity(const String&in)", AS_METHODPR(AnimatedSprite2D, SetEntity, (const String&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetAnimation(const String& name, LoopMode2D loopMode=LM_DEFAULT)", "void SetAnimation(const String&in, LoopMode2D = LM_DEFAULT)", AS_METHODPR(AnimatedSprite2D, SetAnimation, (const String&, LoopMode2D), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetAnimation(const String& name, LoopMode2D loopMode = LM_DEFAULT)", "void SetAnimation(const String&in, LoopMode2D = LM_DEFAULT)", AS_METHODPR(AnimatedSprite2D, SetAnimation, (const String&, LoopMode2D), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetLoopMode(LoopMode2D loopMode)", "void SetLoopMode(LoopMode2D)", AS_METHODPR(AnimatedSprite2D, SetLoopMode, (LoopMode2D), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetLoopMode(LoopMode2D loopMode)", "void set_loopMode(LoopMode2D)", AS_METHODPR(AnimatedSprite2D, SetLoopMode, (LoopMode2D), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void AnimatedSprite2D::SetSpeed(float speed)", "void SetSpeed(float)", AS_METHODPR(AnimatedSprite2D, SetSpeed, (float), void), AS_CALL_THISCALL));
@@ -823,9 +823,9 @@ void CollectMembers_Particle2D(MemberCollection& members)
     #endif
 }
 
-// SharedPtr<ParticleEffect2D> ParticleEffect2D::Clone(const String& cloneName=String::EMPTY) const
+// SharedPtr<ParticleEffect2D> ParticleEffect2D::Clone(const String& cloneName = String::EMPTY) const
 #ifdef URHO3D_URHO2D
-// SharedPtr<ParticleEffect2D> ParticleEffect2D::Clone(const String& cloneName=String::EMPTY) const | File: ../Urho2D/ParticleEffect2D.h
+// SharedPtr<ParticleEffect2D> ParticleEffect2D::Clone(const String& cloneName = String::EMPTY) const | File: ../Urho2D/ParticleEffect2D.h
 static ParticleEffect2D* ParticleEffect2D_Clone_String(ParticleEffect2D* ptr, const String& cloneName)
 {
     SharedPtr<ParticleEffect2D> result = ptr->Clone(cloneName);
@@ -881,7 +881,7 @@ void CollectMembers_ParticleEffect2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void ParticleEffect2D::SetRotationStartVariance(float rotationStartVariance)", "void SetRotationStartVariance(float)", AS_METHODPR(ParticleEffect2D, SetRotationStartVariance, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ParticleEffect2D::SetRotationEnd(float rotationEnd)", "void SetRotationEnd(float)", AS_METHODPR(ParticleEffect2D, SetRotationEnd, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ParticleEffect2D::SetRotationEndVariance(float rotationEndVariance)", "void SetRotationEndVariance(float)", AS_METHODPR(ParticleEffect2D, SetRotationEndVariance, (float), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<ParticleEffect2D> ParticleEffect2D::Clone(const String& cloneName=String::EMPTY) const", "ParticleEffect2D@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(ParticleEffect2D_Clone_String), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<ParticleEffect2D> ParticleEffect2D::Clone(const String& cloneName = String::EMPTY) const", "ParticleEffect2D@+ Clone(const String&in = String::EMPTY) const", AS_FUNCTION_OBJFIRST(ParticleEffect2D_Clone_String), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("Sprite2D* ParticleEffect2D::GetSprite() const", "Sprite2D@+ GetSprite() const", AS_METHODPR(ParticleEffect2D, GetSprite, () const, Sprite2D*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Vector2& ParticleEffect2D::GetSourcePositionVariance() const", "const Vector2& GetSourcePositionVariance() const", AS_METHODPR(ParticleEffect2D, GetSourcePositionVariance, () const, const Vector2&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float ParticleEffect2D::GetSpeed() const", "float GetSpeed() const", AS_METHODPR(ParticleEffect2D, GetSpeed, () const, float), AS_CALL_THISCALL));
@@ -1013,13 +1013,13 @@ void CollectMembers_PhysicsWorld2D(MemberCollection& members)
     // Error: type "const b2Transform&" can not automatically bind
     // void PhysicsWorld2D::EndContact(b2Contact* contact) override
     // Error: type "b2Contact*" can not automatically bind
-    // void PhysicsWorld2D::GetRigidBodies(PODVector<RigidBody2D*>& results, const Rect& aabb, unsigned collisionMask=M_MAX_UNSIGNED)
+    // void PhysicsWorld2D::GetRigidBodies(PODVector<RigidBody2D*>& results, const Rect& aabb, unsigned collisionMask = M_MAX_UNSIGNED)
     // Error: type "PODVector<RigidBody2D*>&" can not automatically bind
     // b2World* PhysicsWorld2D::GetWorld()
     // Error: type "b2World*" can not automatically bind
     // void PhysicsWorld2D::PreSolve(b2Contact* contact, const b2Manifold* oldManifold) override
     // Error: type "b2Contact*" can not automatically bind
-    // void PhysicsWorld2D::Raycast(PODVector<PhysicsRaycastResult2D>& results, const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask=M_MAX_UNSIGNED)
+    // void PhysicsWorld2D::Raycast(PODVector<PhysicsRaycastResult2D>& results, const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask = M_MAX_UNSIGNED)
     // Error: type "PODVector<PhysicsRaycastResult2D>&" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(PhysicsWorld2D, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
@@ -1056,9 +1056,9 @@ void CollectMembers_PhysicsWorld2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::AddRigidBody(RigidBody2D* rigidBody)", "void AddRigidBody(RigidBody2D@+)", AS_METHODPR(PhysicsWorld2D, AddRigidBody, (RigidBody2D*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::RemoveRigidBody(RigidBody2D* rigidBody)", "void RemoveRigidBody(RigidBody2D@+)", AS_METHODPR(PhysicsWorld2D, RemoveRigidBody, (RigidBody2D*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::AddDelayedWorldTransform(const DelayedWorldTransform2D& transform)", "void AddDelayedWorldTransform(const DelayedWorldTransform2D&in)", AS_METHODPR(PhysicsWorld2D, AddDelayedWorldTransform, (const DelayedWorldTransform2D&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::RaycastSingle(PhysicsRaycastResult2D& result, const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask=M_MAX_UNSIGNED)", "void RaycastSingle(PhysicsRaycastResult2D&, const Vector2&in, const Vector2&in, uint = M_MAX_UNSIGNED)", AS_METHODPR(PhysicsWorld2D, RaycastSingle, (PhysicsRaycastResult2D&, const Vector2&, const Vector2&, unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("RigidBody2D* PhysicsWorld2D::GetRigidBody(const Vector2& point, unsigned collisionMask=M_MAX_UNSIGNED)", "RigidBody2D@+ GetRigidBody(const Vector2&in, uint = M_MAX_UNSIGNED)", AS_METHODPR(PhysicsWorld2D, GetRigidBody, (const Vector2&, unsigned), RigidBody2D*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("RigidBody2D* PhysicsWorld2D::GetRigidBody(int screenX, int screenY, unsigned collisionMask=M_MAX_UNSIGNED)", "RigidBody2D@+ GetRigidBody(int, int, uint = M_MAX_UNSIGNED)", AS_METHODPR(PhysicsWorld2D, GetRigidBody, (int, int, unsigned), RigidBody2D*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::RaycastSingle(PhysicsRaycastResult2D& result, const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask = M_MAX_UNSIGNED)", "void RaycastSingle(PhysicsRaycastResult2D&, const Vector2&in, const Vector2&in, uint = M_MAX_UNSIGNED)", AS_METHODPR(PhysicsWorld2D, RaycastSingle, (PhysicsRaycastResult2D&, const Vector2&, const Vector2&, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("RigidBody2D* PhysicsWorld2D::GetRigidBody(const Vector2& point, unsigned collisionMask = M_MAX_UNSIGNED)", "RigidBody2D@+ GetRigidBody(const Vector2&in, uint = M_MAX_UNSIGNED)", AS_METHODPR(PhysicsWorld2D, GetRigidBody, (const Vector2&, unsigned), RigidBody2D*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("RigidBody2D* PhysicsWorld2D::GetRigidBody(int screenX, int screenY, unsigned collisionMask = M_MAX_UNSIGNED)", "RigidBody2D@+ GetRigidBody(int, int, uint = M_MAX_UNSIGNED)", AS_METHODPR(PhysicsWorld2D, GetRigidBody, (int, int, unsigned), RigidBody2D*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool PhysicsWorld2D::IsUpdateEnabled() const", "bool IsUpdateEnabled() const", AS_METHODPR(PhysicsWorld2D, IsUpdateEnabled, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool PhysicsWorld2D::IsUpdateEnabled() const", "bool get_updateEnabled() const", AS_METHODPR(PhysicsWorld2D, IsUpdateEnabled, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool PhysicsWorld2D::GetDrawShape() const", "bool GetDrawShape() const", AS_METHODPR(PhysicsWorld2D, GetDrawShape, () const, bool), AS_CALL_THISCALL));
@@ -1283,9 +1283,9 @@ void CollectMembers_Sprite2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("float Sprite2D::GetTextureEdgeOffset() const", "float GetTextureEdgeOffset() const", AS_METHODPR(Sprite2D, GetTextureEdgeOffset, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float Sprite2D::GetTextureEdgeOffset() const", "float get_textureEdgeOffset() const", AS_METHODPR(Sprite2D, GetTextureEdgeOffset, () const, float), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("SpriteSheet2D* Sprite2D::GetSpriteSheet() const", "SpriteSheet2D@+ GetSpriteSheet() const", AS_METHODPR(Sprite2D, GetSpriteSheet, () const, SpriteSheet2D*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Sprite2D::GetDrawRectangle(Rect& rect, bool flipX=false, bool flipY=false) const", "bool GetDrawRectangle(Rect&, bool = false, bool = false) const", AS_METHODPR(Sprite2D, GetDrawRectangle, (Rect&, bool, bool) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Sprite2D::GetDrawRectangle(Rect& rect, const Vector2& hotSpot, bool flipX=false, bool flipY=false) const", "bool GetDrawRectangle(Rect&, const Vector2&in, bool = false, bool = false) const", AS_METHODPR(Sprite2D, GetDrawRectangle, (Rect&, const Vector2&, bool, bool) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Sprite2D::GetTextureRectangle(Rect& rect, bool flipX=false, bool flipY=false) const", "bool GetTextureRectangle(Rect&, bool = false, bool = false) const", AS_METHODPR(Sprite2D, GetTextureRectangle, (Rect&, bool, bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Sprite2D::GetDrawRectangle(Rect& rect, bool flipX = false, bool flipY = false) const", "bool GetDrawRectangle(Rect&, bool = false, bool = false) const", AS_METHODPR(Sprite2D, GetDrawRectangle, (Rect&, bool, bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Sprite2D::GetDrawRectangle(Rect& rect, const Vector2& hotSpot, bool flipX = false, bool flipY = false) const", "bool GetDrawRectangle(Rect&, const Vector2&in, bool = false, bool = false) const", AS_METHODPR(Sprite2D, GetDrawRectangle, (Rect&, const Vector2&, bool, bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Sprite2D::GetTextureRectangle(Rect& rect, bool flipX = false, bool flipY = false) const", "bool GetTextureRectangle(Rect&, bool = false, bool = false) const", AS_METHODPR(Sprite2D, GetTextureRectangle, (Rect&, bool, bool) const, bool), AS_CALL_THISCALL));
 
     // static void Sprite2D::RegisterObject(Context* context)
     // Not registered because have @nobind mark
@@ -1313,7 +1313,7 @@ void CollectMembers_SpriteSheet2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool SpriteSheet2D::EndLoad() override", "bool EndLoad()", AS_METHODPR(SpriteSheet2D, EndLoad, (), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void SpriteSheet2D::SetTexture(Texture2D* texture)", "void SetTexture(Texture2D@+)", AS_METHODPR(SpriteSheet2D, SetTexture, (Texture2D*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void SpriteSheet2D::SetTexture(Texture2D* texture)", "void set_texture(Texture2D@+)", AS_METHODPR(SpriteSheet2D, SetTexture, (Texture2D*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void SpriteSheet2D::DefineSprite(const String& name, const IntRect& rectangle, const Vector2& hotSpot=Vector2(0.5f, 0.5f), const IntVector2& offset=IntVector2::ZERO)", "void DefineSprite(const String&in, const IntRect&in, const Vector2&in = Vector2(0.5f, 0.5f), const IntVector2&in = IntVector2::ZERO)", AS_METHODPR(SpriteSheet2D, DefineSprite, (const String&, const IntRect&, const Vector2&, const IntVector2&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void SpriteSheet2D::DefineSprite(const String& name, const IntRect& rectangle, const Vector2& hotSpot = Vector2(0.5f, 0.5f), const IntVector2& offset = IntVector2::ZERO)", "void DefineSprite(const String&in, const IntRect&in, const Vector2&in = Vector2(0.5f, 0.5f), const IntVector2&in = IntVector2::ZERO)", AS_METHODPR(SpriteSheet2D, DefineSprite, (const String&, const IntRect&, const Vector2&, const IntVector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Texture2D* SpriteSheet2D::GetTexture() const", "Texture2D@+ GetTexture() const", AS_METHODPR(SpriteSheet2D, GetTexture, () const, Texture2D*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Texture2D* SpriteSheet2D::GetTexture() const", "Texture2D@+ get_texture() const", AS_METHODPR(SpriteSheet2D, GetTexture, () const, Texture2D*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Sprite2D* SpriteSheet2D::GetSprite(const String& name) const", "Sprite2D@+ GetSprite(const String&in) const", AS_METHODPR(SpriteSheet2D, GetSprite, (const String&) const, Sprite2D*), AS_CALL_THISCALL));
@@ -1341,7 +1341,7 @@ void CollectMembers_StaticSprite2D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetTextureRect(const Rect& rect)", "void set_textureRect(const Rect&in)", AS_METHODPR(StaticSprite2D, SetTextureRect, (const Rect&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetBlendMode(BlendMode blendMode)", "void SetBlendMode(BlendMode)", AS_METHODPR(StaticSprite2D, SetBlendMode, (BlendMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetBlendMode(BlendMode blendMode)", "void set_blendMode(BlendMode)", AS_METHODPR(StaticSprite2D, SetBlendMode, (BlendMode), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetFlip(bool flipX, bool flipY, bool swapXY=false)", "void SetFlip(bool, bool, bool = false)", AS_METHODPR(StaticSprite2D, SetFlip, (bool, bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetFlip(bool flipX, bool flipY, bool swapXY = false)", "void SetFlip(bool, bool, bool = false)", AS_METHODPR(StaticSprite2D, SetFlip, (bool, bool, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetFlipX(bool flipX)", "void SetFlipX(bool)", AS_METHODPR(StaticSprite2D, SetFlipX, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetFlipX(bool flipX)", "void set_flipX(bool)", AS_METHODPR(StaticSprite2D, SetFlipX, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void StaticSprite2D::SetFlipY(bool flipY)", "void SetFlipY(bool)", AS_METHODPR(StaticSprite2D, SetFlipY, (bool), void), AS_CALL_THISCALL));
@@ -1679,7 +1679,7 @@ void CollectMembers_TmxObjectGroup2D(MemberCollection& members)
 {
     CollectMembers_TmxLayer2D(members);
 
-    // void TmxObjectGroup2D::StoreObject(const XMLElement& objectElem, const SharedPtr<TileMapObject2D>& object, const TileMapInfo2D& info, bool isTile=false)
+    // void TmxObjectGroup2D::StoreObject(const XMLElement& objectElem, const SharedPtr<TileMapObject2D>& object, const TileMapInfo2D& info, bool isTile = false)
     // Error: type "const SharedPtr<TileMapObject2D>&" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("bool TmxObjectGroup2D::Load(const XMLElement& element, const TileMapInfo2D& info)", "bool Load(const XMLElement&in, const TileMapInfo2D&in)", AS_METHODPR(TmxObjectGroup2D, Load, (const XMLElement&, const TileMapInfo2D&), bool), AS_CALL_THISCALL));

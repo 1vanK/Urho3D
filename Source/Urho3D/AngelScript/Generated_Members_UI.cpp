@@ -381,7 +381,7 @@ void CollectMembers_Font(MemberCollection& members)
     Remove(members.methods_, "virtual bool Resource::BeginLoad(Deserializer& source)");
 
     members.methods_.Push(RegisterObjectMethodArgs("bool Font::BeginLoad(Deserializer& source) override", "bool BeginLoad(Deserializer&)", AS_METHODPR(Font, BeginLoad, (Deserializer&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Font::SaveXML(Serializer& dest, int pointSize, bool usedGlyphs=false, const String& indentation=\"\t\")", "bool SaveXML(Serializer&, int, bool = false, const String&in = \"\t\")", AS_METHODPR(Font, SaveXML, (Serializer&, int, bool, const String&), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Font::SaveXML(Serializer& dest, int pointSize, bool usedGlyphs = false, const String& indentation = \"\t\")", "bool SaveXML(Serializer&, int, bool = false, const String&in = \"\t\")", AS_METHODPR(Font, SaveXML, (Serializer&, int, bool, const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Font::SetAbsoluteGlyphOffset(const IntVector2& offset)", "void SetAbsoluteGlyphOffset(const IntVector2&in)", AS_METHODPR(Font, SetAbsoluteGlyphOffset, (const IntVector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Font::SetAbsoluteGlyphOffset(const IntVector2& offset)", "void set_absoluteGlyphOffset(const IntVector2&in)", AS_METHODPR(Font, SetAbsoluteGlyphOffset, (const IntVector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Font::SetScaledGlyphOffset(const Vector2& offset)", "void SetScaledGlyphOffset(const Vector2&in)", AS_METHODPR(Font, SetScaledGlyphOffset, (const Vector2&), void), AS_CALL_THISCALL));
@@ -421,7 +421,7 @@ void CollectMembers_FontFace(MemberCollection& members)
 
     // virtual const FontGlyph* FontFace::GetGlyph(unsigned c)
     // Error: type "const FontGlyph*" can not automatically bind
-    // virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0
+    // virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize) = 0
     // Error: type "const unsigned char*" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("virtual bool FontFace::HasMutableGlyphs() const", "bool HasMutableGlyphs() const", AS_METHODPR(FontFace, HasMutableGlyphs, () const, bool), AS_CALL_THISCALL));
@@ -441,13 +441,13 @@ void CollectMembers_FontFaceBitmap(MemberCollection& members)
 {
     CollectMembers_FontFace(members);
 
-    Remove(members.methods_, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
+    Remove(members.methods_, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize) = 0");
 
     // bool FontFaceBitmap::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize) override
     // Error: type "const unsigned char*" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("bool FontFaceBitmap::Load(FontFace* fontFace, bool usedGlyphs)", "bool Load(FontFace@+, bool)", AS_METHODPR(FontFaceBitmap, Load, (FontFace*, bool), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool FontFaceBitmap::Save(Serializer& dest, int pointSize, const String& indentation=\"\t\")", "bool Save(Serializer&, int, const String&in = \"\t\")", AS_METHODPR(FontFaceBitmap, Save, (Serializer&, int, const String&), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool FontFaceBitmap::Save(Serializer& dest, int pointSize, const String& indentation = \"\t\")", "bool Save(Serializer&, int, const String&in = \"\t\")", AS_METHODPR(FontFaceBitmap, Save, (Serializer&, int, const String&), bool), AS_CALL_THISCALL));
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_FontFaceBitmap
         REGISTER_MEMBERS_MANUAL_PART_FontFaceBitmap();
@@ -460,7 +460,7 @@ void CollectMembers_FontFaceFreeType(MemberCollection& members)
     CollectMembers_FontFace(members);
 
     Remove(members.methods_, "virtual bool FontFace::HasMutableGlyphs() const");
-    Remove(members.methods_, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize)=0");
+    Remove(members.methods_, "virtual bool FontFace::Load(const unsigned char* fontData, unsigned fontDataSize, float pointSize) = 0");
     Remove(members.methods_, "virtual const FontGlyph* FontFace::GetGlyph(unsigned c)");
 
     // const FontGlyph* FontFaceFreeType::GetGlyph(unsigned c) override
@@ -635,8 +635,8 @@ void CollectMembers_ListView(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::DisableInternalLayoutUpdate()", "void DisableInternalLayoutUpdate()", AS_METHODPR(ListView, DisableInternalLayoutUpdate, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::EnableInternalLayoutUpdate()", "void EnableInternalLayoutUpdate()", AS_METHODPR(ListView, EnableInternalLayoutUpdate, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::AddItem(UIElement* item)", "void AddItem(UIElement@+)", AS_METHODPR(ListView, AddItem, (UIElement*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ListView::InsertItem(unsigned index, UIElement* item, UIElement* parentItem=nullptr)", "void InsertItem(uint, UIElement@+, UIElement@+ = null)", AS_METHODPR(ListView, InsertItem, (unsigned, UIElement*, UIElement*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ListView::RemoveItem(UIElement* item, unsigned index=0)", "void RemoveItem(UIElement@+, uint = 0)", AS_METHODPR(ListView, RemoveItem, (UIElement*, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ListView::InsertItem(unsigned index, UIElement* item, UIElement* parentItem = nullptr)", "void InsertItem(uint, UIElement@+, UIElement@+ = null)", AS_METHODPR(ListView, InsertItem, (unsigned, UIElement*, UIElement*), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ListView::RemoveItem(UIElement* item, unsigned index = 0)", "void RemoveItem(UIElement@+, uint = 0)", AS_METHODPR(ListView, RemoveItem, (UIElement*, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::RemoveItem(unsigned index)", "void RemoveItem(uint)", AS_METHODPR(ListView, RemoveItem, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::RemoveAllItems()", "void RemoveAllItems()", AS_METHODPR(ListView, RemoveAllItems, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::SetSelection(unsigned index)", "void SetSelection(uint)", AS_METHODPR(ListView, SetSelection, (unsigned), void), AS_CALL_THISCALL));
@@ -645,7 +645,7 @@ void CollectMembers_ListView(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::AddSelection(unsigned index)", "void AddSelection(uint)", AS_METHODPR(ListView, AddSelection, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::RemoveSelection(unsigned index)", "void RemoveSelection(uint)", AS_METHODPR(ListView, RemoveSelection, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::ToggleSelection(unsigned index)", "void ToggleSelection(uint)", AS_METHODPR(ListView, ToggleSelection, (unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ListView::ChangeSelection(int delta, bool additive=false)", "void ChangeSelection(int, bool = false)", AS_METHODPR(ListView, ChangeSelection, (int, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ListView::ChangeSelection(int delta, bool additive = false)", "void ChangeSelection(int, bool = false)", AS_METHODPR(ListView, ChangeSelection, (int, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::ClearSelection()", "void ClearSelection()", AS_METHODPR(ListView, ClearSelection, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::SetHighlightMode(HighlightMode mode)", "void SetHighlightMode(HighlightMode)", AS_METHODPR(ListView, SetHighlightMode, (HighlightMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::SetHighlightMode(HighlightMode mode)", "void set_highlightMode(HighlightMode)", AS_METHODPR(ListView, SetHighlightMode, (HighlightMode), void), AS_CALL_THISCALL));
@@ -659,8 +659,8 @@ void CollectMembers_ListView(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::SetClearSelectionOnDefocus(bool enable)", "void set_clearSelectionOnDefocus(bool)", AS_METHODPR(ListView, SetClearSelectionOnDefocus, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::SetSelectOnClickEnd(bool enable)", "void SetSelectOnClickEnd(bool)", AS_METHODPR(ListView, SetSelectOnClickEnd, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ListView::SetSelectOnClickEnd(bool enable)", "void set_selectOnClickEnd(bool)", AS_METHODPR(ListView, SetSelectOnClickEnd, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ListView::Expand(unsigned index, bool enable, bool recursive=false)", "void Expand(uint, bool, bool = false)", AS_METHODPR(ListView, Expand, (unsigned, bool, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ListView::ToggleExpand(unsigned index, bool recursive=false)", "void ToggleExpand(uint, bool = false)", AS_METHODPR(ListView, ToggleExpand, (unsigned, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ListView::Expand(unsigned index, bool enable, bool recursive = false)", "void Expand(uint, bool, bool = false)", AS_METHODPR(ListView, Expand, (unsigned, bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ListView::ToggleExpand(unsigned index, bool recursive = false)", "void ToggleExpand(uint, bool = false)", AS_METHODPR(ListView, ToggleExpand, (unsigned, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned ListView::GetNumItems() const", "uint GetNumItems() const", AS_METHODPR(ListView, GetNumItems, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned ListView::GetNumItems() const", "uint get_numItems() const", AS_METHODPR(ListView, GetNumItems, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("UIElement* ListView::GetItem(unsigned index) const", "UIElement@+ GetItem(uint) const", AS_METHODPR(ListView, GetItem, (unsigned) const, UIElement*), AS_CALL_THISCALL));
@@ -708,7 +708,7 @@ void CollectMembers_Menu(MemberCollection& members)
 
     Remove(members.methods_, "bool UIElement::LoadXML(Deserializer& source)");
     Remove(members.methods_, "bool UIElement::LoadXML(const XMLElement& source) override");
-    Remove(members.methods_, "bool UIElement::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(members.methods_, "bool UIElement::SaveXML(Serializer& dest, const String& indentation = \"\t\") const");
     Remove(members.methods_, "bool UIElement::SaveXML(XMLElement& dest) const override");
     Remove(members.methods_, "virtual bool UIElement::LoadXML(const XMLElement& source, XMLFile* styleFile)");
     Remove(members.methods_, "virtual void UIElement::OnHover(const IntVector2& position, const IntVector2& screenPosition, MouseButtonFlags buttons, QualifierFlags qualifiers, Cursor* cursor)");
@@ -1091,8 +1091,8 @@ void CollectMembers_Text(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Text::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(Text, ApplyAttributes, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text::OnResize(const IntVector2& newSize, const IntVector2& delta) override", "void OnResize(const IntVector2&in, const IntVector2&in)", AS_METHODPR(Text, OnResize, (const IntVector2&, const IntVector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text::OnIndentSet() override", "void OnIndentSet()", AS_METHODPR(Text, OnIndentSet, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Text::SetFont(const String& fontName, float size=DEFAULT_FONT_SIZE)", "bool SetFont(const String&in, float = DEFAULT_FONT_SIZE)", AS_METHODPR(Text, SetFont, (const String&, float), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Text::SetFont(Font* font, float size=DEFAULT_FONT_SIZE)", "bool SetFont(Font@+, float = DEFAULT_FONT_SIZE)", AS_METHODPR(Text, SetFont, (Font*, float), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Text::SetFont(const String& fontName, float size = DEFAULT_FONT_SIZE)", "bool SetFont(const String&in, float = DEFAULT_FONT_SIZE)", AS_METHODPR(Text, SetFont, (const String&, float), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Text::SetFont(Font* font, float size = DEFAULT_FONT_SIZE)", "bool SetFont(Font@+, float = DEFAULT_FONT_SIZE)", AS_METHODPR(Text, SetFont, (Font*, float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Text::SetFontSize(float size)", "bool SetFontSize(float)", AS_METHODPR(Text, SetFontSize, (float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Text::SetFontSize(float size)", "bool set_fontSize(float)", AS_METHODPR(Text, SetFontSize, (float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text::SetText(const String& text)", "void SetText(const String&in)", AS_METHODPR(Text, SetText, (const String&), void), AS_CALL_THISCALL));
@@ -1105,7 +1105,7 @@ void CollectMembers_Text(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Text::SetWordwrap(bool enable)", "void set_wordwrap(bool)", AS_METHODPR(Text, SetWordwrap, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text::SetAutoLocalizable(bool enable)", "void SetAutoLocalizable(bool)", AS_METHODPR(Text, SetAutoLocalizable, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text::SetAutoLocalizable(bool enable)", "void set_autoLocalizable(bool)", AS_METHODPR(Text, SetAutoLocalizable, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Text::SetSelection(unsigned start, unsigned length=M_MAX_UNSIGNED)", "void SetSelection(uint, uint = M_MAX_UNSIGNED)", AS_METHODPR(Text, SetSelection, (unsigned, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Text::SetSelection(unsigned start, unsigned length = M_MAX_UNSIGNED)", "void SetSelection(uint, uint = M_MAX_UNSIGNED)", AS_METHODPR(Text, SetSelection, (unsigned, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text::ClearSelection()", "void ClearSelection()", AS_METHODPR(Text, ClearSelection, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text::SetTextEffect(TextEffect textEffect)", "void SetTextEffect(TextEffect)", AS_METHODPR(Text, SetTextEffect, (TextEffect), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text::SetTextEffect(TextEffect textEffect)", "void set_textEffect(TextEffect)", AS_METHODPR(Text, SetTextEffect, (TextEffect), void), AS_CALL_THISCALL));
@@ -1188,8 +1188,8 @@ void CollectMembers_Text3D(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Text3D::UpdateBatches(const FrameInfo& frame) override", "void UpdateBatches(const FrameInfo&in)", AS_METHODPR(Text3D, UpdateBatches, (const FrameInfo&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text3D::UpdateGeometry(const FrameInfo& frame) override", "void UpdateGeometry(const FrameInfo&in)", AS_METHODPR(Text3D, UpdateGeometry, (const FrameInfo&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("UpdateGeometryType Text3D::GetUpdateGeometryType() override", "UpdateGeometryType GetUpdateGeometryType()", AS_METHODPR(Text3D, GetUpdateGeometryType, (), UpdateGeometryType), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Text3D::SetFont(const String& fontName, float size=DEFAULT_FONT_SIZE)", "bool SetFont(const String&in, float = DEFAULT_FONT_SIZE)", AS_METHODPR(Text3D, SetFont, (const String&, float), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Text3D::SetFont(Font* font, float size=DEFAULT_FONT_SIZE)", "bool SetFont(Font@+, float = DEFAULT_FONT_SIZE)", AS_METHODPR(Text3D, SetFont, (Font*, float), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Text3D::SetFont(const String& fontName, float size = DEFAULT_FONT_SIZE)", "bool SetFont(const String&in, float = DEFAULT_FONT_SIZE)", AS_METHODPR(Text3D, SetFont, (const String&, float), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Text3D::SetFont(Font* font, float size = DEFAULT_FONT_SIZE)", "bool SetFont(Font@+, float = DEFAULT_FONT_SIZE)", AS_METHODPR(Text3D, SetFont, (Font*, float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Text3D::SetFontSize(float size)", "bool SetFontSize(float)", AS_METHODPR(Text3D, SetFontSize, (float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Text3D::SetFontSize(float size)", "bool set_fontSize(float)", AS_METHODPR(Text3D, SetFontSize, (float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Text3D::SetMaterial(Material* material)", "void SetMaterial(Material@+)", AS_METHODPR(Text3D, SetMaterial, (Material*), void), AS_CALL_THISCALL));
@@ -1326,8 +1326,8 @@ void CollectMembers_ToolTip(MemberCollection& members)
     #endif
 }
 
-// SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr)
-// SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr) | File: ../UI/UI.h
+// SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile = nullptr)
+// SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile = nullptr) | File: ../UI/UI.h
 static UIElement* UI_LoadLayout_Deserializer_XMLFile(UI* ptr, Deserializer& source, XMLFile* styleFile)
 {
     SharedPtr<UIElement> result = ptr->LoadLayout(source, styleFile);
@@ -1335,8 +1335,8 @@ static UIElement* UI_LoadLayout_Deserializer_XMLFile(UI* ptr, Deserializer& sour
 }
 
 
-// SharedPtr<UIElement> UI::LoadLayout(XMLFile* file, XMLFile* styleFile=nullptr)
-// SharedPtr<UIElement> UI::LoadLayout(XMLFile* file, XMLFile* styleFile=nullptr) | File: ../UI/UI.h
+// SharedPtr<UIElement> UI::LoadLayout(XMLFile* file, XMLFile* styleFile = nullptr)
+// SharedPtr<UIElement> UI::LoadLayout(XMLFile* file, XMLFile* styleFile = nullptr) | File: ../UI/UI.h
 static UIElement* UI_LoadLayout_XMLFile_XMLFile(UI* ptr, XMLFile* file, XMLFile* styleFile)
 {
     SharedPtr<UIElement> result = ptr->LoadLayout(file, styleFile);
@@ -1354,15 +1354,15 @@ void CollectMembers_UI(MemberCollection& members)
 
     members.methods_.Push(RegisterObjectMethodArgs("void UI::SetCursor(Cursor* cursor)", "void SetCursor(Cursor@+)", AS_METHODPR(UI, SetCursor, (Cursor*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UI::SetCursor(Cursor* cursor)", "void set_cursor(Cursor@+)", AS_METHODPR(UI, SetCursor, (Cursor*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void UI::SetFocusElement(UIElement* element, bool byKey=false)", "void SetFocusElement(UIElement@+, bool = false)", AS_METHODPR(UI, SetFocusElement, (UIElement*, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UI::SetFocusElement(UIElement* element, bool byKey = false)", "void SetFocusElement(UIElement@+, bool = false)", AS_METHODPR(UI, SetFocusElement, (UIElement*, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool UI::SetModalElement(UIElement* modalElement, bool enable)", "bool SetModalElement(UIElement@+, bool)", AS_METHODPR(UI, SetModalElement, (UIElement*, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UI::Clear()", "void Clear()", AS_METHODPR(UI, Clear, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UI::Update(float timeStep)", "void Update(float)", AS_METHODPR(UI, Update, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UI::RenderUpdate()", "void RenderUpdate()", AS_METHODPR(UI, RenderUpdate, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void UI::Render(bool renderUICommand=false)", "void Render(bool = false)", AS_METHODPR(UI, Render, (bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UI::Render(bool renderUICommand = false)", "void Render(bool = false)", AS_METHODPR(UI, Render, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UI::DebugDraw(UIElement* element)", "void DebugDraw(UIElement@+)", AS_METHODPR(UI, DebugDraw, (UIElement*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile=nullptr)", "UIElement@+ LoadLayout(Deserializer&, XMLFile@+ = null)", AS_FUNCTION_OBJFIRST(UI_LoadLayout_Deserializer_XMLFile), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<UIElement> UI::LoadLayout(XMLFile* file, XMLFile* styleFile=nullptr)", "UIElement@+ LoadLayout(XMLFile@+, XMLFile@+ = null)", AS_FUNCTION_OBJFIRST(UI_LoadLayout_XMLFile_XMLFile), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<UIElement> UI::LoadLayout(Deserializer& source, XMLFile* styleFile = nullptr)", "UIElement@+ LoadLayout(Deserializer&, XMLFile@+ = null)", AS_FUNCTION_OBJFIRST(UI_LoadLayout_Deserializer_XMLFile), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<UIElement> UI::LoadLayout(XMLFile* file, XMLFile* styleFile = nullptr)", "UIElement@+ LoadLayout(XMLFile@+, XMLFile@+ = null)", AS_FUNCTION_OBJFIRST(UI_LoadLayout_XMLFile_XMLFile), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("bool UI::SaveLayout(Serializer& dest, UIElement* element)", "bool SaveLayout(Serializer&, UIElement@+)", AS_METHODPR(UI, SaveLayout, (Serializer&, UIElement*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UI::SetClipboardText(const String& text)", "void SetClipboardText(const String&in)", AS_METHODPR(UI, SetClipboardText, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UI::SetClipboardText(const String& text)", "void set_clipboardText(const String&in)", AS_METHODPR(UI, SetClipboardText, (const String&), void), AS_CALL_THISCALL));
@@ -1409,9 +1409,9 @@ void CollectMembers_UI(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("Cursor* UI::GetCursor() const", "Cursor@+ get_cursor() const", AS_METHODPR(UI, GetCursor, () const, Cursor*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("IntVector2 UI::GetCursorPosition() const", "IntVector2 GetCursorPosition() const", AS_METHODPR(UI, GetCursorPosition, () const, IntVector2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("IntVector2 UI::GetCursorPosition() const", "IntVector2 get_cursorPosition() const", AS_METHODPR(UI, GetCursorPosition, () const, IntVector2), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UI::GetElementAt(const IntVector2& position, bool enabledOnly=true)", "UIElement@+ GetElementAt(const IntVector2&in, bool = true)", AS_METHODPR(UI, GetElementAt, (const IntVector2&, bool), UIElement*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UI::GetElementAt(int x, int y, bool enabledOnly=true)", "UIElement@+ GetElementAt(int, int, bool = true)", AS_METHODPR(UI, GetElementAt, (int, int, bool), UIElement*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UI::GetElementAt(UIElement* root, const IntVector2& position, bool enabledOnly=true)", "UIElement@+ GetElementAt(UIElement@+, const IntVector2&in, bool = true)", AS_METHODPR(UI, GetElementAt, (UIElement*, const IntVector2&, bool), UIElement*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UI::GetElementAt(const IntVector2& position, bool enabledOnly = true)", "UIElement@+ GetElementAt(const IntVector2&in, bool = true)", AS_METHODPR(UI, GetElementAt, (const IntVector2&, bool), UIElement*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UI::GetElementAt(int x, int y, bool enabledOnly = true)", "UIElement@+ GetElementAt(int, int, bool = true)", AS_METHODPR(UI, GetElementAt, (int, int, bool), UIElement*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UI::GetElementAt(UIElement* root, const IntVector2& position, bool enabledOnly = true)", "UIElement@+ GetElementAt(UIElement@+, const IntVector2&in, bool = true)", AS_METHODPR(UI, GetElementAt, (UIElement*, const IntVector2&, bool), UIElement*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("IntVector2 UI::ConvertSystemToUI(const IntVector2& systemPos) const", "IntVector2 ConvertSystemToUI(const IntVector2&in) const", AS_METHODPR(UI, ConvertSystemToUI, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("IntVector2 UI::ConvertUIToSystem(const IntVector2& uiPos) const", "IntVector2 ConvertUIToSystem(const IntVector2&in) const", AS_METHODPR(UI, ConvertUIToSystem, (const IntVector2&) const, IntVector2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("UIElement* UI::GetFocusElement() const", "UIElement@+ GetFocusElement() const", AS_METHODPR(UI, GetFocusElement, () const, UIElement*), AS_CALL_THISCALL));
@@ -1466,10 +1466,10 @@ void CollectMembers_UI(MemberCollection& members)
 // class UIBatch | File: ../UI/UIBatch.h
 void CollectMembers_UIBatch(MemberCollection& members)
 {
-    members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::SetColor(const Color& color, bool overrideAlpha=false)", "void SetColor(const Color&in, bool = false)", AS_METHODPR(UIBatch, SetColor, (const Color&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::SetColor(const Color& color, bool overrideAlpha = false)", "void SetColor(const Color&in, bool = false)", AS_METHODPR(UIBatch, SetColor, (const Color&, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::SetDefaultColor()", "void SetDefaultColor()", AS_METHODPR(UIBatch, SetDefaultColor, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(float x, float y, float width, float height, int texOffsetX, int texOffsetY, int texWidth=0, int texHeight=0)", "void AddQuad(float, float, float, float, int, int, int = 0, int = 0)", AS_METHODPR(UIBatch, AddQuad, (float, float, float, float, int, int, int, int), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(const Matrix3x4& transform, int x, int y, int width, int height, int texOffsetX, int texOffsetY, int texWidth=0, int texHeight=0)", "void AddQuad(const Matrix3x4&in, int, int, int, int, int, int, int = 0, int = 0)", AS_METHODPR(UIBatch, AddQuad, (const Matrix3x4&, int, int, int, int, int, int, int, int), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(float x, float y, float width, float height, int texOffsetX, int texOffsetY, int texWidth = 0, int texHeight = 0)", "void AddQuad(float, float, float, float, int, int, int = 0, int = 0)", AS_METHODPR(UIBatch, AddQuad, (float, float, float, float, int, int, int, int), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(const Matrix3x4& transform, int x, int y, int width, int height, int texOffsetX, int texOffsetY, int texWidth = 0, int texHeight = 0)", "void AddQuad(const Matrix3x4&in, int, int, int, int, int, int, int = 0, int = 0)", AS_METHODPR(UIBatch, AddQuad, (const Matrix3x4&, int, int, int, int, int, int, int, int), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(int x, int y, int width, int height, int texOffsetX, int texOffsetY, int texWidth, int texHeight, bool tiled)", "void AddQuad(int, int, int, int, int, int, int, int, bool)", AS_METHODPR(UIBatch, AddQuad, (int, int, int, int, int, int, int, int, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(const Matrix3x4& transform, const IntVector2& a, const IntVector2& b, const IntVector2& c, const IntVector2& d, const IntVector2& texA, const IntVector2& texB, const IntVector2& texC, const IntVector2& texD)", "void AddQuad(const Matrix3x4&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in)", AS_METHODPR(UIBatch, AddQuad, (const Matrix3x4&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIBatch::AddQuad(const Matrix3x4& transform, const IntVector2& a, const IntVector2& b, const IntVector2& c, const IntVector2& d, const IntVector2& texA, const IntVector2& texB, const IntVector2& texC, const IntVector2& texD, const Color& colA, const Color& colB, const Color& colC, const Color& colD)", "void AddQuad(const Matrix3x4&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const IntVector2&in, const Color&in, const Color&in, const Color&in, const Color&in)", AS_METHODPR(UIBatch, AddQuad, (const Matrix3x4&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const IntVector2&, const Color&, const Color&, const Color&, const Color&), void), AS_CALL_THISCALL));
@@ -1571,8 +1571,8 @@ static CScriptArray* UIElement_GetTags_void(UIElement* ptr)
 }
 
 
-// PODVector<UIElement*> UIElement::GetChildrenWithTag(const String& tag, bool recursive=false) const
-// PODVector<UIElement*> UIElement::GetChildrenWithTag(const String& tag, bool recursive=false) const | File: ../UI/UIElement.h
+// PODVector<UIElement*> UIElement::GetChildrenWithTag(const String& tag, bool recursive = false) const
+// PODVector<UIElement*> UIElement::GetChildrenWithTag(const String& tag, bool recursive = false) const | File: ../UI/UIElement.h
 static CScriptArray* UIElement_GetChildrenWithTag_String_bool(UIElement* ptr, const String& tag, bool recursive)
 {
     PODVector<UIElement*> result = ptr->GetChildrenWithTag(tag, recursive);
@@ -1595,9 +1595,9 @@ void CollectMembers_UIElement(MemberCollection& members)
     // Error: type "PODVector<UIBatch>&" can not automatically bind
     // void UIElement::GetBatchesWithOffset(IntVector2& offset, PODVector<UIBatch>& batches, PODVector<float>& vertexData, IntRect currentScissor)
     // Error: type "PODVector<UIBatch>&" can not automatically bind
-    // void UIElement::GetChildren(PODVector<UIElement*>& dest, bool recursive=false) const
+    // void UIElement::GetChildren(PODVector<UIElement*>& dest, bool recursive = false) const
     // Error: type "PODVector<UIElement*>&" can not automatically bind
-    // void UIElement::GetChildrenWithTag(PODVector<UIElement*>& dest, const String& tag, bool recursive=false) const
+    // void UIElement::GetChildrenWithTag(PODVector<UIElement*>& dest, const String& tag, bool recursive = false) const
     // Error: type "PODVector<UIElement*>&" can not automatically bind
     // virtual void UIElement::GetDebugDrawBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor)
     // Error: type "PODVector<UIBatch>&" can not automatically bind
@@ -1632,7 +1632,7 @@ void CollectMembers_UIElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("virtual IntVector2 UIElement::ElementToScreen(const IntVector2& position)", "IntVector2 ElementToScreen(const IntVector2&in)", AS_METHODPR(UIElement, ElementToScreen, (const IntVector2&), IntVector2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("virtual bool UIElement::IsWheelHandler() const", "bool IsWheelHandler() const", AS_METHODPR(UIElement, IsWheelHandler, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::LoadXML(Deserializer& source)", "bool LoadXML(Deserializer&)", AS_METHODPR(UIElement, LoadXML, (Deserializer&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::SaveXML(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveXML(Serializer&, const String&in = \"\t\") const", AS_METHODPR(UIElement, SaveXML, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(Serializer&, const String&in = \"\t\") const", AS_METHODPR(UIElement, SaveXML, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::FilterAttributes(XMLElement& dest) const", "bool FilterAttributes(XMLElement&) const", AS_METHODPR(UIElement, FilterAttributes, (XMLElement&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetName(const String& name)", "void SetName(const String&in)", AS_METHODPR(UIElement, SetName, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetName(const String& name)", "void set_name(const String&in)", AS_METHODPR(UIElement, SetName, (const String&), void), AS_CALL_THISCALL));
@@ -1721,12 +1721,12 @@ void CollectMembers_UIElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetFocusMode(FocusMode mode)", "void set_focusMode(FocusMode)", AS_METHODPR(UIElement, SetFocusMode, (FocusMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetDragDropMode(DragAndDropModeFlags mode)", "void SetDragDropMode(DragAndDropModeFlags)", AS_METHODPR(UIElement, SetDragDropMode, (DragAndDropModeFlags), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetDragDropMode(DragAndDropModeFlags mode)", "void set_dragDropMode(DragAndDropModeFlags)", AS_METHODPR(UIElement, SetDragDropMode, (DragAndDropModeFlags), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::SetStyle(const String& styleName, XMLFile* file=nullptr)", "bool SetStyle(const String&in, XMLFile@+ = null)", AS_METHODPR(UIElement, SetStyle, (const String&, XMLFile*), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::SetStyle(const String& styleName, XMLFile* file = nullptr)", "bool SetStyle(const String&in, XMLFile@+ = null)", AS_METHODPR(UIElement, SetStyle, (const String&, XMLFile*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::SetStyle(const XMLElement& element)", "bool SetStyle(const XMLElement&in)", AS_METHODPR(UIElement, SetStyle, (const XMLElement&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::SetStyleAuto(XMLFile* file=nullptr)", "bool SetStyleAuto(XMLFile@+ = null)", AS_METHODPR(UIElement, SetStyleAuto, (XMLFile*), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::SetStyleAuto(XMLFile* file = nullptr)", "bool SetStyleAuto(XMLFile@+ = null)", AS_METHODPR(UIElement, SetStyleAuto, (XMLFile*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetDefaultStyle(XMLFile* style)", "void SetDefaultStyle(XMLFile@+)", AS_METHODPR(UIElement, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetDefaultStyle(XMLFile* style)", "void set_defaultStyle(XMLFile@+)", AS_METHODPR(UIElement, SetDefaultStyle, (XMLFile*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetLayout(LayoutMode mode, int spacing=0, const IntRect& border=IntRect::ZERO)", "void SetLayout(LayoutMode, int = 0, const IntRect&in = IntRect::ZERO)", AS_METHODPR(UIElement, SetLayout, (LayoutMode, int, const IntRect&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetLayout(LayoutMode mode, int spacing = 0, const IntRect& border = IntRect::ZERO)", "void SetLayout(LayoutMode, int = 0, const IntRect&in = IntRect::ZERO)", AS_METHODPR(UIElement, SetLayout, (LayoutMode, int, const IntRect&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetLayoutMode(LayoutMode mode)", "void SetLayoutMode(LayoutMode)", AS_METHODPR(UIElement, SetLayoutMode, (LayoutMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetLayoutMode(LayoutMode mode)", "void set_layoutMode(LayoutMode)", AS_METHODPR(UIElement, SetLayoutMode, (LayoutMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetLayoutSpacing(int spacing)", "void SetLayoutSpacing(int)", AS_METHODPR(UIElement, SetLayoutSpacing, (int), void), AS_CALL_THISCALL));
@@ -1743,15 +1743,15 @@ void CollectMembers_UIElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::DisableLayoutUpdate()", "void DisableLayoutUpdate()", AS_METHODPR(UIElement, DisableLayoutUpdate, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::EnableLayoutUpdate()", "void EnableLayoutUpdate()", AS_METHODPR(UIElement, EnableLayoutUpdate, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::BringToFront()", "void BringToFront()", AS_METHODPR(UIElement, BringToFront, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::CreateChild(StringHash type, const String& name=String::EMPTY, unsigned index=M_MAX_UNSIGNED)", "UIElement@+ CreateChild(StringHash, const String&in = String::EMPTY, uint = M_MAX_UNSIGNED)", AS_METHODPR(UIElement, CreateChild, (StringHash, const String&, unsigned), UIElement*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::CreateChild(StringHash type, const String& name = String::EMPTY, unsigned index = M_MAX_UNSIGNED)", "UIElement@+ CreateChild(StringHash, const String&in = String::EMPTY, uint = M_MAX_UNSIGNED)", AS_METHODPR(UIElement, CreateChild, (StringHash, const String&, unsigned), UIElement*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::AddChild(UIElement* element)", "void AddChild(UIElement@+)", AS_METHODPR(UIElement, AddChild, (UIElement*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::InsertChild(unsigned index, UIElement* element)", "void InsertChild(uint, UIElement@+)", AS_METHODPR(UIElement, InsertChild, (unsigned, UIElement*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void UIElement::RemoveChild(UIElement* element, unsigned index=0)", "void RemoveChild(UIElement@+, uint = 0)", AS_METHODPR(UIElement, RemoveChild, (UIElement*, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UIElement::RemoveChild(UIElement* element, unsigned index = 0)", "void RemoveChild(UIElement@+, uint = 0)", AS_METHODPR(UIElement, RemoveChild, (UIElement*, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::RemoveChildAtIndex(unsigned index)", "void RemoveChildAtIndex(uint)", AS_METHODPR(UIElement, RemoveChildAtIndex, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::RemoveAllChildren()", "void RemoveAllChildren()", AS_METHODPR(UIElement, RemoveAllChildren, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::Remove()", "void Remove()", AS_METHODPR(UIElement, Remove, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned UIElement::FindChild(UIElement* element) const", "uint FindChild(UIElement@+) const", AS_METHODPR(UIElement, FindChild, (UIElement*) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetParent(UIElement* parent, unsigned index=M_MAX_UNSIGNED)", "void SetParent(UIElement@+, uint = M_MAX_UNSIGNED)", AS_METHODPR(UIElement, SetParent, (UIElement*, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetParent(UIElement* parent, unsigned index = M_MAX_UNSIGNED)", "void SetParent(UIElement@+, uint = M_MAX_UNSIGNED)", AS_METHODPR(UIElement, SetParent, (UIElement*, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetVar(StringHash key, const Variant& value)", "void SetVar(StringHash, const Variant&in)", AS_METHODPR(UIElement, SetVar, (StringHash, const Variant&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetInternal(bool enable)", "void SetInternal(bool)", AS_METHODPR(UIElement, SetInternal, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetInternal(bool enable)", "void set_internal(bool)", AS_METHODPR(UIElement, SetInternal, (bool), void), AS_CALL_THISCALL));
@@ -1761,7 +1761,7 @@ void CollectMembers_UIElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetElementEventSender(bool flag)", "void set_elementEventSender(bool)", AS_METHODPR(UIElement, SetElementEventSender, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetTags(const StringVector& tags)", "void SetTags(Array<String>@+)", AS_FUNCTION_OBJFIRST(UIElement_SetTags_StringVector), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::AddTag(const String& tag)", "void AddTag(const String&in)", AS_METHODPR(UIElement, AddTag, (const String&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void UIElement::AddTags(const String& tags, char separator=';')", "void AddTags(const String&in, int8 = ';')", AS_METHODPR(UIElement, AddTags, (const String&, char), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void UIElement::AddTags(const String& tags, char separator = ';')", "void AddTags(const String&in, int8 = ';')", AS_METHODPR(UIElement, AddTags, (const String&, char), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::AddTags(const StringVector& tags)", "void AddTags(Array<String>@+)", AS_FUNCTION_OBJFIRST(UIElement_AddTags_StringVector), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::RemoveTag(const String& tag)", "bool RemoveTag(const String&in)", AS_METHODPR(UIElement, RemoveTag, (const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::RemoveAllTags()", "void RemoveAllTags()", AS_METHODPR(UIElement, RemoveAllTags, (), void), AS_CALL_THISCALL));
@@ -1858,7 +1858,7 @@ void CollectMembers_UIElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("DragAndDropModeFlags UIElement::GetDragDropMode() const", "DragAndDropModeFlags get_dragDropMode() const", AS_METHODPR(UIElement, GetDragDropMode, () const, DragAndDropModeFlags), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& UIElement::GetAppliedStyle() const", "const String& GetAppliedStyle() const", AS_METHODPR(UIElement, GetAppliedStyle, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& UIElement::GetAppliedStyle() const", "const String& get_style() const", AS_METHODPR(UIElement, GetAppliedStyle, () const, const String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("XMLFile* UIElement::GetDefaultStyle(bool recursiveUp=true) const", "XMLFile@+ GetDefaultStyle(bool = true) const", AS_METHODPR(UIElement, GetDefaultStyle, (bool) const, XMLFile*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("XMLFile* UIElement::GetDefaultStyle(bool recursiveUp = true) const", "XMLFile@+ GetDefaultStyle(bool = true) const", AS_METHODPR(UIElement, GetDefaultStyle, (bool) const, XMLFile*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("LayoutMode UIElement::GetLayoutMode() const", "LayoutMode GetLayoutMode() const", AS_METHODPR(UIElement, GetLayoutMode, () const, LayoutMode), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("LayoutMode UIElement::GetLayoutMode() const", "LayoutMode get_layoutMode() const", AS_METHODPR(UIElement, GetLayoutMode, () const, LayoutMode), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int UIElement::GetLayoutSpacing() const", "int GetLayoutSpacing() const", AS_METHODPR(UIElement, GetLayoutSpacing, () const, int), AS_CALL_THISCALL));
@@ -1867,12 +1867,12 @@ void CollectMembers_UIElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("const IntRect& UIElement::GetLayoutBorder() const", "const IntRect& get_layoutBorder() const", AS_METHODPR(UIElement, GetLayoutBorder, () const, const IntRect&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Vector2& UIElement::GetLayoutFlexScale() const", "const Vector2& GetLayoutFlexScale() const", AS_METHODPR(UIElement, GetLayoutFlexScale, () const, const Vector2&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Vector2& UIElement::GetLayoutFlexScale() const", "const Vector2& get_layoutFlexScale() const", AS_METHODPR(UIElement, GetLayoutFlexScale, () const, const Vector2&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned UIElement::GetNumChildren(bool recursive=false) const", "uint GetNumChildren(bool = false) const", AS_METHODPR(UIElement, GetNumChildren, (bool) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned UIElement::GetNumChildren(bool recursive=false) const", "uint get_numChildren(bool = false) const", AS_METHODPR(UIElement, GetNumChildren, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned UIElement::GetNumChildren(bool recursive = false) const", "uint GetNumChildren(bool = false) const", AS_METHODPR(UIElement, GetNumChildren, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned UIElement::GetNumChildren(bool recursive = false) const", "uint get_numChildren(bool = false) const", AS_METHODPR(UIElement, GetNumChildren, (bool) const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::GetChild(unsigned index) const", "UIElement@+ GetChild(uint) const", AS_METHODPR(UIElement, GetChild, (unsigned) const, UIElement*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::GetChild(unsigned index) const", "UIElement@+ get_children(uint) const", AS_METHODPR(UIElement, GetChild, (unsigned) const, UIElement*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::GetChild(const String& name, bool recursive=false) const", "UIElement@+ GetChild(const String&in, bool = false) const", AS_METHODPR(UIElement, GetChild, (const String&, bool) const, UIElement*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::GetChild(const StringHash& key, const Variant& value=Variant::EMPTY, bool recursive=false) const", "UIElement@+ GetChild(const StringHash&in, const Variant&in = Variant::EMPTY, bool = false) const", AS_METHODPR(UIElement, GetChild, (const StringHash&, const Variant&, bool) const, UIElement*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::GetChild(const String& name, bool recursive = false) const", "UIElement@+ GetChild(const String&in, bool = false) const", AS_METHODPR(UIElement, GetChild, (const String&, bool) const, UIElement*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::GetChild(const StringHash& key, const Variant& value = Variant::EMPTY, bool recursive = false) const", "UIElement@+ GetChild(const StringHash&in, const Variant&in = Variant::EMPTY, bool = false) const", AS_METHODPR(UIElement, GetChild, (const StringHash&, const Variant&, bool) const, UIElement*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Vector<SharedPtr<UIElement>>& UIElement::GetChildren() const", "Array<UIElement@>@ GetChildren() const", AS_FUNCTION_OBJFIRST(UIElement_GetChildren_void), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("PODVector<UIElement*> UIElement::GetChildren(bool recursive) const", "Array<UIElement@>@ GetChildren(bool) const", AS_FUNCTION_OBJFIRST(UIElement_GetChildren_bool), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("UIElement* UIElement::GetParent() const", "UIElement@+ GetParent() const", AS_METHODPR(UIElement, GetParent, () const, UIElement*), AS_CALL_THISCALL));
@@ -1885,7 +1885,7 @@ void CollectMembers_UIElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool UIElement::HasTag(const String& tag) const", "bool HasTag(const String&in) const", AS_METHODPR(UIElement, HasTag, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const StringVector& UIElement::GetTags() const", "Array<String>@ GetTags() const", AS_FUNCTION_OBJFIRST(UIElement_GetTags_void), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("const StringVector& UIElement::GetTags() const", "Array<String>@ get_tags() const", AS_FUNCTION_OBJFIRST(UIElement_GetTags_void), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("PODVector<UIElement*> UIElement::GetChildrenWithTag(const String& tag, bool recursive=false) const", "Array<UIElement@>@ GetChildrenWithTag(const String&in, bool = false) const", AS_FUNCTION_OBJFIRST(UIElement_GetChildrenWithTag_String_bool), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("PODVector<UIElement*> UIElement::GetChildrenWithTag(const String& tag, bool recursive = false) const", "Array<UIElement@>@ GetChildrenWithTag(const String&in, bool = false) const", AS_FUNCTION_OBJFIRST(UIElement_GetChildrenWithTag_String_bool), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("MouseButtonFlags UIElement::GetDragButtonCombo() const", "MouseButtonFlags GetDragButtonCombo() const", AS_METHODPR(UIElement, GetDragButtonCombo, () const, MouseButtonFlags), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("MouseButtonFlags UIElement::GetDragButtonCombo() const", "MouseButtonFlags get_dragButtonCombo() const", AS_METHODPR(UIElement, GetDragButtonCombo, () const, MouseButtonFlags), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned UIElement::GetDragButtonCount() const", "uint GetDragButtonCount() const", AS_METHODPR(UIElement, GetDragButtonCount, () const, unsigned), AS_CALL_THISCALL));
@@ -1914,6 +1914,20 @@ void CollectMembers_UIElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("IntVector2 UIElement::GetEffectiveMinSize() const", "IntVector2 GetEffectiveMinSize() const", AS_METHODPR(UIElement, GetEffectiveMinSize, () const, IntVector2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void UIElement::SetRenderTexture(Texture2D* texture)", "void SetRenderTexture(Texture2D@+)", AS_METHODPR(UIElement, SetRenderTexture, (Texture2D*), void), AS_CALL_THISCALL));
 
+    // template <class T> T* UIElement::CreateChild(const String& name = String::EMPTY, unsigned index = M_MAX_UNSIGNED)
+    // Not registered because template
+    // template <class T> T* UIElement::GetChildStaticCast(unsigned index) const
+    // Not registered because template
+    // template <class T> T* UIElement::GetChildStaticCast(const String& name, bool recursive = false) const
+    // Not registered because template
+    // template <class T> T* UIElement::GetChildStaticCast(const StringHash& key, const Variant& value = Variant::EMPTY, bool recursive = false) const
+    // Not registered because template
+    // template <class T> T* UIElement::GetChildDynamicCast(unsigned index) const
+    // Not registered because template
+    // template <class T> T* UIElement::GetChildDynamicCast(const String& name, bool recursive = false) const
+    // Not registered because template
+    // template <class T> T* UIElement::GetChildDynamicCast(const StringHash& key, const Variant& value = Variant::EMPTY, bool recursive = false) const
+    // Not registered because template
     // static void UIElement::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
@@ -1964,7 +1978,7 @@ void CollectMembers_View3D(MemberCollection& members)
     Remove(members.staticMethods_, "static void Window::RegisterObject(Context* context)");
 
     members.methods_.Push(RegisterObjectMethodArgs("void View3D::OnResize(const IntVector2& newSize, const IntVector2& delta) override", "void OnResize(const IntVector2&in, const IntVector2&in)", AS_METHODPR(View3D, OnResize, (const IntVector2&, const IntVector2&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void View3D::SetView(Scene* scene, Camera* camera, bool ownScene=true)", "void SetView(Scene@+, Camera@+, bool = true)", AS_METHODPR(View3D, SetView, (Scene*, Camera*, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void View3D::SetView(Scene* scene, Camera* camera, bool ownScene = true)", "void SetView(Scene@+, Camera@+, bool = true)", AS_METHODPR(View3D, SetView, (Scene*, Camera*, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void View3D::SetFormat(unsigned format)", "void SetFormat(uint)", AS_METHODPR(View3D, SetFormat, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void View3D::SetFormat(unsigned format)", "void set_format(uint)", AS_METHODPR(View3D, SetFormat, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void View3D::SetAutoUpdate(bool enable)", "void SetAutoUpdate(bool)", AS_METHODPR(View3D, SetAutoUpdate, (bool), void), AS_CALL_THISCALL));

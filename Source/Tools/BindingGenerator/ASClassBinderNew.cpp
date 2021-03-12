@@ -370,10 +370,24 @@ static string GetPropertyMark(const MethodAnalyzer& methodAnalyzer)
 static void RegisterMethod(const MethodAnalyzer& methodAnalyzer, ProcessedClass& processedClass)
 {
     if (methodAnalyzer.IsTemplate())
+    {
+        MemberRegistrationError regError;
+        regError.name_ = methodAnalyzer.GetName();
+        regError.comment_ = methodAnalyzer.GetDeclaration();
+        regError.message_ = "Not registered because template";
+        processedClass.unregisteredStaticMethods_.push_back(regError);
         return;
+    }
 
     if (methodAnalyzer.IsDeleted())
+    {
+        MemberRegistrationError regError;
+        regError.name_ = methodAnalyzer.GetName();
+        regError.comment_ = methodAnalyzer.GetDeclaration();
+        regError.message_ = "Not registered because deleted";
+        processedClass.unregisteredStaticMethods_.push_back(regError);
         return;
+    }
 
     if (methodAnalyzer.IsStatic())
     {

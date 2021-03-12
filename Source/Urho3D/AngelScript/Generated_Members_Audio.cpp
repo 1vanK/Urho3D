@@ -27,7 +27,7 @@ void CollectMembers_Audio(MemberCollection& members)
     // void Audio::MixOutput(void* dest, unsigned samples)
     // Error: type "void*" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool Audio::SetMode(int bufferLengthMSec, int mixRate, bool stereo, bool interpolation=true)", "bool SetMode(int, int, bool, bool = true)", AS_METHODPR(Audio, SetMode, (int, int, bool, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Audio::SetMode(int bufferLengthMSec, int mixRate, bool stereo, bool interpolation = true)", "bool SetMode(int, int, bool, bool = true)", AS_METHODPR(Audio, SetMode, (int, int, bool, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Audio::Update(float timeStep)", "void Update(float)", AS_METHODPR(Audio, Update, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Audio::Play()", "bool Play()", AS_METHODPR(Audio, Play, (), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Audio::Stop()", "void Stop()", AS_METHODPR(Audio, Stop, (), void), AS_CALL_THISCALL));
@@ -73,7 +73,7 @@ void CollectMembers_BufferedSoundStream(MemberCollection& members)
 {
     CollectMembers_SoundStream(members);
 
-    Remove(members.methods_, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
+    Remove(members.methods_, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes) = 0");
 
     // void BufferedSoundStream::AddData(const SharedArrayPtr<signed char>& data, unsigned numBytes)
     // Error: type "const SharedArrayPtr<signed char>&" can not automatically bind
@@ -99,7 +99,7 @@ void CollectMembers_OggVorbisSoundStream(MemberCollection& members)
     CollectMembers_SoundStream(members);
 
     Remove(members.methods_, "virtual bool SoundStream::Seek(unsigned sample_number)");
-    Remove(members.methods_, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0");
+    Remove(members.methods_, "virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes) = 0");
 
     // unsigned OggVorbisSoundStream::GetData(signed char* dest, unsigned numBytes) override
     // Error: type "signed char*" can not automatically bind
@@ -304,7 +304,7 @@ void CollectMembers_SoundStream(MemberCollection& members)
 {
     CollectMembers_RefCounted(members);
 
-    // virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes)=0
+    // virtual unsigned SoundStream::GetData(signed char* dest, unsigned numBytes) = 0
     // Error: type "signed char*" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("virtual bool SoundStream::Seek(unsigned sample_number)", "bool Seek(uint)", AS_METHODPR(SoundStream, Seek, (unsigned), bool), AS_CALL_THISCALL));

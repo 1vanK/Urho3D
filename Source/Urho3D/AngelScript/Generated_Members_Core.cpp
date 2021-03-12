@@ -15,8 +15,8 @@ void CollectMembers_AttributeAccessor(MemberCollection& members)
 {
     CollectMembers_RefCounted(members);
 
-    members.methods_.Push(RegisterObjectMethodArgs("virtual void AttributeAccessor::Get(const Serializable* ptr, Variant& dest) const =0", "void Get(Serializable@+, Variant&) const", AS_METHODPR(AttributeAccessor, Get, (const Serializable*, Variant&) const, void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("virtual void AttributeAccessor::Set(Serializable* ptr, const Variant& src)=0", "void Set(Serializable@+, const Variant&in)", AS_METHODPR(AttributeAccessor, Set, (Serializable*, const Variant&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void AttributeAccessor::Get(const Serializable* ptr, Variant& dest) const = 0", "void Get(Serializable@+, Variant&) const", AS_METHODPR(AttributeAccessor, Get, (const Serializable*, Variant&) const, void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void AttributeAccessor::Set(Serializable* ptr, const Variant& src) = 0", "void Set(Serializable@+, const Variant&in)", AS_METHODPR(AttributeAccessor, Set, (Serializable*, const Variant&), void), AS_CALL_THISCALL));
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_AttributeAccessor
         REGISTER_MEMBERS_MANUAL_PART_AttributeAccessor();
@@ -38,6 +38,9 @@ void CollectMembers_AttributeHandle(MemberCollection& members)
 void CollectMembers_AttributeInfo(MemberCollection& members)
 {
     members.methods_.Push(RegisterObjectMethodArgs("const Variant& AttributeInfo::GetMetadata(const StringHash& key) const", "const Variant& GetMetadata(const StringHash&in) const", AS_METHODPR(AttributeInfo, GetMetadata, (const StringHash&) const, const Variant&), AS_CALL_THISCALL));
+
+    // template <class T> T AttributeInfo::GetMetadata(const StringHash& key) const
+    // Not registered because template
 
     // const char** AttributeInfo::enumNames_
     // Error: type "const char**" can not automatically bind
@@ -133,6 +136,31 @@ void CollectMembers_Context(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("EventReceiverGroup* Context::GetEventReceivers(Object* sender, StringHash eventType)", "EventReceiverGroup@+ GetEventReceivers(Object@+, StringHash)", AS_METHODPR(Context, GetEventReceivers, (Object*, StringHash), EventReceiverGroup*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("EventReceiverGroup* Context::GetEventReceivers(StringHash eventType)", "EventReceiverGroup@+ GetEventReceivers(StringHash)", AS_METHODPR(Context, GetEventReceivers, (StringHash), EventReceiverGroup*), AS_CALL_THISCALL));
 
+    // template <class T> SharedPtr<T> Context::CreateObject()
+    // Not registered because template
+    // template <class T> void Context::RegisterFactory()
+    // Not registered because template
+    // template <class T> void Context::RegisterFactory(const char* category)
+    // Not registered because template
+    // template <class T> T* Context::RegisterSubsystem()
+    // Not registered because template
+    // template <class T> void Context::RemoveSubsystem()
+    // Not registered because template
+    // template <class T> AttributeHandle Context::RegisterAttribute(const AttributeInfo& attr)
+    // Not registered because template
+    // template <class T> void Context::RemoveAttribute(const char* name)
+    // Not registered because template
+    // template <class T> void Context::RemoveAllAttributes()
+    // Not registered because template
+    // template <class T, class U> void Context::CopyBaseAttributes()
+    // Not registered because template
+    // template <class T> void Context::UpdateAttributeDefaultValue(const char* name, const Variant& defaultValue)
+    // Not registered because template
+    // template <class T> T* Context::GetSubsystem() const
+    // Not registered because template
+    // template <class T> AttributeInfo* Context::GetAttribute(const char* name)
+    // Not registered because template
+
     #ifdef REGISTER_MEMBERS_MANUAL_PART_Context
         REGISTER_MEMBERS_MANUAL_PART_Context();
     #endif
@@ -156,6 +184,13 @@ void CollectMembers_CustomVariantValue(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("virtual bool CustomVariantValue::IsZero() const", "bool IsZero() const", AS_METHODPR(CustomVariantValue, IsZero, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("virtual String CustomVariantValue::ToString() const", "String ToString() const", AS_METHODPR(CustomVariantValue, ToString, () const, String), AS_CALL_THISCALL));
 
+    // template <class T> bool CustomVariantValue::IsType() const
+    // Not registered because template
+    // template <class T> T* CustomVariantValue::GetValuePtr()
+    // Not registered because template
+    // template <class T> const T* CustomVariantValue::GetValuePtr() const
+    // Not registered because template
+
     #ifdef REGISTER_MEMBERS_MANUAL_PART_CustomVariantValue
         REGISTER_MEMBERS_MANUAL_PART_CustomVariantValue();
     #endif
@@ -164,13 +199,13 @@ void CollectMembers_CustomVariantValue(MemberCollection& members)
 // class EventHandler | File: ../Core/Object.h
 void CollectMembers_EventHandler(MemberCollection& members)
 {
-    // virtual EventHandler* EventHandler::Clone() const =0
+    // virtual EventHandler* EventHandler::Clone() const = 0
     // Error: type "EventHandler*" can not automatically bind
     // void* EventHandler::GetUserData() const
     // Error: type "void*" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("void EventHandler::SetSenderAndEventType(Object* sender, StringHash eventType)", "void SetSenderAndEventType(Object@+, StringHash)", AS_METHODPR(EventHandler, SetSenderAndEventType, (Object*, StringHash), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("virtual void EventHandler::Invoke(VariantMap& eventData)=0", "void Invoke(VariantMap&)", AS_METHODPR(EventHandler, Invoke, (VariantMap&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void EventHandler::Invoke(VariantMap& eventData) = 0", "void Invoke(VariantMap&)", AS_METHODPR(EventHandler, Invoke, (VariantMap&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Object* EventHandler::GetReceiver() const", "Object@+ GetReceiver() const", AS_METHODPR(EventHandler, GetReceiver, () const, Object*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Object* EventHandler::GetSender() const", "Object@+ GetSender() const", AS_METHODPR(EventHandler, GetSender, () const, Object*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const StringHash& EventHandler::GetEventType() const", "const StringHash& GetEventType() const", AS_METHODPR(EventHandler, GetEventType, () const, const StringHash&), AS_CALL_THISCALL));
@@ -270,6 +305,9 @@ void CollectMembers_Mutex(MemberCollection& members)
 // class MutexLock | File: ../Core/Mutex.h
 void CollectMembers_MutexLock(MemberCollection& members)
 {
+    // MutexLock& MutexLock::operator=(const MutexLock& rhs) = delete
+    // Not registered because deleted
+
     #ifdef REGISTER_MEMBERS_MANUAL_PART_MutexLock
         REGISTER_MEMBERS_MANUAL_PART_MutexLock();
     #endif
@@ -293,23 +331,23 @@ void CollectMembers_Object(MemberCollection& members)
     // Error: type "Context*" can used only as function parameter
     // EventHandler* Object::GetEventHandler() const
     // Error: type "EventHandler*" can not automatically bind
-    // virtual const TypeInfo* Object::GetTypeInfo() const =0
+    // virtual const TypeInfo* Object::GetTypeInfo() const = 0
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
     // bool Object::IsInstanceOf(const TypeInfo* typeInfo) const
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
     // void Object::SubscribeToEvent(Object* sender, StringHash eventType, EventHandler* handler)
     // Error: type "EventHandler*" can not automatically bind
-    // void Object::SubscribeToEvent(Object* sender, StringHash eventType, const std::function<void(StringHash, VariantMap&)>& function, void* userData=nullptr)
+    // void Object::SubscribeToEvent(Object* sender, StringHash eventType, const std::function<void(StringHash, VariantMap&)>& function, void* userData = nullptr)
     // Error: type "const std::function<void(StringHash, VariantMap&)>&" can not automatically bind
     // void Object::SubscribeToEvent(StringHash eventType, EventHandler* handler)
     // Error: type "EventHandler*" can not automatically bind
-    // void Object::SubscribeToEvent(StringHash eventType, const std::function<void(StringHash, VariantMap&)>& function, void* userData=nullptr)
+    // void Object::SubscribeToEvent(StringHash eventType, const std::function<void(StringHash, VariantMap&)>& function, void* userData = nullptr)
     // Error: type "const std::function<void(StringHash, VariantMap&)>&" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("virtual StringHash Object::GetType() const =0", "StringHash GetType() const", AS_METHODPR(Object, GetType, () const, StringHash), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("virtual StringHash Object::GetType() const =0", "StringHash get_type() const", AS_METHODPR(Object, GetType, () const, StringHash), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("virtual const String& Object::GetTypeName() const =0", "const String& GetTypeName() const", AS_METHODPR(Object, GetTypeName, () const, const String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("virtual const String& Object::GetTypeName() const =0", "const String& get_typeName() const", AS_METHODPR(Object, GetTypeName, () const, const String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual StringHash Object::GetType() const = 0", "StringHash GetType() const", AS_METHODPR(Object, GetType, () const, StringHash), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual StringHash Object::GetType() const = 0", "StringHash get_type() const", AS_METHODPR(Object, GetType, () const, StringHash), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual const String& Object::GetTypeName() const = 0", "const String& GetTypeName() const", AS_METHODPR(Object, GetTypeName, () const, const String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual const String& Object::GetTypeName() const = 0", "const String& get_typeName() const", AS_METHODPR(Object, GetTypeName, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("virtual void Object::OnEvent(Object* sender, StringHash eventType, VariantMap& eventData)", "void OnEvent(Object@+, StringHash, VariantMap&)", AS_METHODPR(Object, OnEvent, (Object*, StringHash, VariantMap&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Object::IsInstanceOf(StringHash type) const", "bool IsInstanceOf(StringHash) const", AS_METHODPR(Object, IsInstanceOf, (StringHash) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Object::UnsubscribeFromEvent(StringHash eventType)", "void UnsubscribeFromEvent(StringHash)", AS_METHODPR(Object, UnsubscribeFromEvent, (StringHash), void), AS_CALL_THISCALL));
@@ -336,6 +374,16 @@ void CollectMembers_Object(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Object::SetBlockEvents(bool block)", "void SetBlockEvents(bool)", AS_METHODPR(Object, SetBlockEvents, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Object::GetBlockEvents() const", "bool GetBlockEvents() const", AS_METHODPR(Object, GetBlockEvents, () const, bool), AS_CALL_THISCALL));
 
+    // template <typename T> bool Object::IsInstanceOf() const
+    // Not registered because template
+    // template <typename T> T* Object::Cast()
+    // Not registered because template
+    // template <typename T> const T* Object::Cast() const
+    // Not registered because template
+    // template <typename... Args> void Object::SendEvent(StringHash eventType, Args... args)
+    // Not registered because template
+    // template <class T> T* Object::GetSubsystem() const
+    // Not registered because template
     // static const TypeInfo* Object::GetTypeInfoStatic()
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
 
@@ -344,8 +392,8 @@ void CollectMembers_Object(MemberCollection& members)
     #endif
 }
 
-// virtual SharedPtr<Object> ObjectFactory::CreateObject()=0
-// virtual SharedPtr<Object> ObjectFactory::CreateObject()=0 | File: ../Core/Object.h
+// virtual SharedPtr<Object> ObjectFactory::CreateObject() = 0
+// virtual SharedPtr<Object> ObjectFactory::CreateObject() = 0 | File: ../Core/Object.h
 static Object* ObjectFactory_CreateObject_void(ObjectFactory* ptr)
 {
     SharedPtr<Object> result = ptr->CreateObject();
@@ -363,7 +411,7 @@ void CollectMembers_ObjectFactory(MemberCollection& members)
     // const TypeInfo* ObjectFactory::GetTypeInfo() const
     // Error: type "TypeInfo" can not automatically bind bacause have @nobind mark
 
-    members.methods_.Push(RegisterObjectMethodArgs("virtual SharedPtr<Object> ObjectFactory::CreateObject()=0", "Object@+ CreateObject()", AS_FUNCTION_OBJFIRST(ObjectFactory_CreateObject_void), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual SharedPtr<Object> ObjectFactory::CreateObject() = 0", "Object@+ CreateObject()", AS_FUNCTION_OBJFIRST(ObjectFactory_CreateObject_void), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("StringHash ObjectFactory::GetType() const", "StringHash GetType() const", AS_METHODPR(ObjectFactory, GetType, () const, StringHash), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& ObjectFactory::GetTypeName() const", "const String& GetTypeName() const", AS_METHODPR(ObjectFactory, GetTypeName, () const, const String&), AS_CALL_THISCALL));
 
@@ -388,7 +436,7 @@ void CollectMembers_Profiler(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Profiler::BeginFrame()", "void BeginFrame()", AS_METHODPR(Profiler, BeginFrame, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Profiler::EndFrame()", "void EndFrame()", AS_METHODPR(Profiler, EndFrame, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Profiler::BeginInterval()", "void BeginInterval()", AS_METHODPR(Profiler, BeginInterval, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("const String& Profiler::PrintData(bool showUnused=false, bool showTotal=false, unsigned maxDepth=M_MAX_UNSIGNED) const", "const String& PrintData(bool = false, bool = false, uint = M_MAX_UNSIGNED) const", AS_METHODPR(Profiler, PrintData, (bool, bool, unsigned) const, const String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("const String& Profiler::PrintData(bool showUnused = false, bool showTotal = false, unsigned maxDepth = M_MAX_UNSIGNED) const", "const String& PrintData(bool = false, bool = false, uint = M_MAX_UNSIGNED) const", AS_METHODPR(Profiler, PrintData, (bool, bool, unsigned) const, const String&), AS_CALL_THISCALL));
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_Profiler
         REGISTER_MEMBERS_MANUAL_PART_Profiler();
@@ -476,7 +524,7 @@ void CollectMembers_Spline(MemberCollection& members)
     // bool Spline::operator!=(const Spline& rhs) const
     // Only operator== is needed
 
-    members.methods_.Push(RegisterObjectMethodArgs("Spline& Spline::operator=(const Spline& rhs)=default", "Spline& opAssign(const Spline&in)", AS_METHODPR(Spline, operator=, (const Spline&), Spline&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Spline& Spline::operator=(const Spline& rhs) = default", "Spline& opAssign(const Spline&in)", AS_METHODPR(Spline, operator=, (const Spline&), Spline&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Spline::operator==(const Spline& rhs) const", "bool opEquals(const Spline&in) const", AS_METHODPR(Spline, operator==, (const Spline&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("InterpolationMode Spline::GetInterpolationMode() const", "InterpolationMode GetInterpolationMode() const", AS_METHODPR(Spline, GetInterpolationMode, () const, InterpolationMode), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("InterpolationMode Spline::GetInterpolationMode() const", "InterpolationMode get_interpolationMode() const", AS_METHODPR(Spline, GetInterpolationMode, () const, InterpolationMode), AS_CALL_THISCALL));
@@ -519,7 +567,7 @@ void CollectMembers_StringHashRegister(MemberCollection& members)
 // class Thread | File: ../Core/Thread.h
 void CollectMembers_Thread(MemberCollection& members)
 {
-    members.methods_.Push(RegisterObjectMethodArgs("virtual void Thread::ThreadFunction()=0", "void ThreadFunction()", AS_METHODPR(Thread, ThreadFunction, (), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void Thread::ThreadFunction() = 0", "void ThreadFunction()", AS_METHODPR(Thread, ThreadFunction, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Thread::Run()", "bool Run()", AS_METHODPR(Thread, Run, (), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Thread::Stop()", "void Stop()", AS_METHODPR(Thread, Stop, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Thread::SetPriority(int priority)", "void SetPriority(int)", AS_METHODPR(Thread, SetPriority, (int), void), AS_CALL_THISCALL));
@@ -586,6 +634,9 @@ void CollectMembers_TypeInfo(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool TypeInfo::IsTypeOf(StringHash type) const", "bool IsTypeOf(StringHash) const", AS_METHODPR(TypeInfo, IsTypeOf, (StringHash) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("StringHash TypeInfo::GetType() const", "StringHash GetType() const", AS_METHODPR(TypeInfo, GetType, () const, StringHash), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& TypeInfo::GetTypeName() const", "const String& GetTypeName() const", AS_METHODPR(TypeInfo, GetTypeName, () const, const String&), AS_CALL_THISCALL));
+
+    // template <typename T> bool TypeInfo::IsTypeOf() const
+    // Not registered because template
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_TypeInfo
         REGISTER_MEMBERS_MANUAL_PART_TypeInfo();
@@ -822,6 +873,104 @@ void CollectMembers_Variant(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Variant::IsEmpty() const", "bool get_empty() const", AS_METHODPR(Variant, IsEmpty, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Variant::IsCustom() const", "bool IsCustom() const", AS_METHODPR(Variant, IsCustom, () const, bool), AS_CALL_THISCALL));
 
+    // template <class T> Variant& Variant::operator=(const CustomVariantValueImpl<T>& value)
+    // Not registered because template
+    // template <class T> void Variant::SetCustom(const T& value)
+    // Not registered because template
+    // template <class T> T Variant::GetCustom() const
+    // Not registered because template
+    // template <class T> bool Variant::IsCustomType() const
+    // Not registered because template
+    // template <class T> T Variant::Get() const
+    // Not registered because template
+    // template <class T> T* Variant::GetCustomPtr()
+    // Not registered because template
+    // template <> int Variant::Get() const
+    // Not registered because template
+    // template <> unsigned Variant::Get() const
+    // Not registered because template
+    // template <> long long Variant::Get() const
+    // Not registered because template
+    // template <> unsigned long long Variant::Get() const
+    // Not registered because template
+    // template <> StringHash Variant::Get() const
+    // Not registered because template
+    // template <> bool Variant::Get() const
+    // Not registered because template
+    // template <> float Variant::Get() const
+    // Not registered because template
+    // template <> double Variant::Get() const
+    // Not registered because template
+    // template <> const Vector2& Variant::Get() const
+    // Not registered because template
+    // template <> const Vector3& Variant::Get() const
+    // Not registered because template
+    // template <> const Vector4& Variant::Get() const
+    // Not registered because template
+    // template <> const Quaternion& Variant::Get() const
+    // Not registered because template
+    // template <> const Color& Variant::Get() const
+    // Not registered because template
+    // template <> const String& Variant::Get() const
+    // Not registered because template
+    // template <> const Rect& Variant::Get() const
+    // Not registered because template
+    // template <> const IntRect& Variant::Get() const
+    // Not registered because template
+    // template <> const IntVector2& Variant::Get() const
+    // Not registered because template
+    // template <> const IntVector3& Variant::Get() const
+    // Not registered because template
+    // template <> const PODVector<unsigned char>& Variant::Get() const
+    // Not registered because template
+    // template <> void* Variant::Get() const
+    // Not registered because template
+    // template <> RefCounted* Variant::Get() const
+    // Not registered because template
+    // template <> const Matrix3& Variant::Get() const
+    // Not registered because template
+    // template <> const Matrix3x4& Variant::Get() const
+    // Not registered because template
+    // template <> const Matrix4& Variant::Get() const
+    // Not registered because template
+    // template <> ResourceRef Variant::Get() const
+    // Not registered because template
+    // template <> ResourceRefList Variant::Get() const
+    // Not registered because template
+    // template <> VariantVector Variant::Get() const
+    // Not registered because template
+    // template <> StringVector Variant::Get() const
+    // Not registered because template
+    // template <> VariantMap Variant::Get() const
+    // Not registered because template
+    // template <> Vector2 Variant::Get() const
+    // Not registered because template
+    // template <> Vector3 Variant::Get() const
+    // Not registered because template
+    // template <> Vector4 Variant::Get() const
+    // Not registered because template
+    // template <> Quaternion Variant::Get() const
+    // Not registered because template
+    // template <> Color Variant::Get() const
+    // Not registered because template
+    // template <> String Variant::Get() const
+    // Not registered because template
+    // template <> Rect Variant::Get() const
+    // Not registered because template
+    // template <> IntRect Variant::Get() const
+    // Not registered because template
+    // template <> IntVector2 Variant::Get() const
+    // Not registered because template
+    // template <> IntVector3 Variant::Get() const
+    // Not registered because template
+    // template <> PODVector<unsigned char> Variant::Get() const
+    // Not registered because template
+    // template <> Matrix3 Variant::Get() const
+    // Not registered because template
+    // template <> Matrix3x4 Variant::Get() const
+    // Not registered because template
+    // template <> Matrix4 Variant::Get() const
+    // Not registered because template
     // static VariantType Variant::GetTypeFromName(const char* typeName)
     // Error: type "const char*" can not automatically bind
 

@@ -47,18 +47,20 @@ const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* 
 #define REGISTER_CLASS_MANUAL_PART_Node() \
     RegisterNamedObjectConstructor<Node>(engine, "Node");
 
-// bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
-bool NodeSaveXML(File* file, const String& indentation, Node* ptr);
-// bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
+// bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+bool NodeSaveXMLFile(File* file, const String& indentation, Node* ptr);
 bool NodeSaveXMLVectorBuffer(VectorBuffer& buffer, const String& indentation, Node* ptr);
-// bool Node::SaveJSON(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
-bool NodeSaveJSON(File* file, Node* ptr);
-// bool Node::SaveJSON(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
+
+// bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+bool NodeSaveJSONFile(File* file, Node* ptr);
 bool NodeSaveJSONVectorBuffer(VectorBuffer& buffer, Node* ptr);
+
 // template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h
+// template <class T> void GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const
 CScriptArray* NodeGetChildrenWithScript(bool recursive, Node* ptr);
 // template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetChildrenWithClassName(const String& className, bool recursive, Node* ptr);
+
 // void Node::GetComponents(PODVector< Component * > &dest, StringHash type, bool recursive=false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetComponentsWithType(const String& typeName, bool recursive, Node* ptr);
 // unsigned Node::GetNumChildren(bool recursive=false) const | File: ../Scene/Node.h
@@ -76,15 +78,11 @@ VariantMap& NodeGetVars(Node* ptr);
 // const Vector<SharedPtr<Component> >& Node::GetComponents() const | File: ../Scene/Node.h
 Component* NodeGetComponent(unsigned index, Node* ptr);
 
-#define REGISTER_MANUAL_PART_Node(T, className) \
-    /* bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "bool SaveXML(File@+, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXML), AS_CALL_CDECL_OBJLAST); \
-    /* bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "bool SaveXML(VectorBuffer&, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    /* bool Node::SaveJSON(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "bool SaveJSON(File@+)", AS_FUNCTION_OBJLAST(NodeSaveJSON), AS_CALL_CDECL_OBJLAST); \
-    /* bool Node::SaveJSON(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h */ \
-    engine->RegisterObjectMethod(className, "bool SaveJSON(VectorBuffer&)", AS_FUNCTION_OBJLAST(NodeSaveJSONVectorBuffer), AS_CALL_CDECL_OBJLAST); \
+#define REGISTER_MEMBERS_MANUAL_PART_Node() \
+    engine->RegisterObjectMethod("bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveXML(File@+, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLFile), AS_CALL_CDECL_OBJLAST); \
+    engine->RegisterObjectMethod("bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveXML(VectorBuffer&, const String&in indentation = \"\t\")", AS_FUNCTION_OBJLAST(NodeSaveXMLVectorBuffer), AS_CALL_CDECL_OBJLAST); \
+    engine->RegisterObjectMethod("bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveJSON(File@+)", AS_FUNCTION_OBJLAST(NodeSaveJSONFile), AS_CALL_CDECL_OBJLAST); \
+    engine->RegisterObjectMethod("bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveJSON(VectorBuffer&)", AS_FUNCTION_OBJLAST(NodeSaveJSONVectorBuffer), AS_CALL_CDECL_OBJLAST); \
     /* template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h */ \
     engine->RegisterObjectMethod(className, "Array<Node@>@ GetChildrenWithScript(bool recursive = false) const", AS_FUNCTION_OBJLAST(NodeGetChildrenWithScript), AS_CALL_CDECL_OBJLAST); \
     /* template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h */ \

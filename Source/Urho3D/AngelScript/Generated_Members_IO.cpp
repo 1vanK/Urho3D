@@ -40,14 +40,14 @@ static CScriptArray* Deserializer_ReadStringVector_void(Deserializer* ptr)
 // class Deserializer | File: ../IO/Deserializer.h
 void CollectMembers_Deserializer(MemberCollection& members)
 {
-    // virtual unsigned Deserializer::Read(void* dest, unsigned size)=0
+    // virtual unsigned Deserializer::Read(void* dest, unsigned size) = 0
     // Error: type "void*" can not automatically bind
     // PODVector<unsigned char> Deserializer::ReadBuffer()
     // Error: type "PODVector<unsigned char>" can not automatically bind
     // VariantVector Deserializer::ReadVariantVector()
     // Error: type "VariantVector" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Deserializer::Seek(unsigned position)=0", "uint Seek(uint)", AS_METHODPR(Deserializer, Seek, (unsigned), unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Deserializer::Seek(unsigned position) = 0", "uint Seek(uint)", AS_METHODPR(Deserializer, Seek, (unsigned), unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("virtual const String& Deserializer::GetName() const", "const String& GetName() const", AS_METHODPR(Deserializer, GetName, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("virtual const String& Deserializer::GetName() const", "const String& get_name() const", AS_METHODPR(Deserializer, GetName, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Deserializer::GetChecksum()", "uint GetChecksum()", AS_METHODPR(Deserializer, GetChecksum, (), unsigned), AS_CALL_THISCALL));
@@ -111,9 +111,9 @@ void CollectMembers_File(MemberCollection& members)
     CollectMembers_AbstractFile(members);
 
     Remove(members.methods_, "virtual unsigned Deserializer::GetChecksum()");
-    Remove(members.methods_, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(members.methods_, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(members.methods_, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
+    Remove(members.methods_, "virtual unsigned Deserializer::Read(void* dest, unsigned size) = 0");
+    Remove(members.methods_, "virtual unsigned Deserializer::Seek(unsigned position) = 0");
+    Remove(members.methods_, "virtual unsigned Serializer::Write(const void* data, unsigned size) = 0");
 
     // void* File::GetHandle() const
     // Error: type "void*" can not automatically bind
@@ -125,7 +125,7 @@ void CollectMembers_File(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("unsigned File::Seek(unsigned position) override", "uint Seek(uint)", AS_METHODPR(File, Seek, (unsigned), unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned File::GetChecksum() override", "uint GetChecksum()", AS_METHODPR(File, GetChecksum, (), unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned File::GetChecksum() override", "uint get_checksum()", AS_METHODPR(File, GetChecksum, (), unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool File::Open(const String& fileName, FileMode mode=FILE_READ)", "bool Open(const String&in, FileMode = FILE_READ)", AS_METHODPR(File, Open, (const String&, FileMode), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool File::Open(const String& fileName, FileMode mode = FILE_READ)", "bool Open(const String&in, FileMode = FILE_READ)", AS_METHODPR(File, Open, (const String&, FileMode), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool File::Open(PackageFile* package, const String& fileName)", "bool Open(PackageFile@+, const String&in)", AS_METHODPR(File, Open, (PackageFile*, const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void File::Close()", "void Close()", AS_METHODPR(File, Close, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void File::Flush()", "void Flush()", AS_METHODPR(File, Flush, (), void), AS_CALL_THISCALL));
@@ -174,11 +174,11 @@ void CollectMembers_FileSystem(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool FileSystem::CreateDir(const String& pathName)", "bool CreateDir(const String&in)", AS_METHODPR(FileSystem, CreateDir, (const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void FileSystem::SetExecuteConsoleCommands(bool enable)", "void SetExecuteConsoleCommands(bool)", AS_METHODPR(FileSystem, SetExecuteConsoleCommands, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void FileSystem::SetExecuteConsoleCommands(bool enable)", "void set_executeConsoleCommands(bool)", AS_METHODPR(FileSystem, SetExecuteConsoleCommands, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("int FileSystem::SystemCommand(const String& commandLine, bool redirectStdOutToLog=false)", "int SystemCommand(const String&in, bool = false)", AS_METHODPR(FileSystem, SystemCommand, (const String&, bool), int), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("int FileSystem::SystemCommand(const String& commandLine, bool redirectStdOutToLog = false)", "int SystemCommand(const String&in, bool = false)", AS_METHODPR(FileSystem, SystemCommand, (const String&, bool), int), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int FileSystem::SystemRun(const String& fileName, const Vector<String>& arguments)", "int SystemRun(const String&in, Array<String>@+)", AS_FUNCTION_OBJFIRST(FileSystem_SystemRun_String_VectorString), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned FileSystem::SystemCommandAsync(const String& commandLine)", "uint SystemCommandAsync(const String&in)", AS_METHODPR(FileSystem, SystemCommandAsync, (const String&), unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned FileSystem::SystemRunAsync(const String& fileName, const Vector<String>& arguments)", "uint SystemRunAsync(const String&in, Array<String>@+)", AS_FUNCTION_OBJFIRST(FileSystem_SystemRunAsync_String_VectorString), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("bool FileSystem::SystemOpen(const String& fileName, const String& mode=String::EMPTY)", "bool SystemOpen(const String&in, const String&in = String::EMPTY)", AS_METHODPR(FileSystem, SystemOpen, (const String&, const String&), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool FileSystem::SystemOpen(const String& fileName, const String& mode = String::EMPTY)", "bool SystemOpen(const String&in, const String&in = String::EMPTY)", AS_METHODPR(FileSystem, SystemOpen, (const String&, const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool FileSystem::Copy(const String& srcFileName, const String& destFileName)", "bool Copy(const String&in, const String&in)", AS_METHODPR(FileSystem, Copy, (const String&, const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool FileSystem::Rename(const String& srcFileName, const String& destFileName)", "bool Rename(const String&in, const String&in)", AS_METHODPR(FileSystem, Rename, (const String&, const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool FileSystem::Delete(const String& fileName)", "bool Delete(const String&in)", AS_METHODPR(FileSystem, Delete, (const String&), bool), AS_CALL_THISCALL));
@@ -212,7 +212,7 @@ void CollectMembers_FileWatcher(MemberCollection& members)
     CollectMembers_Object(members);
     CollectMembers_Thread(members);
 
-    Remove(members.methods_, "virtual void Thread::ThreadFunction()=0");
+    Remove(members.methods_, "virtual void Thread::ThreadFunction() = 0");
 
     members.methods_.Push(RegisterObjectMethodArgs("void FileWatcher::ThreadFunction() override", "void ThreadFunction()", AS_METHODPR(FileWatcher, ThreadFunction, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool FileWatcher::StartWatching(const String& pathName, bool watchSubDirs)", "bool StartWatching(const String&in, bool)", AS_METHODPR(FileWatcher, StartWatching, (const String&, bool), bool), AS_CALL_THISCALL));
@@ -255,7 +255,7 @@ void CollectMembers_Log(MemberCollection& members)
     // static void Log::WriteFormat(int level, const char* format,...)
     // Error: type "const char*" can not automatically bind
 
-    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static void Log::WriteRaw(const String& message, bool error=false)", "void WriteRaw(const String&in, bool = false)", AS_FUNCTIONPR(Log::WriteRaw, (const String&, bool), void), AS_CALL_CDECL));
+    members.staticMethods_.Push(RegisterGlobalFunctionArgs("static void Log::WriteRaw(const String& message, bool error = false)", "void WriteRaw(const String&in, bool = false)", AS_FUNCTIONPR(Log::WriteRaw, (const String&, bool), void), AS_CALL_CDECL));
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_Log
         REGISTER_MEMBERS_MANUAL_PART_Log();
@@ -287,9 +287,9 @@ void CollectMembers_NamedPipe(MemberCollection& members)
     CollectMembers_AbstractFile(members);
 
     Remove(members.methods_, "virtual bool Deserializer::IsEof() const");
-    Remove(members.methods_, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(members.methods_, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(members.methods_, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
+    Remove(members.methods_, "virtual unsigned Deserializer::Read(void* dest, unsigned size) = 0");
+    Remove(members.methods_, "virtual unsigned Deserializer::Seek(unsigned position) = 0");
+    Remove(members.methods_, "virtual unsigned Serializer::Write(const void* data, unsigned size) = 0");
     Remove(members.methods_, "virtual void AbstractFile::SetName(const String& name)");
 
     // unsigned NamedPipe::Read(void* dest, unsigned size) override
@@ -345,7 +345,7 @@ void CollectMembers_PackageFile(MemberCollection& members)
     // const PackageEntry* PackageFile::GetEntry(const String& fileName) const
     // Error: type "const PackageEntry*" can not automatically bind
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool PackageFile::Open(const String& fileName, unsigned startOffset=0)", "bool Open(const String&in, uint = 0)", AS_METHODPR(PackageFile, Open, (const String&, unsigned), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool PackageFile::Open(const String& fileName, unsigned startOffset = 0)", "bool Open(const String&in, uint = 0)", AS_METHODPR(PackageFile, Open, (const String&, unsigned), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool PackageFile::Exists(const String& fileName) const", "bool Exists(const String&in) const", AS_METHODPR(PackageFile, Exists, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& PackageFile::GetName() const", "const String& GetName() const", AS_METHODPR(PackageFile, GetName, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& PackageFile::GetName() const", "const String& get_name() const", AS_METHODPR(PackageFile, GetName, () const, const String&), AS_CALL_THISCALL));
@@ -380,7 +380,7 @@ static bool Serializer_WriteStringVector_StringVector(Serializer* ptr, CScriptAr
 // class Serializer | File: ../IO/Serializer.h
 void CollectMembers_Serializer(MemberCollection& members)
 {
-    // virtual unsigned Serializer::Write(const void* data, unsigned size)=0
+    // virtual unsigned Serializer::Write(const void* data, unsigned size) = 0
     // Error: type "const void*" can not automatically bind
     // bool Serializer::WriteBuffer(const PODVector<unsigned char>& value)
     // Error: type "const PODVector<unsigned char>&" can not automatically bind
@@ -448,9 +448,9 @@ void CollectMembers_VectorBuffer(MemberCollection& members)
 {
     CollectMembers_AbstractFile(members);
 
-    Remove(members.methods_, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(members.methods_, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(members.methods_, "virtual unsigned Serializer::Write(const void* data, unsigned size)=0");
+    Remove(members.methods_, "virtual unsigned Deserializer::Read(void* dest, unsigned size) = 0");
+    Remove(members.methods_, "virtual unsigned Deserializer::Seek(unsigned position) = 0");
+    Remove(members.methods_, "virtual unsigned Serializer::Write(const void* data, unsigned size) = 0");
 
     // const PODVector<unsigned char>& VectorBuffer::GetBuffer() const
     // Error: type "const PODVector<unsigned char>&" can not automatically bind

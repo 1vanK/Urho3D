@@ -21,15 +21,15 @@ void CollectMembers_Connection(MemberCollection& members)
     // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
     // bool Connection::ProcessMessage(int msgID, MemoryBuffer& buffer)
     // Error: type "MemoryBuffer" can not automatically bind bacause have @nobind mark
-    // void Connection::SendMessage(int msgID, bool reliable, bool inOrder, const unsigned char* data, unsigned numBytes, unsigned contentID=0)
+    // void Connection::SendMessage(int msgID, bool reliable, bool inOrder, const unsigned char* data, unsigned numBytes, unsigned contentID = 0)
     // Error: type "const unsigned char*" can not automatically bind
     // void Connection::SetAddressOrGUID(const SLNet::AddressOrGUID& addr)
     // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
 
     members.methods_.Push(RegisterObjectMethodArgs("PacketType Connection::GetPacketType(bool reliable, bool inOrder)", "PacketType GetPacketType(bool, bool)", AS_METHODPR(Connection, GetPacketType, (bool, bool), PacketType), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendMessage(int msgID, bool reliable, bool inOrder, const VectorBuffer& msg, unsigned contentID=0)", "void SendMessage(int, bool, bool, const VectorBuffer&in, uint = 0)", AS_METHODPR(Connection, SendMessage, (int, bool, bool, const VectorBuffer&, unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendRemoteEvent(StringHash eventType, bool inOrder, const VariantMap& eventData=Variant::emptyVariantMap)", "void SendRemoteEvent(StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Connection, SendRemoteEvent, (StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendRemoteEvent(Node* node, StringHash eventType, bool inOrder, const VariantMap& eventData=Variant::emptyVariantMap)", "void SendRemoteEvent(Node@+, StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Connection, SendRemoteEvent, (Node*, StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendMessage(int msgID, bool reliable, bool inOrder, const VectorBuffer& msg, unsigned contentID = 0)", "void SendMessage(int, bool, bool, const VectorBuffer&in, uint = 0)", AS_METHODPR(Connection, SendMessage, (int, bool, bool, const VectorBuffer&, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendRemoteEvent(StringHash eventType, bool inOrder, const VariantMap& eventData = Variant::emptyVariantMap)", "void SendRemoteEvent(StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Connection, SendRemoteEvent, (StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendRemoteEvent(Node* node, StringHash eventType, bool inOrder, const VariantMap& eventData = Variant::emptyVariantMap)", "void SendRemoteEvent(Node@+, StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Connection, SendRemoteEvent, (Node*, StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SetScene(Scene* newScene)", "void SetScene(Scene@+)", AS_METHODPR(Connection, SetScene, (Scene*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SetScene(Scene* newScene)", "void set_scene(Scene@+)", AS_METHODPR(Connection, SetScene, (Scene*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SetIdentity(const VariantMap& identity)", "void SetIdentity(const VariantMap&in)", AS_METHODPR(Connection, SetIdentity, (const VariantMap&), void), AS_CALL_THISCALL));
@@ -41,7 +41,7 @@ void CollectMembers_Connection(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SetConnectPending(bool connectPending)", "void SetConnectPending(bool)", AS_METHODPR(Connection, SetConnectPending, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SetLogStatistics(bool enable)", "void SetLogStatistics(bool)", AS_METHODPR(Connection, SetLogStatistics, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SetLogStatistics(bool enable)", "void set_logStatistics(bool)", AS_METHODPR(Connection, SetLogStatistics, (bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Connection::Disconnect(int waitMSec=0)", "void Disconnect(int = 0)", AS_METHODPR(Connection, Disconnect, (int), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Connection::Disconnect(int waitMSec = 0)", "void Disconnect(int = 0)", AS_METHODPR(Connection, Disconnect, (int), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendServerUpdate()", "void SendServerUpdate()", AS_METHODPR(Connection, SendServerUpdate, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendClientUpdate()", "void SendClientUpdate()", AS_METHODPR(Connection, SendClientUpdate, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Connection::SendRemoteEvents()", "void SendRemoteEvents()", AS_METHODPR(Connection, SendRemoteEvents, (), void), AS_CALL_THISCALL));
@@ -113,9 +113,9 @@ void CollectMembers_HttpRequest(MemberCollection& members)
     CollectMembers_Thread(members);
 
     Remove(members.methods_, "virtual bool Deserializer::IsEof() const");
-    Remove(members.methods_, "virtual unsigned Deserializer::Read(void* dest, unsigned size)=0");
-    Remove(members.methods_, "virtual unsigned Deserializer::Seek(unsigned position)=0");
-    Remove(members.methods_, "virtual void Thread::ThreadFunction()=0");
+    Remove(members.methods_, "virtual unsigned Deserializer::Read(void* dest, unsigned size) = 0");
+    Remove(members.methods_, "virtual unsigned Deserializer::Seek(unsigned position) = 0");
+    Remove(members.methods_, "virtual void Thread::ThreadFunction() = 0");
 
     // unsigned HttpRequest::Read(void* dest, unsigned size) override
     // Error: type "void*" can not automatically bind
@@ -142,9 +142,9 @@ void CollectMembers_HttpRequest(MemberCollection& members)
     #endif
 }
 
-// SharedPtr<HttpRequest> Network::MakeHttpRequest(const String& url, const String& verb=String::EMPTY, const Vector<String>& headers=Vector<String>(), const String& postData=String::EMPTY)
+// SharedPtr<HttpRequest> Network::MakeHttpRequest(const String& url, const String& verb = String::EMPTY, const Vector<String>& headers = Vector<String>(), const String& postData = String::EMPTY)
 #ifdef URHO3D_NETWORK
-// SharedPtr<HttpRequest> Network::MakeHttpRequest(const String& url, const String& verb=String::EMPTY, const Vector<String>& headers=Vector<String>(), const String& postData=String::EMPTY) | File: ../Network/Network.h
+// SharedPtr<HttpRequest> Network::MakeHttpRequest(const String& url, const String& verb = String::EMPTY, const Vector<String>& headers = Vector<String>(), const String& postData = String::EMPTY) | File: ../Network/Network.h
 static HttpRequest* Network_MakeHttpRequest_String_String_VectorString_String(Network* ptr, const String& url, const String& verb, CScriptArray* headers_conv, const String& postData)
 {
     Vector<String> headers = ArrayToVector<String>(headers_conv);
@@ -170,7 +170,7 @@ void CollectMembers_Network(MemberCollection& members)
 {
     CollectMembers_Object(members);
 
-    // void Network::BroadcastMessage(int msgID, bool reliable, bool inOrder, const unsigned char* data, unsigned numBytes, unsigned contentID=0)
+    // void Network::BroadcastMessage(int msgID, bool reliable, bool inOrder, const unsigned char* data, unsigned numBytes, unsigned contentID = 0)
     // Error: type "const unsigned char*" can not automatically bind
     // void Network::ClientDisconnected(const SLNet::AddressOrGUID& connection)
     // Error: type "const SLNet::AddressOrGUID&" can not automatically bind
@@ -185,18 +185,18 @@ void CollectMembers_Network(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Network::DiscoverHosts(unsigned port)", "void DiscoverHosts(uint)", AS_METHODPR(Network, DiscoverHosts, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::SetPassword(const String& password)", "void SetPassword(const String&in)", AS_METHODPR(Network, SetPassword, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::SetNATServerInfo(const String& address, unsigned short port)", "void SetNATServerInfo(const String&in, uint16)", AS_METHODPR(Network, SetNATServerInfo, (const String&, unsigned short), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Network::Connect(const String& address, unsigned short port, Scene* scene, const VariantMap& identity=Variant::emptyVariantMap)", "bool Connect(const String&in, uint16, Scene@+, const VariantMap&in = VariantMap())", AS_METHODPR(Network, Connect, (const String&, unsigned short, Scene*, const VariantMap&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Network::Disconnect(int waitMSec=0)", "void Disconnect(int = 0)", AS_METHODPR(Network, Disconnect, (int), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Network::StartServer(unsigned short port, unsigned int maxConnections=128)", "bool StartServer(uint16, uint = 128)", AS_METHODPR(Network, StartServer, (unsigned short, unsigned int), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Network::Connect(const String& address, unsigned short port, Scene* scene, const VariantMap& identity = Variant::emptyVariantMap)", "bool Connect(const String&in, uint16, Scene@+, const VariantMap&in = VariantMap())", AS_METHODPR(Network, Connect, (const String&, unsigned short, Scene*, const VariantMap&), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Network::Disconnect(int waitMSec = 0)", "void Disconnect(int = 0)", AS_METHODPR(Network, Disconnect, (int), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Network::StartServer(unsigned short port, unsigned int maxConnections = 128)", "bool StartServer(uint16, uint = 128)", AS_METHODPR(Network, StartServer, (unsigned short, unsigned int), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::StopServer()", "void StopServer()", AS_METHODPR(Network, StopServer, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::StartNATClient()", "void StartNATClient()", AS_METHODPR(Network, StartNATClient, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& Network::GetGUID() const", "const String& GetGUID() const", AS_METHODPR(Network, GetGUID, () const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const String& Network::GetGUID() const", "const String& get_guid() const", AS_METHODPR(Network, GetGUID, () const, const String&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Network::AttemptNATPunchtrough(const String& guid, Scene* scene, const VariantMap& identity=Variant::emptyVariantMap)", "void AttemptNATPunchtrough(const String&in, Scene@+, const VariantMap&in = VariantMap())", AS_METHODPR(Network, AttemptNATPunchtrough, (const String&, Scene*, const VariantMap&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Network::BroadcastMessage(int msgID, bool reliable, bool inOrder, const VectorBuffer& msg, unsigned contentID=0)", "void BroadcastMessage(int, bool, bool, const VectorBuffer&in, uint = 0)", AS_METHODPR(Network, BroadcastMessage, (int, bool, bool, const VectorBuffer&, unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Network::BroadcastRemoteEvent(StringHash eventType, bool inOrder, const VariantMap& eventData=Variant::emptyVariantMap)", "void BroadcastRemoteEvent(StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Network, BroadcastRemoteEvent, (StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Network::BroadcastRemoteEvent(Scene* scene, StringHash eventType, bool inOrder, const VariantMap& eventData=Variant::emptyVariantMap)", "void BroadcastRemoteEvent(Scene@+, StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Network, BroadcastRemoteEvent, (Scene*, StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Network::BroadcastRemoteEvent(Node* node, StringHash eventType, bool inOrder, const VariantMap& eventData=Variant::emptyVariantMap)", "void BroadcastRemoteEvent(Node@+, StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Network, BroadcastRemoteEvent, (Node*, StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Network::AttemptNATPunchtrough(const String& guid, Scene* scene, const VariantMap& identity = Variant::emptyVariantMap)", "void AttemptNATPunchtrough(const String&in, Scene@+, const VariantMap&in = VariantMap())", AS_METHODPR(Network, AttemptNATPunchtrough, (const String&, Scene*, const VariantMap&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Network::BroadcastMessage(int msgID, bool reliable, bool inOrder, const VectorBuffer& msg, unsigned contentID = 0)", "void BroadcastMessage(int, bool, bool, const VectorBuffer&in, uint = 0)", AS_METHODPR(Network, BroadcastMessage, (int, bool, bool, const VectorBuffer&, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Network::BroadcastRemoteEvent(StringHash eventType, bool inOrder, const VariantMap& eventData = Variant::emptyVariantMap)", "void BroadcastRemoteEvent(StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Network, BroadcastRemoteEvent, (StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Network::BroadcastRemoteEvent(Scene* scene, StringHash eventType, bool inOrder, const VariantMap& eventData = Variant::emptyVariantMap)", "void BroadcastRemoteEvent(Scene@+, StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Network, BroadcastRemoteEvent, (Scene*, StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Network::BroadcastRemoteEvent(Node* node, StringHash eventType, bool inOrder, const VariantMap& eventData = Variant::emptyVariantMap)", "void BroadcastRemoteEvent(Node@+, StringHash, bool, const VariantMap&in = VariantMap())", AS_METHODPR(Network, BroadcastRemoteEvent, (Node*, StringHash, bool, const VariantMap&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::SetUpdateFps(int fps)", "void SetUpdateFps(int)", AS_METHODPR(Network, SetUpdateFps, (int), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::SetUpdateFps(int fps)", "void set_updateFps(int)", AS_METHODPR(Network, SetUpdateFps, (int), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::SetSimulatedLatency(int ms)", "void SetSimulatedLatency(int)", AS_METHODPR(Network, SetSimulatedLatency, (int), void), AS_CALL_THISCALL));
@@ -209,7 +209,7 @@ void CollectMembers_Network(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Network::SetPackageCacheDir(const String& path)", "void SetPackageCacheDir(const String&in)", AS_METHODPR(Network, SetPackageCacheDir, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::SetPackageCacheDir(const String& path)", "void set_packageCacheDir(const String&in)", AS_METHODPR(Network, SetPackageCacheDir, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::SendPackageToClients(Scene* scene, PackageFile* package)", "void SendPackageToClients(Scene@+, PackageFile@+)", AS_METHODPR(Network, SendPackageToClients, (Scene*, PackageFile*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<HttpRequest> Network::MakeHttpRequest(const String& url, const String& verb=String::EMPTY, const Vector<String>& headers=Vector<String>(), const String& postData=String::EMPTY)", "HttpRequest@+ MakeHttpRequest(const String&in, const String&in = String::EMPTY, Array<String>@+ = null, const String&in = String::EMPTY)", AS_FUNCTION_OBJFIRST(Network_MakeHttpRequest_String_String_VectorString_String), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<HttpRequest> Network::MakeHttpRequest(const String& url, const String& verb = String::EMPTY, const Vector<String>& headers = Vector<String>(), const String& postData = String::EMPTY)", "HttpRequest@+ MakeHttpRequest(const String&in, const String&in = String::EMPTY, Array<String>@+ = null, const String&in = String::EMPTY)", AS_FUNCTION_OBJFIRST(Network_MakeHttpRequest_String_String_VectorString_String), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("void Network::BanAddress(const String& address)", "void BanAddress(const String&in)", AS_METHODPR(Network, BanAddress, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int Network::GetUpdateFps() const", "int GetUpdateFps() const", AS_METHODPR(Network, GetUpdateFps, () const, int), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("int Network::GetUpdateFps() const", "int get_updateFps() const", AS_METHODPR(Network, GetUpdateFps, () const, int), AS_CALL_THISCALL));

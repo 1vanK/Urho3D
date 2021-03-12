@@ -29,7 +29,7 @@ void CollectMembers_Animatable(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Animatable::SetAnimationTime(float time)", "void SetAnimationTime(float)", AS_METHODPR(Animatable, SetAnimationTime, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Animatable::SetObjectAnimation(ObjectAnimation* objectAnimation)", "void SetObjectAnimation(ObjectAnimation@+)", AS_METHODPR(Animatable, SetObjectAnimation, (ObjectAnimation*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Animatable::SetObjectAnimation(ObjectAnimation* objectAnimation)", "void set_objectAnimation(ObjectAnimation@+)", AS_METHODPR(Animatable, SetObjectAnimation, (ObjectAnimation*), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Animatable::SetAttributeAnimation(const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode=WM_LOOP, float speed=1.0f)", "void SetAttributeAnimation(const String&in, ValueAnimation@+, WrapMode = WM_LOOP, float = 1.0f)", AS_METHODPR(Animatable, SetAttributeAnimation, (const String&, ValueAnimation*, WrapMode, float), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Animatable::SetAttributeAnimation(const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode = WM_LOOP, float speed = 1.0f)", "void SetAttributeAnimation(const String&in, ValueAnimation@+, WrapMode = WM_LOOP, float = 1.0f)", AS_METHODPR(Animatable, SetAttributeAnimation, (const String&, ValueAnimation*, WrapMode, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Animatable::SetAttributeAnimationWrapMode(const String& name, WrapMode wrapMode)", "void SetAttributeAnimationWrapMode(const String&in, WrapMode)", AS_METHODPR(Animatable, SetAttributeAnimationWrapMode, (const String&, WrapMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Animatable::SetAttributeAnimationSpeed(const String& name, float speed)", "void SetAttributeAnimationSpeed(const String&in, float)", AS_METHODPR(Animatable, SetAttributeAnimationSpeed, (const String&, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Animatable::SetAttributeAnimationTime(const String& name, float time)", "void SetAttributeAnimationTime(const String&in, float)", AS_METHODPR(Animatable, SetAttributeAnimationTime, (const String&, float), void), AS_CALL_THISCALL));
@@ -132,6 +132,11 @@ void CollectMembers_Component(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Component::IsEnabledEffective() const", "bool get_enabledEffective() const", AS_METHODPR(Component, IsEnabledEffective, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Component* Component::GetComponent(StringHash type) const", "Component@+ GetComponent(StringHash) const", AS_METHODPR(Component, GetComponent, (StringHash) const, Component*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Component::PrepareNetworkUpdate()", "void PrepareNetworkUpdate()", AS_METHODPR(Component, PrepareNetworkUpdate, (), void), AS_CALL_THISCALL));
+
+    // template <class T> T* Component::GetComponent() const
+    // Not registered because template
+    // template <class T> void Component::GetComponents(PODVector<T*>& dest) const
+    // Not registered because template
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_Component
         REGISTER_MEMBERS_MANUAL_PART_Component();
@@ -251,8 +256,8 @@ static CScriptArray* Node_GetChildren_bool(Node* ptr, bool recursive)
 }
 
 
-// PODVector<Node*> Node::GetChildrenWithComponent(StringHash type, bool recursive=false) const
-// PODVector<Node*> Node::GetChildrenWithComponent(StringHash type, bool recursive=false) const | File: ../Scene/Node.h
+// PODVector<Node*> Node::GetChildrenWithComponent(StringHash type, bool recursive = false) const
+// PODVector<Node*> Node::GetChildrenWithComponent(StringHash type, bool recursive = false) const | File: ../Scene/Node.h
 static CScriptArray* Node_GetChildrenWithComponent_StringHash_bool(Node* ptr, StringHash type, bool recursive)
 {
     PODVector<Node*> result = ptr->GetChildrenWithComponent(type, recursive);
@@ -260,8 +265,8 @@ static CScriptArray* Node_GetChildrenWithComponent_StringHash_bool(Node* ptr, St
 }
 
 
-// PODVector<Node*> Node::GetChildrenWithTag(const String& tag, bool recursive=false) const
-// PODVector<Node*> Node::GetChildrenWithTag(const String& tag, bool recursive=false) const | File: ../Scene/Node.h
+// PODVector<Node*> Node::GetChildrenWithTag(const String& tag, bool recursive = false) const
+// PODVector<Node*> Node::GetChildrenWithTag(const String& tag, bool recursive = false) const | File: ../Scene/Node.h
 static CScriptArray* Node_GetChildrenWithTag_String_bool(Node* ptr, const String& tag, bool recursive)
 {
     PODVector<Node*> result = ptr->GetChildrenWithTag(tag, recursive);
@@ -308,15 +313,15 @@ void CollectMembers_Node(MemberCollection& members)
     // Error: type "NodeReplicationState*" can not automatically bind
     // void Node::CleanupConnection(Connection* connection)
     // Not registered because have @manualbind mark
-    // Node* Node::GetChild(const char* name, bool recursive=false) const
+    // Node* Node::GetChild(const char* name, bool recursive = false) const
     // Error: type "const char*" can not automatically bind
-    // void Node::GetChildren(PODVector<Node*>& dest, bool recursive=false) const
+    // void Node::GetChildren(PODVector<Node*>& dest, bool recursive = false) const
     // Error: type "PODVector<Node*>&" can not automatically bind
-    // void Node::GetChildrenWithComponent(PODVector<Node*>& dest, StringHash type, bool recursive=false) const
+    // void Node::GetChildrenWithComponent(PODVector<Node*>& dest, StringHash type, bool recursive = false) const
     // Error: type "PODVector<Node*>&" can not automatically bind
-    // void Node::GetChildrenWithTag(PODVector<Node*>& dest, const String& tag, bool recursive=false) const
+    // void Node::GetChildrenWithTag(PODVector<Node*>& dest, const String& tag, bool recursive = false) const
     // Error: type "PODVector<Node*>&" can not automatically bind
-    // void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive=false) const
+    // void Node::GetComponents(PODVector<Component*>& dest, StringHash type, bool recursive = false) const
     // Error: type "PODVector<Component*>&" can not automatically bind
     // const Vector<WeakPtr<Component>> Node::GetListeners() const
     // Error: type "const Vector<WeakPtr<Component>>" can not automatically bind
@@ -342,13 +347,13 @@ void CollectMembers_Node(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Node::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(Node, ApplyAttributes, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveDefaultAttributes() const override", "bool SaveDefaultAttributes() const", AS_METHODPR(Node, SaveDefaultAttributes, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::MarkNetworkUpdate() override", "void MarkNetworkUpdate()", AS_METHODPR(Node, MarkNetworkUpdate, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveXML(Serializer&, const String&in = \"\t\") const", AS_METHODPR(Node, SaveXML, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveJSON(Serializer&, const String&in = \"\t\") const", AS_METHODPR(Node, SaveJSON, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(Serializer&, const String&in = \"\t\") const", AS_METHODPR(Node, SaveXML, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveJSON(Serializer&, const String&in = \"\t\") const", AS_METHODPR(Node, SaveJSON, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetName(const String& name)", "void SetName(const String&in)", AS_METHODPR(Node, SetName, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetName(const String& name)", "void set_name(const String&in)", AS_METHODPR(Node, SetName, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetTags(const StringVector& tags)", "void SetTags(Array<String>@+)", AS_FUNCTION_OBJFIRST(Node_SetTags_StringVector), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::AddTag(const String& tag)", "void AddTag(const String&in)", AS_METHODPR(Node, AddTag, (const String&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::AddTags(const String& tags, char separator=';')", "void AddTags(const String&in, int8 = ';')", AS_METHODPR(Node, AddTags, (const String&, char), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::AddTags(const String& tags, char separator = ';')", "void AddTags(const String&in, int8 = ';')", AS_METHODPR(Node, AddTags, (const String&, char), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::AddTags(const StringVector& tags)", "void AddTags(Array<String>@+)", AS_FUNCTION_OBJFIRST(Node_AddTags_StringVector), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("bool Node::RemoveTag(const String& tag)", "bool RemoveTag(const String&in)", AS_METHODPR(Node, RemoveTag, (const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveAllTags()", "void RemoveAllTags()", AS_METHODPR(Node, RemoveAllTags, (), void), AS_CALL_THISCALL));
@@ -400,16 +405,16 @@ void CollectMembers_Node(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetWorldTransform2D(const Vector2& position, float rotation)", "void SetWorldTransform2D(const Vector2&in, float)", AS_METHODPR(Node, SetWorldTransform2D, (const Vector2&, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetWorldTransform2D(const Vector2& position, float rotation, float scale)", "void SetWorldTransform2D(const Vector2&in, float, float)", AS_METHODPR(Node, SetWorldTransform2D, (const Vector2&, float, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetWorldTransform2D(const Vector2& position, float rotation, const Vector2& scale)", "void SetWorldTransform2D(const Vector2&in, float, const Vector2&in)", AS_METHODPR(Node, SetWorldTransform2D, (const Vector2&, float, const Vector2&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::Translate(const Vector3& delta, TransformSpace space=TS_LOCAL)", "void Translate(const Vector3&in, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Translate, (const Vector3&, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::Translate2D(const Vector2& delta, TransformSpace space=TS_LOCAL)", "void Translate2D(const Vector2&in, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Translate2D, (const Vector2&, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::Rotate(const Quaternion& delta, TransformSpace space=TS_LOCAL)", "void Rotate(const Quaternion&in, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Rotate, (const Quaternion&, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::Rotate2D(float delta, TransformSpace space=TS_LOCAL)", "void Rotate2D(float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Rotate2D, (float, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::RotateAround(const Vector3& point, const Quaternion& delta, TransformSpace space=TS_LOCAL)", "void RotateAround(const Vector3&in, const Quaternion&in, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, RotateAround, (const Vector3&, const Quaternion&, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::RotateAround2D(const Vector2& point, float delta, TransformSpace space=TS_LOCAL)", "void RotateAround2D(const Vector2&in, float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, RotateAround2D, (const Vector2&, float, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::Pitch(float angle, TransformSpace space=TS_LOCAL)", "void Pitch(float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Pitch, (float, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::Yaw(float angle, TransformSpace space=TS_LOCAL)", "void Yaw(float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Yaw, (float, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::Roll(float angle, TransformSpace space=TS_LOCAL)", "void Roll(float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Roll, (float, TransformSpace), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::LookAt(const Vector3& target, const Vector3& up=Vector3::UP, TransformSpace space=TS_WORLD)", "bool LookAt(const Vector3&in, const Vector3&in = Vector3::UP, TransformSpace = TS_WORLD)", AS_METHODPR(Node, LookAt, (const Vector3&, const Vector3&, TransformSpace), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::Translate(const Vector3& delta, TransformSpace space = TS_LOCAL)", "void Translate(const Vector3&in, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Translate, (const Vector3&, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::Translate2D(const Vector2& delta, TransformSpace space = TS_LOCAL)", "void Translate2D(const Vector2&in, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Translate2D, (const Vector2&, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::Rotate(const Quaternion& delta, TransformSpace space = TS_LOCAL)", "void Rotate(const Quaternion&in, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Rotate, (const Quaternion&, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::Rotate2D(float delta, TransformSpace space = TS_LOCAL)", "void Rotate2D(float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Rotate2D, (float, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::RotateAround(const Vector3& point, const Quaternion& delta, TransformSpace space = TS_LOCAL)", "void RotateAround(const Vector3&in, const Quaternion&in, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, RotateAround, (const Vector3&, const Quaternion&, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::RotateAround2D(const Vector2& point, float delta, TransformSpace space = TS_LOCAL)", "void RotateAround2D(const Vector2&in, float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, RotateAround2D, (const Vector2&, float, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::Pitch(float angle, TransformSpace space = TS_LOCAL)", "void Pitch(float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Pitch, (float, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::Yaw(float angle, TransformSpace space = TS_LOCAL)", "void Yaw(float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Yaw, (float, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::Roll(float angle, TransformSpace space = TS_LOCAL)", "void Roll(float, TransformSpace = TS_LOCAL)", AS_METHODPR(Node, Roll, (float, TransformSpace), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::LookAt(const Vector3& target, const Vector3& up = Vector3::UP, TransformSpace space = TS_WORLD)", "bool LookAt(const Vector3&in, const Vector3&in = Vector3::UP, TransformSpace = TS_WORLD)", AS_METHODPR(Node, LookAt, (const Vector3&, const Vector3&, TransformSpace), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::Scale(float scale)", "void Scale(float)", AS_METHODPR(Node, Scale, (float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::Scale(const Vector3& scale)", "void Scale(const Vector3&in)", AS_METHODPR(Node, Scale, (const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::Scale2D(const Vector2& scale)", "void Scale2D(const Vector2&in)", AS_METHODPR(Node, Scale2D, (const Vector2&), void), AS_CALL_THISCALL));
@@ -419,23 +424,23 @@ void CollectMembers_Node(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Node::ResetDeepEnabled()", "void ResetDeepEnabled()", AS_METHODPR(Node, ResetDeepEnabled, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetEnabledRecursive(bool enable)", "void SetEnabledRecursive(bool)", AS_METHODPR(Node, SetEnabledRecursive, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::MarkDirty()", "void MarkDirty()", AS_METHODPR(Node, MarkDirty, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::CreateChild(const String& name=String::EMPTY, CreateMode mode=REPLICATED, unsigned id=0, bool temporary=false)", "Node@+ CreateChild(const String&in = String::EMPTY, CreateMode = REPLICATED, uint = 0, bool = false)", AS_METHODPR(Node, CreateChild, (const String&, CreateMode, unsigned, bool), Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::CreateTemporaryChild(const String& name=String::EMPTY, CreateMode mode=REPLICATED, unsigned id=0)", "Node@+ CreateTemporaryChild(const String&in = String::EMPTY, CreateMode = REPLICATED, uint = 0)", AS_METHODPR(Node, CreateTemporaryChild, (const String&, CreateMode, unsigned), Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Node::AddChild(Node* node, unsigned index=M_MAX_UNSIGNED)", "void AddChild(Node@+, uint = M_MAX_UNSIGNED)", AS_METHODPR(Node, AddChild, (Node*, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::CreateChild(const String& name = String::EMPTY, CreateMode mode = REPLICATED, unsigned id = 0, bool temporary = false)", "Node@+ CreateChild(const String&in = String::EMPTY, CreateMode = REPLICATED, uint = 0, bool = false)", AS_METHODPR(Node, CreateChild, (const String&, CreateMode, unsigned, bool), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::CreateTemporaryChild(const String& name = String::EMPTY, CreateMode mode = REPLICATED, unsigned id = 0)", "Node@+ CreateTemporaryChild(const String&in = String::EMPTY, CreateMode = REPLICATED, uint = 0)", AS_METHODPR(Node, CreateTemporaryChild, (const String&, CreateMode, unsigned), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Node::AddChild(Node* node, unsigned index = M_MAX_UNSIGNED)", "void AddChild(Node@+, uint = M_MAX_UNSIGNED)", AS_METHODPR(Node, AddChild, (Node*, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveChild(Node* node)", "void RemoveChild(Node@+)", AS_METHODPR(Node, RemoveChild, (Node*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveAllChildren()", "void RemoveAllChildren()", AS_METHODPR(Node, RemoveAllChildren, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveChildren(bool removeReplicated, bool removeLocal, bool recursive)", "void RemoveChildren(bool, bool, bool)", AS_METHODPR(Node, RemoveChildren, (bool, bool, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::CreateComponent(StringHash type, CreateMode mode=REPLICATED, unsigned id=0)", "Component@+ CreateComponent(StringHash, CreateMode = REPLICATED, uint = 0)", AS_METHODPR(Node, CreateComponent, (StringHash, CreateMode, unsigned), Component*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::GetOrCreateComponent(StringHash type, CreateMode mode=REPLICATED, unsigned id=0)", "Component@+ GetOrCreateComponent(StringHash, CreateMode = REPLICATED, uint = 0)", AS_METHODPR(Node, GetOrCreateComponent, (StringHash, CreateMode, unsigned), Component*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::CloneComponent(Component* component, unsigned id=0)", "Component@+ CloneComponent(Component@+, uint = 0)", AS_METHODPR(Node, CloneComponent, (Component*, unsigned), Component*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::CloneComponent(Component* component, CreateMode mode, unsigned id=0)", "Component@+ CloneComponent(Component@+, CreateMode, uint = 0)", AS_METHODPR(Node, CloneComponent, (Component*, CreateMode, unsigned), Component*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::CreateComponent(StringHash type, CreateMode mode = REPLICATED, unsigned id = 0)", "Component@+ CreateComponent(StringHash, CreateMode = REPLICATED, uint = 0)", AS_METHODPR(Node, CreateComponent, (StringHash, CreateMode, unsigned), Component*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::GetOrCreateComponent(StringHash type, CreateMode mode = REPLICATED, unsigned id = 0)", "Component@+ GetOrCreateComponent(StringHash, CreateMode = REPLICATED, uint = 0)", AS_METHODPR(Node, GetOrCreateComponent, (StringHash, CreateMode, unsigned), Component*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::CloneComponent(Component* component, unsigned id = 0)", "Component@+ CloneComponent(Component@+, uint = 0)", AS_METHODPR(Node, CloneComponent, (Component*, unsigned), Component*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::CloneComponent(Component* component, CreateMode mode, unsigned id = 0)", "Component@+ CloneComponent(Component@+, CreateMode, uint = 0)", AS_METHODPR(Node, CloneComponent, (Component*, CreateMode, unsigned), Component*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveComponent(Component* component)", "void RemoveComponent(Component@+)", AS_METHODPR(Node, RemoveComponent, (Component*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveComponent(StringHash type)", "void RemoveComponent(StringHash)", AS_METHODPR(Node, RemoveComponent, (StringHash), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveComponents(bool removeReplicated, bool removeLocal)", "void RemoveComponents(bool, bool)", AS_METHODPR(Node, RemoveComponents, (bool, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveComponents(StringHash type)", "void RemoveComponents(StringHash)", AS_METHODPR(Node, RemoveComponents, (StringHash), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::RemoveAllComponents()", "void RemoveAllComponents()", AS_METHODPR(Node, RemoveAllComponents, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::ReorderComponent(Component* component, unsigned index)", "void ReorderComponent(Component@+, uint)", AS_METHODPR(Node, ReorderComponent, (Component*, unsigned), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::Clone(CreateMode mode=REPLICATED)", "Node@+ Clone(CreateMode = REPLICATED)", AS_METHODPR(Node, Clone, (CreateMode), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::Clone(CreateMode mode = REPLICATED)", "Node@+ Clone(CreateMode = REPLICATED)", AS_METHODPR(Node, Clone, (CreateMode), Node*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::Remove()", "void Remove()", AS_METHODPR(Node, Remove, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetParent(Node* parent)", "void SetParent(Node@+)", AS_METHODPR(Node, SetParent, (Node*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetParent(Node* parent)", "void set_parent(Node@+)", AS_METHODPR(Node, SetParent, (Node*), void), AS_CALL_THISCALL));
@@ -510,20 +515,20 @@ void CollectMembers_Node(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("Vector3 Node::WorldToLocal(const Vector4& vector) const", "Vector3 WorldToLocal(const Vector4&in) const", AS_METHODPR(Node, WorldToLocal, (const Vector4&) const, Vector3), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Vector2 Node::WorldToLocal2D(const Vector2& vector) const", "Vector2 WorldToLocal2D(const Vector2&in) const", AS_METHODPR(Node, WorldToLocal2D, (const Vector2&) const, Vector2), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Node::IsDirty() const", "bool IsDirty() const", AS_METHODPR(Node, IsDirty, () const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumChildren(bool recursive=false) const", "uint GetNumChildren(bool = false) const", AS_METHODPR(Node, GetNumChildren, (bool) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumChildren(bool recursive = false) const", "uint GetNumChildren(bool = false) const", AS_METHODPR(Node, GetNumChildren, (bool) const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Vector<SharedPtr<Node>>& Node::GetChildren() const", "Array<Node@>@ GetChildren() const", AS_FUNCTION_OBJFIRST(Node_GetChildren_void), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("PODVector<Node*> Node::GetChildren(bool recursive) const", "Array<Node@>@ GetChildren(bool) const", AS_FUNCTION_OBJFIRST(Node_GetChildren_bool), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("PODVector<Node*> Node::GetChildrenWithComponent(StringHash type, bool recursive=false) const", "Array<Node@>@ GetChildrenWithComponent(StringHash, bool = false) const", AS_FUNCTION_OBJFIRST(Node_GetChildrenWithComponent_StringHash_bool), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("PODVector<Node*> Node::GetChildrenWithTag(const String& tag, bool recursive=false) const", "Array<Node@>@ GetChildrenWithTag(const String&in, bool = false) const", AS_FUNCTION_OBJFIRST(Node_GetChildrenWithTag_String_bool), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("PODVector<Node*> Node::GetChildrenWithComponent(StringHash type, bool recursive = false) const", "Array<Node@>@ GetChildrenWithComponent(StringHash, bool = false) const", AS_FUNCTION_OBJFIRST(Node_GetChildrenWithComponent_StringHash_bool), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("PODVector<Node*> Node::GetChildrenWithTag(const String& tag, bool recursive = false) const", "Array<Node@>@ GetChildrenWithTag(const String&in, bool = false) const", AS_FUNCTION_OBJFIRST(Node_GetChildrenWithTag_String_bool), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(unsigned index) const", "Node@+ GetChild(uint) const", AS_METHODPR(Node, GetChild, (unsigned) const, Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(const String& name, bool recursive=false) const", "Node@+ GetChild(const String&in, bool = false) const", AS_METHODPR(Node, GetChild, (const String&, bool) const, Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(StringHash nameHash, bool recursive=false) const", "Node@+ GetChild(StringHash, bool = false) const", AS_METHODPR(Node, GetChild, (StringHash, bool) const, Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(const String& name, bool recursive = false) const", "Node@+ GetChild(const String&in, bool = false) const", AS_METHODPR(Node, GetChild, (const String&, bool) const, Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::GetChild(StringHash nameHash, bool recursive = false) const", "Node@+ GetChild(StringHash, bool = false) const", AS_METHODPR(Node, GetChild, (StringHash, bool) const, Node*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumComponents() const", "uint GetNumComponents() const", AS_METHODPR(Node, GetNumComponents, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumComponents() const", "uint get_numComponents() const", AS_METHODPR(Node, GetNumComponents, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumNetworkComponents() const", "uint GetNumNetworkComponents() const", AS_METHODPR(Node, GetNumNetworkComponents, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Vector<SharedPtr<Component>>& Node::GetComponents() const", "Array<Component@>@ GetComponents() const", AS_FUNCTION_OBJFIRST(Node_GetComponents_void), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::GetComponent(StringHash type, bool recursive=false) const", "Component@+ GetComponent(StringHash, bool = false) const", AS_METHODPR(Node, GetComponent, (StringHash, bool) const, Component*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::GetParentComponent(StringHash type, bool fullTraversal=false) const", "Component@+ GetParentComponent(StringHash, bool = false) const", AS_METHODPR(Node, GetParentComponent, (StringHash, bool) const, Component*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::GetComponent(StringHash type, bool recursive = false) const", "Component@+ GetComponent(StringHash, bool = false) const", AS_METHODPR(Node, GetComponent, (StringHash, bool) const, Component*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Component* Node::GetParentComponent(StringHash type, bool fullTraversal = false) const", "Component@+ GetParentComponent(StringHash, bool = false) const", AS_METHODPR(Node, GetParentComponent, (StringHash, bool) const, Component*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Node::HasComponent(StringHash type) const", "bool HasComponent(StringHash) const", AS_METHODPR(Node, HasComponent, (StringHash) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Variant& Node::GetVar(StringHash key) const", "const Variant& GetVar(StringHash) const", AS_METHODPR(Node, GetVar, (StringHash) const, const Variant&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const VariantMap& Node::GetVars() const", "const VariantMap& GetVars() const", AS_METHODPR(Node, GetVars, () const, const VariantMap&), AS_CALL_THISCALL));
@@ -533,13 +538,13 @@ void CollectMembers_Node(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Node::ResetScene()", "void ResetScene()", AS_METHODPR(Node, ResetScene, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetNetPositionAttr(const Vector3& value)", "void SetNetPositionAttr(const Vector3&in)", AS_METHODPR(Node, SetNetPositionAttr, (const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const Vector3& Node::GetNetPositionAttr() const", "const Vector3& GetNetPositionAttr() const", AS_METHODPR(Node, GetNetPositionAttr, () const, const Vector3&), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)", "bool Load(Deserializer&, SceneResolver&, bool = true, bool = false, CreateMode = REPLICATED)", AS_METHODPR(Node, Load, (Deserializer&, SceneResolver&, bool, bool, CreateMode), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)", "bool LoadXML(const XMLElement&in, SceneResolver&, bool = true, bool = false, CreateMode = REPLICATED)", AS_METHODPR(Node, LoadXML, (const XMLElement&, SceneResolver&, bool, bool, CreateMode), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)", "bool LoadJSON(const JSONValue&in, SceneResolver&, bool = true, bool = false, CreateMode = REPLICATED)", AS_METHODPR(Node, LoadJSON, (const JSONValue&, SceneResolver&, bool, bool, CreateMode), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren = true, bool rewriteIDs = false, CreateMode mode = REPLICATED)", "bool Load(Deserializer&, SceneResolver&, bool = true, bool = false, CreateMode = REPLICATED)", AS_METHODPR(Node, Load, (Deserializer&, SceneResolver&, bool, bool, CreateMode), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren = true, bool rewriteIDs = false, CreateMode mode = REPLICATED)", "bool LoadXML(const XMLElement&in, SceneResolver&, bool = true, bool = false, CreateMode = REPLICATED)", AS_METHODPR(Node, LoadXML, (const XMLElement&, SceneResolver&, bool, bool, CreateMode), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren = true, bool rewriteIDs = false, CreateMode mode = REPLICATED)", "bool LoadJSON(const JSONValue&in, SceneResolver&, bool = true, bool = false, CreateMode = REPLICATED)", AS_METHODPR(Node, LoadJSON, (const JSONValue&, SceneResolver&, bool, bool, CreateMode), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const PODVector<Node*>& Node::GetDependencyNodes() const", "Array<Node@>@ GetDependencyNodes() const", AS_FUNCTION_OBJFIRST(Node_GetDependencyNodes_void), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::PrepareNetworkUpdate()", "void PrepareNetworkUpdate()", AS_METHODPR(Node, PrepareNetworkUpdate, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::MarkReplicationDirty()", "void MarkReplicationDirty()", AS_METHODPR(Node, MarkReplicationDirty, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::CreateChild(unsigned id, CreateMode mode, bool temporary=false)", "Node@+ CreateChild(uint, CreateMode, bool = false)", AS_METHODPR(Node, CreateChild, (unsigned, CreateMode, bool), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Node::CreateChild(unsigned id, CreateMode mode, bool temporary = false)", "Node@+ CreateChild(uint, CreateMode, bool = false)", AS_METHODPR(Node, CreateChild, (unsigned, CreateMode, bool), Node*), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::AddComponent(Component* component, unsigned id, CreateMode mode)", "void AddComponent(Component@+, uint, CreateMode)", AS_METHODPR(Node, AddComponent, (Component*, unsigned, CreateMode), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumPersistentChildren() const", "uint GetNumPersistentChildren() const", AS_METHODPR(Node, GetNumPersistentChildren, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned Node::GetNumPersistentComponents() const", "uint GetNumPersistentComponents() const", AS_METHODPR(Node, GetNumPersistentComponents, () const, unsigned), AS_CALL_THISCALL));
@@ -548,6 +553,30 @@ void CollectMembers_Node(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetScaleSilent(const Vector3& scale)", "void SetScaleSilent(const Vector3&in)", AS_METHODPR(Node, SetScaleSilent, (const Vector3&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Node::SetTransformSilent(const Vector3& position, const Quaternion& rotation, const Vector3& scale)", "void SetTransformSilent(const Vector3&in, const Quaternion&in, const Vector3&in)", AS_METHODPR(Node, SetTransformSilent, (const Vector3&, const Quaternion&, const Vector3&), void), AS_CALL_THISCALL));
 
+    // template <class T> T* Node::CreateComponent(CreateMode mode = REPLICATED, unsigned id = 0)
+    // Not registered because template
+    // template <class T> T* Node::GetOrCreateComponent(CreateMode mode = REPLICATED, unsigned id = 0)
+    // Not registered because template
+    // template <class T> void Node::RemoveComponent()
+    // Not registered because template
+    // template <class T> void Node::RemoveComponents()
+    // Not registered because template
+    // template <class T> T* Node::GetDerivedComponent(bool recursive = false) const
+    // Not registered because template
+    // template <class T> T* Node::GetParentDerivedComponent(bool fullTraversal = false) const
+    // Not registered because template
+    // template <class T> void Node::GetDerivedComponents(PODVector<T*>& dest, bool recursive = false, bool clearVector = true) const
+    // Not registered because template
+    // template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>& dest, bool recursive = false) const
+    // Not registered because template
+    // template <class T> T* Node::GetComponent(bool recursive = false) const
+    // Not registered because template
+    // template <class T> T* Node::GetParentComponent(bool fullTraversal = false) const
+    // Not registered because template
+    // template <class T> void Node::GetComponents(PODVector<T*>& dest, bool recursive = false) const
+    // Not registered because template
+    // template <class T> bool Node::HasComponent() const
+    // Not registered because template
     // static void Node::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
@@ -615,7 +644,7 @@ void CollectMembers_ObjectAnimation(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool ObjectAnimation::SaveXML(XMLElement& dest) const", "bool SaveXML(XMLElement&) const", AS_METHODPR(ObjectAnimation, SaveXML, (XMLElement&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool ObjectAnimation::LoadJSON(const JSONValue& source)", "bool LoadJSON(const JSONValue&in)", AS_METHODPR(ObjectAnimation, LoadJSON, (const JSONValue&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool ObjectAnimation::SaveJSON(JSONValue& dest) const", "bool SaveJSON(JSONValue&) const", AS_METHODPR(ObjectAnimation, SaveJSON, (JSONValue&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ObjectAnimation::AddAttributeAnimation(const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode=WM_LOOP, float speed=1.0f)", "void AddAttributeAnimation(const String&in, ValueAnimation@+, WrapMode = WM_LOOP, float = 1.0f)", AS_METHODPR(ObjectAnimation, AddAttributeAnimation, (const String&, ValueAnimation*, WrapMode, float), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ObjectAnimation::AddAttributeAnimation(const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode = WM_LOOP, float speed = 1.0f)", "void AddAttributeAnimation(const String&in, ValueAnimation@+, WrapMode = WM_LOOP, float = 1.0f)", AS_METHODPR(ObjectAnimation, AddAttributeAnimation, (const String&, ValueAnimation*, WrapMode, float), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ObjectAnimation::RemoveAttributeAnimation(const String& name)", "void RemoveAttributeAnimation(const String&in)", AS_METHODPR(ObjectAnimation, RemoveAttributeAnimation, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ObjectAnimation::RemoveAttributeAnimation(ValueAnimation* attributeAnimation)", "void RemoveAttributeAnimation(ValueAnimation@+)", AS_METHODPR(ObjectAnimation, RemoveAttributeAnimation, (ValueAnimation*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("ValueAnimation* ObjectAnimation::GetAttributeAnimation(const String& name) const", "ValueAnimation@+ GetAttributeAnimation(const String&in) const", AS_METHODPR(ObjectAnimation, GetAttributeAnimation, (const String&) const, ValueAnimation*), AS_CALL_THISCALL));
@@ -659,19 +688,19 @@ void CollectMembers_Scene(MemberCollection& members)
 {
     CollectMembers_Node(members);
 
-    Remove(members.methods_, "Component* Node::GetComponent(StringHash type, bool recursive=false) const");
+    Remove(members.methods_, "Component* Node::GetComponent(StringHash type, bool recursive = false) const");
     Remove(members.methods_, "bool Node::Load(Deserializer& source) override");
-    Remove(members.methods_, "bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(members.methods_, "bool Node::Load(Deserializer& source, SceneResolver& resolver, bool loadChildren = true, bool rewriteIDs = false, CreateMode mode = REPLICATED)");
     Remove(members.methods_, "bool Node::LoadJSON(const JSONValue& source) override");
-    Remove(members.methods_, "bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(members.methods_, "bool Node::LoadJSON(const JSONValue& source, SceneResolver& resolver, bool loadChildren = true, bool rewriteIDs = false, CreateMode mode = REPLICATED)");
     Remove(members.methods_, "bool Node::LoadXML(const XMLElement& source) override");
-    Remove(members.methods_, "bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren=true, bool rewriteIDs=false, CreateMode mode=REPLICATED)");
+    Remove(members.methods_, "bool Node::LoadXML(const XMLElement& source, SceneResolver& resolver, bool loadChildren = true, bool rewriteIDs = false, CreateMode mode = REPLICATED)");
     Remove(members.methods_, "bool Node::Save(Serializer& dest) const override");
     Remove(members.methods_, "bool Node::SaveJSON(JSONValue& dest) const override");
-    Remove(members.methods_, "bool Node::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const");
-    Remove(members.methods_, "bool Node::SaveXML(Serializer& dest, const String& indentation=\"\t\") const");
+    Remove(members.methods_, "bool Node::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const");
+    Remove(members.methods_, "bool Node::SaveXML(Serializer& dest, const String& indentation = \"\t\") const");
     Remove(members.methods_, "bool Node::SaveXML(XMLElement& dest) const override");
-    Remove(members.methods_, "template<class T> T* Node::GetComponent(bool recursive=false) const");
+    Remove(members.methods_, "template <class T> T* Node::GetComponent(bool recursive = false) const");
     Remove(members.methods_, "virtual void Node::AddReplicationState(NodeReplicationState* state)");
     Remove(members.methods_, "void Node::CleanupConnection(Connection* connection)");
     Remove(members.methods_, "void Node::MarkNetworkUpdate() override");
@@ -684,15 +713,15 @@ void CollectMembers_Scene(MemberCollection& members)
     // Error: type "NodeReplicationState*" can not automatically bind
     // void Scene::CleanupConnection(Connection* connection)
     // Not registered because have @manualbind mark
-    // Component* Node::GetComponent(StringHash type, bool recursive=false) const
+    // Component* Node::GetComponent(StringHash type, bool recursive = false) const
     // Not registered because have @manualbind mark
     // bool Scene::GetNodesWithTag(PODVector<Node*>& dest, const String& tag) const
     // Error: type "PODVector<Node*>&" can not automatically bind
     // bool Node::SaveJSON(JSONValue& dest) const override
     // Not registered because have @manualbind mark
-    // bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const
+    // bool Node::SaveJSON(Serializer& dest, const String& indentation = "\t") const
     // Not registered because have @manualbind mark
-    // bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const
+    // bool Node::SaveXML(Serializer& dest, const String& indentation = "\t") const
     // Not registered because have @manualbind mark
     // bool Node::SaveXML(XMLElement& dest) const override
     // Not registered because have @manualbind mark
@@ -704,18 +733,18 @@ void CollectMembers_Scene(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Scene::MarkNetworkUpdate() override", "void MarkNetworkUpdate()", AS_METHODPR(Scene, MarkNetworkUpdate, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadXML(Deserializer& source)", "bool LoadXML(Deserializer&)", AS_METHODPR(Scene, LoadXML, (Deserializer&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadJSON(Deserializer& source)", "bool LoadJSON(Deserializer&)", AS_METHODPR(Scene, LoadJSON, (Deserializer&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::SaveXML(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveXML(Serializer&, const String&in = \"\t\") const", AS_METHODPR(Scene, SaveXML, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::SaveJSON(Serializer& dest, const String& indentation=\"\t\") const", "bool SaveJSON(Serializer&, const String&in = \"\t\") const", AS_METHODPR(Scene, SaveJSON, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadAsync(File* file, LoadMode mode=LOAD_SCENE_AND_RESOURCES)", "bool LoadAsync(File@+, LoadMode = LOAD_SCENE_AND_RESOURCES)", AS_METHODPR(Scene, LoadAsync, (File*, LoadMode), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadAsyncXML(File* file, LoadMode mode=LOAD_SCENE_AND_RESOURCES)", "bool LoadAsyncXML(File@+, LoadMode = LOAD_SCENE_AND_RESOURCES)", AS_METHODPR(Scene, LoadAsyncXML, (File*, LoadMode), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadAsyncJSON(File* file, LoadMode mode=LOAD_SCENE_AND_RESOURCES)", "bool LoadAsyncJSON(File@+, LoadMode = LOAD_SCENE_AND_RESOURCES)", AS_METHODPR(Scene, LoadAsyncJSON, (File*, LoadMode), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::SaveXML(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveXML(Serializer&, const String&in = \"\t\") const", AS_METHODPR(Scene, SaveXML, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::SaveJSON(Serializer& dest, const String& indentation = \"\t\") const", "bool SaveJSON(Serializer&, const String&in = \"\t\") const", AS_METHODPR(Scene, SaveJSON, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadAsync(File* file, LoadMode mode = LOAD_SCENE_AND_RESOURCES)", "bool LoadAsync(File@+, LoadMode = LOAD_SCENE_AND_RESOURCES)", AS_METHODPR(Scene, LoadAsync, (File*, LoadMode), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadAsyncXML(File* file, LoadMode mode = LOAD_SCENE_AND_RESOURCES)", "bool LoadAsyncXML(File@+, LoadMode = LOAD_SCENE_AND_RESOURCES)", AS_METHODPR(Scene, LoadAsyncXML, (File*, LoadMode), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Scene::LoadAsyncJSON(File* file, LoadMode mode = LOAD_SCENE_AND_RESOURCES)", "bool LoadAsyncJSON(File@+, LoadMode = LOAD_SCENE_AND_RESOURCES)", AS_METHODPR(Scene, LoadAsyncJSON, (File*, LoadMode), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Scene::StopAsyncLoading()", "void StopAsyncLoading()", AS_METHODPR(Scene, StopAsyncLoading, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::Instantiate(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode=REPLICATED)", "Node@+ Instantiate(Deserializer&, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, Instantiate, (Deserializer&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateXML(const XMLElement& source, const Vector3& position, const Quaternion& rotation, CreateMode mode=REPLICATED)", "Node@+ InstantiateXML(const XMLElement&in, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, InstantiateXML, (const XMLElement&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateXML(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode=REPLICATED)", "Node@+ InstantiateXML(Deserializer&, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, InstantiateXML, (Deserializer&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateJSON(const JSONValue& source, const Vector3& position, const Quaternion& rotation, CreateMode mode=REPLICATED)", "Node@+ InstantiateJSON(const JSONValue&in, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, InstantiateJSON, (const JSONValue&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateJSON(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode=REPLICATED)", "Node@+ InstantiateJSON(Deserializer&, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, InstantiateJSON, (Deserializer&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Scene::Clear(bool clearReplicated=true, bool clearLocal=true)", "void Clear(bool = true, bool = true)", AS_METHODPR(Scene, Clear, (bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::Instantiate(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ Instantiate(Deserializer&, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, Instantiate, (Deserializer&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateXML(const XMLElement& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateXML(const XMLElement&in, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, InstantiateXML, (const XMLElement&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateXML(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateXML(Deserializer&, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, InstantiateXML, (Deserializer&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateJSON(const JSONValue& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateJSON(const JSONValue&in, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, InstantiateJSON, (const JSONValue&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("Node* Scene::InstantiateJSON(Deserializer& source, const Vector3& position, const Quaternion& rotation, CreateMode mode = REPLICATED)", "Node@+ InstantiateJSON(Deserializer&, const Vector3&in, const Quaternion&in, CreateMode = REPLICATED)", AS_METHODPR(Scene, InstantiateJSON, (Deserializer&, const Vector3&, const Quaternion&, CreateMode), Node*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Scene::Clear(bool clearReplicated = true, bool clearLocal = true)", "void Clear(bool = true, bool = true)", AS_METHODPR(Scene, Clear, (bool, bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Scene::SetUpdateEnabled(bool enable)", "void SetUpdateEnabled(bool)", AS_METHODPR(Scene, SetUpdateEnabled, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Scene::SetUpdateEnabled(bool enable)", "void set_updateEnabled(bool)", AS_METHODPR(Scene, SetUpdateEnabled, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Scene::SetTimeScale(float scale)", "void SetTimeScale(float)", AS_METHODPR(Scene, SetTimeScale, (float), void), AS_CALL_THISCALL));
@@ -780,6 +809,8 @@ void CollectMembers_Scene(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Scene::MarkNetworkUpdate(Component* component)", "void MarkNetworkUpdate(Component@+)", AS_METHODPR(Scene, MarkNetworkUpdate, (Component*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Scene::MarkReplicationDirty(Node* node)", "void MarkReplicationDirty(Node@+)", AS_METHODPR(Scene, MarkReplicationDirty, (Node*), void), AS_CALL_THISCALL));
 
+    // template <class T> T* Node::GetComponent(bool recursive = false) const
+    // Not registered because template
     // static void Scene::RegisterObject(Context* context)
     // Not registered because have @nobind mark
 
@@ -928,7 +959,7 @@ void CollectMembers_SplinePath(MemberCollection& members)
 
     members.methods_.Push(RegisterObjectMethodArgs("void SplinePath::ApplyAttributes() override", "void ApplyAttributes()", AS_METHODPR(SplinePath, ApplyAttributes, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void SplinePath::DrawDebugGeometry(DebugRenderer* debug, bool depthTest) override", "void DrawDebugGeometry(DebugRenderer@+, bool)", AS_METHODPR(SplinePath, DrawDebugGeometry, (DebugRenderer*, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void SplinePath::AddControlPoint(Node* point, unsigned index=M_MAX_UNSIGNED)", "void AddControlPoint(Node@+, uint = M_MAX_UNSIGNED)", AS_METHODPR(SplinePath, AddControlPoint, (Node*, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void SplinePath::AddControlPoint(Node* point, unsigned index = M_MAX_UNSIGNED)", "void AddControlPoint(Node@+, uint = M_MAX_UNSIGNED)", AS_METHODPR(SplinePath, AddControlPoint, (Node*, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void SplinePath::RemoveControlPoint(Node* point)", "void RemoveControlPoint(Node@+)", AS_METHODPR(SplinePath, RemoveControlPoint, (Node*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void SplinePath::ClearControlPoints()", "void ClearControlPoints()", AS_METHODPR(SplinePath, ClearControlPoints, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void SplinePath::SetInterpolationMode(InterpolationMode interpolationMode)", "void SetInterpolationMode(InterpolationMode)", AS_METHODPR(SplinePath, SetInterpolationMode, (InterpolationMode), void), AS_CALL_THISCALL));
@@ -982,9 +1013,9 @@ void CollectMembers_UnknownComponent(MemberCollection& members)
     Remove(members.methods_, "bool Component::Save(Serializer& dest) const override");
     Remove(members.methods_, "bool Component::SaveJSON(JSONValue& dest) const override");
     Remove(members.methods_, "bool Component::SaveXML(XMLElement& dest) const override");
-    Remove(members.methods_, "virtual StringHash Object::GetType() const =0");
+    Remove(members.methods_, "virtual StringHash Object::GetType() const = 0");
     Remove(members.methods_, "virtual bool Serializable::Load(Deserializer& source)");
-    Remove(members.methods_, "virtual const String& Object::GetTypeName() const =0");
+    Remove(members.methods_, "virtual const String& Object::GetTypeName() const = 0");
     Remove(members.methods_, "virtual const Vector<AttributeInfo>* Serializable::GetAttributes() const");
 
     Remove(members.staticMethods_, "static void Animatable::RegisterObject(Context* context)");
@@ -1074,7 +1105,7 @@ void CollectMembers_ValueAnimation(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void ValueAnimation::SetValueType(VariantType valueType)", "void SetValueType(VariantType)", AS_METHODPR(ValueAnimation, SetValueType, (VariantType), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ValueAnimation::SetValueType(VariantType valueType)", "void set_valueType(VariantType)", AS_METHODPR(ValueAnimation, SetValueType, (VariantType), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool ValueAnimation::SetKeyFrame(float time, const Variant& value)", "bool SetKeyFrame(float, const Variant&in)", AS_METHODPR(ValueAnimation, SetKeyFrame, (float, const Variant&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ValueAnimation::SetEventFrame(float time, const StringHash& eventType, const VariantMap& eventData=VariantMap())", "void SetEventFrame(float, const StringHash&in, const VariantMap&in = VariantMap())", AS_METHODPR(ValueAnimation, SetEventFrame, (float, const StringHash&, const VariantMap&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ValueAnimation::SetEventFrame(float time, const StringHash& eventType, const VariantMap& eventData = VariantMap())", "void SetEventFrame(float, const StringHash&in, const VariantMap&in = VariantMap())", AS_METHODPR(ValueAnimation, SetEventFrame, (float, const StringHash&, const VariantMap&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool ValueAnimation::IsValid() const", "bool IsValid() const", AS_METHODPR(ValueAnimation, IsValid, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("InterpMethod ValueAnimation::GetInterpolationMethod() const", "InterpMethod GetInterpolationMethod() const", AS_METHODPR(ValueAnimation, GetInterpolationMethod, () const, InterpMethod), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("InterpMethod ValueAnimation::GetInterpolationMethod() const", "InterpMethod get_interpolationMethod() const", AS_METHODPR(ValueAnimation, GetInterpolationMethod, () const, InterpMethod), AS_CALL_THISCALL));

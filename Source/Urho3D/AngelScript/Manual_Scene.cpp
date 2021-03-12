@@ -92,31 +92,31 @@ const AttributeInfo& SerializableGetAttributeInfo(unsigned index, Serializable* 
 
 // ========================================================================================
 
-// bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
-bool NodeSaveXML(File* file, const String& indentation, Node* ptr)
+// bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+bool NodeSaveXMLFile(File* file, const String& indentation, Node* ptr)
 {
     return file && ptr->SaveXML(*file, indentation);
 }
 
-// bool Node::SaveXML(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
+// bool Node::SaveXML(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
 bool NodeSaveXMLVectorBuffer(VectorBuffer& buffer, const String& indentation, Node* ptr)
 {
     return ptr->SaveXML(buffer, indentation);
 }
 
-// bool Node::SaveJSON(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
-bool NodeSaveJSON(File* file, Node* ptr)
+// bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
+bool NodeSaveJSONFile(File* file, Node* ptr)
 {
     return file && ptr->SaveJSON(*file);
 }
 
-// bool Node::SaveJSON(Serializer &dest, const String &indentation="\t") const | File: ../Scene/Node.h
+// bool Node::SaveJSON(Serializer& dest, const String& indentation="\t") const | File: ../Scene/Node.h
 bool NodeSaveJSONVectorBuffer(VectorBuffer& buffer, Node* ptr)
 {
     return ptr->SaveJSON(buffer);
 }
 
-// template<class T> void Node::GetChildrenWithComponent(PODVector< Node * > &dest, bool recursive=false) const | File: ../Scene/Node.h
+// template <class T> void Node::GetChildrenWithComponent(PODVector<Node*>&dest, bool recursive=false) const | File: ../Scene/Node.h
 CScriptArray* NodeGetChildrenWithScript(bool recursive, Node* ptr)
 {
     PODVector<Node*> nodes;

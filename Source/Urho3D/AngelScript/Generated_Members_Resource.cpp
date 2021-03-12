@@ -115,7 +115,7 @@ void CollectMembers_Image(MemberCollection& members)
     // Error: type "PODVector<Image*>&" can not automatically bind
     // void Image::GetLevels(PODVector<const Image*>& levels) const
     // Error: type "PODVector<const Image*>&" can not automatically bind
-    // SDL_Surface* Image::GetSDLSurface(const IntRect& rect=IntRect::ZERO) const
+    // SDL_Surface* Image::GetSDLSurface(const IntRect& rect = IntRect::ZERO) const
     // Error: type "SDL_Surface*" can not automatically bind
     // void Image::SetData(const unsigned char* pixelData)
     // Error: type "const unsigned char*" can not automatically bind
@@ -141,7 +141,7 @@ void CollectMembers_Image(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool Image::SaveTGA(const String& fileName) const", "bool SaveTGA(const String&in) const", AS_METHODPR(Image, SaveTGA, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Image::SaveJPG(const String& fileName, int quality) const", "bool SaveJPG(const String&in, int) const", AS_METHODPR(Image, SaveJPG, (const String&, int) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Image::SaveDDS(const String& fileName) const", "bool SaveDDS(const String&in) const", AS_METHODPR(Image, SaveDDS, (const String&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool Image::SaveWEBP(const String& fileName, float compression=0.0f) const", "bool SaveWEBP(const String&in, float = 0.0f) const", AS_METHODPR(Image, SaveWEBP, (const String&, float) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool Image::SaveWEBP(const String& fileName, float compression = 0.0f) const", "bool SaveWEBP(const String&in, float = 0.0f) const", AS_METHODPR(Image, SaveWEBP, (const String&, float) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Image::IsCubemap() const", "bool IsCubemap() const", AS_METHODPR(Image, IsCubemap, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Image::IsCubemap() const", "bool get_cubemap() const", AS_METHODPR(Image, IsCubemap, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool Image::IsArray() const", "bool IsArray() const", AS_METHODPR(Image, IsArray, () const, bool), AS_CALL_THISCALL));
@@ -200,7 +200,7 @@ void CollectMembers_JSONFile(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONFile::Save(Serializer& dest) const override", "bool Save(Serializer&) const", AS_METHODPR(JSONFile, Save, (Serializer&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONFile::Save(Serializer& dest, const String& indendation) const", "bool Save(Serializer&, const String&in) const", AS_METHODPR(JSONFile, Save, (Serializer&, const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONFile::FromString(const String& source)", "bool FromString(const String&in)", AS_METHODPR(JSONFile, FromString, (const String&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String JSONFile::ToString(const String& indendation=\"\t\") const", "String ToString(const String&in = \"\t\") const", AS_METHODPR(JSONFile, ToString, (const String&) const, String), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String JSONFile::ToString(const String& indendation = \"\t\") const", "String ToString(const String&in = \"\t\") const", AS_METHODPR(JSONFile, ToString, (const String&) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONFile::GetRoot()", "JSONValue& GetRoot()", AS_METHODPR(JSONFile, GetRoot, (), JSONValue&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONFile::GetRoot()", "JSONValue& get_root()", AS_METHODPR(JSONFile, GetRoot, (), JSONValue&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const JSONValue& JSONFile::GetRoot() const", "const JSONValue& GetRoot() const", AS_METHODPR(JSONFile, GetRoot, () const, const JSONValue&), AS_CALL_THISCALL));
@@ -213,8 +213,8 @@ void CollectMembers_JSONFile(MemberCollection& members)
     #endif
 }
 
-// void JSONValue::SetVariant(const Variant& variant, Context* context=nullptr)
-// void JSONValue::SetVariant(const Variant& variant, Context* context=nullptr) | File: ../Resource/JSONValue.h
+// void JSONValue::SetVariant(const Variant& variant, Context* context = nullptr)
+// void JSONValue::SetVariant(const Variant& variant, Context* context = nullptr) | File: ../Resource/JSONValue.h
 static void JSONValue_SetVariant_Variant_Context(JSONValue* ptr, const Variant& variant)
 {
     Context* context = GetScriptContext();
@@ -222,8 +222,8 @@ static void JSONValue_SetVariant_Variant_Context(JSONValue* ptr, const Variant& 
 }
 
 
-// void JSONValue::SetVariantValue(const Variant& variant, Context* context=nullptr)
-// void JSONValue::SetVariantValue(const Variant& variant, Context* context=nullptr) | File: ../Resource/JSONValue.h
+// void JSONValue::SetVariantValue(const Variant& variant, Context* context = nullptr)
+// void JSONValue::SetVariantValue(const Variant& variant, Context* context = nullptr) | File: ../Resource/JSONValue.h
 static void JSONValue_SetVariantValue_Variant_Context(JSONValue* ptr, const Variant& variant)
 {
     Context* context = GetScriptContext();
@@ -231,8 +231,8 @@ static void JSONValue_SetVariantValue_Variant_Context(JSONValue* ptr, const Vari
 }
 
 
-// void JSONValue::SetVariantMap(const VariantMap& variantMap, Context* context=nullptr)
-// void JSONValue::SetVariantMap(const VariantMap& variantMap, Context* context=nullptr) | File: ../Resource/JSONValue.h
+// void JSONValue::SetVariantMap(const VariantMap& variantMap, Context* context = nullptr)
+// void JSONValue::SetVariantMap(const VariantMap& variantMap, Context* context = nullptr) | File: ../Resource/JSONValue.h
 static void JSONValue_SetVariantMap_VariantMap_Context(JSONValue* ptr, const VariantMap& variantMap)
 {
     Context* context = GetScriptContext();
@@ -253,13 +253,13 @@ void CollectMembers_JSONValue(MemberCollection& members)
     // Error: type "JSONObjectIterator" can not automatically bind
     // const JSONArray& JSONValue::GetArray() const
     // Error: type "const JSONArray&" can not automatically bind
-    // const char* JSONValue::GetCString(const char* defaultValue="") const
+    // const char* JSONValue::GetCString(const char* defaultValue = "") const
     // Error: type "const char*" can not automatically bind
     // const JSONObject& JSONValue::GetObject() const
     // Error: type "const JSONObject&" can not automatically bind
     // VariantVector JSONValue::GetVariantVector() const
     // Error: type "VariantVector" can not automatically bind
-    // void JSONValue::SetVariantVector(const VariantVector& variantVector, Context* context=nullptr)
+    // void JSONValue::SetVariantVector(const VariantVector& variantVector, Context* context = nullptr)
     // Error: type "const VariantVector&" can not automatically bind
     // JSONValue& JSONValue::operator=(const JSONArray& rhs)
     // Error: type "const JSONArray&" can not automatically bind
@@ -295,18 +295,18 @@ void CollectMembers_JSONValue(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONValue::IsArray() const", "bool get_isArray() const", AS_METHODPR(JSONValue, IsArray, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONValue::IsObject() const", "bool IsObject() const", AS_METHODPR(JSONValue, IsObject, () const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONValue::IsObject() const", "bool get_isObject() const", AS_METHODPR(JSONValue, IsObject, () const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool JSONValue::GetBool(bool defaultValue=false) const", "bool GetBool(bool = false) const", AS_METHODPR(JSONValue, GetBool, (bool) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("int JSONValue::GetInt(int defaultValue=0) const", "int GetInt(int = 0) const", AS_METHODPR(JSONValue, GetInt, (int) const, int), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("unsigned JSONValue::GetUInt(unsigned defaultValue=0) const", "uint GetUInt(uint = 0) const", AS_METHODPR(JSONValue, GetUInt, (unsigned) const, unsigned), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("float JSONValue::GetFloat(float defaultValue=0.0f) const", "float GetFloat(float = 0.0f) const", AS_METHODPR(JSONValue, GetFloat, (float) const, float), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("double JSONValue::GetDouble(double defaultValue=0.0) const", "double GetDouble(double = 0.0) const", AS_METHODPR(JSONValue, GetDouble, (double) const, double), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("const String& JSONValue::GetString(const String& defaultValue=String::EMPTY) const", "const String& GetString(const String&in = String::EMPTY) const", AS_METHODPR(JSONValue, GetString, (const String&) const, const String&), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool JSONValue::GetBool(bool defaultValue = false) const", "bool GetBool(bool = false) const", AS_METHODPR(JSONValue, GetBool, (bool) const, bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("int JSONValue::GetInt(int defaultValue = 0) const", "int GetInt(int = 0) const", AS_METHODPR(JSONValue, GetInt, (int) const, int), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("unsigned JSONValue::GetUInt(unsigned defaultValue = 0) const", "uint GetUInt(uint = 0) const", AS_METHODPR(JSONValue, GetUInt, (unsigned) const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("float JSONValue::GetFloat(float defaultValue = 0.0f) const", "float GetFloat(float = 0.0f) const", AS_METHODPR(JSONValue, GetFloat, (float) const, float), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("double JSONValue::GetDouble(double defaultValue = 0.0) const", "double GetDouble(double = 0.0) const", AS_METHODPR(JSONValue, GetDouble, (double) const, double), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("const String& JSONValue::GetString(const String& defaultValue = String::EMPTY) const", "const String& GetString(const String&in = String::EMPTY) const", AS_METHODPR(JSONValue, GetString, (const String&) const, const String&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("JSONValue& JSONValue::operator[](unsigned index)", "JSONValue& opIndex(uint)", AS_METHODPR(JSONValue, operator[], (unsigned), JSONValue&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("const JSONValue& JSONValue::operator[](unsigned index) const", "const JSONValue& opIndex(uint) const", AS_METHODPR(JSONValue, operator[], (unsigned) const, const JSONValue&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Push(const JSONValue& value)", "void Push(const JSONValue&in)", AS_METHODPR(JSONValue, Push, (const JSONValue&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Pop()", "void Pop()", AS_METHODPR(JSONValue, Pop, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Insert(unsigned pos, const JSONValue& value)", "void Insert(uint, const JSONValue&in)", AS_METHODPR(JSONValue, Insert, (unsigned, const JSONValue&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Erase(unsigned pos, unsigned length=1)", "void Erase(uint, uint = 1)", AS_METHODPR(JSONValue, Erase, (unsigned, unsigned), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Erase(unsigned pos, unsigned length = 1)", "void Erase(uint, uint = 1)", AS_METHODPR(JSONValue, Erase, (unsigned, unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Resize(unsigned newSize)", "void Resize(uint)", AS_METHODPR(JSONValue, Resize, (unsigned), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned JSONValue::Size() const", "uint Size() const", AS_METHODPR(JSONValue, Size, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned JSONValue::Size() const", "uint get_size() const", AS_METHODPR(JSONValue, Size, () const, unsigned), AS_CALL_THISCALL));
@@ -317,12 +317,12 @@ void CollectMembers_JSONValue(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONValue::Erase(const String& key)", "bool Erase(const String&in)", AS_METHODPR(JSONValue, Erase, (const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool JSONValue::Contains(const String& key) const", "bool Contains(const String&in) const", AS_METHODPR(JSONValue, Contains, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::Clear()", "void Clear()", AS_METHODPR(JSONValue, Clear, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::SetType(JSONValueType valueType, JSONNumberType numberType=JSONNT_NAN)", "void SetType(JSONValueType, JSONNumberType = JSONNT_NAN)", AS_METHODPR(JSONValue, SetType, (JSONValueType, JSONNumberType), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::SetVariant(const Variant& variant, Context* context=nullptr)", "void SetVariant(const Variant&in)", AS_FUNCTION_OBJFIRST(JSONValue_SetVariant_Variant_Context), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::SetType(JSONValueType valueType, JSONNumberType numberType = JSONNT_NAN)", "void SetType(JSONValueType, JSONNumberType = JSONNT_NAN)", AS_METHODPR(JSONValue, SetType, (JSONValueType, JSONNumberType), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::SetVariant(const Variant& variant, Context* context = nullptr)", "void SetVariant(const Variant&in)", AS_FUNCTION_OBJFIRST(JSONValue_SetVariant_Variant_Context), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("Variant JSONValue::GetVariant() const", "Variant GetVariant() const", AS_METHODPR(JSONValue, GetVariant, () const, Variant), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::SetVariantValue(const Variant& variant, Context* context=nullptr)", "void SetVariantValue(const Variant&in)", AS_FUNCTION_OBJFIRST(JSONValue_SetVariantValue_Variant_Context), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::SetVariantValue(const Variant& variant, Context* context = nullptr)", "void SetVariantValue(const Variant&in)", AS_FUNCTION_OBJFIRST(JSONValue_SetVariantValue_Variant_Context), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("Variant JSONValue::GetVariantValue(VariantType type) const", "Variant GetVariantValue(VariantType) const", AS_METHODPR(JSONValue, GetVariantValue, (VariantType) const, Variant), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::SetVariantMap(const VariantMap& variantMap, Context* context=nullptr)", "void SetVariantMap(const VariantMap&in)", AS_FUNCTION_OBJFIRST(JSONValue_SetVariantMap_VariantMap_Context), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("void JSONValue::SetVariantMap(const VariantMap& variantMap, Context* context = nullptr)", "void SetVariantMap(const VariantMap&in)", AS_FUNCTION_OBJFIRST(JSONValue_SetVariantMap_VariantMap_Context), AS_CALL_CDECL_OBJFIRST));
     members.methods_.Push(RegisterObjectMethodArgs("VariantMap JSONValue::GetVariantMap() const", "VariantMap GetVariantMap() const", AS_METHODPR(JSONValue, GetVariantMap, () const, VariantMap), AS_CALL_THISCALL));
 
     // static JSONValueType JSONValue::GetValueTypeFromName(const char* typeName)
@@ -375,9 +375,9 @@ void CollectMembers_Localization(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void Localization::SetLanguage(const String& language)", "void SetLanguage(const String&in)", AS_METHODPR(Localization, SetLanguage, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String Localization::Get(const String& id)", "String Get(const String&in)", AS_METHODPR(Localization, Get, (const String&), String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Localization::Reset()", "void Reset()", AS_METHODPR(Localization, Reset, (), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Localization::LoadJSONFile(const String& name, const String& language=String::EMPTY)", "void LoadJSONFile(const String&in, const String&in = String::EMPTY)", AS_METHODPR(Localization, LoadJSONFile, (const String&, const String&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Localization::LoadJSONFile(const String& name, const String& language = String::EMPTY)", "void LoadJSONFile(const String&in, const String&in = String::EMPTY)", AS_METHODPR(Localization, LoadJSONFile, (const String&, const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void Localization::LoadMultipleLanguageJSON(const JSONValue& source)", "void LoadMultipleLanguageJSON(const JSONValue&in)", AS_METHODPR(Localization, LoadMultipleLanguageJSON, (const JSONValue&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void Localization::LoadSingleLanguageJSON(const JSONValue& source, const String& language=String::EMPTY)", "void LoadSingleLanguageJSON(const JSONValue&in, const String&in = String::EMPTY)", AS_METHODPR(Localization, LoadSingleLanguageJSON, (const JSONValue&, const String&), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void Localization::LoadSingleLanguageJSON(const JSONValue& source, const String& language = String::EMPTY)", "void LoadSingleLanguageJSON(const JSONValue&in, const String&in = String::EMPTY)", AS_METHODPR(Localization, LoadSingleLanguageJSON, (const JSONValue&, const String&), void), AS_CALL_THISCALL));
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_Localization
         REGISTER_MEMBERS_MANUAL_PART_Localization();
@@ -416,8 +416,8 @@ void CollectMembers_Resource(MemberCollection& members)
     #endif
 }
 
-// SharedPtr<File> ResourceCache::GetFile(const String& name, bool sendEventOnFailure=true)
-// SharedPtr<File> ResourceCache::GetFile(const String& name, bool sendEventOnFailure=true) | File: ../Resource/ResourceCache.h
+// SharedPtr<File> ResourceCache::GetFile(const String& name, bool sendEventOnFailure = true)
+// SharedPtr<File> ResourceCache::GetFile(const String& name, bool sendEventOnFailure = true) | File: ../Resource/ResourceCache.h
 static File* ResourceCache_GetFile_String_bool(ResourceCache* ptr, const String& name, bool sendEventOnFailure)
 {
     SharedPtr<File> result = ptr->GetFile(name, sendEventOnFailure);
@@ -425,8 +425,8 @@ static File* ResourceCache_GetFile_String_bool(ResourceCache* ptr, const String&
 }
 
 
-// SharedPtr<Resource> ResourceCache::GetTempResource(StringHash type, const String& name, bool sendEventOnFailure=true)
-// SharedPtr<Resource> ResourceCache::GetTempResource(StringHash type, const String& name, bool sendEventOnFailure=true) | File: ../Resource/ResourceCache.h
+// SharedPtr<Resource> ResourceCache::GetTempResource(StringHash type, const String& name, bool sendEventOnFailure = true)
+// SharedPtr<Resource> ResourceCache::GetTempResource(StringHash type, const String& name, bool sendEventOnFailure = true) | File: ../Resource/ResourceCache.h
 static Resource* ResourceCache_GetTempResource_StringHash_String_bool(ResourceCache* ptr, StringHash type, const String& name, bool sendEventOnFailure)
 {
     SharedPtr<Resource> result = ptr->GetTempResource(type, name, sendEventOnFailure);
@@ -457,7 +457,7 @@ void CollectMembers_ResourceCache(MemberCollection& members)
 {
     CollectMembers_Object(members);
 
-    // void ResourceCache::AddResourceRouter(ResourceRouter* router, bool addAsFirst=false)
+    // void ResourceCache::AddResourceRouter(ResourceRouter* router, bool addAsFirst = false)
     // Error: type "ResourceRouter" can not automatically bind bacause have @nobind mark
     // const HashMap<StringHash, ResourceGroup>& ResourceCache::GetAllResources() const
     // Error: type "const HashMap<StringHash, ResourceGroup>&" can not automatically bind
@@ -468,18 +468,18 @@ void CollectMembers_ResourceCache(MemberCollection& members)
     // void ResourceCache::RemoveResourceRouter(ResourceRouter* router)
     // Error: type "ResourceRouter" can not automatically bind bacause have @nobind mark
 
-    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::AddResourceDir(const String& pathName, unsigned priority=PRIORITY_LAST)", "bool AddResourceDir(const String&in, uint = PRIORITY_LAST)", AS_METHODPR(ResourceCache, AddResourceDir, (const String&, unsigned), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::AddPackageFile(PackageFile* package, unsigned priority=PRIORITY_LAST)", "bool AddPackageFile(PackageFile@+, uint = PRIORITY_LAST)", AS_METHODPR(ResourceCache, AddPackageFile, (PackageFile*, unsigned), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::AddPackageFile(const String& fileName, unsigned priority=PRIORITY_LAST)", "bool AddPackageFile(const String&in, uint = PRIORITY_LAST)", AS_METHODPR(ResourceCache, AddPackageFile, (const String&, unsigned), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::AddResourceDir(const String& pathName, unsigned priority = PRIORITY_LAST)", "bool AddResourceDir(const String&in, uint = PRIORITY_LAST)", AS_METHODPR(ResourceCache, AddResourceDir, (const String&, unsigned), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::AddPackageFile(PackageFile* package, unsigned priority = PRIORITY_LAST)", "bool AddPackageFile(PackageFile@+, uint = PRIORITY_LAST)", AS_METHODPR(ResourceCache, AddPackageFile, (PackageFile*, unsigned), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::AddPackageFile(const String& fileName, unsigned priority = PRIORITY_LAST)", "bool AddPackageFile(const String&in, uint = PRIORITY_LAST)", AS_METHODPR(ResourceCache, AddPackageFile, (const String&, unsigned), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::AddManualResource(Resource* resource)", "bool AddManualResource(Resource@+)", AS_METHODPR(ResourceCache, AddManualResource, (Resource*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::RemoveResourceDir(const String& pathName)", "void RemoveResourceDir(const String&in)", AS_METHODPR(ResourceCache, RemoveResourceDir, (const String&), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::RemovePackageFile(PackageFile* package, bool releaseResources=true, bool forceRelease=false)", "void RemovePackageFile(PackageFile@+, bool = true, bool = false)", AS_METHODPR(ResourceCache, RemovePackageFile, (PackageFile*, bool, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::RemovePackageFile(const String& fileName, bool releaseResources=true, bool forceRelease=false)", "void RemovePackageFile(const String&in, bool = true, bool = false)", AS_METHODPR(ResourceCache, RemovePackageFile, (const String&, bool, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseResource(StringHash type, const String& name, bool force=false)", "void ReleaseResource(StringHash, const String&in, bool = false)", AS_METHODPR(ResourceCache, ReleaseResource, (StringHash, const String&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseResources(StringHash type, bool force=false)", "void ReleaseResources(StringHash, bool = false)", AS_METHODPR(ResourceCache, ReleaseResources, (StringHash, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseResources(StringHash type, const String& partialName, bool force=false)", "void ReleaseResources(StringHash, const String&in, bool = false)", AS_METHODPR(ResourceCache, ReleaseResources, (StringHash, const String&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseResources(const String& partialName, bool force=false)", "void ReleaseResources(const String&in, bool = false)", AS_METHODPR(ResourceCache, ReleaseResources, (const String&, bool), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseAllResources(bool force=false)", "void ReleaseAllResources(bool = false)", AS_METHODPR(ResourceCache, ReleaseAllResources, (bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::RemovePackageFile(PackageFile* package, bool releaseResources = true, bool forceRelease = false)", "void RemovePackageFile(PackageFile@+, bool = true, bool = false)", AS_METHODPR(ResourceCache, RemovePackageFile, (PackageFile*, bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::RemovePackageFile(const String& fileName, bool releaseResources = true, bool forceRelease = false)", "void RemovePackageFile(const String&in, bool = true, bool = false)", AS_METHODPR(ResourceCache, RemovePackageFile, (const String&, bool, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseResource(StringHash type, const String& name, bool force = false)", "void ReleaseResource(StringHash, const String&in, bool = false)", AS_METHODPR(ResourceCache, ReleaseResource, (StringHash, const String&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseResources(StringHash type, bool force = false)", "void ReleaseResources(StringHash, bool = false)", AS_METHODPR(ResourceCache, ReleaseResources, (StringHash, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseResources(StringHash type, const String& partialName, bool force = false)", "void ReleaseResources(StringHash, const String&in, bool = false)", AS_METHODPR(ResourceCache, ReleaseResources, (StringHash, const String&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseResources(const String& partialName, bool force = false)", "void ReleaseResources(const String&in, bool = false)", AS_METHODPR(ResourceCache, ReleaseResources, (const String&, bool), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReleaseAllResources(bool force = false)", "void ReleaseAllResources(bool = false)", AS_METHODPR(ResourceCache, ReleaseAllResources, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::ReloadResource(Resource* resource)", "bool ReloadResource(Resource@+)", AS_METHODPR(ResourceCache, ReloadResource, (Resource*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ReloadResourceWithDependencies(const String& fileName)", "void ReloadResourceWithDependencies(const String&in)", AS_METHODPR(ResourceCache, ReloadResourceWithDependencies, (const String&), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::SetMemoryBudget(StringHash type, unsigned long long budget)", "void SetMemoryBudget(StringHash, uint64)", AS_METHODPR(ResourceCache, SetMemoryBudget, (StringHash, unsigned long long), void), AS_CALL_THISCALL));
@@ -492,10 +492,10 @@ void CollectMembers_ResourceCache(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::SetSearchPackagesFirst(bool value)", "void set_searchPackagesFirst(bool)", AS_METHODPR(ResourceCache, SetSearchPackagesFirst, (bool), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::SetFinishBackgroundResourcesMs(int ms)", "void SetFinishBackgroundResourcesMs(int)", AS_METHODPR(ResourceCache, SetFinishBackgroundResourcesMs, (int), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::SetFinishBackgroundResourcesMs(int ms)", "void set_finishBackgroundResourcesMs(int)", AS_METHODPR(ResourceCache, SetFinishBackgroundResourcesMs, (int), void), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<File> ResourceCache::GetFile(const String& name, bool sendEventOnFailure=true)", "File@+ GetFile(const String&in, bool = true)", AS_FUNCTION_OBJFIRST(ResourceCache_GetFile_String_bool), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("Resource* ResourceCache::GetResource(StringHash type, const String& name, bool sendEventOnFailure=true)", "Resource@+ GetResource(StringHash, const String&in, bool = true)", AS_METHODPR(ResourceCache, GetResource, (StringHash, const String&, bool), Resource*), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Resource> ResourceCache::GetTempResource(StringHash type, const String& name, bool sendEventOnFailure=true)", "Resource@+ GetTempResource(StringHash, const String&in, bool = true)", AS_FUNCTION_OBJFIRST(ResourceCache_GetTempResource_StringHash_String_bool), AS_CALL_CDECL_OBJFIRST));
-    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::BackgroundLoadResource(StringHash type, const String& name, bool sendEventOnFailure=true, Resource* caller=nullptr)", "bool BackgroundLoadResource(StringHash, const String&in, bool = true, Resource@+ = null)", AS_METHODPR(ResourceCache, BackgroundLoadResource, (StringHash, const String&, bool, Resource*), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<File> ResourceCache::GetFile(const String& name, bool sendEventOnFailure = true)", "File@+ GetFile(const String&in, bool = true)", AS_FUNCTION_OBJFIRST(ResourceCache_GetFile_String_bool), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("Resource* ResourceCache::GetResource(StringHash type, const String& name, bool sendEventOnFailure = true)", "Resource@+ GetResource(StringHash, const String&in, bool = true)", AS_METHODPR(ResourceCache, GetResource, (StringHash, const String&, bool), Resource*), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("SharedPtr<Resource> ResourceCache::GetTempResource(StringHash type, const String& name, bool sendEventOnFailure = true)", "Resource@+ GetTempResource(StringHash, const String&in, bool = true)", AS_FUNCTION_OBJFIRST(ResourceCache_GetTempResource_StringHash_String_bool), AS_CALL_CDECL_OBJFIRST));
+    members.methods_.Push(RegisterObjectMethodArgs("bool ResourceCache::BackgroundLoadResource(StringHash type, const String& name, bool sendEventOnFailure = true, Resource* caller = nullptr)", "bool BackgroundLoadResource(StringHash, const String&in, bool = true, Resource@+ = null)", AS_METHODPR(ResourceCache, BackgroundLoadResource, (StringHash, const String&, bool, Resource*), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned ResourceCache::GetNumBackgroundLoadResources() const", "uint GetNumBackgroundLoadResources() const", AS_METHODPR(ResourceCache, GetNumBackgroundLoadResources, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned ResourceCache::GetNumBackgroundLoadResources() const", "uint get_numBackgroundLoadResources() const", AS_METHODPR(ResourceCache, GetNumBackgroundLoadResources, () const, unsigned), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Resource* ResourceCache::GetExistingResource(StringHash type, const String& name)", "Resource@+ GetExistingResource(StringHash, const String&in)", AS_METHODPR(ResourceCache, GetExistingResource, (StringHash, const String&), Resource*), AS_CALL_THISCALL));
@@ -526,6 +526,19 @@ void CollectMembers_ResourceCache(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::ResetDependencies(Resource* resource)", "void ResetDependencies(Resource@+)", AS_METHODPR(ResourceCache, ResetDependencies, (Resource*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String ResourceCache::PrintMemoryUsage() const", "String PrintMemoryUsage() const", AS_METHODPR(ResourceCache, PrintMemoryUsage, () const, String), AS_CALL_THISCALL));
 
+    // template <class T> T* ResourceCache::GetResource(const String& name, bool sendEventOnFailure = true)
+    // Not registered because template
+    // template <class T> T* ResourceCache::GetExistingResource(const String& name)
+    // Not registered because template
+    // template <class T> SharedPtr<T> ResourceCache::GetTempResource(const String& name, bool sendEventOnFailure = true)
+    // Not registered because template
+    // template <class T> void ResourceCache::ReleaseResource(const String& name, bool force = false)
+    // Not registered because template
+    // template <class T> bool ResourceCache::BackgroundLoadResource(const String& name, bool sendEventOnFailure = true, Resource* caller = nullptr)
+    // Not registered because template
+    // template <class T> void ResourceCache::GetResources(PODVector<T*>& result) const
+    // Not registered because template
+
     #ifdef REGISTER_MEMBERS_MANUAL_PART_ResourceCache
         REGISTER_MEMBERS_MANUAL_PART_ResourceCache();
     #endif
@@ -548,7 +561,7 @@ void CollectMembers_ResourceGroup(MemberCollection& members)
 // class ResourceRouter | File: ../Resource/ResourceCache.h
 void CollectMembers_ResourceRouter(MemberCollection& members)
 {
-    members.methods_.Push(RegisterObjectMethodArgs("virtual void ResourceRouter::Route(String& name, ResourceRequest requestType)=0", "void Route(String&, ResourceRequest)", AS_METHODPR(ResourceRouter, Route, (String&, ResourceRequest), void), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void ResourceRouter::Route(String& name, ResourceRequest requestType) = 0", "void Route(String&, ResourceRequest)", AS_METHODPR(ResourceRouter, Route, (String&, ResourceRequest), void), AS_CALL_THISCALL));
 
     #ifdef REGISTER_MEMBERS_MANUAL_PART_ResourceRouter
         REGISTER_MEMBERS_MANUAL_PART_ResourceRouter();
@@ -643,9 +656,9 @@ void CollectMembers_XMLElement(MemberCollection& members)
     // Error: type "const char*" can not automatically bind
     // bool XMLElement::RemoveChildren(const char* name)
     // Error: type "const char*" can not automatically bind
-    // XPathResultSet XMLElement::Select(const String& query, pugi::xpath_variable_set* variables=nullptr) const
+    // XPathResultSet XMLElement::Select(const String& query, pugi::xpath_variable_set* variables = nullptr) const
     // Error: type "pugi::xpath_variable_set*" can not automatically bind
-    // XMLElement XMLElement::SelectSingle(const String& query, pugi::xpath_variable_set* variables=nullptr) const
+    // XMLElement XMLElement::SelectSingle(const String& query, pugi::xpath_variable_set* variables = nullptr) const
     // Error: type "pugi::xpath_variable_set*" can not automatically bind
     // bool XMLElement::SetAttribute(const char* name, const char* value)
     // Error: type "const char*" can not automatically bind
@@ -663,12 +676,12 @@ void CollectMembers_XMLElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement& XMLElement::operator=(const XMLElement& rhs)", "XMLElement& opAssign(const XMLElement&in)", AS_METHODPR(XMLElement, operator=, (const XMLElement&), XMLElement&), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::CreateChild(const String& name)", "XMLElement CreateChild(const String&in)", AS_METHODPR(XMLElement, CreateChild, (const String&), XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::GetOrCreateChild(const String& name)", "XMLElement GetOrCreateChild(const String&in)", AS_METHODPR(XMLElement, GetOrCreateChild, (const String&), XMLElement), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::AppendChild(XMLElement element, bool asCopy=false)", "bool AppendChild(XMLElement, bool = false)", AS_METHODPR(XMLElement, AppendChild, (XMLElement, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::AppendChild(XMLElement element, bool asCopy = false)", "bool AppendChild(XMLElement, bool = false)", AS_METHODPR(XMLElement, AppendChild, (XMLElement, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::Remove()", "bool Remove()", AS_METHODPR(XMLElement, Remove, (), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::RemoveChild(const XMLElement& element)", "bool RemoveChild(const XMLElement&in)", AS_METHODPR(XMLElement, RemoveChild, (const XMLElement&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::RemoveChild(const String& name)", "bool RemoveChild(const String&in)", AS_METHODPR(XMLElement, RemoveChild, (const String&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::RemoveChildren(const String& name=String::EMPTY)", "bool RemoveChildren(const String&in = String::EMPTY)", AS_METHODPR(XMLElement, RemoveChildren, (const String&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::RemoveAttribute(const String& name=String::EMPTY)", "bool RemoveAttribute(const String&in = String::EMPTY)", AS_METHODPR(XMLElement, RemoveAttribute, (const String&), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::RemoveChildren(const String& name = String::EMPTY)", "bool RemoveChildren(const String&in = String::EMPTY)", AS_METHODPR(XMLElement, RemoveChildren, (const String&), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::RemoveAttribute(const String& name = String::EMPTY)", "bool RemoveAttribute(const String&in = String::EMPTY)", AS_METHODPR(XMLElement, RemoveAttribute, (const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::SelectSinglePrepared(const XPathQuery& query) const", "XMLElement SelectSinglePrepared(const XPathQuery&in) const", AS_METHODPR(XMLElement, SelectSinglePrepared, (const XPathQuery&) const, XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XPathResultSet XMLElement::SelectPrepared(const XPathQuery& query) const", "XPathResultSet SelectPrepared(const XPathQuery&in) const", AS_METHODPR(XMLElement, SelectPrepared, (const XPathQuery&) const, XPathResultSet), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::SetValue(const String& value)", "bool SetValue(const String&in)", AS_METHODPR(XMLElement, SetValue, (const String&), bool), AS_CALL_THISCALL));
@@ -711,8 +724,8 @@ void CollectMembers_XMLElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("String XMLElement::GetName() const", "String GetName() const", AS_METHODPR(XMLElement, GetName, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String XMLElement::GetName() const", "String get_name() const", AS_METHODPR(XMLElement, GetName, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::HasChild(const String& name) const", "bool HasChild(const String&in) const", AS_METHODPR(XMLElement, HasChild, (const String&) const, bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::GetChild(const String& name=String::EMPTY) const", "XMLElement GetChild(const String&in = String::EMPTY) const", AS_METHODPR(XMLElement, GetChild, (const String&) const, XMLElement), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::GetNext(const String& name=String::EMPTY) const", "XMLElement GetNext(const String&in = String::EMPTY) const", AS_METHODPR(XMLElement, GetNext, (const String&) const, XMLElement), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::GetChild(const String& name = String::EMPTY) const", "XMLElement GetChild(const String&in = String::EMPTY) const", AS_METHODPR(XMLElement, GetChild, (const String&) const, XMLElement), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::GetNext(const String& name = String::EMPTY) const", "XMLElement GetNext(const String&in = String::EMPTY) const", AS_METHODPR(XMLElement, GetNext, (const String&) const, XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::GetParent() const", "XMLElement GetParent() const", AS_METHODPR(XMLElement, GetParent, () const, XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::GetParent() const", "XMLElement get_parent() const", AS_METHODPR(XMLElement, GetParent, () const, XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned XMLElement::GetNumAttributes() const", "uint GetNumAttributes() const", AS_METHODPR(XMLElement, GetNumAttributes, () const, unsigned), AS_CALL_THISCALL));
@@ -720,7 +733,7 @@ void CollectMembers_XMLElement(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::HasAttribute(const String& name) const", "bool HasAttribute(const String&in) const", AS_METHODPR(XMLElement, HasAttribute, (const String&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String XMLElement::GetValue() const", "String GetValue() const", AS_METHODPR(XMLElement, GetValue, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String XMLElement::GetValue() const", "String get_value() const", AS_METHODPR(XMLElement, GetValue, () const, String), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String XMLElement::GetAttribute(const String& name=String::EMPTY) const", "String GetAttribute(const String&in = String::EMPTY) const", AS_METHODPR(XMLElement, GetAttribute, (const String&) const, String), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String XMLElement::GetAttribute(const String& name = String::EMPTY) const", "String GetAttribute(const String&in = String::EMPTY) const", AS_METHODPR(XMLElement, GetAttribute, (const String&) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String XMLElement::GetAttributeLower(const String& name) const", "String GetAttributeLower(const String&in) const", AS_METHODPR(XMLElement, GetAttributeLower, (const String&) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String XMLElement::GetAttributeUpper(const String& name) const", "String GetAttributeUpper(const String&in) const", AS_METHODPR(XMLElement, GetAttributeUpper, (const String&) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("Vector<String> XMLElement::GetAttributeNames() const", "Array<String>@ GetAttributeNames() const", AS_FUNCTION_OBJFIRST(XMLElement_GetAttributeNames_void), AS_CALL_CDECL_OBJFIRST));
@@ -782,8 +795,8 @@ void CollectMembers_XMLFile(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool XMLFile::FromString(const String& source)", "bool FromString(const String&in)", AS_METHODPR(XMLFile, FromString, (const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLFile::CreateRoot(const String& name)", "XMLElement CreateRoot(const String&in)", AS_METHODPR(XMLFile, CreateRoot, (const String&), XMLElement), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLFile::GetOrCreateRoot(const String& name)", "XMLElement GetOrCreateRoot(const String&in)", AS_METHODPR(XMLFile, GetOrCreateRoot, (const String&), XMLElement), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLFile::GetRoot(const String& name=String::EMPTY)", "XMLElement GetRoot(const String&in = String::EMPTY)", AS_METHODPR(XMLFile, GetRoot, (const String&), XMLElement), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("String XMLFile::ToString(const String& indentation=\"\t\") const", "String ToString(const String&in = \"\t\") const", AS_METHODPR(XMLFile, ToString, (const String&) const, String), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLFile::GetRoot(const String& name = String::EMPTY)", "XMLElement GetRoot(const String&in = String::EMPTY)", AS_METHODPR(XMLFile, GetRoot, (const String&), XMLElement), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("String XMLFile::ToString(const String& indentation = \"\t\") const", "String ToString(const String&in = \"\t\") const", AS_METHODPR(XMLFile, ToString, (const String&) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void XMLFile::Patch(XMLFile* patchFile)", "void Patch(XMLFile@+)", AS_METHODPR(XMLFile, Patch, (XMLFile*), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void XMLFile::Patch(const XMLElement& patchElement)", "void Patch(const XMLElement&in)", AS_METHODPR(XMLFile, Patch, (const XMLElement&), void), AS_CALL_THISCALL));
 
@@ -810,7 +823,7 @@ void CollectMembers_XPathQuery(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("bool XPathQuery::SetVariable(const String& name, float value)", "bool SetVariable(const String&in, float)", AS_METHODPR(XPathQuery, SetVariable, (const String&, float), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XPathQuery::SetVariable(const String& name, const String& value)", "bool SetVariable(const String&in, const String&in)", AS_METHODPR(XPathQuery, SetVariable, (const String&, const String&), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XPathQuery::SetVariable(const String& name, const XPathResultSet& value)", "bool SetVariable(const String&in, const XPathResultSet&in)", AS_METHODPR(XPathQuery, SetVariable, (const String&, const XPathResultSet&), bool), AS_CALL_THISCALL));
-    members.methods_.Push(RegisterObjectMethodArgs("bool XPathQuery::SetQuery(const String& queryString, const String& variableString=String::EMPTY, bool bind=true)", "bool SetQuery(const String&in, const String&in = String::EMPTY, bool = true)", AS_METHODPR(XPathQuery, SetQuery, (const String&, const String&, bool), bool), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool XPathQuery::SetQuery(const String& queryString, const String& variableString = String::EMPTY, bool bind = true)", "bool SetQuery(const String&in, const String&in = String::EMPTY, bool = true)", AS_METHODPR(XPathQuery, SetQuery, (const String&, const String&, bool), bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("void XPathQuery::Clear()", "void Clear()", AS_METHODPR(XPathQuery, Clear, (), void), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("bool XPathQuery::EvaluateToBool(const XMLElement& element) const", "bool EvaluateToBool(const XMLElement&in) const", AS_METHODPR(XPathQuery, EvaluateToBool, (const XMLElement&) const, bool), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("float XPathQuery::EvaluateToFloat(const XMLElement& element) const", "float EvaluateToFloat(const XMLElement&in) const", AS_METHODPR(XPathQuery, EvaluateToFloat, (const XMLElement&) const, float), AS_CALL_THISCALL));
