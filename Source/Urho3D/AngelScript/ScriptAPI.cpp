@@ -322,11 +322,33 @@ static Script* GetScript()
     return GetScriptContext()->GetSubsystem<Script>();
 }
 
+static Script* Script_Script_Context()
+{
+    Context* context = GetScriptContext();
+    return new Script(context);
+}
+
 static void RegisterScript(asIScriptEngine* engine)
 {
     engine->RegisterEnum("DumpMode");
     engine->RegisterEnumValue("DumpMode", "DOXYGEN", DOXYGEN);
     engine->RegisterEnumValue("DumpMode", "C_HEADER", C_HEADER);
+
+    engine->RegisterObjectType("Script", 0, asOBJ_REF);
+    engine->RegisterObjectBehaviour("Script", asBEHAVE_FACTORY, "Script@+ f()", AS_FUNCTION(Script_Script_Context), AS_CALL_CDECL);
+    MemberCollection members;
+    CollectMembers_Object(members);
+    RegisterMembers(engine, "Script", members);
+
+    engine->RegisterObjectMethod("Script", "bool Execute(const String&in)", AS_METHOD(Script, Execute), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("Script", "void DumpAPI(DumpMode mode = DOXYGEN, const String&in sourceTree = String())", AS_METHOD(Script, DumpAPI), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("Script", "void set_defaultScriptFile(ScriptFile@+)", AS_METHOD(Script, SetDefaultScriptFile), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("Script", "ScriptFile@+ get_defaultScriptFile() const", AS_METHOD(Script, GetDefaultScriptFile), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("Script", "void set_defaultScene(Scene@+)", AS_METHOD(Script, SetDefaultScene), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("Script", "Scene@+ get_defaultScene() const", AS_METHOD(Script, GetDefaultScene), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("Script", "void set_executeConsoleCommands(bool)", AS_METHOD(Script, SetExecuteConsoleCommands), AS_CALL_THISCALL);
+    engine->RegisterObjectMethod("Script", "bool get_executeConsoleCommands() const", AS_METHOD(Script, GetExecuteConsoleCommands), AS_CALL_THISCALL);
+    engine->RegisterGlobalFunction("Script@+ get_script()", AS_FUNCTION(GetScript), AS_CALL_CDECL);
 
     /*
     RegisterObject<Script>(engine, "Script");
