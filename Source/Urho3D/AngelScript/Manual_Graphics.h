@@ -146,14 +146,22 @@ void AnimationStateSetBoneWeight(const String& name, float weight, AnimationStat
 
 // ========================================================================================
 
+void StaticModelSetModel(Model* model, StaticModel* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_StaticModel() \
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void StaticModel::SetModel(Model* model)", "void SetModel(Model@+)", AS_FUNCTION_OBJLAST(StaticModelSetModel), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void StaticModel::SetModel(Model* model)", "void set_model(Model@+)", AS_FUNCTION_OBJLAST(StaticModelSetModel), AS_CALL_CDECL_OBJLAST));
+
+// ========================================================================================
+
 const String& AnimatedModelGetMorphName(unsigned index, AnimatedModel* ptr);
-// void AnimatedModel::SetModel(Model *model, bool createBones=true) | File: ../Graphics/AnimatedModel.h
+
+// void AnimatedModel::SetModel(Model* model, bool createBones=true) | File: ../Graphics/AnimatedModel.h
 void AnimatedModelSetModel(Model* model, AnimatedModel* ptr);
 
-#define REGISTER_MANUAL_PART_AnimatedModel(T, className) \
-    engine->RegisterObjectMethod(className, "const String& get_morphNames(uint) const", AS_FUNCTION_OBJLAST(AnimatedModelGetMorphName), AS_CALL_CDECL_OBJLAST); \
-    /* void AnimatedModel::SetModel(Model *model, bool createBones=true) | File: ../Graphics/AnimatedModel.h */ \
-    engine->RegisterObjectMethod(className, "void set_model(Model@+)", AS_FUNCTION_OBJLAST(AnimatedModelSetModel), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_AnimatedModel() \
+    members.methods_.Push(RegisterObjectMethodArgs("e2accb9f-914d-4d2f-8014-1b3703e613ba", "const String& get_morphNames(uint) const", AS_FUNCTION_OBJLAST(AnimatedModelGetMorphName), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::SetModel(Model* model, bool createBones=true)", "void set_model(Model@+)", AS_FUNCTION_OBJLAST(AnimatedModelSetModel), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
