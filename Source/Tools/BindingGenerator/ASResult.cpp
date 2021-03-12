@@ -682,6 +682,12 @@ namespace Result
                 "        REGISTER_CLASS_MANUAL_PART_" << processedClass.name_ << "();\n"
                 "    #endif\n";
 
+            if (processedClass.additionalLines_.size())
+                ofs << '\n';
+
+            for (string str : processedClass.additionalLines_)
+                ofs << str << '\n';
+
             ofs << "}\n";
         }
 

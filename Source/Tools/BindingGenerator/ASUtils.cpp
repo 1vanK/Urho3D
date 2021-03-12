@@ -628,6 +628,7 @@ static string GenerateFunctionWrapperName(xml_node memberdef)
 
     // Operators
     result = ReplaceAll(result, "=", "equals");
+    result = ReplaceAll(result, "<", "less");
 
     vector<ParamAnalyzer> params = ExtractParams(memberdef);
 

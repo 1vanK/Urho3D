@@ -190,6 +190,18 @@ static void String_Join_VectorString_String(String* ptr, CScriptArray* subString
 }
 
 
+// bool String::operator <(const String& rhs) const
+static int String_operatorless_String(const String& lhs, const String& rhs)
+{
+    if (lhs < rhs)
+        return -1;
+
+    if (lhs > rhs)
+        return 1;
+
+    return 0;
+}
+
 // class String | File: ../Container/Str.h
 void CollectMembers_String(MemberCollection& members)
 {
@@ -323,6 +335,7 @@ void CollectMembers_String(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("String String::SubstringUTF8(unsigned pos) const", "String SubstringUTF8(uint) const", AS_METHODPR(String, SubstringUTF8, (unsigned) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String String::SubstringUTF8(unsigned pos, unsigned length) const", "String SubstringUTF8(uint, uint) const", AS_METHODPR(String, SubstringUTF8, (unsigned, unsigned) const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned String::ToHash() const", "uint ToHash() const", AS_METHODPR(String, ToHash, () const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool String::operator <(const String& rhs) const", "int opCmp(const String&in) const", AS_FUNCTION_OBJFIRST(String_operatorless_String), AS_CALL_CDECL_OBJFIRST));
 
     // template <class T> String& String::operator +=(const T& rhs)
     // Not registered because template

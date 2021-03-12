@@ -237,6 +237,8 @@ struct ProcessedClass
     vector<StaticFieldRegistration> staticFields_;
     vector<MemberRegistrationError> unregisteredStaticFields_;
 
+    vector<string> additionalLines_;
+
     bool noBind_ = false;
 
     vector<string> baseClassNames_;

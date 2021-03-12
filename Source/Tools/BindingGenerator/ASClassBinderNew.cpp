@@ -740,6 +740,42 @@ static void RegisterField(const FieldAnalyzer& fieldAnalyzer, ProcessedClass& pr
     }
 }
 
+static void RegisterComparisonOperator(const ClassAnalyzer& classAnalyzer, ProcessedClass& processedClass)
+{
+    string className = classAnalyzer.GetClassName();
+    shared_ptr<MethodAnalyzer> methodAnalyzer = classAnalyzer.GetMethod("operator<");
+    assert(methodAnalyzer);
+    string wrapperName = GenerateWrapperName(*methodAnalyzer);
+
+    MethodRegistration result;
+    result.cppDeclaration_ = methodAnalyzer->GetDeclaration();
+    
+    result.glue_ =
+        "static int " + wrapperName + "(const " + className + "& lhs, const " + className + "& rhs)\n"
+        "{\n"
+        "    if (lhs < rhs)\n"
+        "        return -1;\n\n"
+        "    if (lhs > rhs)\n"
+        "        return 1;\n\n"
+        "    return 0;\n"
+        "}\n";
+
+    result.name_ = methodAnalyzer->GetName();
+    result.registration_.asDeclarations_.push_back("int opCmp(const " + className + "&in) const");
+    result.registration_.funcPointer_ = "AS_FUNCTION_OBJFIRST(" + wrapperName + ")";
+    result.registration_.callConv_ = "AS_CALL_CDECL_OBJFIRST";
+
+    processedClass.methods_.push_back(result);
+}
+
+static void TryRegisterImplicitlyDeclaredAssignOperator(const ClassAnalyzer& classAnalyzer, ProcessedClass& processedClass)
+{
+    string className = classAnalyzer.GetClassName();
+
+    processedClass.additionalLines_.push_back("    // " + className + "& " + className + "::operator =(const " + className + "&) | Possible implicitly-declared");
+    processedClass.additionalLines_.push_back("    RegisterImplicitlyDeclaredAssignOperatorIfPossible<" + className + ">(engine, \"" + className + "\");");
+}
+
 static void ProcessClass(const ClassAnalyzer& classAnalyzer)
 {
     if (classAnalyzer.IsInternal())
@@ -856,6 +892,13 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
             }
         }
     }
+
+    // 2 operators is replaced by single function opCmp
+    if (classAnalyzer.ContainsMethod("operator>") || classAnalyzer.ContainsMethod("operator<"))
+        RegisterComparisonOperator(classAnalyzer, processedClass);
+
+    if (!classAnalyzer.ContainsMethod("operator="))
+        TryRegisterImplicitlyDeclaredAssignOperator(classAnalyzer, processedClass);
 
     if (classAnalyzer.IsAbstract()) // Abstract refcounted type
     {

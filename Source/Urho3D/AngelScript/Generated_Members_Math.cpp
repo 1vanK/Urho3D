@@ -820,6 +820,18 @@ void CollectMembers_Sphere(MemberCollection& members)
     #endif
 }
 
+// bool StringHash::operator <(const StringHash& rhs) const
+static int StringHash_operatorless_StringHash(const StringHash& lhs, const StringHash& rhs)
+{
+    if (lhs < rhs)
+        return -1;
+
+    if (lhs > rhs)
+        return 1;
+
+    return 0;
+}
+
 // class StringHash | File: ../Math/StringHash.h
 void CollectMembers_StringHash(MemberCollection& members)
 {
@@ -840,6 +852,7 @@ void CollectMembers_StringHash(MemberCollection& members)
     members.methods_.Push(RegisterObjectMethodArgs("String StringHash::ToString() const", "String ToString() const", AS_METHODPR(StringHash, ToString, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("String StringHash::Reverse() const", "String Reverse() const", AS_METHODPR(StringHash, Reverse, () const, String), AS_CALL_THISCALL));
     members.methods_.Push(RegisterObjectMethodArgs("unsigned StringHash::ToHash() const", "uint ToHash() const", AS_METHODPR(StringHash, ToHash, () const, unsigned), AS_CALL_THISCALL));
+    members.methods_.Push(RegisterObjectMethodArgs("bool StringHash::operator <(const StringHash& rhs) const", "int opCmp(const StringHash&in) const", AS_FUNCTION_OBJFIRST(StringHash_operatorless_StringHash), AS_CALL_CDECL_OBJFIRST));
 
     // static unsigned StringHash::Calculate(const char* str, unsigned hash = 0)
     // Error: type "const char*" can not automatically bind

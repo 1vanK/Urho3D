@@ -29,6 +29,9 @@ static void Register_AbstractFile(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AbstractFile
         REGISTER_CLASS_MANUAL_PART_AbstractFile();
     #endif
+
+    // AbstractFile& AbstractFile::operator =(const AbstractFile&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AbstractFile>(engine, "AbstractFile");
 }
 
 // struct AllocatorBlock | File: ../Container/Allocator.h
@@ -44,6 +47,9 @@ static void Register_AllocatorBlock(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AllocatorBlock
         REGISTER_CLASS_MANUAL_PART_AllocatorBlock();
     #endif
+
+    // AllocatorBlock& AllocatorBlock::operator =(const AllocatorBlock&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AllocatorBlock>(engine, "AllocatorBlock");
 }
 
 // struct AllocatorNode | File: ../Container/Allocator.h
@@ -59,6 +65,9 @@ static void Register_AllocatorNode(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AllocatorNode
         REGISTER_CLASS_MANUAL_PART_AllocatorNode();
     #endif
+
+    // AllocatorNode& AllocatorNode::operator =(const AllocatorNode&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AllocatorNode>(engine, "AllocatorNode");
 }
 
 // class Animatable | File: ../Scene/Animatable.h
@@ -147,6 +156,9 @@ static void Register_AnimationControl(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationControl
         REGISTER_CLASS_MANUAL_PART_AnimationControl();
     #endif
+
+    // AnimationControl& AnimationControl::operator =(const AnimationControl&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationControl>(engine, "AnimationControl");
 }
 
 // explicit AnimationController::AnimationController(Context* context)
@@ -190,6 +202,9 @@ static void Register_AnimationKeyFrame(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationKeyFrame
         REGISTER_CLASS_MANUAL_PART_AnimationKeyFrame();
     #endif
+
+    // AnimationKeyFrame& AnimationKeyFrame::operator =(const AnimationKeyFrame&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationKeyFrame>(engine, "AnimationKeyFrame");
 }
 
 // AnimationState::AnimationState(AnimatedModel* model, Animation* animation)
@@ -236,6 +251,9 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationStateTrack
         REGISTER_CLASS_MANUAL_PART_AnimationStateTrack();
     #endif
+
+    // AnimationStateTrack& AnimationStateTrack::operator =(const AnimationStateTrack&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationStateTrack>(engine, "AnimationStateTrack");
 }
 
 // struct AnimationTrack | File: ../Graphics/Animation.h
@@ -251,6 +269,9 @@ static void Register_AnimationTrack(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationTrack
         REGISTER_CLASS_MANUAL_PART_AnimationTrack();
     #endif
+
+    // AnimationTrack& AnimationTrack::operator =(const AnimationTrack&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationTrack>(engine, "AnimationTrack");
 }
 
 // struct AnimationTriggerPoint | File: ../Graphics/Animation.h
@@ -266,6 +287,9 @@ static void Register_AnimationTriggerPoint(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AnimationTriggerPoint
         REGISTER_CLASS_MANUAL_PART_AnimationTriggerPoint();
     #endif
+
+    // AnimationTriggerPoint& AnimationTriggerPoint::operator =(const AnimationTriggerPoint&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AnimationTriggerPoint>(engine, "AnimationTriggerPoint");
 }
 
 // AreaAllocator::AreaAllocator(int width, int height, bool fastMode = true)
@@ -298,6 +322,9 @@ static void Register_AreaAllocator(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AreaAllocator
         REGISTER_CLASS_MANUAL_PART_AreaAllocator();
     #endif
+
+    // AreaAllocator& AreaAllocator::operator =(const AreaAllocator&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AreaAllocator>(engine, "AreaAllocator");
 }
 
 // struct AsyncProgress | File: ../Scene/Scene.h
@@ -313,6 +340,9 @@ static void Register_AsyncProgress(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AsyncProgress
         REGISTER_CLASS_MANUAL_PART_AsyncProgress();
     #endif
+
+    // AsyncProgress& AsyncProgress::operator =(const AsyncProgress&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AsyncProgress>(engine, "AsyncProgress");
 }
 
 // class AttributeAccessor | File: ../Core/Attribute.h
@@ -377,6 +407,9 @@ static void Register_AttributeInfo(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_AttributeInfo
         REGISTER_CLASS_MANUAL_PART_AttributeInfo();
     #endif
+
+    // AttributeInfo& AttributeInfo::operator =(const AttributeInfo&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<AttributeInfo>(engine, "AttributeInfo");
 }
 
 // explicit Audio::Audio(Context* context)
@@ -417,6 +450,9 @@ static void Register_BackgroundLoadItem(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_BackgroundLoadItem
         REGISTER_CLASS_MANUAL_PART_BackgroundLoadItem();
     #endif
+
+    // BackgroundLoadItem& BackgroundLoadItem::operator =(const BackgroundLoadItem&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<BackgroundLoadItem>(engine, "BackgroundLoadItem");
 }
 
 // explicit Batch::Batch(const SourceBatch& rhs)
@@ -441,6 +477,9 @@ static void Register_Batch(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Batch
         REGISTER_CLASS_MANUAL_PART_Batch();
     #endif
+
+    // Batch& Batch::operator =(const Batch&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Batch>(engine, "Batch");
 }
 
 // explicit BatchGroup::BatchGroup(const Batch& batch)
@@ -465,6 +504,9 @@ static void Register_BatchGroup(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchGroup
         REGISTER_CLASS_MANUAL_PART_BatchGroup();
     #endif
+
+    // BatchGroup& BatchGroup::operator =(const BatchGroup&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<BatchGroup>(engine, "BatchGroup");
 }
 
 // explicit BatchGroupKey::BatchGroupKey(const Batch& batch)
@@ -489,6 +531,9 @@ static void Register_BatchGroupKey(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchGroupKey
         REGISTER_CLASS_MANUAL_PART_BatchGroupKey();
     #endif
+
+    // BatchGroupKey& BatchGroupKey::operator =(const BatchGroupKey&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<BatchGroupKey>(engine, "BatchGroupKey");
 }
 
 // struct BatchQueue | File: ../Graphics/Batch.h
@@ -504,6 +549,9 @@ static void Register_BatchQueue(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_BatchQueue
         REGISTER_CLASS_MANUAL_PART_BatchQueue();
     #endif
+
+    // BatchQueue& BatchQueue::operator =(const BatchQueue&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<BatchQueue>(engine, "BatchQueue");
 }
 
 // BiasParameters::BiasParameters(float constantBias, float slopeScaledBias, float normalOffset = 0.0f)
@@ -525,6 +573,9 @@ static void Register_BiasParameters(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_BiasParameters
         REGISTER_CLASS_MANUAL_PART_BiasParameters();
     #endif
+
+    // BiasParameters& BiasParameters::operator =(const BiasParameters&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<BiasParameters>(engine, "BiasParameters");
 }
 
 // struct Billboard | File: ../Graphics/BillboardSet.h
@@ -540,6 +591,9 @@ static void Register_Billboard(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Billboard
         REGISTER_CLASS_MANUAL_PART_Billboard();
     #endif
+
+    // Billboard& Billboard::operator =(const Billboard&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Billboard>(engine, "Billboard");
 }
 
 // explicit BillboardSet::BillboardSet(Context* context)
@@ -584,6 +638,9 @@ static void Register_Bone(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Bone
         REGISTER_CLASS_MANUAL_PART_Bone();
     #endif
+
+    // Bone& Bone::operator =(const Bone&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Bone>(engine, "Bone");
 }
 
 // explicit BorderImage::BorderImage(Context* context)
@@ -777,6 +834,9 @@ static void Register_CascadeParameters(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_CascadeParameters
         REGISTER_CLASS_MANUAL_PART_CascadeParameters();
     #endif
+
+    // CascadeParameters& CascadeParameters::operator =(const CascadeParameters&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<CascadeParameters>(engine, "CascadeParameters");
 }
 
 // struct CharLocation | File: ../UI/Text.h
@@ -792,6 +852,9 @@ static void Register_CharLocation(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_CharLocation
         REGISTER_CLASS_MANUAL_PART_CharLocation();
     #endif
+
+    // CharLocation& CharLocation::operator =(const CharLocation&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<CharLocation>(engine, "CharLocation");
 }
 
 // explicit CheckBox::CheckBox(Context* context)
@@ -919,6 +982,9 @@ static void Register_ColorFrame(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ColorFrame
         REGISTER_CLASS_MANUAL_PART_ColorFrame();
     #endif
+
+    // ColorFrame& ColorFrame::operator =(const ColorFrame&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ColorFrame>(engine, "ColorFrame");
 }
 
 // explicit Component::Component(Context* context)
@@ -961,6 +1027,9 @@ static void Register_ComponentReplicationState(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ComponentReplicationState
         REGISTER_CLASS_MANUAL_PART_ComponentReplicationState();
     #endif
+
+    // ComponentReplicationState& ComponentReplicationState::operator =(const ComponentReplicationState&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ComponentReplicationState>(engine, "ComponentReplicationState");
 }
 
 // struct CompressedLevel | File: ../Resource/Image.h
@@ -976,6 +1045,9 @@ static void Register_CompressedLevel(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_CompressedLevel
         REGISTER_CLASS_MANUAL_PART_CompressedLevel();
     #endif
+
+    // CompressedLevel& CompressedLevel::operator =(const CompressedLevel&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<CompressedLevel>(engine, "CompressedLevel");
 }
 
 // class Condition | File: ../Core/Condition.h
@@ -991,6 +1063,9 @@ static void Register_Condition(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Condition
         REGISTER_CLASS_MANUAL_PART_Condition();
     #endif
+
+    // Condition& Condition::operator =(const Condition&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Condition>(engine, "Condition");
 }
 
 // explicit Console::Console(Context* context)
@@ -1070,6 +1145,9 @@ static void Register_Controls(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Controls
         REGISTER_CLASS_MANUAL_PART_Controls();
     #endif
+
+    // Controls& Controls::operator =(const Controls&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Controls>(engine, "Controls");
 }
 
 // explicit Cursor::Cursor(Context* context)
@@ -1123,6 +1201,9 @@ static void Register_CursorShapeInfo(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_CursorShapeInfo
         REGISTER_CLASS_MANUAL_PART_CursorShapeInfo();
     #endif
+
+    // CursorShapeInfo& CursorShapeInfo::operator =(const CursorShapeInfo&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<CursorShapeInfo>(engine, "CursorShapeInfo");
 }
 
 // explicit CustomGeometry::CustomGeometry(Context* context)
@@ -1167,6 +1248,9 @@ static void Register_CustomGeometryVertex(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_CustomGeometryVertex
         REGISTER_CLASS_MANUAL_PART_CustomGeometryVertex();
     #endif
+
+    // CustomGeometryVertex& CustomGeometryVertex::operator =(const CustomGeometryVertex&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<CustomGeometryVertex>(engine, "CustomGeometryVertex");
 }
 
 // explicit DebugHud::DebugHud(Context* context)
@@ -1216,6 +1300,9 @@ static void Register_DebugLine(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugLine
         REGISTER_CLASS_MANUAL_PART_DebugLine();
     #endif
+
+    // DebugLine& DebugLine::operator =(const DebugLine&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<DebugLine>(engine, "DebugLine");
 }
 
 // explicit DebugRenderer::DebugRenderer(Context* context)
@@ -1268,6 +1355,9 @@ static void Register_DebugTriangle(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_DebugTriangle
         REGISTER_CLASS_MANUAL_PART_DebugTriangle();
     #endif
+
+    // DebugTriangle& DebugTriangle::operator =(const DebugTriangle&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<DebugTriangle>(engine, "DebugTriangle");
 }
 
 // struct Decal | File: ../Graphics/DecalSet.h
@@ -1283,6 +1373,9 @@ static void Register_Decal(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Decal
         REGISTER_CLASS_MANUAL_PART_Decal();
     #endif
+
+    // Decal& Decal::operator =(const Decal&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Decal>(engine, "Decal");
 }
 
 // explicit DecalSet::DecalSet(Context* context)
@@ -1339,6 +1432,9 @@ static void Register_DecalVertex(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_DecalVertex
         REGISTER_CLASS_MANUAL_PART_DecalVertex();
     #endif
+
+    // DecalVertex& DecalVertex::operator =(const DecalVertex&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<DecalVertex>(engine, "DecalVertex");
 }
 
 // struct DepthValue | File: ../Graphics/OcclusionBuffer.h
@@ -1351,6 +1447,9 @@ static void Register_DepthValue(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_DepthValue
         REGISTER_CLASS_MANUAL_PART_DepthValue();
     #endif
+
+    // DepthValue& DepthValue::operator =(const DepthValue&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<DepthValue>(engine, "DepthValue");
 }
 
 // class Deserializer | File: ../IO/Deserializer.h
@@ -1366,6 +1465,9 @@ static void Register_Deserializer(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Deserializer
         REGISTER_CLASS_MANUAL_PART_Deserializer();
     #endif
+
+    // Deserializer& Deserializer::operator =(const Deserializer&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Deserializer>(engine, "Deserializer");
 }
 
 // DirtyBits::DirtyBits(const DirtyBits& bits)
@@ -1390,6 +1492,9 @@ static void Register_DirtyBits(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_DirtyBits
         REGISTER_CLASS_MANUAL_PART_DirtyBits();
     #endif
+
+    // DirtyBits& DirtyBits::operator =(const DirtyBits&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<DirtyBits>(engine, "DirtyBits");
 }
 
 // class Drawable | File: ../Graphics/Drawable.h
@@ -1590,6 +1695,9 @@ static void Register_FileSelectorEntry(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_FileSelectorEntry
         REGISTER_CLASS_MANUAL_PART_FileSelectorEntry();
     #endif
+
+    // FileSelectorEntry& FileSelectorEntry::operator =(const FileSelectorEntry&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<FileSelectorEntry>(engine, "FileSelectorEntry");
 }
 
 // explicit FileSystem::FileSystem(Context* context)
@@ -1661,6 +1769,9 @@ static void Register_FocusParameters(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_FocusParameters
         REGISTER_CLASS_MANUAL_PART_FocusParameters();
     #endif
+
+    // FocusParameters& FocusParameters::operator =(const FocusParameters&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<FocusParameters>(engine, "FocusParameters");
 }
 
 // explicit Font::Font(Context* context)
@@ -1764,6 +1875,9 @@ static void Register_FontGlyph(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_FontGlyph
         REGISTER_CLASS_MANUAL_PART_FontGlyph();
     #endif
+
+    // FontGlyph& FontGlyph::operator =(const FontGlyph&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<FontGlyph>(engine, "FontGlyph");
 }
 
 // struct FrameInfo | File: ../Graphics/Drawable.h
@@ -1779,6 +1893,9 @@ static void Register_FrameInfo(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_FrameInfo
         REGISTER_CLASS_MANUAL_PART_FrameInfo();
     #endif
+
+    // FrameInfo& FrameInfo::operator =(const FrameInfo&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<FrameInfo>(engine, "FrameInfo");
 }
 
 // Frustum::Frustum(const Frustum& frustum) noexcept
@@ -1827,6 +1944,9 @@ static void Register_GPUObject(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_GPUObject
         REGISTER_CLASS_MANUAL_PART_GPUObject();
     #endif
+
+    // GPUObject& GPUObject::operator =(const GPUObject&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<GPUObject>(engine, "GPUObject");
 }
 
 // explicit Geometry::Geometry(Context* context)
@@ -1867,6 +1987,9 @@ static void Register_GeometryDesc(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_GeometryDesc
         REGISTER_CLASS_MANUAL_PART_GeometryDesc();
     #endif
+
+    // GeometryDesc& GeometryDesc::operator =(const GeometryDesc&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<GeometryDesc>(engine, "GeometryDesc");
 }
 
 // explicit Graphics::Graphics(Context* context)
@@ -1907,6 +2030,9 @@ static void Register_HashBase(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_HashBase
         REGISTER_CLASS_MANUAL_PART_HashBase();
     #endif
+
+    // HashBase& HashBase::operator =(const HashBase&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<HashBase>(engine, "HashBase");
 }
 
 // struct HashIteratorBase | File: ../Container/HashBase.h
@@ -1925,6 +2051,9 @@ static void Register_HashIteratorBase(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_HashIteratorBase
         REGISTER_CLASS_MANUAL_PART_HashIteratorBase();
     #endif
+
+    // HashIteratorBase& HashIteratorBase::operator =(const HashIteratorBase&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<HashIteratorBase>(engine, "HashIteratorBase");
 }
 
 // struct HashNodeBase | File: ../Container/HashBase.h
@@ -1940,6 +2069,9 @@ static void Register_HashNodeBase(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_HashNodeBase
         REGISTER_CLASS_MANUAL_PART_HashNodeBase();
     #endif
+
+    // HashNodeBase& HashNodeBase::operator =(const HashNodeBase&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<HashNodeBase>(engine, "HashNodeBase");
 }
 
 // class HiresTimer | File: ../Core/Timer.h
@@ -1955,6 +2087,9 @@ static void Register_HiresTimer(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_HiresTimer
         REGISTER_CLASS_MANUAL_PART_HiresTimer();
     #endif
+
+    // HiresTimer& HiresTimer::operator =(const HiresTimer&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<HiresTimer>(engine, "HiresTimer");
 }
 
 // explicit Image::Image(Context* context)
@@ -2021,6 +2156,9 @@ static void Register_IndexBufferDesc(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_IndexBufferDesc
         REGISTER_CLASS_MANUAL_PART_IndexBufferDesc();
     #endif
+
+    // IndexBufferDesc& IndexBufferDesc::operator =(const IndexBufferDesc&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<IndexBufferDesc>(engine, "IndexBufferDesc");
 }
 
 // explicit Input::Input(Context* context)
@@ -2064,6 +2202,9 @@ static void Register_InstanceData(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_InstanceData
         REGISTER_CLASS_MANUAL_PART_InstanceData();
     #endif
+
+    // InstanceData& InstanceData::operator =(const InstanceData&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<InstanceData>(engine, "InstanceData");
 }
 
 // IntRect::IntRect(const IntVector2& min, const IntVector2& max) noexcept
@@ -2096,6 +2237,9 @@ static void Register_IntRect(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_IntRect
         REGISTER_CLASS_MANUAL_PART_IntRect();
     #endif
+
+    // IntRect& IntRect::operator =(const IntRect&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<IntRect>(engine, "IntRect");
 }
 
 // IntVector2::IntVector2(int x, int y) noexcept
@@ -2282,6 +2426,9 @@ static void Register_JoystickState(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_JoystickState
         REGISTER_CLASS_MANUAL_PART_JoystickState();
     #endif
+
+    // JoystickState& JoystickState::operator =(const JoystickState&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<JoystickState>(engine, "JoystickState");
 }
 
 // explicit Light::Light(Context* context)
@@ -2326,6 +2473,9 @@ static void Register_LightBatchQueue(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_LightBatchQueue
         REGISTER_CLASS_MANUAL_PART_LightBatchQueue();
     #endif
+
+    // LightBatchQueue& LightBatchQueue::operator =(const LightBatchQueue&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<LightBatchQueue>(engine, "LightBatchQueue");
 }
 
 // struct LightQueryResult | File: ../Graphics/View.h
@@ -2341,6 +2491,9 @@ static void Register_LightQueryResult(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_LightQueryResult
         REGISTER_CLASS_MANUAL_PART_LightQueryResult();
     #endif
+
+    // LightQueryResult& LightQueryResult::operator =(const LightQueryResult&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<LightQueryResult>(engine, "LightQueryResult");
 }
 
 // explicit LineEdit::LineEdit(Context* context)
@@ -2385,6 +2538,9 @@ static void Register_LinkedListNode(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_LinkedListNode
         REGISTER_CLASS_MANUAL_PART_LinkedListNode();
     #endif
+
+    // LinkedListNode& LinkedListNode::operator =(const LinkedListNode&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<LinkedListNode>(engine, "LinkedListNode");
 }
 
 // class ListBase | File: ../Container/ListBase.h
@@ -2400,6 +2556,9 @@ static void Register_ListBase(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ListBase
         REGISTER_CLASS_MANUAL_PART_ListBase();
     #endif
+
+    // ListBase& ListBase::operator =(const ListBase&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ListBase>(engine, "ListBase");
 }
 
 // struct ListIteratorBase | File: ../Container/ListBase.h
@@ -2418,6 +2577,9 @@ static void Register_ListIteratorBase(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ListIteratorBase
         REGISTER_CLASS_MANUAL_PART_ListIteratorBase();
     #endif
+
+    // ListIteratorBase& ListIteratorBase::operator =(const ListIteratorBase&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ListIteratorBase>(engine, "ListIteratorBase");
 }
 
 // struct ListNodeBase | File: ../Container/ListBase.h
@@ -2433,6 +2595,9 @@ static void Register_ListNodeBase(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ListNodeBase
         REGISTER_CLASS_MANUAL_PART_ListNodeBase();
     #endif
+
+    // ListNodeBase& ListNodeBase::operator =(const ListNodeBase&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ListNodeBase>(engine, "ListNodeBase");
 }
 
 // explicit ListView::ListView(Context* context)
@@ -2571,6 +2736,9 @@ static void Register_MaterialShaderParameter(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_MaterialShaderParameter
         REGISTER_CLASS_MANUAL_PART_MaterialShaderParameter();
     #endif
+
+    // MaterialShaderParameter& MaterialShaderParameter::operator =(const MaterialShaderParameter&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<MaterialShaderParameter>(engine, "MaterialShaderParameter");
 }
 
 // Matrix2::Matrix2(const Matrix2& matrix) noexcept = default
@@ -2836,6 +3004,9 @@ static void Register_ModelMorph(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ModelMorph
         REGISTER_CLASS_MANUAL_PART_ModelMorph();
     #endif
+
+    // ModelMorph& ModelMorph::operator =(const ModelMorph&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ModelMorph>(engine, "ModelMorph");
 }
 
 // class Mutex | File: ../Core/Mutex.h
@@ -2851,6 +3022,9 @@ static void Register_Mutex(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Mutex
         REGISTER_CLASS_MANUAL_PART_Mutex();
     #endif
+
+    // Mutex& Mutex::operator =(const Mutex&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Mutex>(engine, "Mutex");
 }
 
 // explicit MutexLock::MutexLock(Mutex& mutex)
@@ -2930,6 +3104,9 @@ static void Register_NetworkState(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_NetworkState
         REGISTER_CLASS_MANUAL_PART_NetworkState();
     #endif
+
+    // NetworkState& NetworkState::operator =(const NetworkState&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<NetworkState>(engine, "NetworkState");
 }
 
 // explicit Node::Node(Context* context)
@@ -2972,6 +3149,9 @@ static void Register_NodeImpl(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_NodeImpl
         REGISTER_CLASS_MANUAL_PART_NodeImpl();
     #endif
+
+    // NodeImpl& NodeImpl::operator =(const NodeImpl&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<NodeImpl>(engine, "NodeImpl");
 }
 
 // struct NodeReplicationState | File: ../Scene/ReplicationState.h
@@ -2987,6 +3167,9 @@ static void Register_NodeReplicationState(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_NodeReplicationState
         REGISTER_CLASS_MANUAL_PART_NodeReplicationState();
     #endif
+
+    // NodeReplicationState& NodeReplicationState::operator =(const NodeReplicationState&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<NodeReplicationState>(engine, "NodeReplicationState");
 }
 
 // class Object | File: ../Core/Object.h
@@ -3056,6 +3239,9 @@ static void Register_OcclusionBatch(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBatch
         REGISTER_CLASS_MANUAL_PART_OcclusionBatch();
     #endif
+
+    // OcclusionBatch& OcclusionBatch::operator =(const OcclusionBatch&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<OcclusionBatch>(engine, "OcclusionBatch");
 }
 
 // explicit OcclusionBuffer::OcclusionBuffer(Context* context)
@@ -3096,6 +3282,9 @@ static void Register_OcclusionBufferData(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_OcclusionBufferData
         REGISTER_CLASS_MANUAL_PART_OcclusionBufferData();
     #endif
+
+    // OcclusionBufferData& OcclusionBufferData::operator =(const OcclusionBufferData&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<OcclusionBufferData>(engine, "OcclusionBufferData");
 }
 
 // explicit Octree::Octree(Context* context)
@@ -3139,6 +3328,9 @@ static void Register_OctreeQueryResult(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_OctreeQueryResult
         REGISTER_CLASS_MANUAL_PART_OctreeQueryResult();
     #endif
+
+    // OctreeQueryResult& OctreeQueryResult::operator =(const OctreeQueryResult&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<OctreeQueryResult>(engine, "OctreeQueryResult");
 }
 
 // explicit OggVorbisSoundStream::OggVorbisSoundStream(const Sound* sound)
@@ -3175,6 +3367,9 @@ static void Register_PackageEntry(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageEntry
         REGISTER_CLASS_MANUAL_PART_PackageEntry();
     #endif
+
+    // PackageEntry& PackageEntry::operator =(const PackageEntry&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<PackageEntry>(engine, "PackageEntry");
 }
 
 // explicit PackageFile::PackageFile(Context* context)
@@ -3224,6 +3419,9 @@ static void Register_Particle(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Particle
         REGISTER_CLASS_MANUAL_PART_Particle();
     #endif
+
+    // Particle& Particle::operator =(const Particle&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Particle>(engine, "Particle");
 }
 
 // explicit ParticleEffect::ParticleEffect(Context* context)
@@ -3318,6 +3516,9 @@ static void Register_PerThreadSceneResult(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_PerThreadSceneResult
         REGISTER_CLASS_MANUAL_PART_PerThreadSceneResult();
     #endif
+
+    // PerThreadSceneResult& PerThreadSceneResult::operator =(const PerThreadSceneResult&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<PerThreadSceneResult>(engine, "PerThreadSceneResult");
 }
 
 // Plane::Plane(const Plane& plane) noexcept = default
@@ -3592,6 +3793,9 @@ static void Register_RayQueryResult(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_RayQueryResult
         REGISTER_CLASS_MANUAL_PART_RayQueryResult();
     #endif
+
+    // RayQueryResult& RayQueryResult::operator =(const RayQueryResult&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<RayQueryResult>(engine, "RayQueryResult");
 }
 
 // Rect::Rect(const Vector2& min, const Vector2& max) noexcept
@@ -3655,6 +3859,9 @@ static void Register_RefCount(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_RefCount
         REGISTER_CLASS_MANUAL_PART_RefCount();
     #endif
+
+    // RefCount& RefCount::operator =(const RefCount&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<RefCount>(engine, "RefCount");
 }
 
 // class RefCounted | File: ../Container/RefCounted.h
@@ -3699,6 +3906,9 @@ static void Register_RenderPathCommand(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderPathCommand
         REGISTER_CLASS_MANUAL_PART_RenderPathCommand();
     #endif
+
+    // RenderPathCommand& RenderPathCommand::operator =(const RenderPathCommand&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<RenderPathCommand>(engine, "RenderPathCommand");
 }
 
 // explicit RenderSurface::RenderSurface(Texture* parentTexture)
@@ -3737,6 +3947,9 @@ static void Register_RenderTargetInfo(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_RenderTargetInfo
         REGISTER_CLASS_MANUAL_PART_RenderTargetInfo();
     #endif
+
+    // RenderTargetInfo& RenderTargetInfo::operator =(const RenderTargetInfo&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<RenderTargetInfo>(engine, "RenderTargetInfo");
 }
 
 // explicit Renderer::Renderer(Context* context)
@@ -3777,6 +3990,9 @@ static void Register_ReplicationState(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ReplicationState
         REGISTER_CLASS_MANUAL_PART_ReplicationState();
     #endif
+
+    // ReplicationState& ReplicationState::operator =(const ReplicationState&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ReplicationState>(engine, "ReplicationState");
 }
 
 // explicit Resource::Resource(Context* context)
@@ -3842,6 +4058,9 @@ static void Register_ResourceGroup(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceGroup
         REGISTER_CLASS_MANUAL_PART_ResourceGroup();
     #endif
+
+    // ResourceGroup& ResourceGroup::operator =(const ResourceGroup&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ResourceGroup>(engine, "ResourceGroup");
 }
 
 // explicit ResourceRef::ResourceRef(StringHash type)
@@ -3893,6 +4112,9 @@ static void Register_ResourceRef(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceRef
         REGISTER_CLASS_MANUAL_PART_ResourceRef();
     #endif
+
+    // ResourceRef& ResourceRef::operator =(const ResourceRef&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ResourceRef>(engine, "ResourceRef");
 }
 
 // explicit ResourceRefList::ResourceRefList(StringHash type)
@@ -3926,6 +4148,9 @@ static void Register_ResourceRefList(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ResourceRefList
         REGISTER_CLASS_MANUAL_PART_ResourceRefList();
     #endif
+
+    // ResourceRefList& ResourceRefList::operator =(const ResourceRefList&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ResourceRefList>(engine, "ResourceRefList");
 }
 
 // explicit ResourceWithMetadata::ResourceWithMetadata(Context* context)
@@ -4024,6 +4249,9 @@ static void Register_ScenePassInfo(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ScenePassInfo
         REGISTER_CLASS_MANUAL_PART_ScenePassInfo();
     #endif
+
+    // ScenePassInfo& ScenePassInfo::operator =(const ScenePassInfo&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ScenePassInfo>(engine, "ScenePassInfo");
 }
 
 // struct SceneReplicationState | File: ../Scene/ReplicationState.h
@@ -4039,6 +4267,9 @@ static void Register_SceneReplicationState(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_SceneReplicationState
         REGISTER_CLASS_MANUAL_PART_SceneReplicationState();
     #endif
+
+    // SceneReplicationState& SceneReplicationState::operator =(const SceneReplicationState&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<SceneReplicationState>(engine, "SceneReplicationState");
 }
 
 // class SceneResolver | File: ../Scene/SceneResolver.h
@@ -4054,6 +4285,9 @@ static void Register_SceneResolver(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_SceneResolver
         REGISTER_CLASS_MANUAL_PART_SceneResolver();
     #endif
+
+    // SceneResolver& SceneResolver::operator =(const SceneResolver&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<SceneResolver>(engine, "SceneResolver");
 }
 
 // struct ScratchBuffer | File: ../Graphics/Graphics.h
@@ -4069,6 +4303,9 @@ static void Register_ScratchBuffer(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ScratchBuffer
         REGISTER_CLASS_MANUAL_PART_ScratchBuffer();
     #endif
+
+    // ScratchBuffer& ScratchBuffer::operator =(const ScratchBuffer&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ScratchBuffer>(engine, "ScratchBuffer");
 }
 
 // struct ScreenModeParams | File: ../Graphics/Graphics.h
@@ -4084,6 +4321,9 @@ static void Register_ScreenModeParams(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ScreenModeParams
         REGISTER_CLASS_MANUAL_PART_ScreenModeParams();
     #endif
+
+    // ScreenModeParams& ScreenModeParams::operator =(const ScreenModeParams&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ScreenModeParams>(engine, "ScreenModeParams");
 }
 
 // explicit ScrollBar::ScrollBar(Context* context)
@@ -4181,6 +4421,9 @@ static void Register_Serializer(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Serializer
         REGISTER_CLASS_MANUAL_PART_Serializer();
     #endif
+
+    // Serializer& Serializer::operator =(const Serializer&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Serializer>(engine, "Serializer");
 }
 
 // explicit Shader::Shader(Context* context)
@@ -4247,6 +4490,9 @@ static void Register_ShaderParameter(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ShaderParameter
         REGISTER_CLASS_MANUAL_PART_ShaderParameter();
     #endif
+
+    // ShaderParameter& ShaderParameter::operator =(const ShaderParameter&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ShaderParameter>(engine, "ShaderParameter");
 }
 
 // ShaderParameterAnimationInfo::ShaderParameterAnimationInfo(Material* material, const String& name, ValueAnimation* attributeAnimation, WrapMode wrapMode, float speed)
@@ -4342,6 +4588,9 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ShadowBatchQueue
         REGISTER_CLASS_MANUAL_PART_ShadowBatchQueue();
     #endif
+
+    // ShadowBatchQueue& ShadowBatchQueue::operator =(const ShadowBatchQueue&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ShadowBatchQueue>(engine, "ShadowBatchQueue");
 }
 
 // class Skeleton | File: ../Graphics/Skeleton.h
@@ -4357,6 +4606,9 @@ static void Register_Skeleton(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Skeleton
         REGISTER_CLASS_MANUAL_PART_Skeleton();
     #endif
+
+    // Skeleton& Skeleton::operator =(const Skeleton&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Skeleton>(engine, "Skeleton");
 }
 
 // explicit Skybox::Skybox(Context* context)
@@ -4785,6 +5037,9 @@ static void Register_StaticModelGeometryData(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_StaticModelGeometryData
         REGISTER_CLASS_MANUAL_PART_StaticModelGeometryData();
     #endif
+
+    // StaticModelGeometryData& StaticModelGeometryData::operator =(const StaticModelGeometryData&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<StaticModelGeometryData>(engine, "StaticModelGeometryData");
 }
 
 // explicit StaticModelGroup::StaticModelGroup(Context* context)
@@ -4839,6 +5094,9 @@ static void Register_StoredLogMessage(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_StoredLogMessage
         REGISTER_CLASS_MANUAL_PART_StoredLogMessage();
     #endif
+
+    // StoredLogMessage& StoredLogMessage::operator =(const StoredLogMessage&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<StoredLogMessage>(engine, "StoredLogMessage");
 }
 
 // String::String(const String& str)
@@ -5036,6 +5294,9 @@ static void Register_StringHashRegister(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_StringHashRegister
         REGISTER_CLASS_MANUAL_PART_StringHashRegister();
     #endif
+
+    // StringHashRegister& StringHashRegister::operator =(const StringHashRegister&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<StringHashRegister>(engine, "StringHashRegister");
 }
 
 // explicit Technique::Technique(Context* context)
@@ -5086,6 +5347,9 @@ static void Register_TechniqueEntry(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_TechniqueEntry
         REGISTER_CLASS_MANUAL_PART_TechniqueEntry();
     #endif
+
+    // TechniqueEntry& TechniqueEntry::operator =(const TechniqueEntry&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<TechniqueEntry>(engine, "TechniqueEntry");
 }
 
 // explicit Terrain::Terrain(Context* context)
@@ -5355,6 +5619,9 @@ static void Register_TextureFrame(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_TextureFrame
         REGISTER_CLASS_MANUAL_PART_TextureFrame();
     #endif
+
+    // TextureFrame& TextureFrame::operator =(const TextureFrame&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<TextureFrame>(engine, "TextureFrame");
 }
 
 // explicit Time::Time(Context* context)
@@ -5392,6 +5659,9 @@ static void Register_Timer(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Timer
         REGISTER_CLASS_MANUAL_PART_Timer();
     #endif
+
+    // Timer& Timer::operator =(const Timer&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Timer>(engine, "Timer");
 }
 
 // explicit ToolTip::ToolTip(Context* context)
@@ -5435,6 +5705,9 @@ static void Register_TouchState(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_TouchState
         REGISTER_CLASS_MANUAL_PART_TouchState();
     #endif
+
+    // TouchState& TouchState::operator =(const TouchState&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<TouchState>(engine, "TouchState");
 }
 
 // TrailPoint::TrailPoint(const Vector3& position, const Vector3& forward)
@@ -5459,6 +5732,9 @@ static void Register_TrailPoint(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_TrailPoint
         REGISTER_CLASS_MANUAL_PART_TrailPoint();
     #endif
+
+    // TrailPoint& TrailPoint::operator =(const TrailPoint&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<TrailPoint>(engine, "TrailPoint");
 }
 
 // explicit UI::UI(Context* context)
@@ -5502,6 +5778,9 @@ static void Register_UIBatch(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_UIBatch
         REGISTER_CLASS_MANUAL_PART_UIBatch();
     #endif
+
+    // UIBatch& UIBatch::operator =(const UIBatch&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<UIBatch>(engine, "UIBatch");
 }
 
 // explicit UIComponent::UIComponent(Context* context)
@@ -5608,6 +5887,9 @@ static void Register_VAnimEventFrame(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_VAnimEventFrame
         REGISTER_CLASS_MANUAL_PART_VAnimEventFrame();
     #endif
+
+    // VAnimEventFrame& VAnimEventFrame::operator =(const VAnimEventFrame&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<VAnimEventFrame>(engine, "VAnimEventFrame");
 }
 
 // struct VAnimKeyFrame | File: ../Scene/ValueAnimation.h
@@ -5623,6 +5905,9 @@ static void Register_VAnimKeyFrame(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_VAnimKeyFrame
         REGISTER_CLASS_MANUAL_PART_VAnimKeyFrame();
     #endif
+
+    // VAnimKeyFrame& VAnimKeyFrame::operator =(const VAnimKeyFrame&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<VAnimKeyFrame>(engine, "VAnimKeyFrame");
 }
 
 // explicit ValueAnimation::ValueAnimation(Context* context)
@@ -6119,6 +6404,9 @@ static void Register_VectorBase(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_VectorBase
         REGISTER_CLASS_MANUAL_PART_VectorBase();
     #endif
+
+    // VectorBase& VectorBase::operator =(const VectorBase&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<VectorBase>(engine, "VectorBase");
 }
 
 // VectorBuffer::VectorBuffer(Deserializer& source, unsigned size)
@@ -6148,6 +6436,9 @@ static void Register_VectorBuffer(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_VectorBuffer
         REGISTER_CLASS_MANUAL_PART_VectorBuffer();
     #endif
+
+    // VectorBuffer& VectorBuffer::operator =(const VectorBuffer&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<VectorBuffer>(engine, "VectorBuffer");
 }
 
 // explicit VertexBuffer::VertexBuffer(Context* context, bool forceHeadless = false)
@@ -6188,6 +6479,9 @@ static void Register_VertexBufferDesc(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexBufferDesc
         REGISTER_CLASS_MANUAL_PART_VertexBufferDesc();
     #endif
+
+    // VertexBufferDesc& VertexBufferDesc::operator =(const VertexBufferDesc&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<VertexBufferDesc>(engine, "VertexBufferDesc");
 }
 
 // struct VertexBufferMorph | File: ../Graphics/Model.h
@@ -6203,6 +6497,9 @@ static void Register_VertexBufferMorph(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexBufferMorph
         REGISTER_CLASS_MANUAL_PART_VertexBufferMorph();
     #endif
+
+    // VertexBufferMorph& VertexBufferMorph::operator =(const VertexBufferMorph&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<VertexBufferMorph>(engine, "VertexBufferMorph");
 }
 
 // VertexElement::VertexElement(VertexElementType type, VertexElementSemantic semantic, unsigned char index = 0, bool perInstance = false) noexcept
@@ -6227,6 +6524,9 @@ static void Register_VertexElement(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_VertexElement
         REGISTER_CLASS_MANUAL_PART_VertexElement();
     #endif
+
+    // VertexElement& VertexElement::operator =(const VertexElement&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<VertexElement>(engine, "VertexElement");
 }
 
 // explicit View::View(Context* context)
@@ -6369,6 +6669,9 @@ static void Register_WindowModeParams(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_WindowModeParams
         REGISTER_CLASS_MANUAL_PART_WindowModeParams();
     #endif
+
+    // WindowModeParams& WindowModeParams::operator =(const WindowModeParams&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<WindowModeParams>(engine, "WindowModeParams");
 }
 
 // explicit WorkQueue::WorkQueue(Context* context)
@@ -6473,6 +6776,9 @@ static void Register_XPathQuery(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_XPathQuery
         REGISTER_CLASS_MANUAL_PART_XPathQuery();
     #endif
+
+    // XPathQuery& XPathQuery::operator =(const XPathQuery&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<XPathQuery>(engine, "XPathQuery");
 }
 
 // XPathResultSet::XPathResultSet(const XPathResultSet& rhs)
@@ -6716,6 +7022,9 @@ static void Register_CrowdObstacleAvoidanceParams(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_CrowdObstacleAvoidanceParams
         REGISTER_CLASS_MANUAL_PART_CrowdObstacleAvoidanceParams();
     #endif
+
+    // CrowdObstacleAvoidanceParams& CrowdObstacleAvoidanceParams::operator =(const CrowdObstacleAvoidanceParams&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<CrowdObstacleAvoidanceParams>(engine, "CrowdObstacleAvoidanceParams");
 }
 
 // explicit DynamicNavigationMesh::DynamicNavigationMesh(Context* context)
@@ -6788,6 +7097,9 @@ static void Register_NavAreaStub(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_NavAreaStub
         REGISTER_CLASS_MANUAL_PART_NavAreaStub();
     #endif
+
+    // NavAreaStub& NavAreaStub::operator =(const NavAreaStub&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<NavAreaStub>(engine, "NavAreaStub");
 }
 
 // struct NavBuildData | File: ../Navigation/NavBuildData.h
@@ -6803,6 +7115,9 @@ static void Register_NavBuildData(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_NavBuildData
         REGISTER_CLASS_MANUAL_PART_NavBuildData();
     #endif
+
+    // NavBuildData& NavBuildData::operator =(const NavBuildData&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<NavBuildData>(engine, "NavBuildData");
 }
 
 // explicit Navigable::Navigable(Context* context)
@@ -6846,6 +7161,9 @@ static void Register_NavigationGeometryInfo(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_NavigationGeometryInfo
         REGISTER_CLASS_MANUAL_PART_NavigationGeometryInfo();
     #endif
+
+    // NavigationGeometryInfo& NavigationGeometryInfo::operator =(const NavigationGeometryInfo&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<NavigationGeometryInfo>(engine, "NavigationGeometryInfo");
 }
 
 // explicit NavigationMesh::NavigationMesh(Context* context)
@@ -6889,6 +7207,9 @@ static void Register_NavigationPathPoint(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_NavigationPathPoint
         REGISTER_CLASS_MANUAL_PART_NavigationPathPoint();
     #endif
+
+    // NavigationPathPoint& NavigationPathPoint::operator =(const NavigationPathPoint&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<NavigationPathPoint>(engine, "NavigationPathPoint");
 }
 
 // explicit Obstacle::Obstacle(Context* context)
@@ -6960,6 +7281,9 @@ static void Register_SimpleNavBuildData(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_SimpleNavBuildData
         REGISTER_CLASS_MANUAL_PART_SimpleNavBuildData();
     #endif
+
+    // SimpleNavBuildData& SimpleNavBuildData::operator =(const SimpleNavBuildData&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<SimpleNavBuildData>(engine, "SimpleNavBuildData");
 }
 
 #endif // def URHO3D_NAVIGATION
@@ -7075,6 +7399,9 @@ static void Register_PackageDownload(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageDownload
         REGISTER_CLASS_MANUAL_PART_PackageDownload();
     #endif
+
+    // PackageDownload& PackageDownload::operator =(const PackageDownload&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<PackageDownload>(engine, "PackageDownload");
 }
 
 // struct PackageUpload | File: ../Network/Connection.h
@@ -7090,6 +7417,9 @@ static void Register_PackageUpload(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_PackageUpload
         REGISTER_CLASS_MANUAL_PART_PackageUpload();
     #endif
+
+    // PackageUpload& PackageUpload::operator =(const PackageUpload&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<PackageUpload>(engine, "PackageUpload");
 }
 
 // struct RemoteEvent | File: ../Network/Connection.h
@@ -7105,6 +7435,9 @@ static void Register_RemoteEvent(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_RemoteEvent
         REGISTER_CLASS_MANUAL_PART_RemoteEvent();
     #endif
+
+    // RemoteEvent& RemoteEvent::operator =(const RemoteEvent&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<RemoteEvent>(engine, "RemoteEvent");
 }
 
 #endif // def URHO3D_NETWORK
@@ -7226,6 +7559,9 @@ static void Register_DelayedWorldTransform(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform
         REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform();
     #endif
+
+    // DelayedWorldTransform& DelayedWorldTransform::operator =(const DelayedWorldTransform&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<DelayedWorldTransform>(engine, "DelayedWorldTransform");
 }
 
 // GImpactMeshData::GImpactMeshData(Model* model, unsigned lodLevel)
@@ -7297,6 +7633,9 @@ static void Register_ManifoldPair(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_ManifoldPair
         REGISTER_CLASS_MANUAL_PART_ManifoldPair();
     #endif
+
+    // ManifoldPair& ManifoldPair::operator =(const ManifoldPair&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<ManifoldPair>(engine, "ManifoldPair");
 }
 
 // struct PhysicsRaycastResult | File: ../Physics/PhysicsWorld.h
@@ -7312,6 +7651,9 @@ static void Register_PhysicsRaycastResult(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult
         REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult();
     #endif
+
+    // PhysicsRaycastResult& PhysicsRaycastResult::operator =(const PhysicsRaycastResult&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<PhysicsRaycastResult>(engine, "PhysicsRaycastResult");
 }
 
 // explicit PhysicsWorld::PhysicsWorld(Context* context)
@@ -7355,6 +7697,9 @@ static void Register_PhysicsWorldConfig(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsWorldConfig
         REGISTER_CLASS_MANUAL_PART_PhysicsWorldConfig();
     #endif
+
+    // PhysicsWorldConfig& PhysicsWorldConfig::operator =(const PhysicsWorldConfig&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<PhysicsWorldConfig>(engine, "PhysicsWorldConfig");
 }
 
 // class RaycastVehicle | File: ../Physics/RaycastVehicle.h
@@ -8023,6 +8368,9 @@ static void Register_DelayedWorldTransform2D(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform2D
         REGISTER_CLASS_MANUAL_PART_DelayedWorldTransform2D();
     #endif
+
+    // DelayedWorldTransform2D& DelayedWorldTransform2D::operator =(const DelayedWorldTransform2D&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<DelayedWorldTransform2D>(engine, "DelayedWorldTransform2D");
 }
 
 // class Drawable2D | File: ../Urho2D/Drawable2D.h
@@ -8057,6 +8405,9 @@ static void Register_Particle2D(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Particle2D
         REGISTER_CLASS_MANUAL_PART_Particle2D();
     #endif
+
+    // Particle2D& Particle2D::operator =(const Particle2D&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Particle2D>(engine, "Particle2D");
 }
 
 // explicit ParticleEffect2D::ParticleEffect2D(Context* context)
@@ -8128,6 +8479,9 @@ static void Register_PhysicsRaycastResult2D(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult2D
         REGISTER_CLASS_MANUAL_PART_PhysicsRaycastResult2D();
     #endif
+
+    // PhysicsRaycastResult2D& PhysicsRaycastResult2D::operator =(const PhysicsRaycastResult2D&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<PhysicsRaycastResult2D>(engine, "PhysicsRaycastResult2D");
 }
 
 // explicit PhysicsWorld2D::PhysicsWorld2D(Context* context)
@@ -8242,6 +8596,9 @@ static void Register_SourceBatch2D(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_SourceBatch2D
         REGISTER_CLASS_MANUAL_PART_SourceBatch2D();
     #endif
+
+    // SourceBatch2D& SourceBatch2D::operator =(const SourceBatch2D&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<SourceBatch2D>(engine, "SourceBatch2D");
 }
 
 // explicit Sprite2D::Sprite2D(Context* context)
@@ -8412,6 +8769,9 @@ static void Register_TileMapInfo2D(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_TileMapInfo2D
         REGISTER_CLASS_MANUAL_PART_TileMapInfo2D();
     #endif
+
+    // TileMapInfo2D& TileMapInfo2D::operator =(const TileMapInfo2D&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<TileMapInfo2D>(engine, "TileMapInfo2D");
 }
 
 // explicit TileMapLayer2D::TileMapLayer2D(Context* context)
@@ -8590,6 +8950,9 @@ static void Register_Vertex2D(asIScriptEngine* engine)
     #ifdef REGISTER_CLASS_MANUAL_PART_Vertex2D
         REGISTER_CLASS_MANUAL_PART_Vertex2D();
     #endif
+
+    // Vertex2D& Vertex2D::operator =(const Vertex2D&) | Possible implicitly-declared
+    RegisterImplicitlyDeclaredAssignOperatorIfPossible<Vertex2D>(engine, "Vertex2D");
 }
 
 #endif // def URHO3D_URHO2D
