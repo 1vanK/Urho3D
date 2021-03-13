@@ -16,8 +16,8 @@ void FakeReleaseRef(void* ptr);
 // class AbstractFile | File: ../IO/AbstractFile.h
 static void Register_AbstractFile(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("AbstractFile", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("AbstractFile", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AbstractFile", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AbstractFile", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     RegisterSubclass<Deserializer, AbstractFile>(engine, "Deserializer", "AbstractFile");
     RegisterSubclass<Serializer, AbstractFile>(engine, "Serializer", "AbstractFile");
@@ -146,8 +146,8 @@ static void Register_Animation(asIScriptEngine* engine)
 // struct AnimationControl | File: ../Graphics/AnimationController.h
 static void Register_AnimationControl(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("AnimationControl", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("AnimationControl", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationControl", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationControl", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_AnimationControl(members);
@@ -259,8 +259,8 @@ static void Register_AnimationStateTrack(asIScriptEngine* engine)
 // struct AnimationTrack | File: ../Graphics/Animation.h
 static void Register_AnimationTrack(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("AnimationTrack", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("AnimationTrack", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationTrack", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("AnimationTrack", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_AnimationTrack(members);
@@ -581,8 +581,8 @@ static void Register_BiasParameters(asIScriptEngine* engine)
 // struct Billboard | File: ../Graphics/BillboardSet.h
 static void Register_Billboard(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("Billboard", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("Billboard", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Billboard", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Billboard", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Billboard(members);
@@ -628,8 +628,8 @@ static void Register_BillboardSet(asIScriptEngine* engine)
 // struct Bone | File: ../Graphics/Skeleton.h
 static void Register_Bone(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("Bone", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("Bone", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Bone", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Bone", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Bone(members);
@@ -972,8 +972,8 @@ static void Register_ColorFrame(asIScriptEngine* engine)
     // ColorFrame::ColorFrame(const Color& color, float time)
     engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_FACTORY, "ColorFrame@+ f(const Color&in, float)", AS_FUNCTION(ColorFrame_ColorFrame_Color_float) , AS_CALL_CDECL);
 
-    engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("ColorFrame", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_ColorFrame(members);
@@ -1238,8 +1238,8 @@ static void Register_CustomGeometry(asIScriptEngine* engine)
 // struct CustomGeometryVertex | File: ../Graphics/CustomGeometry.h
 static void Register_CustomGeometryVertex(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("CustomGeometryVertex", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("CustomGeometryVertex", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CustomGeometryVertex", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("CustomGeometryVertex", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_CustomGeometryVertex(members);
@@ -1455,8 +1455,8 @@ static void Register_DepthValue(asIScriptEngine* engine)
 // class Deserializer | File: ../IO/Deserializer.h
 static void Register_Deserializer(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("Deserializer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("Deserializer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Deserializer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Deserializer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Deserializer(members);
@@ -2416,8 +2416,8 @@ static void Register_JSONValue(asIScriptEngine* engine)
 // struct JoystickState | File: ../Input/Input.h
 static void Register_JoystickState(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("JoystickState", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("JoystickState", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("JoystickState", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("JoystickState", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_JoystickState(members);
@@ -4411,8 +4411,8 @@ static void Register_Serializable(asIScriptEngine* engine)
 // class Serializer | File: ../IO/Serializer.h
 static void Register_Serializer(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("Serializer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("Serializer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Serializer", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Serializer", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Serializer(members);
@@ -4596,8 +4596,8 @@ static void Register_ShadowBatchQueue(asIScriptEngine* engine)
 // class Skeleton | File: ../Graphics/Skeleton.h
 static void Register_Skeleton(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("Skeleton", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("Skeleton", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Skeleton", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("Skeleton", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_Skeleton(members);
@@ -5609,8 +5609,8 @@ static void Register_TextureCube(asIScriptEngine* engine)
 // struct TextureFrame | File: ../Graphics/ParticleEffect.h
 static void Register_TextureFrame(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("TextureFrame", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("TextureFrame", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TextureFrame", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TextureFrame", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_TextureFrame(members);
@@ -5695,8 +5695,8 @@ static void Register_ToolTip(asIScriptEngine* engine)
 // struct TouchState | File: ../Input/Input.h
 static void Register_TouchState(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("TouchState", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("TouchState", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TouchState", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TouchState", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_TouchState(members);
@@ -8759,8 +8759,8 @@ static void Register_TileMap2D(asIScriptEngine* engine)
 // struct TileMapInfo2D | File: ../Urho2D/TileMapDefs2D.h
 static void Register_TileMapInfo2D(asIScriptEngine* engine)
 {
-    engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);
-    engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_ADDREF, "void f()", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);
+    engine->RegisterObjectBehaviour("TileMapInfo2D", asBEHAVE_RELEASE, "void f()", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);
 
     MemberCollection members;
     CollectMembers_TileMapInfo2D(members);

@@ -168,15 +168,12 @@ Octree* Scene_GetOctree(Scene* ptr);
 // ========================================================================================
 
 // WeakPtr<Node> Bone::node_ | File: ../Graphics/Skeleton.h
-Node* BoneGetNode(Bone* ptr);
-// WeakPtr<Node> Bone::node_ | File: ../Graphics/Skeleton.h
-void BoneSetNode(Node* node, Bone* ptr);
+Node* Bone_GetNode(Bone* ptr);
+void Bone_SetNode(Node* node, Bone* ptr);
 
-#define REGISTER_MANUAL_PART_Bone(T, className) \
-    /* WeakPtr<Node> Bone::node_ | File: ../Graphics/Skeleton.h */ \
-    engine->RegisterObjectMethod(className, "void set_node(Node@+)", AS_FUNCTION_OBJLAST(BoneSetNode), AS_CALL_CDECL_OBJLAST); \
-    /* WeakPtr<Node> Bone::node_ | File: ../Graphics/Skeleton.h */ \
-    engine->RegisterObjectMethod(className, "Node@+ get_node() const", AS_FUNCTION_OBJLAST(BoneGetNode), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Bone() \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("WeakPtr<Node> Bone::node_", "void set_node(Node@+)", AS_FUNCTION_OBJLAST(Bone_SetNode), AS_CALL_CDECL_OBJLAST)); \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("WeakPtr<Node> Bone::node_", "Node@+ get_node() const", AS_FUNCTION_OBJLAST(Bone_GetNode), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 

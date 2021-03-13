@@ -311,13 +311,13 @@ Octree* Scene_GetOctree(Scene* ptr)
 // ========================================================================================
 
 // WeakPtr<Node> Bone::node_ | File: ../Graphics/Skeleton.h
-Node* BoneGetNode(Bone* ptr)
+Node* Bone_GetNode(Bone* ptr)
 {
     return ptr->node_;
 }
 
 // WeakPtr<Node> Bone::node_ | File: ../Graphics/Skeleton.h
-void BoneSetNode(Node* node, Bone* ptr)
+void Bone_SetNode(Node* node, Bone* ptr)
 {
     ptr->node_ = node;
 }

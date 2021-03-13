@@ -867,10 +867,10 @@ static void ProcessClass(const ClassAnalyzer& classAnalyzer)
         string cppClassName = classAnalyzer.GetClassName();
         string asClassName = classAnalyzer.GetClassName();
         SpecialMethodRegistration fakeRef;
-        fakeRef.registration_ = "engine->RegisterObjectBehaviour(\"" + asClassName + "\", asBEHAVE_ADDREF, \"void f()\", AS_FUNCTION(FakeAddRef), AS_CALL_CDECL_OBJLAST);";
+        fakeRef.registration_ = "engine->RegisterObjectBehaviour(\"" + asClassName + "\", asBEHAVE_ADDREF, \"void f()\", AS_FUNCTION_OBJLAST(FakeAddRef), AS_CALL_CDECL_OBJLAST);";
         processedClass.fakeRefBehaviors_.push_back(fakeRef);
 
-        fakeRef.registration_ = "engine->RegisterObjectBehaviour(\"" + asClassName + "\", asBEHAVE_RELEASE, \"void f()\", AS_FUNCTION(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);";
+        fakeRef.registration_ = "engine->RegisterObjectBehaviour(\"" + asClassName + "\", asBEHAVE_RELEASE, \"void f()\", AS_FUNCTION_OBJLAST(FakeReleaseRef), AS_CALL_CDECL_OBJLAST);";
         processedClass.fakeRefBehaviors_.push_back(fakeRef);
     }
 
