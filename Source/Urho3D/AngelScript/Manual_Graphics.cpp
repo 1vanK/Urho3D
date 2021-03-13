@@ -61,29 +61,19 @@ void ASRegisterManualFirst_Graphics(asIScriptEngine* engine)
 
 // ========================================================================================
 
-void StaticModelSetModel(Model* model, StaticModel* ptr)
-{
-    // Check type here to allow operating on both AnimatedModel and StaticModel without calling the wrong function,
-    // as AnimatedModel can be cast to StaticModel
-    if (ptr->GetType() == AnimatedModel::GetTypeStatic())
-        static_cast<AnimatedModel*>(ptr)->SetModel(model);
-    else
-        ptr->SetModel(model);
-}
-
-// template<class T> T* Object::GetSubsystem() const | File: ../Core/Object.h
+// template <class T> T* Context::GetSubsystem() const | File: ../Core/Context.h
 static Graphics* GetGraphics()
 {
     return GetScriptContext()->GetSubsystem<Graphics>();
 }
 
-// template<class T> T* Object::GetSubsystem() const | File: ../Core/Object.h
+// template <class T> T* Context::GetSubsystem() const | File: ../Core/Context.h
 static Renderer* GetRenderer()
 {
     return GetScriptContext()->GetSubsystem<Renderer>();
 }
 
-// template<class T> T* Object::GetSubsystem() const | File: ../Core/Object.h
+// template <class T> T* Scene::GetComponent(bool recursive = false) const | File: ../Scene/Scene.h
 static DebugRenderer* GetDebugRenderer()
 {
     Scene* scene = GetScriptContextScene();
@@ -93,7 +83,7 @@ static DebugRenderer* GetDebugRenderer()
         return nullptr;
 }
 
-// template<class T> T* Object::GetSubsystem() const | File: ../Core/Object.h
+// template <class T> T* Scene::GetComponent(bool recursive = false) const | File: ../Scene/Scene.h
 static Octree* GetOctree()
 {
     Scene* scene = GetScriptContextScene();
@@ -103,23 +93,23 @@ static Octree* GetOctree()
 // This function is called after ASRegisterGenerated()
 void ASRegisterManualLast_Graphics(asIScriptEngine* engine)
 {
-    // template<class T> T* Object::GetSubsystem() const | File: ../Core/Object.h
+    // template <class T> T* Context::GetSubsystem() const | File: ../Core/Context.h
     engine->RegisterGlobalFunction("Graphics@+ get_graphics()", AS_FUNCTION(GetGraphics), AS_CALL_CDECL);
 
-    // template<class T> T* Object::GetSubsystem() const | File: ../Core/Object.h
+    // template <class T> T* Context::GetSubsystem() const | File: ../Core/Context.h
     engine->RegisterGlobalFunction("Renderer@+ get_renderer()", AS_FUNCTION(GetRenderer), AS_CALL_CDECL);
 
-    // template<class T> T* Object::GetSubsystem() const | File: ../Core/Object.h
+    // template <class T> T* Scene::GetComponent(bool recursive = false) const | File: ../Scene/Scene.h
     engine->RegisterGlobalFunction("DebugRenderer@+ get_debugRenderer()", AS_FUNCTION(GetDebugRenderer), AS_CALL_CDECL);
 
-    // template<class T> T* Object::GetSubsystem() const | File: ../Core/Object.h
+    // template <class T> T* Scene::GetComponent(bool recursive = false) const | File: ../Scene/Scene.h
     engine->RegisterGlobalFunction("Octree@+ get_octree()", AS_FUNCTION(GetOctree), AS_CALL_CDECL);
 }
 
 // ========================================================================================
 
 // Vector<RenderTargetInfo> RenderPath::renderTargets_ | File: ../Graphics/RenderPath.h
-RenderTargetInfo* RenderPathGetRenderTarget(unsigned index, RenderPath* ptr)
+RenderTargetInfo* RenderPath_GetRenderTarget(unsigned index, RenderPath* ptr)
 {
     if (index >= ptr->renderTargets_.Size())
     {
@@ -133,7 +123,7 @@ RenderTargetInfo* RenderPathGetRenderTarget(unsigned index, RenderPath* ptr)
 }
 
 // Vector<RenderPathCommand> RenderPath::commands_ | File: ../Graphics/RenderPath.h
-RenderPathCommand* RenderPathGetCommand(unsigned index, RenderPath* ptr)
+RenderPathCommand* RenderPath_GetCommand(unsigned index, RenderPath* ptr)
 {
     if (index >= ptr->commands_.Size())
     {
@@ -149,13 +139,13 @@ RenderPathCommand* RenderPathGetCommand(unsigned index, RenderPath* ptr)
 // ========================================================================================
 
 // SharedPtr<Technique> TechniqueEntry::technique_ | File: ../Graphics/Material.h
-void TechniqueEntrySetTechnique(Technique* technique, TechniqueEntry* ptr)
+void TechniqueEntry_SetTechnique(Technique* technique, TechniqueEntry* ptr)
 {
     ptr->technique_ = technique;
 }
 
 // SharedPtr<Technique> TechniqueEntry::technique_ | File: ../Graphics/Material.h
-Technique* TechniqueEntryGetTechnique(TechniqueEntry* ptr)
+Technique* TechniqueEntry_GetTechnique(TechniqueEntry* ptr)
 {
     return ptr->technique_;
 }
@@ -164,19 +154,8 @@ Technique* TechniqueEntryGetTechnique(TechniqueEntry* ptr)
 
 static TechniqueEntry noTechniqueEntry;
 
-// const TechniqueEntry& Material::GetTechniqueEntry(unsigned index) const | File: ../Graphics/Material.h
-const TechniqueEntry& MaterialGetTechniqueEntry(unsigned index, Material* ptr)
-{
-    if (index >= ptr->GetNumTechniques())
-    {
-        asGetActiveContext()->SetException("Index out of bounds");
-        return noTechniqueEntry;
-    }
-
-    return ptr->GetTechniqueEntry(index);
-}
-
-CScriptArray* MaterialGetShaderParameterNames(Material* material)
+// const HashMap<StringHash, MaterialShaderParameter>& Material::GetShaderParameters() const | File: ../Graphics/Material.h
+CScriptArray* Material_GetShaderParameterNames(Material* material)
 {
     Vector<String> result;
 
@@ -188,29 +167,21 @@ CScriptArray* MaterialGetShaderParameterNames(Material* material)
     return VectorToArray<String>(result, "Array<String>");
 }
 
+// const TechniqueEntry& Material::GetTechniqueEntry(unsigned index) const | File: ../Graphics/Material.h
+const TechniqueEntry& Material_GetTechniqueEntry(unsigned index, Material* ptr)
+{
+    if (index >= ptr->GetNumTechniques())
+    {
+        asGetActiveContext()->SetException("Index out of bounds");
+        return noTechniqueEntry;
+    }
+
+    return ptr->GetTechniqueEntry(index);
+}
+
 // ========================================================================================
 
-// bool VertexBuffer::SetData(const void *data) | File: ../Graphics/VertexBuffer.h
-bool VertexBufferSetData(VectorBuffer& src, VertexBuffer* ptr)
-{
-    // Make sure there is enough data
-    if (ptr->GetVertexCount() && src.GetSize() >= ptr->GetVertexCount() * ptr->GetVertexSize())
-        return ptr->SetData(&src.GetBuffer()[0]);
-    else
-        return false;
-}
-
-// bool VertexBuffer::SetDataRange(const void *data, unsigned start, unsigned count, bool discard=false) | File: ../Graphics/VertexBuffer.h
-bool VertexBufferSetDataRange(VectorBuffer& src, unsigned start, unsigned count, bool discard, VertexBuffer* ptr)
-{
-    // Make sure there is enough data
-    if (ptr->GetVertexCount() && src.GetSize() >= count * ptr->GetVertexSize())
-        return ptr->SetDataRange(&src.GetBuffer()[0], start, count, discard);
-    else
-        return false;
-}
-
-VectorBuffer VertexBufferGetData(VertexBuffer* ptr)
+VectorBuffer VertexBuffer_GetData(VertexBuffer* ptr)
 {
     VectorBuffer ret;
     void* data = ptr->Lock(0, ptr->GetVertexCount(), false);
@@ -225,29 +196,29 @@ VectorBuffer VertexBufferGetData(VertexBuffer* ptr)
     return ret;
 }
 
-// ========================================================================================
-
-// bool IndexBuffer::SetData(const void *data) | File: ../Graphics/IndexBuffer.h
-bool IndexBufferSetData(VectorBuffer& src, IndexBuffer* ptr)
+// bool VertexBuffer::SetData(const void* data) | File: ../Graphics/VertexBuffer.h
+bool VertexBuffer_SetData(VectorBuffer& src, VertexBuffer* ptr)
 {
     // Make sure there is enough data
-    if (ptr->GetIndexCount() && src.GetSize() >= ptr->GetIndexCount() * ptr->GetIndexSize())
+    if (ptr->GetVertexCount() && src.GetSize() >= ptr->GetVertexCount() * ptr->GetVertexSize())
         return ptr->SetData(&src.GetBuffer()[0]);
     else
         return false;
 }
 
-// bool IndexBuffer::SetDataRange(const void *data, unsigned start, unsigned count, bool discard=false) | File: ../Graphics/IndexBuffer.h
-bool IndexBufferSetDataRange(VectorBuffer& src, unsigned start, unsigned count, bool discard, IndexBuffer* ptr)
+// bool VertexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard = false) | File: ../Graphics/VertexBuffer.h
+bool VertexBuffer_SetDataRange(VectorBuffer& src, unsigned start, unsigned count, bool discard, VertexBuffer* ptr)
 {
     // Make sure there is enough data
-    if (ptr->GetIndexCount() && src.GetSize() >= count * ptr->GetIndexSize())
+    if (ptr->GetVertexCount() && src.GetSize() >= count * ptr->GetVertexSize())
         return ptr->SetDataRange(&src.GetBuffer()[0], start, count, discard);
     else
         return false;
 }
 
-VectorBuffer IndexBufferGetData(IndexBuffer* ptr)
+// ========================================================================================
+
+VectorBuffer IndexBuffer_GetData(IndexBuffer* ptr)
 {
     VectorBuffer ret;
     void* data = ptr->Lock(0, ptr->GetIndexCount(), false);
@@ -262,10 +233,30 @@ VectorBuffer IndexBufferGetData(IndexBuffer* ptr)
     return ret;
 }
 
+// bool IndexBuffer::SetData(const void* data) | File: ../Graphics/IndexBuffer.h
+bool IndexBuffer_SetData(VectorBuffer& src, IndexBuffer* ptr)
+{
+    // Make sure there is enough data
+    if (ptr->GetIndexCount() && src.GetSize() >= ptr->GetIndexCount() * ptr->GetIndexSize())
+        return ptr->SetData(&src.GetBuffer()[0]);
+    else
+        return false;
+}
+
+// bool IndexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard = false) | File: ../Graphics/IndexBuffer.h
+bool IndexBuffer_SetDataRange(VectorBuffer& src, unsigned start, unsigned count, bool discard, IndexBuffer* ptr)
+{
+    // Make sure there is enough data
+    if (ptr->GetIndexCount() && src.GetSize() >= count * ptr->GetIndexSize())
+        return ptr->SetDataRange(&src.GetBuffer()[0], start, count, discard);
+    else
+        return false;
+}
+
 // ========================================================================================
 
 // AnimationTriggerPoint* Animation::GetTrigger(unsigned index) | File: ../Graphics/Animation.h
-AnimationTriggerPoint* AnimationGetTrigger(unsigned index, Animation* ptr)
+AnimationTriggerPoint* Animation_GetTrigger(unsigned index, Animation* ptr)
 {
     if (index >= ptr->GetNumTriggers())
     {
@@ -280,36 +271,50 @@ AnimationTriggerPoint* AnimationGetTrigger(unsigned index, Animation* ptr)
 
 // ========================================================================================
 
-// void AnimationState::SetBoneWeight(const String &name, float weight, bool recursive=false) | File: ../Graphics/AnimationState.h
-void AnimationStateSetBoneWeight(const String& name, float weight, AnimationState* ptr)
+// void AnimationState::SetBoneWeight(const String& name, float weight, bool recursive = false) | File: ../Graphics/AnimationState.h
+void AnimationState_SetBoneWeight(const String& name, float weight, AnimationState* ptr)
 {
     ptr->SetBoneWeight(name, weight);
 }
 
 // ========================================================================================
 
-// void AnimatedModel::SetModel(Model* model, bool createBones=true) | File: ../Graphics/AnimatedModel.h
-void AnimatedModelSetModel(Model* model, AnimatedModel* ptr)
+// virtual void StaticModel::SetModel(Model* model) | File: ../Graphics/StaticModel.h
+void StaticModel_SetModel(Model* model, StaticModel* ptr)
 {
-    ptr->SetModel(model);
+    // Check type here to allow operating on both AnimatedModel and StaticModel without calling the wrong function,
+    // as AnimatedModel can be cast to StaticModel
+    if (ptr->GetType() == AnimatedModel::GetTypeStatic())
+        static_cast<AnimatedModel*>(ptr)->SetModel(model);
+    else
+        ptr->SetModel(model);
 }
 
-const String& AnimatedModelGetMorphName(unsigned index, AnimatedModel* ptr)
+// ========================================================================================
+
+// const Vector<ModelMorph>& AnimatedModel::GetMorphs() const | File: ../Graphics/AnimatedModel.h
+const String& AnimatedModel_GetMorphName(unsigned index, AnimatedModel* ptr)
 {
     const Vector<ModelMorph>& morphs = ptr->GetMorphs();
     return index < morphs.Size() ? morphs[index].name_ : String::EMPTY;
 }
 
+// void AnimatedModel::SetModel(Model* model, bool createBones = true) | File: ../Graphics/AnimatedModel.h
+void AnimatedModel_SetModel(Model* model, AnimatedModel* ptr)
+{
+    ptr->SetModel(model);
+}
+
 // ========================================================================================
 
 // const Vector<AnimationControl>& AnimationController::GetAnimations() const | File: ../Graphics/AnimationController.h
-unsigned AnimationControllerGetNumAnimations(AnimationController* controller)
+unsigned AnimationController_GetNumAnimations(AnimationController* controller)
 {
     return controller->GetAnimations().Size();
 }
 
 // const Vector<AnimationControl>& AnimationController::GetAnimations() const | File: ../Graphics/AnimationController.h
-const AnimationControl* AnimationControllerGetAnimation(unsigned index, AnimationController* controller)
+const AnimationControl* AnimationController_GetAnimation(unsigned index, AnimationController* controller)
 {
     const Vector<AnimationControl>& animations = controller->GetAnimations();
     return (index < animations.Size()) ? &animations[index] : nullptr;
@@ -317,15 +322,15 @@ const AnimationControl* AnimationControllerGetAnimation(unsigned index, Animatio
 
 // ========================================================================================
 
-// void Graphics::PrecacheShaders(Deserializer &source) | File: ../Graphics/Graphics.h
-void GraphicsPrecacheShaders(File* file, Graphics* ptr)
+// void Graphics::PrecacheShaders(Deserializer& source) | File: ../Graphics/Graphics.h
+void Graphics_PrecacheShaders_File(File* file, Graphics* ptr)
 {
     if (file)
         ptr->PrecacheShaders(*file);
 }
 
-// void Graphics::PrecacheShaders(Deserializer &source) | File: ../Graphics/Graphics.h
-void GraphicsPrecacheShadersVectorBuffer(VectorBuffer& buffer, Graphics* ptr)
+// void Graphics::PrecacheShaders(Deserializer& source) | File: ../Graphics/Graphics.h
+void Graphics_PrecacheShaders_VectorBuffer(VectorBuffer& buffer, Graphics* ptr)
 {
     ptr->PrecacheShaders(buffer);
 }
@@ -425,7 +430,7 @@ CScriptArray* Octree_GetDrawables_All(unsigned char drawableFlags, unsigned view
 // ========================================================================================
 
 // void Renderer::SetVSMShadowParameters(float minVariance, float lightBleedingReduction) | File: ../Graphics/Renderer.h
-void RendererSetVSMShadowParameters(const Vector2& parameters, Renderer* ptr)
+void Renderer_SetVSMShadowParameters(const Vector2& parameters, Renderer* ptr)
 {
     ptr->SetVSMShadowParameters(parameters.x_, parameters.y_);
 }

@@ -44,150 +44,142 @@ namespace Urho3D
 {
 
 // Vector<RenderTargetInfo> RenderPath::renderTargets_ | File: ../Graphics/RenderPath.h
-RenderTargetInfo* RenderPathGetRenderTarget(unsigned index, RenderPath* ptr);
+RenderTargetInfo* RenderPath_GetRenderTarget(unsigned index, RenderPath* ptr);
+
 // Vector<RenderPathCommand> RenderPath::commands_ | File: ../Graphics/RenderPath.h
-RenderPathCommand* RenderPathGetCommand(unsigned index, RenderPath* ptr);
+RenderPathCommand* RenderPath_GetCommand(unsigned index, RenderPath* ptr);
 
-#define REGISTER_MANUAL_PART_RenderPath(T, className) \
-    /* Vector<RenderTargetInfo> RenderPath::renderTargets_ | File: ../Graphics/RenderPath.h */ \
-    engine->RegisterObjectMethod(className, "const RenderTargetInfo& get_renderTargets(uint) const", AS_FUNCTION_OBJLAST(RenderPathGetRenderTarget), AS_CALL_CDECL_OBJLAST); \
-    /* Vector<RenderPathCommand> RenderPath::commands_ | File: ../Graphics/RenderPath.h */ \
-    engine->RegisterObjectMethod(className, "const RenderPathCommand& get_commands(uint) const", AS_FUNCTION_OBJLAST(RenderPathGetCommand), AS_CALL_CDECL_OBJLAST); \
+#define REGISTER_MEMBERS_MANUAL_PART_RenderPath() \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("Vector<RenderTargetInfo> RenderPath::renderTargets_", "const RenderTargetInfo& get_renderTargets(uint) const", AS_FUNCTION_OBJLAST(RenderPath_GetRenderTarget), AS_CALL_CDECL_OBJLAST)); \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("Vector<RenderPathCommand> RenderPath::commands_", "const RenderPathCommand& get_commands(uint) const", AS_FUNCTION_OBJLAST(RenderPath_GetCommand), AS_CALL_CDECL_OBJLAST)); \
 
 // ========================================================================================
 
 // SharedPtr<Technique> TechniqueEntry::technique_ | File: ../Graphics/Material.h
-void TechniqueEntrySetTechnique(Technique* technique, TechniqueEntry* ptr);
-// SharedPtr<Technique> TechniqueEntry::technique_ | File: ../Graphics/Material.h
-Technique* TechniqueEntryGetTechnique(TechniqueEntry* ptr);
+void TechniqueEntry_SetTechnique(Technique* technique, TechniqueEntry* ptr);
 
-#define REGISTER_MANUAL_PART_TechniqueEntry(T, className) \
-    /* SharedPtr<Technique> TechniqueEntry::technique_ | File: ../Graphics/Material.h */ \
-    engine->RegisterObjectMethod(className, "void set_technique(Technique@+)", AS_FUNCTION_OBJLAST(TechniqueEntrySetTechnique), AS_CALL_CDECL_OBJLAST); \
-    /* SharedPtr<Technique> TechniqueEntry::technique_ | File: ../Graphics/Material.h */ \
-    engine->RegisterObjectMethod(className, "Technique@+ get_technique() const", AS_FUNCTION_OBJLAST(TechniqueEntryGetTechnique), AS_CALL_CDECL_OBJLAST);
+// SharedPtr<Technique> TechniqueEntry::technique_ | File: ../Graphics/Material.h
+Technique* TechniqueEntry_GetTechnique(TechniqueEntry* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_TechniqueEntry() \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("SharedPtr<Technique> TechniqueEntry::technique_", "void set_technique(Technique@+)", AS_FUNCTION_OBJLAST(TechniqueEntry_SetTechnique), AS_CALL_CDECL_OBJLAST)); \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("SharedPtr<Technique> TechniqueEntry::technique_", "Technique@+ get_technique() const", AS_FUNCTION_OBJLAST(TechniqueEntry_GetTechnique), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-CScriptArray* MaterialGetShaderParameterNames(Material* material);
+// const HashMap<StringHash, MaterialShaderParameter>& Material::GetShaderParameters() const | File: ../Graphics/Material.h
+CScriptArray* Material_GetShaderParameterNames(Material* material);
+
 // const TechniqueEntry& Material::GetTechniqueEntry(unsigned index) const | File: ../Graphics/Material.h
-const TechniqueEntry& MaterialGetTechniqueEntry(unsigned index, Material* ptr);
+const TechniqueEntry& Material_GetTechniqueEntry(unsigned index, Material* ptr);
 
-#define REGISTER_MANUAL_PART_Material(T, className) \
-    engine->RegisterObjectMethod(className, "Array<String>@ get_shaderParameterNames() const", AS_FUNCTION_OBJLAST(MaterialGetShaderParameterNames), AS_CALL_CDECL_OBJLAST); \
-    /* const TechniqueEntry& Material::GetTechniqueEntry(unsigned index) const | File: ../Graphics/Material.h */ \
-    engine->RegisterObjectMethod(className, "const TechniqueEntry& get_techniqueEntries(uint) const", AS_FUNCTION_OBJLAST(MaterialGetTechniqueEntry), AS_CALL_CDECL_OBJLAST);
-
-// ========================================================================================
-
-VectorBuffer VertexBufferGetData(VertexBuffer* ptr);
-// bool VertexBuffer::SetData(const void *data) | File: ../Graphics/VertexBuffer.h
-bool VertexBufferSetData(VectorBuffer& src, VertexBuffer* ptr);
-// bool VertexBuffer::SetDataRange(const void *data, unsigned start, unsigned count, bool discard=false) | File: ../Graphics/VertexBuffer.h
-bool VertexBufferSetDataRange(VectorBuffer& src, unsigned start, unsigned count, bool discard, VertexBuffer* ptr);
-
-#define REGISTER_MANUAL_PART_VertexBuffer(T, className) \
-    engine->RegisterObjectMethod(className, "VectorBuffer GetData() const", AS_FUNCTION_OBJLAST(VertexBufferGetData), AS_CALL_CDECL_OBJLAST); \
-    /* bool VertexBuffer::SetData(const void *data) | File: ../Graphics/VertexBuffer.h */ \
-    engine->RegisterObjectMethod(className, "bool SetData(VectorBuffer&)", AS_FUNCTION_OBJLAST(VertexBufferSetData), AS_CALL_CDECL_OBJLAST); \
-    /* bool VertexBuffer::SetDataRange(const void *data, unsigned start, unsigned count, bool discard=false) | File: ../Graphics/VertexBuffer.h */ \
-    engine->RegisterObjectMethod(className, "bool SetDataRange(VectorBuffer&, uint, uint, bool discard = false)", AS_FUNCTION_OBJLAST(VertexBufferSetDataRange), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Material() \
+    members.methods_.Push(RegisterObjectMethodArgs("const HashMap<StringHash, MaterialShaderParameter>& Material::GetShaderParameters() const", "Array<String>@ get_shaderParameterNames() const", AS_FUNCTION_OBJLAST(Material_GetShaderParameterNames), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("const TechniqueEntry& Material::GetTechniqueEntry(unsigned index) const", "const TechniqueEntry& get_techniqueEntries(uint) const", AS_FUNCTION_OBJLAST(Material_GetTechniqueEntry), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-VectorBuffer IndexBufferGetData(IndexBuffer* ptr);
-// bool IndexBuffer::SetData(const void *data) | File: ../Graphics/IndexBuffer.h
-bool IndexBufferSetData(VectorBuffer& src, IndexBuffer* ptr);
-// bool IndexBuffer::SetDataRange(const void *data, unsigned start, unsigned count, bool discard=false) | File: ../Graphics/IndexBuffer.h
-bool IndexBufferSetDataRange(VectorBuffer& src, unsigned start, unsigned count, bool discard, IndexBuffer* ptr);
+VectorBuffer VertexBuffer_GetData(VertexBuffer* ptr);
 
-#define REGISTER_MANUAL_PART_IndexBuffer(T, className) \
-    engine->RegisterObjectMethod(className, "VectorBuffer GetData()", AS_FUNCTION_OBJLAST(IndexBufferGetData), AS_CALL_CDECL_OBJLAST); \
-    /* bool IndexBuffer::SetData(const void *data) | File: ../Graphics/IndexBuffer.h */ \
-    engine->RegisterObjectMethod(className, "bool SetData(VectorBuffer&)", AS_FUNCTION_OBJLAST(IndexBufferSetData), AS_CALL_CDECL_OBJLAST); \
-    /* bool IndexBuffer::SetDataRange(const void *data, unsigned start, unsigned count, bool discard=false) | File: ../Graphics/IndexBuffer.h */ \
-    engine->RegisterObjectMethod(className, "bool SetDataRange(VectorBuffer&, uint, uint, bool discard = false)", AS_FUNCTION_OBJLAST(IndexBufferSetDataRange), AS_CALL_CDECL_OBJLAST);
+// bool VertexBuffer::SetData(const void* data) | File: ../Graphics/VertexBuffer.h
+bool VertexBuffer_SetData(VectorBuffer& src, VertexBuffer* ptr);
+
+// bool VertexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard = false) | File: ../Graphics/VertexBuffer.h
+bool VertexBuffer_SetDataRange(VectorBuffer& src, unsigned start, unsigned count, bool discard, VertexBuffer* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_VertexBuffer() \
+    members.methods_.Push(RegisterObjectMethodArgs("7cdfd3ef-6d52-4060-a585-e0fa0c8097f2", "VectorBuffer GetData() const", AS_FUNCTION_OBJLAST(VertexBuffer_GetData), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::SetData(const void* data)", "bool SetData(VectorBuffer&)", AS_FUNCTION_OBJLAST(VertexBuffer_SetData), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool VertexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard = false)", "bool SetDataRange(VectorBuffer&, uint, uint, bool discard = false)", AS_FUNCTION_OBJLAST(VertexBuffer_SetDataRange), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-#define REGISTER_MANUAL_PART_AnimationTrack(T, className) \
-    /* AnimationKeyFrame* AnimationTrack::GetKeyFrame(unsigned index) | File: ../Graphics/Animation.h */ \
-    engine->RegisterObjectMethod(className, "const AnimationKeyFrame& get_keyFrames(uint) const", AS_METHOD(T, GetKeyFrame), AS_CALL_THISCALL);
+VectorBuffer IndexBuffer_GetData(IndexBuffer* ptr);
+
+// bool IndexBuffer::SetData(const void* data) | File: ../Graphics/IndexBuffer.h
+bool IndexBuffer_SetData(VectorBuffer& src, IndexBuffer* ptr);
+
+// bool IndexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard = false) | File: ../Graphics/IndexBuffer.h
+bool IndexBuffer_SetDataRange(VectorBuffer& src, unsigned start, unsigned count, bool discard, IndexBuffer* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_IndexBuffer() \
+    members.methods_.Push(RegisterObjectMethodArgs("8a99b74c-1525-4c4d-b3ae-c7b4a0afabde", "VectorBuffer GetData()", AS_FUNCTION_OBJLAST(IndexBuffer_GetData), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool IndexBuffer::SetData(const void* data)", "bool SetData(VectorBuffer&)", AS_FUNCTION_OBJLAST(IndexBuffer_SetData), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool IndexBuffer::SetDataRange(const void* data, unsigned start, unsigned count, bool discard = false)", "bool SetDataRange(VectorBuffer&, uint, uint, bool discard = false)", AS_FUNCTION_OBJLAST(IndexBuffer_SetDataRange), AS_CALL_CDECL_OBJLAST));
+
+// ========================================================================================
+
+#define REGISTER_MEMBERS_MANUAL_PART_AnimationTrack() \
+    members.methods_.Push(RegisterObjectMethodArgs("AnimationKeyFrame* AnimationTrack::GetKeyFrame(unsigned index)", "const AnimationKeyFrame& get_keyFrames(uint) const", AS_METHOD(AnimationTrack, GetKeyFrame), AS_CALL_THISCALL));
 
 // ========================================================================================
 
 // AnimationTriggerPoint* Animation::GetTrigger(unsigned index) | File: ../Graphics/Animation.h
-AnimationTriggerPoint* AnimationGetTrigger(unsigned index, Animation* ptr);
+AnimationTriggerPoint* Animation_GetTrigger(unsigned index, Animation* ptr);
 
-#define REGISTER_MANUAL_PART_Animation(T, className) \
-    /* AnimationTriggerPoint* Animation::GetTrigger(unsigned index) | File: ../Graphics/Animation.h */ \
-    engine->RegisterObjectMethod(className, "const AnimationTriggerPoint& get_triggers(uint) const", AS_FUNCTION_OBJLAST(AnimationGetTrigger), AS_CALL_CDECL_OBJLAST);
-
-// ========================================================================================
-
-#define REGISTER_MANUAL_PART_CascadeParameters(T, className) \
-    /* Vector4 CascadeParameters::splits_ | File: ../Graphics/Light.h */ \
-    engine->RegisterObjectProperty(className, "float split1", offsetof(T, splits_.x_)); \
-    /* Vector4 CascadeParameters::splits_ | File: ../Graphics/Light.h */ \
-    engine->RegisterObjectProperty(className, "float split2", offsetof(T, splits_.y_)); \
-    /* Vector4 CascadeParameters::splits_ | File: ../Graphics/Light.h */ \
-    engine->RegisterObjectProperty(className, "float split3", offsetof(T, splits_.z_)); \
-    /* Vector4 CascadeParameters::splits_ | File: ../Graphics/Light.h */ \
-    engine->RegisterObjectProperty(className, "float split4", offsetof(T, splits_.w_));
+#define REGISTER_MEMBERS_MANUAL_PART_Animation() \
+    members.methods_.Push(RegisterObjectMethodArgs("AnimationTriggerPoint* Animation::GetTrigger(unsigned index)", "const AnimationTriggerPoint& get_triggers(uint) const", AS_FUNCTION_OBJLAST(Animation_GetTrigger), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// void AnimationState::SetBoneWeight(const String &name, float weight, bool recursive=false) | File: ../Graphics/AnimationState.h
-void AnimationStateSetBoneWeight(const String& name, float weight, AnimationState* ptr);
-
-#define REGISTER_MANUAL_PART_AnimationState(T, className) \
-    /* void AnimationState::SetBoneWeight(const String &name, float weight, bool recursive=false) | File: ../Graphics/AnimationState.h */ \
-    engine->RegisterObjectMethod(className, "void set_boneWeights(const String&in, float)", AS_FUNCTION_OBJLAST(AnimationStateSetBoneWeight), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_CascadeParameters() \
+    members.fields_.Push(RegisterObjectPropertyArgs("Vector4 CascadeParameters::splits_", "float split1", offsetof(CascadeParameters, splits_.x_))); \
+    members.fields_.Push(RegisterObjectPropertyArgs("Vector4 CascadeParameters::splits_", "float split2", offsetof(CascadeParameters, splits_.y_))); \
+    members.fields_.Push(RegisterObjectPropertyArgs("Vector4 CascadeParameters::splits_", "float split3", offsetof(CascadeParameters, splits_.z_))); \
+    members.fields_.Push(RegisterObjectPropertyArgs("Vector4 CascadeParameters::splits_", "float split4", offsetof(CascadeParameters, splits_.w_)));
 
 // ========================================================================================
 
-void StaticModelSetModel(Model* model, StaticModel* ptr);
+// void AnimationState::SetBoneWeight(const String& name, float weight, bool recursive = false) | File: ../Graphics/AnimationState.h
+void AnimationState_SetBoneWeight(const String& name, float weight, AnimationState* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_AnimationState() \
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimationState::SetBoneWeight(const String& name, float weight, bool recursive = false)", "void set_boneWeights(const String&in, float)", AS_FUNCTION_OBJLAST(AnimationState_SetBoneWeight), AS_CALL_CDECL_OBJLAST));
+
+// ========================================================================================
+
+// virtual void StaticModel::SetModel(Model* model) | File: ../Graphics/StaticModel.h
+void StaticModel_SetModel(Model* model, StaticModel* ptr);
 
 #define REGISTER_MEMBERS_MANUAL_PART_StaticModel() \
-    members.methods_.Push(RegisterObjectMethodArgs("virtual void StaticModel::SetModel(Model* model)", "void SetModel(Model@+)", AS_FUNCTION_OBJLAST(StaticModelSetModel), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("virtual void StaticModel::SetModel(Model* model)", "void set_model(Model@+)", AS_FUNCTION_OBJLAST(StaticModelSetModel), AS_CALL_CDECL_OBJLAST));
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void StaticModel::SetModel(Model* model)", "void SetModel(Model@+)", AS_FUNCTION_OBJLAST(StaticModel_SetModel), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("virtual void StaticModel::SetModel(Model* model)", "void set_model(Model@+)", AS_FUNCTION_OBJLAST(StaticModel_SetModel), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-const String& AnimatedModelGetMorphName(unsigned index, AnimatedModel* ptr);
+// const Vector<ModelMorph>& AnimatedModel::GetMorphs() const | File: ../Graphics/AnimatedModel.h
+const String& AnimatedModel_GetMorphName(unsigned index, AnimatedModel* ptr);
 
-// void AnimatedModel::SetModel(Model* model, bool createBones=true) | File: ../Graphics/AnimatedModel.h
-void AnimatedModelSetModel(Model* model, AnimatedModel* ptr);
+// void AnimatedModel::SetModel(Model* model, bool createBones = true) | File: ../Graphics/AnimatedModel.h
+void AnimatedModel_SetModel(Model* model, AnimatedModel* ptr);
 
 #define REGISTER_MEMBERS_MANUAL_PART_AnimatedModel() \
-    members.methods_.Push(RegisterObjectMethodArgs("e2accb9f-914d-4d2f-8014-1b3703e613ba", "const String& get_morphNames(uint) const", AS_FUNCTION_OBJLAST(AnimatedModelGetMorphName), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::SetModel(Model* model, bool createBones=true)", "void set_model(Model@+)", AS_FUNCTION_OBJLAST(AnimatedModelSetModel), AS_CALL_CDECL_OBJLAST));
+    members.methods_.Push(RegisterObjectMethodArgs("const Vector<ModelMorph>& AnimatedModel::GetMorphs() const", "const String& get_morphNames(uint) const", AS_FUNCTION_OBJLAST(AnimatedModel_GetMorphName), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("void AnimatedModel::SetModel(Model* model, bool createBones = true)", "void set_model(Model@+)", AS_FUNCTION_OBJLAST(AnimatedModel_SetModel), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
 // const Vector<AnimationControl>& AnimationController::GetAnimations() const | File: ../Graphics/AnimationController.h
-unsigned AnimationControllerGetNumAnimations(AnimationController* controller);
-// const Vector<AnimationControl>& AnimationController::GetAnimations() const | File: ../Graphics/AnimationController.h
-const AnimationControl* AnimationControllerGetAnimation(unsigned index, AnimationController* controller);
+unsigned AnimationController_GetNumAnimations(AnimationController* controller);
 
-#define REGISTER_MANUAL_PART_AnimationController(T, className) \
-    /* const Vector<AnimationControl>& AnimationController::GetAnimations() const | File: ../Graphics/AnimationController.h */ \
-    engine->RegisterObjectMethod(className, "uint get_numAnimations() const", AS_FUNCTION_OBJLAST(AnimationControllerGetNumAnimations), AS_CALL_CDECL_OBJLAST); \
-    /* const Vector<AnimationControl>& AnimationController::GetAnimations() const | File: ../Graphics/AnimationController.h */ \
-    engine->RegisterObjectMethod(className, "const AnimationControl@+ get_animations(uint) const", AS_FUNCTION_OBJLAST(AnimationControllerGetAnimation), AS_CALL_CDECL_OBJLAST);
+// const Vector<AnimationControl>& AnimationController::GetAnimations() const | File: ../Graphics/AnimationController.h
+const AnimationControl* AnimationController_GetAnimation(unsigned index, AnimationController* controller);
+
+#define REGISTER_MEMBERS_MANUAL_PART_AnimationController() \
+    members.methods_.Push(RegisterObjectMethodArgs("const Vector<AnimationControl>& AnimationController::GetAnimations() const", "uint get_numAnimations() const", AS_FUNCTION_OBJLAST(AnimationController_GetNumAnimations), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("const Vector<AnimationControl>& AnimationController::GetAnimations() const", "const AnimationControl@+ get_animations(uint) const", AS_FUNCTION_OBJLAST(AnimationController_GetAnimation), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// void Graphics::PrecacheShaders(Deserializer &source) | File: ../Graphics/Graphics.h
-void GraphicsPrecacheShaders(File* file, Graphics* ptr);
-// void Graphics::PrecacheShaders(Deserializer &source) | File: ../Graphics/Graphics.h
-void GraphicsPrecacheShadersVectorBuffer(VectorBuffer& buffer, Graphics* ptr);
+// void Graphics::PrecacheShaders(Deserializer& source) | File: ../Graphics/Graphics.h
+void Graphics_PrecacheShaders_File(File* file, Graphics* ptr);
 
-#define REGISTER_MANUAL_PART_Graphics(T, className) \
-    /* void Graphics::PrecacheShaders(Deserializer &source) | File: ../Graphics/Graphics.h */ \
-    engine->RegisterObjectMethod(className, "void PrecacheShaders(File@+)", AS_FUNCTION_OBJLAST(GraphicsPrecacheShaders), AS_CALL_CDECL_OBJLAST); \
-    /* void Graphics::PrecacheShaders(Deserializer &source) | File: ../Graphics/Graphics.h */ \
-    engine->RegisterObjectMethod(className, "void PrecacheShaders(VectorBuffer&)", AS_FUNCTION_OBJLAST(GraphicsPrecacheShadersVectorBuffer), AS_CALL_CDECL_OBJLAST);
+// void Graphics::PrecacheShaders(Deserializer& source) | File: ../Graphics/Graphics.h
+void Graphics_PrecacheShaders_VectorBuffer(VectorBuffer& buffer, Graphics* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_Graphics() \
+    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::PrecacheShaders(Deserializer& source)", "void PrecacheShaders(File@+)", AS_FUNCTION_OBJLAST(Graphics_PrecacheShaders_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("void Graphics::PrecacheShaders(Deserializer& source)", "void PrecacheShaders(VectorBuffer&)", AS_FUNCTION_OBJLAST(Graphics_PrecacheShaders_VectorBuffer), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
@@ -228,10 +220,9 @@ CScriptArray* Octree_GetDrawables_All(unsigned char drawableFlags, unsigned view
 // ========================================================================================
 
 // void Renderer::SetVSMShadowParameters(float minVariance, float lightBleedingReduction) | File: ../Graphics/Renderer.h
-void RendererSetVSMShadowParameters(const Vector2& parameters, Renderer* ptr);
+void Renderer_SetVSMShadowParameters(const Vector2& parameters, Renderer* ptr);
 
-#define REGISTER_MANUAL_PART_Renderer(T, className) \
-    /* void Renderer::SetVSMShadowParameters(float minVariance, float lightBleedingReduction) | File: ../Graphics/Renderer.h */ \
-    engine->RegisterObjectMethod("Renderer", "void set_vsmShadowParameters(const Vector2&in)", AS_FUNCTION_OBJLAST(RendererSetVSMShadowParameters), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Renderer() \
+    members.methods_.Push(RegisterObjectMethodArgs("void Renderer::SetVSMShadowParameters(float minVariance, float lightBleedingReduction)", "void set_vsmShadowParameters(const Vector2&in)", AS_FUNCTION_OBJLAST(Renderer_SetVSMShadowParameters), AS_CALL_CDECL_OBJLAST));
 
 }
