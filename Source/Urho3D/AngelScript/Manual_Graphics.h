@@ -67,6 +67,8 @@ Technique* TechniqueEntry_GetTechnique(TechniqueEntry* ptr);
 
 // ========================================================================================
 
+bool Material_Load_File(File* file, Material* ptr);
+
 // const HashMap<StringHash, MaterialShaderParameter>& Material::GetShaderParameters() const | File: ../Graphics/Material.h
 CScriptArray* Material_GetShaderParameterNames(Material* material);
 
@@ -74,8 +76,16 @@ CScriptArray* Material_GetShaderParameterNames(Material* material);
 const TechniqueEntry& Material_GetTechniqueEntry(unsigned index, Material* ptr);
 
 #define REGISTER_MEMBERS_MANUAL_PART_Material() \
+    members.methods_.Push(RegisterObjectMethodArgs("dc07831b-d300-4aa7-9750-9a9a2769746d", "bool Load(File@+)", AS_FUNCTION_OBJLAST(Material_Load_File), AS_CALL_CDECL_OBJLAST)); \
     members.methods_.Push(RegisterObjectMethodArgs("const HashMap<StringHash, MaterialShaderParameter>& Material::GetShaderParameters() const", "Array<String>@ get_shaderParameterNames() const", AS_FUNCTION_OBJLAST(Material_GetShaderParameterNames), AS_CALL_CDECL_OBJLAST)); \
     members.methods_.Push(RegisterObjectMethodArgs("const TechniqueEntry& Material::GetTechniqueEntry(unsigned index) const", "const TechniqueEntry& get_techniqueEntries(uint) const", AS_FUNCTION_OBJLAST(Material_GetTechniqueEntry), AS_CALL_CDECL_OBJLAST));
+
+// ========================================================================================
+
+bool ParticleEffect_Load_File(File* file, ParticleEffect* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_ParticleEffect() \
+    members.methods_.Push(RegisterObjectMethodArgs("574f63cb-380c-4ba5-957b-8a837b317213", "bool Load(File@+)", AS_FUNCTION_OBJLAST(ParticleEffect_Load_File), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 

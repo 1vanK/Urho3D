@@ -154,6 +154,11 @@ Technique* TechniqueEntry_GetTechnique(TechniqueEntry* ptr)
 
 static TechniqueEntry noTechniqueEntry;
 
+bool Material_Load_File(File* file, Material* ptr)
+{
+    return file && ptr->Resource::Load(*file);
+}
+
 // const HashMap<StringHash, MaterialShaderParameter>& Material::GetShaderParameters() const | File: ../Graphics/Material.h
 CScriptArray* Material_GetShaderParameterNames(Material* material)
 {
@@ -177,6 +182,13 @@ const TechniqueEntry& Material_GetTechniqueEntry(unsigned index, Material* ptr)
     }
 
     return ptr->GetTechniqueEntry(index);
+}
+
+// ========================================================================================
+
+bool ParticleEffect_Load_File(File* file, ParticleEffect* ptr)
+{
+    return file && ptr->Resource::Load(*file);
 }
 
 // ========================================================================================
