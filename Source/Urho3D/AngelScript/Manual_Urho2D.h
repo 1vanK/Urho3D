@@ -35,28 +35,26 @@ namespace Urho3D
 {
 
 // RigidBody2D* PhysicsRaycastResult2D::body_ | File: ../Urho2D/PhysicsWorld2D.h
-RigidBody2D* PhysicsRaycastResultGetRigidBody2D(PhysicsRaycastResult2D* ptr);
+RigidBody2D* PhysicsRaycastResult2D_GetBody(PhysicsRaycastResult2D* ptr);
 
-#define REGISTER_MANUAL_PART_PhysicsRaycastResult2D(T, className) \
-    /* RigidBody2D* PhysicsRaycastResult2D::body_ | File: ../Urho2D/PhysicsWorld2D.h */ \
-    engine->RegisterObjectMethod(className, "RigidBody2D@+ get_body() const", AS_FUNCTION_OBJLAST(PhysicsRaycastResultGetRigidBody2D), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_PhysicsRaycastResult2D() \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("RigidBody2D* PhysicsRaycastResult2D::body_", "RigidBody2D@+ get_body() const", AS_FUNCTION_OBJLAST(PhysicsRaycastResult2D_GetBody), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// void PhysicsWorld2D::Raycast(PODVector< PhysicsRaycastResult2D > &results, const Vector2 &startPoint, const Vector2 &endPoint, unsigned collisionMask=M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h
-CScriptArray* PhysicsWorld2DRaycast(const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask, PhysicsWorld2D* ptr);
-// void PhysicsWorld2D::RaycastSingle(PhysicsRaycastResult2D &result, const Vector2 &startPoint, const Vector2 &endPoint, unsigned collisionMask=M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h
-PhysicsRaycastResult2D PhysicsWorld2DRaycastSingle(const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask, PhysicsWorld2D* ptr);
-// void PhysicsWorld2D::GetRigidBodies(PODVector< RigidBody2D * > &results, const Rect &aabb, unsigned collisionMask=M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h
-CScriptArray* PhysicsWorld2DGetRigidBodies(const Rect& aabb, unsigned collisionMask, PhysicsWorld2D* ptr);
+// void PhysicsWorld2D::Raycast(PODVector<PhysicsRaycastResult2D>& results, const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask = M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h
+CScriptArray* PhysicsWorld2D_Raycast(const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask, PhysicsWorld2D* ptr);
 
-#define REGISTER_MANUAL_PART_PhysicsWorld2D(T, className) \
-    /* void PhysicsWorld2D::Raycast(PODVector< PhysicsRaycastResult2D > &results, const Vector2 &startPoint, const Vector2 &endPoint, unsigned collisionMask=M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h */ \
-    engine->RegisterObjectMethod(className, "Array<PhysicsRaycastResult2D>@ Raycast(const Vector2&, const Vector2&, uint collisionMask = 0xffff)", AS_FUNCTION_OBJLAST(PhysicsWorld2DRaycast), AS_CALL_CDECL_OBJLAST); \
-    /* void PhysicsWorld2D::RaycastSingle(PhysicsRaycastResult2D &result, const Vector2 &startPoint, const Vector2 &endPoint, unsigned collisionMask=M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h */ \
-    engine->RegisterObjectMethod(className, "PhysicsRaycastResult2D RaycastSingle(const Vector2&, const Vector2&, uint collisionMask = 0xffff)", AS_FUNCTION_OBJLAST(PhysicsWorld2DRaycastSingle), AS_CALL_CDECL_OBJLAST); \
-    /* void PhysicsWorld2D::GetRigidBodies(PODVector< RigidBody2D * > &results, const Rect &aabb, unsigned collisionMask=M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h */ \
-    engine->RegisterObjectMethod(className, "Array<RigidBody2D@>@ GetRigidBodies(const Rect&in, uint collisionMask = 0xffff)", AS_FUNCTION_OBJLAST(PhysicsWorld2DGetRigidBodies), AS_CALL_CDECL_OBJLAST);
+// void PhysicsWorld2D::RaycastSingle(PhysicsRaycastResult2D& result, const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask = M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h
+PhysicsRaycastResult2D PhysicsWorld2D_RaycastSingle(const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask, PhysicsWorld2D* ptr);
+
+// void PhysicsWorld2D::GetRigidBodies(PODVector<RigidBody2D*>& results, const Rect& aabb, unsigned collisionMask = M_MAX_UNSIGNED) | File: ../Urho2D/PhysicsWorld2D.h
+CScriptArray* PhysicsWorld2D_GetRigidBodies(const Rect& aabb, unsigned collisionMask, PhysicsWorld2D* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_PhysicsWorld2D() \
+    members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::Raycast(PODVector<PhysicsRaycastResult2D>& results, const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask = M_MAX_UNSIGNED)", "Array<PhysicsRaycastResult2D>@ Raycast(const Vector2&, const Vector2&, uint collisionMask = 0xffff)", AS_FUNCTION_OBJLAST(PhysicsWorld2D_Raycast), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::RaycastSingle(PhysicsRaycastResult2D& result, const Vector2& startPoint, const Vector2& endPoint, unsigned collisionMask = M_MAX_UNSIGNED)", "PhysicsRaycastResult2D RaycastSingle(const Vector2&, const Vector2&, uint collisionMask = 0xffff)", AS_FUNCTION_OBJLAST(PhysicsWorld2D_RaycastSingle), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("void PhysicsWorld2D::GetRigidBodies(PODVector<RigidBody2D*>& results, const Rect& aabb, unsigned collisionMask = M_MAX_UNSIGNED)", "Array<RigidBody2D@>@ GetRigidBodies(const Rect&in, uint collisionMask = 0xffff)", AS_FUNCTION_OBJLAST(PhysicsWorld2D_GetRigidBodies), AS_CALL_CDECL_OBJLAST));
 
 }
 

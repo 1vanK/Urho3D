@@ -122,4 +122,21 @@ void UI_SetFocusElement(UIElement* element, UI* ptr);
     members.methods_.Push(RegisterObjectMethodArgs("const Vector<UIElement*> UI::GetDragElements()", "const Array<UIElement@>@ GetDragElements()", AS_FUNCTION_OBJLAST(UI_GetDragElements), AS_CALL_CDECL_OBJLAST)); \
     members.methods_.Push(RegisterObjectMethodArgs("void UI::SetFocusElement(UIElement* element, bool byKey = false)", "void set_focusElement(UIElement@+)", AS_FUNCTION_OBJLAST(UI_SetFocusElement), AS_CALL_CDECL_OBJLAST));
 
+// ========================================================================================
+
+#define REGISTER_CLASS_MANUAL_PART_BorderImage() \
+    RegisterNamedObjectConstructor<BorderImage>(engine, "BorderImage");
+
+#define REGISTER_CLASS_MANUAL_PART_Button() \
+    RegisterNamedObjectConstructor<Button>(engine, "Button");
+
+#define REGISTER_CLASS_MANUAL_PART_CheckBox() \
+    RegisterNamedObjectConstructor<CheckBox>(engine, "CheckBox");
+
+#define REGISTER_CLASS_MANUAL_PART_Cursor() \
+    RegisterNamedObjectConstructor<Cursor>(engine, "Cursor");
+
+#define REGISTER_CLASS_MANUAL_PART_Menu() \
+    RegisterNamedObjectConstructor<Menu>(engine, "Menu");
+
 }

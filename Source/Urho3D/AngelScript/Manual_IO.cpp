@@ -178,13 +178,13 @@ static void RegisterLog(asIScriptEngine* engine)
 
 // ========================================================================================
 
-// template<class T> T * Object::GetSubsystem() const | File: ../Core/Object.h
+// template <class T> T* Context::GetSubsystem() const | File: ../Core/Context.h
 static FileSystem* GetFileSystem()
 {
     return GetScriptContext()->GetSubsystem<FileSystem>();
 }
 
-// template<class T> T * Object::GetSubsystem() const | File: ../Core/Object.h
+// template <class T> T* Context::GetSubsystem() const | File: ../Core/Context.h
 static Log* GetLog()
 {
     return GetScriptContext()->GetSubsystem<Log>();
@@ -196,16 +196,17 @@ void ASRegisterManualLast_IO(asIScriptEngine* engine)
     RegisterVectorBuffer(engine);
     RegisterLog(engine);
 
-    // template<class T> T * Object::GetSubsystem() const | File: ../Core/Object.h
+    // template <class T> T* Context::GetSubsystem() const | File: ../Core/Context.h
     engine->RegisterGlobalFunction("FileSystem@+ get_fileSystem()", AS_FUNCTION(GetFileSystem), AS_CALL_CDECL);
-    // template<class T> T * Object::GetSubsystem() const | File: ../Core/Object.h
+    
+    // template <class T> T* Context::GetSubsystem() const | File: ../Core/Context.h
     engine->RegisterGlobalFunction("Log@+ get_log()", AS_FUNCTION(GetLog), AS_CALL_CDECL);
 }
 
 // ========================================================================================
 
-// virtual unsigned Deserializer::Read(void *dest, unsigned size)=0 | File: ../IO/Deserializer.h
-CScriptArray* DeserializerRead(unsigned size, Deserializer* ptr)
+// virtual unsigned Deserializer::Read(void* dest, unsigned size) = 0 | File: ../IO/Deserializer.h
+CScriptArray* Deserializer_Read(unsigned size, Deserializer* ptr)
 {
     PODVector<unsigned char> vector(size);
     unsigned bytesRead = size ? ptr->Read(&vector[0], size) : 0;
@@ -213,31 +214,31 @@ CScriptArray* DeserializerRead(unsigned size, Deserializer* ptr)
     return VectorToArray(vector, "Array<uint8>");
 }
 
-// VectorBuffer(Deserializer& source, unsigned size) | File: .. / IO / VectorBuffer.h
-VectorBuffer DeserializerReadVectorBuffer(unsigned size, Deserializer* ptr)
+// VectorBuffer::VectorBuffer(Deserializer& source, unsigned size) | File: .. / IO / VectorBuffer.h
+VectorBuffer Deserializer_ReadVectorBuffer(unsigned size, Deserializer* ptr)
 {
     return VectorBuffer(*ptr, size);
 }
 
 // ========================================================================================
 
-// virtual unsigned Serializer::Write(const void *data, unsigned size)=0 | File: ../IO/Serializer.h
-unsigned SerializerWrite(CScriptArray* arr, Serializer* ptr)
+// virtual unsigned Serializer::Write(const void* data, unsigned size) = 0 | File: ../IO/Serializer.h
+unsigned Serializer_Write(CScriptArray* arr, Serializer* ptr)
 {
     unsigned bytesToWrite = arr->GetSize();
     return bytesToWrite ? ptr->Write(arr->At(0), bytesToWrite) : 0;
 }
 
-// virtual unsigned Serializer::Write(const void *data, unsigned size)=0 | File: ../IO/Serializer.h
-bool SerializerWriteVectorBuffer(VectorBuffer* src, Serializer* ptr)
+// virtual unsigned Serializer::Write(const void* data, unsigned size) = 0 | File: ../IO/Serializer.h
+bool Serializer_Write_VectorBuffer(VectorBuffer* src, Serializer* ptr)
 {
     return ptr->Write(src->GetData(), src->GetSize()) == src->GetSize();
 }
 
 // ========================================================================================
 
-// void FileSystem::ScanDir(Vector< String > &result, const String &pathName, const String &filter, unsigned flags, bool recursive) const | File: ../IO/FileSystem.h
-CScriptArray* FileSystemScanDir(const String& pathName, const String& filter, unsigned flags, bool recursive, FileSystem* ptr)
+// void FileSystem::ScanDir(Vector<String>& result, const String& pathName, const String& filter, unsigned flags, bool recursive) const | File: ../IO/FileSystem.h
+CScriptArray* FileSystem_ScanDir(const String& pathName, const String& filter, unsigned flags, bool recursive, FileSystem* ptr)
 {
     Vector<String> result;
     ptr->ScanDir(result, pathName, filter, flags, recursive);

@@ -89,6 +89,14 @@ bool Resource_Save_VectorBuffer(VectorBuffer& buffer, Resource* ptr)
 
 // ========================================================================================
 
+// bool Image::Save(Serializer& dest) const override | File: ../Resource/Image.h
+bool Image_Save_VectorBuffer(VectorBuffer& buffer, Image* ptr)
+{
+    return ptr->Save(buffer);
+}
+
+// ========================================================================================
+
 // bool XPathQuery::SetQuery(const String& queryString, const String& variableString = String::EMPTY, bool bind = true) | File: ../Resource/XMLElement.h
 bool XPathQuery_SetQuery(const String& queryString, XPathQuery* ptr)
 {

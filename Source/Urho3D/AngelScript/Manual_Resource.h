@@ -24,6 +24,7 @@
 
 #include "../Resource/ResourceCache.h"
 #include "../IO/PackageFile.h"
+#include "../Resource/Image.h"
 
 namespace Urho3D
 {
@@ -41,6 +42,14 @@ bool Resource_Save_VectorBuffer(VectorBuffer& buffer, Resource* ptr);
     members.methods_.Push(RegisterObjectMethodArgs("bool Resource::Load(Deserializer& source)", "bool Load(VectorBuffer&)", AS_FUNCTION_OBJLAST(Resource_Load_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
     members.methods_.Push(RegisterObjectMethodArgs("virtual bool Resource::Save(Serializer& dest) const", "bool Save(File@+) const", AS_FUNCTION_OBJLAST(Resource_Save_File), AS_CALL_CDECL_OBJLAST)); \
     members.methods_.Push(RegisterObjectMethodArgs("virtual bool Resource::Save(Serializer& dest) const", "bool Save(VectorBuffer&) const", AS_FUNCTION_OBJLAST(Resource_Save_VectorBuffer), AS_CALL_CDECL_OBJLAST));
+
+// ========================================================================================
+
+// bool Image::Save(Serializer& dest) const override | File: ../Resource/Image.h
+bool Image_Save_VectorBuffer(VectorBuffer& buffer, Image* ptr);
+
+#define REGISTER_MEMBERS_MANUAL_PART_Image() \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Image::Save(Serializer& dest) const override", "bool Save(VectorBuffer&) const", AS_FUNCTION_OBJLAST(Image_Save_VectorBuffer), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
