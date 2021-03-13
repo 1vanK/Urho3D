@@ -28,82 +28,71 @@
 namespace Urho3D
 {
 
-// bool Resource::Load(Deserializer &source) | File: ../Resource/Resource.h
-bool ResourceLoad(File* file, Resource* ptr);
-// bool Resource::Load(Deserializer &source) | File: ../Resource/Resource.h
-bool ResourceLoadVectorBuffer(VectorBuffer& buffer, Resource* ptr);
-// virtual bool Resource::Save(Serializer &dest) const | File: ../Resource/Resource.h
-bool ResourceSave(File* file, Resource* ptr);
-// virtual bool Resource::Save(Serializer &dest) const | File: ../Resource/Resource.h
-bool ResourceSaveVectorBuffer(VectorBuffer& buffer, Resource* ptr);
+// bool Resource::Load(Deserializer& source) | File: ../Resource/Resource.h
+bool Resource_Load_File(File* file, Resource* ptr);
+bool Resource_Load_VectorBuffer(VectorBuffer& buffer, Resource* ptr);
 
-// TODO bool Load(File@+), bool Load(VectorBuffer&) наверно не нужны, когда есть Lead(Deserializer) - зарегать как дочерний класс если вомзожно
+// virtual bool Resource::Save(Serializer& dest) const | File: ../Resource/Resource.h
+bool Resource_Save_File(File* file, Resource* ptr);
+bool Resource_Save_VectorBuffer(VectorBuffer& buffer, Resource* ptr);
 
-#define REGISTER_MANUAL_PART_Resource(T, className) \
-    /* bool Resource::Load(Deserializer &source) | File: ../Resource/Resource.h */ \
-    engine->RegisterObjectMethod(className, "bool Load(File@+)", AS_FUNCTION_OBJLAST(ResourceLoad), AS_CALL_CDECL_OBJLAST); \
-    /* bool Resource::Load(Deserializer &source) | File: ../Resource/Resource.h */ \
-    engine->RegisterObjectMethod(className, "bool Load(VectorBuffer&)", AS_FUNCTION_OBJLAST(ResourceLoadVectorBuffer), AS_CALL_CDECL_OBJLAST); \
-    /* virtual bool Resource::Save(Serializer &dest) const | File: ../Resource/Resource.h */ \
-    engine->RegisterObjectMethod(className, "bool Save(File@+) const", AS_FUNCTION_OBJLAST(ResourceSave), AS_CALL_CDECL_OBJLAST); \
-    /* virtual bool Resource::Save(Serializer &dest) const | File: ../Resource/Resource.h */ \
-    engine->RegisterObjectMethod(className, "bool Save(VectorBuffer&) const", AS_FUNCTION_OBJLAST(ResourceSaveVectorBuffer), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Resource() \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Resource::Load(Deserializer& source)", "bool Load(File@+)", AS_FUNCTION_OBJLAST(Resource_Load_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool Resource::Load(Deserializer& source)", "bool Load(VectorBuffer&)", AS_FUNCTION_OBJLAST(Resource_Load_VectorBuffer), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("virtual bool Resource::Save(Serializer& dest) const", "bool Save(File@+) const", AS_FUNCTION_OBJLAST(Resource_Save_File), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("virtual bool Resource::Save(Serializer& dest) const", "bool Save(VectorBuffer&) const", AS_FUNCTION_OBJLAST(Resource_Save_VectorBuffer), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// bool XPathQuery::SetQuery(const String &queryString, const String &variableString=String::EMPTY, bool bind=true) | File: ../Resource/XMLElement.h
+// bool XPathQuery::SetQuery(const String& queryString, const String& variableString = String::EMPTY, bool bind = true) | File: ../Resource/XMLElement.h
 bool XPathQuery_SetQuery(const String& queryString, XPathQuery* ptr);
 
-#define REGISTER_MANUAL_PART_XPathQuery(T, className) \
-    /* bool XPathQuery::SetQuery(const String &queryString, const String &variableString=String::EMPTY, bool bind=true) | File: ../Resource/XMLElement.h */ \
-    engine->RegisterObjectMethod(className, "void set_query(const String&)", AS_FUNCTION_OBJLAST(XPathQuery_SetQuery), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_XPathQuery() \
+    members.methods_.Push(RegisterObjectMethodArgs("bool XPathQuery::SetQuery(const String& queryString, const String& variableString = String::EMPTY, bool bind = true)", "void set_query(const String&)", AS_FUNCTION_OBJLAST(XPathQuery_SetQuery), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// XMLElement XMLFile::GetRoot(const String &name=String::EMPTY) | File: ../Resource/XMLFile.h
-XMLElement XMLFileGetRootDefault(XMLFile* ptr);
+// XMLElement XMLFile::GetRoot(const String& name = String::EMPTY) | File: ../Resource/XMLFile.h
+XMLElement XMLFile_GetRoot_Default(XMLFile* ptr);
 
-#define REGISTER_MANUAL_PART_XMLFile(T, className) \
-    /* XMLElement XMLFile::GetRoot(const String &name=String::EMPTY) | File: ../Resource/XMLFile.h */ \
-    engine->RegisterObjectMethod(className, "XMLElement get_root()", AS_FUNCTION_OBJLAST(XMLFileGetRootDefault), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_XMLFile() \
+    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLFile::GetRoot(const String& name = String::EMPTY)", "XMLElement get_root()", AS_FUNCTION_OBJLAST(XMLFile_GetRoot_Default), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// XMLElement XMLElement::SelectSingle(const String &query, pugi::xpath_variable_set *variables=nullptr) const | File: ../Resource/XMLElement.h
+// XMLElement XMLElement::SelectSingle(const String& query, pugi::xpath_variable_set* variables = nullptr) const | File: ../Resource/XMLElement.h
 XMLElement XMLElement_SelectSingle(const String& query, XMLElement* ptr);
-// XPathResultSet XMLElement::Select(const String &query, pugi::xpath_variable_set *variables=nullptr) const | File: ../Resource/XMLElement.h
+
+// XPathResultSet XMLElement::Select(const String& query, pugi::xpath_variable_set* variables = nullptr) const | File: ../Resource/XMLElement.h
 XPathResultSet XMLElement_Select(const String& query, XMLElement* ptr);
-// bool XMLElement::SetVariantVector(const VariantVector &value) | File: ../Resource/XMLElement.h
-bool XMLElementSetVariantVector(CScriptArray* value, XMLElement* ptr);
+
+// bool XMLElement::SetVariantVector(const VariantVector& value) | File: ../Resource/XMLElement.h
+bool XMLElement_SetVariantVector(CScriptArray* value, XMLElement* ptr);
+
 // VariantVector XMLElement::GetVariantVector() const | File: ../Resource/XMLElement.h
-CScriptArray* XMLElementGetVariantVector(XMLElement* ptr);
+CScriptArray* XMLElement_GetVariantVector(XMLElement* ptr);
 
-#define REGISTER_MANUAL_PART_XMLElement(T, className) \
-    /* XMLElement XMLElement::SelectSingle(const String &query, pugi::xpath_variable_set *variables=nullptr) const | File: ../Resource/XMLElement.h */ \
-    engine->RegisterObjectMethod(className, "XMLElement SelectSingle(const String&in)", AS_FUNCTION_OBJLAST(XMLElement_SelectSingle), AS_CALL_CDECL_OBJLAST); \
-    /* XPathResultSet XMLElement::Select(const String &query, pugi::xpath_variable_set *variables=nullptr) const | File: ../Resource/XMLElement.h */ \
-    engine->RegisterObjectMethod(className, "XPathResultSet Select(const String&in)", AS_FUNCTION_OBJLAST(XMLElement_Select), AS_CALL_CDECL_OBJLAST); \
-    /* bool XMLElement::SetVariantVector(const VariantVector &value) | File: ../Resource/XMLElement.h */ \
-    engine->RegisterObjectMethod(className, "bool SetVariantVector(Array<Variant>@+)", AS_FUNCTION_OBJLAST(XMLElementSetVariantVector), AS_CALL_CDECL_OBJLAST); \
-    /* VariantVector XMLElement::GetVariantVector() const | File: ../Resource/XMLElement.h */ \
-    engine->RegisterObjectMethod(className, "Array<Variant>@ GetVariantVector() const", AS_FUNCTION_OBJLAST(XMLElementGetVariantVector), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_XMLElement() \
+    members.methods_.Push(RegisterObjectMethodArgs("XMLElement XMLElement::SelectSingle(const String& query, pugi::xpath_variable_set* variables = nullptr) const", "XMLElement SelectSingle(const String&in)", AS_FUNCTION_OBJLAST(XMLElement_SelectSingle), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("XPathResultSet XMLElement::Select(const String& query, pugi::xpath_variable_set* variables = nullptr) const", "XPathResultSet Select(const String&in)", AS_FUNCTION_OBJLAST(XMLElement_Select), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("bool XMLElement::SetVariantVector(const VariantVector& value)", "bool SetVariantVector(Array<Variant>@+)", AS_FUNCTION_OBJLAST(XMLElement_SetVariantVector), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("VariantVector XMLElement::GetVariantVector() const", "Array<Variant>@ GetVariantVector() const", AS_FUNCTION_OBJLAST(XMLElement_GetVariantVector), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// void ResourceCache::GetResources(PODVector< Resource * > &result, StringHash type) const | File: ../Resource/ResourceCache.h
-CScriptArray* ResourceCacheGetResources(StringHash type, ResourceCache* ptr);
+// void ResourceCache::GetResources(PODVector<Resource*>& result, StringHash type) const | File: ../Resource/ResourceCache.h
+CScriptArray* ResourceCache_GetResources(StringHash type, ResourceCache* ptr);
 
-#define REGISTER_MANUAL_PART_ResourceCache(T, className) \
-    /* void ResourceCache::GetResources(PODVector< Resource * > &result, StringHash type) const | File: ../Resource/ResourceCache.h */ \
-    engine->RegisterObjectMethod(className, "Array<Resource@>@ GetResources(StringHash)", AS_FUNCTION_OBJLAST(ResourceCacheGetResources), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_ResourceCache() \
+    members.methods_.Push(RegisterObjectMethodArgs("void ResourceCache::GetResources(PODVector<Resource*>& result, StringHash type) const", "Array<Resource@>@ GetResources(StringHash)", AS_FUNCTION_OBJLAST(ResourceCache_GetResources), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-CScriptArray* JSONValueGetKeys(const JSONValue& jsonValue);
-CScriptArray* JSONValueGetValues(const JSONValue& jsonValue);
+CScriptArray* JSONValue_GetKeys(const JSONValue& jsonValue);
+CScriptArray* JSONValue_GetValues(const JSONValue& jsonValue);
 
-#define REGISTER_MANUAL_PART_JSONValue(T, className) \
-    engine->RegisterObjectMethod(className, "Array<String>@ get_keys() const", AS_FUNCTION_OBJLAST(JSONValueGetKeys), AS_CALL_CDECL_OBJLAST); \
-    engine->RegisterObjectMethod(className, "Array<JSONValue>@ get_values() const", AS_FUNCTION_OBJLAST(JSONValueGetValues), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_JSONValue() \
+    members.methods_.Push(RegisterObjectMethodArgs("6dd7e766-5c49-4c08-98a9-e99f21cd4438", "Array<String>@ get_keys() const", AS_FUNCTION_OBJLAST(JSONValue_GetKeys), AS_CALL_CDECL_OBJLAST)); \
+    members.methods_.Push(RegisterObjectMethodArgs("fbb52004-c70f-4db2-8e67-c6071305e609", "Array<JSONValue>@ get_values() const", AS_FUNCTION_OBJLAST(JSONValue_GetValues), AS_CALL_CDECL_OBJLAST));
 
 }

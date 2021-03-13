@@ -28,124 +28,126 @@
 namespace Urho3D
 {
 
-// explicit IntVector2::IntVector2(const int *data) noexcept | File: ../Math/Vector2.h
-void ConstructIntVector2ArrayInit(CScriptArray* data, IntVector2* ptr);
+// explicit IntVector2::IntVector2(const int* data) noexcept | File: ../Math/Vector2.h
+void IntVector2_IntVector2_Data(CScriptArray* data, IntVector2* ptr);
+
+#define REGISTER_CLASS_MANUAL_PART_IntVector2() \
+    engine->RegisterObjectBehaviour("IntVector2", asBEHAVE_CONSTRUCT, "void f(int[]&)", AS_FUNCTION_OBJLAST(IntVector2_IntVector2_Data), AS_CALL_CDECL_OBJLAST);
+
 // const int* IntVector2::Data() const | File: ../Math/Vector2.h
-CScriptArray* IntVector2Data(IntVector2* ptr);
+CScriptArray* IntVector2_Data(IntVector2* ptr);
 
-#define REGISTER_MANUAL_PART_IntVector2(T, className) \
-    /* explicit IntVector2::IntVector2(const int *data) noexcept | File: ../Math/Vector2.h */ \
-    engine->RegisterObjectBehaviour(className, asBEHAVE_CONSTRUCT, "void f(int[]&)", AS_FUNCTION_OBJLAST(ConstructIntVector2ArrayInit), AS_CALL_CDECL_OBJLAST); \
-    /* const int* IntVector2::Data() const | File: ../Math/Vector2.h */ \
-    engine->RegisterObjectMethod(className, "int[]& get_data() const", AS_FUNCTION_OBJLAST(IntVector2Data), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_IntVector2() \
+    members.methods_.Push(RegisterObjectMethodArgs("const int* IntVector2::Data() const", "int[]& get_data() const", AS_FUNCTION_OBJLAST(IntVector2_Data), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// explicit Vector2::Vector2(const float *data) noexcept | File: ../Math/Vector2.h
-void ConstructVector2ArrayInit(CScriptArray* data, Vector2* ptr);
+// explicit Vector2::Vector2(const float* data) noexcept | File: ../Math/Vector2.h
+void Vector2_Vector2_Data(CScriptArray* data, Vector2* ptr);
+
+#define REGISTER_CLASS_MANUAL_PART_Vector2() \
+    engine->RegisterObjectBehaviour("Vector2", asBEHAVE_CONSTRUCT, "void f(float[]&)", AS_FUNCTION_OBJLAST(Vector2_Vector2_Data), AS_CALL_CDECL_OBJLAST);
+
 // const float* Vector2::Data() const | File: ../Math/Vector2.h
-CScriptArray* Vector2Data(Vector2* ptr);
+CScriptArray* Vector2_Data(Vector2* ptr);
 
-#define REGISTER_MANUAL_PART_Vector2(T, className) \
-    /* explicit Vector2::Vector2(const float *data) noexcept | File: ../Math/Vector2.h */ \
-    engine->RegisterObjectBehaviour(className, asBEHAVE_CONSTRUCT, "void f(float[]&)", AS_FUNCTION_OBJLAST(ConstructVector2ArrayInit), AS_CALL_CDECL_OBJLAST); \
-    /* const float* Vector2::Data() const | File: ../Math/Vector2.h */ \
-    engine->RegisterObjectMethod(className, "float[]& get_data() const", AS_FUNCTION_OBJLAST(Vector2Data), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Vector2() \
+    members.methods_.Push(RegisterObjectMethodArgs("const float* Vector2::Data() const", "float[]& get_data() const", AS_FUNCTION_OBJLAST(Vector2_Data), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// explicit IntVector3::IntVector3(const int *data) noexcept | File: ../Math/Vector3.h
-void ConstructIntVector3ArrayInit(CScriptArray* data, IntVector3* ptr);
+// explicit IntVector3::IntVector3(const int* data) noexcept | File: ../Math/Vector3.h
+void IntVector3_IntVector3_Data(CScriptArray* data, IntVector3* ptr);
+
+#define REGISTER_CLASS_MANUAL_PART_IntVector3() \
+    engine->RegisterObjectBehaviour("IntVector3", asBEHAVE_CONSTRUCT, "void f(int[]&)", AS_FUNCTION_OBJLAST(IntVector3_IntVector3_Data), AS_CALL_CDECL_OBJLAST);
+
 // const int* IntVector3::Data() const | File: ../Math/Vector3.h
-CScriptArray* IntVector3Data(IntVector3* ptr);
+CScriptArray* IntVector3_Data(IntVector3* ptr);
 
-#define REGISTER_MANUAL_PART_IntVector3(T, className) \
-    /* explicit IntVector3::IntVector3(const int *data) noexcept | File: ../Math/Vector3.h */ \
-    engine->RegisterObjectBehaviour(className, asBEHAVE_CONSTRUCT, "void f(int[]&)", AS_FUNCTION_OBJLAST(ConstructIntVector3ArrayInit), AS_CALL_CDECL_OBJLAST); \
-    /* const int* IntVector3::Data() const | File: ../Math/Vector3.h */ \
-    engine->RegisterObjectMethod(className, "int[]& get_data() const", AS_FUNCTION_OBJLAST(IntVector3Data), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_IntVector3() \
+    members.methods_.Push(RegisterObjectMethodArgs("const int* IntVector3::Data() const", "int[]& get_data() const", AS_FUNCTION_OBJLAST(IntVector3_Data), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// explicit Vector3::Vector3(const float *data) noexcept | File: ../Math/Vector3.h
-void ConstructVector3ArrayInit(CScriptArray* data, Vector3* ptr);
+// explicit Vector3::Vector3(const float* data) noexcept | File: ../Math/Vector3.h
+void Vector3_Vector3_Data(CScriptArray* data, Vector3* ptr);
+
+#define REGISTER_CLASS_MANUAL_PART_Vector3() \
+    engine->RegisterObjectBehaviour("Vector3", asBEHAVE_CONSTRUCT, "void f(float[]&)", AS_FUNCTION_OBJLAST(Vector3_Vector3_Data), AS_CALL_CDECL_OBJLAST);
+
 // const float* Vector3::Data() const | File: ../Math/Vector3.h
-CScriptArray* Vector3Data(Vector3* ptr);
+CScriptArray* Vector3_Data(Vector3* ptr);
 
-#define REGISTER_MANUAL_PART_Vector3(T, className) \
-    /* explicit Vector3::Vector3(const float *data) noexcept | File: ../Math/Vector3.h */ \
-    engine->RegisterObjectBehaviour(className, asBEHAVE_CONSTRUCT, "void f(float[]&)", AS_FUNCTION_OBJLAST(ConstructVector3ArrayInit), AS_CALL_CDECL_OBJLAST); \
-    /* const float* Vector3::Data() const | File: ../Math/Vector3.h */ \
-    engine->RegisterObjectMethod(className, "float[]& get_data() const", AS_FUNCTION_OBJLAST(Vector3Data), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Vector3() \
+    members.methods_.Push(RegisterObjectMethodArgs("const float* Vector3::Data() const", "float[]& get_data() const", AS_FUNCTION_OBJLAST(Vector3_Data), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// explicit Vector4::Vector4(const float *data) noexcept | File: ../Math/Vector4.h
-void ConstructVector4ArrayInit(CScriptArray* data, Vector4* ptr);
+// explicit Vector4::Vector4(const float* data) noexcept | File: ../Math/Vector4.h
+void Vector4_Vector4_Data(CScriptArray* data, Vector4* ptr);
+
+#define REGISTER_CLASS_MANUAL_PART_Vector4() \
+    engine->RegisterObjectBehaviour("Vector4", asBEHAVE_CONSTRUCT, "void f(float[]&)", AS_FUNCTION_OBJLAST(Vector4_Vector4_Data), AS_CALL_CDECL_OBJLAST);
+
 // const float* Vector4::Data() const | File: ../Math/Vector4.h
-CScriptArray* Vector4Data(Vector4* ptr);
+CScriptArray* Vector4_Data(Vector4* ptr);
 
-#define REGISTER_MANUAL_PART_Vector4(T, className) \
-    /* explicit Vector4::Vector4(const float *data) noexcept | File: ../Math/Vector4.h */ \
-    engine->RegisterObjectBehaviour(className, asBEHAVE_CONSTRUCT, "void f(float[]&)", AS_FUNCTION_OBJLAST(ConstructVector4ArrayInit), AS_CALL_CDECL_OBJLAST); \
-    /* const float* Vector4::Data() const | File: ../Math/Vector4.h */ \
-    engine->RegisterObjectMethod(className, "float[]& get_data() const", AS_FUNCTION_OBJLAST(Vector4Data), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Vector4() \
+    members.methods_.Push(RegisterObjectMethodArgs("const float* Vector4::Data() const", "float[]& get_data() const", AS_FUNCTION_OBJLAST(Vector4_Data), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// explicit IntRect::IntRect(const int *data) noexcept | File: ../Math/Rect.h
-void ConstructIntRectArrayInit(CScriptArray* data, IntRect* ptr);
+// explicit IntRect::IntRect(const int* data) noexcept | File: ../Math/Rect.h
+void IntRect_IntRect_Data(CScriptArray* data, IntRect* ptr);
+
+#define REGISTER_CLASS_MANUAL_PART_IntRect() \
+    engine->RegisterObjectBehaviour("IntRect", asBEHAVE_CONSTRUCT, "void f(int[]&)", AS_FUNCTION_OBJLAST(IntRect_IntRect_Data), AS_CALL_CDECL_OBJLAST);
+
 // const int* IntRect::Data() const | File: ../Math/Rect.h
-CScriptArray* IntRectData(IntRect* ptr);
+CScriptArray* IntRect_Data(IntRect* ptr);
 
-#define REGISTER_MANUAL_PART_IntRect(T, className) \
-    /* explicit IntRect::IntRect(const int *data) noexcept | File: ../Math/Rect.h */ \
-    engine->RegisterObjectBehaviour(className, asBEHAVE_CONSTRUCT, "void f(int[]&)", AS_FUNCTION_OBJLAST(ConstructIntRectArrayInit), AS_CALL_CDECL_OBJLAST); \
-    /* const int* IntRect::Data() const | File: ../Math/Rect.h */ \
-    engine->RegisterObjectMethod(className, "int[]& get_data() const", AS_FUNCTION_OBJLAST(IntRectData), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_IntRect() \
+    members.methods_.Push(RegisterObjectMethodArgs("const int* IntRect::Data()", "int[]& get_data() const", AS_FUNCTION_OBJLAST(IntRect_Data), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// explicit Color::Color(const float *data) noexcept | File: ../Math/Color.h
-void ConstructColorArrayInit(CScriptArray* data, Color* ptr);
+// explicit Color::Color(const float* data) noexcept | File: ../Math/Color.h
+void Color_Color_Data(CScriptArray* data, Color* ptr);
+
+#define REGISTER_CLASS_MANUAL_PART_Color() \
+    engine->RegisterObjectBehaviour("Color", asBEHAVE_CONSTRUCT, "void f(float[]&)", AS_FUNCTION_OBJLAST(Color_Color_Data), AS_CALL_CDECL_OBJLAST);
+
 // const float* Color::Data() const | File: ../Math/Color.h
-CScriptArray* ColorData(Color* ptr);
+CScriptArray* Color_Data(Color* ptr);
 
-#define REGISTER_MANUAL_PART_Color(T, className) \
-    /* explicit Color::Color(const float *data) noexcept | File: ../Math/Color.h */ \
-    engine->RegisterObjectBehaviour(className, asBEHAVE_CONSTRUCT, "void f(float[]&)", AS_FUNCTION_OBJLAST(ConstructColorArrayInit), AS_CALL_CDECL_OBJLAST); \
-    /* const float* Color::Data() const | File: ../Math/Color.h */ \
-    engine->RegisterObjectMethod(className, "float[]& get_data() const", AS_FUNCTION_OBJLAST(ColorData), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Color() \
+    members.methods_.Push(RegisterObjectMethodArgs("const float* Color::Data() const", "float[]& get_data() const", AS_FUNCTION_OBJLAST(Color_Data), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// float Ray::HitDistance(const Vector3 &v0, const Vector3 &v1, const Vector3 &v2, Vector3 *outNormal=nullptr, Vector3 *outBary=nullptr) const | File: ../Math/Ray.h
+// float Ray::HitDistance(const Vector3& v0, const Vector3& v1, const Vector3& v2, Vector3* outNormal = nullptr, Vector3* outBary = nullptr) const | File: ../Math/Ray.h
 float Ray_HitDistance(const Vector3& v0, const Vector3& v1, const Vector3& v2, Ray* ptr);
 
-#define REGISTER_MANUAL_PART_Ray(T, className) \
-    /* float Ray::HitDistance(const Vector3 &v0, const Vector3 &v1, const Vector3 &v2, Vector3 *outNormal=nullptr, Vector3 *outBary=nullptr) const | File: ../Math/Ray.h */ \
-    engine->RegisterObjectMethod(className, "float HitDistance(const Vector3&in, const Vector3&in, const Vector3&in) const", AS_FUNCTION_OBJLAST(Ray_HitDistance), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Ray() \
+    members.methods_.Push(RegisterObjectMethodArgs("float Ray::HitDistance(const Vector3& v0, const Vector3& v1, const Vector3& v2, Vector3* outNormal = nullptr, Vector3* outBary = nullptr) const", "float HitDistance(const Vector3&in, const Vector3&in, const Vector3&in) const", AS_FUNCTION_OBJLAST(Ray_HitDistance), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
 // Vector3 Frustum::vertices_[NUM_FRUSTUM_VERTICES] | File: ../Math/Frustum.h
-Vector3 FrustumGetVertex(unsigned index, Frustum* ptr);
+Vector3 Frustum_GetVertex(unsigned index, Frustum* ptr);
 
-#define REGISTER_MANUAL_PART_Frustum(T, className) \
-    /* Vector3 Frustum::vertices_[NUM_FRUSTUM_VERTICES] | File: ../Math/Frustum.h */ \
-    engine->RegisterObjectMethod(className, "Vector3 get_vertices(uint) const", AS_FUNCTION_OBJLAST(FrustumGetVertex), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Frustum() \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("Vector3 Frustum::vertices_[NUM_FRUSTUM_VERTICES]", "Vector3 get_vertices(uint) const", AS_FUNCTION_OBJLAST(Frustum_GetVertex), AS_CALL_CDECL_OBJLAST));
 
 // ========================================================================================
 
-// Vector<PODVector<Vector3> > Polyhedron::faces_ | File: ../Math/Polyhedron.h
-unsigned PolyhedronGetNumFaces(Polyhedron* ptr);
-// Vector<PODVector<Vector3> > Polyhedron::faces_ | File: ../Math/Polyhedron.h
-CScriptArray* PolyhedronGetFace(unsigned index, Polyhedron* ptr);
+// Vector<PODVector<Vector3>> Polyhedron::faces_ | File: ../Math/Polyhedron.h
+unsigned Polyhedron_GetNumFaces(Polyhedron* ptr);
+CScriptArray* Polyhedron_GetFace(unsigned index, Polyhedron* ptr);
 
-#define REGISTER_MANUAL_PART_Polyhedron(T, className) \
-    /* Vector<PODVector<Vector3> > Polyhedron::faces_ | File: ../Math/Polyhedron.h */ \
-    engine->RegisterObjectMethod(className, "uint get_numFaces() const", AS_FUNCTION_OBJLAST(PolyhedronGetNumFaces), AS_CALL_CDECL_OBJLAST); \
-    /* Vector<PODVector<Vector3> > Polyhedron::faces_ | File: ../Math/Polyhedron.h */ \
-    engine->RegisterObjectMethod(className, "Array<Vector3>@ get_face(uint) const", AS_FUNCTION_OBJLAST(PolyhedronGetFace), AS_CALL_CDECL_OBJLAST);
+#define REGISTER_MEMBERS_MANUAL_PART_Polyhedron() \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("Vector<PODVector<Vector3>> Polyhedron::faces_", "uint get_numFaces() const", AS_FUNCTION_OBJLAST(Polyhedron_GetNumFaces), AS_CALL_CDECL_OBJLAST)); \
+    members.wrappedFields_.Push(RegisterObjectMethodArgs("Vector<PODVector<Vector3>> Polyhedron::faces_", "Array<Vector3>@ get_face(uint) const", AS_FUNCTION_OBJLAST(Polyhedron_GetFace), AS_CALL_CDECL_OBJLAST));
 
 }
