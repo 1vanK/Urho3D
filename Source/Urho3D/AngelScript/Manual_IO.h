@@ -35,9 +35,9 @@ CScriptArray* Deserializer_Read(unsigned size, Deserializer* ptr);
 // VectorBuffer::VectorBuffer(Deserializer& source, unsigned size) | File: .. / IO / VectorBuffer.h
 VectorBuffer Deserializer_ReadVectorBuffer(unsigned size, Deserializer* ptr);
 
-#define REGISTER_MEMBERS_MANUAL_PART_Deserializer() \
-    members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Deserializer::Read(void* dest, unsigned size) = 0", "Array<uint8>@ Read(uint)", AS_FUNCTION_OBJLAST(Deserializer_Read), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("49e339aa-bcd5-4a17-95c2-9c49e4966498", "VectorBuffer ReadVectorBuffer(uint)", AS_FUNCTION_OBJLAST(Deserializer_ReadVectorBuffer), AS_CALL_CDECL_OBJLAST));
+//#define REGISTER_MEMBERS_MANUAL_PART_Deserializer() \
+//    members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Deserializer::Read(void* dest, unsigned size) = 0", "Array<uint8>@ Read(uint)", AS_FUNCTION_OBJLAST(Deserializer_Read), AS_CALL_CDECL_OBJLAST)); \
+//    members.methods_.Push(RegisterObjectMethodArgs("49e339aa-bcd5-4a17-95c2-9c49e4966498", "VectorBuffer ReadVectorBuffer(uint)", AS_FUNCTION_OBJLAST(Deserializer_ReadVectorBuffer), AS_CALL_CDECL_OBJLAST));
 
 // ================================================================================
 
@@ -45,9 +45,9 @@ VectorBuffer Deserializer_ReadVectorBuffer(unsigned size, Deserializer* ptr);
 unsigned Serializer_Write(CScriptArray* arr, Serializer* ptr);
 bool Serializer_Write_VectorBuffer(VectorBuffer* src, Serializer* ptr);
 
-#define REGISTER_MEMBERS_MANUAL_PART_Serializer() \
-    members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Serializer::Write(const void* data, unsigned size) = 0", "uint Write(Array<uint8>@+)", AS_FUNCTION_OBJLAST(Serializer_Write), AS_CALL_CDECL_OBJLAST)); \
-    members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Serializer::Write(const void* data, unsigned size) = 0", "bool WriteVectorBuffer(const VectorBuffer&in)", AS_FUNCTION_OBJLAST(Serializer_Write_VectorBuffer), AS_CALL_CDECL_OBJLAST));
+//#define REGISTER_MEMBERS_MANUAL_PART_Serializer() \
+//    members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Serializer::Write(const void* data, unsigned size) = 0", "uint Write(Array<uint8>@+)", AS_FUNCTION_OBJLAST(Serializer_Write), AS_CALL_CDECL_OBJLAST)); \
+//    members.methods_.Push(RegisterObjectMethodArgs("virtual unsigned Serializer::Write(const void* data, unsigned size) = 0", "bool WriteVectorBuffer(const VectorBuffer&in)", AS_FUNCTION_OBJLAST(Serializer_Write_VectorBuffer), AS_CALL_CDECL_OBJLAST));
 
 // ================================================================================
 
